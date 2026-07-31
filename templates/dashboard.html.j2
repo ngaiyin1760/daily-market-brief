@@ -74,7 +74,9 @@
   }
   .sidebar nav { padding-top: 8px; }
   .sidebar nav a {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 9px;
     padding: 7px 22px;
     color: #b0a898;
     text-decoration: none;
@@ -82,6 +84,16 @@
     border-left: 3px solid transparent;
     transition: background .12s, color .12s, border-color .12s;
   }
+  .read-dot {
+    flex: 0 0 auto;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, .10), 0 1px 2px rgba(0, 0, 0, .4);
+  }
+  .read-dot.dot-red { background: #d13438; }
+  .read-dot.dot-yellow { background: #e6a700; }
+  .read-dot.dot-green { background: #0d9d6c; }
   .sidebar nav a:hover { background: rgba(255, 255, 255, .06); color: #f4eedd; }
   .sidebar nav a.active {
     background: rgba(201, 162, 39, .14);
@@ -777,6 +789,74 @@
   var base = {{ base|tojson }};
   var currentDate = {{ page_date|tojson }};
 
+  // ---------- Read status traffic lights (localStorage) ----------
+  // dmb_read: { "YYYY-MM-DD": { v: [viewed category ids], t: total categories } }
+  var READ_KEY = "dmb_read";
+  var READ_TITLES = { red: "Unread", yellow: "Partially read", green: "Read" };
+
+  function loadRead() {
+    try {
+      var m = JSON.parse(localStorage.getItem(READ_KEY));
+      return (m && typeof m === "object") ? m : {};
+    } catch (e) { return {}; }
+  }
+  function storeRead(map) {
+    try { localStorage.setItem(READ_KEY, JSON.stringify(map)); } catch (e) {}
+  }
+
+  // Reading covers only news category sections — indicators are optional.
+  var newsSections = Array.prototype.slice.call(
+    document.querySelectorAll("section.desk[id]:not(#indicators)"));
+  var newsTotal = newsSections.length;
+
+  function readStatusFor(date) {
+    var rec = loadRead()[date];
+    if (!rec || !rec.v || !rec.v.length) return "red";
+    if (rec.v.length >= (rec.t || rec.v.length)) return "green";
+    return "yellow";
+  }
+
+  function updateDots() {
+    document.querySelectorAll(".read-dot").forEach(function (dot) {
+      var st = readStatusFor(dot.getAttribute("data-dot-date"));
+      dot.className = "read-dot dot-" + st;
+      dot.title = READ_TITLES[st];
+    });
+  }
+
+  function makeDot(date) {
+    var st = readStatusFor(date);
+    var dot = document.createElement("span");
+    dot.className = "read-dot dot-" + st;
+    dot.setAttribute("data-dot-date", date);
+    dot.title = READ_TITLES[st];
+    return dot;
+  }
+
+  function markViewed(id) {
+    var map = loadRead();
+    var rec = map[currentDate] || { v: [], t: newsTotal };
+    rec.t = newsTotal;
+    if (rec.v.indexOf(id) === -1) {
+      rec.v.push(id);
+      map[currentDate] = rec;
+      storeRead(map);
+      updateDots();  // live red -> yellow -> green on this page
+    }
+  }
+
+  if ("IntersectionObserver" in window && newsTotal) {
+    var readObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          markViewed(en.target.id);
+          readObserver.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    newsSections.forEach(function (s) { readObserver.observe(s); });
+  }
+
   // Build the sidebar date list from manifest.json so that every page —
   // including older day pages — automatically shows newly added days.
   fetch(base + "/manifest.json")
@@ -786,11 +866,13 @@
       nav.innerHTML = "";
       (m.dates || []).forEach(function (d, idx) {
         var a = document.createElement("a");
-        a.textContent = d;
+        a.appendChild(makeDot(d));
+        a.appendChild(document.createTextNode(d));
         a.href = idx === 0 ? base + "/index.html" : base + "/days/" + d + ".html";
         if (d === currentDate) a.className = "active";
         nav.appendChild(a);
       });
+      updateDots();
     })
     .catch(function () {
       document.getElementById("date-nav").innerHTML =
