@@ -168,6 +168,144 @@
   }
   .takeaways li::marker { color: var(--gold); }
 
+  /* ---------- Saved news (localStorage) ---------- */
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+  }
+  .saved {
+    background: linear-gradient(135deg, #f5f2ea 0%, #efe9f9 100%);
+    border: 1px solid #d9cfae;
+    border-left: 5px solid var(--gold);
+    border-radius: 6px;
+    margin-bottom: 26px;
+    box-shadow: 0 2px 8px rgba(120, 95, 20, .10);
+  }
+  .saved-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 18px;
+  }
+  .saved-toggle {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: none;
+    border: none;
+    padding: 6px 4px;
+    min-height: 44px;
+    cursor: pointer;
+    font-family: var(--sans);
+    color: var(--ink);
+  }
+  .saved-icon { color: var(--gold); }
+  .saved-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #6b5510;
+  }
+  .saved-count {
+    background: var(--gold);
+    color: #241a08;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    min-width: 22px;
+    padding: 1px 7px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .saved-caret { color: var(--muted); font-size: 13px; }
+  .saved-toggle[aria-expanded="false"] .saved-caret { transform: rotate(-90deg); display: inline-block; }
+  .saved-clear {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding: 6px 4px;
+    min-height: 44px;
+  }
+  .saved-clear:hover { color: var(--red); }
+  .saved-body { padding: 0 18px 14px; }
+  .saved.collapsed .saved-body { display: none; }
+  .saved-empty { color: var(--muted); font-style: italic; font-size: 14.5px; margin: 4px 0 6px; }
+  .saved-group { margin-top: 10px; }
+  .saved-group h4 {
+    margin: 0 0 4px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+  }
+  .saved-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .saved-group .saved-item:last-child { border-bottom: none; }
+  .saved-item .si-headline a {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--ink);
+    text-decoration: none;
+    line-height: 1.3;
+  }
+  .saved-item .si-headline a:hover { color: var(--accent); text-decoration: underline; }
+  .saved-item .si-meta {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .saved-item .si-stars { color: var(--gold); letter-spacing: .06em; margin-left: 6px; }
+  .saved-item .si-remove {
+    flex: 0 0 auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1;
+    padding: 10px;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 6px;
+  }
+  .saved-item .si-remove:hover { color: var(--red); background: rgba(209, 52, 56, .08); }
+
+  /* Save toggle button on each news row */
+  .save-col { width: 44px; }
+  td.save-cell { width: 44px; text-align: center; }
+  .save-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #b6ab92;
+    padding: 6px;
+    min-width: 32px;
+    min-height: 32px;
+    border-radius: 6px;
+    transition: color .12s, background .12s, transform .12s;
+  }
+  .save-btn:hover { color: var(--gold); background: rgba(201, 162, 39, .12); }
+  .save-btn.saved { color: var(--gold); }
+  .save-btn.saved svg path { fill: var(--gold); }
+  .save-btn:active { transform: scale(1.15); }
+
   /* ---------- Sections ---------- */
   section.desk { margin-bottom: 44px; }
   section.desk > h2 {
@@ -419,11 +557,21 @@
     table.news tbody tr {
       border-bottom: 1px solid var(--rule-dark);
       padding: 12px 0;
+      position: relative;
     }
     table.news tbody tr:nth-child(even) { background: none; }
     table.news td { border-bottom: none; padding: 4px 4px; }
-    td.headline { width: 100%; }
+    td.headline { width: 100%; padding-right: 52px; }
     td.headline a { font-size: 17px; display: block; padding: 6px 0; }
+    td.save-cell {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      width: auto;
+      padding: 0;
+    }
+    .save-btn { min-width: 44px; min-height: 44px; padding: 10px; }
+    .saved-item .si-remove { min-width: 44px; min-height: 44px; }
     td.summary li { font-size: 15px; }
     td.source { padding-top: 6px; }
     td.rating { padding-top: 4px; }
@@ -468,6 +616,26 @@
   </header>
   {% if snapshot %}<div class="ticker">{{ snapshot|e }}</div>{% endif %}
 
+  {# ---- Pinned "Saved" tab: rendered client-side from localStorage ---- #}
+  <section class="saved" id="saved">
+    <div class="saved-header">
+      <button type="button" class="saved-toggle" id="saved-toggle" aria-expanded="true">
+        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" class="saved-icon">
+          <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                fill="currentColor"/>
+        </svg>
+        <span class="saved-title">Saved</span>
+        <span class="saved-count" id="saved-count">0</span>
+        <span class="saved-caret" id="saved-caret">▾</span>
+      </button>
+      <button type="button" class="saved-clear" id="saved-clear">Clear all</button>
+    </div>
+    <div class="saved-body" id="saved-body">
+      <p class="saved-empty" id="saved-empty">No saved news yet — tap the bookmark on any story to pin it here.</p>
+      <div id="saved-list"></div>
+    </div>
+  </section>
+
   {% if takeaways %}
   <section class="takeaways" id="takeaways">
     <div class="tw-label">Today's Key Takeaways</div>
@@ -485,11 +653,17 @@
     {% if cat["items"] %}
     <table class="news">
       <thead>
-        <tr><th>Headline</th><th>Summary</th><th>Source</th><th>Rating</th></tr>
+        <tr><th>Headline</th><th>Summary</th><th>Source</th><th>Rating</th><th class="save-col"><span class="visually-hidden">Save</span></th></tr>
       </thead>
       <tbody>
         {% for item in cat["items"] %}
-        <tr>
+        <tr class="news-item"
+            data-url="{{ item.url|e }}"
+            data-title="{{ item.title|e }}"
+            data-source="{{ item.source|e }}"
+            data-category="{{ cat.label|e }}"
+            data-rating="{{ item.rating }}"
+            data-date="{{ page_date|e }}">
           <td class="headline">
             <a href="{{ item.url|e }}" target="_blank" rel="noopener">{{ item.title|e }}</a>
             {% if item.published %}<div class="pub">{{ item.published|e }}</div>{% endif %}
@@ -503,6 +677,14 @@
           <td class="rating">
             {{- "★" * item.rating }}{{ "☆" * (5 - item.rating) -}}
             {% if item.reason %}<span class="reason">{{ item.reason|e }}</span>{% endif %}
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
           </td>
         </tr>
         {% endfor %}
@@ -614,6 +796,140 @@
       document.getElementById("date-nav").innerHTML =
         '<a href="' + base + '/index.html">Latest</a>';
     });
+
+  // ---------- Saved news (localStorage) ----------
+  var STORE_KEY = "dmb_saved";
+
+  function loadSaved() {
+    try {
+      var m = JSON.parse(localStorage.getItem(STORE_KEY));
+      return (m && typeof m === "object") ? m : {};
+    } catch (e) { return {}; }
+  }
+  function storeSaved(map) {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(map)); } catch (e) {}
+  }
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
+  var savedSection = document.getElementById("saved");
+  var savedList = document.getElementById("saved-list");
+  var savedEmpty = document.getElementById("saved-empty");
+  var savedCount = document.getElementById("saved-count");
+  var savedToggle = document.getElementById("saved-toggle");
+  var savedClear = document.getElementById("saved-clear");
+
+  function markRowButtons() {
+    var map = loadSaved();
+    document.querySelectorAll("tr.news-item").forEach(function (tr) {
+      var btn = tr.querySelector(".save-btn");
+      if (!btn) return;
+      var saved = !!map[tr.getAttribute("data-url")];
+      btn.classList.toggle("saved", saved);
+      btn.setAttribute("aria-pressed", saved ? "true" : "false");
+      btn.title = saved ? "Remove from saved" : "Save this story";
+    });
+  }
+
+  function renderSaved() {
+    var map = loadSaved();
+    var urls = Object.keys(map);
+    savedCount.textContent = urls.length;
+    savedEmpty.style.display = urls.length ? "none" : "";
+    savedList.innerHTML = "";
+    if (!urls.length) return;
+
+    // Group by category; groups ordered by most recently saved item.
+    var groups = {};
+    urls.forEach(function (u) {
+      var it = map[u];
+      (groups[it.category || "Other"] = groups[it.category || "Other"] || []).push(it);
+    });
+    var names = Object.keys(groups).sort(function (a, b) {
+      var maxA = Math.max.apply(null, groups[a].map(function (i) { return i.savedAt || 0; }));
+      var maxB = Math.max.apply(null, groups[b].map(function (i) { return i.savedAt || 0; }));
+      return maxB - maxA;
+    });
+
+    names.forEach(function (name) {
+      var items = groups[name].slice().sort(function (a, b) {
+        return (b.savedAt || 0) - (a.savedAt || 0);
+      });
+      var g = document.createElement("div");
+      g.className = "saved-group";
+      var html = "<h4>" + esc(name) + "</h4>";
+      items.forEach(function (it) {
+        var rating = Math.max(0, Math.min(5, parseInt(it.rating, 10) || 0));
+        var stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+        html += '<div class="saved-item" data-url="' + esc(it.url) + '">'
+          + '<div class="si-headline"><a href="' + esc(it.url) + '" target="_blank" rel="noopener">'
+          + esc(it.title) + "</a>"
+          + '<div class="si-meta">' + esc(it.source)
+          + (it.pageDate ? " · Brief of " + esc(it.pageDate) : "")
+          + '<span class="si-stars">' + stars + "</span></div></div>"
+          + '<button type="button" class="si-remove" aria-label="Remove saved story" title="Remove">✕</button>'
+          + "</div>";
+      });
+      g.innerHTML = html;
+      savedList.appendChild(g);
+    });
+  }
+
+  document.querySelectorAll("tr.news-item .save-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var tr = btn.closest("tr.news-item");
+      var url = tr.getAttribute("data-url");
+      if (!url) return;
+      var map = loadSaved();
+      if (map[url]) {
+        delete map[url];
+      } else {
+        map[url] = {
+          title: tr.getAttribute("data-title") || "",
+          url: url,
+          source: tr.getAttribute("data-source") || "",
+          category: tr.getAttribute("data-category") || "",
+          rating: parseInt(tr.getAttribute("data-rating"), 10) || 0,
+          pageDate: tr.getAttribute("data-date") || "",
+          savedAt: Date.now()
+        };
+      }
+      storeSaved(map);
+      markRowButtons();
+      renderSaved();
+    });
+  });
+
+  savedList.addEventListener("click", function (ev) {
+    var rm = ev.target.closest(".si-remove");
+    if (!rm) return;
+    var url = rm.closest(".saved-item").getAttribute("data-url");
+    var map = loadSaved();
+    delete map[url];
+    storeSaved(map);
+    markRowButtons();
+    renderSaved();
+  });
+
+  savedToggle.addEventListener("click", function () {
+    var collapsed = savedSection.classList.toggle("collapsed");
+    savedToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
+  });
+
+  savedClear.addEventListener("click", function () {
+    if (!Object.keys(loadSaved()).length) return;
+    if (confirm("Remove all saved news?")) {
+      storeSaved({});
+      markRowButtons();
+      renderSaved();
+    }
+  });
+
+  markRowButtons();
+  renderSaved();
 
   // Trend charts — one proper line chart per instrument.
   var UP = "#0d9d6c", DOWN = "#d13438";
