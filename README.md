@@ -64,5 +64,33 @@ the model (default `gemini-2.5-flash`).
 - Indicator fetch failures (e.g. yfinance rate-limiting) are non-fatal and
   render as `n/a`.
 
+## Cross-device sync (optional)
+
+Saved news (`dmb_saved`) and per-day read status (`dmb_read`) live in browser
+localStorage by default — per device. The site also includes an optional
+Firebase sync: click **Sign in to sync** in the Saved section header (Google
+sign-in) and both maps sync via Firestore between phone and laptop, with
+realtime updates. Everything is client-side; if the Firebase CDN is blocked
+or you're signed out, the page works exactly as before with localStorage only.
+Sign-out keeps local data.
+
+To enable it for your own deployment, create a Firebase project with
+Firestore (production mode) and the Google sign-in provider, add your Pages
+domain as an authorized domain, replace the config in
+`templates/dashboard.html.j2` (`FIREBASE_CONFIG`), and set these Firestore
+security rules (Firebase console → Build → Firestore Database → Rules) so
+each user can only access their own document:
+
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
+```
+
 Note: the generated site and everything it displays is public once Pages is
 enabled. Don't put private data in the repo.

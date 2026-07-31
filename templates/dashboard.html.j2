@@ -16,6 +16,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<!-- Firebase compat SDK (deferred: a slow CDN never blocks page render).
+     If these fail to load, the page works exactly as before, localStorage only. -->
+<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 <style>
   :root {
     --sidebar-w: 230px;
@@ -246,6 +251,60 @@
     min-height: 44px;
   }
   .saved-clear:hover { color: var(--red); }
+
+  /* Firebase sync auth UI */
+  .saved-header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .sync-area { display: flex; align-items: center; }
+  .sync-signin {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 8px 16px;
+    min-height: 40px;
+    font-family: var(--sans);
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .12s, transform .12s;
+  }
+  .sync-signin:hover { background: #372ea6; }
+  .sync-signin:active { transform: scale(.97); }
+  .sync-user { display: flex; align-items: center; gap: 8px; }
+  .sync-avatar { width: 24px; height: 24px; border-radius: 50%; }
+  .sync-initial {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sync-label { font-size: 12.5px; color: var(--green); font-weight: 600; }
+  .sync-signout {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding: 6px 4px;
+    min-height: 40px;
+  }
+  .sync-signout:hover { color: var(--red); }
   .saved-body { padding: 0 18px 14px; }
   .saved.collapsed .saved-body { display: none; }
   .saved-empty { color: var(--muted); font-style: italic; font-size: 14.5px; margin: 4px 0 6px; }
@@ -584,6 +643,8 @@
     }
     .save-btn { min-width: 44px; min-height: 44px; padding: 10px; }
     .saved-item .si-remove { min-width: 44px; min-height: 44px; }
+    .saved-header { flex-wrap: wrap; }
+    .sync-signin { min-height: 44px; }
     td.summary li { font-size: 15px; }
     td.source { padding-top: 6px; }
     td.rating { padding-top: 4px; }
@@ -640,7 +701,23 @@
         <span class="saved-count" id="saved-count">0</span>
         <span class="saved-caret" id="saved-caret">▾</span>
       </button>
-      <button type="button" class="saved-clear" id="saved-clear">Clear all</button>
+      <div class="saved-header-right">
+        <div class="sync-area" id="sync-area">
+          <button type="button" class="sync-signin" id="sync-signin">
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+              <path fill="currentColor" d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81z"/>
+            </svg>
+            Sign in to sync
+          </button>
+          <div class="sync-user" id="sync-user" style="display:none">
+            <img class="sync-avatar" id="sync-avatar" alt="" referrerpolicy="no-referrer" style="display:none">
+            <span class="sync-initial" id="sync-initial" style="display:none"></span>
+            <span class="sync-label">Synced</span>
+            <button type="button" class="sync-signout" id="sync-signout">Sign out</button>
+          </div>
+        </div>
+        <button type="button" class="saved-clear" id="saved-clear">Clear all</button>
+      </div>
     </div>
     <div class="saved-body" id="saved-body">
       <p class="saved-empty" id="saved-empty">No saved news yet — tap the bookmark on any story to pin it here.</p>
@@ -789,6 +866,15 @@
   var base = {{ base|tojson }};
   var currentDate = {{ page_date|tojson }};
 
+  // Write-through hooks for Firebase cloud sync. No-ops until the Firebase
+  // layer (bottom of this script) replaces them after sign-in.
+  var syncPush = { saved: function () {}, read: function () {} };
+  function onLocalMutation(kind) {
+    try { if (syncPush[kind]) syncPush[kind](); } catch (e) {
+      console.warn("Sync push failed:", e);
+    }
+  }
+
   // ---------- Read status traffic lights (localStorage) ----------
   // dmb_read: { "YYYY-MM-DD": { v: [viewed category ids], t: total categories } }
   var READ_KEY = "dmb_read";
@@ -802,6 +888,7 @@
   }
   function storeRead(map) {
     try { localStorage.setItem(READ_KEY, JSON.stringify(map)); } catch (e) {}
+    onLocalMutation("read");
   }
 
   // Reading covers only news category sections — indicators are optional.
@@ -890,6 +977,7 @@
   }
   function storeSaved(map) {
     try { localStorage.setItem(STORE_KEY, JSON.stringify(map)); } catch (e) {}
+    onLocalMutation("saved");
   }
   function esc(s) {
     return String(s == null ? "" : s)
@@ -1115,6 +1203,197 @@
       }
     });
   });
+
+  // ---------- Firebase cloud sync (optional; degrades to localStorage-only) ----------
+  var FIREBASE_CONFIG = {
+    apiKey: "AIzaSyCAubF71-5rKvRZ3NoKkOBfpoKVCzW2iYY",
+    authDomain: "daily-market-brief-2d93c.firebaseapp.com",
+    projectId: "daily-market-brief-2d93c",
+    storageBucket: "daily-market-brief-2d93c.firebasestorage.app",
+    messagingSenderId: "813144681948",
+    appId: "1:813144681948:web:2a8f45be4e7019bb03b319"
+  };
+
+  // saved: union by URL key; on conflict keep the entry with the later savedAt.
+  function mergeSavedMaps(local, remote) {
+    var out = {}, k;
+    for (k in local) out[k] = local[k];
+    for (k in remote) {
+      if (!out[k] || (remote[k].savedAt || 0) > (out[k].savedAt || 0)) {
+        out[k] = remote[k];
+      }
+    }
+    return out;
+  }
+
+  // read: per date, union of viewed category ids; t = max of the two totals.
+  function mergeReadMaps(local, remote) {
+    var out = {}, k;
+    for (k in local) out[k] = local[k];
+    for (k in remote) {
+      var cur = out[k], inc = remote[k];
+      if (!cur) { out[k] = inc; continue; }
+      var viewed = (cur.v || []).slice();
+      (inc.v || []).forEach(function (id) {
+        if (viewed.indexOf(id) === -1) viewed.push(id);
+      });
+      out[k] = { v: viewed, t: Math.max(cur.t || 0, inc.t || 0) };
+    }
+    return out;
+  }
+
+  // Write merged state to localStorage directly (no push-back) and re-render.
+  function applySyncedState(savedMap, readMap) {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(savedMap)); } catch (e) {}
+    try { localStorage.setItem(READ_KEY, JSON.stringify(readMap)); } catch (e) {}
+    markRowButtons();
+    renderSaved();
+    updateDots();
+  }
+
+  function initFirebaseSync() {
+    var area = document.getElementById("sync-area");
+    if (typeof firebase === "undefined" || !firebase.initializeApp) {
+      // CDN blocked/offline: hide the sync UI, keep localStorage behavior.
+      if (area) area.style.display = "none";
+      return;
+    }
+    try {
+      if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
+      var auth = firebase.auth();
+      var db = firebase.firestore();
+      var provider = new firebase.auth.GoogleAuthProvider();
+      var syncUser = null;
+      var unsubscribeSnapshot = null;
+      var readWriteTimer = null;
+
+      function userDoc() { return db.collection("users").doc(syncUser.uid); }
+
+      function serverTs() {
+        return firebase.firestore.FieldValue.serverTimestamp();
+      }
+
+      function updateSyncUI(user) {
+        var inBtn = document.getElementById("sync-signin");
+        var userEl = document.getElementById("sync-user");
+        var avatar = document.getElementById("sync-avatar");
+        var initial = document.getElementById("sync-initial");
+        if (user) {
+          inBtn.style.display = "none";
+          userEl.style.display = "flex";
+          if (user.photoURL) {
+            avatar.src = user.photoURL;
+            avatar.style.display = "";
+            initial.style.display = "none";
+          } else {
+            avatar.style.display = "none";
+            initial.style.display = "";
+            initial.textContent = (user.email || "U").charAt(0).toUpperCase();
+          }
+        } else {
+          inBtn.style.display = "";
+          userEl.style.display = "none";
+        }
+      }
+
+      // On sign-in: merge remote into local (same merge rules), write the
+      // merged result back, replace localStorage, re-render.
+      function initialSync() {
+        userDoc().get().then(function (snap) {
+          var remote = snap.exists ? (snap.data() || {}) : {};
+          var mergedSaved = mergeSavedMaps(loadSaved(), remote.saved || {});
+          var mergedRead = mergeReadMaps(loadRead(), remote.read || {});
+          applySyncedState(mergedSaved, mergedRead);
+          return userDoc().set(
+            { saved: mergedSaved, read: mergedRead, updatedAt: serverTs() },
+            { merge: true });
+        }).catch(function (e) { console.warn("Initial sync failed:", e); });
+      }
+
+      // Realtime laptop <-> phone updates; skip our own pending writes.
+      function subscribeRemote() {
+        if (unsubscribeSnapshot) unsubscribeSnapshot();
+        unsubscribeSnapshot = userDoc().onSnapshot(function (snap) {
+          if (snap.metadata.hasPendingWrites || !snap.exists) return;
+          var remote = snap.data() || {};
+          var mergedSaved = mergeSavedMaps(loadSaved(), remote.saved || {});
+          var mergedRead = mergeReadMaps(loadRead(), remote.read || {});
+          if (JSON.stringify(mergedSaved) !== JSON.stringify(loadSaved()) ||
+              JSON.stringify(mergedRead) !== JSON.stringify(loadRead())) {
+            applySyncedState(mergedSaved, mergedRead);
+          }
+        }, function (e) { console.warn("Sync listener error:", e); });
+      }
+
+      function writeSaved() {
+        if (!syncUser) return;
+        userDoc().set({ saved: loadSaved(), updatedAt: serverTs() },
+          { merge: true })
+          .catch(function (e) { console.warn("Sync write (saved) failed:", e); });
+      }
+      function flushRead() {
+        if (!syncUser) return;
+        userDoc().set({ read: loadRead(), updatedAt: serverTs() },
+          { merge: true })
+          .catch(function (e) { console.warn("Sync write (read) failed:", e); });
+      }
+      function scheduleReadWrite() {
+        clearTimeout(readWriteTimer);
+        readWriteTimer = setTimeout(flushRead, 5000);  // debounce scroll progress
+      }
+
+      window.addEventListener("pagehide", function () {
+        clearTimeout(readWriteTimer);
+        flushRead();
+      });
+      document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "hidden") {
+          clearTimeout(readWriteTimer);
+          flushRead();
+        }
+      });
+
+      document.getElementById("sync-signin").addEventListener("click", function () {
+        auth.signInWithPopup(provider).catch(function (err) {
+          // Popup blocked/failed (common on mobile) -> redirect flow.
+          if (err && err.code === "auth/popup-closed-by-user") return;
+          console.warn("Popup sign-in failed, falling back to redirect:",
+            err && err.code);
+          auth.signInWithRedirect(provider)
+            .catch(function (e2) { console.warn("Redirect sign-in failed:", e2); });
+        });
+      });
+      document.getElementById("sync-signout").addEventListener("click", function () {
+        auth.signOut().catch(function (e) { console.warn("Sign-out failed:", e); });
+      });
+      auth.getRedirectResult()
+        .catch(function (e) { console.warn("Redirect result error:", e); });
+
+      auth.onAuthStateChanged(function (user) {
+        syncUser = user || null;
+        updateSyncUI(user);
+        if (user) {
+          syncPush.saved = writeSaved;
+          syncPush.read = scheduleReadWrite;
+          initialSync();
+          subscribeRemote();
+        } else {
+          syncPush.saved = function () {};
+          syncPush.read = function () {};
+          if (unsubscribeSnapshot) {
+            unsubscribeSnapshot();
+            unsubscribeSnapshot = null;
+          }
+        }
+      });
+    } catch (e) {
+      console.warn("Firebase sync disabled:", e);
+      if (area) area.style.display = "none";
+    }
+  }
+  // Deferred Firebase scripts execute before window.load, so firebase is
+  // available here if the CDN delivered it.
+  window.addEventListener("load", initFirebaseSync);
 })();
 </script>
 </body>
