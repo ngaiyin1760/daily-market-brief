@@ -205,18 +205,6 @@
     gap: 10px;
     padding: 10px 18px;
   }
-  .saved-toggle {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    background: none;
-    border: none;
-    padding: 6px 4px;
-    min-height: 44px;
-    cursor: pointer;
-    font-family: var(--sans);
-    color: var(--ink);
-  }
   .saved-icon { color: var(--gold); }
   .saved-title {
     font-size: 13px;
@@ -236,8 +224,6 @@
     text-align: center;
     font-variant-numeric: tabular-nums;
   }
-  .saved-caret { color: var(--muted); font-size: 13px; }
-  .saved-toggle[aria-expanded="false"] .saved-caret { transform: rotate(-90deg); display: inline-block; }
   .saved-clear {
     background: none;
     border: none;
@@ -251,6 +237,47 @@
     min-height: 44px;
   }
   .saved-clear:hover { color: var(--red); }
+
+  /* ---------- Tabs (Daily Brief / Archive) ---------- */
+  .tab-bar {
+    display: flex;
+    gap: 6px;
+    border-bottom: 1px solid var(--rule-dark);
+    margin-bottom: 26px;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 10px 18px;
+    min-height: 44px;
+    font-family: var(--sans);
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color .12s, border-color .12s;
+  }
+  .tab-btn:hover { color: var(--accent); }
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--gold);
+  }
+  .archive-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 6px 4px;
+    min-height: 44px;
+  }
+  .sync-status {
+    font-size: 12.5px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .sync-status.sync-status-err { color: var(--red); font-style: normal; font-weight: 600; }
 
   /* Firebase sync auth UI */
   .saved-header-right {
@@ -306,7 +333,6 @@
   }
   .sync-signout:hover { color: var(--red); }
   .saved-body { padding: 0 18px 14px; }
-  .saved.collapsed .saved-body { display: none; }
   .saved-empty { color: var(--muted); font-style: italic; font-size: 14.5px; margin: 4px 0 6px; }
   .saved-group { margin-top: 10px; }
   .saved-group h4 {
@@ -645,6 +671,7 @@
     .saved-item .si-remove { min-width: 44px; min-height: 44px; }
     .saved-header { flex-wrap: wrap; }
     .sync-signin { min-height: 44px; }
+    .tab-btn { flex: 1; padding: 10px 8px; text-align: center; }
     td.summary li { font-size: 15px; }
     td.source { padding-top: 6px; }
     td.rating { padding-top: 4px; }
@@ -673,51 +700,62 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>2026-08-01</h1>
-    <div class="generated">Generated 2026-08-01 02:49 HKT</div>
+    <div class="generated">Generated 2026-08-01 03:16 HKT</div>
   </header>
-  <div class="ticker">S&amp;P +0.7% · HSI +0.2% · US10Y 4.74% · DXY -0.1%</div>
+  <div class="ticker">S&amp;P +0.8% · HSI +0.2% · US10Y 4.75% · DXY -0.1%</div>
 
   
-  <section class="saved" id="saved">
-    <div class="saved-header">
-      <button type="button" class="saved-toggle" id="saved-toggle" aria-expanded="true">
-        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" class="saved-icon">
-          <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                fill="currentColor"/>
-        </svg>
-        <span class="saved-title">Saved</span>
-        <span class="saved-count" id="saved-count">0</span>
-        <span class="saved-caret" id="saved-caret">▾</span>
-      </button>
-      <div class="saved-header-right">
-        <div class="sync-area" id="sync-area">
-          <button type="button" class="sync-signin" id="sync-signin">
-            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-              <path fill="currentColor" d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81z"/>
-            </svg>
-            Sign in to sync
-          </button>
-          <div class="sync-user" id="sync-user" style="display:none">
-            <img class="sync-avatar" id="sync-avatar" alt="" referrerpolicy="no-referrer" style="display:none">
-            <span class="sync-initial" id="sync-initial" style="display:none"></span>
-            <span class="sync-label">Synced</span>
-            <button type="button" class="sync-signout" id="sync-signout">Sign out</button>
-          </div>
+  <nav class="tab-bar" id="tab-bar">
+    <button type="button" class="tab-btn active" data-view="brief">Daily Brief</button>
+    <button type="button" class="tab-btn" data-view="archive">Archive</button>
+  </nav>
+
+  
+  <div id="view-archive" style="display:none">
+    <section class="saved" id="saved">
+      <div class="saved-header">
+        <div class="archive-title">
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" class="saved-icon">
+            <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                  fill="currentColor"/>
+          </svg>
+          <span class="saved-title">Saved Archive</span>
+          <span class="saved-count" id="saved-count">0</span>
         </div>
-        <button type="button" class="saved-clear" id="saved-clear">Clear all</button>
+        <div class="saved-header-right">
+          <span class="sync-status" id="sync-status"></span>
+          <div class="sync-area" id="sync-area">
+            <button type="button" class="sync-signin" id="sync-signin">
+              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                <path fill="currentColor" d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81z"/>
+              </svg>
+              Sign in to sync
+            </button>
+            <div class="sync-user" id="sync-user" style="display:none">
+              <img class="sync-avatar" id="sync-avatar" alt="" referrerpolicy="no-referrer" style="display:none">
+              <span class="sync-initial" id="sync-initial" style="display:none"></span>
+              <span class="sync-label">Synced</span>
+              <button type="button" class="sync-signout" id="sync-signout">Sign out</button>
+            </div>
+          </div>
+          <button type="button" class="saved-clear" id="saved-clear">Clear all</button>
+        </div>
       </div>
-    </div>
-    <div class="saved-body" id="saved-body">
-      <p class="saved-empty" id="saved-empty">No saved news yet — tap the bookmark on any story to pin it here.</p>
-      <div id="saved-list"></div>
-    </div>
-  </section>
+      <div class="saved-body" id="saved-body">
+        <p class="saved-empty" id="saved-empty">No saved news yet — tap the bookmark on any story to pin it here.</p>
+        <div id="saved-list"></div>
+      </div>
+    </section>
+  </div>
+
+  
+  <div id="view-brief">
 
   
   <section class="takeaways" id="takeaways">
     <div class="tw-label">Today's Key Takeaways</div>
     <ul>
-      <li>Global central banks are maintaining a hawkish pause, signaling persistent elevated borrowing costs as they balance inflation above target against slowing growth and geopolitical risks. This caution is driving a significant divergence in fixed income markets, with long-dated yields spiking on investor skepticism regarding inflation control and demand for higher risk premiums.</li><li>An unprecedented, multi-trillion-dollar AI infrastructure buildout by hyperscalers is reshaping the tech and semiconductor landscape, fueling massive capital expenditure and driving up memory chip and electricity costs. This aggressive investment, while propelling sector growth, also highlights systemic risks, as evidenced by a major hedge fund&#39;s implosion from concentrated, leveraged AI bets.</li><li>Despite global monetary caution, pockets of the economy exhibit divergent performance and resilience. China&#39;s &#39;two-speed&#39; economy sees robust exports offset by weak domestic consumption and accelerating household deleveraging, while the global EV market continues its strong growth trajectory, even defying typical depreciation trends for used vehicles.</li>
+      <li>Global central banks are maintaining elevated policy rates, signaling a cautious pause amidst persistent inflation and slowing growth, which is reflected in spiking long-term bond yields globally. This sustained high-cost borrowing environment is diverting capital from riskier assets and raising concerns about broader economic activity.</li><li>The AI infrastructure arms race continues unabated, with tech giants committing over $1 trillion to build out capabilities, driving massive capital expenditure, soaring memory chip prices, and a strategic pivot to custom silicon. However, this expansion faces growing headwinds from strained power grids and increasing regulatory and public resistance to data center development, highlighting systemic risks in the AI momentum trade.</li><li>China&#39;s economy is grappling with structural weakness, marked by private sector deleveraging, a deepening real estate crisis, and undershooting GDP growth, necessitating further government stimulus. This domestic slowdown, alongside tighter global financial conditions, is influencing regional capital flows, as evidenced by Singaporean investors capitalizing on discounted Hong Kong commercial property.</li>
     </ul>
   </section>
   
@@ -747,11 +785,11 @@
           </td>
           <td class="summary">
             <ul>
-              <li>The U.S. Federal Reserve, European Central Bank, and Bank of Japan maintained policy rates, signaling a cautious pause to assess lagged effects of previous hikes amidst slowing growth.</li><li>Policymakers are balancing inflation, which remains above target, against weakening economic growth, supply chain disruptions, geopolitical tensions, and softening consumer demand.</li><li>The collective stance emphasizes patience and data-dependence, implying elevated borrowing costs will persist, impacting investment and household finances until new data emerges.</li>
+              <li>The U.S. Federal Reserve, ECB, and Bank of Japan maintained policy rates, signaling a cautious pause to assess the lagged effects of prior hikes amidst slowing growth and inflation still above target.</li><li>Policymakers are balancing the risk of overtightening into recession against reigniting inflation, which is pressured by supply chain disruptions, geopolitical tensions, and volatile commodity prices.</li><li>This collective stance implies continued elevated borrowing costs for businesses and households, with future policy adjustments strictly contingent on incoming economic data.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Bitcoin World</span></td>
-          <td class="rating">★★★★★<span class="reason">Coordinated pause by major central banks sets the tone for global monetary policy and market expectations.</span>
+          <td class="rating">★★★★★<span class="reason">Coordinated caution from major central banks directly impacts global monetary policy and market expectations.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -768,7 +806,7 @@
             data-title="Japan’s central bank keeps rates steady, delivers hawkish signal as government props up yen"
             data-source="The Straits Times"
             data-category="Global Economy"
-            data-rating="5"
+            data-rating="4"
             data-date="2026-08-01">
           <td class="headline">
             <a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxNWEJMNlJnNGUyM0pRZkZ5bU1yMk5BSmR2WnFVWUdiT0Yybnp1ZlRZVElCRzZWazhxdDBaaGtXcGZPeTJ2OEhQZHlMMmdySjZXTVE4SDJLQ3NDWEJ3RTVPU1VYY3ZIVnhyN3RnT25RVDMzU0x0Ri1BWDdiWXNLZ0o3dUVzaHJwcGlPNXZVajBabmJ5QmlnMFZ5akR2VWJnT1dsQkJkbl9NY2xDRmkyX0JMUWloLVNsV0lfR3FQTWNlcllhVlFSUVE?oc=5" target="_blank" rel="noopener">Japan’s central bank keeps rates steady, delivers hawkish signal as government props up yen</a>
@@ -776,11 +814,11 @@
           </td>
           <td class="summary">
             <ul>
-              <li>The Bank of Japan held rates at 1% but issued a hawkish warning, indicating underlying inflation may exceed its 2% target and signaling potential future rate hikes.</li><li>Japan&#39;s government intervened by buying yen, with US backing, to support the currency which remained weak near 160 per dollar, highlighting currency stability concerns.</li><li>BOJ cited rising global AI demand and currency depreciation as key inflation drivers, with Governor Ueda indicating policy debate on further tightening from the next meeting.</li>
+              <li>The Bank of Japan held rates at 1% but issued a hawkish warning that underlying inflation risks exceeding its 2% target, signaling potential future rate hikes.</li><li>Japan&#39;s government intervened to support the yen, which remained weak near 160 per dollar, highlighting persistent currency stability concerns.</li><li>BOJ Governor Ueda indicated that policy debates on further tightening, driven by global AI demand and currency depreciation, will commence from the next meeting.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">The Straits Times</span></td>
-          <td class="rating">★★★★★<span class="reason">Hawkish shift from the BoJ and government currency intervention signal a significant change in Japan&#39;s monetary and fiscal policy direction.</span>
+          <td class="rating">★★★★☆<span class="reason">A hawkish shift from the BoJ, coupled with yen intervention, signals a significant change in policy direction for a major global economy.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -793,23 +831,23 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMipwFBVV95cUxQR2RHb0xTOXhQUWlaaGVJa3VRdTZ5aEJDc0w1cVRwRDV6LVNkN1BCQkN6OXQ4dUEzMnJQcHYzcFMzbFdpVjBJZ2dDQmRpR2NvYTgydlNTalB3SUN5V2FITVZhSEM0eUxTV2hybG13czdzZ2Nqb2Vub1VWeUNEc1I2dVh3dlJxMDVKOG11eEpuWW5Rd0sxWU9SNEdFTi15MUdQaDl0OUNfcw?oc=5"
-            data-title="Gold prices going nowhere in a hurry as BoE leaves rates unchanged"
-            data-source="KITCO"
+            data-url="https://news.google.com/rss/articles/CBMi0gFBVV95cUxNaWVQQ0gwMGg4N2hYRjJHbG9DTmVOMks0TGQzV0hja1NpTllveVBtdWZZN3JQdklmazJxdFNQcUhjN2xDUlhCcVlla0JZbGdJeWl5TnFiR2ktVERhNXJDc0NKal9AjxJzMWVqMXR1WE1mNC1qN3BpdE9WZFJNRGlRQ2FWTTN5VjlRMkNKN2h5TTBTc3F2aFRaYWNpanN1bmY5bjV0MEtXOElJTEJ3NmFjRnBMUEFCQ2F1dWp5aGFwdDdMY3pSWEJkZzJKZTRjWlE?oc=5"
+            data-title="Africa is sitting on trillions it should use to finance its own growth, Nigeria’s central bank chief says"
+            data-source="Business Insider Africa"
             data-category="Global Economy"
-            data-rating="4"
+            data-rating="3"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxQR2RHb0xTOXhQUWlaaGVJa3VRdTZ5aEJDc0w1cVRwRDV6LVNkN1BCQkN6OXQ4dUEzMnJQcHYzcFMzbFdpVjBJZ2dDQmRpR2NvYTgydlNTalB3SUN5V2FITVZhSEM0eUxTV2hybG13czdzZ2Nqb2Vub1VWeUNEc1I2dVh3dlJxMDVKOG11eEpuWW5Rd0sxWU9SNEdFTi15MUdQaDl0OUNfcw?oc=5" target="_blank" rel="noopener">Gold prices going nowhere in a hurry as BoE leaves rates unchanged</a>
-            <div class="pub">2026-07-30 08:17 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMi0gFBVV95cUxNaWVQQ0gwMGg4N2hYRjJHbG9DTmVOMks0TGQzV0hja1NpTllveVBtdWZZN3JQdklmazJxdFNQcUhjN2xDUlhCcVlla0JZbGdJeWl5TnFiR2ktVERhNXJDc0NKal9AjxJzMWVqMXR1WE1mNC1qN3BpdE9WZFJNRGlRQ2FWTTN5VjlRMkNKN2h5TTBTc3F2aFRaYWNpanN1bmY5bjV0MEtXOElJTEJ3NmFjRnBMUEFCQ2F1dWp5aGFwdDdMY3pSWEJkZzJKZTRjWlE?oc=5" target="_blank" rel="noopener">Africa is sitting on trillions it should use to finance its own growth, Nigeria’s central bank chief says</a>
+            <div class="pub">2026-07-30 09:10 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The Bank of England kept its Bank Rate steady at 3.75%, but three members (more than expected) voted for a hike, reflecting persistent inflationary pressures from the ongoing global energy crisis.</li><li>The BoE&#39;s statement highlighted uncertainty from Middle East events and volatile energy prices, indicating a policy stance aimed at achieving the 2% inflation target sustainably despite fragile growth.</li><li>The tough vote split suggests rate cuts are further off, supporting sterling and gilt yields, while the gold market showed little reaction as global central bank policies remain tilted towards tightening.</li>
+              <li>Nigeria&#39;s CBN Governor advocates for African nations to self-finance development by mobilizing domestic wealth, including pension assets, insurance funds, and diaspora savings, due to increasingly selective global capital.</li><li>He emphasized prioritizing investments that foster job creation, technology transfer, and strengthen local industries over mere natural resource extraction.</li><li>This strategic shift aims to build economic resilience and reduce reliance on foreign investment amidst tighter global financial conditions and geopolitical shifts in capital flows.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">KITCO</span></td>
-          <td class="rating">★★★★☆<span class="reason">Specific BoE decision with hawkish dissent and rationale provides critical insight into UK monetary policy and broader inflation challenges.</span>
+          <td class="source"><span class="chip">Business Insider Africa</span></td>
+          <td class="rating">★★★☆☆<span class="reason">Highlights a crucial long-term strategic shift for emerging markets, impacting future capital allocation and development models.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -837,23 +875,23 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiswFBVV95cUxOVW1mbmZheTI4aEkzTjc1MVBidWdGLVZRZ1ZudjhWaTRkN3BKRHEzWW1kbkVDWmxXVVJHLVRhU3VFS2xlUF84TXB3cHdSMWJUcWNpRV9mMkFfal9Sd29vNjdJU21TYkNMQVN0cUdBakRscExDTE5wbHE0b0tkM3laUTg2RlNzZWQ0cmtqTEhIcnJXRTJVNXc1clhRQklLVDRkbjNDc3FOb3pueUM4MklhSUktb9IBuAFBVV95cUxNT2QwQUtQU2NNaDRKNGpBMnFkdG5nLXBWS2VXNXo3azhkUFR6U25NTC05cVh1UHVVcFhTeFRISW1xWWFBMDI3aEZIN0VUa0dSTV9xck8tcTB4TXZTSEtkbE9nMzBVOV82Vlh1LVh1OFdCYWktRFlMZThuNDE3WDEwRFhtdUlGeGNhZlQzdG83V1UyeThHVnY2eGU0ZW55Q0x4U1hQTEhhLXQ5eUhsTm5Pc0JxRmZKRF9V?oc=1"
-            data-title="The S&amp;P 500 is stuck at a key battleground level. This obscure index could determine the market’s next move"
-            data-source="CNBC"
+            data-url="https://news.google.com/rss/articles/CBMihAFBVV95cUxQOUN5MkpWcGhDZ0N1cUhmRVNDd2FLc1lnN1lRVllTUGVHTUNBM0NsQVNYNjZzdHdmX1JUdll5SmVYNlVTdnJ2ckNHSEtpSHNoX0VsLWJvWUxuakhmaGlIMFVrMWRjc0c0T2hmTmRJbVlaRVlGS1FxZXVvN2RXYWxqWUFvMVU?oc=5"
+            data-title="The market’s big AI doubts are exposing the riskiest players"
+            data-source="CNN"
             data-category="Equity Markets"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxOVW1mbmZheTI4aEkzTjc1MVBidWdGLVZRZ1ZudjhWaTRkN3BKRHEzWW1kbkVDWmxXVVJHLVRhU3VFS2xlUF84TXB3cHdSMWJUcWNpRV9mMkFfal9Sd29vNjdJU21TYkNMQVN0cUdBakRscExDTE5wbHE0b0tkM3laUTg2RlNzZWQ0cmtqTEhIcnJXRTJVNXc1clhRQklLVDRkbjNDc3FOb3pueUM4MklhSUktb9IBuAFBVV95cUxNT2QwQUtQU2NNaDRKNGpBMnFkdG5nLXBWS2VXNXo3azhkUFR6U25NTC05cVh1UHVVcFhTeFRISW1xWWFBMDI3aEZIN0VUa0dSTV9xck8tcTB4TXZTSEtkbE9nMzBVOV82Vlh1LVh1OFdCYWktRFlMZThuNDE3WDEwRFhtdUlGeGNhZlQzdG83V1UyeThHVnY2eGU0ZW55Q0x4U1hQTEhhLXQ5eUhsTm5Pc0JxRmZKRF9V?oc=1" target="_blank" rel="noopener">The S&amp;P 500 is stuck at a key battleground level. This obscure index could determine the market’s next move</a>
-            <div class="pub">2026-07-31 18:07 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxQOUN5MkpWcGhDZ0N1cUhmRVNDd2FLc1lnN1lRVllTUGVHTUNBM0NsQVNYNjZzdHdmX1JUdll5SmVYNlVTdnJ2ckNHSEtpSHNoX0VsLWJvWUxuakhmaGlIMFVrMWRjc0c0T2hmTmRJbVlaRVlGS1FxZXVvN2RXYWxqWUFvMVU?oc=5" target="_blank" rel="noopener">The market’s big AI doubts are exposing the riskiest players</a>
+            <div class="pub">2026-07-31 16:24 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The S&amp;P 500 is at a critical technical level around 7,500, with a break below 7,450 potentially leading to a larger downside move as market makers&#39; hedging activity flips to &#34;negative gamma.&#34;</li><li>Cboe&#39;s 1-month implied correlation index surged from 3.3 on July 10 to 12 this week, indicating a shift towards a broader-based market rally and reduced fragility, moving away from extreme polarization.</li><li>Despite the recent increase, current correlation levels (12) are still significantly lower than those seen during previous market bottoms in April (45) and June (20), suggesting potential for further market rebalancing or volatility.</li>
+              <li>AI-focused hedge fund, Situational Awareness, founded by a former OpenAI researcher, nearly collapsed after being up over 400% this year, forced to liquidate public holdings due to margin calls.</li><li>The fund&#39;s aggressive, leveraged concentration in AI-related stocks like SK Hynix, Sandisk, and Nebius led to its downfall when these investments soured.</li><li>This incident serves as a cautionary tale, highlighting the systemic risks of excessive leverage and concentration in the AI momentum trade, impacting broader market sentiment.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">CNBC</span></td>
-          <td class="rating">★★★★☆<span class="reason">Provides actionable technical levels and insights into market breadth dynamics for the S&amp;P 500.</span>
+          <td class="source"><span class="chip">CNN</span></td>
+          <td class="rating">★★★★★<span class="reason">Exposes significant systemic risks and leverage in the hot AI sector, impacting investor confidence.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -866,23 +904,23 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMipwFBVV95cUxQSEcyTHgwa3laMG9FVzZtWmtJOTRiVklldWgxWVZFOVFMQndpWENiRmE5dDJObWtIZXF5M0xiTmtJUmUxWGRVdEc4VENEeUpwVWZ0U3JCV1pUTkphakZrbmJCZTk5TlhGY1hBcUhEWlJzTV9nSENSSG9LY1c4VEU3aWdGV0laTWs0RFBiSUlnb20wMXE1S1dWT3M5ZWxRdHBCa0lBQnNUc9IBrAFBVV95cUxOUTNQc1JOcmVRYnFIU3JJVVZaUDJhWTRmRjkyOGtrQThKQWNDVnFVSU5LaFFEUjlEUVRabmZVdEd0NkNNTkZLWC1qQlZuaUpsYmh2cjBjNUVOd0p4cGNVTWdGVzhNY2M2ZHZ6LW9YWUlzV3ZfWFRNQ3FvUmZFQkFELTNnckIwZkVJZ3c4WmI4eWRVVTdZR0xEM1lrTVBiNVh3OTlfb0psQU9sOGlj?oc=1"
-            data-title="Why Situational Awareness hedge fund imploded, even in a tame stock market"
+            data-url="https://news.google.com/rss/articles/CBMiswFBVV95cUxOVW1mbmZheTI4aEkzTjc1MVBidWdGLVZRZ1ZudjhWaTRkN3BKRHEzWW1kbkVDWmxXVVJHLVRhU3VFS2xlUF84TXB3cHdSMWJUcWNpRV9mMkFfal9Sd29vNjdJU21TYkNMQVN0cUdBakRscExDTE5wbHE0b0tkM3laUTg2RlNzZWQ0cmtqTEhIcnJXRTJVNXc1clhRQklLVDRkbjNDc3FOb3pueUM4MklhSUktb9IBuAFBVV95cUxNT2QwQUtQU2NNaDRKNGpBMnFkdG5nLXBWS2VXNXo3azhkUFR6U25NTC05cVh1UHVVcFhTeFRISW1xWWFBMDI3aEZIN0VUa0dSTV9xck8tcTB4TXZTSEtkbE9nMzBVOXNfNlZIdS1YdThXQ2FpLURZTGVuNDE3WDEwRFhtdUlGeGNhZlQzdG83V1UyeThHVnY2eGU0ZW55Q0x4U1hQTEhhLXQ5eUhsTm5Pc0JxRmZKRF9V?oc=5"
+            data-title="The S&amp;P 500 is stuck at a key battleground level. This obscure index could determine the market’s next move"
             data-source="CNBC"
             data-category="Equity Markets"
-            data-rating="5"
+            data-rating="4"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxQSEcyTHgwa3laMG9FVzZtWmtJOTRiVklldWgxWVZFOVFMQndpWENiRmE5dDJObWtIZXF5M0xiTmtJUmUxWGRVdEc4VENEeUpwVWZ0U3JCV1pUTkphakZrbmJCZTk5TlhGY1hBcUhEWlJzTV9nSENSSG9LY1c4VEU3aWdGV0laTWs0RFBiSUlnb20wMXE1S1dWT3M5ZWxRdHBCa0lBQnNUc9IBrAFBVV95cUxOUTNQc1JOcmVRYnFIU3JJVVZaUDJhWTRmRjkyOGtrQThKQWNDVnFVSU5LaFFEUjlEUVRabmZVdEd0NkNNTkZLWC1qQlZuaUpsYmh2cjBjNUVOd0p4cGNVTWdGVzhNY2M2ZHZ6LW9YWUlzV3ZfWFRNQ3FvUmZFQkFELTNnckIwZkVJZ3c4WmI4eWRVVTdZR0xEM1lrTVBiNVh3OTlfb0psQU9sOGlj?oc=1" target="_blank" rel="noopener">Why Situational Awareness hedge fund imploded, even in a tame stock market</a>
-            <div class="pub">2026-07-31 16:04 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxOVW1mbmZheTI4aEkzTjc1MVBidWdGLVZRZ1ZudjhWaTRkN3BKRHEzWW1kbkVDWmxXVVJHLVRhU3VFS2xlUF84TXB3cHdSMWJUcWNpRV9mMkFfal9Sd29vNjdJU21TYkNMQVN0cUdBakRscExDTE5wbHE0b0tkM3laUTg2RlNzZWQ0cmtqTEhIcnJXRTJVNXc1clhRQklLVDRkbjNDc3FOb3pueUM4MklhSUktb9IBuAFBVV95cUxNT2QwQUtQU2NNaDRKNGpBMnFkdG5nLXBWS2VXNXo3azhkUFR6U25NTC05cVh1UHVVcFhTeFRISW1xWWFBMDI3aEZIN0VUa0dSTV9xck8tcTB4TXZTSEtkbE9nMzBVOXNfNlZIdS1YdThXQ2FpLURZTGVuNDE3WDEwRFhtdUlGeGNhZlQzdG83V1UyeThHVnY2eGU0ZW55Q0x4U1hQTEhhLXQ5eUhsTm5Pc0JxRmZKRF9V?oc=5" target="_blank" rel="noopener">The S&amp;P 500 is stuck at a key battleground level. This obscure index could determine the market’s next move</a>
+            <div class="pub">2026-07-31 18:07 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Situational Awareness, an AI-focused hedge fund, saw its $45 billion AUM unravel due to a &#39;momentum crash&#39; where concentrated long positions in AI infrastructure (e.g., Nebius, SK Hynix) fell 50-78%, while short positions in software (e.g., Adobe) simultaneously rallied.</li><li>The fund&#39;s aggressive use of leverage led to margin calls and a rapid deleveraging spiral, forcing the sale of its public holdings, which were subsequently acquired by rival hedge fund Citadel.</li><li>This event serves as a stark warning about the systemic risks of concentrated, leveraged bets in specific sectors, demonstrating how significant losses can occur even when major market indices appear calm.</li>
+              <li>S&amp;P 500 is consolidating around 7,500, with options traders actively managing positions; a break below 7,450 could trigger significant downside due to negative gamma effects.</li><li>Cboe&#39;s 1-month implied correlation index surged from an all-time low of 3.3 on July 10 to 12 this week, suggesting a shift towards broader market participation and less fragility.</li><li>Despite the recent rise in correlation, the current level of 12 remains below previous sell-off highs (20 in June, 45 in April), indicating potential for further market rebalancing or volatility.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">CNBC</span></td>
-          <td class="rating">★★★★★<span class="reason">Details a high-profile hedge fund implosion, exposing risks of leverage and concentration in the AI sector, with broader market implications.</span>
+          <td class="rating">★★★★☆<span class="reason">Provides critical technical and breadth indicators for S&amp;P 500&#39;s immediate direction and market health.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -910,23 +948,23 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiwwFBVV95cUxOXzl6YnVIUzlHRi0xYXF4QmNJQXNDaWYtNFN1X3plSk1YSXpkTnJzX0VCX0htcFloTzFMckI1eXBxeW0tUTJONG5qLUdjNFJucjRJT3JRVWdTZVNnQmJlT0dRU09oV3NZdUV5RllubFk4SHlKVFlFUmY3NnFsWjlfdy1LLXRPZ0swQTctRHhXWEY2TGpENFQ1YUpxMGM0VWpMTEEta3N0ZHdZdGhtcTVWUHVaWjJCRE9JT2ZONDJ6c1BIRFE?oc=5"
-            data-title="The Fed did exactly what Wall Street was expecting—so why are markets so vexed by Kevin Warsh?"
-            data-source="Fortune"
+            data-url="https://news.google.com/rss/articles/CBMie0FVX3lxTE5scmR3dGxFT2RYRlYydk9YaVVjN0lZYVR1aDRuREw4UExZblZkRGkySmJNT1pobkt0SUhWaXUwTzZyU18wS0pmNzVGUk5ZMkVNa2gxQ2NuWEg1cWtNSjZqcFAyZXdxall5T2d4c1BveGhrbmRaRURLbXljMA?oc=5"
+            data-title="Why spiking U.S. bond yields could be a big warning for the economy"
+            data-source="Global News"
             data-category="Fixed Income"
             data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxOXzl6YnVIUzlHRi0xYXF4QmNJQXNDaWYtNFN1X3plSk1YSXpkTnJzX0VCX0htcFloTzFMckI1eXBxeW0tUTJONG5qLUdjNFJucjRJT3JRVWdTZVNnQmJlT0dRU09oV3NZdUV5RllubFk4SHlKVFlFUmY3NnFsWjlfdy1LLXRPZ0swQTctRHhXWEY2TGpENFQ1YUpxMGM0VWpMTEEta3N0ZHdZdGhtcTVWUHVaWjJCRE9JT2ZONDJ6c1BIRFE?oc=5" target="_blank" rel="noopener">The Fed did exactly what Wall Street was expecting—so why are markets so vexed by Kevin Warsh?</a>
-            <div class="pub">2026-07-31 13:21 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE5scmR3dGxFT2RYRlYydk9YaVVjN0lZYVR1aDRuREw4UExZblZkRGkySmJNT1pobkt0SUhWaXUwTzZyU18wS0pmNzVGUk5ZMkVNa2gxQ2NuWEg1cWtNSjZqcFAyZXdxall5T2d4c1BveGhrbmRaRURLbXljMA?oc=5" target="_blank" rel="noopener">Why spiking U.S. bond yields could be a big warning for the economy</a>
+            <div class="pub">2026-07-31 16:17 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Long-dated Treasury yields spiked, with 30-year over 5.1% (briefly 5.2%) and 10-year over 4.65%, despite the FOMC holding the base rate at 3.5%-3.75% as expected.</li><li>Market angst stems from Fed Chair Warsh&#39;s post-FOMC remarks indicating waning patience with inflation and suggesting financial conditions are already tightening via rising long-bond yields.</li><li>Investors are questioning the Fed&#39;s commitment to follow through on market-priced rate hikes, exacerbated by uncertainty surrounding the new Fed chairman and committee structures.</li>
+              <li>The 30-year U.S. Treasury yield climbed above 5% to approximately 5.25%, reaching its highest level since 2007, signaling market concerns about inflation, government debt, and economic uncertainty.</li><li>Elevated long-term yields make bonds an attractive, low-risk option, potentially diverting capital from riskier assets like stocks and real estate as investors seek guaranteed returns.</li><li>Higher bond yields are expected to increase borrowing costs for businesses and consumers across various financial products, including mortgages and corporate loans, impacting overall economic activity.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Fortune</span></td>
-          <td class="rating">★★★★★<span class="reason">Explains the critical market reaction to Fed communication and its implications for future policy and long-term rates.</span>
+          <td class="source"><span class="chip">Global News</span></td>
+          <td class="rating">★★★★★<span class="reason">Highlights a significant market movement (30Y yield &gt;5%) and its broad economic implications.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -939,23 +977,23 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMilAFBVV95cUxOQWxFLVBKa3M3d3lwQXhsbGZXRS1mb0IzZnRBOFJMaHJFRFlyRXNqT1E1NjhrZVJQYnhvMHFYOTlHTlliMTEteGpiSmMzQWdTdk9DNjVPMnUzZkEzZnFPMXhnZGZTaTgxX2tzWFZ5cTFOamZ1MzZObHgwMXVweXI5azhNa0Q3NHZDUG1FV1hxZFJKWk93?oc=5"
+            data-url="https://news.google.com/rss/articles/CBMilAFBVV95cUxOQWxFLVBKa3M3d3lwQXhsbGZXRS1mb0IzZnRBOFJMaHJFRFlyRXNqT1E1NjhrZVJQYnhvMHFYOTlHTlliMTEteGpiSmMzQWdTdk9DNjVPMnUzZkEzZnFPMXhnZGZTaTgxX2tzWFZ5cTFOamZ1MzZObHgwMXVweXI5azhNa0Q3NHVDUG1FV1hxZFJKWk93?oc=5"
             data-title="Market Minute: The Warsh effect and U.S. financial conditions"
             data-source="The Real Economy Blog"
             data-category="Fixed Income"
             data-rating="4"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxOQWxFLVBKa3M3d3lwQXhsbGZXRS1mb0IzZnRBOFJMaHJFRFlyRXNqT1E1NjhrZVJQYnhvMHFYOTlHTlliMTEteGpiSmMzQWdTdk9DNjVPMnUzZkEzZnFPMXhnZGZTaTgxX2tzWFZ5cTFOamZ1MzZObHgwMXVweXI5azhNa0Q3NHZDUG1FV1hxZFJKWk93?oc=5" target="_blank" rel="noopener">Market Minute: The Warsh effect and U.S. financial conditions</a>
+            <a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxOQWxFLVBKa3M3d3lwQXhsbGZXRS1mb0IzZnRBOFJMaHJFRFlyRXNqT1E1NjhrZVJQYnhvMHFYOTlHTlliMTEteGpiSmMzQWdTdk9DNjVPMnUzZkEzZnFPMXhnZGZTaTgxX2tzWFZ5cTFOamZ1MzZObHgwMXVweXI5azhNa0Q3NHVDUG1FV1hxZFJKWk93?oc=5" target="_blank" rel="noopener">Market Minute: The Warsh effect and U.S. financial conditions</a>
             <div class="pub">2026-07-31 10:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Fed Chair Warsh&#39;s comments, suggesting markets &#39;play the ball&#39; and acknowledging market-driven rate changes, triggered a jump in long-bond yields and raised concerns about Fed credibility.</li><li>A significant yield curve divergence occurred: 2-year notes saw a drop in yield, while 10-year and 30-year bonds jumped, indicating market anticipation of Fed reluctance to hike policy rates.</li><li>Long-term investors are demanding higher compensation for inflation risk due to perceived insufficient policy response by the Fed, leading to increased yields across major global bond markets.</li>
+              <li>Fed Chair Warsh&#39;s comments, suggesting markets should &#39;figure it out&#39; without forward guidance and that rates had already changed due to market action, triggered a jump in long-bond yields and raised central bank credibility concerns.</li><li>This communication led to a divergence in the yield curve: 2-year notes dropped (market anticipates Fed reluctance to hike), while 10-year and 30-year bonds jumped (investors demand higher compensation for persistent inflation risk).</li><li>Global bond yields in the U.K., Germany, and Japan are also rising to 15-20 year highs, reflecting broader expectations of inflation from energy shocks.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">The Real Economy Blog</span></td>
-          <td class="rating">★★★★☆<span class="reason">Details the specific yield curve movements and market interpretation of Fed&#39;s policy stance and credibility.</span>
+          <td class="rating">★★★★☆<span class="reason">Explains the market&#39;s reaction to Fed communication and resulting yield curve dynamics.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -983,23 +1021,23 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMi1wFBVV95cUxQdlNzWnJNUmo3RlJCdV9SOWVBZFNjcmI3OHdUYXZ4UlZYMU80cE9MLTZpSXhxRTlnMm5nZ05hQ1pNMTkxeW4yanFsa2pSZlVKUnRHVkJ1NkdxUkVUWHk3MVJEZDJoNVRqSVNGOWZsZnhNeFVSbnZLSHdyYVU1YnpNWEpMM1h1b284QXVtMUlQYVhhTk9fRFJOcWsyM3lxVFlhdUhhZlBRZVMxdjlPaVViVk42ZG1mdXpLTzItR2ZVRTN4MlBEdDZYNGQxLUlLUm1aaE55TTAzb9IB1wFBVV95cUxQZ3RUMzk0X2dUcjdPQnZjWVBzX1JIczVWM19kVHRZcXQ4OWRjZWw3YndFeFBjdENEM1ZEU3VnWWMzV0I0NGlXN0tzWGd4RERlMTd3emNFSDU4TWVPbzRjS2xBZVlnVEwzT25LdktfSEdpX2o1bUxEelk4Qnhlc2U3c211WU1TdXlURU1IM1dLVzdZcUtVcllSVWVNbHJnbDA3cENlX01xQl9MbXc1Slh1Q2JreVhLN3ZyVVBnQWdqVWtBYy1fRy1WMEs4czFOYXNOTDBpT0t3MA?oc=5"
+            data-url="https://news.google.com/rss/articles/CBMi1wFBVV95cUxQdlNzWnJNUmo3RlJCdV9SOWVBZFNjcmI3OHdUYXZ4UlZYMU80cE9MLTZpSXhxRTlnMm5nZ05hQ1pNMTkxeW4yanFsa2pSZlVKUnRHVkJ1NkdxUkVUWHk3MVJEZDJoNVRqSVNGOWZsZnhNeFVSbnZLSHdyYVU1YnpNWEpMM1h1b284QXVtMUlQYVhhTk9fRFJOcWsyM3lxVFlhdUhhZlBRcVMxdjlPaVViVk42ZG1mdXpLTzItR2ZVRTN4MlBEdDZYNGQxLUlLUm1aaE55TTAzb9IB1wFBVV95cUxQZ3RUMzk0X2dUcjdPQnZjWVBzX1JIczVWM19kVHRZcXQ4OWRjZWw3YndFeFBjdENEM1ZEU3VnWWMzV0I0NGlXN0tzWGd4RERlMTd3emNFSDU4TWVPbzRjS2xBZVlnVEwzT25LdktfSEdpX2o1bUxEelk4Qnhlc2U3c211WU1TdXlURU1IM1dLVzdZcUtVcllSVWVNbHJnbDA3cENlX01xQl9MbXc1Slh1Q2JreVhLN3ZyVVBnQWdqVWtBYy1fRy1WMEs4czFOYXNOTDBpT0t3MA?oc=5"
             data-title="China’s debt ratio dips. Why it may not bode well for the economy"
             data-source="South China Morning Post"
             data-category="China Economy"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxQdlNzWnJNUmo3RlJCdV9SOWVBZFNjcmI3OHdUYXZ4UlZYMU80cE9MLTZpSXhxRTlnMm5nZ05hQ1pNMTkxeW4yanFsa2pSZlVKUnRHVkJ1NkdxUkVUWHk3MVJEZDJoNVRqSVNGOWZsZnhNeFVSbnZLSHdyYVU1YnpNWEpMM1h1b284QXVtMUlQYVhhTk9fRFJOcWsyM3lxVFlhdUhhZlBRZVMxdjlPaVViVk42ZG1mdXpLTzItR2ZVRTN4MlBEdDZYNGQxLUlLUm1aaE55TTAzb9IB1wFBVV95cUxQZ3RUMzk0X2dUcjdPQnZjWVBzX1JIczVWM19kVHRZcXQ4OWRjZWw3YndFeFBjdENEM1ZEU3VnWWMzV0I0NGlXN0tzWGd4RERlMTd3emNFSDU4TWVPbzRjS2xBZVlnVEwzT25LdktfSEdpX2o1bUxEelk4Qnhlc2U3c211WU1TdXlURU1IM1dLVzdZcUtVcllSVWVNbHJnbDA3cENlX01xQl9MbXc1Slh1Q2JreVhLN3ZyVVBnQWdqVWtBYy1fRy1WMEs4czFOYXNOTDBpT0t3MA?oc=5" target="_blank" rel="noopener">China’s debt ratio dips. Why it may not bode well for the economy</a>
+            <a href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxQdlNzWnJNUmo3RlJCdV9SOWVBZFNjcmI3OHdUYXZ4UlZYMU80cE9MLTZpSXhxRTlnMm5nZ05hQ1pNMTkxeW4yanFsa2pSZlVKUnRHVkJ1NkdxUkVUWHk3MVJEZDJoNVRqSVNGOWZsZnhNeFVSbnZLSHdyYVU1YnpNWEpMM1h1b284QXVtMUlQYVhhTk9fRFJOcWsyM3lxVFlhdUhhZlBRcVMxdjlPaVViVk42ZG1mdXpLTzItR2ZVRTN4MlBEdDZYNGQxLUlLUm1aaE55TTAzb9IB1wFBVV95cUxQZ3RUMzk0X2dUcjdPQnZjWVBzX1JIczVWM19kVHRZcXQ4OWRjZWw3YndFeFBjdENEM1ZEU3VnWWMzV0I0NGlXN0tzWGd4RERlMTd3emNFSDU4TWVPbzRjS2xBZVlnVEwzT25LdktfSEdpX2o1bUxEelk4Qnhlc2U3c211WU1TdXlURU1IM1dLVzdZcUtVcllSVWVNbHJnbDA3cENlX01xQl9MbXc1Slh1Q2JreVhLN3ZyVVBnQWdqVWtBYy1fRy1WMEs4czFOYXNOTDBpT0t3MA?oc=5" target="_blank" rel="noopener">China’s debt ratio dips. Why it may not bode well for the economy</a>
             <div class="pub">2026-07-31 10:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>China&#39;s overall debt-to-GDP ratio decreased by 1.1 percentage points to 308.2% in Q2, primarily due to a 1.3 percentage point drop in household debt-to-GDP to 57.7%.</li><li>Household deleveraging is accelerating, with mortgage lending shrinking for the 13th consecutive quarter and consumer lending decline worsening to 1.8% from 0.2% in Q1.</li><li>The report indicates a private-sector contraction, as households cut borrowing and firms slash investment, leaving the government as the primary driver of economic growth.</li>
+              <li>China&#39;s overall debt-to-GDP ratio decreased by 1.1 percentage points to 308.2% in Q2, primarily due to private sector deleveraging rather than robust economic growth.</li><li>Household debt-to-GDP ratio fell 1.3 percentage points to 57.7%, with mortgage lending shrinking for 13 consecutive quarters and consumer lending decline accelerating to 1.8%.</li><li>The government is identified as the &#34;lone growth lever,&#34; as households cut borrowing due to sliding home prices and sluggish income, and firms reduce investment, masking underlying economic weakness.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">South China Morning Post</span></td>
-          <td class="rating">★★★★☆<span class="reason">Highlights critical structural issues in household and corporate balance sheets, impacting future growth.</span>
+          <td class="rating">★★★★★<span class="reason">Reveals critical structural weakness and private sector deleveraging, impacting future growth drivers.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1012,23 +1050,23 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMinAFBVV95cUxNdERjWHdYQTlXdTUwbnQ3eDlLOW9Ga0RMbERFbkRUTGFrV1Q1U2J3MVhPSDZXZkdjYnBPM2U0R1JwWkM0U1B6S3JQeVBOdDVEVENmLW1xVnU4SnItem9VMEZhNHh3bkVfTWhuWVBxa3NaREZZTHJpSExpVUpoTE5kLWc5cVNQNnEzeHpWZFNJdllQM2gtaHlPSGg5amE?oc=5"
-            data-title="Inside China’s two-speed economy: Why goods consumption is slumping even as exports and services boom"
-            data-source="Fortune"
+            data-url="https://news.google.com/rss/articles/CBMioAFBVV95cUxNV25YWU5kcVhTdkpxNFhPa011SWlEd21nR25mVldDcW9MX19xdDNNRW8xWW4tTEdIQ0w0ZWJWMUM0SDZWeW93UXcyd1hiNFBraVZDaXd4ajBiUnVleUk0YzM1Tm9RVWxKU0hPZ2FoQ1Z2YWJhbEdyOHcxZVNZSnlVd0pzQWY1U3M3b3R4SHJGWWY1VTBNZG1VdVBubzk3VTE0?oc=5"
+            data-title="China: Consumption pivot points to slower growth - Rabobank"
+            data-source="FXStreet"
             data-category="China Economy"
-            data-rating="5"
+            data-rating="4"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNdERjWHdYQTlXdTUwbnQ3eDlLOW9Ga0RMbERFbkRUTGFrV1Q1U2J3MVhPSDZXZkdjYnBPM2U0R1JwWkM0U1B6S3JQeVBOdDVEVENmLW1xVnU4SnItem9VMEZhNHh3bkVfTWhuWVBxa3NaREZZTHJpSExpVUpoTE5kLWc5cVNQNnEzeHpWZFNJdllQM2gtaHlPSGg5amE?oc=5" target="_blank" rel="noopener">Inside China’s two-speed economy: Why goods consumption is slumping even as exports and services boom</a>
-            <div class="pub">2026-07-29 21:00 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxNV25YWU5kcVhTdkpxNFhPa011SWlEd21nR25mVldDcW9MX19xdDNNRW8xWW4tTEdIQ0w0ZWJWMUM0SDZWeW93UXcyd1hiNFBraVZDaXd4ajBiUnVleUk0YzM1Tm9RVWxKU0hPZ2FoQ1Z2YWJhbEdyOHcxZVNZSnlVd0pzQWY1U3M3b3R4SHJGWWY1VTBNZG1VdVBubzk3VTE0?oc=5" target="_blank" rel="noopener">China: Consumption pivot points to slower growth - Rabobank</a>
+            <div class="pub">2026-07-30 18:13 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>China&#39;s Q2 GDP growth of 4.3% (slowest since pandemic) reveals a &#34;two-speed economy&#34;: robust export-focused manufacturing (exports +27%, industrial output +5.3%) contrasts with weak domestic consumption (retail sales +1.0% in June).</li><li>Sluggish consumption is attributed to falling home values eroding household net worth and a government policy aversion to direct cash transfers, preferring &#34;investing in people&#34; via human capital spending.</li><li>Beijing&#39;s new five-year consumption plan targets 60 trillion yuan in annual retail sales by 2030, requiring 3.7% annual growth, which is below the historical 5.0% pace.</li>
+              <li>China&#39;s Q2 GDP grew 4.3% YoY (4.7% YTD), undershooting economist predictions of 4.5% YoY, primarily due to weak domestic demand and a deepening real estate crisis.</li><li>Rabobank anticipates Beijing will deploy renewed consumption subsidies and two 10bp PBoC rate cuts to stimulate demand, but doubts a sustainable recovery in consumer sentiment given real estate issues.</li><li>Transitioning to a consumption-driven model is expected to lead to structurally lower GDP growth, forecasted at 4.5% for 2026 and 4.2% for 2027, falling below China&#39;s official target range.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Fortune</span></td>
-          <td class="rating">★★★★★<span class="reason">Provides a comprehensive overview of current economic imbalances, key data points, and policy implications.</span>
+          <td class="source"><span class="chip">FXStreet</span></td>
+          <td class="rating">★★★★☆<span class="reason">Provides Q2 GDP figures, identifies key headwinds, and forecasts policy responses and a structural shift to lower growth.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1057,22 +1095,22 @@
         
         <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMi3AFBVV95cUxOSEMxVERJdmdmR2VOOEl3MjZLX1lPTlBIYXl1S1I5ZnYxVjFfcGE4ekJhOUpPcVJtc09kUVFJalBaUjYxODFnRFJpSENHRGN0dERaQmpEQk10MlFPaUNjRVNCb3RldVA3UV9XNWY0cUw2VXRvU2FyU1FidnZ0LU95UV9RSXZ0RHlLX1JjYXJhZWp2MzlkWXU0TFNYQVhXbkJLckNNc2x2cS1BVHBab1BmUF9GNGhpaG1SQUxWa29uMG5OQWVkZG9lUU5SM2F0MndiUVlLMVVmV2swSC1F?oc=5"
-            data-title="Singapore-based investors now the top non-local buyers of Hong Kong office assets"
+            data-title="Singapore-based investors now the top non-local buyers of Hong Kong office assets - The Star"
             data-source="The Star"
             data-category="Hong Kong Economy"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMi3AFBVV95cUxOSEMxVERJdmdmR2VOOEl3MjZLX1lPTlBIYXl1S1I5ZnYxVjFfcGE4ekJhOUpPcVJtc09kUVFJalBaUjYxODFnRFJpSENHRGN0dERaQmpEQk10MlFPaUNjRVNCb3RldVA3UV9XNWY0cUw2VXRvU2FyU1FidnZ0LU95UV9RSXZ0RHlLX1JjYXJhZWp2MzlkWXU0TFNYQVhXbkJLckNNc2x2cS1BVHBab1BmUF9GNGhpaG1SQUxWa29uMG5OQWVkZG9lUU5SM2F0MndiUVlLMVVmV2swSC1F?oc=5" target="_blank" rel="noopener">Singapore-based investors now the top non-local buyers of Hong Kong office assets</a>
+            <a href="https://news.google.com/rss/articles/CBMi3AFBVV95cUxOSEMxVERJdmdmR2VOOEl3MjZLX1lPTlBIYXl1S1I5ZnYxVjFfcGE4ekJhOUpPcVJtc09kUVFJalBaUjYxODFnRFJpSENHRGN0dERaQmpEQk10MlFPaUNjRVNCb3RldVA3UV9XNWY0cUw2VXRvU2FyU1FidnZ0LU95UV9RSXZ0RHlLX1JjYXJhZWp2MzlkWXU0TFNYQVhXbkJLckNNc2x2cS1BVHBab1BmUF9GNGhpaG1SQUxWa29uMG5OQWVkZG9lUU5SM2F0MndiUVlLMVVmV2swSC1F?oc=5" target="_blank" rel="noopener">Singapore-based investors now the top non-local buyers of Hong Kong office assets - The Star</a>
             <div class="pub">2026-07-31 12:50 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Singaporean investors became the largest non-local buyers of Hong Kong commercial properties in Q2 2026, contributing HK$3.37 billion (62%) of the total HK$5.46 billion non-local investment.</li><li>This surge is attributed to Hong Kong office asset prices declining by up to 50%, presenting an attractive opportunity for acquiring quality assets at a discount for long-term market recovery.</li><li>The Grade-A office market in Central district shows signs of recovery, with rents rising 7.3% in H1 (the largest six-month increase in 15 years) and vacancy rates falling to 8.8% from 10.9%.</li>
+              <li>Singaporean investors contributed HK$3.37 billion (62%) of non-local commercial property investment in Q2 2026, surpassing mainland Chinese buyers (HK$1.23 billion).</li><li>The surge in Singaporean capital is driven by Hong Kong office asset prices declining up to 50%, presenting an opportunity to acquire quality assets at a discount for long-term recovery positioning.</li><li>Hong Kong&#39;s Grade-A office market in Central shows signs of recovery, with rents rising 7.3% in H1 (a 15-year high) and vacancy rates falling to 8.8% from 10.9% at year-end 2025.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">The Star</span></td>
-          <td class="rating">★★★★☆<span class="reason">Significant foreign capital inflow into a key distressed asset class signals potential market bottom and recovery.</span>
+          <td class="rating">★★★★★<span class="reason">Signals significant foreign capital inflow and potential turning point for the distressed HK office market.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1085,23 +1123,23 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMixgFBVV95cUxOU0hDLTFtM0h6OG5wdEJETC02QklQRnlXVDBvS1dOMGsyT2NYY0dXc0Z2c3N0OEN2N0pKZVdCWVVYeExMWjhtam05RG01REpIZzhyWkk0TjhCQlhlaS0ta1FURjlhZHdxbW9XX0FzWVQ5ckEzSGs5X2NHNWZldWVmZzF3anA3d3dxb1lVVXd3anFHVXI5Ym1IY2RZZlFmbG5nTDI2QTE5eWR3dGJNOWFOdTV1UWFGOGJjZFlGekh0NENfaGNlZHc?oc=5"
-            data-title="Hong Kong home prices rise for 13th straight month, but growth slows in June"
-            data-source="Prop News Time"
+            data-url="https://news.google.com/rss/articles/CBMi3wFBVV95cUxNRXgtOGcyOG9LUXZmbVNyNzdmX2x6eTVpOXUtdjV3dTlBay1sUU5PUHJ5TUtFN0JvNXJYN3Z5Q2hpQUF0UE9qNXdadjJheDdoTi1LQlRBeUtNdlRuVzJ3M0VBTDZZaGpnT2dkazdlYlExeW9sbzRqOTdsWTQ2NElyWGV6a1R2U2tnOTVEVUFLekNrMFQyREZvVU1pdm1pb3YyTEROT25wUnA4TXkyOFN0SjJyR0ZJRW4ycGpWd2YwTXUyRkpvT01ERU1sdU1Ma1JnSHJhSENlVXpqYUlETkw0?oc=5"
+            data-title="Swire Properties posts double-digit retail growth in mainland China, 100pc HK mall occupancy - The Standard (HK)"
+            data-source="The Standard (HK)"
             data-category="Hong Kong Economy"
             data-rating="4"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxOU0hDLTFtM0h6OG5wdEJETC02QklQRnlXVDBvS1dOMGsyT2NYY0dXc0Z2c3N0OEN2N0pKZVdCWVVYeExMWjhtam05RG01REpIZzhyWkk0TjhCQlhlaS0ta1FURjlhZHdxbW9XX0FzWVQ5ckEzSGs5X2NHNWZldWVmZzF3anA3d3dxb1lVVXd3anFHVXI5Ym1IY2RZZlFmbG5nTDI2QTE5eWR3dGJNOWFOdTV1UWFGOGJjZFlGekh0NENfaGNlZHc?oc=5" target="_blank" rel="noopener">Hong Kong home prices rise for 13th straight month, but growth slows in June</a>
-            <div class="pub">2026-07-31 08:32 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMi3wFBVV95cUxNRXgtOGcyOG9LUXZmbVNyNzdmX2x6eTVpOXUtdjV3dTlBay1sUU5PUHJ5TUtFN0JvNXJYN3Z5Q2hpQUF0UE9qNXdadjJheDdoTi1LQlRBeUtNdlRuVzJ3M0VBTDZZaGpnT2dkazdlYlExeW9sbzRqOTdsWTQ2NElyWGV6a1R2U2tnOTVEVUFLekNrMFQyREZvVU1pdm1pb3YyTEROT25wUnA4TXkyOFN0SjJyR0ZJRW4ycGpWd2YwTXUyRkpvT01ERU1sdU1Ma1JnSHJhSENlVXpqYUlETkw0?oc=5" target="_blank" rel="noopener">Swire Properties posts double-digit retail growth in mainland China, 100pc HK mall occupancy - The Standard (HK)</a>
+            <div class="pub">2026-07-31 13:23 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Hong Kong&#39;s private home prices recorded their 13th consecutive monthly increase in June, rising by 0.3%, a moderation from the previous month&#39;s 1.5% gain.</li><li>Residential property prices have gained 7.9% in the first half of 2026, reaching their highest level since September 2023, marking a significant turnaround from a nearly 30% decline post-2021 peak.</li><li>Property consultants anticipate a period of consolidation in the second half of the year, citing weaker stock market sentiment and tighter mainland China outbound investment controls as key headwinds, despite ongoing support from improving confidence and professional relocation.</li>
+              <li>Swire Properties&#39; Hong Kong malls maintained 100% occupancy in Q2 2026, while six mainland China malls reported double-digit retail sales growth, with Taikoo Li Sanlitun and HKRI Taikoo Hui exceeding 60% and 80% YoY growth respectively.</li><li>Luxury goods, watches, jewelry, and gold saw significant consumption growth in HK, driven by local shoppers and increased tourist arrivals, particularly during Labor Day Golden Week.</li><li>Office leasing sentiment improved, with Pacific Place and Taikoo Place occupancy rising to 98% and 90%, and new Grade-A towers reaching 70-80% occupancy, indicating a gradual market recovery.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Prop News Time</span></td>
-          <td class="rating">★★★★☆<span class="reason">Official data on residential property trends is a key economic indicator, showing sustained recovery but with emerging headwinds.</span>
+          <td class="source"><span class="chip">The Standard (HK)</span></td>
+          <td class="rating">★★★★☆<span class="reason">Strong operational performance from a major developer indicates resilience and recovery in key property segments.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1129,23 +1167,23 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMilgJBVV95cUxNNF9PZGY3aS1XNmdmSzdFSEM4ZkhyNkpsOWNqdGpZenBmRVlWNm5RVl9vdHRqeWJuWFZ3X2dRRGwwLXNpcXh0YUtzZ1k0LWhVaXhQVXJ1bjlwLXNZcGJYeXk0TUdjOFFGM1JSSlp1NWsyYXdJWldkZUMtLW4zVjhVNk9RQ0FKamY4TkpWeFhJSy1hY1BEQ2VTUFhXem5rWVhub0swNUJfTmx3WG5pSXczXzlleWtEeGdKWHByMUFFMEh3MGxpZTAzUDdiUzZSSXUtMUdYcVEtY2FBVWVZOHZXXy12cWxhb1prUnUxWVpGWWZLODZzc3M0VFc5N2tia2hBLVJxN2JrV0RrT05oTExFdm54ZThsZw?oc=5"
-            data-title="Big tech spends more than $1 trillion on AI infrastructure — additional $745 billion expected to be added to the figure in 2026 alone"
-            data-source="Tom&#39;s Hardware"
+            data-url="https://news.google.com/rss/articles/CBMilgJBVV95cUxNNF9PZGY3aS1XNmdmSzdFSEM4ZkhyNkpsOWNqdGpZenBmRVlWNm5RVl9vdHRqeWJuWFZ3X2dRRGwwLXNpcXh0YUtzZ1k0LWhVaXhQVXJ1bjlwLXNZcGJYeXk0TUdjOFFGM1JSSlp1NWsyYXdJWldkZUMtLW4zVjhVN09RQ0FKamY4TkpWeFhJSy1hY1BEQ2VTUFhXem5rWVhub0swNUJfTmx3WG5pSXczXzlleWtEeGdKWHByMUFFMEh3MGxpZTAzUDdiUzZSSXUtMUdYcVEtY2FBVWVZOHZXXy12cWxhb1prUnUxWVpGWWZLODZzc3M0VFc5N2tia2hBLVJxN2JrV0RrT05oTExFdm54ZThsZw?oc=5"
+            data-title="Big tech spends more than $1 trillion on AI infrastructure — additional $745 billion expected to be added to the figure in 2026 alone - tomshardware.com"
+            data-source="tomshardware.com"
             data-category="Global Technology"
             data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMilgJBVV95cUxNNF9PZGY3aS1XNmdmSzdFSEM4ZkhyNkpsOWNqdGpZenBmRVlWNm5RVl9vdHRqeWJuWFZ3X2dRRGwwLXNpcXh0YUtzZ1k0LWhVaXhQVXJ1bjlwLXNZcGJYeXk0TUdjOFFGM1JSSlp1NWsyYXdJWldkZUMtLW4zVjhVNk9RQ0FKamY4TkpWeFhJSy1hY1BEQ2VTUFhXem5rWVhub0swNUJfTmx3WG5pSXczXzlleWtEeGdKWHByMUFFMEh3MGxpZTAzUDdiUzZSSXUtMUdYcVEtY2FBVWVZOHZXXy12cWxhb1prUnUxWVpGWWZLODZzc3M0VFc5N2tia2hBLVJxN2JrV0RrT05oTExFdm54ZThsZw?oc=5" target="_blank" rel="noopener">Big tech spends more than $1 trillion on AI infrastructure — additional $745 billion expected to be added to the figure in 2026 alone</a>
+            <a href="https://news.google.com/rss/articles/CBMilgJBVV95cUxNNF9PZGY3aS1XNmdmSzdFSEM4ZkhyNkpsOWNqdGpZenBmRVlWNm5RVl9vdHRqeWJuWFZ3X2dRRGwwLXNpcXh0YUtzZ1k0LWhVaXhQVXJ1bjlwLXNZcGJYeXk0TUdjOFFGM1JSSlp1NWsyYXdJWldkZUMtLW4zVjhVN09RQ0FKamY4TkpWeFhJSy1hY1BEQ2VTUFhXem5rWVhub0swNUJfTmx3WG5pSXczXzlleWtEeGdKWHByMUFFMEh3MGxpZTAzUDdiUzZSSXUtMUdYcVEtY2FBVWVZOHZXXy12cWxhb1prUnUxWVpGWWZLODZzc3M0VFc5N2tia2hBLVJxN2JrV0RrT05oTExFdm54ZThsZw?oc=5" target="_blank" rel="noopener">Big tech spends more than $1 trillion on AI infrastructure — additional $745 billion expected to be added to the figure in 2026 alone - tomshardware.com</a>
             <div class="pub">2026-07-31 16:30 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Amazon, Google, Meta, and Microsoft have collectively invested $1.1 trillion in AI infrastructure since 2023, with an additional $745 billion projected for 2026 alone, indicating an unprecedented capital expenditure cycle.</li><li>This massive AI investment is driving up electricity prices, forcing U.S. utility companies to spend billions on infrastructure upgrades, costs often passed to all consumers, not just hyperscalers.</li><li>The insatiable demand for HBM chips by AI hyperscalers, willing to pay premium prices due to high liquidity, is causing memory and storage chip manufacturers (Micron, Samsung, SK hynix) to prioritize HBM over DRAM.</li>
+              <li>Amazon, Google, Meta, and Microsoft have collectively invested $1.1 trillion in AI infrastructure since 2023, with an additional $745 billion projected for 2026 alone, indicating sustained, massive capital expenditure.</li><li>This AI buildout is significantly impacting the electricity sector, forcing U.S. utility companies to spend billions on infrastructure upgrades, which are then passed on to consumers, leading to regulatory and public pushback.</li><li>The demand from AI hyperscalers for high-bandwidth memory (HBM) is driving up prices and causing memory/storage chip manufacturers (Micron, Samsung, SK hynix) to prioritize HBM over traditional DRAM, commanding a premium.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Tom&#39;s Hardware</span></td>
-          <td class="rating">★★★★★<span class="reason">Details the immense scale of AI investment and its broad financial and operational impacts across multiple sectors.</span>
+          <td class="source"><span class="chip">tomshardware.com</span></td>
+          <td class="rating">★★★★★<span class="reason">Details unprecedented capital expenditure by tech giants and its broad economic and industry-specific impacts.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1158,23 +1196,23 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMic0FVX3lxTE1YcnJ1a2s4bDZXUFRIek1EbUhMbE1LdEp2THZDeVIzeWR2bGF5ZEFrYVdKMmlmWml6VGxyQThpb1J1Mi1fUXpJX19RQ3FMdk1sczkyakJ2TUwwOUcyZmRZckY1ekl3UlpaQUdYcE5QNTh2amPSAXhBVV95cUxNOTVYdnVjYUl5dms0VTh6UEh1a2ROOXhnVk0xWXRxc0I1MGxHc3ZPYVlEZ3FCS3ZTbHhyNmZPS0t3X1Q1dTIwaS0wbnRvOWluNEdjNGFUcjF4NzAzQ0x2Uk5XMURPbmFpS2FYY01meXFKeUZ1MEV4VVA?oc=5"
-            data-title="Dwindling cash and soaring memory costs: Tech&#39;s AI buildout has ballooning price tag"
+            data-url="https://news.google.com/rss/articles/CBMic0FVX3lxTE1YcnJ1a2s4bDZXUFRIek1EbUhMbE1LdEp2THZDeVIzeWR2bGF5ZEFrYVdKMmlmWml6VGxyQThpb1J1Mi1fUXpJX19RQ3FMdk1sczkyakJ2TUwwOUcyZmRZckY1ekl3UlpaQUdYcE5QNTh2amPSAXhBVV95cUxNOTVYdnVjYUl5dms0VTh6UEh1a2ROOXhnVk0xWXRxc0I1MGxHc3ZPYVlEZ3FCS3ZTbHhyNmZPS0t3X1Q1dTIwaS0wbnRvOWluNEdjNGFUcjF4NzAzQ0x2Uk5XMURPbmFpS2FYYy1mY3FKeUZ1MEV4VVA?oc=5"
+            data-title="Dwindling cash and soaring memory costs: Tech&#39;s AI buildout has ballooning price tag - CNBC"
             data-source="CNBC"
             data-category="Global Technology"
             data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE1YcnJ1a2s4bDZXUFRIek1EbUhMbE1LdEp2THZDeVIzeWR2bGF5ZEFrYVdKMmlmWml6VGxyQThpb1J1Mi1fUXpJX19RQ3FMdk1sczkyakJ2TUwwOUcyZmRZckY1ekl3UlpaQUdYcE5QNTh2amPSAXhBVV95cUxNOTVYdnVjYUl5dms0VTh6UEh1a2ROOXhnVk0xWXRxc0I1MGxHc3ZPYVlEZ3FCS3ZTbHhyNmZPS0t3X1Q1dTIwaS0wbnRvOWluNEdjNGFUcjF4NzAzQ0x2Uk5XMURPbmFpS2FYY01meXFKeUZ1MEV4VVA?oc=5" target="_blank" rel="noopener">Dwindling cash and soaring memory costs: Tech&#39;s AI buildout has ballooning price tag</a>
+            <a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE1YcnJ1a2s4bDZXUFRIek1EbUhMbE1LdEp2THZDeVIzeWR2bGF5ZEFrYVdKMmlmWml6VGxyQThpb1J1Mi1fUXpJX19RQ3FMdk1sczkyakJ2TUwwOUcyZmRZckY1ekl3UlpaQUdYcE5QNTh2amPSAXhBVV95cUxNOTVYdnVjYUl5dms0VTh6UEh1a2ROOXhnVk0xWXRxc0I1MGxHc3ZPYVlEZ3FCS3ZTbHhyNmZPS0t3X1Q1dTIwaS0wbnRvOWluNEdjNGFUcjF4NzAzQ0x2Uk5XMURPbmFpS2FYYy1mY3FKeUZ1MEV4VVA?oc=5" target="_blank" rel="noopener">Dwindling cash and soaring memory costs: Tech&#39;s AI buildout has ballooning price tag - CNBC</a>
             <div class="pub">2026-07-31 13:06 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>AI spending by megacaps is projected to reach $765 billion this year and nearly $1.2 trillion in 2027, leading to significant pressure on free cash flow for major tech companies like Amazon, Meta, and Alphabet, which recently reported negative FCF.</li><li>Soaring memory costs, particularly for HBM chips, are a primary driver of increased capital expenditure, with CEOs like Elon Musk and Andy Jassy highlighting &#34;insane&#34; or &#34;inflated&#34; pricing.</li><li>Apple, despite lower overall AI spending, is vulnerable to the memory crunch, leading to price hikes on Macs and iPads, expected iPhone increases, and a weaker-than-expected forecast due to &#34;supply constraints&#34; and anticipated continued memory price increases.</li>
+              <li>AI spending is projected to reach $765 billion this year and nearly $1.2 trillion in 2027, with Amazon raising its capex forecast to $220 billion, highlighting escalating investment.</li><li>Major tech companies like Amazon, Meta, and Alphabet have reported negative free cash flow in recent periods, with Alphabet&#39;s CFO indicating continued pressure due to &#34;AI opportunity&#34; investments.</li><li>Soaring memory chip prices, described as &#34;insane&#34; by Elon Musk and &#34;inflated&#34; by Andy Jassy, are a primary driver of increased costs, impacting even Apple, which expects further price hikes and supply constraints.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">CNBC</span></td>
-          <td class="rating">★★★★★<span class="reason">Highlights the direct financial strain (negative FCF) and specific cost pressures (memory crunch) impacting Big Tech&#39;s profitability due to AI investments.</span>
+          <td class="rating">★★★★★<span class="reason">Reveals direct financial strain on tech giants (negative FCF) and specific cost pressures (memory chips) from AI investments.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1214,11 +1252,11 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Amazon finalized its $50 billion investment in OpenAI, with the remaining $21.3 billion committed after June 30, signaling strong confidence in OpenAI&#39;s long-term potential and valuation.</li><li>The deal designates Amazon Web Services (AWS) as the exclusive third-party cloud provider for OpenAI’s Frontier program, with potential infrastructure agreements totaling $100 billion over eight years, significantly bolstering AWS&#39;s revenue pipeline.</li><li>OpenAI&#39;s ChatGPT is nearing 1 billion weekly active users in under four years, positioning it as one of the fastest-growing apps ever, while recent price cuts and performance boosts aim to enhance enterprise adoption and cost-efficiency.</li>
+              <li>Amazon finalized its $50 billion investment in OpenAI, with AWS becoming the exclusive third-party cloud provider for OpenAI’s Frontier program, potentially leading to $100 billion in infrastructure agreements over eight years.</li><li>OpenAI&#39;s ChatGPT is nearing 1 billion weekly active users in under four years, making it one of the fastest-growing apps, indicating strong market adoption and future revenue potential.</li><li>OpenAI recently cut prices and improved performance for some models, signaling a strategic focus on enhancing &#34;performance per dollar&#34; for enterprise workloads to drive broader adoption.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">PYMNTS.com</span></td>
-          <td class="rating">★★★★★<span class="reason">Confirms a massive strategic investment and cloud partnership, impacting two major tech players and the broader AI infrastructure market.</span>
+          <td class="rating">★★★★★<span class="reason">Major strategic investment and partnership impacting cloud infrastructure, AI development, and market competition.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1231,23 +1269,23 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiwgFBVV95cUxQdE9fSTBtV3JEbDY4cnFabXZKVXZ3M0tUaURtUUxoYm8tblNMbDRNUHlUSnNMS0FuT3RDQ2RUUGQ0X1NhUWZFRHVWck5pR2I0N0haa0VwbWUwOWpZd2Ffb2xROGRxQklrNV9aWGQ3clY0STBXSVJER3RqcW55QjllUnNELVRjeGVEOXNRV1Y0cnR0QXVGdXNHcTAza180eHUxcVhfSFZmUHpaUTZweTU0RU01NXRxYmdJaUN1eEprNURUdw?oc=5"
+            data-url="https://news.google.com/rss/articles/CBMiwgFBVV95cUxQdE9fSTBtV3JEbDY4cnFabXZKVXZ3M0tUaURtUUxoYm8tblNMbDRNUHlUSnNMS0FuT3RDQ2RUUGQ0X1NhUWZFRHVWck5pR2I0N0haa0VwbWUwOWpZd2Ffb2xROGRxQklrNV9aWGQ3clY0STBXSVJER3RqcW55QjllUnNELVRjeGVEO3NRV1Y0cnR0QXVGdXNHcTAza180eHUxcVhfSFZmUHpaUTZweTU0RU01NXRxYmdJaUN1eEprNURUdw?oc=5"
             data-title="Amazon and Microsoft highlight a continued AI spending spree, igniting chip rally"
-            data-source="Los Angeles Times"
+            data-source="latimes.com"
             data-category="Artificial Intelligence"
             data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxQdE9fSTBtV3JEbDY4cnFabXZKVXZ3M0tUaURtUUxoYm8tblNMbDRNUHlUSnNMS0FuT3RDQ2RUUGQ0X1NhUWZFRHVWck5pR2I0N0haa0VwbWUwOWpZd2Ffb2xROGRxQklrNV9aWGQ3clY0STBXSVJER3RqcW55QjllUnNELVRjeGVEOXNRV1Y0cnR0QXVGdXNHcTAza180eHUxcVhfSFZmUHpaUTZweTU0RU01NXRxYmdJaUN1eEprNURUdw?oc=5" target="_blank" rel="noopener">Amazon and Microsoft highlight a continued AI spending spree, igniting chip rally</a>
+            <a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxQdE9fSTBtV3JEbDY4cnFabXZKVXZ3M0tUaURtUUxoYm8tblNMbDRNUHlUSnNMS0FuT3RDQ2RUUGQ0X1NhUWZFRHVWck5pR2I0N0haa0VwbWUwOWpZd2Ffb2xROGRxQklrNV9aWGQ3clY0STBXSVJER3RqcW55QjllUnNELVRjeGVEO3NRV1Y0cnR0QXVGdXNHcTAza180eHUxcVhfSFZmUHpaUTZweTU0RU01NXRxYmdJaUN1eEprNURUdw?oc=5" target="_blank" rel="noopener">Amazon and Microsoft highlight a continued AI spending spree, igniting chip rally</a>
             <div class="pub">2026-07-31 16:53 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Amazon increased its full-year capital expenditure forecast to $220 billion (from $200 billion), with most directed towards AI, signaling aggressive investment in AI infrastructure development.</li><li>Microsoft affirmed its CapEx forecast, while Alphabet raised its outlook and Meta increased the low end of its guidance, collectively indicating a sustained, robust demand for AI-related chips and networking gear.</li><li>The confirmed spending spree by hyperscalers has brightened the outlook for computing and networking chipmakers, leading to significant stock rallies for Amazon (up 16%) and Microsoft (adding $450 billion to market cap).</li>
+              <li>Amazon increased its full-year capital expenditure forecast by $20 billion to $220 billion, with the majority earmarked for AI, signaling robust investment in AI infrastructure.</li><li>Hyperscalers like Amazon and Microsoft reported accelerated cloud revenue growth (Amazon 5th straight quarter, Microsoft fastest in 4 years), driving significant market cap increases ($450B for MSFT), validating AI investments.</li><li>Continued aggressive AI spending by major cloud providers is expected to boost demand for computing and networking chipmakers, potentially leading to upside for 2026-27 consensus estimates in the semiconductor sector.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Los Angeles Times</span></td>
-          <td class="rating">★★★★★<span class="reason">Details massive CapEx increases by multiple tech giants, directly boosting the chip sector and driving significant market cap gains.</span>
+          <td class="source"><span class="chip">latimes.com</span></td>
+          <td class="rating">★★★★★<span class="reason">Direct financial impact on major tech companies and the semiconductor industry, confirming strong AI investment trends.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1275,23 +1313,23 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMihAFBVV95cUxPUEpmYTdqUGtSOG1pQ0pHc3Jnd01QX2hnU1gydEIzQUxlVUJoS3BOQmloRTQ2LW4tVnZOeC1ab2poVUJwX2V5MUpiSExZTmZMOFVPemRTbmFIVW9YdGVIRVhtcjlaTkVmamtEbHd6aHZKdVBBUl90TVo1bVRqeHc4TzlrM08?oc=5"
-            data-title="NXP in talks to buy $3bn-plus designer of camera chips for self-driving cars"
-            data-source="Financial Times"
+            data-url="https://news.google.com/rss/articles/CBMisgFBVV95cUxNU1poWUtGdVhkM3hHRXNmYUJDTVJxU3JWeEgwOEI1ODFNdVhnRzdjc2QtNnlaZzV2cURkMlYwSWE4NUpwOFFWQ2RWb2xkZ1pvZFpGTjN5MGU1dHZHaWx3SnhCNmFFSS1vcGdTdjI3VU1tR1dtUndfTzBPWXhVZ0FuamJJam1ZSWJJWGszbmFtMEhJLTV1QmQwNXlRcnY1eWFXWDUtWXI4Zk9LTVZIb1ZRcUVn?oc=5"
+            data-title="How Alphabet and Amazon Each Built The ‘Best’ Nvidia Chip Alternatives"
+            data-source="24/7 Wall St."
             data-category="Semiconductors"
             data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxPUEpmYTdqUGtSOG1pQ0pHc3Jnd01QX2hnU1gydEIzQUxlVUJoS3BOQmloRTQ2LW4tVnZOeC1ab2poVUJwX2V5MUpiSExZTmZMOFVPemRTbmFIVW9YdGVIRVhtcjlaTkVmamtEbHd6aHZKdVBBUl90TVo1bVRqeHc4TzlrM08?oc=5" target="_blank" rel="noopener">NXP in talks to buy $3bn-plus designer of camera chips for self-driving cars</a>
-            <div class="pub">2026-07-31 16:32 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxNU1poWUtGdVhkM3hHRXNmYUJDTVJxU3JWeEgwOEI1ODFNdVhnRzdjc2QtNnlaZzV2cURkMlYwSWE4NUpwOFFWQ2RWb2xkZ1pvZFpGTjN5MGU1dHZHaWx3SnhCNmFFSS1vcGdTdjI3VU1tR1dtUndfTzBPWXhVZ0FuamJJam1ZSWJJWGszbmFtMEhJLTV1QmQwNXlRcnY1eWFXWDUtWXI4Zk9LTVZIb1ZRcUVn?oc=5" target="_blank" rel="noopener">How Alphabet and Amazon Each Built The ‘Best’ Nvidia Chip Alternatives</a>
+            <div class="pub">2026-07-31 18:51 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>NXP Semiconductors is reportedly in talks to acquire Ambarella, a designer of camera chips for autonomous vehicles, with a potential valuation exceeding $3 billion.</li><li>This acquisition would significantly bolster NXP&#39;s position in the rapidly growing automotive semiconductor market, particularly in AI vision processing for self-driving cars.</li><li>The deal could enhance NXP&#39;s product portfolio and market share against competitors in the automotive AI chip space, signaling strategic consolidation.</li>
+              <li>Alphabet&#39;s Q2 Cloud revenue surged 82% to $24.77B, with operating margin jumping to 35.6% (from 20.7%), largely attributed to in-house TPUs driving cost efficiency and new TPU system sales.</li><li>Amazon&#39;s AWS grew 37% to $42.23B, achieving a 39.4% operating margin, with its custom AI/Chips businesses (Trainium, Graviton) now exceeding $25B run rates and triple-digit growth.</li><li>Both tech giants are making massive CapEx investments (~$200B each) in custom silicon, leading to negative Q2 FCF, indicating a strategic shift to reduce reliance on third-party chips like Nvidia&#39;s, albeit with significant upfront costs.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Financial Times</span></td>
-          <td class="rating">★★★★★<span class="reason">Potential multi-billion dollar M&amp;A in a strategic growth sector (automotive AI) for a major semiconductor player.</span>
+          <td class="source"><span class="chip">24/7 Wall St.</span></td>
+          <td class="rating">★★★★★<span class="reason">Highlights major hyperscaler shift to custom AI chips, directly impacting Nvidia&#39;s market and future growth.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1308,7 +1346,7 @@
             data-title="Nvidia’s Valuation Gap With AMD Just Got Bigger"
             data-source="Yahoo! Finance Canada"
             data-category="Semiconductors"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
             <a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxPZXBnbm5aLWJhSk1UeEJFZ0ZYdGhOVGdOSzRTYkgzbVFaUTJ3V09XTnlzRmlRUnlpSkdnb1dBZkliZjBOLWg0V1ROR0FHVWJMVFpzMHYxMzJqQkRZcTJ5STJNcjFMNDRtT0xlcVFualZFS3lfcmUzdGVfNFpQcWJGX216RE0?oc=5" target="_blank" rel="noopener">Nvidia’s Valuation Gap With AMD Just Got Bigger</a>
@@ -1316,11 +1354,11 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Nvidia&#39;s recent stock pullback has lowered its valuation to its cheapest since 2019, trading at ~22x forward earnings, significantly below AMD&#39;s ~67x, despite record Q1 2027 revenue of $81.6 billion (up 85% YoY).</li><li>The company has secured ~$1 trillion in confirmed orders for Blackwell and Vera Rubin chips through 2027 and is expanding into new markets like server CPUs with its Vera product, expecting $20 billion in revenue this fiscal year.</li><li>Key risks include hyperscalers developing in-house AI chips and significant financing commitments (up to $600 billion for OpenAI) which could strain Nvidia&#39;s balance sheet or future demand.</li>
+              <li>Nvidia&#39;s stock pullback has lowered its valuation to 2019 levels, trading at ~22x forward earnings, significantly cheaper than AMD&#39;s ~67x, despite reporting record FQ1 2027 revenue of $81.6 billion (up 85% YoY).</li><li>The company has secured approximately $1 trillion in confirmed orders for its Blackwell and Vera Rubin chips through 2027 and projects hyperscaler AI spending to reach $3-4 trillion annually by decade&#39;s end.</li><li>Key risks include hyperscalers developing custom AI chips in-house and a projected slowdown in revenue growth (219% cumulative FY26-29 vs. 700% prior three years), alongside significant financing commitments for partners like OpenAI (up to $600B in leases/GPU purchases).</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Yahoo! Finance Canada</span></td>
-          <td class="rating">★★★★☆<span class="reason">Detailed analysis of the market leader&#39;s valuation, growth drivers, and significant risks, highly relevant for investor decisions.</span>
+          <td class="rating">★★★★★<span class="reason">Comprehensive analysis of Nvidia&#39;s performance, valuation, growth drivers, and critical competitive threats.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1349,22 +1387,22 @@
         
         <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMiogFBVV95cUxQVnYyMTFyTDhSZHZwOWlDM1NrV0xaeEszR1Z4a1V1T1ZaVjlaODNhYjBqQ3d2cy1FazkydG05dF9XaXpyM0djQmYyZDNwZWE1M3N2VUwwa3RRZ1dyTEFnaDdQZlNaS3hNT0o4NWdteS1zMTUzMjhiVUFiajFIS01EOGowS3k3ZDhfRGJlYjV2dERHQ1hScElPY1F3NmNETzRZV0E?oc=5"
-            data-title="Global sales of electric cars reached record levels in 50 countries - Balkan Green Energy News"
+            data-title="Global sales of electric cars reached record levels in 50 countries"
             data-source="Balkan Green Energy News"
             data-category="Electric Vehicles"
             data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQVnYyMTFyTDhSZHZwOWlDM1NrV0xaeEszR1Z4a1V1T1ZaVjlaODNhYjBqQ3d2cy1FazkydG05dF9XaXpyM0djQmYyZDNwZWE1M3N2VUwwa3RRZ1dyTEFnaDdQZlNaS3hNT0o4NWdteS1zMTUzMjhiVUFiajFIS01EOGowS3k3ZDhfRGJlYjV2dERHQ1hScElPY1F3NmNETzRZV0E?oc=5" target="_blank" rel="noopener">Global sales of electric cars reached record levels in 50 countries - Balkan Green Energy News</a>
+            <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQVnYyMTFyTDhSZHZwOWlDM1NrV0xaeEszR1Z4a1V1T1ZaVjlaODNhYjBqQ3d2cy1FazkydG05dF9XaXpyM0djQmYyZDNwZWE1M3N2VUwwa3RRZ1dyTEFnaDdQZlNaS3hNT0o4NWdteS1zMTUzMjhiVUFiajFIS01EOGowS3k3ZDhfRGJlYjV2dERHQ1hScElPY1F3NmNETzRZV0E?oc=5" target="_blank" rel="noopener">Global sales of electric cars reached record levels in 50 countries</a>
             <div class="pub">2026-07-31 15:26 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Global EV sales surged 35% in Q2 2026 compared to Q1, reaching record levels in 50 countries, despite a 5% overall car sales decline in H1.</li><li>The International Energy Agency (IEA) projects EVs to comprise 29% of total car sales worldwide in 2026, driven by fuel price volatility from the Mideast war.</li><li>China&#39;s EV exports in H1 2026 nearly matched the total for all of 2025, indicating significant international market penetration and competitive pressure.</li>
+              <li>Global EV sales rebounded sharply in Q2 2026, surging 35% compared to Q1, driven by fuel price volatility from the Mideast war, despite a 5% overall car sales decline in H1.</li><li>IEA projects electric vehicles to comprise 29% of total global car sales in 2026, indicating significant market penetration growth.</li><li>Chinese EV exports in H1 2026 nearly matched the total for all of 2025, highlighting China&#39;s growing dominance in the global EV supply chain.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Balkan Green Energy News</span></td>
-          <td class="rating">★★★★★<span class="reason">Provides comprehensive, data-rich insights into global EV market growth and key macro drivers.</span>
+          <td class="rating">★★★★★<span class="reason">Provides comprehensive global EV market performance, macro drivers, and future projections.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1378,22 +1416,22 @@
         
         <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMiYEFVX3lxTE1xVEo5ZFlKcTN2RzROUlRBMjZUNnQ5WGZ0UURkWnBIQVp0OEN5SmFCd0hId09kZmVfS3hpZUctaTJuVFZaWjRPeUFWV0NPblRIdkNkRVJMOFJjRDNwTXhmSNIBZkFVX3lxTE14bXZuY1h6SUFUZ3dKVEkwbnAtUnZxWlVNekVVN25jSUlhSm4yZzBIUlVvTllWbV9jY3BqZHNKWmRXR21GQktzMHZERFFwNlJDY0VPRnZnUE9Lajlmb0ZaczllRE9hQQ?oc=5"
-            data-title="EV prices aren&#39;t following the &#39;law of used cars,&#39; analyst says — what it means for buyers and sellers - CNBC"
+            data-title="EV prices aren&#39;t following the &#39;law of used cars,&#39; analyst says — what it means for buyers and sellers"
             data-source="CNBC"
             data-category="Electric Vehicles"
             data-rating="4"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE1xVEo5ZFlKcTN2RzROUlRBMjZUNnQ5WGZ0UURkWnBIQVp0OEN5SmFCd0hId09kZmVfS3hpZUctaTJuVFZaWjRPeUFWV0NPblRIdkNkRVJMOFJjRDNwTXhmSNIBZkFVX3lxTE14bXZuY1h6SUFUZ3dKVEkwbnAtUnZxWlVNekVVN25jSUlhSm4yZzBIUlVvTllWbV9jY3BqZHNKWmRXR21GQktzMHZERFFwNlJDY0VPRnZnUE9Lajlmb0ZaczllRE9hQQ?oc=5" target="_blank" rel="noopener">EV prices aren&#39;t following the &#39;law of used cars,&#39; analyst says — what it means for buyers and sellers - CNBC</a>
+            <a href="https://news.google.com/rss/articles/CBMiYEFVX3lxTE1xVEo5ZFlKcTN2RzROUlRBMjZUNnQ5WGZ0UURkWnBIQVp0OEN5SmFCd0hId09kZmVfS3hpZUctaTJuVFZaWjRPeUFWV0NPblRIdkNkRVJMOFJjRDNwTXhmSNIBZkFVX3lxTE14bXZuY1h6SUFUZ3dKVEkwbnAtUnZxWlVNekVVN25jSUlhSm4yZzBIUlVvTllWbV9jY3BqZHNKWmRXR21GQktzMHZERFFwNlJDY0VPRnZnUE9Lajlmb0ZaczllRE9hQQ?oc=5" target="_blank" rel="noopener">EV prices aren&#39;t following the &#39;law of used cars,&#39; analyst says — what it means for buyers and sellers</a>
             <div class="pub">2026-07-31 12:15 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Used EV prices appreciated 5.1% from January to June 2026, and 7% year-to-date through mid-July, defying the typical rapid depreciation for used cars and EVs.</li><li>This unusual trend, observed across 21 of 25 top-selling used EV models, benefits current owners by improving resale values but increases costs for potential buyers.</li><li>The appreciation suggests a significant shift in supply-demand dynamics within the used EV market, impacting total cost of ownership and potentially new vehicle sales.</li>
+              <li>Used EV prices are appreciating, rising 5.1% from January to June 2026 and 7% year-to-date through mid-July, a significant deviation from typical rapid depreciation for used cars and historical EV trends.</li><li>The average transaction price for 3-year-old EVs increased 6% to $33,303 in H1 2026, with 21 of 25 top-selling used EV models showing price growth.</li><li>This trend benefits current EV owners by improving resale values but could deter new buyers due to higher entry costs, impacting market affordability and demand dynamics.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">CNBC</span></td>
-          <td class="rating">★★★★☆<span class="reason">Highlights a counter-intuitive and financially significant shift in used EV market dynamics.</span>
+          <td class="rating">★★★★☆<span class="reason">Highlights a critical, counter-intuitive shift in EV residual values impacting owners, buyers, and market health.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1421,23 +1459,23 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMivwFBVV95cUxQX0xzSURJZG4ya3VVY3dURzZCWnl0cEdWR0tfMTA0azBNdXdPQ1M5THFfT0xNQTMtZXBLQkVyRGUzVnJnOUZvUWhqWnVvbVlxTk45akNYRlYzNTlpNzJIYWVNdUdySE4yWXA5VURKdV9BVzNrQ3NfbkY3TTc1SjlKeEN4Z1hwcGpEMmMtN3c3RDJtVzYtbjVibmhLTjR3REtHNjRqZTVSMkJEN1BEa3VCYWkxNExVazg2M3pCb0hJOA?oc=5"
-            data-title="The AI Era And The Future Of Indonesia’s Telecommunications Infrastructure – Analysis - Eurasia Review"
-            data-source="Eurasia Review"
+            data-url="https://news.google.com/rss/articles/CBMihwFBVV95cUxQUUt4MGh1N1hsZXl5Yk5kMU1lcnRGWVZEZ3dtUU8ySl93ZWRPSExTTE92bHhkNU9oOFp2VGc5dEp1VlpsTDZZTURpWFhXTkhIMHN6UzFwZFFZVEhmQ1oyNFB4SHVkczB4WDNYNFFUZVhSMm5SdjRUVnVaR0diUFlEUGFUTlRTTGc?oc=5"
+            data-title="Amazon&#39;s AI infrastructure bill just got $20B bigger"
+            data-source="Fierce Network"
             data-category="Data Centers"
-            data-rating="2"
+            data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxQX0xzSURJZG4ya3VVY3dURzZCWnl0cEdWR0tfMTA0azBNdXdPQ1M5THFfT0xNQTMtZXBLQkVyRGUzVnJnOUZvUWhqWnVvbVlxTk45akNYRlYzNTlpNzJIYWVNdUdySE4yWXA5VURKdV9BVzNrQ3NfbkY3TTc1SjlKeEN4Z1hwcGpEMmMtN3c3RDJtVzYtbjVibmhLTjR3REtHNjRqZTVSMkJEN1BEa3VCYWkxNExVazg2M3pCb0hJOA?oc=5" target="_blank" rel="noopener">The AI Era And The Future Of Indonesia’s Telecommunications Infrastructure – Analysis - Eurasia Review</a>
-            <div class="pub">2026-07-31 18:32 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxQUUt4MGh1N1hsZXl5Yk5kMU1lcnRGWVZEZ3dtUU8ySl93ZWRPSExTTE92bHhkNU9oOFp2VGc5dEp1VlpsTDZZTURpWFhXTkhIMHN6UzFwZFFZVEhmQ1oyNFB4SHVkczB4WDNYNFFUZVhSMm5SdjRUVnVaR0diUFlEUGFUTlRTTGc?oc=5" target="_blank" rel="noopener">Amazon&#39;s AI infrastructure bill just got $20B bigger</a>
+            <div class="pub">2026-07-31 15:53 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The AI Era And The Future Of Indonesia’s Telecommunications Infrastructure – Analysis  Eurasia Review</li>
+              <li>Amazon increased its 2026 cash CapEx by $20 billion to $220 billion, primarily driven by rising memory prices and a surging AI backlog, which has grown 2.5x to $496 billion in the last year.</li><li>AWS is on track to double its power capacity by the end of 2027 compared to 2025, indicating aggressive infrastructure expansion to meet unprecedented AI demand.</li><li>AWS revenue surged 36.7% (highest in 18 quarters) to $42.2 billion, reinforcing its role as Amazon&#39;s primary profit engine and highlighting strong enterprise AI demand translating into cloud consumption.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Eurasia Review</span></td>
-          <td class="rating">★★☆☆☆<span class="reason">Heuristic rating (no AI summary).</span>
+          <td class="source"><span class="chip">Fierce Network</span></td>
+          <td class="rating">★★★★★<span class="reason">Direct, quantifiable evidence of massive hyperscaler AI investment and demand, impacting cloud, semiconductor, and data center sectors.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1450,23 +1488,23 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiigFBVV95cUxOQ1c3SmpCM3dKVmZ1WXdvbnp0ZGx0NlB2bmZfbUlWMm44cDZCbWlwX1FPSDlzSkxnSkZ5V2hUbXpySXBEUk1HQlFTRE5DaU9hdHFZMDNyaUZHZDFuazg2bGRNT0FRaHNHVkJ2UkdMYzdmbWZHTFRES1B5alJ1d1Nac0hhZElqNklCenc?oc=5"
-            data-title="The Changing Landscape For Data Centers: US Multistate Executive Actions Enact Sweeping Regulatory Guardrails (UPDATED) - JD Supra"
-            data-source="JD Supra"
+            data-url="https://news.google.com/rss/articles/CBMirgFBVV95cUxOSmJHWmp1MjRvc2c3V0hXc0xyTXAySHdKT3pSZmRzeTFoM0I3aDVyaVUwbldUc1lzT1czT29UTzRxdlFENTdrSTU0R2poNGNic3VZaURrWkRBZGliaXRMU1VmR0NEUHZDazRCeXRhSWhwc0FVZWhSUnNoV21lT0pMT2w2c245MTIzNVUxalZNMEpkVFBkZlFSZFBkaWltY3A1blp3cnNFdVdoWm1HcVE?oc=5"
+            data-title="The Data Center Industry’s Permission to Build"
+            data-source="Data Center Frontier"
             data-category="Data Centers"
-            data-rating="2"
+            data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxOQ1c3SmpCM3dKVmZ1WXdvbnp0ZGx0NlB2bmZfbUlWMm44cDZCbWlwX1FPSDlzSkxnSkZ5V2hUbXpySXBEUk1HQlFTRE5DaU9hdHFZMDNyaUZHZDFuazg2bGRNT0FRaHNHVkJ2UkdMYzdmbWZHTFRES1B5alJ1d1Nac0hhZElqNklCenc?oc=5" target="_blank" rel="noopener">The Changing Landscape For Data Centers: US Multistate Executive Actions Enact Sweeping Regulatory Guardrails (UPDATED) - JD Supra</a>
-            <div class="pub">2026-07-31 17:49 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxOSmJHWmp1MjRvc2c3V0hXc0xyTXAySHdKT3pSZmRzeTFoM0I3aDVyaVUwbldUc1lzT1czT29UTzRxdlFENTdrSTU0R2poNGNic3VZaURrWkRBZGliaXRMU1VmR0NEUHZDazRCeXRhSWhwc0FVZWhSUnNoV21lT0pMT2w2c245MTIzNVUxalZNMEpkVFBkZlFSZFBkaWltY3A1blp3cnNFdVdoWm1HcVE?oc=5" target="_blank" rel="noopener">The Data Center Industry’s Permission to Build</a>
+            <div class="pub">2026-07-31 15:20 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The Changing Landscape For Data Centers: US Multistate Executive Actions Enact Sweeping Regulatory Guardrails (UPDATED)  JD Supra</li>
+              <li>Public and regulatory resistance to data center development is intensifying, with 57% of respondents in a Reuters/Ipsos poll opposing a data center in their community due to concerns over power, water, noise, and local benefits.</li><li>New York has imposed a one-year pause on environmental approvals for hyperscale data centers, citing nearly 12 GW of load requests and risks to ratepayers and infrastructure, while Montgomery County, MD, enacted an 18-month permit pause.</li><li>This growing &#39;permission to build&#39; challenge represents a significant constraint on the industry&#39;s ability to meet projected demand, potentially increasing development costs, extending timelines, and limiting site availability.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">JD Supra</span></td>
-          <td class="rating">★★☆☆☆<span class="reason">Heuristic rating (no AI summary).</span>
+          <td class="source"><span class="chip">Data Center Frontier</span></td>
+          <td class="rating">★★★★★<span class="reason">Highlights a critical, emerging systemic risk (regulatory/social pushback) that could significantly impede future data center supply and growth.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1506,11 +1544,11 @@
           </td>
           <td class="summary">
             <ul>
-              <li>SpaceX secured a significant $1.6 billion contract from the Pentagon for 18 launches, bolstering its defense sector revenue stream.</li><li>This substantial award could positively influence SpaceX&#39;s valuation, especially if it helps alleviate concerns over a recent &#34;stock slump&#34; as implied by the article&#39;s title.</li><li>The contract underscores the increasing reliance of the US military on commercial space providers for critical launch services, signaling a growing market for companies like SpaceX.</li>
+              <li>SpaceX secured a substantial $1.6 billion military contract for 18 launches, signaling continued strong demand for its launch services from the defense sector.</li><li>This significant revenue injection could positively impact SpaceX&#39;s valuation and investor sentiment, especially if the company has been experiencing a &#34;stock slump&#34; as implied by the headline.</li><li>The contract reinforces SpaceX&#39;s critical role in national security space missions, diversifying its revenue beyond Starlink and commercial launches.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Barron&#39;s</span></td>
-          <td class="rating">★★★★☆<span class="reason">Large, direct revenue contract for a major private space company.</span>
+          <td class="rating">★★★★☆<span class="reason">Direct, large contract for a major private space company, impacting revenue and market position.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1523,23 +1561,23 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMipAFBVV95cUxQLWEtZXJ0TFA0RldUal91VXhRUzd1c0p5LUtEblJQa2U1a2RoVE9ZTXZGUVd4WmdjMThzZ19Mcy1IVWNaUGFUZlRyYTdHWTczdV9fbEJ6WjJlNW1Nb2taW3JvSzlPZVpONVc1N0NsczZ0b3BEYzY0OThRME82bWFIZ0VUdzNZZzZ0VkJNcjdiUlc2eXJVMWtPMDFCTUxGMzhCa3dIOA?oc=5"
+            data-url="https://news.google.com/rss/articles/CBMipAFBVV95cUxQLWEtZXJ0TFA0RldUal91VXhRUzd1c0p5LUtEblJQa2U1a2RoVE9ZTXZGUVd4WmdjMThzZ19Mcy1IVWNaUGFUZlRyYTdHWTczdV9fbEJ6WjJlNW1Ob2taV3IwSzlPZVpONVc1N0NsczZ0b3BEYzY0OThRME82bWFIZ0VUdzNZZzZ0VkJNcjdiUlc2eXJVMWtPMDFCTUxGMzhCa3dIOA?oc=5"
             data-title="FAA Proposes Faster Licensing Process for Commercial Space Industry"
             data-source="The Well News"
             data-category="Space &amp; Aerospace"
             data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxQLWEtZXJ0TFA0RldUal91VXhRUzd1c0p5LUtEblJQa2U1a2RoVE9ZTXZGUVd4WmdjMThzZ19Mcy1IVWNaUGFUZlRyYTdHWTczdV9fbEJ6WjJlNW1Nb2taW3JvSzlPZVpONVc1N0NsczZ0b3BEYzY0OThRME82bWFIZ0VUdzNZZzZ0VkJNcjdiUlc2eXJVMWtPMDFCTUxGMzhCa3dIOA?oc=5" target="_blank" rel="noopener">FAA Proposes Faster Licensing Process for Commercial Space Industry</a>
+            <a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxQLWEtZXJ0TFA0RldUal91VXhRUzd1c0p5LUtEblJQa2U1a2RoVE9ZTXZGUVd4WmdjMThzZ19Mcy1IVWNaUGFUZlRyYTdHWTczdV9fbEJ6WjJlNW1Ob2taV3IwSzlPZVpONVc1N0NsczZ0b3BEYzY0OThRME82bWFIZ0VUdzNZZzZ0VkJNcjdiUlc2eXJVMWtPMDFCTUxGMzhCa3dIOA?oc=5" target="_blank" rel="noopener">FAA Proposes Faster Licensing Process for Commercial Space Industry</a>
             <div class="pub">2026-07-31 15:12 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The FAA proposes streamlining commercial space licensing by waiving certain environmental review requirements, aiming to accelerate activity and reduce costs across the industry.</li><li>This regulatory shift is expected to enhance the competitiveness of the U.S. commercial space sector, which authorized a record 204 operations in FY2025, by reducing &#34;red tape&#34; and delays.</li><li>The move aligns with a congressional directive to simplify licensing and could lead to increased investment and operational efficiency for all commercial launch providers and satellite operators.</li>
+              <li>The FAA proposes streamlining commercial space licensing by waiving certain environmental review requirements, aiming to accelerate activity and reduce operational costs for launch operators.</li><li>This regulatory shift, driven by rapid industry growth (204 commercial operations in FY2025, more than previous three decades combined), seeks to maintain U.S. competitiveness in the global space sector.</li><li>The proposal could significantly lower barriers to entry and expansion for commercial space companies, potentially boosting investment and innovation across the industry.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">The Well News</span></td>
-          <td class="rating">★★★★★<span class="reason">Systemic regulatory change with broad positive implications for the entire commercial space industry.</span>
+          <td class="rating">★★★★★<span class="reason">Major regulatory change impacting the entire commercial space industry, reducing costs and accelerating growth.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1568,12 +1606,12 @@
         <div class="chart-card up">
           <div class="cc-head">
             <span class="cc-name">S&amp;P 500</span>
-            <span class="cc-last">7486.52</span>
+            <span class="cc-last">7498.72</span>
           </div>
-          <div class="cc-change pos">+0.66%</div>
+          <div class="cc-change pos">+0.82%</div>
           
           <div class="cc-body">
-            <canvas class="trend" data-closes='[7483.23, 7483.2402, 7537.4302, 7503.8501, 7482.71, 7543.6401, 7575.3901, 7515.3398, 7543.5898, 7572.3999, 7533.77, 7457.6899, 7443.2798, 7509.2002, 7498.96, 7408.2998, 7411.98, 7413.1802, 7428.7798, 7316.1499, 7437.6299, 7486.52]'
+            <canvas class="trend" data-closes='[7483.23, 7483.2402, 7537.4302, 7503.8501, 7482.71, 7543.6401, 7575.3901, 7515.3398, 7543.5898, 7572.3999, 7533.77, 7457.6899, 7443.2798, 7509.2002, 7498.96, 7408.2998, 7411.98, 7413.1802, 7428.7798, 7316.1499, 7437.6299, 7498.7202]'
                     data-labels='["Jul 1", "Jul 2", "Jul 6", "Jul 7", "Jul 8", "Jul 9", "Jul 10", "Jul 13", "Jul 14", "Jul 15", "Jul 16", "Jul 17", "Jul 20", "Jul 21", "Jul 22", "Jul 23", "Jul 24", "Jul 27", "Jul 28", "Jul 29", "Jul 30", "Jul 31"]'
                     data-kind="price"></canvas>
           </div>
@@ -1583,12 +1621,12 @@
         <div class="chart-card down">
           <div class="cc-head">
             <span class="cc-name">Nasdaq</span>
-            <span class="cc-last">25347.15</span>
+            <span class="cc-last">25390.70</span>
           </div>
-          <div class="cc-change pos">+0.90%</div>
+          <div class="cc-change pos">+1.07%</div>
           
           <div class="cc-body">
-            <canvas class="trend" data-closes='[26040.0293, 25832.6699, 26121.1602, 25818.6895, 25870.6504, 26206.8906, 26281.6094, 25873.1797, 26107.0098, 26269.2305, 25881.9492, 25520.2402, 25508.0703, 25837.2109, 25690.9004, 25137.6895, 24975.8203, 24932.0801, 24876.9102, 24442.9395, 25122.1797, 25347.1465]'
+            <canvas class="trend" data-closes='[26040.0293, 25832.6699, 26121.1602, 25818.6895, 25870.6504, 26206.8906, 26281.6094, 25873.1797, 26107.0098, 26269.2305, 25881.9492, 25520.2402, 25508.0703, 25837.2109, 25690.9004, 25137.6895, 24975.8203, 24932.0801, 24876.9102, 24442.9395, 25122.1797, 25390.6953]'
                     data-labels='["Jul 1", "Jul 2", "Jul 6", "Jul 7", "Jul 8", "Jul 9", "Jul 10", "Jul 13", "Jul 14", "Jul 15", "Jul 16", "Jul 17", "Jul 20", "Jul 21", "Jul 22", "Jul 23", "Jul 24", "Jul 27", "Jul 28", "Jul 29", "Jul 30", "Jul 31"]'
                     data-kind="price"></canvas>
           </div>
@@ -1598,12 +1636,12 @@
         <div class="chart-card up">
           <div class="cc-head">
             <span class="cc-name">Dow Jones</span>
-            <span class="cc-last">52524.16</span>
+            <span class="cc-last">52579.11</span>
           </div>
-          <div class="cc-change pos">+0.61%</div>
+          <div class="cc-change pos">+0.71%</div>
           
           <div class="cc-body">
-            <canvas class="trend" data-closes='[52305.2383, 52900.0703, 53055.9102, 52925.1484, 52348.3906, 52487.4102, 52637.0117, 52498.6406, 52508.2695, 52658.6406, 52552.9688, 52146.4219, 51839.2617, 52224.6406, 52218.5781, 51711.6484, 51947.25, 52210.0781, 52747.3203, 51594.1406, 52208.0586, 52524.1602]'
+            <canvas class="trend" data-closes='[52305.2383, 52900.0703, 53055.9102, 52925.1484, 52348.3906, 52487.4102, 52637.0117, 52498.6406, 52508.2695, 52658.6406, 52552.9688, 52146.4219, 51839.2617, 52224.6406, 52218.5781, 51711.6484, 51947.25, 52210.0781, 52747.3203, 51594.1406, 52208.0586, 52579.1094]'
                     data-labels='["Jul 1", "Jul 2", "Jul 6", "Jul 7", "Jul 8", "Jul 9", "Jul 10", "Jul 13", "Jul 14", "Jul 15", "Jul 16", "Jul 17", "Jul 20", "Jul 21", "Jul 22", "Jul 23", "Jul 24", "Jul 27", "Jul 28", "Jul 29", "Jul 30", "Jul 31"]'
                     data-kind="price"></canvas>
           </div>
@@ -1705,20 +1743,20 @@
           
           <tr>
             <td>S&amp;P 500</td>
-            <td class="num">7486.52</td>
-            <td class="num"><span class="pos">+0.66%</span></td>
+            <td class="num">7498.72</td>
+            <td class="num"><span class="pos">+0.82%</span></td>
           </tr>
           
           <tr>
             <td>Nasdaq</td>
-            <td class="num">25347.15</td>
-            <td class="num"><span class="pos">+0.90%</span></td>
+            <td class="num">25390.70</td>
+            <td class="num"><span class="pos">+1.07%</span></td>
           </tr>
           
           <tr>
             <td>Dow Jones</td>
-            <td class="num">52524.16</td>
-            <td class="num"><span class="pos">+0.61%</span></td>
+            <td class="num">52579.11</td>
+            <td class="num"><span class="pos">+0.71%</span></td>
           </tr>
           
           <tr>
@@ -1768,12 +1806,12 @@
         <div class="chart-card up">
           <div class="cc-head">
             <span class="cc-name">US 10Y</span>
-            <span class="cc-last">4.74%</span>
+            <span class="cc-last">4.75%</span>
           </div>
-          <div class="cc-change pos">+8.0 bp</div>
+          <div class="cc-change pos">+8.2 bp</div>
           
           <div class="cc-body">
-            <canvas class="trend" data-closes='[4.475, 4.485, 4.479, 4.529, 4.569, 4.539, 4.569, 4.609, 4.585, 4.545, 4.569, 4.541, 4.598, 4.628, 4.657, 4.703, 4.679, 4.641, 4.604, 4.622, 4.663, 4.743]'
+            <canvas class="trend" data-closes='[4.475, 4.485, 4.479, 4.529, 4.569, 4.539, 4.569, 4.609, 4.585, 4.545, 4.569, 4.541, 4.598, 4.628, 4.657, 4.703, 4.679, 4.641, 4.604, 4.622, 4.663, 4.745]'
                     data-labels='["Jul 1", "Jul 2", "Jul 6", "Jul 7", "Jul 8", "Jul 9", "Jul 10", "Jul 13", "Jul 14", "Jul 15", "Jul 16", "Jul 17", "Jul 20", "Jul 21", "Jul 22", "Jul 23", "Jul 24", "Jul 27", "Jul 28", "Jul 29", "Jul 30", "Jul 31"]'
                     data-kind="yield"></canvas>
           </div>
@@ -1815,8 +1853,8 @@
           
           <tr>
             <td>US 10Y</td>
-            <td class="num">4.74%</td>
-            <td class="num"><span class="pos">+8.0 bp</span></td>
+            <td class="num">4.75%</td>
+            <td class="num"><span class="pos">+8.2 bp</span></td>
           </tr>
           
           <tr>
@@ -1842,12 +1880,12 @@
         <div class="chart-card down">
           <div class="cc-head">
             <span class="cc-name">US Dollar Index</span>
-            <span class="cc-last">99.93</span>
+            <span class="cc-last">99.90</span>
           </div>
-          <div class="cc-change neg">-0.08%</div>
+          <div class="cc-change neg">-0.11%</div>
           
           <div class="cc-body">
-            <canvas class="trend" data-closes='[101.39, 100.86, 100.85, 101.14, 101.05, 100.94, 100.97, 101.28, 100.94, 100.5, 100.73, 100.75, 100.99, 101.18, 101.14, 101.43, 101.47, 101.51, 101.38, 100.8, 100.01, 99.927]'
+            <canvas class="trend" data-closes='[101.39, 100.86, 100.85, 101.14, 101.05, 100.94, 100.97, 101.28, 100.94, 100.5, 100.73, 100.75, 100.99, 101.18, 101.14, 101.43, 101.47, 101.51, 101.38, 100.8, 100.01, 99.898]'
                     data-labels='["Jul 1", "Jul 2", "Jul 6", "Jul 7", "Jul 8", "Jul 9", "Jul 10", "Jul 13", "Jul 14", "Jul 15", "Jul 16", "Jul 17", "Jul 20", "Jul 21", "Jul 22", "Jul 23", "Jul 24", "Jul 27", "Jul 28", "Jul 29", "Jul 30", "Jul 31"]'
                     data-kind="price"></canvas>
           </div>
@@ -1859,10 +1897,10 @@
             <span class="cc-name">EUR/USD</span>
             <span class="cc-last">1.15</span>
           </div>
-          <div class="cc-change pos">+0.54%</div>
+          <div class="cc-change pos">+0.58%</div>
           
           <div class="cc-body">
-            <canvas class="trend" data-closes='[1.1378, 1.1423, 1.1438, 1.1442, 1.1404, 1.1422, 1.1433, 1.1404, 1.1384, 1.1425, 1.147, 1.1445, 1.1428, 1.1418, 1.1404, 1.1412, 1.1377, 1.1395, 1.1369, 1.1387, 1.1467, 1.1529]'
+            <canvas class="trend" data-closes='[1.1378, 1.1423, 1.1438, 1.1442, 1.1404, 1.1422, 1.1433, 1.1404, 1.1384, 1.1425, 1.147, 1.1445, 1.1428, 1.1418, 1.1404, 1.1412, 1.1377, 1.1395, 1.1369, 1.1387, 1.1467, 1.1534]'
                     data-labels='["Jul 2", "Jul 3", "Jul 6", "Jul 7", "Jul 8", "Jul 9", "Jul 10", "Jul 13", "Jul 14", "Jul 15", "Jul 16", "Jul 17", "Jul 20", "Jul 21", "Jul 22", "Jul 23", "Jul 24", "Jul 27", "Jul 28", "Jul 29", "Jul 30", "Jul 31"]'
                     data-kind="price"></canvas>
           </div>
@@ -1872,12 +1910,12 @@
         <div class="chart-card down">
           <div class="cc-head">
             <span class="cc-name">USD/JPY</span>
-            <span class="cc-last">159.02</span>
+            <span class="cc-last">159.04</span>
           </div>
-          <div class="cc-change neg">-2.62%</div>
+          <div class="cc-change neg">-2.61%</div>
           
           <div class="cc-body">
-            <canvas class="trend" data-closes='[162.539, 161.449, 161.452, 162.088, 162.363, 162.539, 162.363, 161.878, 162.429, 162.187, 162.072, 162.376, 162.512, 162.487, 163.186, 163.081, 163.832, 163.611, 163.771, 163.864, 163.3, 159.017]'
+            <canvas class="trend" data-closes='[162.539, 161.449, 161.452, 162.088, 162.363, 162.539, 162.363, 161.878, 162.429, 162.187, 162.072, 162.376, 162.512, 162.487, 163.186, 163.081, 163.832, 163.611, 163.771, 163.864, 163.3, 159.042]'
                     data-labels='["Jul 2", "Jul 3", "Jul 6", "Jul 7", "Jul 8", "Jul 9", "Jul 10", "Jul 13", "Jul 14", "Jul 15", "Jul 16", "Jul 17", "Jul 20", "Jul 21", "Jul 22", "Jul 23", "Jul 24", "Jul 27", "Jul 28", "Jul 29", "Jul 30", "Jul 31"]'
                     data-kind="price"></canvas>
           </div>
@@ -1900,10 +1938,10 @@
             <span class="cc-name">USD/HKD</span>
             <span class="cc-last">7.84</span>
           </div>
-          <div class="cc-change pos">+0.00%</div>
+          <div class="cc-change pos">-0.00%</div>
           
           <div class="cc-body">
-            <canvas class="trend" data-closes='[7.8438, 7.8428, 7.8428, 7.8423, 7.8416, 7.8388, 7.8358, 7.8395, 7.8375, 7.8375, 7.8383, 7.8405, 7.8397, 7.8407, 7.8414, 7.8399, 7.8411, 7.8418, 7.8417, 7.8407, 7.842, 7.842]'
+            <canvas class="trend" data-closes='[7.8438, 7.8428, 7.8428, 7.8423, 7.8416, 7.8388, 7.8358, 7.8395, 7.8375, 7.8375, 7.8383, 7.8405, 7.8397, 7.8407, 7.8414, 7.8399, 7.8411, 7.8418, 7.8417, 7.8407, 7.842, 7.8419]'
                     data-labels='["Jul 2", "Jul 3", "Jul 6", "Jul 7", "Jul 8", "Jul 9", "Jul 10", "Jul 13", "Jul 14", "Jul 15", "Jul 16", "Jul 17", "Jul 20", "Jul 21", "Jul 22", "Jul 23", "Jul 24", "Jul 27", "Jul 28", "Jul 29", "Jul 30", "Jul 31"]'
                     data-kind="price"></canvas>
           </div>
@@ -1919,20 +1957,20 @@
           
           <tr>
             <td>US Dollar Index</td>
-            <td class="num">99.93</td>
-            <td class="num"><span class="neg">-0.08%</span></td>
+            <td class="num">99.90</td>
+            <td class="num"><span class="neg">-0.11%</span></td>
           </tr>
           
           <tr>
             <td>EUR/USD</td>
             <td class="num">1.15</td>
-            <td class="num"><span class="pos">+0.54%</span></td>
+            <td class="num"><span class="pos">+0.58%</span></td>
           </tr>
           
           <tr>
             <td>USD/JPY</td>
-            <td class="num">159.02</td>
-            <td class="num"><span class="neg">-2.62%</span></td>
+            <td class="num">159.04</td>
+            <td class="num"><span class="neg">-2.61%</span></td>
           </tr>
           
           <tr>
@@ -1944,7 +1982,7 @@
           <tr>
             <td>USD/HKD</td>
             <td class="num">7.84</td>
-            <td class="num"><span class="pos">+0.00%</span></td>
+            <td class="num"><span class="pos">-0.00%</span></td>
           </tr>
           
         </tbody>
@@ -1958,12 +1996,12 @@
         <div class="chart-card up">
           <div class="cc-head">
             <span class="cc-name">Gold</span>
-            <span class="cc-last">4106.90</span>
+            <span class="cc-last">4105.50</span>
           </div>
-          <div class="cc-change pos">+0.17%</div>
+          <div class="cc-change pos">+0.13%</div>
           
           <div class="cc-body">
-            <canvas class="trend" data-closes='[4068.3, 4112.7002, 4155.1001, 4145.2998, 4070.8999, 4130.6001, 4104.1001, 3997.0, 4061.1001, 4044.0, 3985.6001, 4012.7, 4010.3, 4071.1001, 4146.8999, 4046.6001, 4067.6001, 4074.5, 4036.3, 4034.7, 4100.1001, 4106.8999]'
+            <canvas class="trend" data-closes='[4068.3, 4112.7002, 4155.1001, 4145.2998, 4070.8999, 4130.6001, 4104.1001, 3997.0, 4061.1001, 4044.0, 3985.6001, 4012.7, 4010.3, 4071.1001, 4146.8999, 4046.6001, 4067.6001, 4074.5, 4036.3, 4034.7, 4100.1001, 4105.5]'
                     data-labels='["Jul 1", "Jul 2", "Jul 6", "Jul 7", "Jul 8", "Jul 9", "Jul 10", "Jul 13", "Jul 14", "Jul 15", "Jul 16", "Jul 17", "Jul 20", "Jul 21", "Jul 22", "Jul 23", "Jul 24", "Jul 27", "Jul 28", "Jul 29", "Jul 30", "Jul 31"]'
                     data-kind="price"></canvas>
           </div>
@@ -1973,12 +2011,12 @@
         <div class="chart-card up">
           <div class="cc-head">
             <span class="cc-name">WTI Crude</span>
-            <span class="cc-last">84.56</span>
+            <span class="cc-last">84.66</span>
           </div>
-          <div class="cc-change pos">+1.16%</div>
+          <div class="cc-change pos">+1.28%</div>
           
           <div class="cc-body">
-            <canvas class="trend" data-closes='[68.58, 68.69, 68.55, 70.44, 73.52, 72.08, 71.41, 78.14, 79.34, 79.6, 78.95, 82.49, 83.23, 84.91, 86.83, 92.19, 89.31, 82.61, 79.26, 84.46, 83.59, 84.56]'
+            <canvas class="trend" data-closes='[68.58, 68.69, 68.55, 70.44, 73.52, 72.08, 71.41, 78.14, 79.34, 79.6, 78.95, 82.49, 83.23, 84.91, 86.83, 92.19, 89.31, 82.61, 79.26, 84.46, 83.59, 84.66]'
                     data-labels='["Jul 1", "Jul 2", "Jul 6", "Jul 7", "Jul 8", "Jul 9", "Jul 10", "Jul 13", "Jul 14", "Jul 15", "Jul 16", "Jul 17", "Jul 20", "Jul 21", "Jul 22", "Jul 23", "Jul 24", "Jul 27", "Jul 28", "Jul 29", "Jul 30", "Jul 31"]'
                     data-kind="price"></canvas>
           </div>
@@ -2005,10 +2043,10 @@
             <span class="cc-name">Copper</span>
             <span class="cc-last">6.53</span>
           </div>
-          <div class="cc-change pos">+1.30%</div>
+          <div class="cc-change pos">+1.33%</div>
           
           <div class="cc-body">
-            <canvas class="trend" data-closes='[6.1235, 6.1145, 6.178, 6.1715, 6.0545, 6.215, 6.2335, 6.233, 6.33, 6.2935, 6.296, 6.22, 6.299, 6.511, 6.451, 6.305, 6.32, 6.339, 6.322, 6.2735, 6.4445, 6.528]'
+            <canvas class="trend" data-closes='[6.1235, 6.1145, 6.178, 6.1715, 6.0545, 6.215, 6.2335, 6.233, 6.33, 6.2935, 6.296, 6.22, 6.299, 6.511, 6.451, 6.305, 6.32, 6.339, 6.322, 6.2735, 6.4445, 6.5305]'
                     data-labels='["Jul 1", "Jul 2", "Jul 6", "Jul 7", "Jul 8", "Jul 9", "Jul 10", "Jul 13", "Jul 14", "Jul 15", "Jul 16", "Jul 17", "Jul 20", "Jul 21", "Jul 22", "Jul 23", "Jul 24", "Jul 27", "Jul 28", "Jul 29", "Jul 30", "Jul 31"]'
                     data-kind="price"></canvas>
           </div>
@@ -2024,14 +2062,14 @@
           
           <tr>
             <td>Gold</td>
-            <td class="num">4106.90</td>
-            <td class="num"><span class="pos">+0.17%</span></td>
+            <td class="num">4105.50</td>
+            <td class="num"><span class="pos">+0.13%</span></td>
           </tr>
           
           <tr>
             <td>WTI Crude</td>
-            <td class="num">84.56</td>
-            <td class="num"><span class="pos">+1.16%</span></td>
+            <td class="num">84.66</td>
+            <td class="num"><span class="pos">+1.28%</span></td>
           </tr>
           
           <tr>
@@ -2043,7 +2081,7 @@
           <tr>
             <td>Copper</td>
             <td class="num">6.53</td>
-            <td class="num"><span class="pos">+1.30%</span></td>
+            <td class="num"><span class="pos">+1.33%</span></td>
           </tr>
           
         </tbody>
@@ -2057,12 +2095,12 @@
         <div class="chart-card down">
           <div class="cc-head">
             <span class="cc-name">VIX</span>
-            <span class="cc-last">16.57</span>
+            <span class="cc-last">16.52</span>
           </div>
-          <div class="cc-change neg">-3.04%</div>
+          <div class="cc-change neg">-3.34%</div>
           
           <div class="cc-body">
-            <canvas class="trend" data-closes='[16.59, 16.15, 15.57, 16.13, 16.9, 15.84, 15.03, 17.16, 16.5, 15.67, 16.73, 18.77, 18.65, 17.05, 16.64, 18.7, 18.58, 18.67, 18.21, 20.66, 17.09, 16.57]'
+            <canvas class="trend" data-closes='[16.59, 16.15, 15.57, 16.13, 16.9, 15.84, 15.03, 17.16, 16.5, 15.67, 16.73, 18.77, 18.65, 17.05, 16.64, 18.7, 18.58, 18.67, 18.21, 20.66, 17.09, 16.52]'
                     data-labels='["Jul 1", "Jul 2", "Jul 6", "Jul 7", "Jul 8", "Jul 9", "Jul 10", "Jul 13", "Jul 14", "Jul 15", "Jul 16", "Jul 17", "Jul 20", "Jul 21", "Jul 22", "Jul 23", "Jul 24", "Jul 27", "Jul 28", "Jul 29", "Jul 30", "Jul 31"]'
                     data-kind="price"></canvas>
           </div>
@@ -2072,12 +2110,12 @@
         <div class="chart-card down">
           <div class="cc-head">
             <span class="cc-name">Bitcoin</span>
-            <span class="cc-last">63087.89</span>
+            <span class="cc-last">62963.03</span>
           </div>
-          <div class="cc-change neg">-2.53%</div>
+          <div class="cc-change neg">-2.72%</div>
           
           <div class="cc-body">
-            <canvas class="trend" data-closes='[64127.1406, 63802.0273, 63758.2188, 62239.1211, 64956.1133, 64712.375, 63789.2812, 63899.4609, 64796.6016, 64690.8047, 65230.0273, 66505.125, 66100.7969, 65044.8125, 64098.4961, 64311.8125, 65340.3008, 63724.8984, 63871.3633, 63908.168, 64725.3086, 63087.8906]'
+            <canvas class="trend" data-closes='[64127.1406, 63802.0273, 63758.2188, 62239.1211, 64956.1133, 64712.375, 63789.2812, 63899.4609, 64796.6016, 64690.8047, 65230.0273, 66505.125, 66100.7969, 65044.8125, 64098.4961, 64311.8125, 65340.3008, 63724.8984, 63871.3633, 63908.168, 64725.3086, 62963.0312]'
                     data-labels='["Jul 10", "Jul 11", "Jul 12", "Jul 13", "Jul 14", "Jul 15", "Jul 16", "Jul 17", "Jul 18", "Jul 19", "Jul 20", "Jul 21", "Jul 22", "Jul 23", "Jul 24", "Jul 25", "Jul 26", "Jul 27", "Jul 28", "Jul 29", "Jul 30", "Jul 31"]'
                     data-kind="price"></canvas>
           </div>
@@ -2093,14 +2131,14 @@
           
           <tr>
             <td>VIX</td>
-            <td class="num">16.57</td>
-            <td class="num"><span class="neg">-3.04%</span></td>
+            <td class="num">16.52</td>
+            <td class="num"><span class="neg">-3.34%</span></td>
           </tr>
           
           <tr>
             <td>Bitcoin</td>
-            <td class="num">63087.89</td>
-            <td class="num"><span class="neg">-2.53%</span></td>
+            <td class="num">62963.03</td>
+            <td class="num"><span class="neg">-2.72%</span></td>
           </tr>
           
         </tbody>
@@ -2112,6 +2150,7 @@
   <footer class="colophon">
     Daily Market Brief — generated automatically from public news feeds and market data. For information only; not investment advice.
   </footer>
+  </div>
 </div>
 
 <script>
@@ -2238,12 +2277,52 @@
       .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
 
-  var savedSection = document.getElementById("saved");
   var savedList = document.getElementById("saved-list");
   var savedEmpty = document.getElementById("saved-empty");
   var savedCount = document.getElementById("saved-count");
-  var savedToggle = document.getElementById("saved-toggle");
   var savedClear = document.getElementById("saved-clear");
+
+  // Category order + accent colors for Archive grouping (from the brief's
+  // configured categories, so group order matches the daily brief).
+  var CAT_ORDER = ["Global Economy", "Equity Markets", "Fixed Income", "China Economy", "Hong Kong Economy", "Global Technology", "Artificial Intelligence", "Semiconductors", "Electric Vehicles", "Data Centers", "Space \u0026 Aerospace"];
+  var CAT_COLORS = {};
+  
+  CAT_COLORS["Global Economy"] = "#4338ca";
+  
+  CAT_COLORS["Equity Markets"] = "#047857";
+  
+  CAT_COLORS["Fixed Income"] = "#92400e";
+  
+  CAT_COLORS["China Economy"] = "#be123c";
+  
+  CAT_COLORS["Hong Kong Economy"] = "#1d4ed8";
+  
+  CAT_COLORS["Global Technology"] = "#7c3aed";
+  
+  CAT_COLORS["Artificial Intelligence"] = "#c026d3";
+  
+  CAT_COLORS["Semiconductors"] = "#0e7490";
+  
+  CAT_COLORS["Electric Vehicles"] = "#65a30d";
+  
+  CAT_COLORS["Data Centers"] = "#b45309";
+  
+  CAT_COLORS["Space \u0026 Aerospace"] = "#581c87";
+  
+
+  // ---------- Tab switching (Daily Brief / Archive) ----------
+  document.querySelectorAll("#tab-bar .tab-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll("#tab-bar .tab-btn").forEach(function (b) {
+        b.classList.toggle("active", b === btn);
+      });
+      var view = btn.getAttribute("data-view");
+      document.getElementById("view-brief").style.display =
+        view === "brief" ? "" : "none";
+      document.getElementById("view-archive").style.display =
+        view === "archive" ? "" : "none";
+    });
+  });
 
   function markRowButtons() {
     var map = loadSaved();
@@ -2265,25 +2344,29 @@
     savedList.innerHTML = "";
     if (!urls.length) return;
 
-    // Group by category; groups ordered by most recently saved item.
+    // Group by category, ordered like the daily brief's category order.
     var groups = {};
     urls.forEach(function (u) {
       var it = map[u];
       (groups[it.category || "Other"] = groups[it.category || "Other"] || []).push(it);
     });
     var names = Object.keys(groups).sort(function (a, b) {
-      var maxA = Math.max.apply(null, groups[a].map(function (i) { return i.savedAt || 0; }));
-      var maxB = Math.max.apply(null, groups[b].map(function (i) { return i.savedAt || 0; }));
-      return maxB - maxA;
+      var ia = CAT_ORDER.indexOf(a), ib = CAT_ORDER.indexOf(b);
+      return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
     });
 
     names.forEach(function (name) {
+      // Within a category: newest brief date first, tie-break by save time.
       var items = groups[name].slice().sort(function (a, b) {
+        var da = a.pageDate || "", db = b.pageDate || "";
+        if (da !== db) return da < db ? 1 : -1;
         return (b.savedAt || 0) - (a.savedAt || 0);
       });
+      var color = CAT_COLORS[name] || "#4338ca";
       var g = document.createElement("div");
       g.className = "saved-group";
-      var html = "<h4>" + esc(name) + "</h4>";
+      var html = '<h4 style="color:' + color + ';border-bottom-color:' + color + '">'
+        + esc(name) + "</h4>";
       items.forEach(function (it) {
         var rating = Math.max(0, Math.min(5, parseInt(it.rating, 10) || 0));
         var stars = "★".repeat(rating) + "☆".repeat(5 - rating);
@@ -2335,11 +2418,6 @@
     storeSaved(map);
     markRowButtons();
     renderSaved();
-  });
-
-  savedToggle.addEventListener("click", function () {
-    var collapsed = savedSection.classList.toggle("collapsed");
-    savedToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
   });
 
   savedClear.addEventListener("click", function () {
@@ -2495,6 +2573,43 @@
     return out;
   }
 
+  // BUG FIX: the saved map is keyed by raw URLs, but Firestore field names
+  // cannot contain "/" (or ~ * [ ]) — every write with URL keys was being
+  // rejected with INVALID_ARGUMENT (silently, caught by console.warn), which
+  // is why saved items never reached the cloud. Keys are URL-encoded for
+  // Firestore (dots also escaped, so merge can never misread them as field
+  // paths) and decoded back to plain URLs for localStorage. Data model is
+  // unchanged: users/{uid} still has a `saved` map, just with encoded keys.
+  function encodeSavedForRemote(map) {
+    var out = {};
+    Object.keys(map || {}).forEach(function (k) {
+      out[encodeURIComponent(k).replace(/\./g, "%2E")] = map[k];
+    });
+    return out;
+  }
+  function decodeSavedFromRemote(map) {
+    var out = {};
+    Object.keys(map || {}).forEach(function (k) {
+      try { out[decodeURIComponent(k)] = map[k]; } catch (e) {
+        console.error("Skipping undecodable saved key:", k, e);
+      }
+    });
+    return out;
+  }
+
+  // Transient sync status shown in the Archive header (observability: silent
+  // failures made the original bug invisible).
+  function syncStatus(msg, isErr) {
+    var el = document.getElementById("sync-status");
+    if (!el) return;
+    el.textContent = msg || "";
+    el.classList.toggle("sync-status-err", !!isErr);
+  }
+  function timeNow() {
+    var d = new Date();
+    return ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+  }
+
   // Write merged state to localStorage directly (no push-back) and re-render.
   function applySyncedState(savedMap, readMap) {
     try { localStorage.setItem(STORE_KEY, JSON.stringify(savedMap)); } catch (e) {}
@@ -2554,13 +2669,20 @@
       function initialSync() {
         userDoc().get().then(function (snap) {
           var remote = snap.exists ? (snap.data() || {}) : {};
-          var mergedSaved = mergeSavedMaps(loadSaved(), remote.saved || {});
+          var mergedSaved = mergeSavedMaps(loadSaved(),
+            decodeSavedFromRemote(remote.saved));
           var mergedRead = mergeReadMaps(loadRead(), remote.read || {});
           applySyncedState(mergedSaved, mergedRead);
           return userDoc().set(
-            { saved: mergedSaved, read: mergedRead, updatedAt: serverTs() },
+            { saved: encodeSavedForRemote(mergedSaved), read: mergedRead,
+              updatedAt: serverTs() },
             { merge: true });
-        }).catch(function (e) { console.warn("Initial sync failed:", e); });
+        }).then(function () {
+          syncStatus("Synced · " + timeNow(), false);
+        }).catch(function (e) {
+          console.error("Initial sync failed:", e && e.code, e);
+          syncStatus("Sync failed — check console/rules", true);
+        });
       }
 
       // Realtime laptop <-> phone updates; skip our own pending writes.
@@ -2569,26 +2691,39 @@
         unsubscribeSnapshot = userDoc().onSnapshot(function (snap) {
           if (snap.metadata.hasPendingWrites || !snap.exists) return;
           var remote = snap.data() || {};
-          var mergedSaved = mergeSavedMaps(loadSaved(), remote.saved || {});
+          var mergedSaved = mergeSavedMaps(loadSaved(),
+            decodeSavedFromRemote(remote.saved));
           var mergedRead = mergeReadMaps(loadRead(), remote.read || {});
           if (JSON.stringify(mergedSaved) !== JSON.stringify(loadSaved()) ||
               JSON.stringify(mergedRead) !== JSON.stringify(loadRead())) {
             applySyncedState(mergedSaved, mergedRead);
+            syncStatus("Synced · " + timeNow(), false);
           }
-        }, function (e) { console.warn("Sync listener error:", e); });
+        }, function (e) {
+          console.error("Sync listener error:", e && e.code, e);
+          syncStatus("Sync failed — check console/rules", true);
+        });
       }
 
       function writeSaved() {
         if (!syncUser) return;
-        userDoc().set({ saved: loadSaved(), updatedAt: serverTs() },
-          { merge: true })
-          .catch(function (e) { console.warn("Sync write (saved) failed:", e); });
+        userDoc().set({ saved: encodeSavedForRemote(loadSaved()),
+          updatedAt: serverTs() }, { merge: true })
+          .then(function () { syncStatus("Synced · " + timeNow(), false); })
+          .catch(function (e) {
+            console.error("Sync write (saved) failed:", e && e.code, e);
+            syncStatus("Sync failed — check console/rules", true);
+          });
       }
       function flushRead() {
         if (!syncUser) return;
         userDoc().set({ read: loadRead(), updatedAt: serverTs() },
           { merge: true })
-          .catch(function (e) { console.warn("Sync write (read) failed:", e); });
+          .then(function () { syncStatus("Synced · " + timeNow(), false); })
+          .catch(function (e) {
+            console.error("Sync write (read) failed:", e && e.code, e);
+            syncStatus("Sync failed — check console/rules", true);
+          });
       }
       function scheduleReadWrite() {
         clearTimeout(readWriteTimer);
@@ -2620,7 +2755,10 @@
         auth.signOut().catch(function (e) { console.warn("Sign-out failed:", e); });
       });
       auth.getRedirectResult()
-        .catch(function (e) { console.warn("Redirect result error:", e); });
+        .catch(function (e) {
+          console.error("Redirect result error:", e && e.code, e);
+          syncStatus("Sign-in failed — check console", true);
+        });
 
       auth.onAuthStateChanged(function (user) {
         syncUser = user || null;
@@ -2633,6 +2771,7 @@
         } else {
           syncPush.saved = function () {};
           syncPush.read = function () {};
+          syncStatus("", false);
           if (unsubscribeSnapshot) {
             unsubscribeSnapshot();
             unsubscribeSnapshot = null;
