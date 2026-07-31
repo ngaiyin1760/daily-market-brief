@@ -7,7 +7,7 @@ across 11 finance categories (global macro, equities, fixed income, China,
 Hong Kong, tech, AI, semis, EVs, data centers, space & aerospace).
 
 The site is a set of static HTML files in `docs/`, hosted free on GitHub Pages
-and regenerated daily by GitHub Actions at 9:00 AM Hong Kong time. News
+and regenerated daily by GitHub Actions at 7:00 AM Hong Kong time. News
 summaries use the Google Gemini API (free tier); without a key the generator
 falls back to a built-in heuristic so the run never hard-fails.
 
@@ -29,7 +29,7 @@ falls back to a built-in heuristic so the run never hard-fails.
 4. **Enable Pages**: Settings → Pages → Build and deployment → Deploy from a
    branch → branch `main`, folder `/docs`.
 5. **Run it once manually**: Actions → Daily Market Brief → Run workflow.
-   After that it runs automatically every day at 9:00 AM HKT (01:00 UTC).
+   After that it runs automatically every day at 7:00 AM HKT (23:00 UTC).
 
 The site will be public at `https://<your-username>.github.io/daily-market-brief/`.
 

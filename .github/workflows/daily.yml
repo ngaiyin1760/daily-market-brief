@@ -2,8 +2,8 @@ name: Daily Market Brief
 
 on:
   schedule:
-    # 9:00 AM Hong Kong time = 01:00 UTC
-    - cron: '0 1 * * *'
+    # 7:00 AM Hong Kong time = 23:00 UTC (previous day)
+    - cron: '0 23 * * *'
   workflow_dispatch:
 
 permissions:
