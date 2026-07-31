@@ -877,7 +877,21 @@
   }
   function storeSaved(map) {
     try { localStorage.setItem(STORE_KEY, JSON.stringify(map)); } catch (e) {}
+    setSavedRev(Date.now());  // local mutation wins sync conflicts (LWW)
     onLocalMutation("saved");
+  }
+
+  // Revision counter for last-writer-wins sync of the saved map. Union-merge
+  // alone can never propagate deletions (a cleared/removed key is simply
+  // absent from the union), so the remote doc carries a savedRev timestamp;
+  // a newer remote revision is adopted wholesale instead of unioned.
+  var SAVED_REV_KEY = "dmb_saved_rev";
+  function getSavedRev() {
+    try { return parseInt(localStorage.getItem(SAVED_REV_KEY), 10) || 0; }
+    catch (e) { return 0; }
+  }
+  function setSavedRev(rev) {
+    try { localStorage.setItem(SAVED_REV_KEY, String(rev)); } catch (e) {}
   }
   function esc(s) {
     return String(s == null ? "" : s)
@@ -1171,19 +1185,60 @@
         }
       }
 
-      // On sign-in: merge remote into local (same merge rules), write the
-      // merged result back, replace localStorage, re-render.
+      // Push the saved map so that it REPLACES the remote `saved` field
+      // wholesale (update semantics) — merge writes can never delete keys,
+      // which is why removals/clear-all previously never reached the cloud.
+      function pushSaved() {
+        var payload = {
+          saved: encodeSavedForRemote(loadSaved()),
+          savedRev: getSavedRev(),
+          updatedAt: serverTs()
+        };
+        return userDoc().update(payload).catch(function (e) {
+          if (e && e.code === "not-found") {
+            payload.read = loadRead();
+            return userDoc().set(payload);
+          }
+          throw e;
+        });
+      }
+
+      // On sign-in: last-writer-wins by savedRev, then write the result back.
+      // Union-merge alone resurrects deletions (a removed key is simply absent
+      // from the union), so the newer revision is adopted wholesale instead.
       function initialSync() {
         userDoc().get().then(function (snap) {
           var remote = snap.exists ? (snap.data() || {}) : {};
-          var mergedSaved = mergeSavedMaps(loadSaved(),
-            decodeSavedFromRemote(remote.saved));
+          var remoteSaved = decodeSavedFromRemote(remote.saved);
+          var remoteRev = remote.savedRev || 0;
+          var localRev = getSavedRev();
+          var localSaved = loadSaved();
+          var mergedSaved;
+          if (remoteRev > localRev) {
+            // Remote newer: adopt it (deletions stick). A never-synced device
+            // (rev 0) may hold pre-sync local items — fold those in.
+            mergedSaved = (localRev === 0)
+              ? mergeSavedMaps(localSaved, remoteSaved) : remoteSaved;
+          } else if (localRev === 0 && remoteRev === 0) {
+            mergedSaved = mergeSavedMaps(localSaved, remoteSaved);  // first-ever sync: union
+          } else {
+            mergedSaved = localSaved;  // local newer: already reflects local deletions
+          }
+          var newRev = Date.now();
+          setSavedRev(newRev);
           var mergedRead = mergeReadMaps(loadRead(), remote.read || {});
           applySyncedState(mergedSaved, mergedRead);
-          return userDoc().set(
-            { saved: encodeSavedForRemote(mergedSaved), read: mergedRead,
-              updatedAt: serverTs() },
-            { merge: true });
+          return userDoc().update(
+            { saved: encodeSavedForRemote(mergedSaved), savedRev: newRev,
+              read: mergedRead, updatedAt: serverTs() })
+            .catch(function (e) {
+              if (e && e.code === "not-found") {
+                return userDoc().set(
+                  { saved: encodeSavedForRemote(mergedSaved), savedRev: newRev,
+                    read: mergedRead, updatedAt: serverTs() });
+              }
+              throw e;
+            });
         }).then(function () {
           syncStatus("Synced · " + timeNow(), false);
         }).catch(function (e) {
@@ -1198,14 +1253,36 @@
         unsubscribeSnapshot = userDoc().onSnapshot(function (snap) {
           if (snap.metadata.hasPendingWrites || !snap.exists) return;
           var remote = snap.data() || {};
-          var mergedSaved = mergeSavedMaps(loadSaved(),
-            decodeSavedFromRemote(remote.saved));
+          var remoteRev = remote.savedRev || 0;
+          var localRev = getSavedRev();
+          var localSaved = loadSaved();
+          var newSaved = localSaved;
+          var needsPush = false;
+          if (remoteRev > localRev) {
+            // Remote newer: adopt wholesale (deletions propagate). Fold in
+            // legacy local items only on a never-synced device, then push.
+            newSaved = decodeSavedFromRemote(remote.saved);
+            if (localRev === 0) {
+              var folded = mergeSavedMaps(localSaved, newSaved);
+              if (Object.keys(folded).length !== Object.keys(newSaved).length) {
+                newSaved = folded;
+                setSavedRev(Date.now());
+                needsPush = true;
+              } else {
+                setSavedRev(remoteRev);
+              }
+            } else {
+              setSavedRev(remoteRev);
+            }
+          }
+          // Read status has no deletions — union-merge is always safe.
           var mergedRead = mergeReadMaps(loadRead(), remote.read || {});
-          if (JSON.stringify(mergedSaved) !== JSON.stringify(loadSaved()) ||
+          if (JSON.stringify(newSaved) !== JSON.stringify(localSaved) ||
               JSON.stringify(mergedRead) !== JSON.stringify(loadRead())) {
-            applySyncedState(mergedSaved, mergedRead);
+            applySyncedState(newSaved, mergedRead);
             syncStatus("Synced · " + timeNow(), false);
           }
+          if (needsPush) pushSaved();
         }, function (e) {
           console.error("Sync listener error:", e && e.code, e);
           syncStatus("Sync failed — check console/rules", true);
@@ -1214,8 +1291,7 @@
 
       function writeSaved() {
         if (!syncUser) return;
-        userDoc().set({ saved: encodeSavedForRemote(loadSaved()),
-          updatedAt: serverTs() }, { merge: true })
+        pushSaved()
           .then(function () { syncStatus("Synced · " + timeNow(), false); })
           .catch(function (e) {
             console.error("Sync write (saved) failed:", e && e.code, e);
