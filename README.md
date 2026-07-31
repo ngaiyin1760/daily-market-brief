@@ -2,9 +2,11 @@
 
 A self-contained static dashboard that gives you a daily snapshot of markets and
 news: key indicators (equity indices, bond yields, FX, commodities, VIX, BTC)
-plus the top 3 stories — with bullet summaries and 1–5 importance ratings —
+plus the top stories — with bullet summaries and 1–5 importance ratings —
 across 11 finance categories (global macro, equities, fixed income, China,
 Hong Kong, tech, AI, semis, EVs, data centers, space & aerospace).
+Top 3 for Global Economy, top 2 for each other category, deduplicated across
+categories so each story appears exactly once.
 
 The site is a set of static HTML files in `docs/`, hosted free on GitHub Pages
 and regenerated daily by GitHub Actions at 7:00 AM Hong Kong time. News
@@ -49,8 +51,10 @@ the model (default `gemini-2.5-flash`).
 
 ## How it works
 
-- `generate.py` fetches Google News RSS per category, picks/rates the top 3
-  stories (Gemini or heuristic fallback per category on any failure), pulls
+- `generate.py` fetches Google News RSS per category, picks/rates the top N
+  stories (3 for Global Economy, 2 for other categories; Gemini or heuristic
+  fallback per category on any failure; cross-category title dedup so each
+  story appears once), pulls
   ~1 month of daily closes per ticker via yfinance (US 2Y yield from FRED),
   and renders `templates/dashboard.html.j2` into `docs/`.
 - Output: `docs/index.html` (latest day), `docs/days/YYYY-MM-DD.html` (one

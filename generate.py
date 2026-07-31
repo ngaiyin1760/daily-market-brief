@@ -85,28 +85,57 @@ def gemini_generate(payload):
 
 CATEGORIES = [
     {"id": "global-macro", "label": "Global Economy",
-     "query": "global economy OR central bank OR inflation"},
+     "query": "global economy OR central bank OR inflation", "top_n": 3},
     {"id": "equity", "label": "Equity Markets",
-     "query": "stock market OR equities OR earnings"},
+     "query": "stock market OR equities OR earnings", "top_n": 2},
     {"id": "fixed-income", "label": "Fixed Income",
-     "query": "bond yields OR treasuries OR credit markets"},
+     "query": "bond yields OR treasuries OR credit markets", "top_n": 2},
     {"id": "china", "label": "China Economy",
-     "query": "China economy OR PBoC OR China GDP"},
+     "query": "China economy OR PBoC OR China GDP", "top_n": 2},
     {"id": "hk", "label": "Hong Kong Economy",
-     "query": "Hong Kong economy OR HKEX OR Hong Kong property"},
+     "query": "Hong Kong economy OR HKEX OR Hong Kong property", "top_n": 2},
     {"id": "tech", "label": "Global Technology",
-     "query": "big tech OR technology industry"},
+     "query": "big tech OR technology industry", "top_n": 2},
     {"id": "ai", "label": "Artificial Intelligence",
-     "query": "artificial intelligence OR OpenAI OR LLM"},
+     "query": "artificial intelligence OR OpenAI OR LLM", "top_n": 2},
     {"id": "semis", "label": "Semiconductors",
-     "query": "semiconductors OR TSMC OR NVIDIA OR chips"},
+     "query": "semiconductors OR TSMC OR NVIDIA OR chips", "top_n": 2},
     {"id": "ev", "label": "Electric Vehicles",
-     "query": "electric vehicles OR Tesla OR BYD OR EV sales"},
+     "query": "electric vehicles OR Tesla OR BYD OR EV sales", "top_n": 2},
     {"id": "data-center", "label": "Data Centers",
-     "query": "data centers OR hyperscale OR AI infrastructure"},
+     "query": "data centers OR hyperscale OR AI infrastructure", "top_n": 2},
     {"id": "space", "label": "Space & Aerospace",
-     "query": "space industry OR SpaceX OR satellite OR rocket launch"},
+     "query": "space industry OR SpaceX OR satellite OR rocket launch", "top_n": 2},
 ]
+
+DEFAULT_TOP_N = 2
+
+
+def normalize_title(title):
+    """Normalize a headline for cross-category dedup: lowercase, strip the
+    trailing " - <Source>" suffix Google News appends, remove punctuation and
+    extra whitespace."""
+    t = title.lower()
+    t = re.sub(r"\s+-\s+[^-]{1,80}$", "", t)  # trailing " - Source"
+    t = re.sub(r"[^a-z0-9 ]+", " ", t)
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def dedupe_candidates(candidates, claimed):
+    """Drop candidates whose normalized title was already claimed by an
+    earlier category, and dedupe within this category's own list.
+    Returns (kept, dropped_count)."""
+    kept = []
+    seen = set(claimed)
+    dropped = 0
+    for item in candidates:
+        key = normalize_title(item["title"])
+        if not key or key in seen:
+            dropped += 1
+            continue
+        seen.add(key)
+        kept.append(item)
+    return kept, dropped
 
 # ---------------------------------------------------------------------------
 # Daily key takeaways
@@ -415,11 +444,11 @@ def condense_text(text, max_chars=220, max_sentences=2):
     return out
 
 
-def heuristic_summarize(candidates):
-    """Fallback: top 3 by recency. Bullets come from the best available text
+def heuristic_summarize(candidates, top_n=DEFAULT_TOP_N):
+    """Fallback: top N by recency. Bullets come from the best available text
     (extracted article content, else cleaned RSS summary) — never the title."""
     out = []
-    for item in candidates[:3]:
+    for item in candidates[:top_n]:
         if item.get("content"):
             bullets = [condense_text(item["content"])]
         elif item["summary"]:
@@ -442,11 +471,11 @@ def heuristic_summarize(candidates):
 
 GEMINI_PROMPT = """You are a financial news analyst. Below are candidate news items for the category "{label}". Each candidate includes the article content (extracted full text where available, otherwise the RSS snippet).
 
-Pick the 3 most important stories for a finance professional. For each, write 2-3 concise analyst-style bullet points and assign an importance rating from 1 (minor) to 5 (market-moving).
+Pick the {n} most important stories for a finance professional. For each, write 2-3 concise analyst-style bullet points and assign an importance rating from 1 (minor) to 5 (market-moving).
 
 The bullet points MUST be digested from the provided article content: capture key facts, numbers, and implications for investors. They must add value beyond the headline — NEVER merely rephrase or restate the title.
 
-Return STRICT JSON only: an array of exactly 3 objects, each with keys:
+Return STRICT JSON only: an array of exactly {n} objects, each with keys:
 "title" (string), "url" (string, use the item's link), "source" (string),
 "published" (string), "bullets" (array of 2-3 concise bullet strings),
 "rating" (integer 1-5), "reason" (one short phrase justifying the rating).
@@ -456,7 +485,7 @@ Candidate items:
 """
 
 
-def gemini_summarize(category, candidates):
+def gemini_summarize(category, candidates, top_n=DEFAULT_TOP_N):
     """One Gemini call per category. Raises on any failure."""
     lines = []
     for i, item in enumerate(candidates, 1):
@@ -467,7 +496,8 @@ def gemini_summarize(category, candidates):
             f"   Link: {item['link']}\n"
             f"   Content: {content}"
         )
-    prompt = GEMINI_PROMPT.format(label=category["label"], items="\n".join(lines))
+    prompt = GEMINI_PROMPT.format(label=category["label"], n=top_n,
+                                  items="\n".join(lines))
     payload = {
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
         "generationConfig": {
@@ -482,7 +512,7 @@ def gemini_summarize(category, candidates):
         raise ValueError("Gemini response is not a JSON array")
 
     out = []
-    for entry in parsed[:3]:
+    for entry in parsed[:top_n]:
         bullets = entry.get("bullets") or []
         if isinstance(bullets, str):
             bullets = [bullets]
@@ -506,19 +536,20 @@ def gemini_summarize(category, candidates):
 
 
 def summarize_category(category, candidates):
+    top_n = category.get("top_n", DEFAULT_TOP_N)
     if not candidates:
         log.warning("No candidates for %s", category["label"])
         return []
     if GEMINI_API_KEY:
         try:
             log.info("Summarizing with Gemini: %s", category["label"])
-            return gemini_summarize(category, candidates)
+            return gemini_summarize(category, candidates, top_n)
         except Exception as exc:
             log.warning("Gemini failed for %s (%s); using heuristic fallback",
                         category["label"], exc)
     else:
         log.info("No GEMINI_API_KEY; heuristic summary: %s", category["label"])
-    return heuristic_summarize(candidates)
+    return heuristic_summarize(candidates, top_n)
 
 
 # ---------------------------------------------------------------------------
@@ -719,9 +750,18 @@ def main():
              else "disabled, heuristic fallback")
 
     news = []
+    claimed_titles = set()  # global cross-category dedup by normalized title
     for category in CATEGORIES:
         candidates = fetch_category_news(category)
+        candidates, dropped = dedupe_candidates(candidates, claimed_titles)
+        if dropped:
+            log.info("%s: dropped %d duplicate candidate(s)",
+                     category["label"], dropped)
         items = summarize_category(category, candidates)
+        for item in items:
+            key = normalize_title(item["title"])
+            if key:
+                claimed_titles.add(key)
         news.append({
             "id": category["id"],
             "label": category["label"],
