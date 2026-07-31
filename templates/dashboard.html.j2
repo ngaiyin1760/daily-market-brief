@@ -205,18 +205,6 @@
     gap: 10px;
     padding: 10px 18px;
   }
-  .saved-toggle {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    background: none;
-    border: none;
-    padding: 6px 4px;
-    min-height: 44px;
-    cursor: pointer;
-    font-family: var(--sans);
-    color: var(--ink);
-  }
   .saved-icon { color: var(--gold); }
   .saved-title {
     font-size: 13px;
@@ -236,8 +224,6 @@
     text-align: center;
     font-variant-numeric: tabular-nums;
   }
-  .saved-caret { color: var(--muted); font-size: 13px; }
-  .saved-toggle[aria-expanded="false"] .saved-caret { transform: rotate(-90deg); display: inline-block; }
   .saved-clear {
     background: none;
     border: none;
@@ -251,6 +237,47 @@
     min-height: 44px;
   }
   .saved-clear:hover { color: var(--red); }
+
+  /* ---------- Tabs (Daily Brief / Archive) ---------- */
+  .tab-bar {
+    display: flex;
+    gap: 6px;
+    border-bottom: 1px solid var(--rule-dark);
+    margin-bottom: 26px;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 10px 18px;
+    min-height: 44px;
+    font-family: var(--sans);
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color .12s, border-color .12s;
+  }
+  .tab-btn:hover { color: var(--accent); }
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--gold);
+  }
+  .archive-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 6px 4px;
+    min-height: 44px;
+  }
+  .sync-status {
+    font-size: 12.5px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .sync-status.sync-status-err { color: var(--red); font-style: normal; font-weight: 600; }
 
   /* Firebase sync auth UI */
   .saved-header-right {
@@ -306,7 +333,6 @@
   }
   .sync-signout:hover { color: var(--red); }
   .saved-body { padding: 0 18px 14px; }
-  .saved.collapsed .saved-body { display: none; }
   .saved-empty { color: var(--muted); font-style: italic; font-size: 14.5px; margin: 4px 0 6px; }
   .saved-group { margin-top: 10px; }
   .saved-group h4 {
@@ -645,6 +671,7 @@
     .saved-item .si-remove { min-width: 44px; min-height: 44px; }
     .saved-header { flex-wrap: wrap; }
     .sync-signin { min-height: 44px; }
+    .tab-btn { flex: 1; padding: 10px 8px; text-align: center; }
     td.summary li { font-size: 15px; }
     td.source { padding-top: 6px; }
     td.rating { padding-top: 4px; }
@@ -689,41 +716,52 @@
   </header>
   {% if snapshot %}<div class="ticker">{{ snapshot|e }}</div>{% endif %}
 
-  {# ---- Pinned "Saved" tab: rendered client-side from localStorage ---- #}
-  <section class="saved" id="saved">
-    <div class="saved-header">
-      <button type="button" class="saved-toggle" id="saved-toggle" aria-expanded="true">
-        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" class="saved-icon">
-          <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                fill="currentColor"/>
-        </svg>
-        <span class="saved-title">Saved</span>
-        <span class="saved-count" id="saved-count">0</span>
-        <span class="saved-caret" id="saved-caret">▾</span>
-      </button>
-      <div class="saved-header-right">
-        <div class="sync-area" id="sync-area">
-          <button type="button" class="sync-signin" id="sync-signin">
-            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-              <path fill="currentColor" d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81z"/>
-            </svg>
-            Sign in to sync
-          </button>
-          <div class="sync-user" id="sync-user" style="display:none">
-            <img class="sync-avatar" id="sync-avatar" alt="" referrerpolicy="no-referrer" style="display:none">
-            <span class="sync-initial" id="sync-initial" style="display:none"></span>
-            <span class="sync-label">Synced</span>
-            <button type="button" class="sync-signout" id="sync-signout">Sign out</button>
-          </div>
+  {# ---- Tab bar: Daily Brief (default) vs Archive (saved news across days) ---- #}
+  <nav class="tab-bar" id="tab-bar">
+    <button type="button" class="tab-btn active" data-view="brief">Daily Brief</button>
+    <button type="button" class="tab-btn" data-view="archive">Archive</button>
+  </nav>
+
+  {# ---- Archive view: saved news across all days + sync UI ---- #}
+  <div id="view-archive" style="display:none">
+    <section class="saved" id="saved">
+      <div class="saved-header">
+        <div class="archive-title">
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" class="saved-icon">
+            <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                  fill="currentColor"/>
+          </svg>
+          <span class="saved-title">Saved Archive</span>
+          <span class="saved-count" id="saved-count">0</span>
         </div>
-        <button type="button" class="saved-clear" id="saved-clear">Clear all</button>
+        <div class="saved-header-right">
+          <span class="sync-status" id="sync-status"></span>
+          <div class="sync-area" id="sync-area">
+            <button type="button" class="sync-signin" id="sync-signin">
+              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                <path fill="currentColor" d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81z"/>
+              </svg>
+              Sign in to sync
+            </button>
+            <div class="sync-user" id="sync-user" style="display:none">
+              <img class="sync-avatar" id="sync-avatar" alt="" referrerpolicy="no-referrer" style="display:none">
+              <span class="sync-initial" id="sync-initial" style="display:none"></span>
+              <span class="sync-label">Synced</span>
+              <button type="button" class="sync-signout" id="sync-signout">Sign out</button>
+            </div>
+          </div>
+          <button type="button" class="saved-clear" id="saved-clear">Clear all</button>
+        </div>
       </div>
-    </div>
-    <div class="saved-body" id="saved-body">
-      <p class="saved-empty" id="saved-empty">No saved news yet — tap the bookmark on any story to pin it here.</p>
-      <div id="saved-list"></div>
-    </div>
-  </section>
+      <div class="saved-body" id="saved-body">
+        <p class="saved-empty" id="saved-empty">No saved news yet — tap the bookmark on any story to pin it here.</p>
+        <div id="saved-list"></div>
+      </div>
+    </section>
+  </div>
+
+  {# ---- Daily Brief view: takeaways + news + indicators ---- #}
+  <div id="view-brief">
 
   {% if takeaways %}
   <section class="takeaways" id="takeaways">
@@ -859,6 +897,7 @@
   <footer class="colophon">
     Daily Market Brief — generated automatically from public news feeds and market data. For information only; not investment advice.
   </footer>
+  </div>{# /view-brief #}
 </div>
 
 <script>
@@ -985,12 +1024,32 @@
       .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
 
-  var savedSection = document.getElementById("saved");
   var savedList = document.getElementById("saved-list");
   var savedEmpty = document.getElementById("saved-empty");
   var savedCount = document.getElementById("saved-count");
-  var savedToggle = document.getElementById("saved-toggle");
   var savedClear = document.getElementById("saved-clear");
+
+  // Category order + accent colors for Archive grouping (from the brief's
+  // configured categories, so group order matches the daily brief).
+  var CAT_ORDER = {{ categories | map(attribute="label") | list | tojson }};
+  var CAT_COLORS = {};
+  {% for c in categories %}
+  CAT_COLORS[{{ c.label | tojson }}] = {{ cat_colors.get(c.id, "#4338ca") | tojson }};
+  {% endfor %}
+
+  // ---------- Tab switching (Daily Brief / Archive) ----------
+  document.querySelectorAll("#tab-bar .tab-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll("#tab-bar .tab-btn").forEach(function (b) {
+        b.classList.toggle("active", b === btn);
+      });
+      var view = btn.getAttribute("data-view");
+      document.getElementById("view-brief").style.display =
+        view === "brief" ? "" : "none";
+      document.getElementById("view-archive").style.display =
+        view === "archive" ? "" : "none";
+    });
+  });
 
   function markRowButtons() {
     var map = loadSaved();
@@ -1012,25 +1071,29 @@
     savedList.innerHTML = "";
     if (!urls.length) return;
 
-    // Group by category; groups ordered by most recently saved item.
+    // Group by category, ordered like the daily brief's category order.
     var groups = {};
     urls.forEach(function (u) {
       var it = map[u];
       (groups[it.category || "Other"] = groups[it.category || "Other"] || []).push(it);
     });
     var names = Object.keys(groups).sort(function (a, b) {
-      var maxA = Math.max.apply(null, groups[a].map(function (i) { return i.savedAt || 0; }));
-      var maxB = Math.max.apply(null, groups[b].map(function (i) { return i.savedAt || 0; }));
-      return maxB - maxA;
+      var ia = CAT_ORDER.indexOf(a), ib = CAT_ORDER.indexOf(b);
+      return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
     });
 
     names.forEach(function (name) {
+      // Within a category: newest brief date first, tie-break by save time.
       var items = groups[name].slice().sort(function (a, b) {
+        var da = a.pageDate || "", db = b.pageDate || "";
+        if (da !== db) return da < db ? 1 : -1;
         return (b.savedAt || 0) - (a.savedAt || 0);
       });
+      var color = CAT_COLORS[name] || "#4338ca";
       var g = document.createElement("div");
       g.className = "saved-group";
-      var html = "<h4>" + esc(name) + "</h4>";
+      var html = '<h4 style="color:' + color + ';border-bottom-color:' + color + '">'
+        + esc(name) + "</h4>";
       items.forEach(function (it) {
         var rating = Math.max(0, Math.min(5, parseInt(it.rating, 10) || 0));
         var stars = "★".repeat(rating) + "☆".repeat(5 - rating);
@@ -1082,11 +1145,6 @@
     storeSaved(map);
     markRowButtons();
     renderSaved();
-  });
-
-  savedToggle.addEventListener("click", function () {
-    var collapsed = savedSection.classList.toggle("collapsed");
-    savedToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
   });
 
   savedClear.addEventListener("click", function () {
@@ -1242,6 +1300,43 @@
     return out;
   }
 
+  // BUG FIX: the saved map is keyed by raw URLs, but Firestore field names
+  // cannot contain "/" (or ~ * [ ]) — every write with URL keys was being
+  // rejected with INVALID_ARGUMENT (silently, caught by console.warn), which
+  // is why saved items never reached the cloud. Keys are URL-encoded for
+  // Firestore (dots also escaped, so merge can never misread them as field
+  // paths) and decoded back to plain URLs for localStorage. Data model is
+  // unchanged: users/{uid} still has a `saved` map, just with encoded keys.
+  function encodeSavedForRemote(map) {
+    var out = {};
+    Object.keys(map || {}).forEach(function (k) {
+      out[encodeURIComponent(k).replace(/\./g, "%2E")] = map[k];
+    });
+    return out;
+  }
+  function decodeSavedFromRemote(map) {
+    var out = {};
+    Object.keys(map || {}).forEach(function (k) {
+      try { out[decodeURIComponent(k)] = map[k]; } catch (e) {
+        console.error("Skipping undecodable saved key:", k, e);
+      }
+    });
+    return out;
+  }
+
+  // Transient sync status shown in the Archive header (observability: silent
+  // failures made the original bug invisible).
+  function syncStatus(msg, isErr) {
+    var el = document.getElementById("sync-status");
+    if (!el) return;
+    el.textContent = msg || "";
+    el.classList.toggle("sync-status-err", !!isErr);
+  }
+  function timeNow() {
+    var d = new Date();
+    return ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+  }
+
   // Write merged state to localStorage directly (no push-back) and re-render.
   function applySyncedState(savedMap, readMap) {
     try { localStorage.setItem(STORE_KEY, JSON.stringify(savedMap)); } catch (e) {}
@@ -1301,13 +1396,20 @@
       function initialSync() {
         userDoc().get().then(function (snap) {
           var remote = snap.exists ? (snap.data() || {}) : {};
-          var mergedSaved = mergeSavedMaps(loadSaved(), remote.saved || {});
+          var mergedSaved = mergeSavedMaps(loadSaved(),
+            decodeSavedFromRemote(remote.saved));
           var mergedRead = mergeReadMaps(loadRead(), remote.read || {});
           applySyncedState(mergedSaved, mergedRead);
           return userDoc().set(
-            { saved: mergedSaved, read: mergedRead, updatedAt: serverTs() },
+            { saved: encodeSavedForRemote(mergedSaved), read: mergedRead,
+              updatedAt: serverTs() },
             { merge: true });
-        }).catch(function (e) { console.warn("Initial sync failed:", e); });
+        }).then(function () {
+          syncStatus("Synced · " + timeNow(), false);
+        }).catch(function (e) {
+          console.error("Initial sync failed:", e && e.code, e);
+          syncStatus("Sync failed — check console/rules", true);
+        });
       }
 
       // Realtime laptop <-> phone updates; skip our own pending writes.
@@ -1316,26 +1418,39 @@
         unsubscribeSnapshot = userDoc().onSnapshot(function (snap) {
           if (snap.metadata.hasPendingWrites || !snap.exists) return;
           var remote = snap.data() || {};
-          var mergedSaved = mergeSavedMaps(loadSaved(), remote.saved || {});
+          var mergedSaved = mergeSavedMaps(loadSaved(),
+            decodeSavedFromRemote(remote.saved));
           var mergedRead = mergeReadMaps(loadRead(), remote.read || {});
           if (JSON.stringify(mergedSaved) !== JSON.stringify(loadSaved()) ||
               JSON.stringify(mergedRead) !== JSON.stringify(loadRead())) {
             applySyncedState(mergedSaved, mergedRead);
+            syncStatus("Synced · " + timeNow(), false);
           }
-        }, function (e) { console.warn("Sync listener error:", e); });
+        }, function (e) {
+          console.error("Sync listener error:", e && e.code, e);
+          syncStatus("Sync failed — check console/rules", true);
+        });
       }
 
       function writeSaved() {
         if (!syncUser) return;
-        userDoc().set({ saved: loadSaved(), updatedAt: serverTs() },
-          { merge: true })
-          .catch(function (e) { console.warn("Sync write (saved) failed:", e); });
+        userDoc().set({ saved: encodeSavedForRemote(loadSaved()),
+          updatedAt: serverTs() }, { merge: true })
+          .then(function () { syncStatus("Synced · " + timeNow(), false); })
+          .catch(function (e) {
+            console.error("Sync write (saved) failed:", e && e.code, e);
+            syncStatus("Sync failed — check console/rules", true);
+          });
       }
       function flushRead() {
         if (!syncUser) return;
         userDoc().set({ read: loadRead(), updatedAt: serverTs() },
           { merge: true })
-          .catch(function (e) { console.warn("Sync write (read) failed:", e); });
+          .then(function () { syncStatus("Synced · " + timeNow(), false); })
+          .catch(function (e) {
+            console.error("Sync write (read) failed:", e && e.code, e);
+            syncStatus("Sync failed — check console/rules", true);
+          });
       }
       function scheduleReadWrite() {
         clearTimeout(readWriteTimer);
@@ -1367,7 +1482,10 @@
         auth.signOut().catch(function (e) { console.warn("Sign-out failed:", e); });
       });
       auth.getRedirectResult()
-        .catch(function (e) { console.warn("Redirect result error:", e); });
+        .catch(function (e) {
+          console.error("Redirect result error:", e && e.code, e);
+          syncStatus("Sign-in failed — check console", true);
+        });
 
       auth.onAuthStateChanged(function (user) {
         syncUser = user || null;
@@ -1380,6 +1498,7 @@
         } else {
           syncPush.saved = function () {};
           syncPush.read = function () {};
+          syncStatus("", false);
           if (unsubscribeSnapshot) {
             unsubscribeSnapshot();
             unsubscribeSnapshot = null;
