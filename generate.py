@@ -326,7 +326,7 @@ INDICATOR_GROUPS = [
     },
 ]
 
-SPARKLINE_POINTS = 22
+CHART_POINTS = 260  # ~1 year of trading days — charts are a rolling 1y window
 
 # ---------------------------------------------------------------------------
 # News fetching
@@ -615,9 +615,10 @@ _MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 
-def short_date(year, month, day):
-    """Short, locale-independent date label, e.g. 'Jul 15'."""
-    return f"{_MONTHS[month - 1]} {day}"
+def short_date(year, month, day, with_year=False):
+    """Short, locale-independent date label, e.g. 'Jul 15' or "Jul 15 '25"."""
+    s = f"{_MONTHS[month - 1]} {day}"
+    return f"{s} '{year % 100:02d}" if with_year else s
 
 
 def fetch_fred_2y():
@@ -632,12 +633,12 @@ def fetch_fred_2y():
         if len(parts) == 2 and parts[1] not in ("", "."):
             try:
                 y, m, d = (int(x) for x in parts[0].split("-"))
-                points.append((short_date(y, m, d), float(parts[1])))
+                points.append((short_date(y, m, d, with_year=True), float(parts[1])))
             except ValueError:
                 continue
     if not points:
         raise ValueError("no data in FRED csv")
-    points = points[-SPARKLINE_POINTS:]
+    points = points[-CHART_POINTS:]
     labels = [p[0] for p in points]
     closes = [p[1] for p in points]
     last = closes[-1]
@@ -663,15 +664,16 @@ def fetch_indicator(item):
             result.update(fetch_fred_2y())
             return result
         import yfinance as yf
-        hist = yf.Ticker(item["ticker"]).history(period="1mo")
+        hist = yf.Ticker(item["ticker"]).history(period="1y")
         if hist is None or hist.empty:
             raise ValueError("empty history")
         series = hist["Close"].dropna()
-        series = series[-SPARKLINE_POINTS:]
+        series = series[-CHART_POINTS:]
         if series.empty:
             raise ValueError("no closes")
         closes = [round(float(c), 4) for c in series.tolist()]
-        labels = [short_date(ts.year, ts.month, ts.day) for ts in series.index]
+        labels = [short_date(ts.year, ts.month, ts.day, with_year=True)
+                  for ts in series.index]
         result["closes"] = closes
         result["labels"] = labels
         result["last"] = closes[-1]
