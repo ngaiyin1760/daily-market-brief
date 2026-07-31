@@ -762,6 +762,14 @@ def render_pages(template, page_date, generated_at, snapshot, takeaways,
     day_path.write_text(day_html, encoding="utf-8")
     log.info("Wrote %s", day_path)
 
+    # Standalone saved-news archive page (static shell; content is
+    # client-side from localStorage/Firebase).
+    archive_tpl = env.get_template("archive.html.j2")
+    archive_html = archive_tpl.render(base=".", generated_at=generated_at,
+                                      categories=news)
+    (DOCS_DIR / "archive.html").write_text(archive_html, encoding="utf-8")
+    log.info("Wrote %s", DOCS_DIR / "archive.html")
+
     # Manifest: newest first; rerunning the same day must not duplicate.
     manifest_path = DOCS_DIR / "manifest.json"
     dates = []
