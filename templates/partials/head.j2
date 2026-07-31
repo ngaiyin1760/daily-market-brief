@@ -645,10 +645,10 @@
     }
     table.news tbody tr {
       border-bottom: 1px solid var(--rule-dark);
-      /* Reserve a clear strip at the card's top-right for the absolutely
-         positioned save button, so it can never overlap title/summary text,
-         regardless of headline length. */
-      padding: 12px 56px 12px 0;
+      /* Reserve a clear strip at the card's top (below the save button zone)
+         and top-right, so the button can never overlap the title/summary,
+         regardless of headline length or button placement quirks. */
+      padding: 58px 56px 12px 0;
       position: relative;
     }
     table.news tbody tr:nth-child(even) { background: none; }
@@ -657,8 +657,9 @@
     td.headline a { font-size: 17px; display: block; padding: 6px 0; }
     td.save-cell {
       position: absolute;
-      top: 10px;
+      top: 8px;
       right: 4px;
+      left: auto;
       width: auto;
       padding: 0;
     }
