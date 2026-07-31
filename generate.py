@@ -121,21 +121,78 @@ def normalize_title(title):
     return re.sub(r"\s+", " ", t).strip()
 
 
-def dedupe_candidates(candidates, claimed):
-    """Drop candidates whose normalized title was already claimed by an
-    earlier category, and dedupe within this category's own list.
-    Returns (kept, dropped_count)."""
-    kept = []
-    seen = set(claimed)
-    dropped = 0
+# Freshness windows (seconds). The brief targets the past 24 hours; if a
+# category can't fill its slots from fresher tiers, the window relaxes
+# progressively — a category must never go empty while the feed has items.
+FRESHNESS_TIERS = [
+    (24 * 3600, "24h"),
+    (48 * 3600, "48h"),
+]
+TIER_LABELS = ["24h", "48h", "any-date", "undated"]
+
+
+def freshness_tier(item, now):
+    """0 = within 24h, 1 = within 48h, 2 = any older dated item, 3 = undated.
+    Epoch comparisons are timezone-safe (both sides are absolute UTC)."""
+    ts = item.get("_ts") or 0
+    if not ts:
+        return 3
+    age = now - ts
+    if age <= 24 * 3600:
+        return 0
+    if age <= 48 * 3600:
+        return 1
+    return 2
+
+
+def prepare_candidates(candidates, claimed, now):
+    """Order a category's candidates for selection.
+
+    - Within-category dedup: drop exact normalized-title repeats (Google News
+      clusters the same story across outlets). Items with empty/missing
+      titles BYPASS dedup and are never dropped.
+    - Cross-category dedup: titles already claimed by an earlier category are
+      DEMOTED, not dropped — preference order is freshness tier first
+      (24h > 48h > any-date > undated), and within a tier non-duplicates
+      before duplicates, then recency. A dupe is only used when nothing
+      fresher/unique can fill the category's slots.
+    Returns (ordered_candidates, stats_dict).
+    """
+    seen_local = set()
+    unique = []
+    within_dropped = 0
     for item in candidates:
         key = normalize_title(item["title"])
-        if not key or key in seen:
-            dropped += 1
-            continue
-        seen.add(key)
-        kept.append(item)
-    return kept, dropped
+        if key:
+            if key in seen_local:
+                within_dropped += 1
+                continue
+            seen_local.add(key)
+        item["_key"] = key
+        unique.append(item)
+
+    cross_dupes = 0
+    ranked = []
+    for item in unique:
+        is_dupe = bool(item["_key"]) and item["_key"] in claimed
+        if is_dupe:
+            cross_dupes += 1
+        ranked.append((freshness_tier(item, now), 1 if is_dupe else 0,
+                       -item["_ts"], item))
+    ranked.sort(key=lambda r: (r[0], r[1], r[2]))
+
+    tier_counts = [0, 0, 0, 0]
+    for item in unique:
+        tier_counts[freshness_tier(item, now)] += 1
+    stats = {
+        "candidates": len(unique),
+        "tier_counts": tier_counts,
+        "cross_dupes": cross_dupes,
+        "within_dropped": within_dropped,
+        "tier_by_url": {i["link"]: freshness_tier(i, now)
+                        for i in unique if i["link"]},
+    }
+    return [r[3] for r in ranked], stats
 
 # ---------------------------------------------------------------------------
 # Daily key takeaways
@@ -366,7 +423,8 @@ def attach_article_texts(category, items):
 
 
 def fetch_category_news(category):
-    """Fetch up to 15 recent RSS items for a category (prefer last 48h)."""
+    """Fetch up to 15 RSS items for a category, sorted by recency.
+    Freshness-window tiering happens later in prepare_candidates."""
     url = (
         "https://news.google.com/rss/search?q="
         + urllib.parse.quote(category["query"])
@@ -382,7 +440,6 @@ def fetch_category_news(category):
         log.warning("RSS fetch failed for %s: %s", category["label"], exc)
         return []
 
-    now = time.time()
     items = []
     for entry in feed.entries[:40]:
         published = ""
@@ -407,13 +464,11 @@ def fetch_category_news(category):
             "_ts": ts or 0,
         })
 
-    # Prefer items from the last 48 hours; fall back to whatever we have.
-    recent = [i for i in items if i["_ts"] and now - i["_ts"] <= 48 * 3600]
-    pool = recent if recent else items
-    pool.sort(key=lambda i: i["_ts"], reverse=True)
-    top = pool[:15]
-    attach_article_texts(category, top)
-    return top
+    # Sort by recency; the freshness-window tiering happens at selection
+    # time (see prepare_candidates), never as a hard filter that could
+    # leave a category empty.
+    items.sort(key=lambda i: i["_ts"], reverse=True)
+    return items[:15]
 
 
 # ---------------------------------------------------------------------------
@@ -751,17 +806,32 @@ def main():
 
     news = []
     claimed_titles = set()  # global cross-category dedup by normalized title
+    now = time.time()
     for category in CATEGORIES:
+        top_n = category.get("top_n", DEFAULT_TOP_N)
         candidates = fetch_category_news(category)
-        candidates, dropped = dedupe_candidates(candidates, claimed_titles)
-        if dropped:
-            log.info("%s: dropped %d duplicate candidate(s)",
-                     category["label"], dropped)
+        candidates, stats = prepare_candidates(candidates, claimed_titles, now)
+        tc = stats["tier_counts"]
+        log.info(
+            "%s: %d candidates (24h: %d, 48h: %d, older: %d, undated: %d); "
+            "%d cross-category dupe(s) demoted, %d within-category dupe(s) dropped",
+            category["label"], stats["candidates"], tc[0], tc[1], tc[2], tc[3],
+            stats["cross_dupes"], stats["within_dropped"])
+        attach_article_texts(category, candidates)
         items = summarize_category(category, candidates)
         for item in items:
             key = normalize_title(item["title"])
             if key:
                 claimed_titles.add(key)
+        # Report the freshness window actually used by the selected items.
+        used = [stats["tier_by_url"].get(item["url"]) for item in items]
+        used = [t for t in used if t is not None]
+        window = TIER_LABELS[max(used)] if used else "n/a"
+        log.info("%s: selected %d/%d items (window used: %s)",
+                 category["label"], len(items), top_n, window)
+        if len(items) < top_n:
+            log.warning("%s: only %d of %d slots filled (feed exhausted)",
+                        category["label"], len(items), top_n)
         news.append({
             "id": category["id"],
             "label": category["label"],
