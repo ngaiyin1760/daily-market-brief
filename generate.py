@@ -131,6 +131,39 @@ FRESHNESS_TIERS = [
 TIER_LABELS = ["24h", "48h", "any-date", "undated"]
 
 
+# Trusted outlets. Google News search returns everything from wire services
+# to content farms; items from these sources rank above others within the
+# same freshness tier. Matching is on the normalized publisher name
+# (lowercase, alphanumerics only) so "Bloomberg.com" matches "bloomberg".
+PREFERRED_SOURCES = {
+    # Wires & global financial press
+    "reuters", "bloomberg", "bloombergcom", "apnews", "associatedpress",
+    "financialtimes", "ftcom", "thewallstreetjournal", "wsj", "wsjcom",
+    "cnbc", "barrons", "marketwatch", "nikkeiasia", "nikkei", "theeconomist",
+    "yahoofinance", "investingcom", "fortune", "thebusinesstimes",
+    # Quality general press with strong business desks
+    "bbc", "bbcnews", "cnn", "theguardian", "thenewyorktimes", "nytimes",
+    "washingtonpost", "straitstimes",
+    # Greater China / HK
+    "southchinamorningpost", "scmp", "caixinglobal", "caixin",
+    "hongkongeconomictimes", "hket", "aastocks", "thestandard",
+    # Sector trades (tech / semis / EV / space / data centers)
+    "techcrunch", "theinformation", "trendforce", "digitimes", "electrek",
+    "spacenews", "datacenterdynamics",
+}
+
+
+def normalize_source(name):
+    return re.sub(r"[^a-z0-9]+", "", (name or "").lower())
+
+
+def source_rank(item):
+    """0 = trusted outlet, 1 = anything else. A ranking signal only — never a
+    hard filter, so a category can still fill from other outlets when no
+    trusted source covered it within the same freshness tier."""
+    return 0 if normalize_source(item.get("source")) in PREFERRED_SOURCES else 1
+
+
 def freshness_tier(item, now):
     """0 = within 24h, 1 = within 48h, 2 = any older dated item, 3 = undated.
     Epoch comparisons are timezone-safe (both sides are absolute UTC)."""
@@ -149,25 +182,35 @@ def prepare_candidates(candidates, claimed, now):
     """Order a category's candidates for selection.
 
     - Within-category dedup: drop exact normalized-title repeats (Google News
-      clusters the same story across outlets). Items with empty/missing
+      clusters the same story across outlets), keeping the copy from the
+      trusted outlet (newest copy breaks ties). Items with empty/missing
       titles BYPASS dedup and are never dropped.
     - Cross-category dedup: titles already claimed by an earlier category are
       DEMOTED, not dropped — preference order is freshness tier first
-      (24h > 48h > any-date > undated), and within a tier non-duplicates
-      before duplicates, then recency. A dupe is only used when nothing
-      fresher/unique can fill the category's slots.
+      (24h > 48h > any-date > undated), then trusted outlets before others,
+      then non-duplicates before duplicates, then recency. A dupe is only
+      used when nothing fresher/unique can fill the category's slots.
     Returns (ordered_candidates, stats_dict).
     """
-    seen_local = set()
+    seen_local = {}
     unique = []
     within_dropped = 0
     for item in candidates:
         key = normalize_title(item["title"])
         if key:
             if key in seen_local:
+                # Same story from another outlet — keep the copy from the
+                # trusted source (newer copy breaks a tie), not just the
+                # first one the feed happened to list.
+                idx = seen_local[key]
+                kept = unique[idx]
+                if (source_rank(item), -item["_ts"]) < \
+                        (source_rank(kept), -kept["_ts"]):
+                    item["_key"] = key
+                    unique[idx] = item
                 within_dropped += 1
                 continue
-            seen_local.add(key)
+            seen_local[key] = len(unique)
         item["_key"] = key
         unique.append(item)
 
@@ -177,9 +220,9 @@ def prepare_candidates(candidates, claimed, now):
         is_dupe = bool(item["_key"]) and item["_key"] in claimed
         if is_dupe:
             cross_dupes += 1
-        ranked.append((freshness_tier(item, now), 1 if is_dupe else 0,
-                       -item["_ts"], item))
-    ranked.sort(key=lambda r: (r[0], r[1], r[2]))
+        ranked.append((freshness_tier(item, now), source_rank(item),
+                       1 if is_dupe else 0, -item["_ts"], item))
+    ranked.sort(key=lambda r: (r[0], r[1], r[2], r[3]))
 
     tier_counts = [0, 0, 0, 0]
     for item in unique:
@@ -187,12 +230,13 @@ def prepare_candidates(candidates, claimed, now):
     stats = {
         "candidates": len(unique),
         "tier_counts": tier_counts,
+        "preferred_sources": sum(1 for i in unique if source_rank(i) == 0),
         "cross_dupes": cross_dupes,
         "within_dropped": within_dropped,
         "tier_by_url": {i["link"]: freshness_tier(i, now)
                         for i in unique if i["link"]},
     }
-    return [r[3] for r in ranked], stats
+    return [r[4] for r in ranked], stats
 
 # ---------------------------------------------------------------------------
 # Daily key takeaways
