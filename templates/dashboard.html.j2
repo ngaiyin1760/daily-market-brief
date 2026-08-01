@@ -28,7 +28,7 @@
     <h1>{{ page_date|e }}</h1>
     <div class="generated">Generated {{ generated_at|e }}</div>
   </header>
-  {% if snapshot %}<div class="ticker">{{ snapshot|e }}</div>{% endif %}
+  {% if snapshot %}<div class="ticker">{% for t in snapshot %}<span class="{{ t.cls }}">{{ t.text|e }}</span>{% if not loop.last %} · {% endif %}{% endfor %}</div>{% endif %}
 
   {% if takeaways %}
   <section class="takeaways" id="takeaways">

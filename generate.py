@@ -709,7 +709,8 @@ def fetch_indicators():
 
 
 def build_snapshot(groups):
-    """One-line market snapshot string for the page header."""
+    """Snapshot ticker items for the page header: list of {"text", "cls"}
+    where cls is pos/neg/flat based on the daily change sign."""
     wanted = {"S&P 500": "S&P", "Nasdaq": "Nasdaq", "Hang Seng": "HSI",
               "US 10Y": "US10Y", "USD/HKD": "USD/HKD", "Gold": "Gold",
               "Bitcoin": "BTC"}
@@ -720,12 +721,22 @@ def build_snapshot(groups):
             if not short:
                 continue
             if item["kind"] == "yield" and item["last"] is not None:
-                parts.append(f"{short} {item['last']:.2f}%")
+                text = f"{short} {item['last']:.2f}%"
+                chg = item["change_bp"]
             elif item["change"] is not None:
-                parts.append(f"{short} {item['change']:+.1f}%")
+                text = f"{short} {item['change']:+.1f}%"
+                chg = item["change"]
             elif item["last"] is not None:
-                parts.append(f"{short} {item['last']:,.1f}")
-    return " \u00b7 ".join(parts)
+                text = f"{short} {item['last']:,.1f}"
+                chg = None
+            else:
+                continue
+            if chg is None or round(chg, 1) == 0:
+                cls = "flat"
+            else:
+                cls = "pos" if chg > 0 else "neg"
+            parts.append({"text": text, "cls": cls})
+    return parts
 
 
 # ---------------------------------------------------------------------------
@@ -853,7 +864,8 @@ def main():
 
     groups = fetch_indicators()
     snapshot = build_snapshot(groups)
-    log.info("Snapshot: %s", snapshot or "(empty)")
+    log.info("Snapshot: %s", " · ".join(t["text"] for t in snapshot)
+             if snapshot else "(empty)")
 
     render_pages("dashboard.html.j2", page_date, generated_at, snapshot,
                  takeaways, news, groups)
