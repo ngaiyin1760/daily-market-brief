@@ -202,9 +202,9 @@ TAKEAWAYS_PROMPT = """You are a financial news analyst writing the lead summary 
 
 Below are the day's selected top stories across all coverage categories, with their importance ratings and the key points digested from each article.
 
-Write exactly 3-4 concise analyst-style bullet points synthesizing the day's most important cross-market findings — connect themes across categories where relevant. Synthesize insights from the key points; do NOT just list or restate headlines.
+Write exactly 3 concise analyst-style bullet points synthesizing the day's most important cross-market findings — connect themes across categories where relevant. Synthesize insights from the key points; do NOT just list or restate headlines. Keep each bullet tight (max ~30 words).
 
-Return STRICT JSON only: an object with one key "takeaways", an array of 3-4 bullet strings.
+Return STRICT JSON only: an object with one key "takeaways", an array of exactly 3 bullet strings.
 
 Top stories:
 {items}
@@ -212,7 +212,7 @@ Top stories:
 
 
 def heuristic_takeaways(news):
-    """Fallback: 3-4 highest-rated items across all categories (ties broken
+    """Fallback: 3 highest-rated items across all categories (ties broken
     by category order), prefixed with the category label. Uses the best
     available text (digested bullet) rather than the bare title."""
     ranked = []
@@ -228,7 +228,7 @@ def heuristic_takeaways(news):
             ranked.append((item["rating"], cat["label"], text))
     # Stable sort by rating desc keeps category order for ties.
     ranked.sort(key=lambda x: x[0], reverse=True)
-    return [f"[{label}] {text}" for _, label, text in ranked[:4]]
+    return [f"[{label}] {text}" for _, label, text in ranked[:3]]
 
 
 def gemini_takeaways(news):
@@ -255,7 +255,7 @@ def gemini_takeaways(news):
     takeaways = parsed.get("takeaways")
     if not isinstance(takeaways, list) or not takeaways:
         raise ValueError("Gemini takeaways missing or not a list")
-    return [str(t) for t in takeaways][:4]
+    return [str(t) for t in takeaways][:3]
 
 
 def build_takeaways(news):
