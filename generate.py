@@ -525,13 +525,13 @@ def heuristic_summarize(candidates, top_n=DEFAULT_TOP_N):
 
 GEMINI_PROMPT = """You are a financial news analyst. Below are candidate news items for the category "{label}". Each candidate includes the article content (extracted full text where available, otherwise the RSS snippet).
 
-Pick the {n} most important stories for a finance professional. For each, write exactly 2 SHORT bullet points (each bullet max 20 words — telegraphic, no filler) and assign an importance rating from 1 (minor) to 5 (market-moving).
+Pick the {n} most important stories for a finance professional. For each, write exactly 2 bullet points and assign an importance rating from 1 (minor) to 5 (market-moving).
 
-The bullet points MUST be digested from the provided article content: capture only the single most important fact/number and the investor implication. They must add value beyond the headline — NEVER merely rephrase or restate the title. Brevity is critical: the reader scans this in seconds.
+The bullet points MUST be digested from the provided article content: capture key facts, numbers, and implications for investors. They must add value beyond the headline — NEVER merely rephrase or restate the title. Each bullet should be one to two full sentences (roughly 25-40 words): substantive enough to stand on its own, but no padding or repetition.
 
 Return STRICT JSON only: an array of exactly {n} objects, each with keys:
 "title" (string), "url" (string, use the item's link), "source" (string),
-"published" (string), "bullets" (array of exactly 2 short bullet strings),
+"published" (string), "bullets" (array of exactly 2 bullet strings),
 "rating" (integer 1-5), "reason" (one short phrase justifying the rating).
 
 Candidate items:
