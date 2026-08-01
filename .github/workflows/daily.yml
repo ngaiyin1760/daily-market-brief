@@ -25,6 +25,10 @@ jobs:
       - name: Generate brief
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # Force the AI Studio endpoint (generativelanguage.googleapis.com) —
+          # the free-tier path. Auto-detect would route AQ.-prefixed keys to
+          # Vertex AI, which bills through the linked GCP project.
+          GEMINI_PROVIDER: aistudio
         run: python generate.py
 
       - name: Commit and push docs/
