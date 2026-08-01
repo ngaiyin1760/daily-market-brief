@@ -710,8 +710,9 @@ def fetch_indicators():
 
 def build_snapshot(groups):
     """One-line market snapshot string for the page header."""
-    wanted = {"S&P 500": "S&P", "Hang Seng": "HSI", "US 10Y": "US10Y",
-              "US Dollar Index": "DXY"}
+    wanted = {"S&P 500": "S&P", "Nasdaq": "Nasdaq", "Hang Seng": "HSI",
+              "US 10Y": "US10Y", "USD/HKD": "USD/HKD", "Gold": "Gold",
+              "Bitcoin": "BTC"}
     parts = []
     for group in groups:
         for item in group["items"]:
