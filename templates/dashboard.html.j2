@@ -98,12 +98,15 @@
       <h3>{{ group.name|e }}</h3>
       <div class="chart-grid">
         {% for item in group["items"] %}
-        <div class="chart-card{% if item.closes and item.closes|length > 1 %} {{ 'up' if item.closes[-1] >= item.closes[0] else 'down' }}{% endif %}">
+        <div class="chart-card
+          {%- if item.kind == 'yield' and item.change_bp is not none %} {{ 'up' if item.change_bp >= 0 else 'down' }}
+          {%- elif item.change is not none %} {{ 'up' if item.change >= 0 else 'down' }}
+          {%- endif -%}">
           <div class="cc-head">
             <span class="cc-name">{{ item.label|e }}</span>
             <span class="cc-last">
               {%- if item.last is not none -%}
-                {{ "%.2f"|format(item.last) }}{% if item.kind == "yield" %}%{% endif %}
+                {{ "{:,.2f}".format(item.last) }}{% if item.kind == "yield" %}%{% endif %}
               {%- else -%}<span class="na">n/a</span>{%- endif -%}
             </span>
           </div>
@@ -121,7 +124,11 @@
           <div class="cc-body">
             <canvas class="trend" data-closes='{{ item.closes|tojson }}'
                     data-labels='{{ item.labels|tojson }}'
-                    data-kind="{{ item.kind|e }}"></canvas>
+                    data-kind="{{ item.kind|e }}"
+                    data-dir="
+                      {%- if item.kind == 'yield' and item.change_bp is not none -%}{{ 'up' if item.change_bp >= 0 else 'down' }}
+                      {%- elif item.change is not none -%}{{ 'up' if item.change >= 0 else 'down' }}
+                      {%- else -%}flat{%- endif -%}"></canvas>
           </div>
           {% else %}
           <div class="cc-na">No data available</div>
@@ -139,7 +146,7 @@
             <td>{{ item.label|e }}</td>
             <td class="num">
               {%- if item.last is not none -%}
-                {{ "%.2f"|format(item.last) }}{% if item.kind == "yield" %}%{% endif %}
+                {{ "{:,.2f}".format(item.last) }}{% if item.kind == "yield" %}%{% endif %}
               {%- else -%}<span class="na">n/a</span>{%- endif -%}
             </td>
             <td class="num">
@@ -188,7 +195,9 @@
     if (dateLabels.length !== closes.length) {
       dateLabels = closes.map(function (_, i) { return i; });
     }
-    var up = closes[closes.length - 1] >= closes[0];
+    // Line/fill color follows the DAILY change sign (data-dir), matching the
+    // change number shown on the card — not the 1-year window direction.
+    var up = cv.getAttribute("data-dir") !== "down";
     var color = up ? UP : DOWN;
     new Chart(cv.getContext("2d"), {
       type: "line",
@@ -251,7 +260,18 @@
               maxRotation: 0,
               font: { family: CHART_FONT, size: 10.5 },
               color: "#8d8574",
-              padding: 4
+              padding: 4,
+              // Compact MM/YY axis ticks ("Jul 31 '25" -> "07/25") so labels
+              // never overlap on phone widths; tooltips keep the full date.
+              callback: function (value) {
+                var label = String(this.getLabelForValue(value));
+                var m = label.match(/^([A-Z][a-z]{2})\s+\d+\s+'(\d{2})$/);
+                if (!m) return label;
+                var MONTHS = { Jan: "01", Feb: "02", Mar: "03", Apr: "04",
+                               May: "05", Jun: "06", Jul: "07", Aug: "08",
+                               Sep: "09", Oct: "10", Nov: "11", Dec: "12" };
+                return (MONTHS[m[1]] || m[1]) + "/" + m[2];
+              }
             }
           },
           y: {
