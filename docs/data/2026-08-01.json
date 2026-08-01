@@ -1,11 +1,40 @@
 {
   "date": "2026-08-01",
-  "generated_at": "2026-08-01 14:51 HKT",
-  "snapshot": "S&P +0.7% · Nasdaq +1.0% · HSI +0.1% · US10Y 4.75% · USD/HKD -0.0% · Gold -1.2% · BTC -2.6%",
+  "generated_at": "2026-08-01 15:13 HKT",
+  "snapshot": [
+    {
+      "text": "S&P +0.7%",
+      "cls": "pos"
+    },
+    {
+      "text": "Nasdaq +1.0%",
+      "cls": "pos"
+    },
+    {
+      "text": "HSI +0.1%",
+      "cls": "pos"
+    },
+    {
+      "text": "US10Y 4.75%",
+      "cls": "pos"
+    },
+    {
+      "text": "USD/HKD -0.0%",
+      "cls": "flat"
+    },
+    {
+      "text": "Gold -1.2%",
+      "cls": "neg"
+    },
+    {
+      "text": "BTC +0.3%",
+      "cls": "pos"
+    }
+  ],
   "takeaways": [
-    "Global inflation concerns persist, with the BOJ signaling future hikes and rising US Treasury yields reinforcing \"higher for longer\" rate expectations, making bonds a compelling alternative to risk assets.",
-    "Big Tech's trillion-dollar AI infrastructure build-out continues, driving demand for specialized chips and reshaping corporate efficiency, while also fueling sector-specific volatility and speculative investment.",
-    "China's economy shows a stark divergence: booming exports and EV adoption reshape global markets, contrasting with persistent weak domestic consumption and household deleveraging pressures."
+    "Persistent global inflation concerns are prompting hawkish central bank stances (BOJ, ECB), driving rising real yields in fixed income markets and challenging equity valuations amid broader economic uncertainty.",
+    "Big Tech's trillion-dollar AI infrastructure investments, fueled by robust enterprise adoption and capacity constraints, are driving demand across semiconductors and data centers, despite geopolitical challenges impacting supply chains.",
+    "China's 'two-speed' economy, marked by weak domestic consumption but strong exports, is profoundly reshaping global energy markets through its rapid EV adoption, displacing significant oil demand."
   ],
   "categories": [
     {
@@ -14,27 +43,15 @@
       "items": [
         {
           "title": "Bank of Japan keeps rates steady, warns on inflation",
-          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9maVd1ZjZwdEoxU2RKaW5MRmFqUDBUVWVmeTd2STV1NW82LXM2V29sUkJVZnZZLS1FTGZOakdIVUFObXk1YW5nNEFxb1lCZjVwSFd4YWo0NjdHbTlNZjN1d2ZvbVlhbUxQV3M5bFpzaV9jeUpjVFE?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9maVd1ZjZwdEoxU2RKaW5MRmFKcDBUVWVmeTd2STV1NW82LXM2V29sUkJVZnZZLS1FTGZOakdIVUFObXk1YW5nNEFxb1lCZjVwSFd4YWo0NjdHbTlNZjN1d2ZvbVlhbUxQV3M5bFpzaV9jeUpjVFE?oc=5",
           "source": "Taipei Times",
           "published": "2026-07-31 16:00 UTC",
           "bullets": [
-            "BOJ kept rates at 1% but warned inflation could exceed 2% target, signaling future hikes.",
-            "Yen remained weak near 160/USD despite intervention, impacting global currency markets."
+            "BOJ held rates at 1% but warned underlying inflation could exceed 2% target.",
+            "Signals future rate hikes, impacting JGB yields and yen strength outlook."
           ],
           "rating": 5,
-          "reason": "Major shift from BOJ's long-standing dovish stance, impacting global rates and FX."
-        },
-        {
-          "title": "The European Central Bank (ECB) Just Issued a Major Warning About Stablecoins. Should Crypto Investors Be Concerned?",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNHdHNllQYzFTUUhEVHBkYk12MEM1NmxPdEZqMU85V2FPeFJnWGQ3N3pZY0dwZTRtVW1FN2FyTmdjYXpnbDdWUVI3dFVmRGM4QWF5MUl4VDhJVUpNRnFNaHptWm1TVDljalJDaFNSZDZOb3laaTJnajFtU1FudVdJY1dpNmc5cUJXVEVMQ05DVWJVcENPbUQ4?oc=5",
-          "source": "The Motley Fool",
-          "published": "2026-08-01 02:42 UTC",
-          "bullets": [
-            "ECB warns stablecoins pose a \"major threat\" to banks by draining reserves and reducing profitability.",
-            "Signals potential for stricter regulation and competition from ECB's own digital euro."
-          ],
-          "rating": 4,
-          "reason": "Significant regulatory warning from a major central bank on systemic crypto risks."
+          "reason": "Major shift in BOJ's dovish stance, market-moving for JPY and global rates."
         },
         {
           "title": "German inflation rises in July, economy grows more than expected in Q2",
@@ -42,11 +59,23 @@
           "source": "Reuters",
           "published": "2026-07-30 13:18 UTC",
           "bullets": [
-            "German inflation rose in July, while Q2 GDP growth exceeded expectations.",
-            "Stronger data could influence ECB's future monetary policy decisions for the Eurozone."
+            "German July inflation rose, Q2 GDP grew more than expected.",
+            "Suggests persistent Eurozone inflation, supporting ECB hawkish stance."
           ],
-          "rating": 3,
-          "reason": "Key economic data for the Eurozone, impacting regional outlook and ECB policy."
+          "rating": 4,
+          "reason": "Crucial Eurozone economic data, impacts ECB policy expectations."
+        },
+        {
+          "title": "The European Central Bank (ECB) Just Issued a Major Warning About Stablecoins. Should Crypto Investors Be Concerned?",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNHdHNllQYzFTUUhEVHBkYk12MEM1NmxPdEZqMU85V2FPeFJnWGQ3N3pZY0dwZTRtVW1FN2FyTmdjYXpnbDdWUVI3dFVmRGM4QWF5MUl4VDhJVUpNRnFNaHptWm1TVDljalJDaFNSZDZOb3laaTJnajFtU1FudVdJY1dpNmc5cUJXVEVMQ05DVWJVcENPbUQ4?oc=5",
+          "source": "The Motley Fool",
+          "published": "2026-08-01 02:42 UTC",
+          "bullets": [
+            "ECB warns stablecoins pose major threat to banks by draining reserves.",
+            "Signals increased regulatory scrutiny and potential for digital euro competition."
+          ],
+          "rating": 4,
+          "reason": "High impact on crypto regulation and traditional finance stability."
         }
       ]
     },
@@ -55,28 +84,28 @@
       "label": "Equity Markets",
       "items": [
         {
-          "title": "Always be ready for a violent stock market crash",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPQk4tMHl6My1XelppWjJ0eDM3VjhfSUwyaFRNdTM2SE9JMmVHM1VjTDVoNWNQZzF1YVd3ekJibmk1TzVGT051Tk56a2g0bHNhNm1sODFWV0lIQVVCZ2hTX0J2TW1yRTVLbTFiT0Q3OTlUelUtdUNLaGFTWm9hUkNncUNLeWpnMDFkQXc?oc=5",
-          "source": "Yahoo Finance UK",
-          "published": "2026-08-01 06:11 UTC",
+          "title": "Fear Is Driving the Stock Market. Warren Buffett Has 6 Words for Moments Exactly Like This.",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPMXk5VURTcE9pTW9pVWxEZXk1aEs3NlNTUlB5UmVsZEJmQmllM0Z5eEwyVmdSZFFlcUlfNHViaHdTOWFTUkctR05sVnBPX3VuRW1uaWlxczZIbmxrR0xoeUhTOGE3cDh3TUo0Ym5Za3lCUDNFa1RrZmlWX2RHY051OHVMOFpEbm5CZWhyNDZNZFZGVnNRMVVvZkxLVnZrdw?oc=1",
+          "source": "Yahoo Finance",
+          "published": "2026-08-01 06:50 UTC",
           "bullets": [
-            "Rising Middle East conflict and energy costs spark inflation fears, potentially derailing the 2026 market rally.",
-            "Prepare for downturns by holding cash and identifying AI-driven bargains like Arista Networks (ANET) with 35.1% Q1 revenue growth."
+            "S&P 500 on track for second monthly decline; Nasdaq down 9.7% since June, near correction.",
+            "Fear & Greed Index at 37 signals fear; Buffett advises \"be greedy\" for buying quality stocks."
           ],
-          "rating": 4,
-          "reason": "Addresses current macro risks, investor sentiment, and offers actionable preparation strategies."
+          "rating": 5,
+          "reason": "Covers broad market sentiment, index performance, and offers a classic counter-cyclical investment strategy."
         },
         {
-          "title": "Why I Love the Stock Market",
-          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE45bnlweWNLWnQ3UUlFeXk5MHRvV3NZeGU2SktjVDBELXQ5eWlkY2gtV2RBa0FwVjhBTTloTnhsUkRxWnlqc1phZ3lMNnhyT0J3RllOY3U3ZjVpVlVTY2xPSGxCTU5FbnpZam5tbm92NkFmRW9LeklVcg?oc=5",
+          "title": "Why I Love the Stock Market - A Wealth of Common Sense",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE45bnlweWNLWnQ3UUlFeXk5MHRvV3NZeGU2SktjVDBELXQ5eWlkY2gtV2RBa0FwVjhBTTloTnhsUkRxWnlqc1phZ3lMNnhyT0J3RllOY3U3ZjVpVlVTY2xPSGxCTU5FbnpZam5tbm92NkFmRW9LeklVcg?oc=1",
           "source": "A Wealth of Common Sense",
           "published": "2026-08-01 02:28 UTC",
           "bullets": [
-            "Despite a calm 10% US market gain in 2026, specific sectors exhibit extreme volatility and speculation.",
-            "Semiconductor stocks like SanDisk saw 5,300% gains then 60% crashes, driven by AI arms race and leverage."
+            "Overall calm market masks extreme volatility; South Korean index doubled, then crashed 40% in 5 weeks.",
+            "AI-driven semiconductor stocks like SanDisk saw 5300% gain, then 60% crash, highlighting speculation."
           ],
-          "rating": 5,
-          "reason": "Highlights significant underlying market volatility and speculative behavior in key sectors despite overall calm."
+          "rating": 4,
+          "reason": "Reveals hidden extreme volatility and speculation in key sectors despite overall market stability."
         }
       ]
     },
@@ -90,11 +119,11 @@
           "source": "Cryptonews.net",
           "published": "2026-07-31 19:57 UTC",
           "bullets": [
-            "5-year TIPS inflation expectation is 2.2% and trending down, suggesting real yields drive bond sell-off.",
-            "30-year Treasury yields hit 2007 highs; government bonds now outperform crypto cash-and-carry trades."
+            "5-year TIPS inflation expectation is 2.2% and falling, challenging the mainstream inflation narrative.",
+            "Rising real yields, not inflation, drive bond sell-off; bearish for yield-free assets like Bitcoin."
           ],
           "rating": 5,
-          "reason": "Challenges mainstream inflation narrative with specific data, highlights real yield impact."
+          "reason": "Challenges core market narrative with specific data, impacting asset allocation."
         },
         {
           "title": "Why spiking U.S. bond yields could be a big warning for the economy",
@@ -102,11 +131,11 @@
           "source": "Global News",
           "published": "2026-07-31 16:17 UTC",
           "bullets": [
-            "30-year Treasury yield above 5.25%, highest since 2007, signals 'higher for longer' Fed rates.",
-            "Bonds become attractive 'risk-free' alternative, drawing capital from stocks/real estate, slowing growth."
+            "30-year US Treasury yield hit 5.25%, highest since 2007, signaling broad economic uncertainty.",
+            "High yields attract capital from stocks/real estate, increasing borrowing costs for businesses and consumers."
           ],
-          "rating": 5,
-          "reason": "Details specific high yield levels and broad economic/market implications."
+          "rating": 4,
+          "reason": "Explains broad economic and market implications of current high yields."
         }
       ]
     },
@@ -115,28 +144,28 @@
       "label": "China Economy",
       "items": [
         {
-          "title": "Inside China’s two-speed economy: Why goods consumption is slumping even as exports and services boom - Fortune",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNdERjWHdYQTlXdTUwbnQ3eDlLOW9Ga0RMbERFbkRUTGFrV1Q1U2J3MVhPSDZXZkdjYnBPM2U0R1JwWkM0U1B6S3JQeVBOdDVEVENmLW1xVnU4SnItem9VMEZhNHh3bkVfTWhuWVBxa3NaREZZTHJpSExpVUpoTE5kLWc5cVNQNnEzeHpWZFNJdllQM2gtaHlPSGI5amE?oc=5",
-          "source": "Fortune",
-          "published": "2026-07-29 21:00 UTC",
-          "bullets": [
-            "Q2 GDP grew 4.3%, slowest since pandemic; June retail sales up only 1.0%, signaling weak domestic demand.",
-            "Exports jumped 27% in dollar terms, but government avoids direct stimulus, limiting consumer recovery."
-          ],
-          "rating": 5,
-          "reason": "Provides key Q2 economic data and highlights critical consumption/policy issues."
-        },
-        {
-          "title": "China’s debt ratio dips. Why it may not bode well for the economy - South China Morning Post",
+          "title": "China’s debt ratio dips. Why it may not bode well for the economy",
           "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQdlNzWnJNUmo3RlJCdV9SOWVBZFNjcmI3OHdUYXZ4UlZYMU80cE9MLTZpSXhxRTlnMm5nZ05hQ1pNMTkxeW4yanFsa2pSZlVKUnRHVkJ1NkdxUkVUWHk3MVJEZDJoNVRqSVNGOWZsZnhNeFVSbnZLSHdyYVU1YnpNWEpMM1h1b284QXVtMUlQYVhhTk9fRFJOcWsyM3lxVFlhdUhhZlBRZVMxdjlPaVViVk42ZG1mdXpLTzItR2ZVRTN4MlBEdDZYNGQxLUlLUm1aaE55TTAzb9IB1wFBVV95cUxQZ3RUMzk0X2dUcjdPQnZjWVBzX1JIczVWM19kVHRZcXQ4OWRjZWw3YndFeFBjdENEM1ZEU3VnWWMzV0I0NGlXN0tzWGd4RERlMTd3emNFSDU4TWVPbzRjS2xBZVlnVEwzT25LdktfSEdpX2o1bUxEelk4Qnhlc2U3c211WU1TdXlURU1IM1dLVzdZcUtVcllSVWVNbHJnbDA3cENlX01xQl9MbXc1Slh1Q2JreVhLN3ZyVVBnQWdqVWtBYy1fRy1WMEs4czFOYXNOTDBpT0t3MA?oc=5",
           "source": "South China Morning Post",
           "published": "2026-07-31 10:00 UTC",
           "bullets": [
-            "Household debt-to-GDP fell 1.3 percentage points to 57.7%, as mortgage lending shrank for 13th quarter.",
-            "Consumer lending decline accelerated to 1.8%, indicating persistent household deleveraging and weak demand."
+            "China's overall debt-to-GDP ratio fell 1.1% to 308.2%, driven by household deleveraging since mid-2024.",
+            "Mortgage lending shrank 13th quarter, consumer lending decline accelerated, signaling weak domestic demand."
           ],
           "rating": 4,
-          "reason": "Reveals critical underlying weakness in household demand and deleveraging trend."
+          "reason": "Highlights critical household/corporate deleveraging, impacting future growth."
+        },
+        {
+          "title": "Inside China’s two-speed economy: Why goods consumption is slumping even as exports and services boom",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNdERjWHdYQTlXdTUwbnQ3eDlLOW9Ga0RMbERFbkRUTGFrV1Q1U2J3MVhPSDZXZkdjYnBPM3U0R1JwWkM0U1B6S3JQeVBOdDVEVENmLW1xVnU4SnItem9VMEZhNHh3bkVfTWhuWVBxa3NaREZZTHJpSExpVUpoTE5kLWc5cVNQNnEzeHpWZFNJdllQM2gtaHlPSGI5amE?oc=5",
+          "source": "Fortune",
+          "published": "2026-07-29 21:00 UTC",
+          "bullets": [
+            "Q2 GDP grew 4.3%, slowest post-pandemic, missing targets; retail sales up only 1.0% in June.",
+            "Exports jumped 27% and industrial output 5.3%, showing a \"two-speed\" economy with weak domestic consumption."
+          ],
+          "rating": 5,
+          "reason": "Provides key Q2 economic data, revealing significant domestic demand weakness despite strong exports."
         }
       ]
     },
@@ -145,28 +174,28 @@
       "label": "Hong Kong Economy",
       "items": [
         {
-          "title": "Hong Kong home prices rise for 13th straight month, but growth slows in June - Prop News Time",
-          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOU0hDLTFtM0h6OG5wdEJETC02QklQRnlXVDBvS1dOMGsyT2NYY0dXc0Z2c3N0OEN2N0pKZVdCWVVYeExMWjhtam05RG01REpIZzhyWkk0TjhCQlhlaS0ta1FURjlhZHdxbW9XX0FzWVQ5ckEzSGs5X2NHNWZldWVmZzF3anA3d3dxb1lVVXd3anFHVXI5Ym1IY2RZZlFmbG1nTDI2QTE5eWR3dGJNOWFOdTV1UWFGOGJjZFlGekh0NENfaGNlZHc?oc=5",
-          "source": "Prop News Time",
-          "published": "2026-07-31 08:32 UTC",
+          "title": "Singapore-based investors now the top non-local buyers of Hong Kong office assets",
+          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOSEMxVERJdmdmR2VOOEl3MjZLX1lPTlBIYXl1S1I5ZnYxVjFfcGE4ekJhOUpPcVJtc09kUVFJalBaUjYxODFnRFJpSENHRGN0dERaQmpEQk10MlFPaUNjRVNCb3RldVA3UV9XNWY0cUw2VXRvU2FyU1FidnZ0LU95UV9RSXZ0RHlLX1JjYXJhZWp2MzlkWXU0TFNYQVhXbkJLckNNc2x2cS1BVHBab1BmUF9GNGhpaG1SQUxWa29uMG5OQWVkZG9lUU5SM2F0MndiUVlLMVVmV2swSC1F?oc=5",
+          "source": "The Star",
+          "published": "2026-07-31 12:50 UTC",
           "bullets": [
-            "Private home prices rose 0.3% in June, slowing growth despite 13th consecutive monthly increase.",
-            "Analysts expect market consolidation due to weaker stock sentiment and mainland investment controls."
+            "Singaporean investors became top non-local buyers in Q2, injecting HK$3.37B into HK commercial property.",
+            "Central Grade-A office rents rose 7.3% in H1, a 15-year high, signaling prime market recovery."
           ],
-          "rating": 4,
-          "reason": "Signals a potential slowdown in the broader housing market recovery."
+          "rating": 5,
+          "reason": "Significant shift in capital flows and strong recovery signals for commercial property."
         },
         {
-          "title": "Hong Kong Celebrity Luxury Property Sales at Discounts | Market Outlook 2026 - News and Statistics - indexbox.io",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNR0lEVC1iZ3M0TTNoQ3pfTDI0Z01VaFprTXkzckVBYS1tUzJkTjJGbVJZQ0w5ZGpidTQ2UDVvMjhjWl9vanVZa01Pb2xFRVhsc0VFREJ0ZTM4eEh2UDNtUVc1b05USkVjSzRrOF9POENIbE90Tk5xWHB6RUxlMW1UdFE5bG1UT2p6VEt6bnc4YVpOQ1k0eUlB?oc=5",
-          "source": "indexbox.io",
-          "published": "2026-07-31 11:41 UTC",
+          "title": "Hang Lung looks beyond luxury amid changing consumer tastes",
+          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOSlAwYy1nODRtQjM2TDc5M0ItVVlxZlNjRExrZW1hQmR5SlczNGZ2UHBaWkt5Q0VLX1FobTVoeXJSVXBfeDFWZmtWRlN0bTJ3Y1lXYkg5ajUzbjB5cjlkeXlEeTBJZWJTSGpqZ3BvU1pDMFVMYlVVdW1mREFzbllxRWRpNGdwUFFpM1h1bFBkNVRtQUlBRGRhNDZWZmVid2w1YkMxaW1acHB6SW13ODZyNVZBX1I4RHZiLUUzSW1jODJZV3NlaHFiaVcyZTBKRmRqOUVVYVg0WDfSAdgBQVVfeXFMUEYwWTV4RFpFVWlRSF80OUVCdXZ6NjJPOW44TDZOcnVweS1Xd2ZmVm1idWFLOFZFbC1ORk8xVUdMeVIyNUk5ZTBJZ2kzOU5FeFpxcVFCS0NDRkkyd01wMmtCUTl1NEhRMmNvQ0g2bWd1QlpQbThWT0h0bmlsaU1yOEJSWXF6TGc5b0ttaElyZjdCbW1zdWFiRUltem16Y3F1MWtLQnFweGZvSnpFY3ZGQWFFdHJxaEpnZGFaNm5Vb3B1WGloRzlUY2lEUlNuenFiaV9JRzhKaDZ4?oc=5",
+          "source": "South China Morning Post",
+          "published": "2026-07-31 11:29 UTC",
           "bullets": [
-            "Celebrities sold luxury properties at 19-27% discounts, indicating a cooling high-end market.",
-            "Agents expect short-term luxury home prices to fall by up to 10%, signaling further weakness."
+            "Hang Lung's H1 underlying net profit fell 10% to HK$1.44B, despite 23% revenue rise from residential handovers.",
+            "Property writedowns and weak offices offset record mall rents; mainland project impairments impacted earnings."
           ],
           "rating": 4,
-          "reason": "Direct evidence of price weakness in a key high-value segment."
+          "reason": "Key developer earnings reveal mixed property sector performance and mainland exposure risks."
         }
       ]
     },
@@ -175,28 +204,28 @@
       "label": "Global Technology",
       "items": [
         {
-          "title": "Big tech spends more than $1 trillion on AI infrastructure — additional $745 billion expected to be added to the figure in 2026 alone",
-          "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxNNF9PZGY3aS1XNmdmSzdFSEM4ZkhyNkpsOWNqdGpZenBmRVlWNm5RVl9vdHRqeWJuWFZ3X2dRRGwwLXNpcXh0YUtzZ1k0LWhVaXhQVXJ1bjlwLXNZcGJYeXk0TUdjOFFGM1JSSlp1NWsyYXdJWldkZUMtLW4zVjhVNk9RQ0FKamY4TkpWeFhJSy1hY1BEQ2VTUFhXem5rWVhub0swNUJfTmx3WG5pSXczXzlleWtEeGdKWHByMUFFMEh3MGxpZTAzUDdiUzZSSXUtMUdYcVEtY2FBVWVZOHZXXy12cWxhb1prUnUxWVpGWWZLODZzc3M0VFc5N2tia2hBLVJxN2JrV0RrT05oTExFdm54ZThsZw?oc=5",
+          "title": "Big tech spends more than $1 trillion on AI infrastructure — additional $745 billion expected to be added to the figure in 2026 alone - Tom's Hardware",
+          "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxNNF9PZEY3aS1XNmdmSzdFSEM4ZkhyNkpsOWNqdGpZenBmRVlWNm5RVl9vdHRqeWJuWFZ3X2dRRGwwLXNpcXh0YUtzZ1k0LWhVaXhQVXJ1bjlwLXNZcGJYeXk0TUdjOFFGM1JSSlp1NWsyYXdJWldkZUMtLW4zVjhVNk9RQ0FKamY4TkpWeFhJSy1hY1BEQ2VTUFhXem5rWVhub0swNUJfTmx3WG5pSXczXzlleWtEeGdKWHByMUFFMEh3MGxpZTAzUDdiUzZSSXUtMUdYcVEtY2FBVWVZOHZXXy12cWxhb1prUnUxWVpGWWZLODZzc3M0VFc5N2tia2hBLVJxN2JrV0RrT05oTExFdm54ZThsZw?oc=5",
           "source": "Tom's Hardware",
           "published": "2026-07-31 16:30 UTC",
           "bullets": [
-            "Big tech spent $1.1T on AI infrastructure since 2023; $745B more expected in 2026.",
-            "Massive capital expenditure by tech giants drives utility upgrades and premium pricing for HBM chips."
+            "Big Tech spent $1.1 trillion on AI infrastructure since 2023, with $745 billion more expected in 2026.",
+            "Massive capex signals intense AI investment, impacting tech giants' financials and related industries like utilities and chips."
           ],
           "rating": 5,
-          "reason": "Massive, quantifiable investment by major tech players with broad industry ripple effects."
+          "reason": "Massive, concrete investment by major tech players with broad economic and supply chain implications."
         },
         {
-          "title": "The Rise of AI: Why Middle Managers at Big Tech Companies Are Facing Unprecedented Challenges to Thrive",
+          "title": "The Rise of AI: Why Middle Managers at Big Tech Companies Are Facing Unprecedented Challenges to Thrive - 36 Kr",
           "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE40Ry1nUktoemRwUUg5aUo0eGdpQzRLaklpRkp6QVd2cTYtSHBYSy1lQ0U2RFoxQjZSdHZfTk1vblFnQ0hzSkIyaUFYdmc2bS1XeWV3?oc=5",
           "source": "36 Kr",
           "published": "2026-08-01 02:02 UTC",
           "bullets": [
-            "AI is making middle management redundant; Amazon cut 78% of L5-L7 roles in recent layoffs.",
-            "Big tech companies gain efficiency and reduce costs, potentially boosting profit margins long-term."
+            "AI is displacing middle management in big tech; Amazon's layoffs saw 78% of eliminated positions at L5-L7.",
+            "Signals potential for significant operational cost reductions and efficiency gains for tech giants' profitability."
           ],
           "rating": 4,
-          "reason": "Fundamental shift in big tech operational structure and cost base due to AI adoption."
+          "reason": "Fundamental shift in tech company operations, impacting efficiency, headcount, and long-term cost structures."
         }
       ]
     },
@@ -205,28 +234,28 @@
       "label": "Artificial Intelligence",
       "items": [
         {
-          "title": "OpenAI Reaches 1 Billion Active Users as AI Becomes Daily Habit",
-          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxORUV5TWtBMWprcWk4bE9yNUl2enhJeHg3NlViUkx6UlVBZnZxQnZmN24xd2FSZlg4REVCdlZjd1Z4d05WX0VYdzd5QlB4aW8tXzUyZzVzS21lRGdaZWsweUE5dDFuWWRnU2F2UXlvazRTVDY2NEJrcEFVaEZ5THFlRDk1Nmd2bWNGYXYzU2hNQjRpY0w4VVlqcHJOV2xZbEpaUmJLa3FFS3ZGbk44cUJCbEVnb3diZ2cwUzlZQ0dB?oc=5",
-          "source": "PYMNTS.com",
-          "published": "2026-08-01 00:43 UTC",
-          "bullets": [
-            "OpenAI reached 1 billion active users, indicating rapid AI adoption and habit formation across individuals and businesses.",
-            "OpenAI cut GPT-5.6 Luna price by 80%, Terra by 20%, enhancing performance/cost for enterprise workloads."
-          ],
-          "rating": 5,
-          "reason": "Direct impact on market leader's valuation, adoption, and pricing strategy."
-        },
-        {
           "title": "The New Manhattan Project: PW Talks with Kevin Roose",
           "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNenBhNGVBS2U1b21RZjZld2lwa0pHREx6dmpwajFocUNKRW1GSmhUcFg5bGFxNkEwREpOdXA5UEtsVF9YRFRZRDVLSHdzZjNrd3FiMDNXZUc0ZmRIWXQ0YjhfaXJlbVh1bXlXY3k0VzhpV3k3bTdVY1lQTTE5NmVia3REYUZJYXZrdjdCOTZQRUNOeHRmc2Nva1ZBRDIyaDN3ckV2c3h5X2sxbFZvYmcxUG52Z3U3MnR5NXRBbUtIOGZHa3VSaW5ySUU3ekZVV2lM?oc=5",
           "source": "Publishers Weekly",
           "published": "2026-08-01 01:00 UTC",
           "bullets": [
-            "Anthropic CEO Dario Amodei aims for a \"trillion-dollar IPO\" despite AI risks, signaling massive market potential.",
-            "Government oversight and regulation are increasingly likely, potentially impacting AI development and investment timelines."
+            "Anthropic CEO targets trillion-dollar IPO, balancing AGI ambition with existential risks.",
+            "Calls for strong AI regulation, federal standards body, signal future compliance costs."
           ],
           "rating": 4,
-          "reason": "Highlights major IPO potential and looming regulatory shifts for AI sector."
+          "reason": "Discusses future market valuation, regulatory landscape, and existential risks for leading AI firms."
+        },
+        {
+          "title": "OpenAI Reaches 1 Billion Active Users as AI Becomes Daily Habit",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxORUV5TWtBMWprcWk4bE9yNUl2enhJeHg3NlViUkx6UlVBZnZxQnZmN24xd2FSZlg4REVCdlZjd1Z4d05WX0VYdzd5QlB4aW8tXzUyZzVzS21lRGdaZWsweUE5dDFuWWRnU2F2UXlvazRTVDY2NEJrcEFVaEZ5THEtRDk1Nmd2bWNGYXYzU2hNQjRpY0w4VVlqcHJOV2xZbEpaUmJLa3FFS3ZGbk44cUJCbEVnb3diZ2cwUzlZQ0dB?oc=5",
+          "source": "PYMNTS.com",
+          "published": "2026-08-01 00:43 UTC",
+          "bullets": [
+            "OpenAI slashes GPT-5.6 Luna price by 80%, Terra by 20%, expanding practical AI use.",
+            "Financial services lead enterprise AI adoption, indicating robust demand for solutions."
+          ],
+          "rating": 5,
+          "reason": "Direct market data on adoption, user growth, and aggressive pricing strategy from a market leader."
         }
       ]
     },
@@ -235,28 +264,28 @@
       "label": "Semiconductors",
       "items": [
         {
-          "title": "Nvidia's Shareholder Meeting Is Aug. 26. Here's What Investors Should Be Looking Out For.",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQRG1uN19XOHkxMks1WTlVdmVPQ0JRZ1hRNWVmQi1vU0ZYN2pFSXdnYlNNVlhWNE9udlN1NGRMT05oRy14ZDVQWUp6WXVEaTZqb0tYWXhLaFkyY3ladzJpMklxa2RWdUFKaWs1bTkzdUJSb3l0M3N0M2p2ZDBTUXFPMmtCTUpYQ0hxc2oxd0hEYnF4VE1RNUVWZw?oc=5",
-          "source": "The Motley Fool",
-          "published": "2026-08-01 04:25 UTC",
-          "bullets": [
-            "Upcoming Q2 earnings will detail Blackwell/Vera Rubin sales and production, key for Nvidia's AI chip market dominance.",
-            "Management's competitive outlook is crucial, signaling future market share and pricing power in the rapidly expanding AI sector."
-          ],
-          "rating": 5,
-          "reason": "Direct impact on market-leading Nvidia's valuation and AI sector outlook."
-        },
-        {
           "title": "Alibaba-Supplied Nvidia Chips Power Kimi K3; Washington Claims Procurement Violated Export Rules",
           "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPb1htdVNvRkVJVTNOSUJ3NzRNODdVTlpQUzRWLWFid0FyUElmMnRrOG1UM2daUmp6X1NQUFYzTGxySUF0M0U0NlhQMll6X3EtX2xUMWQyLTYyV0JVSXBTdWFranpzUFk4eWNobGF1YlgtYlB3QUZjbkhrYmJ4cEU3bHBuY09CYklwbDVKRER2a3Eydw?oc=5",
           "source": "briefs.co",
           "published": "2026-08-01 03:05 UTC",
           "bullets": [
-            "Chinese AI firm Moonshot used ~20,000 Nvidia Hopper chips via Alibaba, raising questions on US export control effectiveness.",
-            "Trump administration's H200 license issuance to China, even if \"trivial,\" signals potential policy shifts or loopholes."
+            "Chinese AI model Kimi K3, powered by 20,000 Nvidia Hopper chips, performs at US levels.",
+            "US export controls may be less effective, impacting Nvidia's market access and geopolitical tech strategy."
+          ],
+          "rating": 5,
+          "reason": "Directly impacts US-China tech policy and Nvidia's sales."
+        },
+        {
+          "title": "Nvidia's Shareholder Meeting Is Aug. 26. Here's What Investors Should Be Looking Out For.",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQRG1uN19XOHkxMks1WTlVdmVPQ0JRZ1hRNWVmQi1vU0ZYN2pFSXdnYlNNVlhWNE9udlN1NGRMT05oRy14ZDVQWUp6WXVEaTZqb0tYWXhLaFkyY3ladzJpMklxa2RWdUFKaWs1bTkzdUJSb3l0M3N0M2p2ZDBTUXFPMmtCTUpYQ0hxc2oxd0hEYnF4VE1RNUVWZw?oc=5",
+          "source": "The Motley Fool",
+          "published": "2026-08-01 04:25 UTC",
+          "bullets": [
+            "Upcoming earnings will clarify Blackwell and Vera Rubin production, sales pace, and potential backlogs.",
+            "Updates on next-gen GPU performance and competition are crucial for Nvidia's near-term stock valuation."
           ],
           "rating": 4,
-          "reason": "Highlights geopolitical risks, export control effectiveness, and China's AI progress."
+          "reason": "Key insights into Nvidia's immediate product cycles and market position."
         }
       ]
     },
@@ -265,28 +294,28 @@
       "label": "Electric Vehicles",
       "items": [
         {
-          "title": "How China's Electric Vehicle Boom Is Reshaping Global Oil Demand - Open Magazine",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOa1NhWXVIV21vTHNTNWZYUF9UUlVuakkxYWNsWjBjQ1dBR1o4cENvOUtNakJXeFV0eU1ZTEdydlJfZWk5NGVnTmZlYno2OFVaQ0dKZktmWUpKVXJWSFlta1pRNkN6RkRZU2poc29lTlRDR3ExQkxSQjg3WkxfYWRQOEtxYjRCMGZJQmFQTi0zNlpPZ1BMbEg1c1dxNTE4UQ?oc=5",
+          "title": "How China's Electric Vehicle Boom Is Reshaping Global Oil Demand",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOa1NhWXVIV21vTHNTNWZYUF9UUlVuakkxYWNsWjBjQ1dBR1o4cENvOUtNakJXeFV0eU1ZTEdydlJfZWk5NGVnTmZlYno2OFVaQ0dKZktmWUpKVXJWSFlta1pRNkN6RkRZU2poc29lTlRDR3ExQkxSQjg3WkxfYWRQOEtxYjRCMGZJQmFQTi0zNlpPZ1BMbEh1c1dxNTE4UQ?oc=5",
           "source": "Open Magazine",
           "published": "2026-08-01 06:34 UTC",
           "bullets": [
-            "China's EVs displaced 1.4 million barrels/day of oil in H1 2026, up 42% YoY.",
-            "NEVs now comprise 63% of new passenger vehicle sales in China, impacting global oil demand."
+            "China's EVs displaced 1.4M barrels/day of oil in H1 2026, up 42% YoY. Implies significant global energy market shift.",
+            "NEVs accounted for 63% of China's June 2026 passenger vehicle sales, showing rapid adoption and market disruption."
           ],
           "rating": 5,
-          "reason": "Quantifies significant, immediate impact on global oil market from largest auto market."
+          "reason": "Quantifies significant, accelerating impact on global oil demand from largest auto market."
         },
         {
-          "title": "Global sales of electric cars reached record levels in 50 countries - Balkan Green Energy News",
+          "title": "Global sales of electric cars reached record levels in 50 countries",
           "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQVnYyMTFyTDhSZHZwOWlDM1NrV0xaeEszR1Z4a1V1T1ZaVjlaODNhYjBqQ3d2cy1FazkydG05dF9XaXpyM0djQmYyZDNwZWE1M3N2VUwwa3RRZ1dyTEFnaDdQZlNaS3hNT0o4NWdteS1zMTUzMjhiVUFiajFIS01EOGowS3k3ZDhfRGJlYjV2dERHQ1hScElPY1F3NmNETzRZV0E?oc=5",
           "source": "Balkan Green Energy News",
           "published": "2026-07-31 15:26 UTC",
           "bullets": [
-            "Global EV sales surged 35% in Q2 2026, reaching record highs in 50 countries, driven by oil price shock.",
-            "IEA projects EVs will reach 29% of total car sales in 2026, indicating rapid market penetration."
+            "Global EV sales surged 35% in Q2 2026, reaching record highs in 50 countries due to rising fuel prices.",
+            "IEA projects EVs to capture 29% of total global car sales in 2026, indicating strong market expansion."
           ],
           "rating": 4,
-          "reason": "Shows strong global EV market resilience and growth, with clear drivers and future projections."
+          "reason": "Provides global market rebound data and significant IEA forecast for EV market share."
         }
       ]
     },
@@ -296,27 +325,27 @@
       "items": [
         {
           "title": "Amazon Lifts 2026 AI Capex to $220B, Still Capacity-Constrained",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNU004dGJtU0c4Z2lmMmdONnEtd0NsWGotNTBWVG5wNlNyYlBPYWxhN3NaenNzdG05YWt4SUJGdWhXUUJlTV9rY1Y4dGdLcVVpQV9MNXNJSldtUTJsSVIyYkF4Z3hDWnFNdlZ5SXA4cW5HRXZFQ3ExdHhXUWYtUWlfaV9ET29NN1A4UnZqSThTVnozT3BUbkFkVGE2aFhVMW9SRlBOaU5OcnUwQlNwSHQ4eG1xUDBXZ3l1blB6aVhWTzBUeUs5?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNU004dGJtU0c4Z2lmMmdONnEtd0NsZGotNTBWVG5wNlNyYlBPYWxhN3NaenNzdG05YWt4SUJGdWhXUUJlTV9rY1Y4dGdLcVVpQV9MNXNJSldtUTJsSVIyYkF4Z3hDWnFNdlZ5SXA4cW5HRXZFQ3ExdHhXUWYtUWlfaV9ET29NN1A4UnZqSThTVnozT3BUbkFkVGE2aFhVMW9SRlBOaU5OcnUwQlNwSHQ4eG1xUDBXZ3l1blB6aVhWTzBUeUs5?oc=5",
           "source": "Data Center Knowledge",
           "published": "2026-07-31 19:11 UTC",
           "bullets": [
-            "Amazon increased 2026 AI infrastructure capex to $220B, up $20B, driven by higher memory costs.",
-            "AWS expects AI capacity constraints through 2027, with demand already contracted into 2028."
+            "Amazon raised 2026 AI capex to $220B, up from $200B, driven by higher memory costs.",
+            "Capacity constrained through 2027, with demand into 2028, signals strong pricing power for suppliers."
           ],
           "rating": 5,
-          "reason": "Hyperscaler's massive capex increase and persistent capacity issues signal strong demand and supply chain pressure."
+          "reason": "Major hyperscaler's massive capex increase and demand outlook."
         },
         {
-          "title": "Vertiv Stock And 2 AI Infrastructure Picks For Data Center Power Demand",
-          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPWGlubk44V2lha3Y2a3VlbnZ3NENacUZfSEo4eUhMUXgtNjZpNWdITF9NUWlYU0R2OGFVRkVEUzJvWW5NdVdISjdsNjRGSVRGd19ZeUZQbDV4UjQ1UDdDMGxDYUZnZng1MjM0aUFTRFhNbllSMXFfSUh0Y3JoNFNsT3VpMlJpRk15VDF6OGJMLUtxaTFGbTh0dmxBMUtKV1lldkFjY3UxOUM2dzNwWmFRTTJadkJFX19fWHFMUU1PU3VKVWVlUUtuYl9qbzk4RmfSAdQBQVVfeXFMUFptMWtYYXZ0VXoxOXNmTW1lMzBaMi1QSFdfTlJ1RU90dWtEQUhtYml1dExZeEI2RGNHYWxMNlluX21MS0FpX1JHc2lUR1MweWN3dk5QM2ZlQVFkbV8weTJBWUYtekQ4OFZRNEtnYm1wV2tIc2xKWG1xWEdubE1TUENTRmwxTFJSWFZwZTNqOEZ4Q0d4LVotUVJjZW1EdGtId0NFbDF2cWdnblE0eHZrcnNyRVl0TGQyQWxNb2lERmJFNmZuNUU0V1hQWXBOdEJueGQyc2Q?oc=5",
-          "source": "simplywall.st",
-          "published": "2026-08-01 02:40 UTC",
+          "title": "Inside the Urban Machine: Where America's Data Centers Actually Live | Newswise",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPNHJORmlDX2k3cjROWXVSd2FiYlUzV1RsR3Y4ZDlBc29vRTVMcjZIYmlFWHZ6WnczMXZsMzh1dkJDM2lfZ3ctZUFXTjBUUS1EVkhMZkhSa1ZuX2VqdUN5Sl9oUGRfZmtKVW1fRE0xWG1WNWR0VmFlQjI5N2FoNGRuRl9vdkt4QzdEWnZxWXJHR3hBTm0tOE53c0UwQWQ0eG0xSExndGE0QdIBpwFBVV95cUxPNHJORmlDX2k3cjROWXVSd2FiYlUzV1RsR3Y4ZDlBc29vRTVMcjZIYmlFWHZ6WnczMXZsMzh1dkJDM2lfZ3ctZUFXTjBUUS1EVkhMZkhSa1ZuX2VqdUN5Sl9oUGRfZmtKVW1fRE0xWG1WNWR0VmFlQjI5N2FoNGRuRl9vdkt4QzdEWnZxWXJHR3hBTm0tOE53c0UwQWQ0eG0xSExndGE0QQ?oc=5",
+          "source": "Newswise",
+          "published": "2026-07-31 22:25 UTC",
           "bullets": [
-            "Lumentum Holdings (LITE) is highlighted for high-value optical components in AI data centers.",
-            "Company faces volatile past earnings and significant debt, despite upbeat analyst forecasts."
+            "97.5% of US data centers are urban, not rural, driven by existing electricity capacity.",
+            "Closed coal plants are magnets for new data centers, leveraging existing high-capacity grid connections."
           ],
-          "rating": 4,
-          "reason": "Identifies specific AI infrastructure investment opportunities and associated risks for investors."
+          "rating": 5,
+          "reason": "Fundamental insight into data center location strategy and infrastructure investment."
         }
       ]
     },
@@ -326,15 +355,15 @@
       "items": [
         {
           "title": "SpaceX to Launch 18 US Space Force Missions Under $1.6B Contracts",
-          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBwQUdJeXlnVktlZWxMQ0EwbVFkMTFGS2NfeHZMZlBxaDlmSEtEMmFmYWVfYVhfM1RtNThCOVJ3MUNlTXB6bF9PM0J5OXh1LWV1YmRaTGZVWUZybHE1WW5sdWQyNmc3VE1KT3ZQc1ZVNNIBdEFVX3lxTFBOVHB2QWJtLTk3T280OWlBYkNFTmM4Z0UzY1dySHhvd0hPOVN3ZkIxOGV5Q0xlYzRFNG5oeEN6UlZvTEJrVmhPZjVWdWlUUV93QlNEVnE2T2V3emZNcWM0SVFvb2Ixbjd2VExHWERUeFZCbEhz?oc=1",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBwQUdJeXlnVktlZWxMQ0EwbVFkMTFGS2NfeHZMZlBxaDlmSEtEMmFmYWVfYVhfM1RtNThCOVJ3MUNlTXB6bF9PM0J5OXh1LWV1YmRaTGZVWUZybHE1WW5sdWQyNmc3VE1KT3ZQc1ZVNNIBdEFVX3lxTFBOVHB2QWJtLTk3T280OWlBYkNFTmM4Z0UzY1dySHhvd0hPOVN3fF9vYjE4ZXV5Q0xlYzRFNG5oeEN6UlZvTEJrVmhPZjVWdWlUUV93QlNEVnE2T2V3emZNcWM0SVFvb2Ixbjd2VExHWERUeFZCbEhz?oc=1",
           "source": "The Defense Post",
           "published": "2026-07-30 14:06 UTC",
           "bullets": [
-            "SpaceX secured $1.6 billion in contracts for 18 US Space Force missions, significantly boosting its defense revenue.",
-            "This substantial government backlog strengthens SpaceX's financial stability and market dominance in launch services."
+            "SpaceX secured $1.6 billion in contracts for 18 US Space Force missions, ensuring significant future revenue.",
+            "This mega-deal reinforces SpaceX's dominant position in government launch services, boosting valuation prospects."
           ],
           "rating": 5,
-          "reason": "Major new government contract directly impacts SpaceX's valuation and market position."
+          "reason": "Direct, substantial revenue contract for a major private space company."
         },
         {
           "title": "SpaceX's Starship seen in space by next-gen Starlink satellite (video)",
@@ -342,11 +371,11 @@
           "source": "space.com",
           "published": "2026-07-31 23:27 UTC",
           "bullets": [
-            "SpaceX plans a 100,000-satellite Starlink V3 megaconstellation, indicating massive future demand for Starship launches.",
-            "This ambitious expansion signals significant long-term revenue growth potential for Starlink and Starship's critical role."
+            "Starship successfully deployed 20 functional Starlink V3 satellites, critical for future 100,000-satellite constellation.",
+            "Progress on Starship's reusability and V3 deployment is key to Starlink's cost-efficiency and market expansion."
           ],
           "rating": 4,
-          "reason": "Reveals massive future business expansion for Starlink, driving long-term Starship demand."
+          "reason": "Significant technical milestone for Starlink's scalability and SpaceX's long-term strategy."
         }
       ]
     }
@@ -11193,11 +11222,10 @@
         {
           "label": "Bitcoin",
           "kind": "price",
-          "last": 63015.0195,
-          "change": -2.64,
+          "last": 63031.1289,
+          "change": 0.35,
           "change_bp": null,
           "closes": [
-            94397.7891,
             95549.1484,
             94177.0781,
             92093.875,
@@ -11456,10 +11484,10 @@
             63871.3633,
             63908.168,
             64725.3086,
-            63015.0195
+            62813.7461,
+            63031.1289
           ],
           "labels": [
-            "Nov 14 '25",
             "Nov 15 '25",
             "Nov 16 '25",
             "Nov 17 '25",
@@ -11718,6 +11746,7 @@
             "Jul 28 '26",
             "Jul 29 '26",
             "Jul 30 '26",
+            "Jul 31 '26",
             "Aug 1 '26"
           ]
         }

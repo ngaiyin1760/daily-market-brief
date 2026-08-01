@@ -573,6 +573,7 @@
   table.figures td.num, table.figures th.num { text-align: right; padding-right: 0; }
   .pos { color: var(--green); }
   .neg { color: var(--red); }
+  .flat { color: var(--muted); }
   .na { color: var(--muted); }
 
   footer.colophon {
@@ -723,15 +724,15 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>2026-08-01</h1>
-    <div class="generated">Generated 2026-08-01 14:51 HKT</div>
+    <div class="generated">Generated 2026-08-01 15:13 HKT</div>
   </header>
-  <div class="ticker">S&amp;P +0.7% · Nasdaq +1.0% · HSI +0.1% · US10Y 4.75% · USD/HKD -0.0% · Gold -1.2% · BTC -2.6%</div>
+  <div class="ticker"><span class="pos">S&amp;P +0.7%</span> · <span class="pos">Nasdaq +1.0%</span> · <span class="pos">HSI +0.1%</span> · <span class="pos">US10Y 4.75%</span> · <span class="flat">USD/HKD -0.0%</span> · <span class="neg">Gold -1.2%</span> · <span class="pos">BTC +0.3%</span></div>
 
   
   <section class="takeaways" id="takeaways">
     <div class="tw-label">Today's Key Takeaways</div>
     <ul>
-      <li>Global inflation concerns persist, with the BOJ signaling future hikes and rising US Treasury yields reinforcing &#34;higher for longer&#34; rate expectations, making bonds a compelling alternative to risk assets.</li><li>Big Tech&#39;s trillion-dollar AI infrastructure build-out continues, driving demand for specialized chips and reshaping corporate efficiency, while also fueling sector-specific volatility and speculative investment.</li><li>China&#39;s economy shows a stark divergence: booming exports and EV adoption reshape global markets, contrasting with persistent weak domestic consumption and household deleveraging pressures.</li>
+      <li>Persistent global inflation concerns are prompting hawkish central bank stances (BOJ, ECB), driving rising real yields in fixed income markets and challenging equity valuations amid broader economic uncertainty.</li><li>Big Tech&#39;s trillion-dollar AI infrastructure investments, fueled by robust enterprise adoption and capacity constraints, are driving demand across semiconductors and data centers, despite geopolitical challenges impacting supply chains.</li><li>China&#39;s &#39;two-speed&#39; economy, marked by weak domestic consumption but strong exports, is profoundly reshaping global energy markets through its rapid EV adoption, displacing significant oil demand.</li>
     </ul>
   </section>
   
@@ -749,23 +750,52 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMidkFVX3lxTE9maVd1ZjZwdEoxU2RKaW5MRmFqUDBUVWVmeTd2STV1NW82LXM2V29sUkJVZnZZLS1FTGZOakdIVUFObXk1YW5nNEFxb1lCZjVwSFd4YWo0NjdHbTlNZjN1d2ZvbVlhbUxQV3M5bFpzaV9jeUpjVFE?oc=5"
+            data-url="https://news.google.com/rss/articles/CBMidkFVX3lxTE9maVd1ZjZwdEoxU2RKaW5MRmFKcDBUVWVmeTd2STV1NW82LXM2V29sUkJVZnZZLS1FTGZOakdIVUFObXk1YW5nNEFxb1lCZjVwSFd4YWo0NjdHbTlNZjN1d2ZvbVlhbUxQV3M5bFpzaV9jeUpjVFE?oc=5"
             data-title="Bank of Japan keeps rates steady, warns on inflation"
             data-source="Taipei Times"
             data-category="Global Economy"
             data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE9maVd1ZjZwdEoxU2RKaW5MRmFqUDBUVWVmeTd2STV1NW82LXM2V29sUkJVZnZZLS1FTGZOakdIVUFObXk1YW5nNEFxb1lCZjVwSFd4YWo0NjdHbTlNZjN1d2ZvbVlhbUxQV3M5bFpzaV9jeUpjVFE?oc=5" target="_blank" rel="noopener">Bank of Japan keeps rates steady, warns on inflation</a>
+            <a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE9maVd1ZjZwdEoxU2RKaW5MRmFKcDBUVWVmeTd2STV1NW82LXM2V29sUkJVZnZZLS1FTGZOakdIVUFObXk1YW5nNEFxb1lCZjVwSFd4YWo0NjdHbTlNZjN1d2ZvbVlhbUxQV3M5bFpzaV9jeUpjVFE?oc=5" target="_blank" rel="noopener">Bank of Japan keeps rates steady, warns on inflation</a>
             <div class="pub">2026-07-31 16:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>BOJ kept rates at 1% but warned inflation could exceed 2% target, signaling future hikes.</li><li>Yen remained weak near 160/USD despite intervention, impacting global currency markets.</li>
+              <li>BOJ held rates at 1% but warned underlying inflation could exceed 2% target.</li><li>Signals future rate hikes, impacting JGB yields and yen strength outlook.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Taipei Times</span></td>
-          <td class="rating">★★★★★<span class="reason">Major shift from BOJ&#39;s long-standing dovish stance, impacting global rates and FX.</span>
+          <td class="rating">★★★★★<span class="reason">Major shift in BOJ&#39;s dovish stance, market-moving for JPY and global rates.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMiowFBVV95cUxQSlVmQWpZSDUtb0Z2b1NqMTkzTXhScDctbnZBVXkta2syTXJFZk5VV19UOFQyUGhJM1o0MVZ2OEVrN2REdEJlOUZkbm16eEQtNVFqdm1QcUZpbHl2QmFQNkY2TFNEMU4ySWJvc2NXRVFBVlNNZlFtazcySVYxNXgxeUN6dEZnTmNUejBZSkl2eWpTbVpJc3cyV0daWjMzU0daOFRv?oc=5"
+            data-title="German inflation rises in July, economy grows more than expected in Q2"
+            data-source="Reuters"
+            data-category="Global Economy"
+            data-rating="4"
+            data-date="2026-08-01">
+          <td class="headline">
+            <a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxQSlVmQWpZSDUtb0Z2b1NqMTkzTXhScDctbnZBVXkta2syTXJFZk5VV19UOFQyUGhJM1o0MVZ2OEVrN2REdEJlOUZkbm16eEQtNVFqdm1QcUZpbHl2QmFQNkY2TFNEMU4ySWJvc2NXRVFBVlNNZlFtazcySVYxNXgxeUN6dEZnTmNUejBZSkl2eWpTbVpJc3cyV0daWjMzU0daOFRv?oc=5" target="_blank" rel="noopener">German inflation rises in July, economy grows more than expected in Q2</a>
+            <div class="pub">2026-07-30 13:18 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>German July inflation rose, Q2 GDP grew more than expected.</li><li>Suggests persistent Eurozone inflation, supporting ECB hawkish stance.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">Reuters</span></td>
+          <td class="rating">★★★★☆<span class="reason">Crucial Eurozone economic data, impacts ECB policy expectations.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -790,40 +820,11 @@
           </td>
           <td class="summary">
             <ul>
-              <li>ECB warns stablecoins pose a &#34;major threat&#34; to banks by draining reserves and reducing profitability.</li><li>Signals potential for stricter regulation and competition from ECB&#39;s own digital euro.</li>
+              <li>ECB warns stablecoins pose major threat to banks by draining reserves.</li><li>Signals increased regulatory scrutiny and potential for digital euro competition.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">The Motley Fool</span></td>
-          <td class="rating">★★★★☆<span class="reason">Significant regulatory warning from a major central bank on systemic crypto risks.</span>
-          </td>
-          <td class="save-cell">
-            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
-              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </td>
-        </tr>
-        
-        <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiowFBVV95cUxQSlVmQWpZSDUtb0Z2b1NqMTkzTXhScDctbnZBVXkta2syTXJFZk5VV19UOFQyUGhJM1o0MVZ2OEVrN2REdEJlOUZkbm16eEQtNVFqdm1QcUZpbHl2QmFQNkY2TFNEMU4ySWJvc2NXRVFBVlNNZlFtazcySVYxNXgxeUN6dEZnTmNUejBZSkl2eWpTbVpJc3cyV0daWjMzU0daOFRv?oc=5"
-            data-title="German inflation rises in July, economy grows more than expected in Q2"
-            data-source="Reuters"
-            data-category="Global Economy"
-            data-rating="3"
-            data-date="2026-08-01">
-          <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxQSlVmQWpZSDUtb0Z2b1NqMTkzTXhScDctbnZBVXkta2syTXJFZk5VV19UOFQyUGhJM1o0MVZ2OEVrN2REdEJlOUZkbm16eEQtNVFqdm1QcUZpbHl2QmFQNkY2TFNEMU4ySWJvc2NXRVFBVlNNZlFtazcySVYxNXgxeUN6dEZnTmNUejBZSkl2eWpTbVpJc3cyV0daWjMzU0daOFRv?oc=5" target="_blank" rel="noopener">German inflation rises in July, economy grows more than expected in Q2</a>
-            <div class="pub">2026-07-30 13:18 UTC</div>
-          </td>
-          <td class="summary">
-            <ul>
-              <li>German inflation rose in July, while Q2 GDP growth exceeded expectations.</li><li>Stronger data could influence ECB&#39;s future monetary policy decisions for the Eurozone.</li>
-            </ul>
-          </td>
-          <td class="source"><span class="chip">Reuters</span></td>
-          <td class="rating">★★★☆☆<span class="reason">Key economic data for the Eurozone, impacting regional outlook and ECB policy.</span>
+          <td class="rating">★★★★☆<span class="reason">High impact on crypto regulation and traditional finance stability.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -851,23 +852,23 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiigFBVV95cUxPQk4tMHl6My1XelppWjJ0eDM3VjhfSUwyaFRNdTM2SE9JMmVHM1VjTDVoNWNQZzF1YVd3ekJibmk1TzVGT051Tk56a2g0bHNhNm1sODFWV0lIQVVCZ2hTX0J2TW1yRTVLbTFiT0Q3OTlUelUtdUNLaGFTWm9hUkNncUNLeWpnMDFkQXc?oc=5"
-            data-title="Always be ready for a violent stock market crash"
-            data-source="Yahoo Finance UK"
+            data-url="https://news.google.com/rss/articles/CBMingFBVV95cUxPMXk5VURTcE9pTW9pVWxEZXk1aEs3NlNTUlB5UmVsZEJmQmllM0Z5eEwyVmdSZFFlcUlfNHViaHdTOWFTUkctR05sVnBPX3VuRW1uaWlxczZIbmxrR0xoeUhTOGE3cDh3TUo0Ym5Za3lCUDNFa1RrZmlWX2RHY051OHVMOFpEbm5CZWhyNDZNZFZGVnNRMVVvZkxLVnZrdw?oc=1"
+            data-title="Fear Is Driving the Stock Market. Warren Buffett Has 6 Words for Moments Exactly Like This."
+            data-source="Yahoo Finance"
             data-category="Equity Markets"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxPQk4tMHl6My1XelppWjJ0eDM3VjhfSUwyaFRNdTM2SE9JMmVHM1VjTDVoNWNQZzF1YVd3ekJibmk1TzVGT051Tk56a2g0bHNhNm1sODFWV0lIQVVCZ2hTX0J2TW1yRTVLbTFiT0Q3OTlUelUtdUNLaGFTWm9hUkNncUNLeWpnMDFkQXc?oc=5" target="_blank" rel="noopener">Always be ready for a violent stock market crash</a>
-            <div class="pub">2026-08-01 06:11 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxPMXk5VURTcE9pTW9pVWxEZXk1aEs3NlNTUlB5UmVsZEJmQmllM0Z5eEwyVmdSZFFlcUlfNHViaHdTOWFTUkctR05sVnBPX3VuRW1uaWlxczZIbmxrR0xoeUhTOGE3cDh3TUo0Ym5Za3lCUDNFa1RrZmlWX2RHY051OHVMOFpEbm5CZWhyNDZNZFZGVnNRMVVvZkxLVnZrdw?oc=1" target="_blank" rel="noopener">Fear Is Driving the Stock Market. Warren Buffett Has 6 Words for Moments Exactly Like This.</a>
+            <div class="pub">2026-08-01 06:50 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Rising Middle East conflict and energy costs spark inflation fears, potentially derailing the 2026 market rally.</li><li>Prepare for downturns by holding cash and identifying AI-driven bargains like Arista Networks (ANET) with 35.1% Q1 revenue growth.</li>
+              <li>S&amp;P 500 on track for second monthly decline; Nasdaq down 9.7% since June, near correction.</li><li>Fear &amp; Greed Index at 37 signals fear; Buffett advises &#34;be greedy&#34; for buying quality stocks.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Yahoo Finance UK</span></td>
-          <td class="rating">★★★★☆<span class="reason">Addresses current macro risks, investor sentiment, and offers actionable preparation strategies.</span>
+          <td class="source"><span class="chip">Yahoo Finance</span></td>
+          <td class="rating">★★★★★<span class="reason">Covers broad market sentiment, index performance, and offers a classic counter-cyclical investment strategy.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -880,23 +881,23 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMieEFVX3lxTE45bnlweWNLWnQ3UUlFeXk5MHRvV3NZeGU2SktjVDBELXQ5eWlkY2gtV2RBa0FwVjhBTTloTnhsUkRxWnlqc1phZ3lMNnhyT0J3RllOY3U3ZjVpVlVTY2xPSGxCTU5FbnpZam5tbm92NkFmRW9LeklVcg?oc=5"
-            data-title="Why I Love the Stock Market"
+            data-url="https://news.google.com/rss/articles/CBMieEFVX3lxTE45bnlweWNLWnQ3UUlFeXk5MHRvV3NZeGU2SktjVDBELXQ5eWlkY2gtV2RBa0FwVjhBTTloTnhsUkRxWnlqc1phZ3lMNnhyT0J3RllOY3U3ZjVpVlVTY2xPSGxCTU5FbnpZam5tbm92NkFmRW9LeklVcg?oc=1"
+            data-title="Why I Love the Stock Market - A Wealth of Common Sense"
             data-source="A Wealth of Common Sense"
             data-category="Equity Markets"
-            data-rating="5"
+            data-rating="4"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE45bnlweWNLWnQ3UUlFeXk5MHRvV3NZeGU2SktjVDBELXQ5eWlkY2gtV2RBa0FwVjhBTTloTnhsUkRxWnlqc1phZ3lMNnhyT0J3RllOY3U3ZjVpVlVTY2xPSGxCTU5FbnpZam5tbm92NkFmRW9LeklVcg?oc=5" target="_blank" rel="noopener">Why I Love the Stock Market</a>
+            <a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE45bnlweWNLWnQ3UUlFeXk5MHRvV3NZeGU2SktjVDBELXQ5eWlkY2gtV2RBa0FwVjhBTTloTnhsUkRxWnlqc1phZ3lMNnhyT0J3RllOY3U3ZjVpVlVTY2xPSGxCTU5FbnpZam5tbm92NkFmRW9LeklVcg?oc=1" target="_blank" rel="noopener">Why I Love the Stock Market - A Wealth of Common Sense</a>
             <div class="pub">2026-08-01 02:28 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Despite a calm 10% US market gain in 2026, specific sectors exhibit extreme volatility and speculation.</li><li>Semiconductor stocks like SanDisk saw 5,300% gains then 60% crashes, driven by AI arms race and leverage.</li>
+              <li>Overall calm market masks extreme volatility; South Korean index doubled, then crashed 40% in 5 weeks.</li><li>AI-driven semiconductor stocks like SanDisk saw 5300% gain, then 60% crash, highlighting speculation.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">A Wealth of Common Sense</span></td>
-          <td class="rating">★★★★★<span class="reason">Highlights significant underlying market volatility and speculative behavior in key sectors despite overall calm.</span>
+          <td class="rating">★★★★☆<span class="reason">Reveals hidden extreme volatility and speculation in key sectors despite overall market stability.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -936,11 +937,11 @@
           </td>
           <td class="summary">
             <ul>
-              <li>5-year TIPS inflation expectation is 2.2% and trending down, suggesting real yields drive bond sell-off.</li><li>30-year Treasury yields hit 2007 highs; government bonds now outperform crypto cash-and-carry trades.</li>
+              <li>5-year TIPS inflation expectation is 2.2% and falling, challenging the mainstream inflation narrative.</li><li>Rising real yields, not inflation, drive bond sell-off; bearish for yield-free assets like Bitcoin.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Cryptonews.net</span></td>
-          <td class="rating">★★★★★<span class="reason">Challenges mainstream inflation narrative with specific data, highlights real yield impact.</span>
+          <td class="rating">★★★★★<span class="reason">Challenges core market narrative with specific data, impacting asset allocation.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -957,7 +958,7 @@
             data-title="Why spiking U.S. bond yields could be a big warning for the economy"
             data-source="Global News"
             data-category="Fixed Income"
-            data-rating="5"
+            data-rating="4"
             data-date="2026-08-01">
           <td class="headline">
             <a href="https://news.google.com/rss/articles/CBMie0FVX3lxTE5scmR3dGxFT2RYRlYydk9YaVVjN0lZYVR1aDRuREw4UExZblZkRGkySmJNT1pobkt0SUhWaXUwTzZyU18wS0pmNzVGUk5ZMkVNa2gxQ2NuWEg1cWtNSjZqcFAyZXdxall5T2d4c1BveGhrbmZaRURLbXljMA?oc=5" target="_blank" rel="noopener">Why spiking U.S. bond yields could be a big warning for the economy</a>
@@ -965,11 +966,11 @@
           </td>
           <td class="summary">
             <ul>
-              <li>30-year Treasury yield above 5.25%, highest since 2007, signals &#39;higher for longer&#39; Fed rates.</li><li>Bonds become attractive &#39;risk-free&#39; alternative, drawing capital from stocks/real estate, slowing growth.</li>
+              <li>30-year US Treasury yield hit 5.25%, highest since 2007, signaling broad economic uncertainty.</li><li>High yields attract capital from stocks/real estate, increasing borrowing costs for businesses and consumers.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Global News</span></td>
-          <td class="rating">★★★★★<span class="reason">Details specific high yield levels and broad economic/market implications.</span>
+          <td class="rating">★★★★☆<span class="reason">Explains broad economic and market implications of current high yields.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -997,23 +998,23 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMinAFBVV95cUxNdERjWHdYQTlXdTUwbnQ3eDlLOW9Ga0RMbERFbkRUTGFrV1Q1U2J3MVhPSDZXZkdjYnBPM2U0R1JwWkM0U1B6S3JQeVBOdDVEVENmLW1xVnU4SnItem9VMEZhNHh3bkVfTWhuWVBxa3NaREZZTHJpSExpVUpoTE5kLWc5cVNQNnEzeHpWZFNJdllQM2gtaHlPSGI5amE?oc=5"
-            data-title="Inside China’s two-speed economy: Why goods consumption is slumping even as exports and services boom - Fortune"
-            data-source="Fortune"
+            data-url="https://news.google.com/rss/articles/CBMi1wFBVV95cUxQdlNzWnJNUmo3RlJCdV9SOWVBZFNjcmI3OHdUYXZ4UlZYMU80cE9MLTZpSXhxRTlnMm5nZ05hQ1pNMTkxeW4yanFsa2pSZlVKUnRHVkJ1NkdxUkVUWHk3MVJEZDJoNVRqSVNGOWZsZnhNeFVSbnZLSHdyYVU1YnpNWEpMM1h1b284QXVtMUlQYVhhTk9fRFJOcWsyM3lxVFlhdUhhZlBRZVMxdjlPaVViVk42ZG1mdXpLTzItR2ZVRTN4MlBEdDZYNGQxLUlLUm1aaE55TTAzb9IB1wFBVV95cUxQZ3RUMzk0X2dUcjdPQnZjWVBzX1JIczVWM19kVHRZcXQ4OWRjZWw3YndFeFBjdENEM1ZEU3VnWWMzV0I0NGlXN0tzWGd4RERlMTd3emNFSDU4TWVPbzRjS2xBZVlnVEwzT25LdktfSEdpX2o1bUxEelk4Qnhlc2U3c211WU1TdXlURU1IM1dLVzdZcUtVcllSVWVNbHJnbDA3cENlX01xQl9MbXc1Slh1Q2JreVhLN3ZyVVBnQWdqVWtBYy1fRy1WMEs4czFOYXNOTDBpT0t3MA?oc=5"
+            data-title="China’s debt ratio dips. Why it may not bode well for the economy"
+            data-source="South China Morning Post"
             data-category="China Economy"
-            data-rating="5"
+            data-rating="4"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNdERjWHdYQTlXdTUwbnQ3eDlLOW9Ga0RMbERFbkRUTGFrV1Q1U2J3MVhPSDZXZkdjYnBPM2U0R1JwWkM0U1B6S3JQeVBOdDVEVENmLW1xVnU4SnItem9VMEZhNHh3bkVfTWhuWVBxa3NaREZZTHJpSExpVUpoTE5kLWc5cVNQNnEzeHpWZFNJdllQM2gtaHlPSGI5amE?oc=5" target="_blank" rel="noopener">Inside China’s two-speed economy: Why goods consumption is slumping even as exports and services boom - Fortune</a>
-            <div class="pub">2026-07-29 21:00 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxQdlNzWnJNUmo3RlJCdV9SOWVBZFNjcmI3OHdUYXZ4UlZYMU80cE9MLTZpSXhxRTlnMm5nZ05hQ1pNMTkxeW4yanFsa2pSZlVKUnRHVkJ1NkdxUkVUWHk3MVJEZDJoNVRqSVNGOWZsZnhNeFVSbnZLSHdyYVU1YnpNWEpMM1h1b284QXVtMUlQYVhhTk9fRFJOcWsyM3lxVFlhdUhhZlBRZVMxdjlPaVViVk42ZG1mdXpLTzItR2ZVRTN4MlBEdDZYNGQxLUlLUm1aaE55TTAzb9IB1wFBVV95cUxQZ3RUMzk0X2dUcjdPQnZjWVBzX1JIczVWM19kVHRZcXQ4OWRjZWw3YndFeFBjdENEM1ZEU3VnWWMzV0I0NGlXN0tzWGd4RERlMTd3emNFSDU4TWVPbzRjS2xBZVlnVEwzT25LdktfSEdpX2o1bUxEelk4Qnhlc2U3c211WU1TdXlURU1IM1dLVzdZcUtVcllSVWVNbHJnbDA3cENlX01xQl9MbXc1Slh1Q2JreVhLN3ZyVVBnQWdqVWtBYy1fRy1WMEs4czFOYXNOTDBpT0t3MA?oc=5" target="_blank" rel="noopener">China’s debt ratio dips. Why it may not bode well for the economy</a>
+            <div class="pub">2026-07-31 10:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Q2 GDP grew 4.3%, slowest since pandemic; June retail sales up only 1.0%, signaling weak domestic demand.</li><li>Exports jumped 27% in dollar terms, but government avoids direct stimulus, limiting consumer recovery.</li>
+              <li>China&#39;s overall debt-to-GDP ratio fell 1.1% to 308.2%, driven by household deleveraging since mid-2024.</li><li>Mortgage lending shrank 13th quarter, consumer lending decline accelerated, signaling weak domestic demand.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Fortune</span></td>
-          <td class="rating">★★★★★<span class="reason">Provides key Q2 economic data and highlights critical consumption/policy issues.</span>
+          <td class="source"><span class="chip">South China Morning Post</span></td>
+          <td class="rating">★★★★☆<span class="reason">Highlights critical household/corporate deleveraging, impacting future growth.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1026,23 +1027,23 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMi1wFBVV95cUxQdlNzWnJNUmo3RlJCdV9SOWVBZFNjcmI3OHdUYXZ4UlZYMU80cE9MLTZpSXhxRTlnMm5nZ05hQ1pNMTkxeW4yanFsa2pSZlVKUnRHVkJ1NkdxUkVUWHk3MVJEZDJoNVRqSVNGOWZsZnhNeFVSbnZLSHdyYVU1YnpNWEpMM1h1b284QXVtMUlQYVhhTk9fRFJOcWsyM3lxVFlhdUhhZlBRZVMxdjlPaVViVk42ZG1mdXpLTzItR2ZVRTN4MlBEdDZYNGQxLUlLUm1aaE55TTAzb9IB1wFBVV95cUxQZ3RUMzk0X2dUcjdPQnZjWVBzX1JIczVWM19kVHRZcXQ4OWRjZWw3YndFeFBjdENEM1ZEU3VnWWMzV0I0NGlXN0tzWGd4RERlMTd3emNFSDU4TWVPbzRjS2xBZVlnVEwzT25LdktfSEdpX2o1bUxEelk4Qnhlc2U3c211WU1TdXlURU1IM1dLVzdZcUtVcllSVWVNbHJnbDA3cENlX01xQl9MbXc1Slh1Q2JreVhLN3ZyVVBnQWdqVWtBYy1fRy1WMEs4czFOYXNOTDBpT0t3MA?oc=5"
-            data-title="China’s debt ratio dips. Why it may not bode well for the economy - South China Morning Post"
-            data-source="South China Morning Post"
+            data-url="https://news.google.com/rss/articles/CBMinAFBVV95cUxNdERjWHdYQTlXdTUwbnQ3eDlLOW9Ga0RMbERFbkRUTGFrV1Q1U2J3MVhPSDZXZkdjYnBPM3U0R1JwWkM0U1B6S3JQeVBOdDVEVENmLW1xVnU4SnItem9VMEZhNHh3bkVfTWhuWVBxa3NaREZZTHJpSExpVUpoTE5kLWc5cVNQNnEzeHpWZFNJdllQM2gtaHlPSGI5amE?oc=5"
+            data-title="Inside China’s two-speed economy: Why goods consumption is slumping even as exports and services boom"
+            data-source="Fortune"
             data-category="China Economy"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxQdlNzWnJNUmo3RlJCdV9SOWVBZFNjcmI3OHdUYXZ4UlZYMU80cE9MLTZpSXhxRTlnMm5nZ05hQ1pNMTkxeW4yanFsa2pSZlVKUnRHVkJ1NkdxUkVUWHk3MVJEZDJoNVRqSVNGOWZsZnhNeFVSbnZLSHdyYVU1YnpNWEpMM1h1b284QXVtMUlQYVhhTk9fRFJOcWsyM3lxVFlhdUhhZlBRZVMxdjlPaVViVk42ZG1mdXpLTzItR2ZVRTN4MlBEdDZYNGQxLUlLUm1aaE55TTAzb9IB1wFBVV95cUxQZ3RUMzk0X2dUcjdPQnZjWVBzX1JIczVWM19kVHRZcXQ4OWRjZWw3YndFeFBjdENEM1ZEU3VnWWMzV0I0NGlXN0tzWGd4RERlMTd3emNFSDU4TWVPbzRjS2xBZVlnVEwzT25LdktfSEdpX2o1bUxEelk4Qnhlc2U3c211WU1TdXlURU1IM1dLVzdZcUtVcllSVWVNbHJnbDA3cENlX01xQl9MbXc1Slh1Q2JreVhLN3ZyVVBnQWdqVWtBYy1fRy1WMEs4czFOYXNOTDBpT0t3MA?oc=5" target="_blank" rel="noopener">China’s debt ratio dips. Why it may not bode well for the economy - South China Morning Post</a>
-            <div class="pub">2026-07-31 10:00 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNdERjWHdYQTlXdTUwbnQ3eDlLOW9Ga0RMbERFbkRUTGFrV1Q1U2J3MVhPSDZXZkdjYnBPM3U0R1JwWkM0U1B6S3JQeVBOdDVEVENmLW1xVnU4SnItem9VMEZhNHh3bkVfTWhuWVBxa3NaREZZTHJpSExpVUpoTE5kLWc5cVNQNnEzeHpWZFNJdllQM2gtaHlPSGI5amE?oc=5" target="_blank" rel="noopener">Inside China’s two-speed economy: Why goods consumption is slumping even as exports and services boom</a>
+            <div class="pub">2026-07-29 21:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Household debt-to-GDP fell 1.3 percentage points to 57.7%, as mortgage lending shrank for 13th quarter.</li><li>Consumer lending decline accelerated to 1.8%, indicating persistent household deleveraging and weak demand.</li>
+              <li>Q2 GDP grew 4.3%, slowest post-pandemic, missing targets; retail sales up only 1.0% in June.</li><li>Exports jumped 27% and industrial output 5.3%, showing a &#34;two-speed&#34; economy with weak domestic consumption.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">South China Morning Post</span></td>
-          <td class="rating">★★★★☆<span class="reason">Reveals critical underlying weakness in household demand and deleveraging trend.</span>
+          <td class="source"><span class="chip">Fortune</span></td>
+          <td class="rating">★★★★★<span class="reason">Provides key Q2 economic data, revealing significant domestic demand weakness despite strong exports.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1070,23 +1071,23 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMixgFBVV95cUxOU0hDLTFtM0h6OG5wdEJETC02QklQRnlXVDBvS1dOMGsyT2NYY0dXc0Z2c3N0OEN2N0pKZVdCWVVYeExMWjhtam05RG01REpIZzhyWkk0TjhCQlhlaS0ta1FURjlhZHdxbW9XX0FzWVQ5ckEzSGs5X2NHNWZldWVmZzF3anA3d3dxb1lVVXd3anFHVXI5Ym1IY2RZZlFmbG1nTDI2QTE5eWR3dGJNOWFOdTV1UWFGOGJjZFlGekh0NENfaGNlZHc?oc=5"
-            data-title="Hong Kong home prices rise for 13th straight month, but growth slows in June - Prop News Time"
-            data-source="Prop News Time"
+            data-url="https://news.google.com/rss/articles/CBMi3AFBVV95cUxOSEMxVERJdmdmR2VOOEl3MjZLX1lPTlBIYXl1S1I5ZnYxVjFfcGE4ekJhOUpPcVJtc09kUVFJalBaUjYxODFnRFJpSENHRGN0dERaQmpEQk10MlFPaUNjRVNCb3RldVA3UV9XNWY0cUw2VXRvU2FyU1FidnZ0LU95UV9RSXZ0RHlLX1JjYXJhZWp2MzlkWXU0TFNYQVhXbkJLckNNc2x2cS1BVHBab1BmUF9GNGhpaG1SQUxWa29uMG5OQWVkZG9lUU5SM2F0MndiUVlLMVVmV2swSC1F?oc=5"
+            data-title="Singapore-based investors now the top non-local buyers of Hong Kong office assets"
+            data-source="The Star"
             data-category="Hong Kong Economy"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxOU0hDLTFtM0h6OG5wdEJETC02QklQRnlXVDBvS1dOMGsyT2NYY0dXc0Z2c3N0OEN2N0pKZVdCWVVYeExMWjhtam05RG01REpIZzhyWkk0TjhCQlhlaS0ta1FURjlhZHdxbW9XX0FzWVQ5ckEzSGs5X2NHNWZldWVmZzF3anA3d3dxb1lVVXd3anFHVXI5Ym1IY2RZZlFmbG1nTDI2QTE5eWR3dGJNOWFOdTV1UWFGOGJjZFlGekh0NENfaGNlZHc?oc=5" target="_blank" rel="noopener">Hong Kong home prices rise for 13th straight month, but growth slows in June - Prop News Time</a>
-            <div class="pub">2026-07-31 08:32 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMi3AFBVV95cUxOSEMxVERJdmdmR2VOOEl3MjZLX1lPTlBIYXl1S1I5ZnYxVjFfcGE4ekJhOUpPcVJtc09kUVFJalBaUjYxODFnRFJpSENHRGN0dERaQmpEQk10MlFPaUNjRVNCb3RldVA3UV9XNWY0cUw2VXRvU2FyU1FidnZ0LU95UV9RSXZ0RHlLX1JjYXJhZWp2MzlkWXU0TFNYQVhXbkJLckNNc2x2cS1BVHBab1BmUF9GNGhpaG1SQUxWa29uMG5OQWVkZG9lUU5SM2F0MndiUVlLMVVmV2swSC1F?oc=5" target="_blank" rel="noopener">Singapore-based investors now the top non-local buyers of Hong Kong office assets</a>
+            <div class="pub">2026-07-31 12:50 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Private home prices rose 0.3% in June, slowing growth despite 13th consecutive monthly increase.</li><li>Analysts expect market consolidation due to weaker stock sentiment and mainland investment controls.</li>
+              <li>Singaporean investors became top non-local buyers in Q2, injecting HK$3.37B into HK commercial property.</li><li>Central Grade-A office rents rose 7.3% in H1, a 15-year high, signaling prime market recovery.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Prop News Time</span></td>
-          <td class="rating">★★★★☆<span class="reason">Signals a potential slowdown in the broader housing market recovery.</span>
+          <td class="source"><span class="chip">The Star</span></td>
+          <td class="rating">★★★★★<span class="reason">Significant shift in capital flows and strong recovery signals for commercial property.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1099,23 +1100,23 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMilwFBVV95cUxNR0lEVC1iZ3M0TTNoQ3pfTDI0Z01VaFprTXkzckVBYS1tUzJkTjJGbVJZQ0w5ZGpidTQ2UDVvMjhjWl9vanVZa01Pb2xFRVhsc0VFREJ0ZTM4eEh2UDNtUVc1b05USkVjSzRrOF9POENIbE90Tk5xWHB6RUxlMW1UdFE5bG1UT2p6VEt6bnc4YVpOQ1k0eUlB?oc=5"
-            data-title="Hong Kong Celebrity Luxury Property Sales at Discounts | Market Outlook 2026 - News and Statistics - indexbox.io"
-            data-source="indexbox.io"
+            data-url="https://news.google.com/rss/articles/CBMi2AFBVV95cUxOSlAwYy1nODRtQjM2TDc5M0ItVVlxZlNjRExrZW1hQmR5SlczNGZ2UHBaWkt5Q0VLX1FobTVoeXJSVXBfeDFWZmtWRlN0bTJ3Y1lXYkg5ajUzbjB5cjlkeXlEeTBJZWJTSGpqZ3BvU1pDMFVMYlVVdW1mREFzbllxRWRpNGdwUFFpM1h1bFBkNVRtQUlBRGRhNDZWZmVid2w1YkMxaW1acHB6SW13ODZyNVZBX1I4RHZiLUUzSW1jODJZV3NlaHFiaVcyZTBKRmRqOUVVYVg0WDfSAdgBQVVfeXFMUEYwWTV4RFpFVWlRSF80OUVCdXZ6NjJPOW44TDZOcnVweS1Xd2ZmVm1idWFLOFZFbC1ORk8xVUdMeVIyNUk5ZTBJZ2kzOU5FeFpxcVFCS0NDRkkyd01wMmtCUTl1NEhRMmNvQ0g2bWd1QlpQbThWT0h0bmlsaU1yOEJSWXF6TGc5b0ttaElyZjdCbW1zdWFiRUltem16Y3F1MWtLQnFweGZvSnpFY3ZGQWFFdHJxaEpnZGFaNm5Vb3B1WGloRzlUY2lEUlNuenFiaV9JRzhKaDZ4?oc=5"
+            data-title="Hang Lung looks beyond luxury amid changing consumer tastes"
+            data-source="South China Morning Post"
             data-category="Hong Kong Economy"
             data-rating="4"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxNR0lEVC1iZ3M0TTNoQ3pfTDI0Z01VaFprTXkzckVBYS1tUzJkTjJGbVJZQ0w5ZGpidTQ2UDVvMjhjWl9vanVZa01Pb2xFRVhsc0VFREJ0ZTM4eEh2UDNtUVc1b05USkVjSzRrOF9POENIbE90Tk5xWHB6RUxlMW1UdFE5bG1UT2p6VEt6bnc4YVpOQ1k0eUlB?oc=5" target="_blank" rel="noopener">Hong Kong Celebrity Luxury Property Sales at Discounts | Market Outlook 2026 - News and Statistics - indexbox.io</a>
-            <div class="pub">2026-07-31 11:41 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMi2AFBVV95cUxOSlAwYy1nODRtQjM2TDc5M0ItVVlxZlNjRExrZW1hQmR5SlczNGZ2UHBaWkt5Q0VLX1FobTVoeXJSVXBfeDFWZmtWRlN0bTJ3Y1lXYkg5ajUzbjB5cjlkeXlEeTBJZWJTSGpqZ3BvU1pDMFVMYlVVdW1mREFzbllxRWRpNGdwUFFpM1h1bFBkNVRtQUlBRGRhNDZWZmVid2w1YkMxaW1acHB6SW13ODZyNVZBX1I4RHZiLUUzSW1jODJZV3NlaHFiaVcyZTBKRmRqOUVVYVg0WDfSAdgBQVVfeXFMUEYwWTV4RFpFVWlRSF80OUVCdXZ6NjJPOW44TDZOcnVweS1Xd2ZmVm1idWFLOFZFbC1ORk8xVUdMeVIyNUk5ZTBJZ2kzOU5FeFpxcVFCS0NDRkkyd01wMmtCUTl1NEhRMmNvQ0g2bWd1QlpQbThWT0h0bmlsaU1yOEJSWXF6TGc5b0ttaElyZjdCbW1zdWFiRUltem16Y3F1MWtLQnFweGZvSnpFY3ZGQWFFdHJxaEpnZGFaNm5Vb3B1WGloRzlUY2lEUlNuenFiaV9JRzhKaDZ4?oc=5" target="_blank" rel="noopener">Hang Lung looks beyond luxury amid changing consumer tastes</a>
+            <div class="pub">2026-07-31 11:29 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Celebrities sold luxury properties at 19-27% discounts, indicating a cooling high-end market.</li><li>Agents expect short-term luxury home prices to fall by up to 10%, signaling further weakness.</li>
+              <li>Hang Lung&#39;s H1 underlying net profit fell 10% to HK$1.44B, despite 23% revenue rise from residential handovers.</li><li>Property writedowns and weak offices offset record mall rents; mainland project impairments impacted earnings.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">indexbox.io</span></td>
-          <td class="rating">★★★★☆<span class="reason">Direct evidence of price weakness in a key high-value segment.</span>
+          <td class="source"><span class="chip">South China Morning Post</span></td>
+          <td class="rating">★★★★☆<span class="reason">Key developer earnings reveal mixed property sector performance and mainland exposure risks.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1143,23 +1144,23 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMilgJBVV95cUxNNF9PZGY3aS1XNmdmSzdFSEM4ZkhyNkpsOWNqdGpZenBmRVlWNm5RVl9vdHRqeWJuWFZ3X2dRRGwwLXNpcXh0YUtzZ1k0LWhVaXhQVXJ1bjlwLXNZcGJYeXk0TUdjOFFGM1JSSlp1NWsyYXdJWldkZUMtLW4zVjhVNk9RQ0FKamY4TkpWeFhJSy1hY1BEQ2VTUFhXem5rWVhub0swNUJfTmx3WG5pSXczXzlleWtEeGdKWHByMUFFMEh3MGxpZTAzUDdiUzZSSXUtMUdYcVEtY2FBVWVZOHZXXy12cWxhb1prUnUxWVpGWWZLODZzc3M0VFc5N2tia2hBLVJxN2JrV0RrT05oTExFdm54ZThsZw?oc=5"
-            data-title="Big tech spends more than $1 trillion on AI infrastructure — additional $745 billion expected to be added to the figure in 2026 alone"
+            data-url="https://news.google.com/rss/articles/CBMilgJBVV95cUxNNF9PZEY3aS1XNmdmSzdFSEM4ZkhyNkpsOWNqdGpZenBmRVlWNm5RVl9vdHRqeWJuWFZ3X2dRRGwwLXNpcXh0YUtzZ1k0LWhVaXhQVXJ1bjlwLXNZcGJYeXk0TUdjOFFGM1JSSlp1NWsyYXdJWldkZUMtLW4zVjhVNk9RQ0FKamY4TkpWeFhJSy1hY1BEQ2VTUFhXem5rWVhub0swNUJfTmx3WG5pSXczXzlleWtEeGdKWHByMUFFMEh3MGxpZTAzUDdiUzZSSXUtMUdYcVEtY2FBVWVZOHZXXy12cWxhb1prUnUxWVpGWWZLODZzc3M0VFc5N2tia2hBLVJxN2JrV0RrT05oTExFdm54ZThsZw?oc=5"
+            data-title="Big tech spends more than $1 trillion on AI infrastructure — additional $745 billion expected to be added to the figure in 2026 alone - Tom&#39;s Hardware"
             data-source="Tom&#39;s Hardware"
             data-category="Global Technology"
             data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMilgJBVV95cUxNNF9PZGY3aS1XNmdmSzdFSEM4ZkhyNkpsOWNqdGpZenBmRVlWNm5RVl9vdHRqeWJuWFZ3X2dRRGwwLXNpcXh0YUtzZ1k0LWhVaXhQVXJ1bjlwLXNZcGJYeXk0TUdjOFFGM1JSSlp1NWsyYXdJWldkZUMtLW4zVjhVNk9RQ0FKamY4TkpWeFhJSy1hY1BEQ2VTUFhXem5rWVhub0swNUJfTmx3WG5pSXczXzlleWtEeGdKWHByMUFFMEh3MGxpZTAzUDdiUzZSSXUtMUdYcVEtY2FBVWVZOHZXXy12cWxhb1prUnUxWVpGWWZLODZzc3M0VFc5N2tia2hBLVJxN2JrV0RrT05oTExFdm54ZThsZw?oc=5" target="_blank" rel="noopener">Big tech spends more than $1 trillion on AI infrastructure — additional $745 billion expected to be added to the figure in 2026 alone</a>
+            <a href="https://news.google.com/rss/articles/CBMilgJBVV95cUxNNF9PZEY3aS1XNmdmSzdFSEM4ZkhyNkpsOWNqdGpZenBmRVlWNm5RVl9vdHRqeWJuWFZ3X2dRRGwwLXNpcXh0YUtzZ1k0LWhVaXhQVXJ1bjlwLXNZcGJYeXk0TUdjOFFGM1JSSlp1NWsyYXdJWldkZUMtLW4zVjhVNk9RQ0FKamY4TkpWeFhJSy1hY1BEQ2VTUFhXem5rWVhub0swNUJfTmx3WG5pSXczXzlleWtEeGdKWHByMUFFMEh3MGxpZTAzUDdiUzZSSXUtMUdYcVEtY2FBVWVZOHZXXy12cWxhb1prUnUxWVpGWWZLODZzc3M0VFc5N2tia2hBLVJxN2JrV0RrT05oTExFdm54ZThsZw?oc=5" target="_blank" rel="noopener">Big tech spends more than $1 trillion on AI infrastructure — additional $745 billion expected to be added to the figure in 2026 alone - Tom&#39;s Hardware</a>
             <div class="pub">2026-07-31 16:30 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Big tech spent $1.1T on AI infrastructure since 2023; $745B more expected in 2026.</li><li>Massive capital expenditure by tech giants drives utility upgrades and premium pricing for HBM chips.</li>
+              <li>Big Tech spent $1.1 trillion on AI infrastructure since 2023, with $745 billion more expected in 2026.</li><li>Massive capex signals intense AI investment, impacting tech giants&#39; financials and related industries like utilities and chips.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Tom&#39;s Hardware</span></td>
-          <td class="rating">★★★★★<span class="reason">Massive, quantifiable investment by major tech players with broad industry ripple effects.</span>
+          <td class="rating">★★★★★<span class="reason">Massive, concrete investment by major tech players with broad economic and supply chain implications.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1173,22 +1174,22 @@
         
         <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMiU0FVX3lxTE40Ry1nUktoemRwUUg5aUo0eGdpQzRLaklpRkp6QVd2cTYtSHBYSy1lQ0U2RFoxQjZSdHZfTk1vblFnQ0hzSkIyaUFYdmc2bS1XeWV3?oc=5"
-            data-title="The Rise of AI: Why Middle Managers at Big Tech Companies Are Facing Unprecedented Challenges to Thrive"
+            data-title="The Rise of AI: Why Middle Managers at Big Tech Companies Are Facing Unprecedented Challenges to Thrive - 36 Kr"
             data-source="36 Kr"
             data-category="Global Technology"
             data-rating="4"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE40Ry1nUktoemRwUUg5aUo0eGdpQzRLaklpRkp6QVd2cTYtSHBYSy1lQ0U2RFoxQjZSdHZfTk1vblFnQ0hzSkIyaUFYdmc2bS1XeWV3?oc=5" target="_blank" rel="noopener">The Rise of AI: Why Middle Managers at Big Tech Companies Are Facing Unprecedented Challenges to Thrive</a>
+            <a href="https://news.google.com/rss/articles/CBMiU0FVX3lxTE40Ry1nUktoemRwUUg5aUo0eGdpQzRLaklpRkp6QVd2cTYtSHBYSy1lQ0U2RFoxQjZSdHZfTk1vblFnQ0hzSkIyaUFYdmc2bS1XeWV3?oc=5" target="_blank" rel="noopener">The Rise of AI: Why Middle Managers at Big Tech Companies Are Facing Unprecedented Challenges to Thrive - 36 Kr</a>
             <div class="pub">2026-08-01 02:02 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>AI is making middle management redundant; Amazon cut 78% of L5-L7 roles in recent layoffs.</li><li>Big tech companies gain efficiency and reduce costs, potentially boosting profit margins long-term.</li>
+              <li>AI is displacing middle management in big tech; Amazon&#39;s layoffs saw 78% of eliminated positions at L5-L7.</li><li>Signals potential for significant operational cost reductions and efficiency gains for tech giants&#39; profitability.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">36 Kr</span></td>
-          <td class="rating">★★★★☆<span class="reason">Fundamental shift in big tech operational structure and cost base due to AI adoption.</span>
+          <td class="rating">★★★★☆<span class="reason">Fundamental shift in tech company operations, impacting efficiency, headcount, and long-term cost structures.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1216,35 +1217,6 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMivgFBVV95cUxORUV5TWtBMWprcWk4bE9yNUl2enhJeHg3NlViUkx6UlVBZnZxQnZmN24xd2FSZlg4REVCdlZjd1Z4d05WX0VYdzd5QlB4aW8tXzUyZzVzS21lRGdaZWsweUE5dDFuWWRnU2F2UXlvazRTVDY2NEJrcEFVaEZ5THFlRDk1Nmd2bWNGYXYzU2hNQjRpY0w4VVlqcHJOV2xZbEpaUmJLa3FFS3ZGbk44cUJCbEVnb3diZ2cwUzlZQ0dB?oc=5"
-            data-title="OpenAI Reaches 1 Billion Active Users as AI Becomes Daily Habit"
-            data-source="PYMNTS.com"
-            data-category="Artificial Intelligence"
-            data-rating="5"
-            data-date="2026-08-01">
-          <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxORUV5TWtBMWprcWk4bE9yNUl2enhJeHg3NlViUkx6UlVBZnZxQnZmN24xd2FSZlg4REVCdlZjd1Z4d05WX0VYdzd5QlB4aW8tXzUyZzVzS21lRGdaZWsweUE5dDFuWWRnU2F2UXlvazRTVDY2NEJrcEFVaEZ5THFlRDk1Nmd2bWNGYXYzU2hNQjRpY0w4VVlqcHJOV2xZbEpaUmJLa3FFS3ZGbk44cUJCbEVnb3diZ2cwUzlZQ0dB?oc=5" target="_blank" rel="noopener">OpenAI Reaches 1 Billion Active Users as AI Becomes Daily Habit</a>
-            <div class="pub">2026-08-01 00:43 UTC</div>
-          </td>
-          <td class="summary">
-            <ul>
-              <li>OpenAI reached 1 billion active users, indicating rapid AI adoption and habit formation across individuals and businesses.</li><li>OpenAI cut GPT-5.6 Luna price by 80%, Terra by 20%, enhancing performance/cost for enterprise workloads.</li>
-            </ul>
-          </td>
-          <td class="source"><span class="chip">PYMNTS.com</span></td>
-          <td class="rating">★★★★★<span class="reason">Direct impact on market leader&#39;s valuation, adoption, and pricing strategy.</span>
-          </td>
-          <td class="save-cell">
-            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
-              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </td>
-        </tr>
-        
-        <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMi0AFBVV95cUxNenBhNGVBS2U1b21RZjZld2lwa0pHREx6dmpwajFocUNKRW1GSmhUcFg5bGFxNkEwREpOdXA5UEtsVF9YRFRZRDVLSHdzZjNrd3FiMDNXZUc0ZmRIWXQ0YjhfaXJlbVh1bXlXY3k0VzhpV3k3bTdVY1lQTTE5NmVia3REYUZJYXZrdjdCOTZQRUNOeHRmc2Nva1ZBRDIyaDN3ckV2c3h5X2sxbFZvYmcxUG52Z3U3MnR5NXRBbUtIOGZHa3VSaW5ySUU3ekZVV2lM?oc=5"
             data-title="The New Manhattan Project: PW Talks with Kevin Roose"
             data-source="Publishers Weekly"
@@ -1257,11 +1229,40 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Anthropic CEO Dario Amodei aims for a &#34;trillion-dollar IPO&#34; despite AI risks, signaling massive market potential.</li><li>Government oversight and regulation are increasingly likely, potentially impacting AI development and investment timelines.</li>
+              <li>Anthropic CEO targets trillion-dollar IPO, balancing AGI ambition with existential risks.</li><li>Calls for strong AI regulation, federal standards body, signal future compliance costs.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Publishers Weekly</span></td>
-          <td class="rating">★★★★☆<span class="reason">Highlights major IPO potential and looming regulatory shifts for AI sector.</span>
+          <td class="rating">★★★★☆<span class="reason">Discusses future market valuation, regulatory landscape, and existential risks for leading AI firms.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMivgFBVV95cUxORUV5TWtBMWprcWk4bE9yNUl2enhJeHg3NlViUkx6UlVBZnZxQnZmN24xd2FSZlg4REVCdlZjd1Z4d05WX0VYdzd5QlB4aW8tXzUyZzVzS21lRGdaZWsweUE5dDFuWWRnU2F2UXlvazRTVDY2NEJrcEFVaEZ5THEtRDk1Nmd2bWNGYXYzU2hNQjRpY0w4VVlqcHJOV2xZbEpaUmJLa3FFS3ZGbk44cUJCbEVnb3diZ2cwUzlZQ0dB?oc=5"
+            data-title="OpenAI Reaches 1 Billion Active Users as AI Becomes Daily Habit"
+            data-source="PYMNTS.com"
+            data-category="Artificial Intelligence"
+            data-rating="5"
+            data-date="2026-08-01">
+          <td class="headline">
+            <a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxORUV5TWtBMWprcWk4bE9yNUl2enhJeHg3NlViUkx6UlVBZnZxQnZmN24xd2FSZlg4REVCdlZjd1Z4d05WX0VYdzd5QlB4aW8tXzUyZzVzS21lRGdaZWsweUE5dDFuWWRnU2F2UXlvazRTVDY2NEJrcEFVaEZ5THEtRDk1Nmd2bWNGYXYzU2hNQjRpY0w4VVlqcHJOV2xZbEpaUmJLa3FFS3ZGbk44cUJCbEVnb3diZ2cwUzlZQ0dB?oc=5" target="_blank" rel="noopener">OpenAI Reaches 1 Billion Active Users as AI Becomes Daily Habit</a>
+            <div class="pub">2026-08-01 00:43 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>OpenAI slashes GPT-5.6 Luna price by 80%, Terra by 20%, expanding practical AI use.</li><li>Financial services lead enterprise AI adoption, indicating robust demand for solutions.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">PYMNTS.com</span></td>
+          <td class="rating">★★★★★<span class="reason">Direct market data on adoption, user growth, and aggressive pricing strategy from a market leader.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1289,23 +1290,23 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMimAFBVV95cUxQRG1uN19XOHkxMks1WTlVdmVPQ0JRZ1hRNWVmQi1vU0ZYN2pFSXdnYlNNVlhWNE9udlN1NGRMT05oRy14ZDVQWUp6WXVEaTZqb0tYWXhLaFkyY3ladzJpMklxa2RWdUFKaWs1bTkzdUJSb3l0M3N0M2p2ZDBTUXFPMmtCTUpYQ0hxc2oxd0hEYnF4VE1RNUVWZw?oc=5"
-            data-title="Nvidia&#39;s Shareholder Meeting Is Aug. 26. Here&#39;s What Investors Should Be Looking Out For."
-            data-source="The Motley Fool"
+            data-url="https://news.google.com/rss/articles/CBMikgFBVV95cUxPb1htdVNvRkVJVTNOSUJ3NzRNODdVTlpQUzRWLWFid0FyUElmMnRrOG1UM2daUmp6X1NQUFYzTGxySUF0M0U0NlhQMll6X3EtX2xUMWQyLTYyV0JVSXBTdWFranpzUFk4eWNobGF1YlgtYlB3QUZjbkhrYmJ4cEU3bHBuY09CYklwbDVKRER2a3Eydw?oc=5"
+            data-title="Alibaba-Supplied Nvidia Chips Power Kimi K3; Washington Claims Procurement Violated Export Rules"
+            data-source="briefs.co"
             data-category="Semiconductors"
             data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxQRG1uN19XOHkxMks1WTlVdmVPQ0JRZ1hRNWVmQi1vU0ZYN2pFSXdnYlNNVlhWNE9udlN1NGRMT05oRy14ZDVQWUp6WXVEaTZqb0tYWXhLaFkyY3ladzJpMklxa2RWdUFKaWs1bTkzdUJSb3l0M3N0M2p2ZDBTUXFPMmtCTUpYQ0hxc2oxd0hEYnF4VE1RNUVWZw?oc=5" target="_blank" rel="noopener">Nvidia&#39;s Shareholder Meeting Is Aug. 26. Here&#39;s What Investors Should Be Looking Out For.</a>
-            <div class="pub">2026-08-01 04:25 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxPb1htdVNvRkVJVTNOSUJ3NzRNODdVTlpQUzRWLWFid0FyUElmMnRrOG1UM2daUmp6X1NQUFYzTGxySUF0M0U0NlhQMll6X3EtX2xUMWQyLTYyV0JVSXBTdWFranpzUFk4eWNobGF1YlgtYlB3QUZjbkhrYmJ4cEU3bHBuY09CYklwbDVKRER2a3Eydw?oc=5" target="_blank" rel="noopener">Alibaba-Supplied Nvidia Chips Power Kimi K3; Washington Claims Procurement Violated Export Rules</a>
+            <div class="pub">2026-08-01 03:05 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Upcoming Q2 earnings will detail Blackwell/Vera Rubin sales and production, key for Nvidia&#39;s AI chip market dominance.</li><li>Management&#39;s competitive outlook is crucial, signaling future market share and pricing power in the rapidly expanding AI sector.</li>
+              <li>Chinese AI model Kimi K3, powered by 20,000 Nvidia Hopper chips, performs at US levels.</li><li>US export controls may be less effective, impacting Nvidia&#39;s market access and geopolitical tech strategy.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The Motley Fool</span></td>
-          <td class="rating">★★★★★<span class="reason">Direct impact on market-leading Nvidia&#39;s valuation and AI sector outlook.</span>
+          <td class="source"><span class="chip">briefs.co</span></td>
+          <td class="rating">★★★★★<span class="reason">Directly impacts US-China tech policy and Nvidia&#39;s sales.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1318,23 +1319,23 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMikgFBVV95cUxPb1htdVNvRkVJVTNOSUJ3NzRNODdVTlpQUzRWLWFid0FyUElmMnRrOG1UM2daUmp6X1NQUFYzTGxySUF0M0U0NlhQMll6X3EtX2xUMWQyLTYyV0JVSXBTdWFranpzUFk4eWNobGF1YlgtYlB3QUZjbkhrYmJ4cEU3bHBuY09CYklwbDVKRER2a3Eydw?oc=5"
-            data-title="Alibaba-Supplied Nvidia Chips Power Kimi K3; Washington Claims Procurement Violated Export Rules"
-            data-source="briefs.co"
+            data-url="https://news.google.com/rss/articles/CBMimAFBVV95cUxQRG1uN19XOHkxMks1WTlVdmVPQ0JRZ1hRNWVmQi1vU0ZYN2pFSXdnYlNNVlhWNE9udlN1NGRMT05oRy14ZDVQWUp6WXVEaTZqb0tYWXhLaFkyY3ladzJpMklxa2RWdUFKaWs1bTkzdUJSb3l0M3N0M2p2ZDBTUXFPMmtCTUpYQ0hxc2oxd0hEYnF4VE1RNUVWZw?oc=5"
+            data-title="Nvidia&#39;s Shareholder Meeting Is Aug. 26. Here&#39;s What Investors Should Be Looking Out For."
+            data-source="The Motley Fool"
             data-category="Semiconductors"
             data-rating="4"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxPb1htdVNvRkVJVTNOSUJ3NzRNODdVTlpQUzRWLWFid0FyUElmMnRrOG1UM2daUmp6X1NQUFYzTGxySUF0M0U0NlhQMll6X3EtX2xUMWQyLTYyV0JVSXBTdWFranpzUFk4eWNobGF1YlgtYlB3QUZjbkhrYmJ4cEU3bHBuY09CYklwbDVKRER2a3Eydw?oc=5" target="_blank" rel="noopener">Alibaba-Supplied Nvidia Chips Power Kimi K3; Washington Claims Procurement Violated Export Rules</a>
-            <div class="pub">2026-08-01 03:05 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxQRG1uN19XOHkxMks1WTlVdmVPQ0JRZ1hRNWVmQi1vU0ZYN2pFSXdnYlNNVlhWNE9udlN1NGRMT05oRy14ZDVQWUp6WXVEaTZqb0tYWXhLaFkyY3ladzJpMklxa2RWdUFKaWs1bTkzdUJSb3l0M3N0M2p2ZDBTUXFPMmtCTUpYQ0hxc2oxd0hEYnF4VE1RNUVWZw?oc=5" target="_blank" rel="noopener">Nvidia&#39;s Shareholder Meeting Is Aug. 26. Here&#39;s What Investors Should Be Looking Out For.</a>
+            <div class="pub">2026-08-01 04:25 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Chinese AI firm Moonshot used ~20,000 Nvidia Hopper chips via Alibaba, raising questions on US export control effectiveness.</li><li>Trump administration&#39;s H200 license issuance to China, even if &#34;trivial,&#34; signals potential policy shifts or loopholes.</li>
+              <li>Upcoming earnings will clarify Blackwell and Vera Rubin production, sales pace, and potential backlogs.</li><li>Updates on next-gen GPU performance and competition are crucial for Nvidia&#39;s near-term stock valuation.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">briefs.co</span></td>
-          <td class="rating">★★★★☆<span class="reason">Highlights geopolitical risks, export control effectiveness, and China&#39;s AI progress.</span>
+          <td class="source"><span class="chip">The Motley Fool</span></td>
+          <td class="rating">★★★★☆<span class="reason">Key insights into Nvidia&#39;s immediate product cycles and market position.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1362,23 +1363,23 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMingFBVV95cUxOa1NhWXVIV21vTHNTNWZYUF9UUlVuakkxYWNsWjBjQ1dBR1o4cENvOUtNakJXeFV0eU1ZTEdydlJfZWk5NGVnTmZlYno2OFVaQ0dKZktmWUpKVXJWSFlta1pRNkN6RkRZU2poc29lTlRDR3ExQkxSQjg3WkxfYWRQOEtxYjRCMGZJQmFQTi0zNlpPZ1BMbEg1c1dxNTE4UQ?oc=5"
-            data-title="How China&#39;s Electric Vehicle Boom Is Reshaping Global Oil Demand - Open Magazine"
+            data-url="https://news.google.com/rss/articles/CBMingFBVV95cUxOa1NhWXVIV21vTHNTNWZYUF9UUlVuakkxYWNsWjBjQ1dBR1o4cENvOUtNakJXeFV0eU1ZTEdydlJfZWk5NGVnTmZlYno2OFVaQ0dKZktmWUpKVXJWSFlta1pRNkN6RkRZU2poc29lTlRDR3ExQkxSQjg3WkxfYWRQOEtxYjRCMGZJQmFQTi0zNlpPZ1BMbEh1c1dxNTE4UQ?oc=5"
+            data-title="How China&#39;s Electric Vehicle Boom Is Reshaping Global Oil Demand"
             data-source="Open Magazine"
             data-category="Electric Vehicles"
             data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxOa1NhWXVIV21vTHNTNWZYUF9UUlVuakkxYWNsWjBjQ1dBR1o4cENvOUtNakJXeFV0eU1ZTEdydlJfZWk5NGVnTmZlYno2OFVaQ0dKZktmWUpKVXJWSFlta1pRNkN6RkRZU2poc29lTlRDR3ExQkxSQjg3WkxfYWRQOEtxYjRCMGZJQmFQTi0zNlpPZ1BMbEg1c1dxNTE4UQ?oc=5" target="_blank" rel="noopener">How China&#39;s Electric Vehicle Boom Is Reshaping Global Oil Demand - Open Magazine</a>
+            <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxOa1NhWXVIV21vTHNTNWZYUF9UUlVuakkxYWNsWjBjQ1dBR1o4cENvOUtNakJXeFV0eU1ZTEdydlJfZWk5NGVnTmZlYno2OFVaQ0dKZktmWUpKVXJWSFlta1pRNkN6RkRZU2poc29lTlRDR3ExQkxSQjg3WkxfYWRQOEtxYjRCMGZJQmFQTi0zNlpPZ1BMbEh1c1dxNTE4UQ?oc=5" target="_blank" rel="noopener">How China&#39;s Electric Vehicle Boom Is Reshaping Global Oil Demand</a>
             <div class="pub">2026-08-01 06:34 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>China&#39;s EVs displaced 1.4 million barrels/day of oil in H1 2026, up 42% YoY.</li><li>NEVs now comprise 63% of new passenger vehicle sales in China, impacting global oil demand.</li>
+              <li>China&#39;s EVs displaced 1.4M barrels/day of oil in H1 2026, up 42% YoY. Implies significant global energy market shift.</li><li>NEVs accounted for 63% of China&#39;s June 2026 passenger vehicle sales, showing rapid adoption and market disruption.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Open Magazine</span></td>
-          <td class="rating">★★★★★<span class="reason">Quantifies significant, immediate impact on global oil market from largest auto market.</span>
+          <td class="rating">★★★★★<span class="reason">Quantifies significant, accelerating impact on global oil demand from largest auto market.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1392,22 +1393,22 @@
         
         <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMiogFBVV95cUxQVnYyMTFyTDhSZHZwOWlDM1NrV0xaeEszR1Z4a1V1T1ZaVjlaODNhYjBqQ3d2cy1FazkydG05dF9XaXpyM0djQmYyZDNwZWE1M3N2VUwwa3RRZ1dyTEFnaDdQZlNaS3hNT0o4NWdteS1zMTUzMjhiVUFiajFIS01EOGowS3k3ZDhfRGJlYjV2dERHQ1hScElPY1F3NmNETzRZV0E?oc=5"
-            data-title="Global sales of electric cars reached record levels in 50 countries - Balkan Green Energy News"
+            data-title="Global sales of electric cars reached record levels in 50 countries"
             data-source="Balkan Green Energy News"
             data-category="Electric Vehicles"
             data-rating="4"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQVnYyMTFyTDhSZHZwOWlDM1NrV0xaeEszR1Z4a1V1T1ZaVjlaODNhYjBqQ3d2cy1FazkydG05dF9XaXpyM0djQmYyZDNwZWE1M3N2VUwwa3RRZ1dyTEFnaDdQZlNaS3hNT0o4NWdteS1zMTUzMjhiVUFiajFIS01EOGowS3k3ZDhfRGJlYjV2dERHQ1hScElPY1F3NmNETzRZV0E?oc=5" target="_blank" rel="noopener">Global sales of electric cars reached record levels in 50 countries - Balkan Green Energy News</a>
+            <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQVnYyMTFyTDhSZHZwOWlDM1NrV0xaeEszR1Z4a1V1T1ZaVjlaODNhYjBqQ3d2cy1FazkydG05dF9XaXpyM0djQmYyZDNwZWE1M3N2VUwwa3RRZ1dyTEFnaDdQZlNaS3hNT0o4NWdteS1zMTUzMjhiVUFiajFIS01EOGowS3k3ZDhfRGJlYjV2dERHQ1hScElPY1F3NmNETzRZV0E?oc=5" target="_blank" rel="noopener">Global sales of electric cars reached record levels in 50 countries</a>
             <div class="pub">2026-07-31 15:26 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Global EV sales surged 35% in Q2 2026, reaching record highs in 50 countries, driven by oil price shock.</li><li>IEA projects EVs will reach 29% of total car sales in 2026, indicating rapid market penetration.</li>
+              <li>Global EV sales surged 35% in Q2 2026, reaching record highs in 50 countries due to rising fuel prices.</li><li>IEA projects EVs to capture 29% of total global car sales in 2026, indicating strong market expansion.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Balkan Green Energy News</span></td>
-          <td class="rating">★★★★☆<span class="reason">Shows strong global EV market resilience and growth, with clear drivers and future projections.</span>
+          <td class="rating">★★★★☆<span class="reason">Provides global market rebound data and significant IEA forecast for EV market share.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1435,23 +1436,23 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMixAFBVV95cUxNU004dGJtU0c4Z2lmMmdONnEtd0NsWGotNTBWVG5wNlNyYlBPYWxhN3NaenNzdG05YWt4SUJGdWhXUUJlTV9rY1Y4dGdLcVVpQV9MNXNJSldtUTJsSVIyYkF4Z3hDWnFNdlZ5SXA4cW5HRXZFQ3ExdHhXUWYtUWlfaV9ET29NN1A4UnZqSThTVnozT3BUbkFkVGE2aFhVMW9SRlBOaU5OcnUwQlNwSHQ4eG1xUDBXZ3l1blB6aVhWTzBUeUs5?oc=5"
+            data-url="https://news.google.com/rss/articles/CBMixAFBVV95cUxNU004dGJtU0c4Z2lmMmdONnEtd0NsZGotNTBWVG5wNlNyYlBPYWxhN3NaenNzdG05YWt4SUJGdWhXUUJlTV9rY1Y4dGdLcVVpQV9MNXNJSldtUTJsSVIyYkF4Z3hDWnFNdlZ5SXA4cW5HRXZFQ3ExdHhXUWYtUWlfaV9ET29NN1A4UnZqSThTVnozT3BUbkFkVGE2aFhVMW9SRlBOaU5OcnUwQlNwSHQ4eG1xUDBXZ3l1blB6aVhWTzBUeUs5?oc=5"
             data-title="Amazon Lifts 2026 AI Capex to $220B, Still Capacity-Constrained"
             data-source="Data Center Knowledge"
             data-category="Data Centers"
             data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxNU004dGJtU0c4Z2lmMmdONnEtd0NsWGotNTBWVG5wNlNyYlBPYWxhN3NaenNzdG05YWt4SUJGdWhXUUJlTV9rY1Y4dGdLcVVpQV9MNXNJSldtUTJsSVIyYkF4Z3hDWnFNdlZ5SXA4cW5HRXZFQ3ExdHhXUWYtUWlfaV9ET29NN1A4UnZqSThTVnozT3BUbkFkVGE2aFhVMW9SRlBOaU5OcnUwQlNwSHQ4eG1xUDBXZ3l1blB6aVhWTzBUeUs5?oc=5" target="_blank" rel="noopener">Amazon Lifts 2026 AI Capex to $220B, Still Capacity-Constrained</a>
+            <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxNU004dGJtU0c4Z2lmMmdONnEtd0NsZGotNTBWVG5wNlNyYlBPYWxhN3NaenNzdG05YWt4SUJGdWhXUUJlTV9rY1Y4dGdLcVVpQV9MNXNJSldtUTJsSVIyYkF4Z3hDWnFNdlZ5SXA4cW5HRXZFQ3ExdHhXUWYtUWlfaV9ET29NN1A4UnZqSThTVnozT3BUbkFkVGE2aFhVMW9SRlBOaU5OcnUwQlNwSHQ4eG1xUDBXZ3l1blB6aVhWTzBUeUs5?oc=5" target="_blank" rel="noopener">Amazon Lifts 2026 AI Capex to $220B, Still Capacity-Constrained</a>
             <div class="pub">2026-07-31 19:11 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Amazon increased 2026 AI infrastructure capex to $220B, up $20B, driven by higher memory costs.</li><li>AWS expects AI capacity constraints through 2027, with demand already contracted into 2028.</li>
+              <li>Amazon raised 2026 AI capex to $220B, up from $200B, driven by higher memory costs.</li><li>Capacity constrained through 2027, with demand into 2028, signals strong pricing power for suppliers.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Data Center Knowledge</span></td>
-          <td class="rating">★★★★★<span class="reason">Hyperscaler&#39;s massive capex increase and persistent capacity issues signal strong demand and supply chain pressure.</span>
+          <td class="rating">★★★★★<span class="reason">Major hyperscaler&#39;s massive capex increase and demand outlook.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1464,23 +1465,23 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMizwFBVV95cUxPWGlubk44V2lha3Y2a3VlbnZ3NENacUZfSEo4eUhMUXgtNjZpNWdITF9NUWlYU0R2OGFVRkVEUzJvWW5NdVdISjdsNjRGSVRGd19ZeUZQbDV4UjQ1UDdDMGxDYUZnZng1MjM0aUFTRFhNbllSMXFfSUh0Y3JoNFNsT3VpMlJpRk15VDF6OGJMLUtxaTFGbTh0dmxBMUtKV1lldkFjY3UxOUM2dzNwWmFRTTJadkJFX19fWHFMUU1PU3VKVWVlUUtuYl9qbzk4RmfSAdQBQVVfeXFMUFptMWtYYXZ0VXoxOXNmTW1lMzBaMi1QSFdfTlJ1RU90dWtEQUhtYml1dExZeEI2RGNHYWxMNlluX21MS0FpX1JHc2lUR1MweWN3dk5QM2ZlQVFkbV8weTJBWUYtekQ4OFZRNEtnYm1wV2tIc2xKWG1xWEdubE1TUENTRmwxTFJSWFZwZTNqOEZ4Q0d4LVotUVJjZW1EdGtId0NFbDF2cWdnblE0eHZrcnNyRVl0TGQyQWxNb2lERmJFNmZuNUU0V1hQWXBOdEJueGQyc2Q?oc=5"
-            data-title="Vertiv Stock And 2 AI Infrastructure Picks For Data Center Power Demand"
-            data-source="simplywall.st"
+            data-url="https://news.google.com/rss/articles/CBMipwFBVV95cUxPNHJORmlDX2k3cjROWXVSd2FiYlUzV1RsR3Y4ZDlBc29vRTVMcjZIYmlFWHZ6WnczMXZsMzh1dkJDM2lfZ3ctZUFXTjBUUS1EVkhMZkhSa1ZuX2VqdUN5Sl9oUGRfZmtKVW1fRE0xWG1WNWR0VmFlQjI5N2FoNGRuRl9vdkt4QzdEWnZxWXJHR3hBTm0tOE53c0UwQWQ0eG0xSExndGE0QdIBpwFBVV95cUxPNHJORmlDX2k3cjROWXVSd2FiYlUzV1RsR3Y4ZDlBc29vRTVMcjZIYmlFWHZ6WnczMXZsMzh1dkJDM2lfZ3ctZUFXTjBUUS1EVkhMZkhSa1ZuX2VqdUN5Sl9oUGRfZmtKVW1fRE0xWG1WNWR0VmFlQjI5N2FoNGRuRl9vdkt4QzdEWnZxWXJHR3hBTm0tOE53c0UwQWQ0eG0xSExndGE0QQ?oc=5"
+            data-title="Inside the Urban Machine: Where America&#39;s Data Centers Actually Live | Newswise"
+            data-source="Newswise"
             data-category="Data Centers"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMizwFBVV95cUxPWGlubk44V2lha3Y2a3VlbnZ3NENacUZfSEo4eUhMUXgtNjZpNWdITF9NUWlYU0R2OGFVRkVEUzJvWW5NdVdISjdsNjRGSVRGd19ZeUZQbDV4UjQ1UDdDMGxDYUZnZng1MjM0aUFTRFhNbllSMXFfSUh0Y3JoNFNsT3VpMlJpRk15VDF6OGJMLUtxaTFGbTh0dmxBMUtKV1lldkFjY3UxOUM2dzNwWmFRTTJadkJFX19fWHFMUU1PU3VKVWVlUUtuYl9qbzk4RmfSAdQBQVVfeXFMUFptMWtYYXZ0VXoxOXNmTW1lMzBaMi1QSFdfTlJ1RU90dWtEQUhtYml1dExZeEI2RGNHYWxMNlluX21MS0FpX1JHc2lUR1MweWN3dk5QM2ZlQVFkbV8weTJBWUYtekQ4OFZRNEtnYm1wV2tIc2xKWG1xWEdubE1TUENTRmwxTFJSWFZwZTNqOEZ4Q0d4LVotUVJjZW1EdGtId0NFbDF2cWdnblE0eHZrcnNyRVl0TGQyQWxNb2lERmJFNmZuNUU0V1hQWXBOdEJueGQyc2Q?oc=5" target="_blank" rel="noopener">Vertiv Stock And 2 AI Infrastructure Picks For Data Center Power Demand</a>
-            <div class="pub">2026-08-01 02:40 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxPNHJORmlDX2k3cjROWXVSd2FiYlUzV1RsR3Y4ZDlBc29vRTVMcjZIYmlFWHZ6WnczMXZsMzh1dkJDM2lfZ3ctZUFXTjBUUS1EVkhMZkhSa1ZuX2VqdUN5Sl9oUGRfZmtKVW1fRE0xWG1WNWR0VmFlQjI5N2FoNGRuRl9vdkt4QzdEWnZxWXJHR3hBTm0tOE53c0UwQWQ0eG0xSExndGE0QdIBpwFBVV95cUxPNHJORmlDX2k3cjROWXVSd2FiYlUzV1RsR3Y4ZDlBc29vRTVMcjZIYmlFWHZ6WnczMXZsMzh1dkJDM2lfZ3ctZUFXTjBUUS1EVkhMZkhSa1ZuX2VqdUN5Sl9oUGRfZmtKVW1fRE0xWG1WNWR0VmFlQjI5N2FoNGRuRl9vdkt4QzdEWnZxWXJHR3hBTm0tOE53c0UwQWQ0eG0xSExndGE0QQ?oc=5" target="_blank" rel="noopener">Inside the Urban Machine: Where America&#39;s Data Centers Actually Live | Newswise</a>
+            <div class="pub">2026-07-31 22:25 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Lumentum Holdings (LITE) is highlighted for high-value optical components in AI data centers.</li><li>Company faces volatile past earnings and significant debt, despite upbeat analyst forecasts.</li>
+              <li>97.5% of US data centers are urban, not rural, driven by existing electricity capacity.</li><li>Closed coal plants are magnets for new data centers, leveraging existing high-capacity grid connections.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">simplywall.st</span></td>
-          <td class="rating">★★★★☆<span class="reason">Identifies specific AI infrastructure investment opportunities and associated risks for investors.</span>
+          <td class="source"><span class="chip">Newswise</span></td>
+          <td class="rating">★★★★★<span class="reason">Fundamental insight into data center location strategy and infrastructure investment.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1508,23 +1509,23 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMib0FVX3lxTFBwQUdJeXlnVktlZWxMQ0EwbVFkMTFGS2NfeHZMZlBxaDlmSEtEMmFmYWVfYVhfM1RtNThCOVJ3MUNlTXB6bF9PM0J5OXh1LWV1YmRaTGZVWUZybHE1WW5sdWQyNmc3VE1KT3ZQc1ZVNNIBdEFVX3lxTFBOVHB2QWJtLTk3T280OWlBYkNFTmM4Z0UzY1dySHhvd0hPOVN3ZkIxOGV5Q0xlYzRFNG5oeEN6UlZvTEJrVmhPZjVWdWlUUV93QlNEVnE2T2V3emZNcWM0SVFvb2Ixbjd2VExHWERUeFZCbEhz?oc=1"
+            data-url="https://news.google.com/rss/articles/CBMib0FVX3lxTFBwQUdJeXlnVktlZWxMQ0EwbVFkMTFGS2NfeHZMZlBxaDlmSEtEMmFmYWVfYVhfM1RtNThCOVJ3MUNlTXB6bF9PM0J5OXh1LWV1YmRaTGZVWUZybHE1WW5sdWQyNmc3VE1KT3ZQc1ZVNNIBdEFVX3lxTFBOVHB2QWJtLTk3T280OWlBYkNFTmM4Z0UzY1dySHhvd0hPOVN3fF9vYjE4ZXV5Q0xlYzRFNG5oeEN6UlZvTEJrVmhPZjVWdWlUUV93QlNEVnE2T2V3emZNcWM0SVFvb2Ixbjd2VExHWERUeFZCbEhz?oc=1"
             data-title="SpaceX to Launch 18 US Space Force Missions Under $1.6B Contracts"
             data-source="The Defense Post"
             data-category="Space &amp; Aerospace"
             data-rating="5"
             data-date="2026-08-01">
           <td class="headline">
-            <a href="https://news.google.com/rss/articles/CBMib0FVX3lxTFBwQUdJeXlnVktlZWxMQ0EwbVFkMTFGS2NfeHZMZlBxaDlmSEtEMmFmYWVfYVhfM1RtNThCOVJ3MUNlTXB6bF9PM0J5OXh1LWV1YmRaTGZVWUZybHE1WW5sdWQyNmc3VE1KT3ZQc1ZVNNIBdEFVX3lxTFBOVHB2QWJtLTk3T280OWlBYkNFTmM4Z0UzY1dySHhvd0hPOVN3ZkIxOGV5Q0xlYzRFNG5oeEN6UlZvTEJrVmhPZjVWdWlUUV93QlNEVnE2T2V3emZNcWM0SVFvb2Ixbjd2VExHWERUeFZCbEhz?oc=1" target="_blank" rel="noopener">SpaceX to Launch 18 US Space Force Missions Under $1.6B Contracts</a>
+            <a href="https://news.google.com/rss/articles/CBMib0FVX3lxTFBwQUdJeXlnVktlZWxMQ0EwbVFkMTFGS2NfeHZMZlBxaDlmSEtEMmFmYWVfYVhfM1RtNThCOVJ3MUNlTXB6bF9PM0J5OXh1LWV1YmRaTGZVWUZybHE1WW5sdWQyNmc3VE1KT3ZQc1ZVNNIBdEFVX3lxTFBOVHB2QWJtLTk3T280OWlBYkNFTmM4Z0UzY1dySHhvd0hPOVN3fF9vYjE4ZXV5Q0xlYzRFNG5oeEN6UlZvTEJrVmhPZjVWdWlUUV93QlNEVnE2T2V3emZNcWM0SVFvb2Ixbjd2VExHWERUeFZCbEhz?oc=1" target="_blank" rel="noopener">SpaceX to Launch 18 US Space Force Missions Under $1.6B Contracts</a>
             <div class="pub">2026-07-30 14:06 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>SpaceX secured $1.6 billion in contracts for 18 US Space Force missions, significantly boosting its defense revenue.</li><li>This substantial government backlog strengthens SpaceX&#39;s financial stability and market dominance in launch services.</li>
+              <li>SpaceX secured $1.6 billion in contracts for 18 US Space Force missions, ensuring significant future revenue.</li><li>This mega-deal reinforces SpaceX&#39;s dominant position in government launch services, boosting valuation prospects.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">The Defense Post</span></td>
-          <td class="rating">★★★★★<span class="reason">Major new government contract directly impacts SpaceX&#39;s valuation and market position.</span>
+          <td class="rating">★★★★★<span class="reason">Direct, substantial revenue contract for a major private space company.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1549,11 +1550,11 @@
           </td>
           <td class="summary">
             <ul>
-              <li>SpaceX plans a 100,000-satellite Starlink V3 megaconstellation, indicating massive future demand for Starship launches.</li><li>This ambitious expansion signals significant long-term revenue growth potential for Starlink and Starship&#39;s critical role.</li>
+              <li>Starship successfully deployed 20 functional Starlink V3 satellites, critical for future 100,000-satellite constellation.</li><li>Progress on Starship&#39;s reusability and V3 deployment is key to Starlink&#39;s cost-efficiency and market expansion.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">space.com</span></td>
-          <td class="rating">★★★★☆<span class="reason">Reveals massive future business expansion for Starlink, driving long-term Starship demand.</span>
+          <td class="rating">★★★★☆<span class="reason">Significant technical milestone for Starlink&#39;s scalability and SpaceX&#39;s long-term strategy.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2095,18 +2096,18 @@
           
         </div>
         
-        <div class="chart-card down">
+        <div class="chart-card up">
           <div class="cc-head">
             <span class="cc-name">Bitcoin</span>
-            <span class="cc-last">63,015.02</span>
+            <span class="cc-last">63,031.13</span>
           </div>
-          <div class="cc-change neg">-2.64%</div>
+          <div class="cc-change pos">+0.35%</div>
           
           <div class="cc-body">
-            <canvas class="trend" data-closes='[94397.7891, 95549.1484, 94177.0781, 92093.875, 92948.875, 91465.9922, 86631.8984, 85090.6875, 84648.3594, 86805.0078, 88270.5625, 87341.8906, 90518.3672, 91285.375, 90919.2656, 90851.7578, 90394.3125, 86321.5703, 91350.2031, 93527.8047, 92141.625, 89387.7578, 89272.375, 90405.6406, 90640.2031, 92691.7109, 92020.9453, 92511.3359, 90270.4141, 90298.7109, 88175.1797, 86419.7812, 87843.9844, 86143.7578, 85462.5078, 88103.3828, 88344.0, 88621.75, 88490.0156, 87414.0, 87611.9609, 87234.7422, 87301.4297, 87802.1562, 87835.8359, 87138.1406, 88430.1328, 87508.8281, 88731.9844, 89944.6953, 90603.1875, 91413.4922, 93882.5547, 93729.0312, 91308.0547, 91027.125, 90513.1016, 90386.6484, 90827.4609, 91192.9922, 95321.7812, 96929.3281, 95551.1875, 95525.1172, 95099.9219, 93634.4297, 92553.5938, 88310.9062, 89376.9609, 89462.4531, 89503.875, 89110.7344, 86572.2188, 88267.1406, 89102.5703, 89184.5703, 84561.5859, 84128.6562, 78621.1172, 76974.4453, 78688.7656, 75633.5469, 73019.7031, 62702.0977, 70555.3906, 69281.9688, 70264.7266, 70120.7812, 68793.9609, 66991.9688, 66221.8438, 68857.8438, 69767.625, 68788.1875, 68843.1562, 67494.2188, 66425.3203, 66957.5234, 68005.4219, 68003.7656, 67659.3906, 64616.7383, 64080.043, 67960.125, 67453.7734, 65881.7969, 66995.8594, 65738.1016, 68775.8516, 68293.6484, 72710.5781, 70841.125, 68136.4922, 67272.5938, 65969.7812, 68402.3828, 69926.9219, 70204.8828, 70493.4609, 70968.2656, 71214.625, 72789.9141, 74861.0859, 73922.4766, 71245.5781, 69912.7891, 70522.5859, 68711.5234, 67845.2109, 70914.8594, 70517.8594, 71309.8828, 68791.625, 66338.375, 66319.6953, 65954.9219, 66691.4453, 68233.3125, 68078.5547, 66888.5703, 66931.1016, 67290.5156, 68981.8984, 68859.8281, 71940.7031, 71123.3594, 71767.8281, 72979.0469, 73054.2734, 70753.4062, 74484.6406, 74181.6094, 74805.0781, 75152.1328, 77126.875, 75726.2109, 73856.3516, 75872.5234, 76352.7734, 78203.1016, 78268.9531, 77455.3125, 77612.0156, 78657.5391, 77366.625, 76350.6719, 75776.1328, 76304.3203, 78179.0, 78657.25, 78538.2266, 79827.9062, 80927.0547, 81427.5312, 80009.9922, 80186.7656, 80664.3672, 82138.9297, 81728.2969, 80477.4922, 79277.1172, 81051.25, 79065.6797, 78131.4375, 77429.3516, 76954.1719, 76750.9062, 77457.7734, 77539.1719, 75488.2422, 76673.3672, 76981.125, 77279.9297, 75825.7344, 74344.7031, 73536.5547, 73372.5234, 73754.8359, 73579.6875, 71319.7734, 66703.6562, 64014.3672, 63801.5742, 60922.668, 60867.4141, 63239.5195, 63090.5898, 61643.7812, 61449.2891, 63561.0547, 63543.1992, 64421.3242, 65710.3984, 66289.5, 65600.6406, 64418.4453, 62896.4727, 63540.8359, 64239.6758, 63237.5391, 63952.1055, 62668.0195, 60995.1328, 59721.6758, 60016.4297, 59940.0977, 59532.3398, 60138.3789, 58558.8594, 60003.7578, 61485.3008, 62544.1992, 63088.3047, 63547.8828, 63995.0156, 63297.3945, 62257.5742, 63193.1484, 64127.1406, 63802.0273, 63758.2188, 62239.1211, 64956.1133, 64712.375, 63789.2812, 63899.4609, 64796.6016, 64690.8047, 65230.0273, 66505.125, 66100.7969, 65044.8125, 64098.4961, 64311.8125, 65340.3008, 63724.8984, 63871.3633, 63908.168, 64725.3086, 63015.0195]'
-                    data-labels='["Nov 14 \u002725", "Nov 15 \u002725", "Nov 16 \u002725", "Nov 17 \u002725", "Nov 18 \u002725", "Nov 19 \u002725", "Nov 20 \u002725", "Nov 21 \u002725", "Nov 22 \u002725", "Nov 23 \u002725", "Nov 24 \u002725", "Nov 25 \u002725", "Nov 26 \u002725", "Nov 27 \u002725", "Nov 28 \u002725", "Nov 29 \u002725", "Nov 30 \u002725", "Dec 1 \u002725", "Dec 2 \u002725", "Dec 3 \u002725", "Dec 4 \u002725", "Dec 5 \u002725", "Dec 6 \u002725", "Dec 7 \u002725", "Dec 8 \u002725", "Dec 9 \u002725", "Dec 10 \u002725", "Dec 11 \u002725", "Dec 12 \u002725", "Dec 13 \u002725", "Dec 14 \u002725", "Dec 15 \u002725", "Dec 16 \u002725", "Dec 17 \u002725", "Dec 18 \u002725", "Dec 19 \u002725", "Dec 20 \u002725", "Dec 21 \u002725", "Dec 22 \u002725", "Dec 23 \u002725", "Dec 24 \u002725", "Dec 25 \u002725", "Dec 26 \u002725", "Dec 27 \u002725", "Dec 28 \u002725", "Dec 29 \u002725", "Dec 30 \u002725", "Dec 31 \u002725", "Jan 1 \u002726", "Jan 2 \u002726", "Jan 3 \u002726", "Jan 4 \u002726", "Jan 5 \u002726", "Jan 6 \u002726", "Jan 7 \u002726", "Jan 8 \u002726", "Jan 9 \u002726", "Jan 10 \u002726", "Jan 11 \u002726", "Jan 12 \u002726", "Jan 13 \u002726", "Jan 14 \u002726", "Jan 15 \u002726", "Jan 16 \u002726", "Jan 17 \u002726", "Jan 18 \u002726", "Jan 19 \u002726", "Jan 20 \u002726", "Jan 21 \u002726", "Jan 22 \u002726", "Jan 23 \u002726", "Jan 24 \u002726", "Jan 25 \u002726", "Jan 26 \u002726", "Jan 27 \u002726", "Jan 28 \u002726", "Jan 29 \u002726", "Jan 30 \u002726", "Jan 31 \u002726", "Feb 1 \u002726", "Feb 2 \u002726", "Feb 3 \u002726", "Feb 4 \u002726", "Feb 5 \u002726", "Feb 6 \u002726", "Feb 7 \u002726", "Feb 8 \u002726", "Feb 9 \u002726", "Feb 10 \u002726", "Feb 11 \u002726", "Feb 12 \u002726", "Feb 13 \u002726", "Feb 14 \u002726", "Feb 15 \u002726", "Feb 16 \u002726", "Feb 17 \u002726", "Feb 18 \u002726", "Feb 19 \u002726", "Feb 20 \u002726", "Feb 21 \u002726", "Feb 22 \u002726", "Feb 23 \u002726", "Feb 24 \u002726", "Feb 25 \u002726", "Feb 26 \u002726", "Feb 27 \u002726", "Feb 28 \u002726", "Mar 1 \u002726", "Mar 2 \u002726", "Mar 3 \u002726", "Mar 4 \u002726", "Mar 5 \u002726", "Mar 6 \u002726", "Mar 7 \u002726", "Mar 8 \u002726", "Mar 9 \u002726", "Mar 10 \u002726", "Mar 11 \u002726", "Mar 12 \u002726", "Mar 13 \u002726", "Mar 14 \u002726", "Mar 15 \u002726", "Mar 16 \u002726", "Mar 17 \u002726", "Mar 18 \u002726", "Mar 19 \u002726", "Mar 20 \u002726", "Mar 21 \u002726", "Mar 22 \u002726", "Mar 23 \u002726", "Mar 24 \u002726", "Mar 25 \u002726", "Mar 26 \u002726", "Mar 27 \u002726", "Mar 28 \u002726", "Mar 29 \u002726", "Mar 30 \u002726", "Mar 31 \u002726", "Apr 1 \u002726", "Apr 2 \u002726", "Apr 3 \u002726", "Apr 4 \u002726", "Apr 5 \u002726", "Apr 6 \u002726", "Apr 7 \u002726", "Apr 8 \u002726", "Apr 9 \u002726", "Apr 10 \u002726", "Apr 11 \u002726", "Apr 12 \u002726", "Apr 13 \u002726", "Apr 14 \u002726", "Apr 15 \u002726", "Apr 16 \u002726", "Apr 17 \u002726", "Apr 18 \u002726", "Apr 19 \u002726", "Apr 20 \u002726", "Apr 21 \u002726", "Apr 22 \u002726", "Apr 23 \u002726", "Apr 24 \u002726", "Apr 25 \u002726", "Apr 26 \u002726", "Apr 27 \u002726", "Apr 28 \u002726", "Apr 29 \u002726", "Apr 30 \u002726", "May 1 \u002726", "May 2 \u002726", "May 3 \u002726", "May 4 \u002726", "May 5 \u002726", "May 6 \u002726", "May 7 \u002726", "May 8 \u002726", "May 9 \u002726", "May 10 \u002726", "May 11 \u002726", "May 12 \u002726", "May 13 \u002726", "May 14 \u002726", "May 15 \u002726", "May 16 \u002726", "May 17 \u002726", "May 18 \u002726", "May 19 \u002726", "May 20 \u002726", "May 21 \u002726", "May 22 \u002726", "May 23 \u002726", "May 24 \u002726", "May 25 \u002726", "May 26 \u002726", "May 27 \u002726", "May 28 \u002726", "May 29 \u002726", "May 30 \u002726", "May 31 \u002726", "Jun 1 \u002726", "Jun 2 \u002726", "Jun 3 \u002726", "Jun 4 \u002726", "Jun 5 \u002726", "Jun 6 \u002726", "Jun 7 \u002726", "Jun 8 \u002726", "Jun 9 \u002726", "Jun 10 \u002726", "Jun 11 \u002726", "Jun 12 \u002726", "Jun 13 \u002726", "Jun 14 \u002726", "Jun 15 \u002726", "Jun 16 \u002726", "Jun 17 \u002726", "Jun 18 \u002726", "Jun 19 \u002726", "Jun 20 \u002726", "Jun 21 \u002726", "Jun 22 \u002726", "Jun 23 \u002726", "Jun 24 \u002726", "Jun 25 \u002726", "Jun 26 \u002726", "Jun 27 \u002726", "Jun 28 \u002726", "Jun 29 \u002726", "Jun 30 \u002726", "Jul 1 \u002726", "Jul 2 \u002726", "Jul 3 \u002726", "Jul 4 \u002726", "Jul 5 \u002726", "Jul 6 \u002726", "Jul 7 \u002726", "Jul 8 \u002726", "Jul 9 \u002726", "Jul 10 \u002726", "Jul 11 \u002726", "Jul 12 \u002726", "Jul 13 \u002726", "Jul 14 \u002726", "Jul 15 \u002726", "Jul 16 \u002726", "Jul 17 \u002726", "Jul 18 \u002726", "Jul 19 \u002726", "Jul 20 \u002726", "Jul 21 \u002726", "Jul 22 \u002726", "Jul 23 \u002726", "Jul 24 \u002726", "Jul 25 \u002726", "Jul 26 \u002726", "Jul 27 \u002726", "Jul 28 \u002726", "Jul 29 \u002726", "Jul 30 \u002726", "Aug 1 \u002726"]'
+            <canvas class="trend" data-closes='[95549.1484, 94177.0781, 92093.875, 92948.875, 91465.9922, 86631.8984, 85090.6875, 84648.3594, 86805.0078, 88270.5625, 87341.8906, 90518.3672, 91285.375, 90919.2656, 90851.7578, 90394.3125, 86321.5703, 91350.2031, 93527.8047, 92141.625, 89387.7578, 89272.375, 90405.6406, 90640.2031, 92691.7109, 92020.9453, 92511.3359, 90270.4141, 90298.7109, 88175.1797, 86419.7812, 87843.9844, 86143.7578, 85462.5078, 88103.3828, 88344.0, 88621.75, 88490.0156, 87414.0, 87611.9609, 87234.7422, 87301.4297, 87802.1562, 87835.8359, 87138.1406, 88430.1328, 87508.8281, 88731.9844, 89944.6953, 90603.1875, 91413.4922, 93882.5547, 93729.0312, 91308.0547, 91027.125, 90513.1016, 90386.6484, 90827.4609, 91192.9922, 95321.7812, 96929.3281, 95551.1875, 95525.1172, 95099.9219, 93634.4297, 92553.5938, 88310.9062, 89376.9609, 89462.4531, 89503.875, 89110.7344, 86572.2188, 88267.1406, 89102.5703, 89184.5703, 84561.5859, 84128.6562, 78621.1172, 76974.4453, 78688.7656, 75633.5469, 73019.7031, 62702.0977, 70555.3906, 69281.9688, 70264.7266, 70120.7812, 68793.9609, 66991.9688, 66221.8438, 68857.8438, 69767.625, 68788.1875, 68843.1562, 67494.2188, 66425.3203, 66957.5234, 68005.4219, 68003.7656, 67659.3906, 64616.7383, 64080.043, 67960.125, 67453.7734, 65881.7969, 66995.8594, 65738.1016, 68775.8516, 68293.6484, 72710.5781, 70841.125, 68136.4922, 67272.5938, 65969.7812, 68402.3828, 69926.9219, 70204.8828, 70493.4609, 70968.2656, 71214.625, 72789.9141, 74861.0859, 73922.4766, 71245.5781, 69912.7891, 70522.5859, 68711.5234, 67845.2109, 70914.8594, 70517.8594, 71309.8828, 68791.625, 66338.375, 66319.6953, 65954.9219, 66691.4453, 68233.3125, 68078.5547, 66888.5703, 66931.1016, 67290.5156, 68981.8984, 68859.8281, 71940.7031, 71123.3594, 71767.8281, 72979.0469, 73054.2734, 70753.4062, 74484.6406, 74181.6094, 74805.0781, 75152.1328, 77126.875, 75726.2109, 73856.3516, 75872.5234, 76352.7734, 78203.1016, 78268.9531, 77455.3125, 77612.0156, 78657.5391, 77366.625, 76350.6719, 75776.1328, 76304.3203, 78179.0, 78657.25, 78538.2266, 79827.9062, 80927.0547, 81427.5312, 80009.9922, 80186.7656, 80664.3672, 82138.9297, 81728.2969, 80477.4922, 79277.1172, 81051.25, 79065.6797, 78131.4375, 77429.3516, 76954.1719, 76750.9062, 77457.7734, 77539.1719, 75488.2422, 76673.3672, 76981.125, 77279.9297, 75825.7344, 74344.7031, 73536.5547, 73372.5234, 73754.8359, 73579.6875, 71319.7734, 66703.6562, 64014.3672, 63801.5742, 60922.668, 60867.4141, 63239.5195, 63090.5898, 61643.7812, 61449.2891, 63561.0547, 63543.1992, 64421.3242, 65710.3984, 66289.5, 65600.6406, 64418.4453, 62896.4727, 63540.8359, 64239.6758, 63237.5391, 63952.1055, 62668.0195, 60995.1328, 59721.6758, 60016.4297, 59940.0977, 59532.3398, 60138.3789, 58558.8594, 60003.7578, 61485.3008, 62544.1992, 63088.3047, 63547.8828, 63995.0156, 63297.3945, 62257.5742, 63193.1484, 64127.1406, 63802.0273, 63758.2188, 62239.1211, 64956.1133, 64712.375, 63789.2812, 63899.4609, 64796.6016, 64690.8047, 65230.0273, 66505.125, 66100.7969, 65044.8125, 64098.4961, 64311.8125, 65340.3008, 63724.8984, 63871.3633, 63908.168, 64725.3086, 62813.7461, 63031.1289]'
+                    data-labels='["Nov 15 \u002725", "Nov 16 \u002725", "Nov 17 \u002725", "Nov 18 \u002725", "Nov 19 \u002725", "Nov 20 \u002725", "Nov 21 \u002725", "Nov 22 \u002725", "Nov 23 \u002725", "Nov 24 \u002725", "Nov 25 \u002725", "Nov 26 \u002725", "Nov 27 \u002725", "Nov 28 \u002725", "Nov 29 \u002725", "Nov 30 \u002725", "Dec 1 \u002725", "Dec 2 \u002725", "Dec 3 \u002725", "Dec 4 \u002725", "Dec 5 \u002725", "Dec 6 \u002725", "Dec 7 \u002725", "Dec 8 \u002725", "Dec 9 \u002725", "Dec 10 \u002725", "Dec 11 \u002725", "Dec 12 \u002725", "Dec 13 \u002725", "Dec 14 \u002725", "Dec 15 \u002725", "Dec 16 \u002725", "Dec 17 \u002725", "Dec 18 \u002725", "Dec 19 \u002725", "Dec 20 \u002725", "Dec 21 \u002725", "Dec 22 \u002725", "Dec 23 \u002725", "Dec 24 \u002725", "Dec 25 \u002725", "Dec 26 \u002725", "Dec 27 \u002725", "Dec 28 \u002725", "Dec 29 \u002725", "Dec 30 \u002725", "Dec 31 \u002725", "Jan 1 \u002726", "Jan 2 \u002726", "Jan 3 \u002726", "Jan 4 \u002726", "Jan 5 \u002726", "Jan 6 \u002726", "Jan 7 \u002726", "Jan 8 \u002726", "Jan 9 \u002726", "Jan 10 \u002726", "Jan 11 \u002726", "Jan 12 \u002726", "Jan 13 \u002726", "Jan 14 \u002726", "Jan 15 \u002726", "Jan 16 \u002726", "Jan 17 \u002726", "Jan 18 \u002726", "Jan 19 \u002726", "Jan 20 \u002726", "Jan 21 \u002726", "Jan 22 \u002726", "Jan 23 \u002726", "Jan 24 \u002726", "Jan 25 \u002726", "Jan 26 \u002726", "Jan 27 \u002726", "Jan 28 \u002726", "Jan 29 \u002726", "Jan 30 \u002726", "Jan 31 \u002726", "Feb 1 \u002726", "Feb 2 \u002726", "Feb 3 \u002726", "Feb 4 \u002726", "Feb 5 \u002726", "Feb 6 \u002726", "Feb 7 \u002726", "Feb 8 \u002726", "Feb 9 \u002726", "Feb 10 \u002726", "Feb 11 \u002726", "Feb 12 \u002726", "Feb 13 \u002726", "Feb 14 \u002726", "Feb 15 \u002726", "Feb 16 \u002726", "Feb 17 \u002726", "Feb 18 \u002726", "Feb 19 \u002726", "Feb 20 \u002726", "Feb 21 \u002726", "Feb 22 \u002726", "Feb 23 \u002726", "Feb 24 \u002726", "Feb 25 \u002726", "Feb 26 \u002726", "Feb 27 \u002726", "Feb 28 \u002726", "Mar 1 \u002726", "Mar 2 \u002726", "Mar 3 \u002726", "Mar 4 \u002726", "Mar 5 \u002726", "Mar 6 \u002726", "Mar 7 \u002726", "Mar 8 \u002726", "Mar 9 \u002726", "Mar 10 \u002726", "Mar 11 \u002726", "Mar 12 \u002726", "Mar 13 \u002726", "Mar 14 \u002726", "Mar 15 \u002726", "Mar 16 \u002726", "Mar 17 \u002726", "Mar 18 \u002726", "Mar 19 \u002726", "Mar 20 \u002726", "Mar 21 \u002726", "Mar 22 \u002726", "Mar 23 \u002726", "Mar 24 \u002726", "Mar 25 \u002726", "Mar 26 \u002726", "Mar 27 \u002726", "Mar 28 \u002726", "Mar 29 \u002726", "Mar 30 \u002726", "Mar 31 \u002726", "Apr 1 \u002726", "Apr 2 \u002726", "Apr 3 \u002726", "Apr 4 \u002726", "Apr 5 \u002726", "Apr 6 \u002726", "Apr 7 \u002726", "Apr 8 \u002726", "Apr 9 \u002726", "Apr 10 \u002726", "Apr 11 \u002726", "Apr 12 \u002726", "Apr 13 \u002726", "Apr 14 \u002726", "Apr 15 \u002726", "Apr 16 \u002726", "Apr 17 \u002726", "Apr 18 \u002726", "Apr 19 \u002726", "Apr 20 \u002726", "Apr 21 \u002726", "Apr 22 \u002726", "Apr 23 \u002726", "Apr 24 \u002726", "Apr 25 \u002726", "Apr 26 \u002726", "Apr 27 \u002726", "Apr 28 \u002726", "Apr 29 \u002726", "Apr 30 \u002726", "May 1 \u002726", "May 2 \u002726", "May 3 \u002726", "May 4 \u002726", "May 5 \u002726", "May 6 \u002726", "May 7 \u002726", "May 8 \u002726", "May 9 \u002726", "May 10 \u002726", "May 11 \u002726", "May 12 \u002726", "May 13 \u002726", "May 14 \u002726", "May 15 \u002726", "May 16 \u002726", "May 17 \u002726", "May 18 \u002726", "May 19 \u002726", "May 20 \u002726", "May 21 \u002726", "May 22 \u002726", "May 23 \u002726", "May 24 \u002726", "May 25 \u002726", "May 26 \u002726", "May 27 \u002726", "May 28 \u002726", "May 29 \u002726", "May 30 \u002726", "May 31 \u002726", "Jun 1 \u002726", "Jun 2 \u002726", "Jun 3 \u002726", "Jun 4 \u002726", "Jun 5 \u002726", "Jun 6 \u002726", "Jun 7 \u002726", "Jun 8 \u002726", "Jun 9 \u002726", "Jun 10 \u002726", "Jun 11 \u002726", "Jun 12 \u002726", "Jun 13 \u002726", "Jun 14 \u002726", "Jun 15 \u002726", "Jun 16 \u002726", "Jun 17 \u002726", "Jun 18 \u002726", "Jun 19 \u002726", "Jun 20 \u002726", "Jun 21 \u002726", "Jun 22 \u002726", "Jun 23 \u002726", "Jun 24 \u002726", "Jun 25 \u002726", "Jun 26 \u002726", "Jun 27 \u002726", "Jun 28 \u002726", "Jun 29 \u002726", "Jun 30 \u002726", "Jul 1 \u002726", "Jul 2 \u002726", "Jul 3 \u002726", "Jul 4 \u002726", "Jul 5 \u002726", "Jul 6 \u002726", "Jul 7 \u002726", "Jul 8 \u002726", "Jul 9 \u002726", "Jul 10 \u002726", "Jul 11 \u002726", "Jul 12 \u002726", "Jul 13 \u002726", "Jul 14 \u002726", "Jul 15 \u002726", "Jul 16 \u002726", "Jul 17 \u002726", "Jul 18 \u002726", "Jul 19 \u002726", "Jul 20 \u002726", "Jul 21 \u002726", "Jul 22 \u002726", "Jul 23 \u002726", "Jul 24 \u002726", "Jul 25 \u002726", "Jul 26 \u002726", "Jul 27 \u002726", "Jul 28 \u002726", "Jul 29 \u002726", "Jul 30 \u002726", "Jul 31 \u002726", "Aug 1 \u002726"]'
                     data-kind="price"
-                    data-dir="down"></canvas>
+                    data-dir="up"></canvas>
           </div>
           
         </div>
@@ -2126,8 +2127,8 @@
           
           <tr>
             <td>Bitcoin</td>
-            <td class="num">63,015.02</td>
-            <td class="num"><span class="neg">-2.64%</span></td>
+            <td class="num">63,031.13</td>
+            <td class="num"><span class="pos">+0.35%</span></td>
           </tr>
           
         </tbody>
