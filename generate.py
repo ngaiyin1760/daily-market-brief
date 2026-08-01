@@ -142,14 +142,18 @@ PREFERRED_SOURCES = {
     "cnbc", "barrons", "marketwatch", "nikkeiasia", "nikkei", "theeconomist",
     "yahoofinance", "investingcom", "fortune", "thebusinesstimes",
     # Quality general press with strong business desks
-    "bbc", "bbcnews", "cnn", "theguardian", "thenewyorktimes", "nytimes",
-    "washingtonpost", "straitstimes",
+    "bbc", "bbcnews", "cnn", "abcnews", "abcnewscom", "theguardian",
+    "thenewyorktimes", "nytimes", "washingtonpost", "straitstimes",
+    "axios", "semafor", "globalnews", "financialpost", "taipeitimes",
     # Greater China / HK
     "southchinamorningpost", "scmp", "caixinglobal", "caixin",
     "hongkongeconomictimes", "hket", "aastocks", "thestandard",
-    # Sector trades (tech / semis / EV / space / data centers)
-    "techcrunch", "theinformation", "trendforce", "digitimes", "electrek",
-    "spacenews", "datacenterdynamics",
+    # Sector trades (tech / AI / semis / EV / space / data centers)
+    "techcrunch", "theinformation", "venturebeat", "mittechnologyreview",
+    "tomshardware", "trendforce", "digitimes", "insideevs", "cleantechnica",
+    "electrek", "spacenews", "spaceflightnow", "nasaspaceflight",
+    "nasaspaceflightcom",
+    "datacenterdynamics", "datacenterknowledge",
 }
 
 
@@ -466,8 +470,10 @@ def attach_article_texts(category, items):
 
 
 def fetch_category_news(category):
-    """Fetch up to 15 RSS items for a category, sorted by recency.
-    Freshness-window tiering happens later in prepare_candidates."""
+    """Fetch up to 25 RSS items for a category, sorted by recency.
+    Freshness-window tiering and source-quality ranking happen later in
+    prepare_candidates; a wider pool gives trusted outlets more chances
+    to be represented."""
     url = (
         "https://news.google.com/rss/search?q="
         + urllib.parse.quote(category["query"])
@@ -511,7 +517,7 @@ def fetch_category_news(category):
     # time (see prepare_candidates), never as a hard filter that could
     # leave a category empty.
     items.sort(key=lambda i: i["_ts"], reverse=True)
-    return items[:15]
+    return items[:25]
 
 
 # ---------------------------------------------------------------------------
@@ -878,9 +884,11 @@ def main():
         candidates, stats = prepare_candidates(candidates, claimed_titles, now)
         tc = stats["tier_counts"]
         log.info(
-            "%s: %d candidates (24h: %d, 48h: %d, older: %d, undated: %d); "
+            "%s: %d candidates (24h: %d, 48h: %d, older: %d, undated: %d; "
+            "trusted sources: %d); "
             "%d cross-category dupe(s) demoted, %d within-category dupe(s) dropped",
             category["label"], stats["candidates"], tc[0], tc[1], tc[2], tc[3],
+            stats["preferred_sources"],
             stats["cross_dupes"], stats["within_dropped"])
         attach_article_texts(category, candidates)
         items = summarize_category(category, candidates)
