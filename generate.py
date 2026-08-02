@@ -402,6 +402,7 @@ INDICATOR_GROUPS = [
             {"label": "USD/JPY", "ticker": "JPY=X", "kind": "price"},
             {"label": "USD/CNY", "ticker": "CNY=X", "kind": "price"},
             {"label": "USD/HKD", "ticker": "HKD=X", "kind": "price"},
+            {"label": "HKD/CNY", "ticker": "HKDCNY=X", "kind": "price"},
         ],
     },
     {
@@ -811,8 +812,8 @@ def build_snapshot(groups):
     """Snapshot ticker items for the page header: list of {"text", "cls"}
     where cls is pos/neg/flat based on the daily change sign."""
     wanted = {"S&P 500": "S&P", "Nasdaq": "Nasdaq", "Hang Seng": "HSI",
-              "US 10Y": "US10Y", "USD/HKD": "USD/HKD", "Gold": "Gold",
-              "Bitcoin": "BTC"}
+              "US 10Y": "US10Y", "USD/HKD": "USD/HKD", "HKD/CNY": "HKD/CNY",
+              "Gold": "Gold", "Bitcoin": "BTC"}
     parts = []
     for group in groups:
         for item in group["items"]:
