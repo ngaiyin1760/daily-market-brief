@@ -20,7 +20,7 @@ import sys
 import time
 import urllib.parse
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime
+from datetime import datetime, timedelta
 from html import unescape
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -189,11 +189,12 @@ def prepare_candidates(candidates, claimed, now):
       clusters the same story across outlets), keeping the copy from the
       trusted outlet (newest copy breaks ties). Items with empty/missing
       titles BYPASS dedup and are never dropped.
-    - Cross-category dedup: titles already claimed by an earlier category are
-      DEMOTED, not dropped — preference order is freshness tier first
-      (24h > 48h > any-date > undated), then trusted outlets before others,
-      then non-duplicates before duplicates, then recency. A dupe is only
-      used when nothing fresher/unique can fill the category's slots.
+    - Cross-category/cross-day dedup: titles already claimed by an earlier
+      category or a previous day's brief are DEMOTED, not dropped —
+      preference order is freshness tier first (24h > 48h > any-date >
+      undated), then non-duplicates before duplicates, then trusted outlets
+      before others, then recency. A dupe is only used when nothing
+      fresher/unique can fill the category's slots.
     Returns (ordered_candidates, stats_dict).
     """
     seen_local = {}
@@ -224,8 +225,8 @@ def prepare_candidates(candidates, claimed, now):
         is_dupe = bool(item["_key"]) and item["_key"] in claimed
         if is_dupe:
             cross_dupes += 1
-        ranked.append((freshness_tier(item, now), source_rank(item),
-                       1 if is_dupe else 0, -item["_ts"], item))
+        ranked.append((freshness_tier(item, now), 1 if is_dupe else 0,
+                       source_rank(item), -item["_ts"], item))
     ranked.sort(key=lambda r: (r[0], r[1], r[2], r[3]))
 
     tier_counts = [0, 0, 0, 0]
@@ -241,6 +242,41 @@ def prepare_candidates(candidates, claimed, now):
                         for i in unique if i["link"]},
     }
     return [r[4] for r in ranked], stats
+
+
+CROSS_DAY_DEDUP_DAYS = 3
+
+
+def load_recent_titles(page_date_str, days=CROSS_DAY_DEDUP_DAYS):
+    """Normalized titles from the previous `days` daily briefs. Used to seed
+    cross-category dedup so a story already covered on an earlier day ranks
+    below anything fresh — it can still fill a slot as a last resort, so a
+    category never goes empty, but routine repeats across days are avoided.
+    Today's own file is deliberately NOT loaded: re-running the same day
+    regenerates that day's brief and must not exclude its own picks."""
+    titles = set()
+    try:
+        base = datetime.strptime(page_date_str, "%Y-%m-%d")
+    except ValueError:
+        return titles
+    for offset in range(1, days + 1):
+        day = (base - timedelta(days=offset)).strftime("%Y-%m-%d")
+        path = DATA_DIR / f"{day}.json"
+        if not path.exists():
+            continue
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            log.warning("Cross-day dedup: could not read %s: %s", path, exc)
+            continue
+        for cat in data.get("categories", []):
+            for item in cat.get("items", []):
+                key = normalize_title(item.get("title", ""))
+                if key:
+                    titles.add(key)
+    log.info("Cross-day dedup: seeded %d title(s) from previous %d day(s)",
+             len(titles), days)
+    return titles
 
 # ---------------------------------------------------------------------------
 # Daily key takeaways
@@ -876,7 +912,9 @@ def main():
              else "disabled, heuristic fallback")
 
     news = []
-    claimed_titles = set()  # global cross-category dedup by normalized title
+    # Cross-day dedup: titles from the previous days' briefs are "claimed"
+    # up front, so repeat stories rank below fresh ones in every category.
+    claimed_titles = load_recent_titles(page_date)
     now = time.time()
     for category in CATEGORIES:
         top_n = category.get("top_n", DEFAULT_TOP_N)

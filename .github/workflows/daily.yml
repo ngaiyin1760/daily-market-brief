@@ -31,7 +31,15 @@ jobs:
           # the free-tier path. Auto-detect would route AQ.-prefixed keys to
           # Vertex AI, which bills through the linked GCP project.
           GEMINI_PROVIDER: aistudio
-        run: python generate.py
+        run: |
+          # Rare native crashes (e.g. "double free or corruption" from the
+          # HTML-parsing stack under threads) are flaky — retry once before
+          # failing the run.
+          python generate.py || {
+            echo "::warning::generate.py failed, retrying once in 30s..."
+            sleep 30
+            python generate.py
+          }
 
       - name: Commit and push docs/
         run: |
