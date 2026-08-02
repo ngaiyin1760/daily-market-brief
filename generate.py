@@ -920,6 +920,13 @@ def main():
         top_n = category.get("top_n", DEFAULT_TOP_N)
         candidates = fetch_category_news(category)
         candidates, stats = prepare_candidates(candidates, claimed_titles, now)
+        # Hard-drop repeat stories (earlier category today, or a previous
+        # day's brief) whenever enough unique candidates remain to fill the
+        # slots — a repeat only survives as the absolute last resort.
+        unique_candidates = [c for c in candidates
+                             if not (c["_key"] and c["_key"] in claimed_titles)]
+        if len(unique_candidates) >= top_n:
+            candidates = unique_candidates
         tc = stats["tier_counts"]
         log.info(
             "%s: %d candidates (24h: %d, 48h: %d, older: %d, undated: %d; "
