@@ -65,19 +65,32 @@ def gemini_provider():
 def gemini_generate(payload):
     """POST a generateContent request to the appropriate Gemini endpoint.
     Always sends contents with an explicit role (Vertex rejects role-less
-    requests; AI Studio accepts them). Raises on any failure."""
+    requests; AI Studio accepts them). On HTTP 429 (rate limit) waits and
+    retries up to 2 times — a transient per-minute spike shouldn't cost the
+    AI summaries. Raises on any final failure, including the quota detail
+    from Google's error body so the logs show WHICH cap was hit."""
     provider = gemini_provider()
     if provider == "vertex":
         url = ("https://aiplatform.googleapis.com/v1/publishers/google/models/"
                f"{GEMINI_MODEL}:generateContent")
         headers = {"x-goog-api-key": GEMINI_API_KEY}
-        resp = requests.post(url, json=payload, headers=headers, timeout=60)
     else:
         url = ("https://generativelanguage.googleapis.com/v1beta/models/"
                f"{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}")
-        resp = requests.post(url, json=payload, timeout=60)
-    resp.raise_for_status()
-    return resp.json()
+        headers = {}
+    for attempt in range(3):
+        resp = requests.post(url, json=payload, headers=headers, timeout=60)
+        if resp.status_code == 429:
+            if attempt < 2:
+                wait = 65 * (attempt + 1)
+                log.warning("Gemini rate-limited (429); retry %d/2 in %ds",
+                            attempt + 1, wait)
+                time.sleep(wait)
+                continue
+            raise requests.HTTPError(
+                f"429 Too Many Requests: {resp.text[:500]}", response=resp)
+        resp.raise_for_status()
+        return resp.json()
 
 # ---------------------------------------------------------------------------
 # News categories
