@@ -758,7 +758,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Markets</h1>
-    <div class="generated">Key indicators — up to 10 years of daily history · updated 2026-08-03 22:52 HKT</div>
+    <div class="generated">Key indicators — up to 10 years of daily history · updated 2026-08-03 23:06 HKT</div>
   </header>
 
   <div id="markets-body">
@@ -1431,6 +1431,11 @@
       labels = closes.map(function (_, i) { return i; });
     }
     if (closes.length >= 2) {
+      // Full series is kept on the chart; the default view is DEFAULT_ZOOM.
+      var total = closes.length;
+      var defWin = ZOOM_RANGES[DEFAULT_ZOOM] || 0;
+      var defLo = (defWin > 0 && defWin < total) ? total - defWin : 0;
+
       var body = document.createElement("div");
       body.className = "cc-body";
       var cv = document.createElement("canvas");
@@ -1446,7 +1451,7 @@
         b.textContent = key;
         b.setAttribute("aria-pressed", key === DEFAULT_ZOOM ? "true" : "false");
         b.addEventListener("click", function () {
-          setZoom(chart, labels.length, key);
+          setZoom(chart, key);
           bar.querySelectorAll(".zoom-btn").forEach(function (x) {
             var on = x === b;
             x.classList.toggle("active", on);
@@ -1460,9 +1465,9 @@
       var chart = new Chart(cv.getContext("2d"), {
         type: "line",
         data: {
-          labels: labels,
+          labels: labels.slice(defLo),
           datasets: [{
-            data: closes,
+            data: closes.slice(defLo),
             borderColor: up ? UP : DOWN,
             borderWidth: 1.8,
             pointRadius: 0,
@@ -1513,8 +1518,8 @@
               grid: { display: false },
               border: { display: false },
               ticks: {
-                autoSkip: true,
-                maxTicksLimit: 6,
+                autoSkip: false,
+                source: "data",
                 maxRotation: 0,
                 font: { family: CHART_FONT, size: 10.5 },
                 color: "#8d8574",
@@ -1551,7 +1556,11 @@
                   }
                   return yy ? "20" + yy : label;
                 }
-              }
+              },
+              // Category scales build one tick per point; replace them with
+              // an exact stepped subset for the active zoom window so the
+              // labels never overlap.
+              afterBuildTicks: buildZoomTicks
             },
             y: {
               position: "right",
@@ -1571,7 +1580,9 @@
         }
       });
       charts.push(chart);
-      setZoom(chart, labels.length, DEFAULT_ZOOM);
+      chart._fullLabels = labels;
+      chart._fullCloses = closes;
+      chart._zoomKey = DEFAULT_ZOOM;
     } else {
       var na = document.createElement("div");
       na.className = "cc-na";
@@ -1581,27 +1592,36 @@
     return card;
   }
 
-  function setZoom(chart, total, key) {
-    var win = ZOOM_RANGES[key] || 0;
-    var cfg = ZOOM_CFG[key] || ZOOM_CFG[DEFAULT_ZOOM];
+  // Slice the chart data to the zoom window (this also re-fits the y-axis
+  // to the visible range) and let afterBuildTicks emit the stepped x labels.
+  function setZoom(chart, key) {
     chart._zoomKey = key;
-    var x = chart.options.scales.x;
-    if (win <= 0 || win >= total) {
-      x.min = undefined;
-      x.max = undefined;
-    } else {
-      x.min = Math.max(0, total - win);
-      x.max = total - 1;
-    }
-    if (cfg.step >= total) {
-      // Series shorter than the target spacing: let Chart.js auto-skip.
-      x.ticks.autoSkip = true;
-      x.ticks.stepSize = undefined;
-    } else {
-      x.ticks.autoSkip = false;
-      x.ticks.stepSize = cfg.step;
-    }
+    var total = chart._fullLabels.length;
+    var win = ZOOM_RANGES[key] || 0;
+    var lo = 0;
+    if (win > 0 && win < total) lo = total - win;
+    chart.data.labels = chart._fullLabels.slice(lo);
+    chart.data.datasets[0].data = chart._fullCloses.slice(lo);
     chart.update();
+  }
+
+  // Category scales build one tick per data point; we replace them with an
+  // exact stepped subset for the active zoom so labels never overlap.
+  function buildZoomTicks(axis) {
+    var chart = axis.chart;
+    var key = (chart && chart._zoomKey) || DEFAULT_ZOOM;
+    var cfg = ZOOM_CFG[key] || ZOOM_CFG[DEFAULT_ZOOM];
+    var n = axis.getLabels().length;
+    if (!n) return;
+    var ticks = [];
+    for (var i = 0; i < n; i += cfg.step) ticks.push({ value: i });
+    var last = ticks.length ? ticks[ticks.length - 1].value : -1;
+    // Include the newest point unless it would land right next to an
+    // existing tick (adjacent labels look like duplicates).
+    if (n - 1 - last >= Math.max(1, Math.floor(cfg.step / 2))) {
+      ticks.push({ value: n - 1 });
+    }
+    axis.ticks = ticks;
   }
 
   function makeFigures(group) {
