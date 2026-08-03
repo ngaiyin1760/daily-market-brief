@@ -185,6 +185,13 @@
     font-style: normal;
     margin-left: 6px;
   }
+  /* The Markets masthead is a dark gradient — the badge there needs light
+     colors so it doesn't blend into the background. */
+  header.masthead .session-badge {
+    background: rgba(246, 241, 228, .12);
+    border-color: rgba(246, 241, 228, .35);
+    color: #f6f1e4;
+  }
 
   /* ---------- Key Takeaways ---------- */
   .takeaways {
@@ -921,7 +928,7 @@
   var base = ".";
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-04 00:15 HKT");
+  var dataTS = encodeURIComponent("2026-08-04 00:24 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
