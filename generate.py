@@ -408,7 +408,9 @@ INDICATOR_GROUPS = [
             {"label": "USD/CNY", "ticker": "CNY=X", "kind": "price"},
             {"label": "USD/HKD", "ticker": "HKD=X", "kind": "price"},
             {"label": "HKD/CNY", "ticker": "HKDCNY=X", "kind": "price"},
-            {"label": "HKD/JPY", "ticker": "HKDJPY=X", "kind": "price"},
+            # JPY/HKD quoted per 100 JPY (1 JPY ~ 0.05 HKD would be unreadable);
+            # mult scales the raw cross rate into "100 JPY = X HKD".
+            {"label": "JPY/HKD (¥100)", "ticker": "JPYHKD=X", "kind": "price", "mult": 100},
         ],
     },
     {
@@ -776,7 +778,8 @@ def fetch_indicator(item):
         series = series[-CHART_MAX_POINTS:]
         if series.empty:
             raise ValueError("no closes")
-        closes = [round(float(c), 4) for c in series.tolist()]
+        closes = [round(float(c) * item.get("mult", 1), 4)
+                  for c in series.tolist()]
         labels = [short_date(ts.year, ts.month, ts.day, with_year=True)
                   for ts in series.index]
         result["closes"] = closes
@@ -819,7 +822,7 @@ def build_snapshot(groups):
     where cls is pos/neg/flat based on the daily change sign."""
     wanted = {"S&P 500": "S&P", "Nasdaq": "Nasdaq", "Hang Seng": "HSI",
               "US 10Y": "US10Y", "USD/HKD": "USD/HKD", "HKD/CNY": "HKD/CNY",
-              "HKD/JPY": "HKD/JPY", "Gold": "Gold", "Bitcoin": "BTC"}
+              "JPY/HKD (¥100)": "JPY/HKD(¥100)", "Gold": "Gold", "Bitcoin": "BTC"}
     parts = []
     for group in groups:
         for item in group["items"]:
