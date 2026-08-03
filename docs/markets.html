@@ -758,7 +758,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Markets</h1>
-    <div class="generated">Key indicators — up to 10 years of daily history · updated 2026-08-03 22:38 HKT</div>
+    <div class="generated">Key indicators — up to 10 years of daily history · updated 2026-08-03 22:52 HKT</div>
   </header>
 
   <div id="markets-body">
@@ -1367,8 +1367,16 @@
   var base = ".";
   var UP = "#0d9d6c", DOWN = "#d13438";
   var CHART_FONT = "'Source Sans 3', 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif";
-  // Trailing-point windows for the zoom buttons (10y max).
+  // Trailing-point windows for the zoom buttons (10y max) and the x-axis
+  // tick spacing/format per window (step in trading days).
   var ZOOM_RANGES = { "1M": 22, "3M": 66, "1Y": 262, "5Y": 1305, "10Y": 0 };
+  var ZOOM_CFG = {
+    "1M":  { step: 5,   fmt: "day" },   // ~1 week between ticks
+    "3M":  { step: 21,  fmt: "month" }, // ~1 month
+    "1Y":  { step: 44,  fmt: "my" },    // ~2 months
+    "5Y":  { step: 300, fmt: "year" },  // ~1 year
+    "10Y": { step: 520, fmt: "year" }   // ~2 years
+  };
   var DEFAULT_ZOOM = "1Y";
   var charts = [];
 
@@ -1511,15 +1519,37 @@
                 font: { family: CHART_FONT, size: 10.5 },
                 color: "#8d8574",
                 padding: 4,
-                // Compact MM/YY axis ticks ("Jul 31 '25" -> "07/25").
+                // Labels adapt to the active zoom window so ticks never
+                // collapse into repeated month codes (1M) or overlap (10Y).
                 callback: function (value) {
+                  var chart = this.chart;
+                  var key = (chart && chart._zoomKey) || DEFAULT_ZOOM;
+                  var cfg = ZOOM_CFG[key] || ZOOM_CFG[DEFAULT_ZOOM];
                   var label = String(this.getLabelForValue(value));
-                  var m = label.match(/^([A-Z][a-z]{2})\s+\d+\s+'(\d{2})$/);
+                  var m = label.match(/^([A-Z][a-z]{2})\s+(\d+)(?:\s+'(\d{2}))?$/);
                   if (!m) return label;
-                  var MONTHS = { Jan: "01", Feb: "02", Mar: "03", Apr: "04",
-                                 May: "05", Jun: "06", Jul: "07", Aug: "08",
-                                 Sep: "09", Oct: "10", Nov: "11", Dec: "12" };
-                  return (MONTHS[m[1]] || m[1]) + "/" + m[2];
+                  var mon = m[1], day = m[2], yy = m[3];
+                  // Year of the NEXT data point: if it differs, this tick is
+                  // the last of its year — show the year to mark the change
+                  // (e.g. "Dec '25 · Jan · Feb").
+                  var nextYY = null;
+                  if (chart && chart.data && chart.data.labels) {
+                    var nextLbl = chart.data.labels[value + 1];
+                    var nm = nextLbl && nextLbl.match(/'(\d{2})$/);
+                    if (nm) nextYY = nm[1];
+                  }
+                  if (cfg.fmt === "day") {
+                    return (nextYY && nextYY !== yy)
+                      ? mon + " " + day + " '" + yy : mon + " " + day;
+                  }
+                  if (cfg.fmt === "month") {
+                    return (nextYY && nextYY !== yy)
+                      ? mon + " '" + yy : mon;
+                  }
+                  if (cfg.fmt === "my") {
+                    return mon + " '" + yy;
+                  }
+                  return yy ? "20" + yy : label;
                 }
               }
             },
@@ -1552,13 +1582,24 @@
   }
 
   function setZoom(chart, total, key) {
-    var window = ZOOM_RANGES[key] || 0;
-    if (window <= 0 || window >= total) {
-      chart.options.scales.x.min = undefined;
-      chart.options.scales.x.max = undefined;
+    var win = ZOOM_RANGES[key] || 0;
+    var cfg = ZOOM_CFG[key] || ZOOM_CFG[DEFAULT_ZOOM];
+    chart._zoomKey = key;
+    var x = chart.options.scales.x;
+    if (win <= 0 || win >= total) {
+      x.min = undefined;
+      x.max = undefined;
     } else {
-      chart.options.scales.x.min = Math.max(0, total - window);
-      chart.options.scales.x.max = total - 1;
+      x.min = Math.max(0, total - win);
+      x.max = total - 1;
+    }
+    if (cfg.step >= total) {
+      // Series shorter than the target spacing: let Chart.js auto-skip.
+      x.ticks.autoSkip = true;
+      x.ticks.stepSize = undefined;
+    } else {
+      x.ticks.autoSkip = false;
+      x.ticks.stepSize = cfg.step;
     }
     chart.update();
   }
