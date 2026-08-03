@@ -38,8 +38,12 @@
 
   {% if hero %}
   <section class="hero reveal" id="snapshot">
-    <div class="hero-label">Market Snapshot</div>
-    <div class="hero-grid">
+    <button type="button" class="hero-toggle" id="hero-toggle" aria-expanded="false" aria-controls="snapshot-grid">
+      <svg class="chevron" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+      <span class="hero-label">Market Snapshot</span>
+      <span class="hero-hint">key moves at a glance</span>
+    </button>
+    <div class="hero-grid" id="snapshot-grid">
       {% for h in hero %}
       <div class="hero-cell">
         <div class="hero-top">

@@ -173,6 +173,16 @@
     });
   }
 
+  // ---------- Market Snapshot toggle (collapsed by default) ----------
+  var heroToggle = document.getElementById("hero-toggle");
+  if (heroToggle) {
+    heroToggle.addEventListener("click", function () {
+      var hero = document.getElementById("snapshot");
+      var open = hero.classList.toggle("open");
+      heroToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
   // ---------- Reading progress bar ----------
   var readingBar = document.getElementById("reading-bar");
   if (readingBar) {
