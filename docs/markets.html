@@ -242,6 +242,37 @@
     color: #6b5510;
     margin-bottom: 12px;
   }
+  /* Collapsible hero: header row is the toggle; grid hidden until opened. */
+  .hero-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: var(--sans);
+    text-align: left;
+  }
+  .hero-toggle .chevron {
+    color: var(--gold);
+    flex: 0 0 auto;
+    transition: transform .2s ease;
+  }
+  .hero.open .hero-toggle .chevron { transform: rotate(90deg); }
+  .hero-toggle .hero-label { margin-bottom: 0; }
+  .hero-hint {
+    font-size: 11.5px;
+    color: var(--muted);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-left: 2px;
+  }
+  .hero-grid { display: none; }
+  .hero.open .hero-grid { display: grid; }
   .hero-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -1062,7 +1093,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Markets</h1>
-    <div class="generated">Key indicators — up to 10 years of daily history · updated 2026-08-04 00:40 HKT<span class="session-badge" id="session-badge"></span></div>
+    <div class="generated">Key indicators — up to 10 years of daily history · updated 2026-08-04 00:49 HKT<span class="session-badge" id="session-badge"></span></div>
   </header>
 
   <div id="markets-body">
@@ -1256,7 +1287,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-04 00:40 HKT");
+  var dataTS = encodeURIComponent("2026-08-04 00:49 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
@@ -1421,6 +1452,16 @@
         });
         applyFilter(parseInt(btn.getAttribute("data-min"), 10) || 0);
       });
+    });
+  }
+
+  // ---------- Market Snapshot toggle (collapsed by default) ----------
+  var heroToggle = document.getElementById("hero-toggle");
+  if (heroToggle) {
+    heroToggle.addEventListener("click", function () {
+      var hero = document.getElementById("snapshot");
+      var open = hero.classList.toggle("open");
+      heroToggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
   }
 
@@ -2451,7 +2492,7 @@
     });
   }
 
-  fetch(base + "/data/indicators.json?v=" + encodeURIComponent("2026-08-04 00:40 HKT"))
+  fetch(base + "/data/indicators.json?v=" + encodeURIComponent("2026-08-04 00:49 HKT"))
     .then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
