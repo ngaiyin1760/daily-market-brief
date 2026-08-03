@@ -8,6 +8,11 @@ Hong Kong, tech, AI, semis, EVs, data centers, space & aerospace).
 Top 3 for Global Economy, top 2 for each other category, deduplicated across
 categories so each story appears exactly once.
 
+Daily pages are all about the news: a snapshot ticker of the day's key moves,
+the takeaways, and the stories. All indicator charts and figures live on a
+separate **Markets** tab — up to 10 years of daily history per instrument,
+with per-chart zoom buttons (1M / 3M / 1Y / 5Y / 10Y).
+
 The site is a set of static HTML files in `docs/`, hosted free on GitHub Pages
 and regenerated daily by GitHub Actions at 7:00 AM Hong Kong time. News
 summaries use the Google Gemini API (free tier); without a key the generator
@@ -55,12 +60,16 @@ the model (default `gemini-3.1-flash-lite`).
   stories (3 for Global Economy, 2 for other categories; Gemini or heuristic
   fallback per category on any failure; cross-category title dedup so each
   story appears once), pulls
-  ~1 month of daily closes per ticker via yfinance (US 2Y yield from FRED),
-  and renders `templates/dashboard.html.j2` into `docs/`.
+  up to 10 years of daily closes per ticker via yfinance (US 2Y yield from
+  FRED), and renders `templates/dashboard.html.j2` into `docs/`.
 - Output: `docs/index.html` (latest day), `docs/days/YYYY-MM-DD.html` (one
-  standalone page per day), `docs/manifest.json` (date list used by the
-  sidebar on every page, so old pages automatically see new days), and
-  `docs/data/YYYY-MM-DD.json` (raw structured data for debugging).
+  standalone page per day), `docs/markets.html` (all indicator charts +
+  figures with 10y history and zoom buttons, driven by
+  `docs/data/indicators.json`), `docs/archive.html` (saved stories),
+  `docs/manifest.json` (date list used by the sidebar on every page, so old
+  pages automatically see new days), and `docs/data/YYYY-MM-DD.json` (raw
+  structured data for debugging; indicator closes live only in
+  `data/indicators.json`).
 - Indicator fetch failures (e.g. yfinance rate-limiting) are non-fatal and
   render as `n/a`.
 

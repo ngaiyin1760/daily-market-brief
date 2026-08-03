@@ -548,6 +548,33 @@
     margin-top: 8px;
   }
 
+  /* Zoom buttons under each chart */
+  .zoom-bar {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .zoom-btn {
+    background: none;
+    border: 1px solid var(--rule-dark);
+    border-radius: 999px;
+    color: var(--ink-soft);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    cursor: pointer;
+    min-height: 30px;
+    transition: background .12s, color .12s, border-color .12s;
+  }
+  .zoom-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .zoom-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
   /* Compact numbers table */
   table.figures { width: 100%; border-collapse: collapse; font-size: 14.5px; }
   table.figures th, table.figures td {

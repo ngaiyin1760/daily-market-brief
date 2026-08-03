@@ -428,7 +428,7 @@ INDICATOR_GROUPS = [
     },
 ]
 
-CHART_POINTS = 260  # ~1 year of trading days — charts are a rolling 1y window
+CHART_MAX_POINTS = 2600  # ~10 years of trading days — Markets tab charts use up to a 10y window
 
 # ---------------------------------------------------------------------------
 # News fetching
@@ -742,7 +742,7 @@ def fetch_fred_2y():
                 continue
     if not points:
         raise ValueError("no data in FRED csv")
-    points = points[-CHART_POINTS:]
+    points = points[-CHART_MAX_POINTS:]
     labels = [p[0] for p in points]
     closes = [p[1] for p in points]
     last = closes[-1]
@@ -768,11 +768,11 @@ def fetch_indicator(item):
             result.update(fetch_fred_2y())
             return result
         import yfinance as yf
-        hist = yf.Ticker(item["ticker"]).history(period="1y")
+        hist = yf.Ticker(item["ticker"]).history(period="10y")
         if hist is None or hist.empty:
             raise ValueError("empty history")
         series = hist["Close"].dropna()
-        series = series[-CHART_POINTS:]
+        series = series[-CHART_MAX_POINTS:]
         if series.empty:
             raise ValueError("no closes")
         closes = [round(float(c), 4) for c in series.tolist()]
@@ -844,6 +844,58 @@ def build_snapshot(groups):
     return parts
 
 
+def write_indicators_json(groups, generated_at):
+    """Full indicator history (up to 10y) for the Markets tab. Written fresh
+    on every run so the tab always shows the latest data; the file is
+    replaced, not appended, so repo size stays bounded once 10y fills in."""
+    payload = {
+        "generated_at": generated_at,
+        "groups": [
+            {
+                "name": group["name"],
+                "items": [
+                    {
+                        "label": item["label"],
+                        "kind": item["kind"],
+                        "last": item["last"],
+                        "change": item["change"],
+                        "change_bp": item["change_bp"],
+                        "closes": item["closes"],
+                        "labels": item["labels"],
+                    }
+                    for item in group["items"]
+                ],
+            }
+            for group in groups
+        ],
+    }
+    path = DATA_DIR / "indicators.json"
+    path.write_text(json.dumps(payload, indent=1, ensure_ascii=False),
+                    encoding="utf-8")
+    log.info("Wrote %s", path)
+
+
+def indicator_summary(groups):
+    """Per-day JSON keeps only the headline numbers (no 10y closes/labels —
+    those live in data/indicators.json for the Markets tab)."""
+    return [
+        {
+            "name": group["name"],
+            "items": [
+                {
+                    "label": item["label"],
+                    "kind": item["kind"],
+                    "last": item["last"],
+                    "change": item["change"],
+                    "change_bp": item["change_bp"],
+                }
+                for item in group["items"]
+            ],
+        }
+        for group in groups
+    ]
+
+
 # ---------------------------------------------------------------------------
 # Rendering
 # ---------------------------------------------------------------------------
@@ -888,6 +940,14 @@ def render_pages(template, page_date, generated_at, snapshot, takeaways,
     (DOCS_DIR / "archive.html").write_text(archive_html, encoding="utf-8")
     log.info("Wrote %s", DOCS_DIR / "archive.html")
 
+    # Markets tab: all indicator charts + figures, loaded client-side from
+    # data/indicators.json so every page share one 10y dataset.
+    markets_tpl = env.get_template("markets.html.j2")
+    markets_html = markets_tpl.render(base=".", generated_at=generated_at,
+                                      categories=[], is_markets=True)
+    (DOCS_DIR / "markets.html").write_text(markets_html, encoding="utf-8")
+    log.info("Wrote %s", DOCS_DIR / "markets.html")
+
     # Manifest: newest first; rerunning the same day must not duplicate.
     manifest_path = DOCS_DIR / "manifest.json"
     dates = []
@@ -905,19 +965,22 @@ def render_pages(template, page_date, generated_at, snapshot, takeaways,
                              encoding="utf-8")
     log.info("Wrote %s (%d dates)", manifest_path, len(dates))
 
-    # Raw structured data for debugging.
+    # Raw structured data for debugging. Indicator series are NOT included
+    # (they live in data/indicators.json) so day files stay small.
     raw = {
         "date": page_date,
         "generated_at": generated_at,
         "snapshot": snapshot,
         "takeaways": takeaways,
         "categories": news,
-        "indicator_groups": groups,
+        "indicator_groups": indicator_summary(groups),
     }
     data_path = DATA_DIR / f"{page_date}.json"
     data_path.write_text(json.dumps(raw, indent=2, ensure_ascii=False),
                          encoding="utf-8")
     log.info("Wrote %s", data_path)
+
+    write_indicators_json(groups, generated_at)
 
 
 # ---------------------------------------------------------------------------

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markets — Daily Market Brief</title>
+{% include "partials/head.j2" %}
+</head>
+<body>
+{% set is_markets = true %}
+{% include "partials/sidebar.j2" %}
+
+<div class="content">
+  <header class="masthead">
+    <div class="kicker">Daily Market Brief</div>
+    <h1>Markets</h1>
+    <div class="generated">Key indicators — up to 10 years of daily history · updated {{ generated_at|e }}</div>
+  </header>
+
+  <div id="markets-body">
+    <p class="empty-note" id="markets-loading">Loading market data…</p>
+  </div>
+
+  <footer class="colophon">
+    Daily Market Brief — generated automatically from public news feeds and market data. For information only; not investment advice.
+  </footer>
+</div>
+
+{% include "partials/core.js.j2" %}
+<script>
+(function () {
+  var base = {{ base|tojson }};
+  var UP = "#0d9d6c", DOWN = "#d13438";
+  var CHART_FONT = "'Source Sans 3', 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif";
+  // Trailing-point windows for the zoom buttons (10y max).
+  var ZOOM_RANGES = { "1M": 22, "3M": 66, "1Y": 262, "5Y": 1305, "10Y": 0 };
+  var DEFAULT_ZOOM = "1Y";
+  var charts = [];
+
+  function hexToRgba(hex, alpha) {
+    var r = parseInt(hex.slice(1, 3), 16),
+        g = parseInt(hex.slice(3, 5), 16),
+        b = parseInt(hex.slice(5, 7), 16);
+    return "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
+  }
+
+  function fmtNum(v, kind) {
+    return v.toLocaleString(undefined, { maximumFractionDigits: 2 })
+      + (kind === "yield" ? "%" : "");
+  }
+
+  function makeCard(item) {
+    var card = document.createElement("div");
+    card.className = "chart-card";
+    var chg = item.kind === "yield" ? item.change_bp : item.change;
+    var dir = "flat";
+    if (chg !== null && chg !== undefined) dir = chg >= 0 ? "up" : "down";
+    if (dir !== "flat") card.classList.add(dir);
+    var up = dir !== "down";
+
+    var head = document.createElement("div");
+    head.className = "cc-head";
+    var name = document.createElement("span");
+    name.className = "cc-name";
+    name.textContent = item.label;
+    var last = document.createElement("span");
+    last.className = "cc-last";
+    last.textContent = (item.last !== null && item.last !== undefined)
+      ? fmtNum(item.last, item.kind) : "n/a";
+    head.appendChild(name);
+    head.appendChild(last);
+    card.appendChild(head);
+
+    var change = document.createElement("div");
+    change.className = "cc-change " + (chg === null || chg === undefined ? "na" : (chg >= 0 ? "pos" : "neg"));
+    if (chg === null || chg === undefined) {
+      change.textContent = "—";
+    } else if (item.kind === "yield") {
+      change.textContent = (chg >= 0 ? "+" : "") + chg.toFixed(1) + " bp";
+    } else {
+      change.textContent = (chg >= 0 ? "+" : "") + chg.toFixed(2) + "%";
+    }
+    card.appendChild(change);
+
+    var closes = item.closes || [];
+    var labels = item.labels || [];
+    if (labels.length !== closes.length) {
+      labels = closes.map(function (_, i) { return i; });
+    }
+    if (closes.length >= 2) {
+      var body = document.createElement("div");
+      body.className = "cc-body";
+      var cv = document.createElement("canvas");
+      body.appendChild(cv);
+      card.appendChild(body);
+
+      var bar = document.createElement("div");
+      bar.className = "zoom-bar";
+      Object.keys(ZOOM_RANGES).forEach(function (key) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "zoom-btn" + (key === DEFAULT_ZOOM ? " active" : "");
+        b.textContent = key;
+        b.setAttribute("aria-pressed", key === DEFAULT_ZOOM ? "true" : "false");
+        b.addEventListener("click", function () {
+          setZoom(chart, labels.length, key);
+          bar.querySelectorAll(".zoom-btn").forEach(function (x) {
+            var on = x === b;
+            x.classList.toggle("active", on);
+            x.setAttribute("aria-pressed", on ? "true" : "false");
+          });
+        });
+        bar.appendChild(b);
+      });
+      card.appendChild(bar);
+
+      var chart = new Chart(cv.getContext("2d"), {
+        type: "line",
+        data: {
+          labels: labels,
+          datasets: [{
+            data: closes,
+            borderColor: up ? UP : DOWN,
+            borderWidth: 1.8,
+            pointRadius: 0,
+            pointHitRadius: 10,
+            pointHoverRadius: 4,
+            pointHoverBackgroundColor: up ? UP : DOWN,
+            tension: 0.35,
+            fill: true,
+            backgroundColor: function (ctx) {
+              var area = ctx.chart.chartArea;
+              if (!area) return hexToRgba(up ? UP : DOWN, 0.15);
+              var grad = ctx.chart.ctx.createLinearGradient(0, area.top, 0, area.bottom);
+              grad.addColorStop(0, hexToRgba(up ? UP : DOWN, 0.28));
+              grad.addColorStop(1, hexToRgba(up ? UP : DOWN, 0.02));
+              return grad;
+            }
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: false,
+          interaction: { mode: "index", intersect: false },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              displayColors: false,
+              backgroundColor: "rgba(34, 31, 26, .92)",
+              titleColor: "#c9a227",
+              bodyColor: "#f6f1e4",
+              padding: 10,
+              cornerRadius: 6,
+              titleFont: { family: CHART_FONT, size: 12 },
+              bodyFont: { family: CHART_FONT, size: 14, weight: "600" },
+              callbacks: {
+                title: function (items) {
+                  return items.length ? String(items[0].label) : "";
+                },
+                label: function (ctx) {
+                  var v = ctx.parsed.y;
+                  return v.toLocaleString(undefined, { maximumFractionDigits: 2 });
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              border: { display: false },
+              ticks: {
+                autoSkip: true,
+                maxTicksLimit: 6,
+                maxRotation: 0,
+                font: { family: CHART_FONT, size: 10.5 },
+                color: "#8d8574",
+                padding: 4,
+                // Compact MM/YY axis ticks ("Jul 31 '25" -> "07/25").
+                callback: function (value) {
+                  var label = String(this.getLabelForValue(value));
+                  var m = label.match(/^([A-Z][a-z]{2})\s+\d+\s+'(\d{2})$/);
+                  if (!m) return label;
+                  var MONTHS = { Jan: "01", Feb: "02", Mar: "03", Apr: "04",
+                                 May: "05", Jun: "06", Jul: "07", Aug: "08",
+                                 Sep: "09", Oct: "10", Nov: "11", Dec: "12" };
+                  return (MONTHS[m[1]] || m[1]) + "/" + m[2];
+                }
+              }
+            },
+            y: {
+              position: "right",
+              grid: { color: "#ece5d4", drawTicks: false },
+              border: { display: false },
+              ticks: {
+                maxTicksLimit: 4,
+                font: { family: CHART_FONT, size: 10.5 },
+                color: "#8d8574",
+                padding: 4,
+                callback: function (v) {
+                  return v.toLocaleString(undefined, { maximumFractionDigits: 1 });
+                }
+              }
+            }
+          }
+        }
+      });
+      charts.push(chart);
+      setZoom(chart, labels.length, DEFAULT_ZOOM);
+    } else {
+      var na = document.createElement("div");
+      na.className = "cc-na";
+      na.textContent = "No data available";
+      card.appendChild(na);
+    }
+    return card;
+  }
+
+  function setZoom(chart, total, key) {
+    var window = ZOOM_RANGES[key] || 0;
+    if (window <= 0 || window >= total) {
+      chart.options.scales.x.min = undefined;
+      chart.options.scales.x.max = undefined;
+    } else {
+      chart.options.scales.x.min = Math.max(0, total - window);
+      chart.options.scales.x.max = total - 1;
+    }
+    chart.update();
+  }
+
+  function makeFigures(group) {
+    var table = document.createElement("table");
+    table.className = "figures";
+    var thead = document.createElement("thead");
+    var htr = document.createElement("tr");
+    ["Instrument", "Last", "Daily Change"].forEach(function (h, i) {
+      var th = document.createElement("th");
+      if (i > 0) th.className = "num";
+      th.textContent = h;
+      htr.appendChild(th);
+    });
+    thead.appendChild(htr);
+    table.appendChild(thead);
+    var tbody = document.createElement("tbody");
+    group.items.forEach(function (item) {
+      var tr = document.createElement("tr");
+      var tdName = document.createElement("td");
+      tdName.textContent = item.label;
+      tr.appendChild(tdName);
+      var tdLast = document.createElement("td");
+      tdLast.className = "num";
+      tdLast.textContent = (item.last !== null && item.last !== undefined)
+        ? fmtNum(item.last, item.kind) : "n/a";
+      tr.appendChild(tdLast);
+      var tdChg = document.createElement("td");
+      tdChg.className = "num";
+      var chg = item.kind === "yield" ? item.change_bp : item.change;
+      if (chg === null || chg === undefined) {
+        var na = document.createElement("span");
+        na.className = "na";
+        na.textContent = "n/a";
+        tdChg.appendChild(na);
+      } else {
+        var span = document.createElement("span");
+        span.className = chg >= 0 ? "pos" : "neg";
+        span.textContent = item.kind === "yield"
+          ? (chg >= 0 ? "+" : "") + chg.toFixed(1) + " bp"
+          : (chg >= 0 ? "+" : "") + chg.toFixed(2) + "%";
+        tdChg.appendChild(span);
+      }
+      tr.appendChild(tdChg);
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    return table;
+  }
+
+  function render(data) {
+    var host = document.getElementById("markets-body");
+    host.innerHTML = "";
+    (data.groups || []).forEach(function (group) {
+      var sec = document.createElement("section");
+      sec.className = "desk";
+      var h2 = document.createElement("h2");
+      h2.textContent = group.name;
+      sec.appendChild(h2);
+      var grid = document.createElement("div");
+      grid.className = "chart-grid";
+      (group.items || []).forEach(function (item) {
+        grid.appendChild(makeCard(item));
+      });
+      sec.appendChild(grid);
+      sec.appendChild(makeFigures(group));
+      host.appendChild(sec);
+    });
+    if (!host.children.length) {
+      host.innerHTML = '<p class="empty-note">No indicator data available yet.</p>';
+    }
+  }
+
+  fetch(base + "/data/indicators.json")
+    .then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(render)
+    .catch(function (e) {
+      console.error("Failed to load market data:", e);
+      document.getElementById("markets-body").innerHTML =
+        '<p class="empty-note">Market data unavailable — check back after the next daily run.</p>';
+    });
+})();
+</script>
+</body>
+</html>
