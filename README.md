@@ -47,7 +47,7 @@ python generate.py
 
 Then open `docs/index.html` in a browser. Set `GEMINI_API_KEY` in the
 environment first if you want AI summaries locally; `GEMINI_MODEL` overrides
-the model (default `gemini-2.5-flash`).
+the model (default `gemini-3.1-flash-lite`).
 
 ## How it works
 

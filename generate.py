@@ -44,10 +44,12 @@ TEMPLATE_PATH = ROOT / "templates" / "dashboard.html.j2"
 HK_TZ = ZoneInfo("Asia/Hong_Kong")
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
-# Default: flash-lite — its free tier (~1,000 req/day) comfortably covers the
-# 12 calls/run, whereas gemini-2.5-flash's free tier is only 20 req/day on
-# this account and was exhausted by a single scheduled + manual run.
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash-lite").strip()
+# Default: gemini-3.1-flash-lite — the current low-tier flash-lite class.
+# Its free tier (~500 req/day) comfortably covers the 12 calls/run, whereas
+# gemini-2.5-flash's free tier is only 20 req/day on this account (exhausted
+# by a single scheduled + manual run) and gemini-2.5-flash-lite was retired
+# (404 "no longer available to new users" as of 2026-08-03).
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.1-flash-lite").strip()
 # "vertex" | "aistudio" | "" (auto-detect from the key format)
 GEMINI_PROVIDER = os.environ.get("GEMINI_PROVIDER", "").strip().lower()
 
