@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9"></script>
 <!-- Firebase compat SDK (deferred: a slow CDN never blocks page render).
      If these fail to load, the page works exactly as before, localStorage only. -->
 <script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -140,10 +140,13 @@
   }
 
   /* Snapshot ticker strip */
-  .ticker {
+  .ticker-wrap {
     border-bottom: 1px solid var(--rule-dark);
-    padding: 10px 4px;
     margin-bottom: 30px;
+  }
+  .ticker {
+    padding: 10px 4px 6px;
+    margin-bottom: 4px;
     font-size: 15px;
     font-weight: 600;
     letter-spacing: .06em;
@@ -151,6 +154,30 @@
     font-variant: small-caps;
     white-space: nowrap;
     overflow-x: auto;
+  }
+  .ticker .m1 { font-size: 11px; margin-right: 2px; }
+  .ticker .m1.pos { color: var(--green); }
+  .ticker .m1.neg { color: var(--red); }
+
+  /* Data freshness note + live session badge */
+  .asof {
+    font-size: 12.5px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .ticker-wrap .asof { padding: 0 4px 10px; }
+  .desk .asof { margin: -4px 0 16px; }
+  .session-badge {
+    display: inline-block;
+    background: rgba(67, 56, 202, .08);
+    border: 1px solid #d4c8f2;
+    color: #4c3d8f;
+    border-radius: 999px;
+    padding: 1px 10px;
+    font-size: 11.5px;
+    font-weight: 600;
+    font-style: normal;
+    margin-left: 6px;
   }
 
   /* ---------- Key Takeaways ---------- */
@@ -469,13 +496,23 @@
     font-size: 12.5px;
     font-style: normal;
   }
-  td.rating {
-    white-space: nowrap;
-    color: var(--gold);
-    font-size: 16px;
-    letter-spacing: .08em;
-    text-shadow: 0 1px 0 rgba(120, 90, 10, .18);
+  td.rating { white-space: nowrap; }
+  .rating-chip {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 2px 9px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #fff;
+    min-width: 26px;
+    text-align: center;
+    line-height: 1.5;
   }
+  .rating-chip.r5 { background: #c62828; }   /* red — top importance */
+  .rating-chip.r4 { background: #e65100; }   /* orange */
+  .rating-chip.r3 { background: #b8860b; }   /* amber */
+  .rating-chip.r2 { background: #0f766e; }   /* teal */
+  .rating-chip.r1 { background: #8d8574; }   /* gray */
   td.rating .reason {
     display: block;
     color: var(--muted);
@@ -484,9 +521,43 @@
     letter-spacing: 0;
     max-width: 130px;
     white-space: normal;
-    text-shadow: none;
   }
   .empty-note { color: var(--muted); font-style: italic; padding: 12px 0; }
+
+  /* ---------- Importance filter bar ---------- */
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 0 0 30px;
+  }
+  .filter-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .filter-btn {
+    background: none;
+    border: 1px solid var(--rule-dark);
+    border-radius: 999px;
+    color: var(--ink-soft);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 14px;
+    cursor: pointer;
+    min-height: 34px;
+    transition: background .12s, color .12s, border-color .12s;
+  }
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
 
   /* ---------- Indicators ---------- */
   .indicator-group { margin-top: 30px; }
@@ -575,6 +646,52 @@
     color: #fff;
   }
 
+  /* Performance chips (YTD / 1M / 1Y) on chart cards */
+  .cc-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .cc-chips .chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    border-radius: 4px;
+    padding: 2px 7px;
+    background: rgba(34, 31, 26, .05);
+  }
+  .cc-chips .chip.pos { color: var(--green); }
+  .cc-chips .chip.neg { color: var(--red); }
+
+  /* Skeleton placeholders while the Markets tab data loads */
+  .skeleton { position: relative; overflow: hidden; }
+  .skeleton .skel-bar {
+    height: 12px;
+    border-radius: 4px;
+    background: #e8e1d0;
+    margin: 6px 0;
+  }
+  .skeleton .skel-bar.short { width: 45%; }
+  .skeleton .skel-bar.tiny { width: 30%; height: 9px; }
+  .skeleton .skel-chart {
+    height: 150px;
+    border-radius: 4px;
+    background: #efe9dc;
+    margin-top: 10px;
+  }
+  .skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), transparent);
+    animation: skel-shimmer 1.4s infinite;
+  }
+  @keyframes skel-shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
   /* Compact numbers table */
   table.figures { width: 100%; border-collapse: collapse; font-size: 14.5px; }
   table.figures th, table.figures td {
@@ -660,7 +777,8 @@
     header.masthead h1 { font-size: 27px; }
 
     /* Ticker wraps instead of forcing horizontal scroll */
-    .ticker { white-space: normal; line-height: 1.7; margin-bottom: 24px; }
+    .ticker-wrap { margin-bottom: 24px; }
+    .ticker { white-space: normal; line-height: 1.7; }
 
     .takeaways { padding: 16px 16px 12px; margin-bottom: 32px; }
     .takeaways li { font-size: 15.5px; }

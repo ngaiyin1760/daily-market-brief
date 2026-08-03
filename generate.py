@@ -11,6 +11,7 @@ Exit code is 0 on success even if individual sources fail; non-zero only on
 unrecoverable errors (e.g. template rendering / writing output fails).
 """
 
+import argparse
 import calendar
 import json
 import logging
@@ -697,6 +698,9 @@ def gemini_summarize(category, candidates, top_n=DEFAULT_TOP_N):
     return out
 
 
+AI_SUMMARIES = {"ok": 0, "heuristic": 0}
+
+
 def summarize_category(category, candidates):
     top_n = category.get("top_n", DEFAULT_TOP_N)
     if not candidates:
@@ -705,12 +709,14 @@ def summarize_category(category, candidates):
     if GEMINI_API_KEY:
         try:
             log.info("Summarizing with Gemini: %s", category["label"])
+            AI_SUMMARIES["ok"] += 1
             return gemini_summarize(category, candidates, top_n)
         except Exception as exc:
             log.warning("Gemini failed for %s (%s); using heuristic fallback",
                         category["label"], exc)
     else:
         log.info("No GEMINI_API_KEY; heuristic summary: %s", category["label"])
+    AI_SUMMARIES["heuristic"] += 1
     return heuristic_summarize(candidates, top_n)
 
 
@@ -844,7 +850,14 @@ def build_snapshot(groups):
                 cls = "flat"
             else:
                 cls = "pos" if chg > 0 else "neg"
-            parts.append({"text": text, "cls": cls})
+            # 1-month trend direction for the ticker arrow (last ~22 closes).
+            closes = item.get("closes") or []
+            m1 = None
+            if len(closes) >= 22 and closes[-22]:
+                m1_chg = (closes[-1] - closes[-22]) / closes[-22]
+                m1 = ("up" if m1_chg > 0.001
+                      else "down" if m1_chg < -0.001 else "flat")
+            parts.append({"text": text, "cls": cls, "m1": m1})
     return parts
 
 
@@ -989,7 +1002,107 @@ def render_pages(template, page_date, generated_at, snapshot, takeaways,
 
 # ---------------------------------------------------------------------------
 
+def check_outputs(page_date, generated_at, news, groups):
+    """Validate what was generated. Returns a list of problems (empty = ok)."""
+    problems = []
+    required = [
+        DOCS_DIR / "index.html",
+        DOCS_DIR / "markets.html",
+        DOCS_DIR / "archive.html",
+        DATA_DIR / f"{page_date}.json",
+        DATA_DIR / "indicators.json",
+    ]
+    for p in required:
+        if not p.exists() or p.stat().st_size == 0:
+            problems.append(f"missing or empty output: {p.name}")
+
+    # Per-day JSON structure.
+    try:
+        raw = json.loads((DATA_DIR / f"{page_date}.json")
+                         .read_text(encoding="utf-8"))
+    except Exception as exc:
+        problems.append(f"day json unreadable: {exc}")
+    else:
+        if raw.get("generated_at") != generated_at:
+            problems.append("day json generated_at mismatch")
+        if not raw.get("categories"):
+            problems.append("day json has no categories")
+        for cat in raw.get("categories") or []:
+            if not isinstance(cat.get("items"), list) or not cat["items"]:
+                problems.append(f"category '{cat.get('id')}' has no items")
+        if not isinstance(raw.get("takeaways"), list) or not raw["takeaways"]:
+            problems.append("no takeaways generated")
+        if not raw.get("snapshot"):
+            problems.append("snapshot empty")
+
+    # indicators.json completeness.
+    try:
+        ind = json.loads((DATA_DIR / "indicators.json")
+                         .read_text(encoding="utf-8"))
+    except Exception as exc:
+        problems.append(f"indicators json unreadable: {exc}")
+    else:
+        have = set()
+        for gr in ind.get("groups") or []:
+            for it in gr.get("items") or []:
+                have.add(it.get("label"))
+        for gr in INDICATOR_GROUPS:
+            for item in gr["items"]:
+                if item["label"] not in have:
+                    problems.append(f"missing indicator: {item['label']}")
+
+    # AI coverage: with a key set, a fully-heuristic run is a systemic
+    # failure (retired model, wrong key, location block) — fail loudly rather
+    # than silently publishing a degraded brief.
+    if GEMINI_API_KEY and news and AI_SUMMARIES["ok"] == 0:
+        problems.append(
+            "no AI summaries at all despite GEMINI_API_KEY "
+            f"({AI_SUMMARIES['heuristic']} categories heuristic) — "
+            "systemic Gemini failure")
+    return problems
+
+
+def print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
+                  problems):
+    """Console + GitHub Actions step-summary report of the run."""
+    ind_ok = sum(1 for gr in groups for it in gr["items"]
+                 if it["last"] is not None)
+    ind_total = sum(len(gr["items"]) for gr in groups)
+    ok, heur = AI_SUMMARIES["ok"], AI_SUMMARIES["heuristic"]
+    ai_line = f"{ok}/{ok + heur} AI" + (f", {heur} heuristic" if heur else "")
+    lines = [
+        f"## Daily Market Brief — {page_date}",
+        "",
+        f"- **Generated:** {generated_at}",
+        f"- **AI summaries:** {ai_line}",
+        f"- **Takeaways:** {len(takeaways)}",
+        f"- **Indicators:** {ind_ok}/{ind_total} ok",
+        f"- **Snapshot items:** {len(snapshot)}",
+        f"- **Check:** {'FAILED' if problems else 'PASS'}",
+    ]
+    if problems:
+        lines.append("")
+        lines.append("Problems:")
+        lines += [f"  - {p}" for p in problems]
+    text = "\n".join(lines)
+    print("\n===== RUN SUMMARY =====")
+    print(text)
+    print("========================")
+    summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summary_path:
+        try:
+            with open(summary_path, "a", encoding="utf-8") as fh:
+                fh.write(text + "\n")
+        except Exception as exc:
+            log.warning("Could not write step summary: %s", exc)
+
+
 def main():
+    parser = argparse.ArgumentParser(description="Generate the Daily Market Brief site.")
+    parser.add_argument("--check", action="store_true",
+                        help="validate outputs and exit non-zero on problems")
+    args = parser.parse_args()
+
     now_hk = datetime.now(HK_TZ)
     page_date = now_hk.strftime("%Y-%m-%d")
     generated_at = now_hk.strftime("%Y-%m-%d %H:%M HKT")
@@ -1052,6 +1165,15 @@ def main():
 
     render_pages("dashboard.html.j2", page_date, generated_at, snapshot,
                  takeaways, news, groups)
+
+    problems = check_outputs(page_date, generated_at, news, groups)
+    print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
+                  problems)
+    if problems:
+        for p in problems:
+            log.error("CHECK FAIL: %s", p)
+        if args.check:
+            return 1
     log.info("Done.")
     return 0
 

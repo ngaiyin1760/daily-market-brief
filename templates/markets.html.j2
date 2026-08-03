@@ -14,11 +14,25 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Markets</h1>
-    <div class="generated">Key indicators — up to 10 years of daily history · updated {{ generated_at|e }}</div>
+    <div class="generated">Key indicators — up to 10 years of daily history · updated {{ generated_at|e }}<span class="session-badge" id="session-badge"></span></div>
   </header>
 
   <div id="markets-body">
-    <p class="empty-note" id="markets-loading">Loading market data…</p>
+    {% for _ in range(5) %}
+    <section class="desk">
+      <h2 class="skel-title">&nbsp;</h2>
+      <div class="chart-grid">
+        {% for _ in range(4) %}
+        <div class="chart-card skeleton">
+          <div class="skel-bar"></div>
+          <div class="skel-bar short"></div>
+          <div class="skel-chart"></div>
+          <div class="skel-bar tiny"></div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endfor %}
   </div>
 
   <footer class="colophon">
@@ -74,6 +88,28 @@
     return mag < 10 ? 2 : 0;
   }
 
+  // Performance-chip helpers (full-series closes).
+  function pctChange(closes, back) {
+    var n = closes.length;
+    if (n <= back || !closes[n - 1 - back] || !closes[n - 1]) return null;
+    return (closes[n - 1] - closes[n - 1 - back]) / closes[n - 1 - back] * 100;
+  }
+
+  // Year-to-date: last close vs the final close of the previous year.
+  function ytdChange(labels, closes) {
+    var n = labels.length;
+    if (n < 2) return null;
+    var lastD = parseDate(labels[n - 1]);
+    if (!lastD) return null;
+    var prevIdx = -1;
+    for (var i = n - 2; i >= 0; i--) {
+      var d = parseDate(labels[i]);
+      if (d && d.y < lastD.y) { prevIdx = i; break; }
+    }
+    if (prevIdx < 0 || !closes[prevIdx] || !closes[n - 1]) return null;
+    return (closes[n - 1] - closes[prevIdx]) / closes[prevIdx] * 100;
+  }
+
   function makeCard(item) {
     var card = document.createElement("div");
     card.className = "chart-card";
@@ -112,6 +148,22 @@
     if (labels.length !== closes.length) {
       labels = closes.map(function (_, i) { return i; });
     }
+
+    // Performance chips: YTD / 1M / 1Y computed from the full series.
+    var chips = document.createElement("div");
+    chips.className = "cc-chips";
+    [["YTD", ytdChange(labels, closes)],
+     ["1M", pctChange(closes, 22)],
+     ["1Y", pctChange(closes, 262)]].forEach(function (pair) {
+      if (pair[1] === null || pair[1] === undefined) return;
+      var c = document.createElement("span");
+      c.className = "chip " + (pair[1] >= 0 ? "pos" : "neg");
+      c.textContent = pair[0] + " " + (pair[1] >= 0 ? "+" : "")
+        + pair[1].toFixed(1) + "%";
+      chips.appendChild(c);
+    });
+    if (chips.childNodes.length) card.appendChild(chips);
+
     if (closes.length >= 2) {
       // Full series is kept on the chart; the default view is DEFAULT_ZOOM.
       var total = closes.length;
@@ -429,30 +481,58 @@
     return table;
   }
 
+  // Latest date seen across a group's series (for the "As of" subtitle).
+  function groupAsOf(group) {
+    var last = null;
+    (group.items || []).forEach(function (it) {
+      var l = (it.labels && it.labels.length)
+        ? it.labels[it.labels.length - 1] : null;
+      if (!l) return;
+      var d = parseDate(l);
+      if (!d) return;
+      var key = (d.y * 12 + d.mon) * 31 + d.day;
+      if (!last || key > last.key) last = { key: key, label: l };
+    });
+    return last ? last.label : null;
+  }
+
   function render(data) {
     var host = document.getElementById("markets-body");
     host.innerHTML = "";
-    (data.groups || []).forEach(function (group) {
-      var sec = document.createElement("section");
-      sec.className = "desk";
-      var h2 = document.createElement("h2");
-      h2.textContent = group.name;
-      sec.appendChild(h2);
-      var grid = document.createElement("div");
-      grid.className = "chart-grid";
-      (group.items || []).forEach(function (item) {
-        grid.appendChild(makeCard(item));
-      });
-      sec.appendChild(grid);
-      sec.appendChild(makeFigures(group));
-      host.appendChild(sec);
-    });
-    if (!host.children.length) {
+    var groups = data.groups || [];
+    if (!groups.length) {
       host.innerHTML = '<p class="empty-note">No indicator data available yet.</p>';
+      return;
     }
+    // Progressive: insert one group at a time so the page fills in smoothly
+    // instead of stalling on one giant synchronous build.
+    groups.forEach(function (group, idx) {
+      setTimeout(function () {
+        var sec = document.createElement("section");
+        sec.className = "desk";
+        var h2 = document.createElement("h2");
+        h2.textContent = group.name;
+        sec.appendChild(h2);
+        var asof = groupAsOf(group);
+        if (asof) {
+          var a = document.createElement("div");
+          a.className = "asof";
+          a.textContent = "As of " + asof;
+          sec.appendChild(a);
+        }
+        var grid = document.createElement("div");
+        grid.className = "chart-grid";
+        (group.items || []).forEach(function (item) {
+          grid.appendChild(makeCard(item));
+        });
+        sec.appendChild(grid);
+        sec.appendChild(makeFigures(group));
+        host.appendChild(sec);
+      }, idx * 60);
+    });
   }
 
-  fetch(base + "/data/indicators.json")
+  fetch(base + "/data/indicators.json?v=" + encodeURIComponent({{ generated_at|tojson }}))
     .then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();

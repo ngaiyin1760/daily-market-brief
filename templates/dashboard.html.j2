@@ -28,7 +28,12 @@
     <h1>{{ page_date|e }}</h1>
     <div class="generated">Generated {{ generated_at|e }}</div>
   </header>
-  {% if snapshot %}<div class="ticker">{% for t in snapshot %}<span class="{{ t.cls }}">{{ t.text|e }}</span>{% if not loop.last %} · {% endif %}{% endfor %}</div>{% endif %}
+  {% if snapshot %}
+  <div class="ticker-wrap">
+    <div class="ticker">{% for t in snapshot %}<span class="{{ t.cls }}">{% if t.m1 == "up" %}<span class="m1 pos" title="1-month trend">▲</span>{% elif t.m1 == "down" %}<span class="m1 neg" title="1-month trend">▼</span>{% endif %}{{ t.text|e }}</span>{% if not loop.last %} · {% endif %}{% endfor %}</div>
+    <div class="asof">Market data as of {{ generated_at|e }}<span class="session-badge" id="session-badge"></span></div>
+  </div>
+  {% endif %}
 
   {% if takeaways %}
   <section class="takeaways" id="takeaways">
@@ -38,6 +43,14 @@
     </ul>
   </section>
   {% endif %}
+
+  <div class="filter-bar" id="importance-filter" role="group" aria-label="Filter stories by importance">
+    <span class="filter-label">Importance</span>
+    <button type="button" class="filter-btn active" data-min="0">All</button>
+    <button type="button" class="filter-btn" data-min="4">4★+</button>
+    <button type="button" class="filter-btn" data-min="3">3★+</button>
+    <button type="button" class="filter-btn" data-min="2">2★+</button>
+  </div>
 
   {# ---- News sections first ---- #}
   {% for cat in categories %}
@@ -69,7 +82,7 @@
           </td>
           <td class="source"><span class="chip">{{ item.source|e }}</span></td>
           <td class="rating">
-            {{- "★" * item.rating }}{{ "☆" * (5 - item.rating) -}}
+            <span class="rating-chip r{{ item.rating }}">{{ item.rating }}</span>
             {% if item.reason %}<span class="reason">{{ item.reason|e }}</span>{% endif %}
           </td>
           <td class="save-cell">

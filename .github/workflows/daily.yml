@@ -34,11 +34,13 @@ jobs:
         run: |
           # Rare native crashes (e.g. "double free or corruption" from the
           # HTML-parsing stack under threads) are flaky — retry once before
-          # failing the run.
-          python generate.py || {
+          # failing the run. --check fails loudly on structural problems or
+          # a fully-heuristic run (systemic Gemini failure) so a degraded
+          # brief is never silently published.
+          python generate.py --check || {
             echo "::warning::generate.py failed, retrying once in 30s..."
             sleep 30
-            python generate.py
+            python generate.py --check
           }
 
       - name: Commit and push docs/

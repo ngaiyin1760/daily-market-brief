@@ -8,10 +8,14 @@ Hong Kong, tech, AI, semis, EVs, data centers, space & aerospace).
 Top 3 for Global Economy, top 2 for each other category, deduplicated across
 categories so each story appears exactly once.
 
-Daily pages are all about the news: a snapshot ticker of the day's key moves,
-the takeaways, and the stories. All indicator charts and figures live on a
-separate **Markets** tab — up to 10 years of daily history per instrument,
-with per-chart zoom buttons (1M / 3M / 1Y / 5Y / 10Y).
+Daily pages are all about the news: a snapshot ticker of the day's key moves
+(with 1-month trend arrows), the takeaways, and the stories — with color-coded
+importance chips and an importance filter. All indicator charts and figures
+live on a separate **Markets** tab — up to 10 years of daily history per
+instrument, per-chart zoom buttons (1M / 3M / 1Y / 5Y / 10Y), YTD/1M/1Y
+performance chips, and per-group "as of" freshness stamps. Run `python
+generate.py --check` to validate outputs (used by CI to fail loudly on
+structural problems or a fully-heuristic run).
 
 The site is a set of static HTML files in `docs/`, hosted free on GitHub Pages
 and regenerated daily by GitHub Actions at 7:00 AM Hong Kong time. News

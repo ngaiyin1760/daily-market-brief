@@ -1,6 +1,9 @@
 <script>
 (function () {
   var base = {{ base|tojson }};
+  // Cache-buster: every generated page embeds its own generation timestamp,
+  // so the data files never serve stale from the CDN's 10-minute cache.
+  var dataTS = encodeURIComponent({{ generated_at | default("") | tojson }});
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = {{ current_date_js | default("null") }};
@@ -85,7 +88,7 @@
 
   // Build the sidebar date list from manifest.json so that every page —
   // including older day pages — automatically shows newly added days.
-  fetch(base + "/manifest.json")
+  fetch(base + "/manifest.json?v=" + dataTS)
     .then(function (r) { return r.json(); })
     .then(function (m) {
       var nav = document.getElementById("date-nav");
@@ -104,6 +107,69 @@
       document.getElementById("date-nav").innerHTML =
         '<a href="' + base + '/index.html">Latest</a>';
     });
+
+  // ---------- Live market session badge (approximate hours, HKT) ----------
+  // DST handled roughly: US & UK use summer hours Apr-Oct. Sessions:
+  // Tokyo 08:00-14:00, Hong Kong 09:30-16:00, London 15:00-23:30 (BST) /
+  // 16:00-00:30 (GMT), New York 21:30-04:00 (EDT) / 22:30-05:00 (EST).
+  var sessionEl = document.getElementById("session-badge");
+  if (sessionEl) {
+    var nowUtc = new Date();
+    var utcDay = nowUtc.getUTCDay();
+    var hktMin = ((nowUtc.getUTCHours() + 8) % 24) * 60
+      + nowUtc.getUTCMinutes();
+    var month = nowUtc.getUTCMonth() + 1;
+    var usSummer = month >= 4 && month <= 10;
+    var ukSummer = month >= 4 && month <= 10;
+    function openIn(s, e) {
+      if (s <= e) return hktMin >= s && hktMin <= e;
+      return hktMin >= s || hktMin <= e;
+    }
+    var open = [];
+    if (utcDay !== 0 && utcDay !== 6) {
+      if (openIn(8 * 60, 14 * 60)) open.push("Tokyo");
+      if (openIn(570, 16 * 60)) open.push("Hong Kong");
+      if (openIn((ukSummer ? 15 : 16) * 60, (ukSummer ? 23 : 0) * 60 + 30)) {
+        open.push("London");
+      }
+      if (openIn((usSummer ? 21 : 22) * 60 + 30,
+                 (usSummer ? 4 : 5) * 60)) {
+        open.push("New York");
+      }
+    }
+    sessionEl.textContent = open.length
+      ? open.join(" · ") + " open" : "Markets closed";
+  }
+
+  // ---------- Importance filter (daily pages) ----------
+  var filterBar = document.getElementById("importance-filter");
+  if (filterBar) {
+    var filterRows = Array.prototype.slice.call(
+      document.querySelectorAll("tr.news-item"));
+    var filterSections = document.querySelectorAll("section.desk");
+    function applyFilter(min) {
+      filterRows.forEach(function (tr) {
+        var r = parseInt(tr.getAttribute("data-rating"), 10) || 0;
+        tr.style.display = r >= min ? "" : "none";
+      });
+      Array.prototype.forEach.call(filterSections, function (sec) {
+        var anyVisible = Array.prototype.some.call(
+          sec.querySelectorAll("tr.news-item"),
+          function (tr) { return tr.style.display !== "none"; });
+        sec.style.display = anyVisible ? "" : "none";
+      });
+    }
+    filterBar.querySelectorAll(".filter-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        filterBar.querySelectorAll(".filter-btn").forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle("active", on);
+          b.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        applyFilter(parseInt(btn.getAttribute("data-min"), 10) || 0);
+      });
+    });
+  }
 
   // ---------- Saved news (localStorage) ----------
   var STORE_KEY = "dmb_saved";
