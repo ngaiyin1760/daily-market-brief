@@ -1,6 +1,8 @@
 <script>
 (function () {
   var base = {{ base|tojson }};
+  // Reveal-on-scroll uses this to avoid hiding content when JS is unavailable.
+  document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
   var dataTS = encodeURIComponent({{ generated_at | default("") | tojson }});
@@ -168,6 +170,55 @@
         });
         applyFilter(parseInt(btn.getAttribute("data-min"), 10) || 0);
       });
+    });
+  }
+
+  // ---------- Reading progress bar ----------
+  var readingBar = document.getElementById("reading-bar");
+  if (readingBar) {
+    function updateProgress() {
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - doc.clientHeight;
+      readingBar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+    }
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  // ---------- Sticky section nav (scrollspy) ----------
+  var catNav = document.getElementById("cat-nav");
+  if (catNav && "IntersectionObserver" in window) {
+    var navLinks = Array.prototype.slice.call(
+      catNav.querySelectorAll("a[data-target]"));
+    var spySections = navLinks.map(function (a) {
+      return document.getElementById(a.getAttribute("data-target"));
+    }).filter(Boolean);
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        navLinks.forEach(function (a) {
+          var on = a.getAttribute("data-target") === en.target.id;
+          a.classList.toggle("active", on);
+          a.setAttribute("aria-current", on ? "true" : "false");
+        });
+      });
+    }, { rootMargin: "-20% 0px -70% 0px", threshold: 0 });
+    spySections.forEach(function (s) { spy.observe(s); });
+  }
+
+  // ---------- Reveal-on-scroll ----------
+  if ("IntersectionObserver" in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add("revealed");
+          revealObs.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      revealObs.observe(el);
     });
   }
 

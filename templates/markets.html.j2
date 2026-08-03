@@ -7,6 +7,7 @@
 {% include "partials/head.j2" %}
 </head>
 <body>
+<div class="reading-bar" id="reading-bar" aria-hidden="true"></div>
 {% set is_markets = true %}
 {% include "partials/sidebar.j2" %}
 
@@ -223,7 +224,9 @@
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          animation: false,
+          // Charts draw in on load/zoom (groups render progressively, so the
+          // animations naturally stagger); disabled for reduced motion.
+          animation: { duration: 450, easing: "easeOutQuart" },
           interaction: { mode: "index", intersect: false },
           plugins: {
             legend: { display: false },

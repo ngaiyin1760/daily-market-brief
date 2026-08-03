@@ -914,11 +914,143 @@ def indicator_summary(groups):
 
 
 # ---------------------------------------------------------------------------
+# "What changed" helpers: NEW story tags and the hero snapshot card.
+# ---------------------------------------------------------------------------
+
+def load_day_titles(page_date_str, offset):
+    """Normalized titles from exactly ONE previous daily brief (offset days
+    back). Used to tag today's stories as NEW (absent from yesterday's brief)."""
+    titles = set()
+    try:
+        base = datetime.strptime(page_date_str, "%Y-%m-%d")
+    except ValueError:
+        return titles
+    day = (base - timedelta(days=offset)).strftime("%Y-%m-%d")
+    path = DATA_DIR / f"{day}.json"
+    if not path.exists():
+        return titles
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return titles
+    for cat in data.get("categories", []):
+        for item in cat.get("items", []):
+            key = normalize_title(item.get("title", ""))
+            if key:
+                titles.add(key)
+    return titles
+
+
+def load_day_indicators(page_date_str, offset=1):
+    """label -> {"last", "kind"} from a previous day's brief (for the
+    "Δ vs yesterday" deltas on the hero card)."""
+    try:
+        base = datetime.strptime(page_date_str, "%Y-%m-%d")
+    except ValueError:
+        return {}
+    day = (base - timedelta(days=offset)).strftime("%Y-%m-%d")
+    path = DATA_DIR / f"{day}.json"
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    out = {}
+    for gr in data.get("indicator_groups", []):
+        for it in gr.get("items", []):
+            out[it.get("label")] = {
+                "last": it.get("last"),
+                "kind": it.get("kind"),
+            }
+    return out
+
+
+# Hero card instruments: (indicator label, short display name).
+HERO_ITEMS = [
+    ("S&P 500", "S&P 500"), ("Nasdaq", "Nasdaq"), ("Hang Seng", "HSI"),
+    ("US 10Y", "US10Y"), ("USD/HKD", "USD/HKD"), ("HKD/CNY", "HKD/CNY"),
+    ("JPY/HKD (¥100)", "JPY/HKD"), ("Gold", "Gold"), ("Bitcoin", "BTC"),
+]
+
+
+def build_sparkline(closes, width=100, height=32):
+    """SVG polyline path for a ~1-month sparkline. Returns None if too short."""
+    if len(closes) < 2:
+        return None
+    lo, hi = min(closes), max(closes)
+    span = (hi - lo) or 1.0
+    n = len(closes)
+    pts = []
+    for i, c in enumerate(closes):
+        x = round(i / (n - 1) * (width - 2) + 1, 1)
+        y = round(height - 2 - (c - lo) / span * (height - 4), 1)
+        pts.append(f"{x},{y}")
+    return "M" + " L".join(pts)
+
+
+def build_hero(groups, prev_indicators):
+    """Structured at-a-glance data for the daily-page snapshot card."""
+    by_label = {}
+    for gr in groups:
+        for it in gr["items"]:
+            by_label[it["label"]] = it
+    hero = []
+    for label, short in HERO_ITEMS:
+        item = by_label.get(label)
+        if not item or item.get("last") is None:
+            continue
+        kind = item["kind"]
+        last = item["last"]
+        chg = item.get("change_bp") if kind == "yield" else item.get("change")
+        # Delta vs yesterday's brief (bp for yields, % for prices).
+        delta = None
+        prev = prev_indicators.get(label)
+        if prev and prev.get("last") is not None and prev["last"]:
+            if kind == "yield":
+                delta = round((last - prev["last"]) * 100, 1)
+            else:
+                delta = round((last - prev["last"]) / prev["last"] * 100, 2)
+        if kind == "yield":
+            last_display = f"{last:,.2f}%"
+            chg_display = (f"{chg:+.1f} bp" if chg is not None else "—")
+            delta_display = (f"{delta:+.1f} bp" if delta is not None else None)
+        else:
+            last_display = f"{last:,.2f}"
+            chg_display = (f"{chg:+.2f}%" if chg is not None else "—")
+            delta_display = (f"{delta:+.2f}%" if delta is not None else None)
+        closes = (item.get("closes") or [])[-30:]
+        m1 = None
+        if len(closes) >= 22 and closes[-22]:
+            m1_chg = (closes[-1] - closes[-22]) / closes[-22]
+            m1 = ("up" if m1_chg > 0.001
+                  else "down" if m1_chg < -0.001 else "flat")
+        if chg is None or round(chg, 1) == 0:
+            cls = "flat"
+        else:
+            cls = "pos" if chg > 0 else "neg"
+        hero.append({
+            "short": short,
+            "label": label,
+            "kind": kind,
+            "last_display": last_display,
+            "chg_display": chg_display,
+            "chg": chg,
+            "cls": cls,
+            "delta": delta,
+            "delta_display": delta_display,
+            "spark": build_sparkline(closes),
+            "m1": m1,
+        })
+    return hero
+
+
+# ---------------------------------------------------------------------------
 # Rendering
 # ---------------------------------------------------------------------------
 
 def render_pages(template, page_date, generated_at, snapshot, takeaways,
-                 news, groups):
+                 news, groups, hero=None, new_count=0):
     from jinja2 import Environment, FileSystemLoader, select_autoescape
 
     env = Environment(
@@ -934,6 +1066,8 @@ def render_pages(template, page_date, generated_at, snapshot, takeaways,
         "takeaways": takeaways,
         "categories": news,
         "indicator_groups": groups,
+        "hero": hero or [],
+        "new_count": new_count,
     }
 
     DOCS_DIR.mkdir(exist_ok=True)
@@ -1114,6 +1248,9 @@ def main():
     # Cross-day dedup: titles from the previous days' briefs are "claimed"
     # up front, so repeat stories rank below fresh ones in every category.
     claimed_titles = load_recent_titles(page_date)
+    # Yesterday's titles only — for the "NEW" tag on first-appearance stories.
+    yesterday_titles = load_day_titles(page_date, offset=1)
+    new_count = 0
     now = time.time()
     for category in CATEGORIES:
         top_n = category.get("top_n", DEFAULT_TOP_N)
@@ -1138,6 +1275,9 @@ def main():
         items = summarize_category(category, candidates)
         for item in items:
             key = normalize_title(item["title"])
+            item["is_new"] = bool(key) and key not in yesterday_titles
+            if item["is_new"]:
+                new_count += 1
             if key:
                 claimed_titles.add(key)
         # Report the freshness window actually used by the selected items.
@@ -1163,8 +1303,11 @@ def main():
     log.info("Snapshot: %s", " · ".join(t["text"] for t in snapshot)
              if snapshot else "(empty)")
 
+    hero = build_hero(groups, load_day_indicators(page_date, offset=1))
+    log.info("Hero: %d cells; %d new story(ies)", len(hero), new_count)
+
     render_pages("dashboard.html.j2", page_date, generated_at, snapshot,
-                 takeaways, news, groups)
+                 takeaways, news, groups, hero=hero, new_count=new_count)
 
     problems = check_outputs(page_date, generated_at, news, groups)
     print_summary(page_date, generated_at, news, takeaways, groups, snapshot,

@@ -7,6 +7,7 @@
 {% include "partials/head.j2" %}
 </head>
 <body>
+<div class="reading-bar" id="reading-bar" aria-hidden="true"></div>
 {% set cat_colors = {
   "global-macro": "#4338ca",
   "equity": "#047857",
@@ -30,19 +31,44 @@
   </header>
   {% if snapshot %}
   <div class="ticker-wrap">
-    <div class="ticker">{% for t in snapshot %}<span class="{{ t.cls }}">{% if t.m1 == "up" %}<span class="m1 pos" title="1-month trend">▲</span>{% elif t.m1 == "down" %}<span class="m1 neg" title="1-month trend">▼</span>{% endif %}{{ t.text|e }}</span>{% if not loop.last %} · {% endif %}{% endfor %}</div>
-    <div class="asof">Market data as of {{ generated_at|e }}<span class="session-badge" id="session-badge"></span></div>
+    <div class="ticker">{% for t in snapshot %}<span class="{{ t.cls }}">{% if t.m1 == "up" %}<span class="m1 pos" style="animation-delay: {{ loop.index0 * 70 }}ms" title="1-month trend">▲</span>{% elif t.m1 == "down" %}<span class="m1 neg" style="animation-delay: {{ loop.index0 * 70 }}ms" title="1-month trend">▼</span>{% endif %}{{ t.text|e }}</span>{% if not loop.last %} · {% endif %}{% endfor %}</div>
+    <div class="asof">Market data as of {{ generated_at|e }}<span class="session-badge" id="session-badge"></span>{% if new_count %}<span class="new-count">{{ new_count }} new {{ "story" if new_count == 1 else "stories" }}</span>{% endif %}</div>
   </div>
   {% endif %}
 
+  {% if hero %}
+  <section class="hero reveal" id="snapshot">
+    <div class="hero-label">Market Snapshot</div>
+    <div class="hero-grid">
+      {% for h in hero %}
+      <div class="hero-cell">
+        <div class="hero-top">
+          <span class="hero-name">{{ h.short|e }}</span>
+          {% if h.spark %}<svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-{{ h.m1 or 'flat' }}" d="{{ h.spark }}"/></svg>{% endif %}
+        </div>
+        <div class="hero-last">{{ h.last_display|e }}</div>
+        <div class="hero-chg {{ h.cls }}">{{ h.chg_display|e }}</div>
+        {% if h.delta is not none %}<div class="hero-delta {{ 'pos' if h.delta >= 0 else 'neg' }}">Δ {{ h.delta_display|e }} vs yesterday</div>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
   {% if takeaways %}
-  <section class="takeaways" id="takeaways">
+  <section class="takeaways reveal" id="takeaways">
     <div class="tw-label">Today's Key Takeaways</div>
     <ul>
       {% for t in takeaways %}<li>{{ t|e }}</li>{% endfor %}
     </ul>
   </section>
   {% endif %}
+
+  <nav class="cat-nav" id="cat-nav" aria-label="Jump to section">
+    <a href="#snapshot" data-target="snapshot">Snapshot</a>
+    <a href="#takeaways" data-target="takeaways">Takeaways</a>
+    {% for cat in categories %}<a href="#{{ cat.id|e }}" data-target="{{ cat.id|e }}">{{ cat.label|e }}</a>{% endfor %}
+  </nav>
 
   <div class="filter-bar" id="importance-filter" role="group" aria-label="Filter stories by importance">
     <span class="filter-label">Importance</span>
@@ -54,7 +80,7 @@
 
   {# ---- News sections first ---- #}
   {% for cat in categories %}
-  <section class="desk" id="{{ cat.id|e }}"
+  <section class="desk reveal" id="{{ cat.id|e }}"
            style="--cat: {{ cat_colors.get(cat.id, '#4338ca') }}">
     <h2>{{ cat.label|e }}</h2>
     {% if cat["items"] %}
@@ -72,6 +98,7 @@
             data-rating="{{ item.rating }}"
             data-date="{{ page_date|e }}">
           <td class="headline">
+            {% if item.is_new %}<span class="new-badge">NEW</span>{% endif %}
             <a href="{{ item.url|e }}" target="_blank" rel="noopener">{{ item.title|e }}</a>
             {% if item.published %}<div class="pub">{{ item.published|e }}</div>{% endif %}
           </td>
