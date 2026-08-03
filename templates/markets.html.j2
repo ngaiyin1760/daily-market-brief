@@ -36,11 +36,13 @@
   // tick spacing/format per window (step in trading days).
   var ZOOM_RANGES = { "1M": 22, "3M": 66, "1Y": 262, "5Y": 1305, "10Y": 0 };
   var ZOOM_CFG = {
-    "1M":  { step: 5,   fmt: "day" },   // ~1 week between ticks
-    "3M":  { step: 21,  fmt: "month" }, // ~1 month
-    "1Y":  { step: 44,  fmt: "my" },    // ~2 months
-    "5Y":  { step: 300, fmt: "year" },  // ~1 year
-    "10Y": { step: 520, fmt: "year" }   // ~2 years
+    // step: 1M = trading-day spacing; 3M/1Y = months; 5Y/10Y = years.
+    // Month/year ticks anchor to the 1st trading day of the month/year.
+    "1M":  { step: 5,   fmt: "day",   mode: "step" },   // ~1 week between ticks
+    "3M":  { step: 1,   fmt: "month", mode: "month" },  // every month
+    "1Y":  { step: 2,   fmt: "my",    mode: "month" },  // every 2 months
+    "5Y":  { step: 1,   fmt: "year",  mode: "year" },   // every year
+    "10Y": { step: 2,   fmt: "year",  mode: "year" }    // every 2 years
   };
   var DEFAULT_ZOOM = "1Y";
   var charts = [];
@@ -213,8 +215,9 @@
                       ? mon + " " + day + " '" + yy : mon + " " + day;
                   }
                   if (cfg.fmt === "month") {
-                    return (nextYY && nextYY !== yy)
-                      ? mon + " '" + yy : mon;
+                    // Month ticks sit on the 1st; mark the year exactly once
+                    // at its January tick (e.g. "Jan '26").
+                    return mon === "Jan" ? mon + " '" + yy : mon;
                   }
                   if (cfg.fmt === "my") {
                     return mon + " '" + yy;
@@ -270,21 +273,74 @@
     chart.update();
   }
 
-  // Category scales build one tick per data point; we replace them with an
-  // exact stepped subset for the active zoom so labels never overlap.
+  var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  function parseDate(label) {
+    var m = String(label).match(/^([A-Z][a-z]{2})\s+(\d+)(?:\s+'(\d{2}))?$/);
+    if (!m) return null;
+    var mi = MONTHS.indexOf(m[1]);
+    if (mi < 0) return null;
+    return { y: parseInt(m[3] || "0", 10), mon: mi, day: parseInt(m[2], 10) };
+  }
+
+  // Month/year ticks land on the FIRST trading day of their month/year,
+  // anchored at the newest boundary and stepping back so the most recent
+  // months/years are always represented.
+  function buildBoundaryTicks(labels, cfg) {
+    var first = parseDate(labels[0]);
+    var last = parseDate(labels[labels.length - 1]);
+    if (!first || !last) return null;
+    var stepMonths = cfg.step * (cfg.mode === "year" ? 12 : 1);
+    var bounds = [];
+    var y = last.y, m = (cfg.mode === "year") ? 0 : last.mon;
+    for (;;) {
+      if (y < first.y || (y === first.y && m < first.mon)) break;
+      bounds.push({ y: y, m: m });
+      var total = y * 12 + m - stepMonths;
+      y = Math.floor(total / 12);
+      m = total - y * 12;
+    }
+    bounds.reverse();
+    var ticks = [];
+    for (var b = 0; b < bounds.length; b++) {
+      var target = bounds[b].y * 12 + bounds[b].m;
+      var tickIndex = -1;
+      for (var i = 0; i < labels.length; i++) {
+        var d = parseDate(labels[i]);
+        if (d && d.y * 12 + d.mon >= target) { tickIndex = i; break; }
+      }
+      if (tickIndex < 0) continue;
+      // Month ticks: drop a boundary that falls on the window's first point
+      // when the window starts more than a week into that month — it's a
+      // partial month, and the tick would sit mid-month instead of on the 1st.
+      if (cfg.mode === "month" && tickIndex === 0 && first.day > 7) continue;
+      ticks.push({ value: tickIndex });
+    }
+    return ticks;
+  }
+
+  // Category scales build one tick per data point; we replace them with a
+  // small exact subset for the active zoom so labels never overlap.
   function buildZoomTicks(axis) {
     var chart = axis.chart;
     var key = (chart && chart._zoomKey) || DEFAULT_ZOOM;
     var cfg = ZOOM_CFG[key] || ZOOM_CFG[DEFAULT_ZOOM];
-    var n = axis.getLabels().length;
+    var labels = axis.getLabels();
+    var n = labels.length;
     if (!n) return;
-    var ticks = [];
-    for (var i = 0; i < n; i += cfg.step) ticks.push({ value: i });
-    var last = ticks.length ? ticks[ticks.length - 1].value : -1;
-    // Include the newest point unless it would land right next to an
-    // existing tick (adjacent labels look like duplicates).
-    if (n - 1 - last >= Math.max(1, Math.floor(cfg.step / 2))) {
-      ticks.push({ value: n - 1 });
+    var ticks = null;
+    if (cfg.mode !== "step") ticks = buildBoundaryTicks(labels, cfg);
+    if (!ticks) {
+      // Fixed trading-day spacing (1M) or fallback when labels don't parse.
+      ticks = [];
+      for (var i = 0; i < n; i += cfg.step) ticks.push({ value: i });
+      var lastv = ticks.length ? ticks[ticks.length - 1].value : -1;
+      // Include the newest point unless it would land right next to an
+      // existing tick (adjacent labels look like duplicates).
+      if (n - 1 - lastv >= Math.max(1, Math.floor(cfg.step / 2))) {
+        ticks.push({ value: n - 1 });
+      }
     }
     axis.ticks = ticks;
   }
