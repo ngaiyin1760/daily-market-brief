@@ -758,7 +758,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Markets</h1>
-    <div class="generated">Key indicators — up to 10 years of daily history · updated 2026-08-03 23:35 HKT</div>
+    <div class="generated">Key indicators — up to 10 years of daily history · updated 2026-08-03 23:53 HKT</div>
   </header>
 
   <div id="markets-body">
@@ -1402,6 +1402,13 @@
     return step > 0 ? Math.min(6, Math.max(0, Math.ceil(-Math.log10(step)))) : 4;
   }
 
+  // Instruments priced below 10 need at least 2 decimals (e.g. JPY/HKD ~5.0),
+  // otherwise the axis/tooltip collapse to whole numbers ("5 5 5 5 5").
+  function minDecimals(scale) {
+    var mag = scale ? Math.max(Math.abs(scale.min), Math.abs(scale.max)) : 0;
+    return mag < 10 ? 2 : 0;
+  }
+
   function makeCard(item) {
     var card = document.createElement("div");
     card.className = "chart-card";
@@ -1517,7 +1524,8 @@
                   return items.length ? String(items[0].label) : "";
                 },
                 label: function (ctx) {
-                  var decimals = yDecimals(ctx.chart.scales.y);
+                  var y = ctx.chart.scales.y;
+                  var decimals = Math.max(yDecimals(y), minDecimals(y));
                   var v = ctx.parsed.y;
                   return v.toLocaleString(undefined, {
                     minimumFractionDigits: decimals,
@@ -1587,7 +1595,7 @@
                 color: "#8d8574",
                 padding: 4,
                 callback: function (v) {
-                  var decimals = yDecimals(this);
+                  var decimals = Math.max(yDecimals(this), minDecimals(this));
                   return v.toLocaleString(undefined, {
                     minimumFractionDigits: decimals,
                     maximumFractionDigits: decimals
@@ -1620,7 +1628,20 @@
     var lo = 0;
     if (win > 0 && win < total) lo = total - win;
     chart.data.labels = chart._fullLabels.slice(lo);
-    chart.data.datasets[0].data = chart._fullCloses.slice(lo);
+    var closes = chart._fullCloses.slice(lo);
+    chart.data.datasets[0].data = closes;
+    // Fit the y-axis tightly to the visible slice: Chart.js's default "nice"
+    // bounds can be far wider than the data (e.g. 4-8 for a 4.8-7.1 series),
+    // which wastes chart height and makes the ticks look coarse.
+    var yMin = Infinity, yMax = -Infinity;
+    for (var i = 0; i < closes.length; i++) {
+      if (closes[i] < yMin) yMin = closes[i];
+      if (closes[i] > yMax) yMax = closes[i];
+    }
+    var span = yMax - yMin;
+    var pad = span > 0 ? span * 0.05 : (yMax !== 0 ? Math.abs(yMax) * 0.005 : 1);
+    chart.options.scales.y.min = yMin - pad;
+    chart.options.scales.y.max = yMax + pad;
     chart.update();
   }
 
