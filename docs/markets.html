@@ -82,6 +82,50 @@
     margin-bottom: 6px;
     letter-spacing: .01em;
   }
+  /* Sidebar collapse/expand (desktop only) */
+  .sidebar-toggle {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    background: none;
+    border: 1px solid rgba(246, 241, 228, .25);
+    color: #cfc9bb;
+    cursor: pointer;
+    transition: background .12s, color .12s, border-color .12s;
+  }
+  .sidebar-toggle:hover {
+    background: rgba(255, 255, 255, .08);
+    color: #f6f1e4;
+    border-color: rgba(246, 241, 228, .5);
+  }
+  .sidebar-reopen {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 900;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: var(--card);
+    border: 1px solid var(--rule-dark);
+    color: var(--ink-soft);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(34, 31, 26, .15);
+    transition: color .12s, border-color .12s, transform .12s;
+  }
+  .sidebar-reopen:hover { color: var(--accent); border-color: var(--accent); }
+  .sidebar-reopen:active { transform: scale(.94); }
+  .sidebar-collapsed .sidebar { display: none; }
+  .sidebar-collapsed .content { margin-left: 0; }
   .sidebar .site-sub {
     font-size: 11px;
     letter-spacing: .18em;
@@ -979,6 +1023,10 @@
       border-right: none;
       border-bottom: 1px solid #0d0a1f;
     }
+    /* Collapse applies to desktop only — mobile keeps the strip */
+    .sidebar-collapsed .sidebar { display: block; }
+    .sidebar-collapsed .content { margin-left: 0; }
+    .sidebar-toggle, .sidebar-reopen { display: none; }
     .sidebar .site-title {
       padding: 0 16px 6px;
       font-size: 18px;
@@ -1090,6 +1138,10 @@
 <div class="reading-bar" id="reading-bar" aria-hidden="true"></div>
 
 <aside class="sidebar">
+  <button type="button" class="sidebar-toggle" id="sidebar-toggle"
+          aria-label="Collapse sidebar" title="Collapse sidebar" aria-expanded="true">
+    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
   <div class="site-title">Daily Market Brief</div>
   <div class="site-sub">Market Intelligence</div>
   <nav class="sidebar-top">
@@ -1116,7 +1168,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Markets</h1>
-    <div class="generated">Key indicators — up to 10 years of daily history · updated 2026-08-04 22:49 HKT<span class="session-badge" id="session-badge"></span></div>
+    <div class="generated">Key indicators — up to 10 years of daily history · updated 2026-08-04 22:53 HKT<span class="session-badge" id="session-badge"></span></div>
   </header>
 
   <div id="markets-body">
@@ -1310,7 +1362,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-04 22:49 HKT");
+  var dataTS = encodeURIComponent("2026-08-04 22:53 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
@@ -1486,6 +1538,45 @@
       var open = hero.classList.toggle("open");
       heroToggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
+  }
+
+  // ---------- Sidebar collapse/expand (desktop) ----------
+  var sidebarToggle = document.getElementById("sidebar-toggle");
+  if (sidebarToggle) {
+    var SIDEBAR_KEY = "dmb_sidebar_collapsed";
+    var reopenBtn = document.createElement("button");
+    reopenBtn.type = "button";
+    reopenBtn.className = "sidebar-reopen";
+    reopenBtn.setAttribute("aria-label", "Show sidebar");
+    reopenBtn.title = "Show sidebar";
+    reopenBtn.innerHTML =
+      '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">'
+      + '<path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" '
+      + 'stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    document.body.appendChild(reopenBtn);
+    function applySidebar(collapsed) {
+      document.documentElement.classList.toggle("sidebar-collapsed", collapsed);
+      sidebarToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
+      sidebarToggle.setAttribute("aria-label",
+        collapsed ? "Show sidebar" : "Collapse sidebar");
+      sidebarToggle.title = collapsed ? "Show sidebar" : "Collapse sidebar";
+      reopenBtn.style.display = collapsed ? "flex" : "none";
+    }
+    sidebarToggle.addEventListener("click", function () {
+      var collapsed = !document.documentElement.classList.contains("sidebar-collapsed");
+      applySidebar(collapsed);
+      try { localStorage.setItem(SIDEBAR_KEY, collapsed ? "1" : "0"); } catch (e) {}
+    });
+    reopenBtn.addEventListener("click", function () {
+      applySidebar(false);
+      try { localStorage.setItem(SIDEBAR_KEY, "0"); } catch (e) {}
+    });
+    // Restore the persisted state on page load (desktop only).
+    if (window.matchMedia("(min-width: 821px)").matches) {
+      var stored = null;
+      try { stored = localStorage.getItem(SIDEBAR_KEY); } catch (e) {}
+      if (stored === "1") applySidebar(true);
+    }
   }
 
   // ---------- Reading progress bar ----------
@@ -2545,7 +2636,7 @@
     });
   }
 
-  fetch(base + "/data/indicators.json?v=" + encodeURIComponent("2026-08-04 22:49 HKT"))
+  fetch(base + "/data/indicators.json?v=" + encodeURIComponent("2026-08-04 22:53 HKT"))
     .then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();

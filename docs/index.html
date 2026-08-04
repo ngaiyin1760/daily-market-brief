@@ -82,6 +82,50 @@
     margin-bottom: 6px;
     letter-spacing: .01em;
   }
+  /* Sidebar collapse/expand (desktop only) */
+  .sidebar-toggle {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    background: none;
+    border: 1px solid rgba(246, 241, 228, .25);
+    color: #cfc9bb;
+    cursor: pointer;
+    transition: background .12s, color .12s, border-color .12s;
+  }
+  .sidebar-toggle:hover {
+    background: rgba(255, 255, 255, .08);
+    color: #f6f1e4;
+    border-color: rgba(246, 241, 228, .5);
+  }
+  .sidebar-reopen {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 900;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: var(--card);
+    border: 1px solid var(--rule-dark);
+    color: var(--ink-soft);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(34, 31, 26, .15);
+    transition: color .12s, border-color .12s, transform .12s;
+  }
+  .sidebar-reopen:hover { color: var(--accent); border-color: var(--accent); }
+  .sidebar-reopen:active { transform: scale(.94); }
+  .sidebar-collapsed .sidebar { display: none; }
+  .sidebar-collapsed .content { margin-left: 0; }
   .sidebar .site-sub {
     font-size: 11px;
     letter-spacing: .18em;
@@ -979,6 +1023,10 @@
       border-right: none;
       border-bottom: 1px solid #0d0a1f;
     }
+    /* Collapse applies to desktop only — mobile keeps the strip */
+    .sidebar-collapsed .sidebar { display: block; }
+    .sidebar-collapsed .content { margin-left: 0; }
+    .sidebar-toggle, .sidebar-reopen { display: none; }
     .sidebar .site-title {
       padding: 0 16px 6px;
       font-size: 18px;
@@ -1090,6 +1138,10 @@
 <div class="reading-bar" id="reading-bar" aria-hidden="true"></div>
 
 <aside class="sidebar">
+  <button type="button" class="sidebar-toggle" id="sidebar-toggle"
+          aria-label="Collapse sidebar" title="Collapse sidebar" aria-expanded="true">
+    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
   <div class="site-title">Daily Market Brief</div>
   <div class="site-sub">Market Intelligence</div>
   <nav class="sidebar-top">
@@ -1116,12 +1168,12 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>2026-08-04</h1>
-    <div class="generated">Generated 2026-08-04 22:49 HKT</div>
+    <div class="generated">Generated 2026-08-04 22:53 HKT</div>
   </header>
   
   <div class="ticker-wrap">
     <div class="ticker"><span class="pos"><span class="m1 pos" style="animation-delay: 0ms" title="1-month trend">▲</span>S&amp;P +1.1%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 70ms" title="1-month trend">▲</span>Nasdaq +1.6%</span> · <span class="neg"><span class="m1 pos" style="animation-delay: 140ms" title="1-month trend">▲</span>HSI -0.6%</span> · <span class="neg"><span class="m1 pos" style="animation-delay: 210ms" title="1-month trend">▲</span>US10Y 4.64%</span> · <span class="flat">USD/HKD +0.0%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 350ms" title="1-month trend">▼</span>HKD/CNY -0.1%</span> · <span class="neg"><span class="m1 pos" style="animation-delay: 420ms" title="1-month trend">▲</span>JPY/HKD(¥100) -0.5%</span> · <span class="pos"><span class="m1 neg" style="animation-delay: 490ms" title="1-month trend">▼</span>Gold +2.6%</span> · <span class="pos"><span class="m1 neg" style="animation-delay: 560ms" title="1-month trend">▼</span>BTC +0.9%</span></div>
-    <div class="asof">Market data as of 2026-08-04 22:49 HKT<span class="session-badge" id="session-badge"></span><span class="new-count">22 new stories</span></div>
+    <div class="asof">Market data as of 2026-08-04 22:53 HKT<span class="session-badge" id="session-badge"></span><span class="new-count">22 new stories</span></div>
   </div>
   
 
@@ -1137,21 +1189,21 @@
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">S&amp;P 500</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,26.2 L4.4,26.8 L7.8,26.8 L11.1,27.1 L14.5,20.5 L17.9,16.0 L21.3,17.2 L24.7,17.2 L28.0,13.0 L31.4,15.6 L34.8,17.2 L38.2,12.6 L41.6,10.1 L44.9,14.7 L48.3,12.6 L51.7,10.4 L55.1,13.3 L58.4,19.2 L61.8,20.3 L65.2,15.2 L68.6,16.0 L72.0,22.9 L75.3,22.7 L78.7,22.6 L82.1,21.4 L85.5,30.0 L88.9,20.7 L92.2,16.7 L95.6,8.2 L99.0,2.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,26.2 L4.4,26.8 L7.8,26.9 L11.1,27.1 L14.5,20.5 L17.9,16.0 L21.3,17.3 L24.7,17.3 L28.0,13.1 L31.4,15.7 L34.8,17.3 L38.2,12.7 L41.6,10.3 L44.9,14.8 L48.3,12.7 L51.7,10.5 L55.1,13.4 L58.4,19.2 L61.8,20.3 L65.2,15.3 L68.6,16.1 L72.0,23.0 L75.3,22.7 L78.7,22.6 L82.1,21.4 L85.5,30.0 L88.9,20.7 L92.2,16.8 L95.6,8.3 L99.0,2.0"/></svg>
         </div>
-        <div class="hero-last">7,681.61</div>
-        <div class="hero-chg pos">+1.07%</div>
-        <div class="hero-delta pos">Δ +1.25% vs yesterday</div>
+        <div class="hero-last">7,683.79</div>
+        <div class="hero-chg pos">+1.10%</div>
+        <div class="hero-delta pos">Δ +1.28% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">Nasdaq</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,13.0 L4.4,14.6 L7.8,16.4 L11.1,17.3 L14.5,9.5 L17.9,3.6 L21.3,6.2 L24.7,9.3 L28.0,5.0 L31.4,9.5 L34.8,8.7 L38.2,3.7 L41.6,2.6 L44.9,8.7 L48.3,5.2 L51.7,2.8 L55.1,8.6 L58.4,13.9 L61.8,14.1 L65.2,9.2 L68.6,11.4 L72.0,19.6 L75.3,22.1 L78.7,22.7 L82.1,23.5 L85.5,30.0 L88.9,19.9 L92.2,16.1 L95.6,8.1 L99.0,2.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,13.0 L4.4,14.6 L7.8,16.4 L11.1,17.3 L14.5,9.5 L17.9,3.6 L21.3,6.2 L24.7,9.3 L28.0,5.0 L31.4,9.5 L34.8,8.7 L38.2,3.7 L41.6,2.6 L44.9,8.7 L48.3,5.2 L51.7,2.8 L55.1,8.6 L58.4,14.0 L61.8,14.1 L65.2,9.2 L68.6,11.4 L72.0,19.7 L75.3,22.1 L78.7,22.7 L82.1,23.5 L85.5,30.0 L88.9,19.9 L92.2,16.1 L95.6,8.1 L99.0,2.0"/></svg>
         </div>
-        <div class="hero-last">26,322.25</div>
+        <div class="hero-last">26,323.45</div>
         <div class="hero-chg pos">+1.58%</div>
-        <div class="hero-delta pos">Δ +1.74% vs yesterday</div>
+        <div class="hero-delta pos">Δ +1.75% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
@@ -1167,31 +1219,31 @@
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">US10Y</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,20.9 L4.4,27.7 L7.8,28.5 L11.1,30.0 L14.5,29.8 L17.9,26.5 L21.3,22.3 L24.7,21.5 L28.0,22.0 L31.4,18.2 L34.8,15.2 L38.2,17.5 L41.6,15.2 L44.9,12.2 L48.3,14.0 L51.7,17.0 L55.1,15.2 L58.4,17.3 L61.8,13.0 L65.2,10.8 L68.6,8.6 L72.0,5.2 L75.3,7.0 L78.7,9.8 L82.1,12.6 L85.5,11.2 L88.9,8.2 L92.2,2.0 L95.6,6.4 L99.0,9.7"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,20.9 L4.4,27.7 L7.8,28.5 L11.1,30.0 L14.5,29.8 L17.9,26.5 L21.3,22.3 L24.7,21.5 L28.0,22.0 L31.4,18.2 L34.8,15.2 L38.2,17.5 L41.6,15.2 L44.9,12.2 L48.3,14.0 L51.7,17.0 L55.1,15.2 L58.4,17.3 L61.8,13.0 L65.2,10.8 L68.6,8.6 L72.0,5.2 L75.3,7.0 L78.7,9.8 L82.1,12.6 L85.5,11.2 L88.9,8.2 L92.2,2.0 L95.6,6.4 L99.0,10.0"/></svg>
         </div>
         <div class="hero-last">4.64%</div>
-        <div class="hero-chg neg">-4.3 bp</div>
-        <div class="hero-delta neg">Δ -3.5 bp vs yesterday</div>
+        <div class="hero-chg neg">-4.7 bp</div>
+        <div class="hero-delta neg">Δ -3.9 bp vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">USD/HKD</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-flat" d="M1.0,13.9 L4.4,19.2 L7.8,16.7 L11.1,9.0 L14.5,14.2 L17.9,6.5 L21.3,2.0 L24.7,5.5 L28.0,5.5 L31.4,7.3 L34.8,9.7 L38.2,19.5 L41.6,30.0 L44.9,17.0 L48.3,24.0 L51.7,24.0 L55.1,21.2 L58.4,13.6 L61.8,16.4 L65.2,12.8 L68.6,10.4 L72.0,15.6 L75.3,11.4 L78.7,9.0 L82.1,9.3 L85.5,12.8 L88.9,8.3 L92.2,5.5 L95.6,9.0 L99.0,4.5"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-flat" d="M1.0,13.9 L4.4,19.2 L7.8,16.7 L11.1,9.0 L14.5,14.2 L17.9,6.5 L21.3,2.0 L24.7,5.5 L28.0,5.5 L31.4,7.3 L34.8,9.7 L38.2,19.5 L41.6,30.0 L44.9,17.0 L48.3,24.0 L51.7,24.0 L55.1,21.2 L58.4,13.6 L61.8,16.4 L65.2,12.8 L68.6,10.4 L72.0,15.6 L75.3,11.4 L78.7,9.0 L82.1,9.3 L85.5,12.8 L88.9,8.3 L92.2,5.5 L95.6,9.0 L99.0,4.8"/></svg>
         </div>
         <div class="hero-last">7.84</div>
         <div class="hero-chg flat">+0.02%</div>
-        <div class="hero-delta pos">Δ +0.03% vs yesterday</div>
+        <div class="hero-delta pos">Δ +0.02% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">HKD/CNY</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,8.5 L4.4,8.1 L7.8,8.1 L11.1,5.2 L14.5,6.7 L17.9,7.7 L21.3,7.7 L24.7,9.9 L28.0,10.3 L31.4,6.7 L34.8,7.4 L38.2,2.0 L41.6,5.6 L44.9,14.2 L48.3,12.1 L51.7,16.4 L55.1,17.8 L58.4,16.4 L61.8,16.4 L65.2,16.7 L68.6,19.9 L72.0,16.4 L75.3,16.7 L78.7,17.4 L82.1,19.9 L85.5,17.4 L88.9,19.9 L92.2,25.3 L95.6,26.8 L99.0,30.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,8.5 L4.4,8.2 L7.8,8.2 L11.1,5.3 L14.5,6.7 L17.9,7.8 L21.3,7.8 L24.7,10.0 L28.0,10.4 L31.4,6.7 L34.8,7.5 L38.2,2.0 L41.6,5.6 L44.9,14.4 L48.3,12.2 L51.7,16.5 L55.1,18.0 L58.4,16.5 L61.8,16.5 L65.2,16.9 L68.6,20.2 L72.0,16.5 L75.3,16.9 L78.7,17.6 L82.1,20.2 L85.5,17.6 L88.9,20.2 L92.2,25.6 L95.6,27.1 L99.0,30.0"/></svg>
         </div>
         <div class="hero-last">0.86</div>
-        <div class="hero-chg neg">-0.10%</div>
-        <div class="hero-delta neg">Δ -0.16% vs yesterday</div>
+        <div class="hero-chg neg">-0.09%</div>
+        <div class="hero-delta neg">Δ -0.15% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
@@ -1207,9 +1259,9 @@
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">Gold</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,6.2 L4.4,29.2 L7.8,22.6 L11.1,14.6 L14.5,23.9 L17.9,23.8 L21.3,16.3 L24.7,9.0 L28.0,2.0 L31.4,3.6 L34.8,15.9 L38.2,6.0 L41.6,10.4 L44.9,28.1 L48.3,17.5 L51.7,20.4 L55.1,30.0 L58.4,25.5 L61.8,25.9 L65.2,15.9 L68.6,3.4 L72.0,19.9 L75.3,16.5 L78.7,15.3 L82.1,21.6 L85.5,21.9 L88.9,11.1 L92.2,19.5 L95.6,22.1 L99.0,4.9"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,6.2 L4.4,29.2 L7.8,22.6 L11.1,14.6 L14.5,23.9 L17.9,23.8 L21.3,16.3 L24.7,9.0 L28.0,2.0 L31.4,3.6 L34.8,15.9 L38.2,6.0 L41.6,10.4 L44.9,28.1 L48.3,17.5 L51.7,20.4 L55.1,30.0 L58.4,25.5 L61.8,25.9 L65.2,15.9 L68.6,3.4 L72.0,19.9 L75.3,16.5 L78.7,15.3 L82.1,21.6 L85.5,21.9 L88.9,11.1 L92.2,19.5 L95.6,22.1 L99.0,5.0"/></svg>
         </div>
-        <div class="hero-last">4,137.30</div>
+        <div class="hero-last">4,137.20</div>
         <div class="hero-chg pos">+2.57%</div>
         <div class="hero-delta pos">Δ +1.08% vs yesterday</div>
       </div>
@@ -1217,11 +1269,11 @@
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">BTC</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,18.5 L4.4,23.1 L7.8,29.9 L11.1,23.7 L14.5,17.6 L17.9,19.7 L21.3,20.0 L24.7,30.0 L28.0,12.2 L31.4,13.8 L34.8,19.8 L38.2,19.1 L41.6,13.2 L44.9,13.9 L48.3,10.4 L51.7,2.0 L55.1,4.7 L58.4,11.6 L61.8,17.8 L65.2,16.4 L68.6,9.6 L72.0,20.2 L75.3,19.3 L78.7,19.0 L82.1,13.7 L85.5,26.2 L88.9,26.6 L92.2,21.8 L95.6,22.0 L99.0,18.4"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,18.5 L4.4,23.1 L7.8,29.9 L11.1,23.7 L14.5,17.6 L17.9,19.7 L21.3,20.0 L24.7,30.0 L28.0,12.2 L31.4,13.8 L34.8,19.8 L38.2,19.1 L41.6,13.2 L44.9,13.9 L48.3,10.4 L51.7,2.0 L55.1,4.7 L58.4,11.6 L61.8,17.8 L65.2,16.4 L68.6,9.6 L72.0,20.2 L75.3,19.3 L78.7,19.0 L82.1,13.7 L85.5,26.2 L88.9,26.6 L92.2,21.8 L95.6,22.0 L99.0,18.3"/></svg>
         </div>
-        <div class="hero-last">64,005.50</div>
-        <div class="hero-chg pos">+0.86%</div>
-        <div class="hero-delta pos">Δ +0.51% vs yesterday</div>
+        <div class="hero-last">64,016.98</div>
+        <div class="hero-chg pos">+0.88%</div>
+        <div class="hero-delta pos">Δ +0.53% vs yesterday</div>
       </div>
       
     </div>
@@ -1232,7 +1284,7 @@
   <section class="takeaways reveal" id="takeaways">
     <div class="tw-label">Today's Key Takeaways</div>
     <ul>
-      <li>Market concentration in AI-linked firms now drives 85% of S&amp;P 500 gains, yet earnings quality is increasingly questioned as headline growth relies heavily on volatile, unrealized private equity gains.</li><li>Central bank credibility is under pressure as bond market skepticism and sticky global inflation suggest a prolonged &#39;higher for longer&#39; rate environment, complicating the path for growth-sensitive assets.</li><li>Systemic risks are mounting as infrastructure bottlenecks, regulatory grid audits, and potential bans on Chinese hardware threaten to inflate costs and delay the massive capital expenditure fueling the AI boom.</li>
+      <li>Equity markets are hitting record highs on AI-driven optimism, yet a widening divergence persists as bond markets signal skepticism over Fed credibility and the sustainability of overstimulated U.S. growth.</li><li>Global liquidity faces systemic risks as Japan’s currency intervention threatens to spill over into the U.S. Treasury market, complicating the &#39;higher-for-longer&#39; interest rate environment for central banks.</li><li>Geopolitical and regulatory pressures are mounting on critical infrastructure, with potential bans on Chinese hardware and grid-connection audits forcing a costly, mandatory overhaul of data center supply chains.</li>
     </ul>
   </section>
   
@@ -1283,13 +1335,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>The Reserve Bank of India is expected to maintain its repo rate at 5.25 percent, despite retail inflation climbing to 4.38 percent in June, which marks the first breach of the 4 percent target in 17 months.</li><li>Rising food and fuel costs, compounded by geopolitical tensions in West Asia, are pressuring the central bank to adopt a more hawkish tone to ensure price stability and support the rupee.</li>
+              <li>The Reserve Bank of India is expected to maintain its repo rate at 5.25% despite retail inflation climbing to 4.38% in June, breaching the central bank&#39;s 4% target for the first time in 17 months.</li><li>Rising food and fuel costs, compounded by geopolitical tensions in West Asia, are pressuring the MPC to adopt a more hawkish tone to manage price stability and support the rupee.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Forbes India</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="reason">Significant central bank policy decision impacting emerging market currency stability.</span>
+            <span class="reason">Significant policy decision in a major emerging market facing inflationary headwinds.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1315,13 +1367,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>A recent bond market sell-off has been interpreted by senior central bank officials as a direct signal of market skepticism regarding the Federal Reserve&#39;s commitment to its inflation-fighting mandate.</li><li>This loss of credibility suggests that investors are pricing in higher long-term risks, potentially forcing the Fed to maintain restrictive policy longer than previously anticipated to anchor expectations.</li>
+              <li>A recent bond market sell-off has been interpreted by senior central bank officials as a direct signal of market skepticism regarding the Federal Reserve&#39;s commitment to its inflation-fighting mandate.</li><li>This development highlights growing investor concerns over the Fed&#39;s long-term credibility, potentially forcing a more aggressive policy stance to anchor inflation expectations and stabilize sovereign debt markets.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Financial Times</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Direct impact on global interest rate expectations and market sentiment.</span>
+            <span class="reason">Direct impact on global risk-free rates and central bank policy credibility.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1347,13 +1399,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Economists surveyed by Reuters indicate that global inflation is likely to remain sticky, complicating the path for central banks attempting to balance growth with price stability.</li><li>The persistence of these inflationary pressures suggests that the era of &#39;higher for longer&#39; interest rates may extend further into 2026, impacting corporate earnings and consumer spending power.</li>
+              <li>Economists surveyed by Reuters indicate that global inflation is likely to remain sticky, complicating the path for central banks attempting to balance growth support with price stability.</li><li>The persistence of these inflationary pressures suggests that the &#39;higher-for-longer&#39; interest rate environment may extend further than previously anticipated, impacting global capital allocation and corporate earnings forecasts.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Reuters</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="reason">Broad macroeconomic outlook affecting global asset valuations.</span>
+            <span class="reason">Broad macroeconomic consensus shift affecting global asset pricing.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1394,13 +1446,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>The S&amp;P 500 is approaching a new closing record high, driven by a rotation into diverse sectors and a rebound in tech stocks following a two-month period of heightened volatility and AI-related anxiety.</li><li>Market sentiment received a significant boost from Treasury Secretary Scott Bessent’s comments regarding potential progress in negotiations to reopen the Strait of Hormuz, which helped ease energy price concerns.</li>
+              <li>The S&amp;P 500 is approaching a new closing record high, driven by a rotation into diverse sectors and a rebound in tech stocks that helped the index recover from a nearly 5% summer swoon.</li><li>Market sentiment improved significantly following comments from Treasury Secretary Scott Bessent regarding potential progress in negotiations to reopen the Strait of Hormuz, which helped ease energy price volatility.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">CNN</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Broad market index hitting record highs is a primary indicator of investor sentiment and macroeconomic health.</span>
+            <span class="reason">Market-wide index performance and geopolitical de-escalation signals.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1426,13 +1478,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Palantir shares surged 14% following a strong second quarter, characterized by a 149% year-over-year revenue growth in its US Commercial segment and a record $2.1 billion in total contract value.</li><li>Management raised full-year revenue guidance to approximately $8.15 billion, an 82% increase over the prior year, as the company benefits from parabolic demand for its AI-driven software solutions.</li>
+              <li>Palantir reported a 149% year-over-year revenue growth in its US Commercial segment, signaling a decisive reacceleration in demand for its AI solutions that exceeded analyst expectations.</li><li>Management raised full-year revenue guidance to approximately $8.15 billion, an 82% increase over the prior year, while the stock&#39;s forward P/E ratio compressed to 84x, down from a four-quarter average of 199x.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="reason">Significant earnings beat and guidance raise from a bellwether AI stock impacts broader tech sector valuations.</span>
+            <span class="reason">Significant earnings beat and guidance raise for a high-profile AI stock.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1473,13 +1525,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>The recent joint U.S.-Japan currency intervention, aimed at stabilizing the yen near 40-year lows, highlights growing systemic risks as Japan holds US$1.14-trillion in U.S. Treasuries.</li><li>Market volatility in Japanese Government Bonds (JGBs) threatens to spill over into the U.S. Treasury market, potentially exacerbating yield spikes at a time when Fed credibility is under intense scrutiny.</li>
+              <li>The recent joint U.S.-Japan currency intervention, aimed at stabilizing the yen after it hit a 40-year low, highlights the risk of spillover volatility from Japanese Government Bond (JGB) markets into the $29-trillion U.S. Treasury market.</li><li>Japan remains the largest international creditor to the U.S. with $1.14 trillion in holdings, creating a systemic vulnerability where simultaneous stress in the yen, JGBs, and Treasuries could destabilize global financial liquidity.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">The Globe and Mail</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Systemic risk from major creditor instability</span>
+            <span class="reason">Systemic risk involving major sovereign debt holders and currency stability.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1492,26 +1544,26 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMimAFBVV95cUxPbENYN182TVM0cmg5Wm13VEF2VXNDOTFsWjR3eEhSdm1MbnUxOEkzYnRJRmNYSmtjeDJwNnhZbDE2cFpwaXZVZW5EazVMWExrYjFxLWp1SEZtUkhYVzJsc1RCSTZDVHIzSTJpMzJyQmRKa1dlNlpNdFBEbVo2S3lLVXFDQzVRb1RCeEc4eE1ldC1raXlEWVZ6Tg?oc=5"
-            data-title="Fitch Says: AI Market Correction Could Be a Big Risk to Corporate Credit. That Might Be Bad News for This Junk Bond ETF."
-            data-source="The Motley Fool"
+            data-url="https://news.google.com/rss/articles/CBMipwFBVV95cUxPdVJRUzE0NW45anVrcnRHaXVObTBLbV8xeDBFeWdBejRtb1llY0cyX1U1SHZxOGhFQzV3TDhZcm5pZEF4UkZLRzc0VHJWN1hrZnI5dXpBTzB2TVAtd0lvU1h2bW5TNFpZdUhxa1R1YV9FVFJHT3UwNl8zYXJibHFKRWxtbWhVUGdVLVBNc1BxSDVNTHIxR0p3dy00UEl5QzJFWmwtSjlpZw?oc=5"
+            data-title="U.S. economy is overstimulated — and bond markets fear it"
+            data-source="The Globe and Mail"
             data-category="Fixed Income"
             data-rating="4"
             data-date="2026-08-04">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPbENYN182TVM0cmg5Wm13VEF2VXNDOTFsWjR3eEhSdm1MbnUxOEkzYnRJRmNYSmtjeDJwNnhZbDE2cFpwaXZVZW5EazVMWExrYjFxLWp1SEZtUkhYVzJsc1RCSTZDVHIzSTJpMzJyQmRKa1dlNlpNdFBEbVo2S3lLVXFDQzVRb1RCeEc4eE1ldC1raXlEWVZ6Tg?oc=5" target="_blank" rel="noopener">Fitch Says: AI Market Correction Could Be a Big Risk to Corporate Credit. That Might Be Bad News for This Junk Bond ETF.</a>
-            <div class="pub">2026-08-04 05:45 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxPdVJRUzE0NW45anVrcnRHaXVObTBLbV8xeDBFeWdBejRtb1llY0cyX1U1SHZxOGhFQzV3TDhZcm5pZEF4UkZLRzc0VHJWN1hrZnI5dXpBTzB2TVAtd0lvU1h2bW5TNFpZdUhxa1R1YV9FVFJHT3UwNl8zYXJibHFKRWxtbWhVUGdVLVBNc1BxSDVNTHIxR0p3dy00UEl5QzJFWmwtSjlpZw?oc=5" target="_blank" rel="noopener">U.S. economy is overstimulated — and bond markets fear it</a>
+            <div class="pub">2026-08-04 10:06 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>AI-related corporate debt issuance is projected to reach nearly $570 billion in 2026, with Fitch Ratings noting that this capital expenditure contributed 1.4% to U.S. GDP growth in Q1.</li><li>A potential re-evaluation of AI&#39;s long-term profitability could trigger a credit market downturn, disproportionately impacting high-yield corporate bond ETFs that hold lower-rated, more vulnerable issuers.</li>
+              <li>Nominal U.S. GDP grew at an annualized rate of nearly 8% in the second quarter, significantly outpacing the 25-year average and signaling potential overheating driven by fiscal policy and massive AI-related capital expenditure.</li><li>While corporate earnings have surged by nearly 50% for S&amp;P 500 firms, the bond market is signaling concern through rising yields, creating a growing divergence between equity market optimism and fixed-income caution regarding inflation.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The Motley Fool</span></td>
+          <td class="source"><span class="chip">The Globe and Mail</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="reason">Credit risk concentration in AI-related debt</span>
+            <span class="reason">Macroeconomic data indicating potential overheating and policy divergence.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1552,13 +1604,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>China&#39;s second-quarter GDP growth slowed to 4.3%, dragging the first-half average to 4.7% and leaving the economy barely within the official 4.5-5% annual target range.</li><li>The growth deceleration is driven by a sharp 18% contraction in property investment and a significant cooling in retail sales, which grew only 0.2% in the second quarter compared to 2.4% in the first.</li>
+              <li>China&#39;s GDP growth decelerated to 4.3% in the second quarter, dragging the first-half average to 4.7% and leaving the economy barely within the official 4.5-5% annual target range.</li><li>The slowdown is characterized by a sharp 18% plunge in property investment and a significant cooling in retail sales growth, which dropped from 2.4% in Q1 to just 0.2% in Q2.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">scmp.com</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Critical data showing the failure of domestic demand and property sector drag.</span>
+            <span class="reason">Signals structural weakness and potential policy shift</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1584,13 +1636,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>The economy is transitioning into a structural &#39;around 4 percent growth&#39; era, as traditional engines like real estate and infrastructure are replaced by AI and advanced manufacturing.</li><li>Economic divergence is widening between industries and income groups, creating a disconnect where official macroeconomic indicators fail to reflect the actual financial strain experienced by households and local governments.</li>
+              <li>The economy is undergoing a structural transition toward an &#39;around 4 percent growth&#39; era, as traditional engines like real estate and infrastructure are replaced by AI and advanced manufacturing.</li><li>Economic divergence is widening between industries and regions, creating a disconnect between official macroeconomic data and the actual financial health of households and local government balance sheets.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">China Daily Global Edition</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="reason">Provides structural context for the long-term shift in China&#39;s growth trajectory.</span>
+            <span class="reason">Provides critical context on long-term structural shifts</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1631,13 +1683,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>HSBC reported a 27% increase in profit attributable to shareholders to US$14.6 billion for the first half of 2026, driven by growth in net interest income and higher fee-based revenue.</li><li>The bank announced a US$1 billion share buyback and a second interim dividend of US$0.10 per share, signaling confidence despite incurring US$2.4 billion in expected credit losses, including exposure to Hong Kong commercial property.</li>
+              <li>HSBC reported a 27% increase in profit attributable to shareholders to US$14.6 billion, driven by growth in net interest income and higher fee income despite a US$2.4 billion charge for expected credit losses.</li><li>The bank is resuming a US$1 billion share buyback program and declared a second interim dividend of US$0.10 per share, signaling strong capital position and management confidence in its global restructuring strategy.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Hong Kong Free Press HKFP</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Major capital return and strong earnings from a systemically important financial institution.</span>
+            <span class="reason">Major capital return and strong earnings from a systemically important bank.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1650,26 +1702,26 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMitwFBVV95cUxOWFFhSnMwd0pfUVZrRVk3a3FnTTcxVktQM2JDeW1xUWJlck55TWlaMEI3ZEhWanpoZ2N1VENSWWFoOFNvRnVnZW0wS2c4VjZxWHpMNmZyanRtS3RJaVdiaENtb2VXamtBR05XdG8wUWtRdFdhcU5nRDZVZmRiOFlMOVhWZlRSamZZbGhRU1lQYTVGMm9hUWU3VTRKaUdUVGxPV2FvTlNLV2g5cmhVTUJIRnRBVkZpcEE?oc=5"
-            data-title="Hong Kong home sales value drops 44.6pc month-on-month in July"
-            data-source="The Standard (HK)"
+            data-url="https://news.google.com/rss/articles/CBMinwFBVV95cUxNZVQ1bnFPSjlKNDk5UWdqUHZ4elFPWjNPcW54R0tlNE5rSkt5M1A5N1d6RS1nSmFzdDNZWGp2WUsxbUpjWkFhS2VPUFNDUGdTTEdsY0ZQX1I0WFhKREQ5UHpDRFBhb2gtS1Vwd0V4TDNTbVFFU3ZFYlFJQ1dKTG1sT3RPRTVFQlpNbFR2cGozVl8yc0RFcVVKTk1xVUZ1S2M?oc=5"
+            data-title="Hong Kong high street rents forecast to rise 3% this year"
+            data-source="Real Estate Asia"
             data-category="Hong Kong Economy"
-            data-rating="4"
+            data-rating="3"
             data-date="2026-08-04">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxOWFFhSnMwd0pfUVZrRVk3a3FnTTcxVktQM2JDeW1xUWJlck55TWlaMEI3ZEhWanpoZ2N1VENSWWFoOFNvRnVnZW0wS2c4VjZxWHpMNmZyanRtS3RJaVdiaENtb2VXamtBR05XdG8wUWtRdFdhcU5nRDZVZmRiOFlMOVhWZlRSamZZbGhRU1lQYTVGMm9hUWU3VTRKaUdUVGxPV2FvTlNLV2g5cmhVTUJIRnRBVkZpcEE?oc=5" target="_blank" rel="noopener">Hong Kong home sales value drops 44.6pc month-on-month in July</a>
-            <div class="pub">2026-08-04 09:02 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxNZVQ1bnFPSjlKNDk5UWdqUHZ4elFPWjNPcW54R0tlNE5rSkt5M1A5N1d6RS1nSmFzdDNZWGp2WUsxbUpjWkFhS2VPUFNDUGdTTEdsY0ZQX1I0WFhKREQ5UHpDRFBhb2gtS1Vwd0V4TDNTbVFFU3ZFYlFJQ1dKTG1sT3RPRTVFQlpNbFR2cGozVl8yc0RFcVVKTk1xVUZ1S2M?oc=5" target="_blank" rel="noopener">Hong Kong high street rents forecast to rise 3% this year</a>
+            <div class="pub">2026-08-04 00:29 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The 44.6% month-on-month decline in home sales value for July highlights significant volatility in the local property market, contrasting sharply with earlier periods of recovery.</li><li>This sharp contraction suggests that momentum in the residential sector is stalling, potentially impacting the balance sheets of major local developers and the broader economic outlook for Hong Kong.</li>
+              <li>Retail sales in Hong Kong grew 10.6% year-on-year in the first five months of 2026, supported by a 14.1% increase in visitor arrivals, which reached 23 million during the period.</li><li>Colliers forecasts a 3% rise in high street rents for the year, constrained by limited prime retail space availability despite a more moderate growth pace expected in the second half.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The Standard (HK)</span></td>
+          <td class="source"><span class="chip">Real Estate Asia</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="reason">Significant indicator of cooling momentum in Hong Kong&#39;s critical property sector.</span>
+            <span class="rating-chip r3">3</span>
+            <span class="reason">Indicates a modest recovery in the retail sector, a key component of the local economy.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1701,7 +1753,7 @@
             data-title="Big Tech&#39;s Anthropic and OpenAI stakes are distorting the corporate earnings picture"
             data-source="CNBC"
             data-category="Global Technology"
-            data-rating="5"
+            data-rating="4"
             data-date="2026-08-04">
           <td class="headline">
             <span class="new-badge">NEW</span>
@@ -1710,13 +1762,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>S&amp;P 500 earnings growth for the recent quarter is significantly inflated by unrealized investment gains in private AI firms like OpenAI and Anthropic, which are booked as &#39;other income&#39;.</li><li>Adjusting for these one-time equity gains reveals a much more muted 29% earnings growth rate, compared to the 48% headline figure, highlighting a reliance on paper wealth rather than operational software sales.</li>
+              <li>Investment gains from private AI companies like Anthropic and OpenAI significantly inflated S&amp;P 500 earnings growth, which would have been 29% instead of the reported 48% without these one-time equity revaluations.</li><li>Analysts warn that while these gains boosted headline figures, they mask the underlying performance of core software and service businesses, necessitating a non-GAAP approach to accurately assess corporate profitability.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">CNBC</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="reason">Market-wide earnings distortion</span>
+            <span class="rating-chip r4">4</span>
+            <span class="reason">Highlights significant accounting distortions in major tech earnings reports.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1742,13 +1794,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>The Australian government is raising the penalty levy for tech companies that fail to secure content deals with local news publishers from 2.25% to 2.5% of digital advertising revenue.</li><li>While the penalty rate increased, tech firms secured a concession to apply the levy only to digital ad revenue rather than total company revenue, potentially limiting the financial impact of the regulation.</li>
+              <li>The Australian government is increasing the potential levy on big tech companies to 2.5% of digital advertising revenue if they fail to secure commercial content agreements with at least six local news organizations.</li><li>Tech firms successfully negotiated a concession to apply the levy only to digital advertising revenue rather than total revenue, significantly limiting the financial impact of the proposed regulatory framework.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">ABC News &amp; Headlines – Australian Broadcasting Corporation</span></td>
           <td class="rating">
             <span class="rating-chip r3">3</span>
-            <span class="reason">Regulatory risk for tech margins</span>
+            <span class="reason">Represents a shift in global regulatory pressure and potential margin impact for digital ad-heavy tech firms.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1776,26 +1828,26 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMixAFBVV95cUxNX3VkV3FuN1BRS3lUbWE4Nk1wVnNSUVZKcEJUWVhzS25KZTBLaEpHeTJCRVJlczFNNF9IekZTQlZxam40R2hBMFB0dkU1QUhEWUxxU2tkMGI1WmR5N1ZwT2pnb0FkYW5jOHNJc3d4RUVzSFRuSHRXdmpzdHB2bUlVak40azJNREpDVG9HcnZuYk8xRzJLNEF2MU1hbEcxV0daWVVveVFXSlJ6RWI2SnZXTHVuUnBSNHM3SmlmcnZRNkpEWGw2?oc=5"
-            data-title="America’s Cosmic Bet on AI - Foreign Policy"
-            data-source="Foreign Policy"
+            data-url="https://news.google.com/rss/articles/CBMivgFBVV95cUxORVNKc2JqcmZfVzBfczJuMDFnREpKUl9xME1jNlMyckt5TUJJdmstdmZtZ2VmZThsbl9RWDJZNE9qV0Vtang2bzFObk8xTUl1b2taUnBTd0hBc3BvdXNONlNlbkNIZUVpblhrR2FYSXMwWmt6MHphbUhLRUxmZGZGZHRlVmhxc3hKZERHWFpYbTYxd1JzVmxXdlkxNXZIYWxSNjNYdlNBNWNJdWNzNi1QY1NJR1ZhMExRTWFUQzRR?oc=5"
+            data-title="AI cloud startup Volta valued at $2.4 billion, announces $10 billion AI partnership"
+            data-source="Reuters"
             data-category="Artificial Intelligence"
-            data-rating="5"
+            data-rating="4"
             data-date="2026-08-04">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxNX3VkV3FuN1BRS3lUbWE4Nk1wVnNSUVZKcEJUWVhzS25KZTBLaEpHeTJCRVJlczFNNF9IekZTQlZxam40R2hBMFB0dkU1QUhEWUxxU2tkMGI1WmR5N1ZwT2pnb0FkYW5jOHNJc3d4RUVzSFRuSHRXdmpzdHB2bUlVak40azJNREpDVG9HcnZuYk8xRzJLNEF2MU1hbEcxV0daWVVveVFXSlJ6RWI2SnZXTHVuUnBSNHM3SmlmcnZRNkpEWGw2?oc=5" target="_blank" rel="noopener">America’s Cosmic Bet on AI - Foreign Policy</a>
-            <div class="pub">2026-08-04 13:55 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxORVNKc2JqcmZfVzBfczJuMDFnREpKUl9xME1jNlMyckt5TUJJdmstdmZtZ2VmZThsbl9RWDJZNE9qV0Vtang2bzFObk8xTUl1b2taUnBTd0hBc3BvdXNONlNlbkNIZUVpblhrR2FYSXMwWmt6MHphbUhLRUxmZGZGZHRlVmhxc3hKZERHWFpYbTYxd1JzVmxXdlkxNXZIYWxSNjNYdlNBNWNJdWNzNi1QY1NJR1ZhMExRTWFUQzRR?oc=5" target="_blank" rel="noopener">AI cloud startup Volta valued at $2.4 billion, announces $10 billion AI partnership</a>
+            <div class="pub">2026-08-04 14:43 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>AI-related investments currently account for half of all U.S. business capital expenditure, highlighting the economy&#39;s extreme concentration in the sector. AI companies now represent over 40% of total U.S. equity market value, with that figure expected to exceed 50% following upcoming trillion-dollar-plus IPOs.</li><li>The sector&#39;s dominance is reflected in broader market performance, with AI-linked firms responsible for 85% of all S&amp;P 500 gains in 2026. This creates a significant systemic risk, as the U.S. economy has become a highly leveraged bet on the continued growth and success of artificial intelligence.</li>
+              <li>Volta has secured a $2.4 billion valuation, signaling continued investor appetite for specialized infrastructure providers within the capital-intensive AI cloud sector.</li><li>The firm has simultaneously entered a $10 billion AI partnership, representing a massive commitment of capital that underscores the rapid scaling of AI-specific compute resources.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Foreign Policy</span></td>
+          <td class="source"><span class="chip">Reuters</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="reason">Highlights systemic market concentration risk</span>
+            <span class="rating-chip r4">4</span>
+            <span class="reason">Significant capital deployment in AI infrastructure</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1808,26 +1860,26 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMisgFBVV95cUxOUWcxcnV2Wlo0V3BrUXd1RnVlcFdGSzU5UWVxQ3JBT2hDVENnaC1BWEwtSmJSaTBtZEZ2a3U1S2xrQWp5MklSSHZjUDNBaV9jUlpQUmZwcHUxZkhRVGpMTGk1bll5c2Yycm1LNkpXc1ZMekNXMXNoUGM5elN0VjNOS251U2dzTWhhcVZhM0U0NE1zX0dPTVIyZTFEcHZlRldUMExFT2liUjM4bjFIWG1LaV9n?oc=5"
-            data-title="Grab Says AI Helps Company Move Items 30% Faster - PYMNTS.com"
-            data-source="PYMNTS.com"
+            data-url="https://news.google.com/rss/articles/CBMixAFBVV95cUxNX3VkV3FuN1BRS3lUbWE4Nk1wVnNSUVZKcEJUWVhzS25KZTBLaEpHeTJCRVJlczFNNF9IekZTQlZxam40R2hBMFB0dkU1QUhEWUxxU2tkMGI1WmR5N1ZwT2pnb0FkYW5jOHNJc3d4RUVzSFRuSHRXdmpzdHB2bUlVak40azJNREpDVG9HcnZuYk8xRzJLNEF2MU1hbEcxV0daWVVveVFXSlJ6RWI2SnZXTHVuUnBSNHM3SmlmcnZRNkpEWGw2?oc=5"
+            data-title="America’s Cosmic Bet on AI"
+            data-source="Foreign Policy"
             data-category="Artificial Intelligence"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-08-04">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxOUWcxcnV2Wlo0V3BrUXd1RnVlcFdGSzU5UWVxQ3JBT2hDVENnaC1BWEwtSmJSaTBtZEZ2a3U1S2xrQWp5MklSSHZjUDNBaV9jUlpQUmZwcHUxZkhRVGpMTGk1bll5c2Yycm1LNkpXc1ZMekNXMXNoUGM5elN0VjNOS251U2dzTWhhcVZhM0U0NE1zX0dPTVIyZTFEcHZlRldUMExFT2liUjM4bjFIWG1LaV9n?oc=5" target="_blank" rel="noopener">Grab Says AI Helps Company Move Items 30% Faster - PYMNTS.com</a>
-            <div class="pub">2026-08-04 13:39 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxNX3VkV3FuN1BRS3lUbWE4Nk1wVnNSUVZKcEJUWVhzS25KZTBLaEpHeTJCRVJlczFNNF9IekZTQlZxam40R2hBMFB0dkU1QUhEWUxxU2tkMGI1WmR5N1ZwT2pnb0FkYW5jOHNJc3d4RUVzSFRuSHRXdmpzdHB2bUlVak40azJNREpDVG9HcnZuYk8xRzJLNEF2MU1hbEcxV0daWVVveVFXSlJ6RWI2SnZXTHVuUnBSNHM3SmlmcnZRNkpEWGw2?oc=5" target="_blank" rel="noopener">America’s Cosmic Bet on AI</a>
+            <div class="pub">2026-08-04 13:55 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Grab reported a 22% year-over-year revenue increase to $997 million, with operating profits surging 186% to $19 million, driven by AI-enabled operational efficiencies. The company successfully utilized AI to improve delivery speeds by 30% and boost driver hourly earnings by 23% through route optimization.</li><li>The firm&#39;s successful integration of AI tools, such as the &#39;Mai&#39; digital assistant for merchants, demonstrates a tangible &#39;payback&#39; model for enterprise AI. This provides a clear case study for investors on how AI-driven logistics can directly expand margins and scale financial services in emerging markets.</li>
+              <li>AI-related investments now account for 85% of all S&amp;P 500 gains in 2026, highlighting an extreme concentration of market performance in a single technological sector.</li><li>With AI companies already representing over 40% of U.S. equity market value, upcoming trillion-dollar-plus IPOs from major players could push that concentration past the 50% threshold.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">PYMNTS.com</span></td>
+          <td class="source"><span class="chip">Foreign Policy</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="reason">Demonstrates tangible AI-driven margin expansion</span>
+            <span class="rating-chip r5">5</span>
+            <span class="reason">Systemic market risk and concentration analysis</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1855,6 +1907,38 @@
       <tbody>
         
         <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMivgFBVV95cUxPZ3EtR051MjNxVUVBc3N1cGMzZTRCUjJtRXhHQVZzSkJDMVcxd1VBRE0tN1BKY2N3OWg5VWpqSXdHUWJkdzdzcHpnUzh1NG5GU3RFN2ZLWEo0MnJoSDVRVU5pdm5qU3IwUGZ2TmZacVU3emw4VUxmMWVrbHlrTnVhSXVWdDFvTmNZN0c3N2c1NnNFZnQydWFOenN0ajlsLWU3c0ZKSEdqQ0lxcC1xcG43REloTWR4VktDOFJfQ21R?oc=5"
+            data-title="SK Hynix — Not Nvidia — Has Become the Most Important AI Chip Stock on the Planet"
+            data-source="24/7 Wall St."
+            data-category="Semiconductors"
+            data-rating="5"
+            data-date="2026-08-04">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxPZ3EtR051MjNxVUVBc3N1cGMzZTRCUjJtRXhHQVZzSkJDMVcxd1VBRE0tN1BKY2N3OWg5VWpqSXdHUWJkdzdzcHpnUzh1NG5GU3RFN2ZLWEo0MnJoSDVRVU5pdm5qU3IwUGZ2TmZacVU3emw4VUxmMWVrbHlrTnVhSXVWdDFvTmNZN0c3N2c1NnNFZnQydWFOenN0ajlsLWU3c0ZKSEdqQ0lxcC1xcG43REloTWR4VktDOFJfQ21R?oc=5" target="_blank" rel="noopener">SK Hynix — Not Nvidia — Has Become the Most Important AI Chip Stock on the Planet</a>
+            <div class="pub">2026-08-04 13:50 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>The AI hardware bottleneck has shifted from GPU design to high-bandwidth memory (HBM) supply, making SK Hynix a critical dependency for all major AI accelerator manufacturers.</li><li>Leveraged and inverse ETFs tied to SK Hynix now hold approximately $5.5 billion in assets, surpassing the exposure levels of both Nvidia and Micron, signaling a major shift in speculative capital flows.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">24/7 Wall St.</span></td>
+          <td class="rating">
+            <span class="rating-chip r5">5</span>
+            <span class="reason">Identifies a critical supply chain bottleneck shift that is reallocating institutional capital.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMiuAFBVV95cUxNNkNBdjdkbks4UzdRRkNPbUUzLVRnbmdmMVhSdnNGMEw0cldzSjdLeEdIVllJOUVtaGktN0dIcWRpMGotQlhnV2lBZzNKQ1R1bm5nd3NuZW9LWmxENjgtWHdhREpOVVNfRk1tQk5KNWNRZWd6eGd1NDdNMEp6Y28wa1piRjh6bnF4UldySUpjU1BCNktCNXlFZ1NPM0Q1SVB1VGJHU0dhQnFaTTlCYjlmSlExWTFIVll6?oc=5"
             data-title="The 1 Number Behind Nvidia’s Chip Scarcity That Most Investors Are Missing"
             data-source="24/7 Wall St."
@@ -1868,45 +1952,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Nvidia management has quantified its supply constraints by disclosing $1 trillion in forward revenue visibility for its Blackwell and Rubin product cycles through 2027.</li><li>The company has backed this demand with $145 billion in total supply-related commitments, including inventory purchases and prepaids, signaling that demand continues to outpace manufacturing capacity.</li>
+              <li>Nvidia has disclosed $1 trillion in forward revenue visibility for its Blackwell and Rubin product cycles through 2027, providing the most concrete evidence of sustained, supply-constrained demand to date.</li><li>To support this backlog, Nvidia has ramped up supply-related commitments to $145 billion, confirming that the company is aggressively scaling inventory to meet hyperscaler demand despite ongoing production constraints.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">24/7 Wall St.</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Quantifies critical supply-demand dynamics for the sector leader.</span>
-          </td>
-          <td class="save-cell">
-            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
-              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </td>
-        </tr>
-        
-        <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMivgFBVV95cUxPZ3EtR051MjNxVUVBc3N1cGMzZTRCUjJtRXhHQVZzSkJDMVcxd1VBRE0tN1BKY2N3OWg5VWpqSXdHUWJkdzdzcHpnUzh1NG5GU3RFN2ZLWEo0MnJoSDVRVU5pdm5qU3IwUGZ2TmZacVU3emw4VUxmMWVrbHlrTnVhSXVWdDFvTmNZN0c3N2c1NnNFZnQydWFOenN0ajlsLWU3c0ZKSEdqQ0lxcC1xcG43REloTWR4VktDOFJfQ21R?oc=5"
-            data-title="SK Hynix — Not Nvidia — Has Become the Most Important AI Chip Stock on the Planet"
-            data-source="24/7 Wall St."
-            data-category="Semiconductors"
-            data-rating="4"
-            data-date="2026-08-04">
-          <td class="headline">
-            <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxPZ3EtR051MjNxVUVBc3N1cGMzZTRCUjJtRXhHQVZzSkJDMVcxd1VBRE0tN1BKY2N3OWg5VWpqSXdHUWJkdzdzcHpnUzh1NG5GU3RFN2ZLWEo0MnJoSDVRVU5pdm5qU3IwUGZ2TmZacVU3emw4VUxmMWVrbHlrTnVhSXVWdDFvTmNZN0c3N2c1NnNFZnQydWFOenN0ajlsLWU3c0ZKSEdqQ0lxcC1xcG43REloTWR4VktDOFJfQ21R?oc=5" target="_blank" rel="noopener">SK Hynix — Not Nvidia — Has Become the Most Important AI Chip Stock on the Planet</a>
-            <div class="pub">2026-08-04 13:50 UTC</div>
-          </td>
-          <td class="summary">
-            <ul>
-              <li>The AI hardware bottleneck has shifted from GPU design to high-bandwidth memory (HBM) availability, making SK Hynix a critical focal point for the industry&#39;s supply chain.</li><li>Leveraged and inverse ETFs tied to SK Hynix now hold approximately $5.5 billion in assets, surpassing the total for Nvidia and signaling a major shift in speculative capital flows.</li>
-            </ul>
-          </td>
-          <td class="source"><span class="chip">24/7 Wall St.</span></td>
-          <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="reason">Identifies a critical supply chain bottleneck and shifting investor sentiment.</span>
+            <span class="reason">Quantifies long-term revenue visibility and supply chain commitments for the sector&#39;s most important stock.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1947,13 +1999,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Leapmotor achieved a significant milestone by delivering 101,267 vehicles in July 2026, marking a 102% year-over-year increase and the first time the startup has surpassed the 100,000-unit monthly threshold.</li><li>Despite this record performance, the company must maintain a monthly delivery average of approximately 108,449 vehicles over the final five months of 2026 to reach its ambitious 1 million unit annual target.</li>
+              <li>Leapmotor achieved a significant milestone by delivering 101,267 vehicles in July 2026, marking a 102% year-over-year increase and the first time the startup has surpassed the 100,000-unit monthly threshold.</li><li>Despite this record performance, the company has only reached 45.8% of its 1 million vehicle annual target, requiring a sustained monthly average of over 108,000 units for the remainder of the year to succeed.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">electriccarsreport.com</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="reason">Significant growth milestone for a major Chinese EV player with global expansion implications.</span>
+            <span class="reason">Significant growth milestone for a major Chinese EV player with clear implications for annual guidance.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1979,13 +2031,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>UK battery electric vehicle (BEV) registrations rose by nearly 50% in July compared to the previous year, capturing 27.4% of the market and consistently outperforming the government&#39;s ZEV mandate trajectory.</li><li>While BEV sales remain robust, the broader UK automotive sector faces headwinds, with total vehicle production falling 7.5% in the first half of 2026, prompting industry calls for urgent industrial strategy reform.</li>
+              <li>UK battery electric vehicle (BEV) registrations reached a 27.4% market share in July, consistently outperforming the effective ZEV mandate trajectory of 24.6% when accounting for industry credit flexibilities.</li><li>While BEV sales remain robust, the broader UK automotive sector faces headwinds, with total vehicle production falling 7.5% in the first half of 2026, prompting industry calls for urgent industrial strategy reform.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Transport + Energy</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="reason">Highlights critical regulatory and production dynamics in a major European automotive market.</span>
+            <span class="reason">Highlights regulatory compliance dynamics and broader manufacturing sector challenges in the UK market.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2026,13 +2078,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Governor Greg Abbott has mandated a comprehensive audit of all data center projects in the ERCOT interconnection queue, effectively halting progress on new grid connections until compliance with state law is verified.</li><li>The directive forces a postponement of the &#39;Batch Zero&#39; transmission planning study, signaling a major regulatory shift where developers must now prove financial viability and physical executability before securing grid access.</li>
+              <li>Texas has halted the &#39;Batch Zero&#39; transmission planning study to conduct a mandatory audit of all data center interconnection requests, signaling a shift toward stricter regulatory oversight for large-load users.</li><li>With over 474GW of connection requests currently pending—representing five times the state&#39;s peak demand—this audit will determine if projects are financially viable and capable of paying for their own infrastructure impact.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Data Center Dynamics</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Significant regulatory bottleneck in a primary AI infrastructure growth market.</span>
+            <span class="reason">Significant regulatory bottleneck for hyperscale expansion in a key US data center market.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2058,13 +2110,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>The administration is reportedly drafting a ban on the use of Chinese-manufactured devices within U.S. data centers, a move that could force a massive, costly supply chain overhaul for hyperscalers and enterprise operators.</li><li>This potential policy escalation targets critical infrastructure security and follows broader efforts to decouple the U.S. AI ecosystem from Chinese hardware, likely impacting procurement costs and project timelines for data center builds.</li>
+              <li>The administration is reportedly preparing to restrict the use of Chinese-manufactured hardware within domestic data centers, a move that could force a costly supply chain overhaul for operators.</li><li>This potential policy shift highlights escalating geopolitical risks for data center infrastructure, likely driving up capital expenditures as firms are forced to pivot toward non-Chinese equipment providers.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Reuters</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Major geopolitical risk with direct implications for hardware supply chains and capital expenditure.</span>
+            <span class="reason">Potential for major supply chain disruption and increased costs for US data center operators.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2105,7 +2157,7 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Rocket Lab is pivoting from a pure-play launch provider to a vertically integrated space business by acquiring Iridium Communications for $8 billion, aiming to capture high-margin recurring revenue from satellite data and connectivity services.</li><li>Financial projections indicate the company will narrow its annual losses to approximately $24 million in 2027 while achieving positive free cash flow for the first time as its launch and manufacturing segments mature.</li>
+              <li>Rocket Lab is pivoting from a pure-play launch provider to a vertically integrated space services company, with the $8 billion Iridium acquisition expected to provide the recurring, high-margin subscription revenue necessary to offset heavy infrastructure spending.</li><li>Analysts project Rocket Lab will reach a critical financial inflection point in 2027, narrowing annual losses to approximately $24 million while achieving positive free cash flow as its launch business matures and satellite operations scale.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Yahoo Finance</span></td>
@@ -2137,13 +2189,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>SpaceX faces significant investor scrutiny as it reports its first quarterly earnings, with shares currently trading at roughly half their June peak amid concerns over aggressive growth projections and high cash burn.</li><li>The company is entering a volatile period as lockup provisions expire, releasing over 800 million shares for trading, which will more than double the current public float and likely pressure share prices in the near term.</li>
+              <li>SpaceX shares have declined by 50% from their June peak, reflecting investor skepticism regarding future growth prospects and the company&#39;s significant cash burn, which is expected to exceed $4 billion for the first half of the year.</li><li>The market is bracing for increased volatility as the initial lockup period expires, releasing over 800 million shares for trading, which will more than double the current float and test investor sentiment regarding the company&#39;s long-term valuation.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">The Tribune-Democrat</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">First public earnings report and major share unlock event for a high-profile stock.</span>
+            <span class="reason">High-stakes public earnings debut and significant share dilution event.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2174,7 +2226,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-04 22:49 HKT");
+  var dataTS = encodeURIComponent("2026-08-04 22:53 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = "2026-08-04";
@@ -2350,6 +2402,45 @@
       var open = hero.classList.toggle("open");
       heroToggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
+  }
+
+  // ---------- Sidebar collapse/expand (desktop) ----------
+  var sidebarToggle = document.getElementById("sidebar-toggle");
+  if (sidebarToggle) {
+    var SIDEBAR_KEY = "dmb_sidebar_collapsed";
+    var reopenBtn = document.createElement("button");
+    reopenBtn.type = "button";
+    reopenBtn.className = "sidebar-reopen";
+    reopenBtn.setAttribute("aria-label", "Show sidebar");
+    reopenBtn.title = "Show sidebar";
+    reopenBtn.innerHTML =
+      '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">'
+      + '<path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" '
+      + 'stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    document.body.appendChild(reopenBtn);
+    function applySidebar(collapsed) {
+      document.documentElement.classList.toggle("sidebar-collapsed", collapsed);
+      sidebarToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
+      sidebarToggle.setAttribute("aria-label",
+        collapsed ? "Show sidebar" : "Collapse sidebar");
+      sidebarToggle.title = collapsed ? "Show sidebar" : "Collapse sidebar";
+      reopenBtn.style.display = collapsed ? "flex" : "none";
+    }
+    sidebarToggle.addEventListener("click", function () {
+      var collapsed = !document.documentElement.classList.contains("sidebar-collapsed");
+      applySidebar(collapsed);
+      try { localStorage.setItem(SIDEBAR_KEY, collapsed ? "1" : "0"); } catch (e) {}
+    });
+    reopenBtn.addEventListener("click", function () {
+      applySidebar(false);
+      try { localStorage.setItem(SIDEBAR_KEY, "0"); } catch (e) {}
+    });
+    // Restore the persisted state on page load (desktop only).
+    if (window.matchMedia("(min-width: 821px)").matches) {
+      var stored = null;
+      try { stored = localStorage.getItem(SIDEBAR_KEY); } catch (e) {}
+      if (stored === "1") applySidebar(true);
+    }
   }
 
   // ---------- Reading progress bar ----------
