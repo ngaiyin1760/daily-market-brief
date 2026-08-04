@@ -727,40 +727,64 @@
     color: #fff;
   }
 
-  /* Sticky section navigation (scrollspy) */
-  .cat-nav {
+  /* Sticky "Jump to section" dropdown (compact, replaces the dense chip bar) */
+  .sec-nav {
     position: sticky;
     top: 0;
     z-index: 500;
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    align-items: center;
-    background: rgba(247, 242, 233, .96);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--rule-dark);
-    padding: 8px 2px;
+    display: inline-block;
     margin: 0 0 28px;
+    background: var(--paper);
+    border-radius: 999px;
   }
-  .cat-nav a {
-    flex: 0 0 auto;
+  .sec-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--card);
     border: 1px solid var(--rule-dark);
     border-radius: 999px;
     color: var(--ink-soft);
     font-family: var(--sans);
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: 600;
+    padding: 6px 14px;
+    min-height: 36px;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(34, 31, 26, .10);
+    transition: border-color .12s, color .12s;
+  }
+  .sec-toggle:hover { border-color: var(--accent); color: var(--accent); }
+  .sec-chevron { transition: transform .2s ease; }
+  .sec-nav.open .sec-chevron { transform: rotate(180deg); }
+  .sec-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 230px;
+    max-height: 60vh;
+    overflow-y: auto;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(34, 31, 26, .16);
+    padding: 6px;
+    display: none;
+    z-index: 600;
+  }
+  .sec-nav.open .sec-menu { display: block; }
+  .sec-menu a {
+    display: block;
+    padding: 7px 12px;
+    border-radius: 6px;
+    color: var(--ink-soft);
+    font-family: var(--sans);
+    font-size: 13.5px;
     text-decoration: none;
-    padding: 4px 12px;
-    min-height: 30px;
-    transition: background .12s, color .12s, border-color .12s;
+    white-space: nowrap;
   }
-  .cat-nav a:hover { border-color: var(--accent); color: var(--accent); }
-  .cat-nav a.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #fff;
-  }
+  .sec-menu a:hover { background: rgba(67, 56, 202, .08); color: var(--accent); }
+  .sec-menu a.active { background: var(--accent); color: #fff; }
 
   /* ---------- Indicators ---------- */
   .indicator-group { margin-top: 30px; }
@@ -1092,7 +1116,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Markets</h1>
-    <div class="generated">Key indicators — up to 10 years of daily history · updated 2026-08-04 07:18 HKT<span class="session-badge" id="session-badge"></span></div>
+    <div class="generated">Key indicators — up to 10 years of daily history · updated 2026-08-04 22:49 HKT<span class="session-badge" id="session-badge"></span></div>
   </header>
 
   <div id="markets-body">
@@ -1286,7 +1310,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-04 07:18 HKT");
+  var dataTS = encodeURIComponent("2026-08-04 22:49 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
@@ -1477,25 +1501,55 @@
     updateProgress();
   }
 
-  // ---------- Sticky section nav (scrollspy) ----------
-  var catNav = document.getElementById("cat-nav");
-  if (catNav && "IntersectionObserver" in window) {
-    var navLinks = Array.prototype.slice.call(
-      catNav.querySelectorAll("a[data-target]"));
-    var spySections = navLinks.map(function (a) {
+  // ---------- Sticky "Jump to section" dropdown (scrollspy) ----------
+  var secNav = document.getElementById("sec-nav");
+  if (secNav && "IntersectionObserver" in window) {
+    var secToggle = document.getElementById("sec-toggle");
+    var secCurrent = document.getElementById("sec-current");
+    var secMenu = document.getElementById("sec-menu");
+    var secLinks = Array.prototype.slice.call(
+      secMenu.querySelectorAll("a[data-target]"));
+    var spySections = secLinks.map(function (a) {
       return document.getElementById(a.getAttribute("data-target"));
     }).filter(Boolean);
+
+    function setActive(id) {
+      secLinks.forEach(function (a) {
+        var on = a.getAttribute("data-target") === id;
+        a.classList.toggle("active", on);
+        a.setAttribute("aria-current", on ? "true" : "false");
+      });
+      var cur = null;
+      for (var i = 0; i < secLinks.length; i++) {
+        if (secLinks[i].getAttribute("data-target") === id) { cur = secLinks[i]; break; }
+      }
+      if (cur && secCurrent) secCurrent.textContent = cur.textContent;
+    }
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        navLinks.forEach(function (a) {
-          var on = a.getAttribute("data-target") === en.target.id;
-          a.classList.toggle("active", on);
-          a.setAttribute("aria-current", on ? "true" : "false");
-        });
+        if (en.isIntersecting) setActive(en.target.id);
       });
     }, { rootMargin: "-20% 0px -70% 0px", threshold: 0 });
     spySections.forEach(function (s) { spy.observe(s); });
+
+    function closeMenu() {
+      secNav.classList.remove("open");
+      secToggle.setAttribute("aria-expanded", "false");
+    }
+    secToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = secNav.classList.toggle("open");
+      secToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    secLinks.forEach(function (a) {
+      a.addEventListener("click", closeMenu);
+    });
+    document.addEventListener("click", function (e) {
+      if (!secNav.contains(e.target)) closeMenu();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeMenu();
+    });
   }
 
   // ---------- Reveal-on-scroll ----------
@@ -2491,7 +2545,7 @@
     });
   }
 
-  fetch(base + "/data/indicators.json?v=" + encodeURIComponent("2026-08-04 07:18 HKT"))
+  fetch(base + "/data/indicators.json?v=" + encodeURIComponent("2026-08-04 22:49 HKT"))
     .then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
