@@ -196,25 +196,55 @@
     updateProgress();
   }
 
-  // ---------- Sticky section nav (scrollspy) ----------
-  var catNav = document.getElementById("cat-nav");
-  if (catNav && "IntersectionObserver" in window) {
-    var navLinks = Array.prototype.slice.call(
-      catNav.querySelectorAll("a[data-target]"));
-    var spySections = navLinks.map(function (a) {
+  // ---------- Sticky "Jump to section" dropdown (scrollspy) ----------
+  var secNav = document.getElementById("sec-nav");
+  if (secNav && "IntersectionObserver" in window) {
+    var secToggle = document.getElementById("sec-toggle");
+    var secCurrent = document.getElementById("sec-current");
+    var secMenu = document.getElementById("sec-menu");
+    var secLinks = Array.prototype.slice.call(
+      secMenu.querySelectorAll("a[data-target]"));
+    var spySections = secLinks.map(function (a) {
       return document.getElementById(a.getAttribute("data-target"));
     }).filter(Boolean);
+
+    function setActive(id) {
+      secLinks.forEach(function (a) {
+        var on = a.getAttribute("data-target") === id;
+        a.classList.toggle("active", on);
+        a.setAttribute("aria-current", on ? "true" : "false");
+      });
+      var cur = null;
+      for (var i = 0; i < secLinks.length; i++) {
+        if (secLinks[i].getAttribute("data-target") === id) { cur = secLinks[i]; break; }
+      }
+      if (cur && secCurrent) secCurrent.textContent = cur.textContent;
+    }
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        navLinks.forEach(function (a) {
-          var on = a.getAttribute("data-target") === en.target.id;
-          a.classList.toggle("active", on);
-          a.setAttribute("aria-current", on ? "true" : "false");
-        });
+        if (en.isIntersecting) setActive(en.target.id);
       });
     }, { rootMargin: "-20% 0px -70% 0px", threshold: 0 });
     spySections.forEach(function (s) { spy.observe(s); });
+
+    function closeMenu() {
+      secNav.classList.remove("open");
+      secToggle.setAttribute("aria-expanded", "false");
+    }
+    secToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = secNav.classList.toggle("open");
+      secToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    secLinks.forEach(function (a) {
+      a.addEventListener("click", closeMenu);
+    });
+    document.addEventListener("click", function (e) {
+      if (!secNav.contains(e.target)) closeMenu();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeMenu();
+    });
   }
 
   // ---------- Reveal-on-scroll ----------

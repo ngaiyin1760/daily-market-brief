@@ -721,40 +721,64 @@
     color: #fff;
   }
 
-  /* Sticky section navigation (scrollspy) */
-  .cat-nav {
+  /* Sticky "Jump to section" dropdown (compact, replaces the dense chip bar) */
+  .sec-nav {
     position: sticky;
     top: 0;
     z-index: 500;
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    align-items: center;
-    background: rgba(247, 242, 233, .96);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--rule-dark);
-    padding: 8px 2px;
+    display: inline-block;
     margin: 0 0 28px;
+    background: var(--paper);
+    border-radius: 999px;
   }
-  .cat-nav a {
-    flex: 0 0 auto;
+  .sec-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--card);
     border: 1px solid var(--rule-dark);
     border-radius: 999px;
     color: var(--ink-soft);
     font-family: var(--sans);
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: 600;
+    padding: 6px 14px;
+    min-height: 36px;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(34, 31, 26, .10);
+    transition: border-color .12s, color .12s;
+  }
+  .sec-toggle:hover { border-color: var(--accent); color: var(--accent); }
+  .sec-chevron { transition: transform .2s ease; }
+  .sec-nav.open .sec-chevron { transform: rotate(180deg); }
+  .sec-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 230px;
+    max-height: 60vh;
+    overflow-y: auto;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(34, 31, 26, .16);
+    padding: 6px;
+    display: none;
+    z-index: 600;
+  }
+  .sec-nav.open .sec-menu { display: block; }
+  .sec-menu a {
+    display: block;
+    padding: 7px 12px;
+    border-radius: 6px;
+    color: var(--ink-soft);
+    font-family: var(--sans);
+    font-size: 13.5px;
     text-decoration: none;
-    padding: 4px 12px;
-    min-height: 30px;
-    transition: background .12s, color .12s, border-color .12s;
+    white-space: nowrap;
   }
-  .cat-nav a:hover { border-color: var(--accent); color: var(--accent); }
-  .cat-nav a.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #fff;
-  }
+  .sec-menu a:hover { background: rgba(67, 56, 202, .08); color: var(--accent); }
+  .sec-menu a.active { background: var(--accent); color: #fff; }
 
   /* ---------- Indicators ---------- */
   .indicator-group { margin-top: 30px; }

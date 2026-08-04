@@ -68,10 +68,16 @@
   </section>
   {% endif %}
 
-  <nav class="cat-nav" id="cat-nav" aria-label="Jump to section">
-    <a href="#snapshot" data-target="snapshot">Snapshot</a>
-    <a href="#takeaways" data-target="takeaways">Takeaways</a>
-    {% for cat in categories %}<a href="#{{ cat.id|e }}" data-target="{{ cat.id|e }}">{{ cat.label|e }}</a>{% endfor %}
+  <nav class="sec-nav" id="sec-nav" aria-label="Jump to section">
+    <button type="button" class="sec-toggle" id="sec-toggle" aria-expanded="false" aria-haspopup="true">
+      <span class="sec-current" id="sec-current">Sections</span>
+      <svg class="sec-chevron" viewBox="0 0 24 24" width="11" height="11" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="sec-menu" id="sec-menu" role="menu">
+      <a href="#snapshot" data-target="snapshot" role="menuitem">Snapshot</a>
+      <a href="#takeaways" data-target="takeaways" role="menuitem">Takeaways</a>
+      {% for cat in categories %}<a href="#{{ cat.id|e }}" data-target="{{ cat.id|e }}" role="menuitem">{{ cat.label|e }}</a>{% endfor %}
+    </div>
   </nav>
 
   <div class="filter-bar" id="importance-filter" role="group" aria-label="Filter stories by importance">
