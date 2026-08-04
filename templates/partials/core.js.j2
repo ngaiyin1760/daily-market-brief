@@ -183,6 +183,45 @@
     });
   }
 
+  // ---------- Sidebar collapse/expand (desktop) ----------
+  var sidebarToggle = document.getElementById("sidebar-toggle");
+  if (sidebarToggle) {
+    var SIDEBAR_KEY = "dmb_sidebar_collapsed";
+    var reopenBtn = document.createElement("button");
+    reopenBtn.type = "button";
+    reopenBtn.className = "sidebar-reopen";
+    reopenBtn.setAttribute("aria-label", "Show sidebar");
+    reopenBtn.title = "Show sidebar";
+    reopenBtn.innerHTML =
+      '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">'
+      + '<path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" '
+      + 'stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    document.body.appendChild(reopenBtn);
+    function applySidebar(collapsed) {
+      document.documentElement.classList.toggle("sidebar-collapsed", collapsed);
+      sidebarToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
+      sidebarToggle.setAttribute("aria-label",
+        collapsed ? "Show sidebar" : "Collapse sidebar");
+      sidebarToggle.title = collapsed ? "Show sidebar" : "Collapse sidebar";
+      reopenBtn.style.display = collapsed ? "flex" : "none";
+    }
+    sidebarToggle.addEventListener("click", function () {
+      var collapsed = !document.documentElement.classList.contains("sidebar-collapsed");
+      applySidebar(collapsed);
+      try { localStorage.setItem(SIDEBAR_KEY, collapsed ? "1" : "0"); } catch (e) {}
+    });
+    reopenBtn.addEventListener("click", function () {
+      applySidebar(false);
+      try { localStorage.setItem(SIDEBAR_KEY, "0"); } catch (e) {}
+    });
+    // Restore the persisted state on page load (desktop only).
+    if (window.matchMedia("(min-width: 821px)").matches) {
+      var stored = null;
+      try { stored = localStorage.getItem(SIDEBAR_KEY); } catch (e) {}
+      if (stored === "1") applySidebar(true);
+    }
+  }
+
   // ---------- Reading progress bar ----------
   var readingBar = document.getElementById("reading-bar");
   if (readingBar) {
