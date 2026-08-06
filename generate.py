@@ -1071,6 +1071,8 @@ def render_pages(template, page_date, generated_at, snapshot, takeaways,
     DOCS_DIR.mkdir(exist_ok=True)
     DAYS_DIR.mkdir(exist_ok=True)
     DATA_DIR.mkdir(exist_ok=True)
+    # Skip GitHub Pages' Jekyll build (static site; the build was timing out).
+    (DOCS_DIR / ".nojekyll").touch(exist_ok=True)
 
     index_html = tpl.render(**ctx, base=".")
     (DOCS_DIR / "index.html").write_text(index_html, encoding="utf-8")
