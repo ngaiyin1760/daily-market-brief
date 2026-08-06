@@ -850,13 +850,11 @@ def build_snapshot(groups):
                 cls = "flat"
             else:
                 cls = "pos" if chg > 0 else "neg"
-            # 1-month trend direction for the ticker arrow (last ~22 closes).
-            closes = item.get("closes") or []
-            m1 = None
-            if len(closes) >= 22 and closes[-22]:
-                m1_chg = (closes[-1] - closes[-22]) / closes[-22]
-                m1 = ("up" if m1_chg > 0.001
-                      else "down" if m1_chg < -0.001 else "flat")
+            # Arrow follows the DAILY change (same direction/color as the %
+            # text) so the ticker reads consistently — no 1-month trend that
+            # can contradict today's move. (1-month info lives on the hero
+            # sparklines and the Markets card chips instead.)
+            m1 = {"pos": "up", "neg": "down", "flat": "flat"}[cls]
             parts.append({"text": text, "cls": cls, "m1": m1})
     return parts
 
