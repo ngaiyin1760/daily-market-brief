@@ -140,20 +140,16 @@ def normalize_title(title):
     return re.sub(r"\s+", " ", t).strip()
 
 
-# Freshness windows (seconds). The brief targets the past 24 hours; if a
-# category can't fill its slots from fresher tiers, the window relaxes
-# progressively — a category must never go empty while the feed has items.
-FRESHNESS_TIERS = [
-    (24 * 3600, "24h"),
-    (48 * 3600, "48h"),
-]
-TIER_LABELS = ["24h", "48h", "any-date", "undated"]
+# Hard freshness cutoff: the brief only ever shows stories published within
+# the past 24 hours. If a category can't fill its slots from that window it
+# runs short — stale news is never shown, by design.
+MAX_NEWS_AGE_SECONDS = 24 * 3600
 
 
 # Trusted outlets. Google News search returns everything from wire services
-# to content farms; items from these sources rank above others within the
-# same freshness tier. Matching is on the normalized publisher name
-# (lowercase, alphanumerics only) so "Bloomberg.com" matches "bloomberg".
+# to content farms; items from these sources rank above others of equal
+# freshness. Matching is on the normalized publisher name (lowercase,
+# alphanumerics only) so "Bloomberg.com" matches "bloomberg".
 PREFERRED_SOURCES = {
     # Wires & global financial press
     "reuters", "bloomberg", "bloombergcom", "apnews", "associatedpress",
@@ -183,43 +179,44 @@ def normalize_source(name):
 def source_rank(item):
     """0 = trusted outlet, 1 = anything else. A ranking signal only — never a
     hard filter, so a category can still fill from other outlets when no
-    trusted source covered it within the same freshness tier."""
+    trusted source covered the topic within the 24h window."""
     return 0 if normalize_source(item.get("source")) in PREFERRED_SOURCES else 1
 
 
-def freshness_tier(item, now):
-    """0 = within 24h, 1 = within 48h, 2 = any older dated item, 3 = undated.
-    Epoch comparisons are timezone-safe (both sides are absolute UTC)."""
+def is_fresh(item, now):
+    """True only when the item carries a publish timestamp within the past
+    24 hours. Undated items and anything older are excluded outright — the
+    brief runs a category short rather than showing stale news. Epoch
+    comparisons are timezone-safe (both sides are absolute UTC)."""
     ts = item.get("_ts") or 0
-    if not ts:
-        return 3
-    age = now - ts
-    if age <= 24 * 3600:
-        return 0
-    if age <= 48 * 3600:
-        return 1
-    return 2
+    return bool(ts) and now - ts <= MAX_NEWS_AGE_SECONDS
 
 
 def prepare_candidates(candidates, claimed, now):
     """Order a category's candidates for selection.
 
+    HARD freshness cutoff: items older than 24 hours, or with no parseable
+    publish time, are dropped outright — a category runs short rather than
+    showing stale news. Within the 24h window:
     - Within-category dedup: drop exact normalized-title repeats (Google News
       clusters the same story across outlets), keeping the copy from the
       trusted outlet (newest copy breaks ties). Items with empty/missing
       titles BYPASS dedup and are never dropped.
     - Cross-category/cross-day dedup: titles already claimed by an earlier
       category or a previous day's brief are DEMOTED, not dropped —
-      preference order is freshness tier first (24h > 48h > any-date >
-      undated), then non-duplicates before duplicates, then trusted outlets
-      before others, then recency. A dupe is only used when nothing
-      fresher/unique can fill the category's slots.
+      preference order is non-duplicates before duplicates, then trusted
+      outlets before others, then recency. A dupe is only used when nothing
+      unique can fill the category's slots.
     Returns (ordered_candidates, stats_dict).
     """
     seen_local = {}
     unique = []
+    stale_dropped = 0
     within_dropped = 0
     for item in candidates:
+        if not is_fresh(item, now):
+            stale_dropped += 1
+            continue
         key = normalize_title(item["title"])
         if key:
             if key in seen_local:
@@ -244,23 +241,18 @@ def prepare_candidates(candidates, claimed, now):
         is_dupe = bool(item["_key"]) and item["_key"] in claimed
         if is_dupe:
             cross_dupes += 1
-        ranked.append((freshness_tier(item, now), 1 if is_dupe else 0,
-                       source_rank(item), -item["_ts"], item))
-    ranked.sort(key=lambda r: (r[0], r[1], r[2], r[3]))
+        ranked.append((1 if is_dupe else 0, source_rank(item),
+                       -item["_ts"], item))
+    ranked.sort(key=lambda r: (r[0], r[1], r[2]))
 
-    tier_counts = [0, 0, 0, 0]
-    for item in unique:
-        tier_counts[freshness_tier(item, now)] += 1
     stats = {
         "candidates": len(unique),
-        "tier_counts": tier_counts,
+        "stale_dropped": stale_dropped,
         "preferred_sources": sum(1 for i in unique if source_rank(i) == 0),
         "cross_dupes": cross_dupes,
         "within_dropped": within_dropped,
-        "tier_by_url": {i["link"]: freshness_tier(i, now)
-                        for i in unique if i["link"]},
     }
-    return [r[4] for r in ranked], stats
+    return [r[3] for r in ranked], stats
 
 
 CROSS_DAY_DEDUP_DAYS = 3
@@ -530,7 +522,7 @@ def attach_article_texts(category, items):
 
 def fetch_category_news(category):
     """Fetch up to 25 RSS items for a category, sorted by recency.
-    Freshness-window tiering and source-quality ranking happen later in
+    The 24h cutoff and source-quality ranking happen later in
     prepare_candidates; a wider pool gives trusted outlets more chances
     to be represented."""
     url = (
@@ -572,9 +564,8 @@ def fetch_category_news(category):
             "_ts": ts or 0,
         })
 
-    # Sort by recency; the freshness-window tiering happens at selection
-    # time (see prepare_candidates), never as a hard filter that could
-    # leave a category empty.
+    # Sort by recency; the 24h cutoff and source-quality ranking happen at
+    # selection time (see prepare_candidates).
     items.sort(key=lambda i: i["_ts"], reverse=True)
     return items[:25]
 
@@ -1162,8 +1153,10 @@ def check_outputs(page_date, generated_at, news, groups):
         if not raw.get("categories"):
             problems.append("day json has no categories")
         for cat in raw.get("categories") or []:
-            if not isinstance(cat.get("items"), list) or not cat["items"]:
-                problems.append(f"category '{cat.get('id')}' has no items")
+            # A category MAY have no items: with a hard 24h cutoff, running
+            # short is the intended behavior when nothing fresh exists.
+            if not isinstance(cat.get("items"), list):
+                problems.append(f"category '{cat.get('id')}' items not a list")
         if not isinstance(raw.get("takeaways"), list) or not raw["takeaways"]:
             problems.append("no takeaways generated")
         if not raw.get("snapshot"):
@@ -1263,12 +1256,11 @@ def main():
                              if not (c["_key"] and c["_key"] in claimed_titles)]
         if len(unique_candidates) >= top_n:
             candidates = unique_candidates
-        tc = stats["tier_counts"]
         log.info(
-            "%s: %d candidates (24h: %d, 48h: %d, older: %d, undated: %d; "
+            "%s: %d candidates within 24h (%d stale/undated dropped, "
             "trusted sources: %d); "
             "%d cross-category dupe(s) demoted, %d within-category dupe(s) dropped",
-            category["label"], stats["candidates"], tc[0], tc[1], tc[2], tc[3],
+            category["label"], stats["candidates"], stats["stale_dropped"],
             stats["preferred_sources"],
             stats["cross_dupes"], stats["within_dropped"])
         attach_article_texts(category, candidates)
@@ -1280,14 +1272,12 @@ def main():
                 new_count += 1
             if key:
                 claimed_titles.add(key)
-        # Report the freshness window actually used by the selected items.
-        used = [stats["tier_by_url"].get(item["url"]) for item in items]
-        used = [t for t in used if t is not None]
-        window = TIER_LABELS[max(used)] if used else "n/a"
-        log.info("%s: selected %d/%d items (window used: %s)",
-                 category["label"], len(items), top_n, window)
+        # All selected items are within the 24h window by construction.
+        log.info("%s: selected %d/%d items (all within 24h)",
+                 category["label"], len(items), top_n)
         if len(items) < top_n:
-            log.warning("%s: only %d of %d slots filled (feed exhausted)",
+            log.warning("%s: only %d of %d slots filled "
+                        "(no more news within the 24h window)",
                         category["label"], len(items), top_n)
         news.append({
             "id": category["id"],

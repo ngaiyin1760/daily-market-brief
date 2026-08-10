@@ -6,7 +6,9 @@ plus the top stories — with bullet summaries and 1–5 importance ratings —
 across 11 finance categories (global macro, equities, fixed income, China,
 Hong Kong, tech, AI, semis, EVs, data centers, space & aerospace).
 Top 3 for Global Economy, top 2 for each other category, deduplicated across
-categories so each story appears exactly once.
+categories so each story appears exactly once. Only stories published within
+the past 24 hours are ever shown — a category runs short rather than showing
+stale news.
 
 Daily pages are all about the news: a snapshot ticker of the day's key moves
 (with 1-month trend arrows), the takeaways, and the stories — with color-coded
@@ -63,7 +65,8 @@ the model (default `gemini-3.1-flash-lite`).
 - `generate.py` fetches Google News RSS per category, picks/rates the top N
   stories (3 for Global Economy, 2 for other categories; Gemini or heuristic
   fallback per category on any failure; cross-category title dedup so each
-  story appears once), pulls
+  story appears once; a hard 24-hour age cutoff so nothing stale is ever
+  shown), pulls
   up to 10 years of daily closes per ticker via yfinance (US 2Y yield from
   FRED), and renders `templates/dashboard.html.j2` into `docs/`.
 - Output: `docs/index.html` (latest day), `docs/days/YYYY-MM-DD.html` (one
