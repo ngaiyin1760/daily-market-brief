@@ -27,10 +27,14 @@ jobs:
       - name: Generate brief
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          # Browser-side search key (referrer-restricted AI Studio key). Used
-          # at build time to precompute embeddings for the search index; the
-          # raw key is embedded in search.html for the client search box.
+          # Browser-side search key. With the Cloudflare Worker proxy active
+          # (WORKER_URL set), this key lives ONLY in the Worker — the browser
+          # never sees it. It's still passed at build time to precompute the
+          # search-index embeddings.
           GEMINI_BROWSER_KEY: ${{ secrets.GEMINI_BROWSER_KEY }}
+          # Cloudflare Worker proxy for browser-side Gemini calls — lets the
+          # Search page's semantic mode work from HK without a VPN.
+          WORKER_URL: https://dmb-search-proxy.ngaiyin1760.workers.dev
           # Force the AI Studio endpoint (generativelanguage.googleapis.com) —
           # the free-tier path. Auto-detect would route AQ.-prefixed keys to
           # Vertex AI, which bills through the linked GCP project.
