@@ -40,7 +40,6 @@
 <script>
 (function () {
   var base = {{ base|tojson }};
-  var GEMINI_BROWSER_KEY = {{ gemini_browser_key | default("") | tojson }};
   // Cloudflare Worker proxy URL — set via the WORKER_URL env var at build time
   // (e.g. "https://your-worker.workers.dev"). When empty, semantic mode calls
   // Gemini directly (needs a non-HK IP / VPN).
@@ -116,8 +115,11 @@
         })
       };
     } else {
+      // Direct fallback only used if WORKER_URL is unset; the browser key is
+      // injected ONLY when there is no proxy (so the key never ships to the
+      // browser in proxy mode).
       url = "https://generativelanguage.googleapis.com/v1beta/models/"
-        + EMBED_MODEL + ":embedContent?key=" + encodeURIComponent(GEMINI_BROWSER_KEY);
+        + EMBED_MODEL + ":embedContent?key=" + encodeURIComponent({% if not worker_url %}{{ gemini_browser_key | default("") | tojson }}{% else %}""{% endif %});
       init = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -190,7 +192,7 @@
       };
     } else {
       url = "https://generativelanguage.googleapis.com/v1beta/models/"
-        + GENERATION_MODEL + ":generateContent?key=" + encodeURIComponent(GEMINI_BROWSER_KEY);
+        + GENERATION_MODEL + ":generateContent?key=" + encodeURIComponent({% if not worker_url %}{{ gemini_browser_key | default("") | tojson }}{% else %}""{% endif %});
       init = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
