@@ -1618,7 +1618,8 @@ def build_search_index(page_date, news, analytics_blogs, repos):
         i["embedding"] = None
     if to_embed:
         try:
-            texts = [i["title"] + "\n" + i["text"] for i in to_embed]
+            texts = [f"{i['title']}\n{i['text']}\nSource: {i.get('source','')}"
+                     for i in to_embed]
             vectors = embed_texts(texts)
             for i, v in zip(to_embed, vectors):
                 if v:

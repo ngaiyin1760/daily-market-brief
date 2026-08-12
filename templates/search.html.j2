@@ -121,12 +121,30 @@
   function dot(a, b) {
     var s = 0; for (var i = 0; i < a.length; i++) s += a[i] * b[i]; return s;
   }
+  function norm(a) { var s = 0; for (var i = 0; i < a.length; i++) s += a[i]*a[i]; return Math.sqrt(s); }
+  function cosine(a, b) {
+    var na = norm(a), nb = norm(b);
+    if (!na || !nb) return 0;
+    return dot(a, b) / (na * nb);
+  }
+  var SIM_THRESHOLD = 0.22;   // below this, a semantic match is too weak — drop it
   function semanticSearch(q, topN) {
     return embedQuery(q).then(function (qv) {
       if (!qv) return [];
       var scored = index.filter(function (it) { return it.embedding && it.embedding.length === qv.length; })
-        .map(function (it) { return { item: it, score: dot(it.embedding, qv) }; });
+        .map(function (it) { return { item: it, score: cosine(it.embedding, qv) }; })
+        .filter(function (r) { return r.score >= SIM_THRESHOLD; });   // cut the noise
       scored.sort(function (a, b) { return b.score - a.score; });
+      // If semantic is thin, blend in keyword matches (which are exact) to
+      // fill the result list with genuinely relevant items.
+      if (scored.length < topN) {
+        var key = keywordSearch(q);
+        var have = {};
+        scored.forEach(function (r) { have[r.item.url] = true; });
+        key.forEach(function (it) {
+          if (!have[it.url]) { scored.push({ item: it, score: 0.3 }); have[it.url] = true; }
+        });
+      }
       return scored.slice(0, topN).map(function (r) { return r.item; });
     });
   }
