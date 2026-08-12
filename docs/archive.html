@@ -1246,17 +1246,18 @@
   .repo-img {
     width: 100%;
     height: auto;
-    max-height: 280px;
-    object-fit: cover;
+    max-height: 520px;
+    object-fit: contain;       /* never crop a diagram */
     border-radius: 8px;
     border: 1px solid var(--rule);
     margin: 8px 0 4px;
     background: #fff;
+    display: block;
   }
   .repo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 14px;
+    grid-template-columns: 1fr;   /* one repo card per row — big, readable */
+    gap: 20px;
   }
 
   /* ---------- Analytics / Repo Radar day-history accordion ---------- */
@@ -1416,7 +1417,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-13 00:55 HKT");
+  var dataTS = encodeURIComponent("2026-08-13 01:07 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
@@ -1852,7 +1853,9 @@
 
   document.addEventListener("click", function (ev) {
     var btn = ev.target.closest ? ev.target.closest(".save-btn") : null;
-    if (!btn || !btn.closest("#saved-list")) return; // ignore archive remove buttons
+    // Skip the archive's own remove buttons (they're inside #saved-list);
+    // every other .save-btn (news rows, Analytics, Repo Radar cards) saves.
+    if (!btn || btn.closest("#saved-list")) return;
     var url = savedAttrs(btn, "url");
     if (!url) return;
     var map = loadSaved();

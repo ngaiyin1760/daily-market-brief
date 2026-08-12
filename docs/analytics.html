@@ -1246,17 +1246,18 @@
   .repo-img {
     width: 100%;
     height: auto;
-    max-height: 280px;
-    object-fit: cover;
+    max-height: 520px;
+    object-fit: contain;       /* never crop a diagram */
     border-radius: 8px;
     border: 1px solid var(--rule);
     margin: 8px 0 4px;
     background: #fff;
+    display: block;
   }
   .repo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 14px;
+    grid-template-columns: 1fr;   /* one repo card per row — big, readable */
+    gap: 20px;
   }
 
   /* ---------- Analytics / Repo Radar day-history accordion ---------- */
@@ -1369,7 +1370,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Analytics</h1>
-    <div class="generated">Today's top 5 from your blogs · tech &amp; engineering scope · updated 2026-08-13 00:55 HKT</div>
+    <div class="generated">Today's top 5 from your blogs · tech &amp; engineering scope · updated 2026-08-13 01:07 HKT</div>
   </header>
 
   
@@ -1401,7 +1402,7 @@
           <div class="pub">2026-08-12 09:30 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Xiaomi EV delivered 31,267 units in July, bringing its seven-month total to 216,322 vehicles, which accounts for only 39% of its 550,000-unit annual target.</li><li>To meet its full-year goal, the company must achieve an aggressive average of 67,000 monthly deliveries for the remainder of the year, more than double its current performance.</li><li>The company is pivoting toward the extended-range electric vehicle (EREV) segment with the new Sky Nomad series, aiming to compete directly with Li Auto and Huawei-backed models.</li>
+            <li>Xiaomi EV delivered 31,267 units in July, bringing its seven-month total to 216,322 vehicles, which accounts for only 39% of its 550,000-unit annual target.</li><li>To meet its full-year goal, the company must significantly accelerate production to average nearly 67,000 monthly deliveries for the remainder of the year.</li><li>The company is pivoting toward the extended-range electric vehicle (EREV) segment with its new Sky Nomad N90 Max and N70 Max models, which are priced to compete directly with Li Auto and Huawei-backed Aito.</li><li>Despite reports of strong pre-orders for the new series, investor sentiment remains cautious regarding the aggressive pricing strategy and the massive delivery gap required to hit annual targets.</li>
           </ul>
           
           <div class="bc-footer">
@@ -1425,39 +1426,11 @@
           <div class="bc-head">
             
           </div>
-          <h3><a href="https://cnevpost.com/2026/08/12/hyundais-ioniq-v-pre-sales-chengdu-auto-show/" target="_blank" rel="noopener">Hyundai&#39;s first Ioniq model for China to open pre-sales at Chengdu Auto Show</a></h3>
-          <div class="pub">2026-08-12 11:49 UTC</div>
-          
-          <ul class="bc-bullets">
-            <li>Beijing Hyundai is launching the Ioniq V, its first China-specific production model under the Ioniq brand, with pre-sales beginning at the Chengdu Auto Show.</li><li>The vehicle features high-end specifications including a Qualcomm Snapdragon 8295 chip, integration with Baidu and ByteDance AI models, and an 800-volt fast-charging architecture.</li><li>Developed by Hyundai&#39;s China design center, the model is intended for both the domestic market and future global exports, signaling a strategic pivot in Hyundai&#39;s electrification efforts.</li>
-          </ul>
-          
-          <div class="bc-footer">
-            <div class="bc-url"><a href="https://cnevpost.com/2026/08/12/hyundais-ioniq-v-pre-sales-chengdu-auto-show/" target="_blank" rel="noopener">https://cnevpost.com/2026/08/12/hyundais-ioniq-v-pre-sales-chengdu-auto-show/</a></div>
-            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
-                    data-save-url="https://cnevpost.com/2026/08/12/hyundais-ioniq-v-pre-sales-chengdu-auto-show/"
-                    data-save-title="Hyundai&#39;s first Ioniq model for China to open pre-sales at Chengdu Auto Show"
-                    data-save-source="CNEVPOST"
-                    data-save-category="Analytics"
-                    data-save-rating="4"
-                    data-save-date="2026-08-13">
-              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-        </article>
-        
-        <article class="blog-card">
-          <div class="bc-head">
-            
-          </div>
           <h3><a href="https://cnevpost.com/2026/08/12/chengdu-auto-show-120-brands-1600-vehicles/" target="_blank" rel="noopener">Chengdu Auto Show opens next week with nearly 120 brands, 1,600 vehicles</a></h3>
           <div class="pub">2026-08-12 13:36 UTC</div>
           
           <ul class="bc-bullets">
-            <li>The 2026 Chengdu Auto Show, China&#39;s first A-level event of the second half, will feature 120 brands and 1,600 vehicles across 220,000 square meters.</li><li>Major manufacturers including BYD, Huawei&#39;s HIMA, Xiaomi, Nio, and Xpeng are utilizing the event to debut flagship models and new product lines.</li><li>The show serves as a critical barometer for southwestern Chinese market demand and a strategic launchpad for automakers ahead of the peak autumn sales season.</li>
+            <li>The 2026 Chengdu Auto Show, China&#39;s first A-level event of the second half, will feature 120 brands and 1,600 vehicles across 220,000 square meters.</li><li>Major manufacturers are using the event to debut new flagship models, including BYD&#39;s D-segment luxury sedan, the Da Han, and Huawei&#39;s Maextro V800/V680 MPVs.</li><li>The show serves as a critical barometer for southwestern Chinese market demand and a strategic launchpad for automakers ahead of the peak autumn sales season.</li><li>Xiaomi will showcase its expanded portfolio by displaying battery electric and extended-range SUV series side-by-side for the first time.</li>
           </ul>
           
           <div class="bc-footer">
@@ -1477,30 +1450,25 @@
           </div>
         </article>
         
-      </section>
-      
-      <section class="desk reveal">
-        <h2>Stratechery</h2>
-        
         <article class="blog-card">
           <div class="bc-head">
             
           </div>
-          <h3><a href="https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/" target="_blank" rel="noopener">Anthropic’s Watermarking, How It (Probably) Works, Worse Than It Seems</a></h3>
-          <div class="pub">2026-08-12 10:00 UTC</div>
+          <h3><a href="https://cnevpost.com/2026/08/12/hyundais-ioniq-v-pre-sales-chengdu-auto-show/" target="_blank" rel="noopener">Hyundai&#39;s first Ioniq model for China to open pre-sales at Chengdu Auto Show</a></h3>
+          <div class="pub">2026-08-12 11:49 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Anthropic has introduced AI watermarking mechanisms primarily to ensure compliance with the European Union&#39;s stringent AI regulatory framework.</li><li>The implementation of these watermarks faces significant philosophical and technical criticism regarding the long-term viability and integrity of AI-generated content.</li><li>Mandatory watermarking requirements represent a growing friction point between global AI developers and regulatory bodies seeking to enforce transparency in synthetic media.</li><li>The move highlights the broader industry challenge of balancing regulatory adherence with the fundamental operational principles of generative AI models.</li>
+            <li>Beijing Hyundai will open pre-sales for the Ioniq V, its first China-produced Ioniq model, at the Chengdu Auto Show with an official launch scheduled for September.</li><li>The mid-size electric sedan was developed by Hyundai&#39;s China design center and features high-end tech including a Qualcomm Snapdragon 8295 chip and dual AI integration via Baidu and ByteDance.</li><li>The vehicle utilizes an 800-volt E-GMP platform and incorporates smart driving solutions from Momenta, supporting L2+ capabilities on urban and highway roads.</li><li>Designed for both the domestic market and global export, the Ioniq V offers battery options from CATL with ranges between 520 km and 650 km.</li>
           </ul>
           
           <div class="bc-footer">
-            <div class="bc-url"><a href="https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/" target="_blank" rel="noopener">https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/</a></div>
+            <div class="bc-url"><a href="https://cnevpost.com/2026/08/12/hyundais-ioniq-v-pre-sales-chengdu-auto-show/" target="_blank" rel="noopener">https://cnevpost.com/2026/08/12/hyundais-ioniq-v-pre-sales-chengdu-auto-show/</a></div>
             <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
-                    data-save-url="https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/"
-                    data-save-title="Anthropic’s Watermarking, How It (Probably) Works, Worse Than It Seems"
-                    data-save-source="Stratechery"
+                    data-save-url="https://cnevpost.com/2026/08/12/hyundais-ioniq-v-pre-sales-chengdu-auto-show/"
+                    data-save-title="Hyundai&#39;s first Ioniq model for China to open pre-sales at Chengdu Auto Show"
+                    data-save-source="CNEVPOST"
                     data-save-category="Analytics"
-                    data-save-rating="4"
+                    data-save-rating="3"
                     data-save-date="2026-08-13">
               <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
                 <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
@@ -1523,7 +1491,7 @@
           <div class="pub">2026-08-12 07:01 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Synopsys has introduced the industry&#39;s first 112G PHY IP compliant with the OIF-CEI-112G-LINEAR-PAM4 standard, designed to support linear drive optics in high-speed AI infrastructure.</li><li>Transitioning to linear optics can reduce module power consumption by up to 50% by eliminating the need for power-hungry DSPs and retimers within the optical module.</li><li>The new PHY IP addresses critical thermal and latency bottlenecks in dense AI racks, providing a scalable path toward 224G/448G connectivity and Co-Packaged Optics (CPO).</li><li>Measured performance data for the 112G PHY indicates that TX/RX results meet or exceed OIF-CEI specifications, ensuring interoperability for DSP-less host-to-module connectivity.</li>
+            <li>Synopsys has introduced the industry&#39;s first 112G PHY IP compliant with the OIF-CEI-112G-LINEAR-PAM4 standard, designed to support linear drive optics in high-speed AI infrastructure.</li><li>Adopting linear optics can reduce module power consumption by up to 50% by eliminating the need for power-hungry DSPs and retimers within the optical module.</li><li>The new PHY IP addresses critical thermal and latency bottlenecks in dense AI racks, providing a scalable path toward 224G/448G speeds and co-packaged optics (CPO).</li><li>Measured performance data for the 112G PHY indicates that TX/RX results meet or exceed OIF-CEI specifications, ensuring interoperability within the broader data center ecosystem.</li>
           </ul>
           
           <div class="bc-footer">
@@ -1534,6 +1502,39 @@
                     data-save-source="SemiEngineering"
                     data-save-category="Analytics"
                     data-save-rating="4"
+                    data-save-date="2026-08-13">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+        
+      </section>
+      
+      <section class="desk reveal">
+        <h2>Stratechery</h2>
+        
+        <article class="blog-card">
+          <div class="bc-head">
+            
+          </div>
+          <h3><a href="https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/" target="_blank" rel="noopener">Anthropic’s Watermarking, How It (Probably) Works, Worse Than It Seems</a></h3>
+          <div class="pub">2026-08-12 10:00 UTC</div>
+          
+          <ul class="bc-bullets">
+            <li>Anthropic has introduced watermarking for its AI models primarily to comply with the European Union&#39;s AI Act.</li><li>The implementation of watermarking faces significant philosophical and technical criticism regarding its efficacy and long-term impact on AI utility.</li><li>Regulatory mandates like the E.U. AI Act are forcing AI developers to adopt defensive measures that may undermine the open nature of generative technology.</li><li>The move highlights the growing tension between global regulatory compliance and the fundamental design principles of large language models.</li>
+          </ul>
+          
+          <div class="bc-footer">
+            <div class="bc-url"><a href="https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/" target="_blank" rel="noopener">https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/"
+                    data-save-title="Anthropic’s Watermarking, How It (Probably) Works, Worse Than It Seems"
+                    data-save-source="Stratechery"
+                    data-save-category="Analytics"
+                    data-save-rating="3"
                     data-save-date="2026-08-13">
               <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
                 <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
@@ -1562,7 +1563,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-13 00:55 HKT");
+  var dataTS = encodeURIComponent("2026-08-13 01:07 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
@@ -1976,7 +1977,9 @@
 
   document.addEventListener("click", function (ev) {
     var btn = ev.target.closest ? ev.target.closest(".save-btn") : null;
-    if (!btn || !btn.closest("#saved-list")) return; // ignore archive remove buttons
+    // Skip the archive's own remove buttons (they're inside #saved-list);
+    // every other .save-btn (news rows, Analytics, Repo Radar cards) saves.
+    if (!btn || btn.closest("#saved-list")) return;
     var url = savedAttrs(btn, "url");
     if (!url) return;
     var map = loadSaved();

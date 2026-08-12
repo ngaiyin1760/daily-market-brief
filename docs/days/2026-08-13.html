@@ -1246,17 +1246,18 @@
   .repo-img {
     width: 100%;
     height: auto;
-    max-height: 280px;
-    object-fit: cover;
+    max-height: 520px;
+    object-fit: contain;       /* never crop a diagram */
     border-radius: 8px;
     border: 1px solid var(--rule);
     margin: 8px 0 4px;
     background: #fff;
+    display: block;
   }
   .repo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 14px;
+    grid-template-columns: 1fr;   /* one repo card per row — big, readable */
+    gap: 20px;
   }
 
   /* ---------- Analytics / Repo Radar day-history accordion ---------- */
@@ -1369,12 +1370,12 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>2026-08-13</h1>
-    <div class="generated">Generated 2026-08-13 00:55 HKT</div>
+    <div class="generated">Generated 2026-08-13 01:07 HKT</div>
   </header>
   
   <div class="ticker-wrap">
-    <div class="ticker"><span class="pos"><span class="m1 pos" style="animation-delay: 0ms" title="1-month trend">▲</span>S&amp;P +0.3%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 70ms" title="1-month trend">▲</span>Nasdaq +0.7%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 140ms" title="1-month trend">▼</span>HSI -1.1%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 210ms" title="1-month trend">▼</span>US10Y 4.67%</span> · <span class="flat">USD/HKD +0.0%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 350ms" title="1-month trend">▼</span>HKD/CNY -0.3%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 420ms" title="1-month trend">▼</span>JPY/HKD(¥100) -0.6%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 490ms" title="1-month trend">▲</span>Gold +2.0%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 560ms" title="1-month trend">▼</span>BTC -0.2%</span></div>
-    <div class="asof">Market data as of 2026-08-13 00:55 HKT<span class="session-badge" id="session-badge"></span><span class="new-count">23 new stories</span></div>
+    <div class="ticker"><span class="pos"><span class="m1 pos" style="animation-delay: 0ms" title="1-month trend">▲</span>S&amp;P +0.3%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 70ms" title="1-month trend">▲</span>Nasdaq +0.7%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 140ms" title="1-month trend">▼</span>HSI -1.1%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 210ms" title="1-month trend">▼</span>US10Y 4.68%</span> · <span class="flat">USD/HKD +0.0%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 350ms" title="1-month trend">▼</span>HKD/CNY -0.1%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 420ms" title="1-month trend">▼</span>JPY/HKD(¥100) -0.6%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 490ms" title="1-month trend">▲</span>Gold +1.8%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 560ms" title="1-month trend">▼</span>BTC -0.2%</span></div>
+    <div class="asof">Market data as of 2026-08-13 01:07 HKT<span class="session-badge" id="session-badge"></span><span class="new-count">23 new stories</span></div>
   </div>
   
 
@@ -1390,21 +1391,21 @@
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">S&amp;P 500</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,19.4 L4.4,19.4 L7.8,16.0 L11.1,18.1 L14.5,19.4 L17.9,15.6 L21.3,13.6 L24.7,17.4 L28.0,15.6 L31.4,13.7 L34.8,16.2 L38.2,21.0 L41.6,21.9 L44.9,17.8 L48.3,18.4 L51.7,24.2 L55.1,23.9 L58.4,23.8 L61.8,22.9 L65.2,30.0 L68.6,22.3 L72.0,19.0 L75.3,12.0 L78.7,3.3 L82.1,4.2 L85.5,5.0 L88.9,2.0 L92.2,2.3 L95.6,3.9 L99.0,2.3"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,27.6 L4.4,22.1 L7.8,18.4 L11.1,19.4 L14.5,19.4 L17.9,16.0 L21.3,18.1 L24.7,19.4 L28.0,15.6 L31.4,13.6 L34.8,17.4 L38.2,15.6 L41.6,13.7 L44.9,16.2 L48.3,21.0 L51.7,21.9 L55.1,24.2 L58.4,23.9 L61.8,23.8 L65.2,22.9 L68.6,30.0 L72.0,22.3 L75.3,12.0 L78.7,3.3 L82.1,4.2 L85.5,5.0 L88.9,2.0 L92.2,2.3 L95.6,3.9 L99.0,2.2"/></svg>
         </div>
-        <div class="hero-last">7,752.79</div>
-        <div class="hero-chg pos">+0.32%</div>
-        <div class="hero-delta pos">Δ +0.32% vs yesterday</div>
+        <div class="hero-last">7,754.92</div>
+        <div class="hero-chg pos">+0.35%</div>
+        <div class="hero-delta pos">Δ +0.35% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">Nasdaq</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,10.1 L4.4,12.7 L7.8,9.1 L11.1,12.9 L14.5,12.2 L17.9,8.0 L21.3,7.1 L24.7,12.2 L28.0,9.3 L31.4,7.2 L34.8,12.1 L38.2,16.6 L41.6,16.7 L44.9,12.6 L48.3,14.5 L51.7,21.3 L55.1,23.4 L58.4,23.9 L61.8,24.6 L65.2,30.0 L68.6,21.5 L72.0,18.4 L75.3,11.7 L78.7,3.3 L82.1,6.1 L85.5,6.3 L88.9,2.0 L92.2,3.1 L95.6,5.1 L99.0,2.9"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,19.4 L4.4,12.8 L7.8,7.9 L11.1,10.1 L14.5,12.7 L17.9,9.1 L21.3,12.9 L24.7,12.2 L28.0,8.0 L31.4,7.1 L34.8,12.2 L38.2,9.3 L41.6,7.2 L44.9,12.1 L48.3,16.6 L51.7,16.7 L55.1,21.3 L58.4,23.4 L61.8,23.9 L65.2,24.6 L68.6,30.0 L72.0,21.5 L75.3,11.7 L78.7,3.3 L82.1,6.1 L85.5,6.3 L88.9,2.0 L92.2,3.1 L95.6,5.1 L99.0,2.8"/></svg>
         </div>
-        <div class="hero-last">26,619.57</div>
-        <div class="hero-chg pos">+0.66%</div>
-        <div class="hero-delta pos">Δ +0.66% vs yesterday</div>
+        <div class="hero-last">26,626.65</div>
+        <div class="hero-chg pos">+0.69%</div>
+        <div class="hero-delta pos">Δ +0.69% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
@@ -1420,61 +1421,61 @@
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">US10Y</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,30.0 L4.4,29.0 L7.8,29.6 L11.1,24.4 L14.5,20.3 L17.9,23.4 L21.3,20.3 L24.7,16.1 L28.0,18.6 L31.4,22.7 L34.8,20.3 L38.2,23.2 L41.6,17.2 L44.9,14.1 L48.3,11.1 L51.7,6.4 L55.1,8.8 L58.4,12.8 L61.8,16.6 L65.2,14.8 L68.6,10.5 L72.0,2.0 L75.3,8.1 L78.7,14.2 L82.1,15.3 L85.5,9.8 L88.9,10.8 L92.2,6.8 L95.6,8.3 L99.0,9.6"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-flat" d="M1.0,2.0 L8.5,8.8 L16.1,19.5 L23.6,30.0 L31.2,24.9 L38.7,13.3 L46.2,6.8 L53.8,23.5 L61.3,26.3 L68.8,11.3 L76.4,14.2 L83.9,3.1 L91.5,7.4 L99.0,9.6"/></svg>
         </div>
-        <div class="hero-last">4.67%</div>
-        <div class="hero-chg neg">-1.2 bp</div>
-        <div class="hero-delta neg">Δ -1.2 bp vs yesterday</div>
+        <div class="hero-last">4.68%</div>
+        <div class="hero-chg neg">-0.8 bp</div>
+        <div class="hero-delta neg">Δ -0.8 bp vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">USD/HKD</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,10.7 L4.4,13.1 L7.8,13.1 L11.1,14.3 L14.5,16.0 L17.9,22.8 L21.3,30.0 L24.7,21.1 L28.0,25.9 L31.4,25.9 L34.8,24.0 L38.2,18.7 L41.6,20.6 L44.9,18.2 L48.3,16.5 L51.7,20.1 L55.1,17.2 L58.4,15.5 L61.8,15.8 L65.2,18.2 L68.6,15.0 L72.0,13.1 L75.3,15.5 L78.7,15.8 L82.1,14.6 L85.5,11.9 L88.9,9.5 L92.2,7.3 L95.6,7.6 L99.0,2.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,10.0 L4.4,12.5 L7.8,12.5 L11.1,13.8 L14.5,15.5 L17.9,22.5 L21.3,30.0 L24.7,20.7 L28.0,25.7 L31.4,25.7 L34.8,23.7 L38.2,18.3 L41.6,20.3 L44.9,17.8 L48.3,16.0 L51.7,19.7 L55.1,16.8 L58.4,15.0 L61.8,15.2 L65.2,17.8 L68.6,14.5 L72.0,12.5 L75.3,15.0 L78.7,15.2 L82.1,14.0 L85.5,11.3 L88.9,8.8 L92.2,6.5 L95.6,6.7 L99.0,2.0"/></svg>
         </div>
         <div class="hero-last">7.85</div>
-        <div class="hero-chg flat">+0.03%</div>
-        <div class="hero-delta pos">Δ +0.02% vs yesterday</div>
+        <div class="hero-chg flat">+0.02%</div>
+        <div class="hero-delta pos">Δ +0.01% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">HKD/CNY</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,6.4 L4.4,8.1 L7.8,8.4 L11.1,5.6 L14.5,6.2 L17.9,2.0 L21.3,4.8 L24.7,11.4 L28.0,9.8 L31.4,13.1 L34.8,14.2 L38.2,13.1 L41.6,13.1 L44.9,13.4 L48.3,15.9 L51.7,13.1 L55.1,13.4 L58.4,13.9 L61.8,15.9 L65.2,13.9 L68.6,15.9 L72.0,20.0 L75.3,21.1 L78.7,20.6 L82.1,20.6 L85.5,22.2 L88.9,22.8 L92.2,23.6 L95.6,23.3 L99.0,30.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,7.2 L4.4,9.2 L7.8,9.5 L11.1,6.2 L14.5,6.9 L17.9,2.0 L21.3,5.3 L24.7,13.1 L28.0,11.1 L31.4,15.0 L34.8,16.3 L38.2,15.0 L41.6,15.0 L44.9,15.3 L48.3,18.3 L51.7,15.0 L55.1,15.3 L58.4,16.0 L61.8,18.3 L65.2,16.0 L68.6,18.3 L72.0,23.2 L75.3,24.5 L78.7,23.8 L82.1,23.8 L85.5,25.8 L88.9,26.4 L92.2,27.4 L95.6,27.1 L99.0,30.0"/></svg>
         </div>
         <div class="hero-last">0.86</div>
-        <div class="hero-chg neg">-0.28%</div>
-        <div class="hero-delta neg">Δ -0.24% vs yesterday</div>
+        <div class="hero-chg neg">-0.10%</div>
+        <div class="hero-delta neg">Δ -0.07% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">JPY/HKD</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,24.1 L4.4,19.4 L7.8,19.5 L11.1,22.3 L14.5,23.5 L17.9,24.5 L21.3,24.0 L24.7,21.6 L28.0,24.1 L31.4,23.1 L34.8,22.5 L38.2,23.7 L41.6,24.3 L44.9,24.1 L48.3,27.1 L51.7,26.8 L55.1,29.9 L58.4,28.9 L61.8,29.5 L65.2,30.0 L68.6,27.5 L72.0,13.8 L75.3,2.2 L78.7,2.0 L82.1,2.7 L85.5,2.2 L88.9,5.8 L92.2,3.3 L95.6,9.0 L99.0,13.6"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,24.1 L4.4,19.4 L7.8,19.5 L11.1,22.3 L14.5,23.5 L17.9,24.5 L21.3,24.0 L24.7,21.6 L28.0,24.1 L31.4,23.1 L34.8,22.5 L38.2,23.7 L41.6,24.3 L44.9,24.1 L48.3,27.1 L51.7,26.8 L55.1,29.9 L58.4,28.9 L61.8,29.5 L65.2,30.0 L68.6,27.5 L72.0,13.8 L75.3,2.2 L78.7,2.0 L82.1,2.7 L85.5,2.2 L88.9,5.8 L92.2,3.3 L95.6,9.0 L99.0,13.4"/></svg>
         </div>
         <div class="hero-last">4.90</div>
-        <div class="hero-chg neg">-0.63%</div>
-        <div class="hero-delta neg">Δ -0.08% vs yesterday</div>
+        <div class="hero-chg neg">-0.61%</div>
+        <div class="hero-delta neg">Δ -0.06% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">Gold</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,25.2 L4.4,22.6 L7.8,20.2 L11.1,20.8 L14.5,25.1 L17.9,21.6 L21.3,23.1 L24.7,29.3 L28.0,25.6 L31.4,26.6 L34.8,30.0 L38.2,28.4 L41.6,28.6 L44.9,25.1 L48.3,20.7 L51.7,26.5 L55.1,25.3 L58.4,24.9 L61.8,27.1 L65.2,27.2 L68.6,23.4 L72.0,26.3 L75.3,27.2 L78.7,23.6 L82.1,14.9 L85.5,15.2 L88.9,9.5 L92.2,8.2 L95.6,7.0 L99.0,2.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,25.1 L4.4,22.5 L7.8,20.0 L11.1,20.6 L14.5,25.0 L17.9,21.5 L21.3,23.0 L24.7,29.3 L28.0,25.6 L31.4,26.6 L34.8,30.0 L38.2,28.4 L41.6,28.5 L44.9,25.0 L48.3,20.5 L51.7,26.4 L55.1,25.2 L58.4,24.8 L61.8,27.0 L65.2,27.1 L68.6,23.3 L72.0,26.3 L75.3,27.2 L78.7,23.6 L82.1,14.7 L85.5,14.9 L88.9,9.2 L92.2,7.9 L95.6,6.7 L99.0,2.0"/></svg>
         </div>
-        <div class="hero-last">4,469.60</div>
-        <div class="hero-chg pos">+1.98%</div>
-        <div class="hero-delta pos">Δ +0.81% vs yesterday</div>
+        <div class="hero-last">4,462.50</div>
+        <div class="hero-chg pos">+1.81%</div>
+        <div class="hero-delta pos">Δ +0.65% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">BTC</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,13.6 L4.4,15.4 L7.8,22.3 L11.1,21.5 L14.5,14.8 L17.9,15.6 L21.3,11.5 L24.7,2.0 L28.0,5.0 L31.4,12.9 L34.8,20.0 L38.2,18.4 L41.6,10.7 L44.9,22.8 L48.3,21.7 L51.7,21.4 L55.1,15.3 L58.4,29.6 L61.8,30.0 L65.2,24.6 L68.6,24.8 L72.0,20.3 L75.3,16.3 L78.7,18.8 L82.1,14.2 L85.5,14.0 L88.9,14.4 L92.2,21.4 L95.6,24.1 L99.0,25.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,13.6 L4.4,15.4 L7.8,22.3 L11.1,21.5 L14.5,14.8 L17.9,15.6 L21.3,11.5 L24.7,2.0 L28.0,5.0 L31.4,12.9 L34.8,20.0 L38.2,18.4 L41.6,10.7 L44.9,22.8 L48.3,21.7 L51.7,21.4 L55.1,15.3 L58.4,29.6 L61.8,30.0 L65.2,24.6 L68.6,24.8 L72.0,20.3 L75.3,16.3 L78.7,18.8 L82.1,14.2 L85.5,14.0 L88.9,14.4 L92.2,21.4 L95.6,24.1 L99.0,24.9"/></svg>
         </div>
-        <div class="hero-last">63,426.83</div>
-        <div class="hero-chg neg">-0.20%</div>
-        <div class="hero-delta neg">Δ -0.16% vs yesterday</div>
+        <div class="hero-last">63,442.85</div>
+        <div class="hero-chg neg">-0.17%</div>
+        <div class="hero-delta neg">Δ -0.13% vs yesterday</div>
       </div>
       
     </div>
@@ -1495,7 +1496,7 @@
   <section class="takeaways reveal" id="takeaways">
     <div class="tw-label">Today's Key Takeaways</div>
     <ul>
-      <li>Central banks are diverging, with the PBOC easing liquidity via targeted facilities while the Fed faces persistent inflation pressures driven by AI-related energy and hardware infrastructure costs.</li><li>Nvidia’s $500 billion debt-financing model shifts AI compute from a depreciating asset to institutional infrastructure, though regulatory costs in regions like Virginia may dampen development margins.</li><li>China’s economic strategy is pivoting toward high-tech manufacturing and export-led growth, even as domestic consumer weakness and new offshore tax policies create headwinds for property and financial sectors.</li>
+      <li>Global liquidity is diverging as the PBOC implements accommodative measures to stimulate growth, while U.S. Treasury volatility and rising yields force investors to reassess duration risk and capital allocation.</li><li>Institutional capital is pivoting toward AI-related physical infrastructure, with firms like Bank of America and Nvidia shifting hardware costs into long-term, third-party financed assets to sustain demand.</li><li>China&#39;s export-led &#39;new shock&#39; is driven by structural domestic overcapacity in EVs and tech, forcing firms to seek global markets as domestic consumption remains weak despite policy support.</li>
     </ul>
   </section>
   
@@ -1548,45 +1549,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>The PBOC is shifting its primary short-term liquidity management target from the seven-day repo rate (DR007) to the overnight rate (DR001), which now accounts for over 90% of money market repo trading.</li><li>Despite global tightening trends, the PBOC plans to introduce incremental policy measures to maintain ample liquidity and low financing costs, signaling a divergence from the hawkish stances of the Fed, ECB, and BOJ.</li>
+              <li>The PBOC is shifting its primary short-term operational target from the seven-day repo rate (DR007) to the overnight repo rate (DR001), reflecting a strategic move to better manage liquidity as overnight transactions now comprise over 90% of the repo market.</li><li>Despite global tightening trends, the PBOC plans to introduce incremental policy measures to maintain accommodative financing conditions, signaling a divergence from the hawkish stances currently adopted by the Federal Reserve and other major central banks.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">China Daily</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Significant shift in China&#39;s monetary policy framework and liquidity management strategy.</span>
-          </td>
-          <td class="save-cell">
-            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
-              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </td>
-        </tr>
-        
-        <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiyAFBVV95cUxNbmVzRjNYVDhWNklOdndsa3hZX21rYlEzVUthZFE3RjFlNENOLTdlUWE3aDVjUVRGc0ZGN3B2WEprd2N4c0JMdVFTb1pDZnFSVTdZRGtnNy11U2xWYXJfNzA3Z0hkUkFTTF9vUHdNaFFLeFU1MGFpcGVvRVJ6T2VjY3VkM0ZZR3RQUFlKbk9rSGFsd2FYcHNsOWc1cmRMZlJjZWd6ckFsVjlhTlVHNVY4N29sUzZVdlZRb0VsdDB3RWxQeDJhQ2EyMg?oc=5"
-            data-title="Global Navigator | Central banks hold firm as inflation risks re-emerge and oil prices resurge"
-            data-source="ISI Markets"
-            data-category="Global Economy"
-            data-rating="4"
-            data-date="2026-08-13">
-          <td class="headline">
-            <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxNbmVzRjNYVDhWNklOdndsa3hZX21rYlEzVUthZFE3RjFlNENOLTdlUWE3aDVjUVRGc0ZGN3B2WEprd2N4c0JMdVFTb1pDZnFSVTdZRGtnNy11U2xWYXJfNzA3Z0hkUkFTTF9vUHdNaFFLeFU1MGFpcGVvRVJ6T2VjY3VkM0ZZR3RQUFlKbk9rSGFsd2FYcHNsOWc1cmRMZlJjZWd6ckFsVjlhTlVHNVY4N29sUzZVdlZRb0VsdDB3RWxQeDJhQ2EyMg?oc=5" target="_blank" rel="noopener">Global Navigator | Central banks hold firm as inflation risks re-emerge and oil prices resurge</a>
-            <div class="pub">2026-08-11 17:03 UTC</div>
-          </td>
-          <td class="summary">
-            <ul>
-              <li>Federal Reserve meeting minutes indicate that AI infrastructure investment is creating sustained upward pressure on inflation by increasing the costs of electricity and specialized tech hardware.</li><li>Alternative data from Permutable AI shows a sharp rise in the 30-day moving average of Net Inflation Sentiment, particularly in the US, Germany, and Italy, driven by geopolitical instability in the Persian Gulf.</li>
-            </ul>
-          </td>
-          <td class="source"><span class="chip">ISI Markets</span></td>
-          <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="reason">Identifies structural inflationary pressures from AI infrastructure and geopolitical energy shocks.</span>
+            <span class="reason">Signals significant monetary policy divergence and operational framework shifts in the world&#39;s second-largest economy.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1603,7 +1572,7 @@
             data-title="Imported Inflation Hits as PBOC Flags Overseas Rate Hikes: This Cycle&#39;s Impact Seen as Relatively Mild"
             data-source="finance.biggo.com"
             data-category="Global Economy"
-            data-rating="3"
+            data-rating="4"
             data-date="2026-08-13">
           <td class="headline">
             <span class="new-badge">NEW</span>
@@ -1612,13 +1581,45 @@
           </td>
           <td class="summary">
             <ul>
-              <li>The PBOC reports that Middle East conflicts and rising commodity prices are causing imported inflation, forcing a global policy divergence where some central banks are implementing &#39;preventive rate hikes&#39; to anchor expectations.</li><li>Despite the current tightening cycle, the PBOC assesses that the overall impact on global financial markets will likely be milder than previous episodes, suggesting a more controlled transition for emerging market economies.</li>
+              <li>The PBOC identifies a convergence of geopolitical tensions in the Middle East and an AI-driven demand surge for semiconductors and power as primary drivers of current imported inflationary pressures.</li><li>Chinese policymakers anticipate that the current global monetary tightening cycle will have a relatively mild impact on the domestic economy compared to previous episodes, despite the hawkish tilt observed in the Federal Reserve&#39;s recent policy signals.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">finance.biggo.com</span></td>
           <td class="rating">
+            <span class="rating-chip r4">4</span>
+            <span class="reason">Provides critical insight into China&#39;s assessment of global inflation risks and the potential impact on domestic monetary policy.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMigAFBVV95cUxQd1F0U0owRlhyOGZNaDZxY000Y3NUNEtTRXJEQll4YlhtVldhVUY1N3Vyb29tRXVOWFVROWZaQ0NNR2hndGQtYlp1OWN3WWU4LXRoUmk5aUxoNWczZTVBUTFOaWZtQi13dFZ2ekRpQm1Pdk9vakphdUJFeWJtaFFtVQ?oc=5"
+            data-title="Bank of Lithuania Blocks Lux International Payment System Services"
+            data-source="Fincrime Central"
+            data-category="Global Economy"
+            data-rating="3"
+            data-date="2026-08-13">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxQd1F0U0owRlhyOGZNaDZxY000Y3NUNEtTRXJEQll4YlhtVldhVUY1N3Vyb29tRXVOWFVROWZaQ0NNR2hndGQtYlp1OWN3WWU4LXRoUmk5aUxoNWczZTVBUTFOaWZtQi13dFZ2ekRpQm1Pdk9vakphdUJFeWJtaFFtVQ?oc=5" target="_blank" rel="noopener">Bank of Lithuania Blocks Lux International Payment System Services</a>
+            <div class="pub">2026-08-12 10:25 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>The Bank of Lithuania has imposed an immediate, broad-based suspension on UAB Lux International Payment System, prohibiting the firm from serving both new and existing customers due to suspected serious AML and counter-terrorist financing deficiencies.</li><li>This regulatory intervention is particularly aggressive as it halts all existing financial services rather than just new onboarding, highlighting a tightening of oversight on electronic money institutions within the EU jurisdiction.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">Fincrime Central</span></td>
+          <td class="rating">
             <span class="rating-chip r3">3</span>
-            <span class="reason">Provides a central bank perspective on the severity and transmission of global inflationary shocks.</span>
+            <span class="reason">Highlights increasing regulatory scrutiny and operational risks for fintech and electronic money institutions in the European market.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1646,26 +1647,26 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiqwFBVV95cUxOa0h0MFNMS04xTjRDcEc1cUtRYUtZNlpQUml3dHgwVl9ZbWJ6YXB6UmRNTkdSenZWQktTZUwwbkZSNmgxbDR3UmhHMHlzeWVCYXAzRXhvYmRKcWJoa0paMGhpTDFlLU4yMGZvTEF5ZkI3STdJNndEOXN4WkRRZTFOVXJ1eGdtbHc2eVZ1OE94U3pYbHQ3cVRuaUx1OThYbnRFNUZGRTFHZ191bWc?oc=5"
-            data-title="We&#39;re encouraged by Wednesday&#39;s benign inflation data and strong neocloud earnings"
-            data-source="CNBC"
+            data-url="https://news.google.com/rss/articles/CBMipAFBVV95cUxNcEJrelVuLWNvQVpMQ0FHVXF0aE9vZTZqcklqQUNLSHpCOGxiQkl3Tko1UVJZTHpnVUhUQ0R6RTNWc08yMXRrb2tMNUI1MWpFby1qM1RUWVllYU9NT0x6MzFzQk1tY0U2Q0lCcGhrNUVRYjJtdDVEbVFObndDeFBiVDdmTXdsQW5FV09uRl9aSzFzWVMtVTdkQkFWMFZPdjBzdk1pWA?oc=5"
+            data-title="European stocks ease from record highs as investors weigh earnings, Middle East risks - Reuters"
+            data-source="Reuters"
             data-category="Equity Markets"
-            data-rating="5"
+            data-rating="4"
             data-date="2026-08-13">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxOa0h0MFNMS04xTjRDcEc1cUtRYUtZNlpQUml3dHgwVl9ZbWJ6YXB6UmRNTkdSenZWQktTZUwwbkZSNmgxbDR3UmhHMHlzeWVCYXAzRXhvYmRKcWJoa0paMGhpTDFlLU4yMGZvTEF5ZkI3STdJNndEOXN4WkRRZTFOVXJ1eGdtbHc2eVZ1OE94U3pYbHQ3cVRuaUx1OThYbnRFNUZGRTFHZ191bWc?oc=5" target="_blank" rel="noopener">We&#39;re encouraged by Wednesday&#39;s benign inflation data and strong neocloud earnings</a>
-            <div class="pub">2026-08-12 16:30 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxNcEJrelVuLWNvQVpMQ0FHVXF0aE9vZTZqcklqQUNLSHpCOGxiQkl3Tko1UVJZTHpnVUhUQ0R6RTNWc08yMXRrb2tMNUI1MWpFby1qM1RUWVllYU9NT0x6MzFzQk1tY0U2Q0lCcGhrNUVRYjJtdDVEbVFObndDeFBiVDdmTXdsQW5FV09uRl9aSzFzWVMtVTdkQkFWMFZPdjBzdk1pWA?oc=5" target="_blank" rel="noopener">European stocks ease from record highs as investors weigh earnings, Middle East risks - Reuters</a>
+            <div class="pub">2026-08-12 16:32 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>July CPI data met expectations with cooling headline and core rates, shifting market sentiment to a 60% probability of a Federal Reserve interest rate hold in September.</li><li>Infrastructure earnings from neocloud providers Coreweave and Nebius surged 19% and 27% respectively, signaling sustained, massive demand for AI cloud computing capacity.</li>
+              <li>European stocks ease from record highs as investors weigh earnings, Middle East risks  Reuters</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">CNBC</span></td>
+          <td class="source"><span class="chip">Reuters</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="reason">Macroeconomic data combined with sector-specific growth catalysts.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="reason">Heuristic rating (no AI summary).</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1678,26 +1679,26 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMigwFBVV95cUxQUEUxSTFzZFlPZEdMWEs5VVRfdk9hS1NzX2JjUjZiQy1Va3J6SUdyUGVDNDlRZlVFVHU3RjlFaEw1Y3J5MjQxcXUta1pXQ2JrUTFGblZxZk5KX2FHWVdGVWgwcnRkSW03WmtaaWZHNWdrZl92RWFraTFNbjhfaGwwOVpjSdIBiAFBVV95cUxOUHUtMl82d293MGpCZXpJb0hFeHNHNWFtanVUUEM2bXJCek1yYktaSm9JZWRnZU95ZTdWVXlIN0wtVWw5TEQ0VVRlMEZadmdWSGdYc2o4VndJbnFKdWVab0pYWUpzQ1dQZVNOVkhrSGNmZDZXbEd3bGoteFhBS3dxQUNNSkgtanpZ?oc=5"
-            data-title="Small investors became a major stock market force. Now, they risk getting pushed back into the dark"
+            data-url="https://news.google.com/rss/articles/CBMiqwFBVV95cUxOa0h0MFNMS04xTjRDcEc1cUtRYUtZNlpQUml3dHgwVl9ZbWJ6YXB6UmRNTkdSenZWQktTZUwwbkZSNmgxbDR3UmhHMHlzeWVCYXAzRXhvYmRKcWJoa0paMGhpTDFlLU4yMGZvTEF5ZkI3STdJNndEOXN4WkRRZTFOVXJ1eGdtbHc2eVZ1OE94U3pYbHQ3cVRuaUx1OThYbnRFNUZGRTFHZ191bWc?oc=5"
+            data-title="We&#39;re encouraged by Wednesday&#39;s benign inflation data and strong neocloud earnings - CNBC"
             data-source="CNBC"
             data-category="Equity Markets"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-08-13">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxQUEUxSTFzZFlPZEdMWEs5VVRfdk9hS1NzX2JjUjZiQy1Va3J6SUdyUGVDNDlRZlVFVHU3RjlFaEw1Y3J5MjQxcXUta1pXQ2JrUTFGblZxZk5KX2FHWVdGVWgwcnRkSW03WmtaaWZHNWdrZl92RWFraTFNbjhfaGwwOVpjSdIBiAFBVV95cUxOUHUtMl82d293MGpCZXpJb0hFeHNHNWFtanVUUEM2bXJCek1yYktaSm9JZWRnZU95ZTdWVXlIN0wtVWw5TEQ0VVRlMEZadmdWSGdYc2o4VndJbnFKdWVab0pYWUpzQ1dQZVNOVkhrSGNmZDZXbEd3bGoteFhBS3dxQUNNSkgtanpZ?oc=5" target="_blank" rel="noopener">Small investors became a major stock market force. Now, they risk getting pushed back into the dark</a>
-            <div class="pub">2026-08-12 15:37 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxOa0h0MFNMS04xTjRDcEc1cUtRYUtZNlpQUml3dHgwVl9ZbWJ6YXB6UmRNTkdSenZWQktTZUwwbkZSNmgxbDR3UmhHMHlzeWVCYXAzRXhvYmRKcWJoa0paMGhpTDFlLU4yMGZvTEF5ZkI3STdJNndEOXN4WkRRZTFOVXJ1eGdtbHc2eVZ1OE94U3pYbHQ3cVRuaUx1OThYbnRFNUZGRTFHZ191bWc?oc=5" target="_blank" rel="noopener">We&#39;re encouraged by Wednesday&#39;s benign inflation data and strong neocloud earnings - CNBC</a>
+            <div class="pub">2026-08-12 16:30 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The SEC has backed a proposal to shift public companies from quarterly to biannual earnings reporting, a move critics argue creates an information vacuum for retail investors.</li><li>Market participants warn that reduced reporting frequency could increase reliance on unofficial or misleading information, potentially discouraging retail participation in high-growth, small-cap equities.</li>
+              <li>Every weekday, the CNBC Investing Club with Jim Cramer holds a &#34;Morning Meeting&#34; livestream at 10:20 a.m. ET.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">CNBC</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="reason">Structural regulatory change impacting market transparency and retail participation.</span>
+            <span class="rating-chip r5">5</span>
+            <span class="reason">Heuristic rating (no AI summary).</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1726,25 +1727,25 @@
         
         <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMidEFVX3lxTFBZRC1nbUdhSDd0RDNJbDZqanpiMURYNFF5VHpqbGhLQTdZS1k0WDN6QWl0SENBeTNjT2MtbTZmdmNiRGRVXzJYZE5iMXA2YkNEYmJMbmdtZHpocU0wRHFTeEpscElVY3BZZmdYN1RFNmUycnhy?oc=5"
-            data-title="SK Hynix halts bond buying, shifts cash to bank deposits in blow to S.Korean credit market"
+            data-title="SK Hynix halts bond buying, shifts cash to bank deposits in blow to S.Korean credit market - KED Global"
             data-source="KED Global"
             data-category="Fixed Income"
             data-rating="4"
             data-date="2026-08-13">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMidEFVX3lxTFBZRC1nbUdhSDd0RDNJbDZqanpiMURYNFF5VHpqbGhLQTdZS1k0WDN6QWl0SENBeTNjT2MtbTZmdmNiRGRVXzJYZE5iMXA2YkNEYmJMbmdtZHpocU0wRHFTeEpscElVY3BZZmdYN1RFNmUycnhy?oc=5" target="_blank" rel="noopener">SK Hynix halts bond buying, shifts cash to bank deposits in blow to S.Korean credit market</a>
+            <a href="https://news.google.com/rss/articles/CBMidEFVX3lxTFBZRC1nbUdhSDd0RDNJbDZqanpiMURYNFF5VHpqbGhLQTdZS1k0WDN6QWl0SENBeTNjT2MtbTZmdmNiRGRVXzJYZE5iMXA2YkNEYmJMbmdtZHpocU0wRHFTeEpscElVY3BZZmdYN1RFNmUycnhy?oc=5" target="_blank" rel="noopener">SK Hynix halts bond buying, shifts cash to bank deposits in blow to S.Korean credit market - KED Global</a>
             <div class="pub">2026-08-12 13:03 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>SK Hynix has abruptly ceased its bond-buying activities, opting to move significant cash reserves into commercial bank deposits instead of corporate debt instruments. This shift creates immediate liquidity concerns for the South Korean short-term credit market.</li><li>Industry analysts suggest the move may be a strategic pivot to prioritize higher shareholder returns. The withdrawal of such a major institutional buyer could lead to increased volatility and higher borrowing costs for other corporate issuers in the region.</li>
+              <li>SK Hynix has abruptly ceased its bond-buying activities, opting instead to move significant cash reserves into commercial bank deposits, which creates immediate liquidity concerns for the South Korean short-term credit market.</li><li>Industry analysts suggest this strategic shift may be intended to prioritize higher shareholder returns, signaling a potential change in corporate capital allocation that could impact broader domestic bond market stability.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">KED Global</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="reason">Significant liquidity shift impacting regional credit market stability.</span>
+            <span class="reason">Significant impact on regional credit market liquidity.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1757,26 +1758,26 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMixAFBVV95cUxQSVBHc1pKbnlleERzenJPUFlWUl9qdGQ0Mi1qNk9sSWRxVmdUaGxDMmtmVzBzSkVVZTM0cVFjVU1MbzhnM1lTV040SU1yTGtZTDRaWDBsSWZuN2Rodlg5M3c0NGlKc2ZlenRPdlJfTU9pbndXWG1Ra3BjVmhOZ0diX25YMDFncFhpMXI3emNlbWhobnNwRWpYRzJqaVlsaW03aHVDbU5LeXpBaXZSaGo1ZmVqU1Bkeno4LVlMbkR3d1d3b0kz?oc=5"
-            data-title="US yield curve twists expose Trump&#39;s and Bessent&#39;s rate dilemma"
-            data-source="Reuters"
+            data-url="https://news.google.com/rss/articles/CBMi5gFBVV95cUxOdHJLU2lBQnR3TnVsbXZjSWVXdGgzQlZKZGlYenhPMEhqd2dickNZU05taVNRQlNBb1pRLTM5bE9BQ0I4OGxjbjFWQmRRZUhlT2x3YmdxYldjcjJZZk9yYVN0SFRMMHpISWh0YWRHbnFKUXNRYXJjcWpnMnk2a3hmS3lPRGMtZmpWQVNXOUJsVHlRUnE1aFdGVE9wMW84LXNrdC1ERDlYQWctWE1od01HdHVNTG44MWZwcUJ4YUxnVE0tUkFRLTE5T3NpR1RhNXNOODJaT1BMb1BpdzZ5cnFsNjZlZnpDUQ?oc=5"
+            data-title="The $30 trillion Treasury market is facing a painful reckoning. How rising yields could squeeze your portfolio. - MarketWatch"
+            data-source="MarketWatch"
             data-category="Fixed Income"
             data-rating="5"
             data-date="2026-08-13">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxQSVBHc1pKbnlleERzenJPUFlWUl9qdGQ0Mi1qNk9sSWRxVmdUaGxDMmtmVzBzSkVVZTM0cVFjVU1MbzhnM1lTV040SU1yTGtZTDRaWDBsSWZuN2Rodlg5M3c0NGlKc2ZlenRPdlJfTU9pbndXWG1Ra3BjVmhOZ0diX25YMDFncFhpMXI3emNlbWhobnNwRWpYRzJqaVlsaW03aHVDbU5LeXpBaXZSaGo1ZmVqU1Bkeno4LVlMbkR3d1d3b0kz?oc=5" target="_blank" rel="noopener">US yield curve twists expose Trump&#39;s and Bessent&#39;s rate dilemma</a>
-            <div class="pub">2026-08-11 23:30 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxOdHJLU2lBQnR3TnVsbXZjSWVXdGgzQlZKZGlYenhPMEhqd2dickNZU05taVNRQlNBb1pRLTM5bE9BQ0I4OGxjbjFWQmRRZUhlT2x3YmdxYldjcjJZZk9yYVN0SFRMMHpISWh0YWRHbnFKUXNRYXJjcWpnMnk2a3hmS3lPRGMtZmpWQVNXOUJsVHlRUnE1aFdGVE9wMW84LXNrdC1ERDlYQWctWE1od01HdHVNTG44MWZwcUJ4YUxnVE0tUkFRLTE5T3NpR1RhNXNOODJaT1BMb1BpdzZ5cnFsNjZlZnpDUQ?oc=5" target="_blank" rel="noopener">The $30 trillion Treasury market is facing a painful reckoning. How rising yields could squeeze your portfolio. - MarketWatch</a>
+            <div class="pub">2026-08-12 12:58 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Recent volatility in the US yield curve is complicating the policy outlook for political leadership, highlighting the tension between fiscal expansion and interest rate management. Investors are closely watching how these structural shifts influence long-term Treasury pricing.</li><li>The current yield curve dynamics suggest that market participants are pricing in heightened uncertainty regarding future monetary policy paths. This environment forces a difficult trade-off for policymakers attempting to balance economic growth objectives against inflationary pressures.</li>
+              <li>The $30 trillion U.S. Treasury market is experiencing heightened volatility as rising yields exert downward pressure on fixed-income valuations, forcing investors to reassess duration risk in their portfolios.</li><li>Persistent yield increases threaten to compress total returns across asset classes, necessitating a defensive posture for investors heavily exposed to interest-rate sensitive debt instruments in the current macroeconomic environment.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Reuters</span></td>
+          <td class="source"><span class="chip">MarketWatch</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Direct impact on US Treasury market pricing and macroeconomic policy expectations.</span>
+            <span class="reason">Systemic risk to the global benchmark asset class.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1817,13 +1818,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>The PBOC has launched a 1 trillion yuan ($149 billion) relending facility specifically for private enterprises, signaling a targeted effort to bolster the private sector amid broader economic structural shifts.</li><li>Monetary policy is becoming more precise, evidenced by the narrowing of the repo operation corridor to 50 basis points and a 0.25 percentage point reduction in interest rates for structural policy tools.</li>
+              <li>The PBOC has launched a 1 trillion yuan private enterprise relending facility to bolster liquidity, alongside a 25 basis point reduction in interest rates for structural monetary policy tools to lower corporate financing costs.</li><li>Monetary authorities are refining interest rate control by narrowing the repo operation corridor to 50 basis points and introducing new tools for overseas central banks to manage renminbi liquidity and bond allocations.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">finance.biggo.com</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Significant shift in monetary policy and liquidity support for private firms.</span>
+            <span class="reason">Significant shift in monetary policy and liquidity support.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1849,13 +1850,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Unlike the original China shock driven by low-cost labor, this new iteration is fueled by domestic technological upgrading combined with persistent weakness in internal consumer demand.</li><li>Investors should note that current export surges are being amplified by excess domestic savings, which may lead to continued global trade friction as China pivots its manufacturing capacity toward high-tech sectors.</li>
+              <li>Unlike the previous export-led growth model, the current &#39;China shock&#39; is characterized by domestic technological upgrading combined with persistent weak domestic demand, forcing excess production into global markets.</li><li>Investors should note that the surge in exports is less about direct government subsidies and more a structural byproduct of high domestic savings and under-consumption, which risks prolonged global trade tensions.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">The Business Times</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="reason">Identifies structural shifts in China&#39;s export strategy and global trade implications.</span>
+            <span class="reason">Structural shift impacting global trade and investment strategy.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1883,26 +1884,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiugFBVV95cUxQYjg1UjRpREVReEMxbUlLQjJKc1c2S01oeGhQZHQ4djcwc1REQ1JudlFSTHZGN18wX2d3eVlYcnN5WExIMktKWXpHMTRwSGZ0THJBQi1HWllyYlpRajJ6dHZGV09WV1NCb0gtdjhseDdlSm1ZZ0lyTkRQSlNsVFZlS3dRM09RN2VtcVBObzdvMzRIcHhzczYxRjRVamxNam9qMDZjcGF4T0ZkYklGRHhuTFlOclU3R1VLNlHSAboBQVVfeXFMT1ZFbGlnVjNoSVU3SVVBRVhVbHJnQUJHLTJLRUs4UXVRLVdlYlp0cmdXdWE0eUFOZzRYbHpuNENCeUt1MHU3REcxREpCY3RacU9YMXd3R0FaNDBnUnJKQUxKSVFyMmViOEhVbnZqVDQ5X3Q1bTM1TS1mVmFkbkp1S0NweFRqVmpiWmw3cVJucjNwR0xnb2V0RDNvaDRtUXRBUmtvMGEybjIzUDZqQ2h6SDQtVGZOYjgxQjdB?oc=5"
-            data-title="Hong Kong property recovery faces new risk as Beijing widens offshore tax net"
+            data-url="https://news.google.com/rss/articles/CBMi0AFBVV95cUxQRXFXYlh0OF9mcm5FZW1OZzRwTXNfZ01qQzU1TV90a3lZamQxcGdFb1hPYlZ6RDFPNTdQYzl3cFZXM25UcHJ3UXVHSk5ZbUt1emxySW95TTNNZUFWYUNoVkxVZVlEdnlGN0hiaXc1Tm1iRjdlTjhIUDdiamVyMUg4Q2UtTkVZcEdZWWFKZkJoQ0t2R0ZVZ3d5MFhfYXlxa183VlE1aVRMbE84Mks2R3N6dHJ2c01RSWxwTHYwcTJOWDl2MTJseF8yR0ZFZUtsWWUw0gHQAUFVX3lxTFAwTURxeUhDa1h4SE9Od0lIUnpsZUxnQlFId3pDSzl5aS16Rk4wTXlHSS05NWVYTDgwTk1zdTVfQlZkeHEwX3ZWNWRhc0tTQTVlVVJmaFgwSGY3T2dMNmZfWlJmSndyekh1WVhfOG9HeGpvdFdzQ2pMOTdmM0FWZl85TGsyWEF2UTVPZjd6d3h5cWtoY1QzNENWZHpHRmxPanpoZGJPelVGT2tpd3RIN09sc0c1TmJ5TlQxcE56NVdzUmxpY2poeFRDQUJfVklJd0w?oc=5"
+            data-title="‘I had planned to stay for life’: last villagers prepare to leave Cha Kwo Ling - South China Morning Post"
             data-source="South China Morning Post"
             data-category="Hong Kong Economy"
-            data-rating="5"
+            data-rating="2"
             data-date="2026-08-13">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxQYjg1UjRpREVReEMxbUlLQjJKc1c2S01oeGhQZHQ4djcwc1REQ1JudlFSTHZGN18wX2d3eVlYcnN5WExIMktKWXpHMTRwSGZ0THJBQi1HWllyYlpRajJ6dHZGV09WV1NCb0gtdjhseDdlSm1ZZ0lyTkRQSlNsVFZlS3dRM09RN2VtcVBObzdvMzRIcHhzczYxRjRVamxNam9qMDZjcGF4T0ZkYklGRHhuTFlOclU3R1VLNlHSAboBQVVfeXFMT1ZFbGlnVjNoSVU3SVVBRVhVbHJnQUJHLTJLRUs4UXVRLVdlYlp0cmdXdWE0eUFOZzRYbHpuNENCeUt1MHU3REcxREpCY3RacU9YMXd3R0FaNDBnUnJKQUxKSVFyMmViOEhVbnZqVDQ5X3Q1bTM1TS1mVmFkbkp1S0NweFRqVmpiWmw3cVJucjNwR0xnb2V0RDNvaDRtUXRBUmtvMGEybjIzUDZqQ2h6SDQtVGZOYjgxQjdB?oc=5" target="_blank" rel="noopener">Hong Kong property recovery faces new risk as Beijing widens offshore tax net</a>
-            <div class="pub">2026-08-11 23:51 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxQRXFXYlh0OF9mcm5FZW1OZzRwTXNfZ01qQzU1TV90a3lZamQxcGdFb1hPYlZ6RDFPNTdQYzl3cFZXM25UcHJ3UXVHSk5ZbUt1emxySW95TTNNZUFWYUNoVkxVZVlEdnlGN0hiaXc1Tm1iRjdlTjhIUDdiamVyMUg4Q2UtTkVZcEdZWWFKZkJoQ0t2R0ZVZ3d5MFhfYXlxa183VlE1aVRMbE84Mks2R3N6dHJ2c01RSWxwTHYwcTJOWDl2MTJseF8yR0ZFZUtsWWUw0gHQAUFVX3lxTFAwTURxeUhDa1h4SE9Od0lIUnpsZUxnQlFId3pDSzl5aS16Rk4wTXlHSS05NWVYTDgwTk1zdTVfQlZkeHEwX3ZWNWRhc0tTQTVlVVJmaFgwSGY3T2dMNmZfWlJmSndyekh1WVhfOG9HeGpvdFdzQ2pMOTdmM0FWZl85TGsyWEF2UTVPZjd6d3h5cWtoY1QzNENWZHpHRmxPanpoZGJPelVGT2tpd3RIN09sc0c1TmJ5TlQxcE56NVdzUmxpY2poeFRDQUJfVklJd0w?oc=5" target="_blank" rel="noopener">‘I had planned to stay for life’: last villagers prepare to leave Cha Kwo Ling - South China Morning Post</a>
+            <div class="pub">2026-08-12 12:47 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Beijing&#39;s implementation of a 20% personal income tax on offshore investment returns, including Hong Kong insurance policies, threatens to dampen demand from mainland investors in the local property and financial sectors.</li><li>UBS analysts estimate that this tax policy could compress net rental yields on Hong Kong residential investments from 2.2% to 1.8%, potentially reducing the city&#39;s attractiveness as a wealth management and real estate hub.</li>
+              <li>‘I had planned to stay for life’: last villagers prepare to leave Cha Kwo Ling
+‘There is no need for so many mega-events in Hong Kong to create something new ... better if we could retain something unique,’ resident...</li>
             </ul>
           </td>
           <td class="source"><span class="chip">South China Morning Post</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="reason">Significant regulatory shift impacting cross-border capital flows and asset valuations.</span>
+            <span class="rating-chip r2">2</span>
+            <span class="reason">Heuristic rating (no AI summary).</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1915,26 +1917,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMitAFBVV95cUxPSHoxOWRDQXNheGY2akE5VGtyVVZtaF9pbjFueUhpeGNOZTZrX2UwMG1pVzVrNG1rZFdVTHVJeUJJdWd2bjN1aFdKaGx1MDdmbkgwdkpVMnk4MmJFMGFhM1FDN0pBb0pyY3VnT2llRkg0S2VneDlkSzBNQUhyRUFGSjRQcDlTZF9DNVVxbE5Lb1F6cGNrYVlXWVR4Z0ZrdlJNXy1wYXU2TUpOWlJDTUNzbW1JZzM?oc=5"
-            data-title="HK wins back foreign professionals as financial sector rebounds"
-            data-source="The Standard (HK)"
+            data-url="https://news.google.com/rss/articles/CBMitAFBVV95cUxPWkdRRTg3M0NiUVF5WUEtZDhHVk5EbEo0Y2FycU5WUW5mRl9SYmk3a19Ua2NTemkyR3l4M3BKazhJTDVFSktFelJmWVBuellNd1l5VWpaNDR3RGtWNmYwZnc5NElfWXhWZnBsQlI4YjlicmtYZnZ0eDNQa1V6bmdYMzRQaHJ6b3JyUnItSjdNVjRwZjJlVjdvVEVPbk9oMEpUdldFMmtvUUIyQUtFbWxPY3dZakzSAbQBQVVfeXFMT2g3cW9ORTJUaWlVb0h3dm9wUmp5N3VJM2xHYmNONnJMNVIwZm11OUJTandKT2dJcU1WbDQ2LXdNSVZvb081N25fTUg2dVV0YzZ5TmJHMWNqSVdrbW5VS3hRTElTZlU4RTl0MDM3NzhYMHNjWFB6WnZ1Y2lvTG5MR2JLUUFoeGsteGJnTVBULV82UHZ2TE9hRzh6R2liNTduY2JnR09fMEd6dnlqeF90NGc0QjBs?oc=5"
+            data-title="BTS bump? Hong Kong’s hotels set for bonanza from pop superstars’ world tour - South China Morning Post"
+            data-source="South China Morning Post"
             data-category="Hong Kong Economy"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-08-13">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxPSHoxOWRDQXNheGY2akE5VGtyVVZtaF9pbjFueUhpeGNOZTZrX2UwMG1pVzVrNG1rZFdVTHVJeUJJdWd2bjN1aFdKaGx1MDdmbkgwdkpVMnk4MmJFMGFhM1FDN0pBb0pyY3VnT2llRkg0S2VneDlkSzBNQUhyRUFGSjRQcDlTZF9DNVVxbE5Lb1F6cGNrYVlXWVR4Z0ZrdlJNXy1wYXU2TUpOWlJDTUNzbW1JZzM?oc=5" target="_blank" rel="noopener">HK wins back foreign professionals as financial sector rebounds</a>
-            <div class="pub">2026-08-12 12:23 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxPWkdRRTg3M0NiUVF5WUEtZDhHVk5EbEo0Y2FycU5WUW5mRl9SYmk3a19Ua2NTemkyR3l4M3BKazhJTDVFSktFelJmWVBuellNd1l5VWpaNDR3RGtWNmYwZnc5NElfWXhWZnBsQlI4YjlicmtYZnZ0eDNQa1V6bmdYMzRQaHJ6b3JyUnItSjdNVjRwZjJlVjdvVEVPbk9oMEpUdldFMmtvUUIyQUtFbWxPY3dZakzSAbQBQVVfeXFMT2g3cW9ORTJUaWlVb0h3dm9wUmp5N3VJM2xHYmNONnJMNVIwZm11OUJTandKT2dJcU1WbDQ2LXdNSVZvb081N25fTUg2dVV0YzZ5TmJHMWNqSVdrbW5VS3hRTElTZlU4RTl0MDM3NzhYMHNjWFB6WnZ1Y2lvTG5MR2JLUUFoeGsteGJnTVBULV82UHZ2TE9hRzh6R2liNTduY2JnR09fMEd6dnlqeF90NGc0QjBs?oc=5" target="_blank" rel="noopener">BTS bump? Hong Kong’s hotels set for bonanza from pop superstars’ world tour - South China Morning Post</a>
+            <div class="pub">2026-08-12 10:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Hong Kong is experiencing a reversal in talent migration, with recruitment data indicating that professionals are returning from Singapore and other hubs due to a resurgence in IPO activity and stock market performance.</li><li>Market intelligence from JLL suggests a shift in corporate preference, with seven out of ten fund companies now selecting Hong Kong over Singapore for their Asian bases, providing a boost to commercial office leasing.</li>
+              <li>BTS bump? Hong Kong’s hotels set for bonanza from superstars’ Arirang world tour
+With BTS’ juggernaut world tour set to land in Hong Kong next year, the city’s hotels are tipped to see a Seoul-style surge in...</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The Standard (HK)</span></td>
+          <td class="source"><span class="chip">South China Morning Post</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="reason">Positive indicator for the financial services sector and commercial real estate recovery.</span>
+            <span class="rating-chip r5">5</span>
+            <span class="reason">Heuristic rating (no AI summary).</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1975,13 +1978,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Tech giants are pivoting from static text-based training to &#39;reinforcement learning environments,&#39; where AI agents simulate real-world digital workplaces to master complex, multi-step tasks.</li><li>Google is reportedly negotiating a $1.5 billion investment in startup Mechanize, while Meta is actively harvesting user keystrokes and screen activity to train models on human-computer interaction patterns.</li>
+              <li>Tech giants are shifting from static text-based training to &#39;reinforcement learning environments,&#39; where AI agents simulate real-world workplace tasks like coding and software navigation to improve autonomous performance.</li><li>Google is reportedly in talks to invest over $1.5 billion in the startup Mechanize, while Meta is actively collecting granular user data—including keystrokes and mouse movements—to train models on human workflow patterns.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Business Insider</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Shift in fundamental AI development strategy</span>
+            <span class="reason">Signals a major pivot in AI development strategy and capital allocation.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2007,13 +2010,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Major tech firms are integrating gaming deeper into their hardware and service stacks to increase consumer &#39;stickiness&#39; and justify continuous upgrades to silicon and subscription tiers.</li><li>Apple is leveraging its proprietary A-series chips to support console-quality gaming, while Samsung is expanding its &#39;Gaming Hub&#39; across its entire consumer electronics portfolio to capture more user time.</li>
+              <li>Major tech firms including Samsung, Apple, and Netflix are integrating gaming deeper into their hardware and service stacks to increase user retention and justify premium silicon performance.</li><li>Apple is increasingly leveraging its proprietary chips to support console-quality gaming, using a unified &#39;Games&#39; app across iOS and macOS to lock users into its ecosystem and drive hardware upgrade cycles.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Business Standard</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="reason">Strategic hardware and ecosystem monetization</span>
+            <span class="reason">Highlights a critical strategy for hardware monetization and ecosystem stickiness.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2054,7 +2057,7 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Economic data from the Stanford Institute for Economic Policy Research indicates that AI has not yet caused significant job displacement, with unemployment rates for highly exposed workers rising only marginally by 0.77 percentage points since 2022.</li><li>The labor market is currently mirroring the slow adoption seen during the computer revolution, suggesting that AI will likely augment existing roles rather than trigger the mass unemployment previously forecasted by industry leaders.</li>
+              <li>Economic data from the Stanford Institute for Economic Policy Research indicates that unemployment for workers most exposed to AI has risen by only 0.77 percentage points since 2022, trailing the 0.85 percentage-point increase seen in least-exposed sectors.</li><li>The lack of mass displacement suggests that AI is currently augmenting rather than replacing labor, mirroring the slow adoption curves of previous technological revolutions and shifting corporate expectations toward requiring AI-specific skills.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">The Guardian</span></td>
@@ -2075,7 +2078,7 @@
         <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMi4AFBVV95cUxPaVZBNHJGTUUzX29YZU1XTldtTVBFU2Z5TkZtY0kzTWVka2NHQ1p6cWhWSVlIYWJ1cVRjVlRZRDV2UlVjWnBNZzMycVVncmZOQWZjTVE0Qnk0M1dnd3VvWjlmZURodjFUSzhYTHdIWkptd2RKemdHNkx0RjlaYk5xLS1ncUVySmh1MTZxVm91dlVqcWdROThGaFoxRndGVFh5dWdONGdDRXEyM2cycnJFVTJWLUlNYXdacklrR2F5eUZEZDNpX244OXd2WUluNTNZZUhmblpweGJpNGhSRmJMVQ?oc=5"
             data-title="Advanced Micro Devices vs. Alphabet: Which Artificial Intelligence Stock Is a Better Buy in 2026?"
-            data-source="The Motley Fool"
+            data-source="fool.com"
             data-category="Artificial Intelligence"
             data-rating="3"
             data-date="2026-08-13">
@@ -2086,13 +2089,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>AMD reported 34.3% revenue growth in fiscal year 2025 to $34.6 billion, bolstered by strategic AI hardware partnerships and the acquisition of Taalas, though stock-based compensation remains a significant 21.2% of operating cash flow.</li><li>Investors are weighing AMD&#39;s high-growth hardware-centric model against Alphabet&#39;s massive cash-generating advertising and cloud infrastructure, highlighting the distinct risk-reward profiles within the AI supply chain.</li>
+              <li>AMD demonstrated significant financial momentum in FY 2025 with $34.6 billion in revenue, a 34.3% year-over-year growth rate, and a robust balance sheet featuring a low 0.1x debt-to-equity ratio.</li><li>While AMD scales through strategic acquisitions like Taalas and ZT Design, Alphabet maintains a distinct competitive advantage through massive, stable cash flows derived from its dominant digital advertising and cloud infrastructure ecosystems.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The Motley Fool</span></td>
+          <td class="source"><span class="chip">fool.com</span></td>
           <td class="rating">
             <span class="rating-chip r3">3</span>
-            <span class="reason">Provides a comparative fundamental analysis of two key AI-sector equities.</span>
+            <span class="reason">Provides a comparative fundamental analysis of two key AI supply chain players.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2120,26 +2123,26 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMieEFVX3lxTE1aUnNhSzV2OVVEWndDR1cwdlg0N0pWODNMei1HTWtjYlhCZG9hMG5fWHdMNWhBZlZTY1lYMUo4bGxLc3NGOV9ka1dVT0swdjlvYTdVMzlSa1FUVWpYQ1VhaXBFZmdEVXRTTEtPdFlIcGZUNmVVbEFCedIBfkFVX3lxTFBycDh5SndHOWpEaURYeTV5WnNaeVBkNERJbTQ2WkoxUC1FX2dDNG1jZ3BMa2VKQTMwOFhiZFdpcTFockJQSGp3dzFmUWlqSEpsLV9fejhxNU00d1ZXaVF3cF90QnoxaENjcmJjUmdoOVhnYjRudnpLT1kyYVhHUQ?oc=5"
-            data-title="Nvidia&#39;s $500B AI Infrastructure Financing Plan"
-            data-source="CNBC"
+            data-url="https://news.google.com/rss/articles/CBMiogFBVV95cUxOLWU0S29QT3F4cWdFRWk1dERSTkt6cVNfMWJtRjdzWVl6a1dINk55dHp0TTZsLXVKSXE5YU5SaVN0bjFGaGxHSkxBcW4xYlExOFk0dUhxNkVPQUxSWlJsem5SQUxSRmt1bk9OdzBjaG5yTjlZalRKZUJmOUJoZlVBanlrMXJWYXBValp6Y29mTmVZVUZwaFUwNV9KQ25lX1A3Tmc?oc=5"
+            data-title="Opinion: Nvidia, Intel, Google: Wall Street is partying like it’s 1999 - MarketWatch"
+            data-source="MarketWatch"
             data-category="Semiconductors"
-            data-rating="5"
+            data-rating="2"
             data-date="2026-08-13">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE1aUnNhSzV2OVVEWndDR1cwdlg0N0pWODNMei1HTWtjYlhCZG9hMG5fWHdMNWhBZlZTY1lYMUo4bGxLc3NGOV9ka1dVT0swdjlvYTdVMzlSa1FUVWpYQ1VhaXBFZmdEVXRTTEtPdFlIcGZUNmVVbEFCedIBfkFVX3lxTFBycDh5SndHOWpEaURYeTV5WnNaeVBkNERJbTQ2WkoxUC1FX2dDNG1jZ3BMa2VKQTMwOFhiZFdpcTFockJQSGp3dzFmUWlqSEpsLV9fejhxNU00d1ZXaVF3cF90QnoxaENjcmJjUmdoOVhnYjRudnpLT1kyYVhHUQ?oc=5" target="_blank" rel="noopener">Nvidia&#39;s $500B AI Infrastructure Financing Plan</a>
-            <div class="pub">2026-08-12 08:02 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxOLWU0S29QT3F4cWdFRWk1dERSTkt6cVNfMWJtRjdzWVl6a1dINk55dHp0TTZsLXVKSXE5YU5SaVN0bjFGaGxHSkxBcW4xYlExOFk0dUhxNkVPQUxSWlJsem5SQUxSRmt1bk9OdzBjaG5yTjlZalRKZUJmOUJoZlVBanlrMXJWYXBValp6Y29mTmVZVUZwaFUwNV9KQ25lX1A3Tmc?oc=5" target="_blank" rel="noopener">Opinion: Nvidia, Intel, Google: Wall Street is partying like it’s 1999 - MarketWatch</a>
+            <div class="pub">2026-08-12 16:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Nvidia is partnering with major financial institutions to create a $500 billion debt-financing pipeline, enabling customers to build data centers and GPU clusters without needing massive upfront cash.</li><li>The model faces significant execution risk, as its viability depends on Nvidia&#39;s GPUs retaining value as hard assets rather than depreciating like traditional electronics, amid potential competition from low-cost Chinese silicon.</li>
+              <li>Opinion: Nvidia, Intel, Google: Wall Street is partying like it’s 1999  MarketWatch</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">CNBC</span></td>
+          <td class="source"><span class="chip">MarketWatch</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="reason">Major shift in business model and capital allocation strategy.</span>
+            <span class="rating-chip r2">2</span>
+            <span class="reason">Heuristic rating (no AI summary).</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2153,25 +2156,25 @@
         
         <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMif0FVX3lxTE1rbG55ODQ1MkFvUG1lN1VpX2RiZlFkYUJLenJBaURVamhSSi1jUVRvT0VRTVI5c2tJN2xMUlhjM3dzMFJZbGo4ZUpLM2ZkYTQ4UW5CRi1aMlpUTi01TUpIYWV5N1UwdzlTUGpOTkhkdTc2TjA3Q211OHNwcHNKRk3SAYQBQVVfeXFMTTNJdG5JRE9Ca044b2JZemp6NVZuNW5ORFo0SnFveEhYWHhOYjc3WWlLY2l6SXctS2dTRjdwRlBnbDV4Z3h1ajYxVDR3SHZ1dXdDMm4xc1RzNnhvTDBXNEx5bTEtdnRnVEd3cnNZc0hKV3otZFZGQ3p1MUZ4RmJNT3lXT0hh?oc=5"
-            data-title="Meta and Nvidia plant &#39;very firm flag&#39; in open-weight AI race led by Chinese Labs"
+            data-title="Meta and Nvidia plant &#39;very firm flag&#39; in open-weight AI race led by Chinese Labs - CNBC"
             data-source="CNBC"
             data-category="Semiconductors"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-08-13">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE1rbG55ODQ1MkFvUG1lN1VpX2RiZlFkYUJLenJBaURVamhSSi1jUVRvT0VRTVI5c2tJN2xMUlhjM3dzMFJZbGo4ZUpLM2ZkYTQ4UW5CRi1aMlpUTi01TUpIYWV5N1UwdzlTUGpOTkhkdTc2TjA3Q211OHNwcHNKRk3SAYQBQVVfeXFMTTNJdG5JRE9Ca044b2JZemp6NVZuNW5ORFo0SnFveEhYWHhOYjc3WWlLY2l6SXctS2dTRjdwRlBnbDV4Z3h1ajYxVDR3SHZ1dXdDMm4xc1RzNnhvTDBXNEx5bTEtdnRnVEd3cnNZc0hKV3otZFZGQ3p1MUZ4RmJNT3lXT0hh?oc=5" target="_blank" rel="noopener">Meta and Nvidia plant &#39;very firm flag&#39; in open-weight AI race led by Chinese Labs</a>
+            <a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE1rbG55ODQ1MkFvUG1lN1VpX2RiZlFkYUJLenJBaURVamhSSi1jUVRvT0VRTVI5c2tJN2xMUlhjM3dzMFJZbGo4ZUpLM2ZkYTQ4UW5CRi1aMlpUTi01TUpIYWV5N1UwdzlTUGpOTkhkdTc2TjA3Q211OHNwcHNKRk3SAYQBQVVfeXFMTTNJdG5JRE9Ca044b2JZemp6NVZuNW5ORFo0SnFveEhYWHhOYjc3WWlLY2l6SXctS2dTRjdwRlBnbDV4Z3h1ajYxVDR3SHZ1dXdDMm4xc1RzNnhvTDBXNEx5bTEtdnRnVEd3cnNZc0hKV3otZFZGQ3p1MUZ4RmJNT3lXT0hh?oc=5" target="_blank" rel="noopener">Meta and Nvidia plant &#39;very firm flag&#39; in open-weight AI race led by Chinese Labs - CNBC</a>
             <div class="pub">2026-08-12 12:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Nvidia has released its Nemotron 3.5 Lightning model, providing developers with open access to training datasets and model weights to compete directly with proprietary systems from OpenAI and Anthropic.</li><li>This strategic move into open-source AI aims to counter the influence of Chinese labs like DeepSeek and Alibaba, while simultaneously fostering a broader ecosystem that relies on Nvidia&#39;s underlying hardware architecture.</li>
+              <li>Last month, American tech giants came together to urge policymakers not to place &#34;premature restrictions&#34; on open-weight AI models, even if they&#39;re from China. Now, two of those companies are making a concerted...</li>
             </ul>
           </td>
           <td class="source"><span class="chip">CNBC</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="reason">Strategic pivot to open-source to maintain competitive dominance.</span>
+            <span class="rating-chip r5">5</span>
+            <span class="reason">Heuristic rating (no AI summary).</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2200,25 +2203,25 @@
         
         <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMiggFBVV95cUxOUExsTF9SSVZ3V1phS2dRdzgwWllkX2lpR3plZnJIaVJXbFppWXppQURJR3p4eTJqQnRHdHp4UXZqWW9tbXBtd09oYXJPZnJCX1pWQTV5c1ZFcDhGdTlOY0NnanZ2REZMa0FodjEteExEb21TNHI4eUxuaDlmWS1xVzl30gGHAUFVX3lxTE45dkwyZnR2dC1pcFdoWFpnTUFfclFJWmc3SXlOSjYxRExZZjQ0b0pqMGlVbWRpaFlVMXVoYm1hN0twc3dteXlJMTVWNlYtd0xQMzBxcVRrMzhGRkR5WFQyLUkzSUwtMnkzNmlLWnZjdDc4WnNiZ2NyTXdlVjBFM0NfZktDTlAzaw?oc=5"
-            data-title="EVs dominate China’s car market: 5 takeaways from the country&#39;s latest auto sales data - CNBC"
+            data-title="EVs dominate China’s car market: 5 takeaways from the country&#39;s latest auto sales data"
             data-source="CNBC"
             data-category="Electric Vehicles"
-            data-rating="2"
+            data-rating="4"
             data-date="2026-08-13">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxOUExsTF9SSVZ3V1phS2dRdzgwWllkX2lpR3plZnJIaVJXbFppWXppQURJR3p4eTJqQnRHdHp4UXZqWW9tbXBtd09oYXJPZnJCX1pWQTV5c1ZFcDhGdTlOY0NnanZ2REZMa0FodjEteExEb21TNHI4eUxuaDlmWS1xVzl30gGHAUFVX3lxTE45dkwyZnR2dC1pcFdoWFpnTUFfclFJWmc3SXlOSjYxRExZZjQ0b0pqMGlVbWRpaFlVMXVoYm1hN0twc3dteXlJMTVWNlYtd0xQMzBxcVRrMzhGRkR5WFQyLUkzSUwtMnkzNmlLWnZjdDc4WnNiZ2NyTXdlVjBFM0NfZktDTlAzaw?oc=5" target="_blank" rel="noopener">EVs dominate China’s car market: 5 takeaways from the country&#39;s latest auto sales data - CNBC</a>
+            <a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxOUExsTF9SSVZ3V1phS2dRdzgwWllkX2lpR3plZnJIaVJXbFppWXppQURJR3p4eTJqQnRHdHp4UXZqWW9tbXBtd09oYXJPZnJCX1pWQTV5c1ZFcDhGdTlOY0NnanZ2REZMa0FodjEteExEb21TNHI4eUxuaDlmWS1xVzl30gGHAUFVX3lxTE45dkwyZnR2dC1pcFdoWFpnTUFfclFJWmc3SXlOSjYxRExZZjQ0b0pqMGlVbWRpaFlVMXVoYm1hN0twc3dteXlJMTVWNlYtd0xQMzBxcVRrMzhGRkR5WFQyLUkzSUwtMnkzNmlLWnZjdDc4WnNiZ2NyTXdlVjBFM0NfZktDTlAzaw?oc=5" target="_blank" rel="noopener">EVs dominate China’s car market: 5 takeaways from the country&#39;s latest auto sales data</a>
             <div class="pub">2026-08-12 01:20 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>BEIJING — Survivors have emerged in China&#39;s fiercely competitive car market, which is increasingly dominated by electric-powered vehicles. Here are brands that have emerged as Chinese consumers&#39; favorite, according...</li>
+              <li>New energy vehicles reached a 65.1% market share of new passenger car sales in July, marking a significant increase from 54% in the same period last year.</li><li>Despite the high market penetration, domestic passenger car sales overall plummeted 20.3% in July, with year-to-date EV sales through July declining by 12.5%.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">CNBC</span></td>
           <td class="rating">
-            <span class="rating-chip r2">2</span>
-            <span class="reason">Heuristic rating (no AI summary).</span>
+            <span class="rating-chip r4">4</span>
+            <span class="reason">Significant shift in market share despite overall sector contraction.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2231,27 +2234,26 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMi4gFBVV95cUxQMDhac0VOWmIxTEptYW54OWpUcHNQSzBodWQ5aEFwT2ZRYXZuVmlJcm45bnJvU1Z3V01ueHpLZkxGZF9ZS3RlcXQ4WW1jR0E1c1VhRmN0N1hudGhpWWdiMjdVWm1QUFdEejFuRURuOWl2X2VnZlpBblBJN1AtV0ZzaW03OHlUNlI0YlluYTlWWWpiSzZHTUlhSm41WWV6VnUwb3lVZkN5THVYSzZJc180MDl3VXY5THlULTR2UmlESUY3QV9hcmVmaGZucklNSGYyeng5dnRCb0t4bGdqUjcwZmxn0gHiAUFVX3lxTE1ZUWRJc0o4QWdteXREZ21ISDBKa3lQMW5zTXh6VjRnbW5Ua294cXYwd28yTjhHUGU1OW9BUGNHWlNPODNhcHltMHo2elZkakkxM0hTTEg0SjlIY2RlS1g1bFhROVczZzNXR09jYXlsOU5WenZkdXJzVzVpYS10Q25ObkJDRmMzcHhqZUdmV0RMVXM3Q2pFeDBVcHM5Ul8wU05tSjRFbHZ1MjlKM19Ca3Vvd0N3M0dsYmVvMU1BSGRBYUdhdGUzSThWSHB6TmwtLUdwalJIYzhUYzZhMm1fOVY1NFE?oc=5"
-            data-title="China’s EV sales keep sliding as incentives fade and price war seen heating up - South China Morning Post"
-            data-source="South China Morning Post"
+            data-url="https://news.google.com/rss/articles/CBMib0FVX3lxTFA1a3RGNEtHWGRuQkpCZVlxbDB5YjZPdGxWejdhT2JocmdXb0l3SUZtTnlsTmQteFk3RG5XNy1ySHMyQUI2T2dEeklGMWxwczA4bmJCbDJlZVJzYjFyYURUR2w4LUtVNHE0cGtYWm5iSQ?oc=5"
+            data-title="China&#39;s NEV sales rise 23.7% in July, with exports surging 1.5 times, CAAM data shows"
+            data-source="CnEVPost"
             data-category="Electric Vehicles"
             data-rating="5"
             data-date="2026-08-13">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMi4gFBVV95cUxQMDhac0VOWmIxTEptYW54OWpUcHNQSzBodWQ5aEFwT2ZRYXZuVmlJcm45bnJvU1Z3V01ueHpLZkxGZF9ZS3RlcXQ4WW1jR0E1c1VhRmN0N1hudGhpWWdiMjdVWm1QUFdEejFuRURuOWl2X2VnZlpBblBJN1AtV0ZzaW03OHlUNlI0YlluYTlWWWpiSzZHTUlhSm41WWV6VnUwb3lVZkN5THVYSzZJc180MDl3VXY5THlULTR2UmlESUY3QV9hcmVmaGZucklNSGYyeng5dnRCb0t4bGdqUjcwZmxn0gHiAUFVX3lxTE1ZUWRJc0o4QWdteXREZ21ISDBKa3lQMW5zTXh6VjRnbW5Ua294cXYwd28yTjhHUGU1OW9BUGNHWlNPODNhcHltMHo2elZkakkxM0hTTEg0SjlIY2RlS1g1bFhROVczZzNXR09jYXlsOU5WenZkdXJzVzVpYS10Q25ObkJDRmMzcHhqZUdmV0RMVXM3Q2pFeDBVcHM5Ul8wU05tSjRFbHZ1MjlKM19Ca3Vvd0N3M0dsYmVvMU1BSGRBYUdhdGUzSThWSHB6TmwtLUdwalJIYzhUYzZhMm1fOVY1NFE?oc=5" target="_blank" rel="noopener">China’s EV sales keep sliding as incentives fade and price war seen heating up - South China Morning Post</a>
-            <div class="pub">2026-08-12 07:00 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMib0FVX3lxTFA1a3RGNEtHWGRuQkpCZVlxbDB5YjZPdGxWejdhT2JocmdXb0l3SUZtTnlsTmQteFk3RG5XNy1ySHMyQUI2T2dEeklGMWxwczA4bmJCbDJlZVJzYjFyYURUR2w4LUtVNHE0cGtYWm5iSQ?oc=5" target="_blank" rel="noopener">China&#39;s NEV sales rise 23.7% in July, with exports surging 1.5 times, CAAM data shows</a>
+            <div class="pub">2026-08-12 06:43 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>China’s EV sales slide again amid fading incentives, weak demand and persistent price war
-A seven-month domestic downturn contrasts with a 147.8 per cent jump in overseas shipments, highlighting a widening gap...</li>
+              <li>China&#39;s NEV exports surged 1.5 times year-on-year to 553,000 units in July, helping to offset weak domestic demand and pushing total vehicle exports above 1 million for the second consecutive month.</li><li>NEV sales reached 1,561,000 units in July, accounting for over 60% of total new vehicle sales for the first time, signaling a structural shift toward electrification despite domestic volatility.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">South China Morning Post</span></td>
+          <td class="source"><span class="chip">CnEVPost</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Heuristic rating (no AI summary).</span>
+            <span class="reason">Export growth is becoming a critical counterbalance to domestic market weakness.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2279,6 +2281,38 @@ A seven-month domestic downturn contrasts with a 147.8 per cent jump in overseas
       <tbody>
         
         <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMivwFBVV95cUxPbjdOXzMyTjdlVzhLQ3lFeXdpR2hOb0I1c1Z0UHN6WXBPN2o0d1ZpLXBlMTg4WGNBUEMxeGNGZGlNbjR6aXdTSUNDMmdVZUlXZzJHSXR5YXluOTJJRTNYV0JGLXhHaENJbnVvSmowQUNnNS1GSGVGdXk1WERIaUxXNlhfUHRRTTVHMTNXczNZdTNYd0pBbHc1X0Q3VHUwcGpzTWNvZHdZa3NoMU12SVluRWRpbk16eGtGbGQ0aXdPYw?oc=5"
+            data-title="Bank of America to Deploy $250 Billion to Bolster AI and Energy Infrastructure"
+            data-source="WSJ"
+            data-category="Data Centers"
+            data-rating="5"
+            data-date="2026-08-13">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxPbjdOXzMyTjdlVzhLQ3lFeXdpR2hOb0I1c1Z0UHN6WXBPN2o0d1ZpLXBlMTg4WGNBUEMxeGNGZGlNbjR6aXdTSUNDMmdVZUlXZzJHSXR5YXluOTJJRTNYV0JGLXhHaENJbnVvSmowQUNnNS1GSGVGdXk1WERIaUxXNlhfUHRRTTVHMTNXczNZdTNYd0pBbHc1X0Q3VHUwcGpzTWNvZHdZa3NoMU12SVluRWRpbk16eGtGbGQ0aXdPYw?oc=5" target="_blank" rel="noopener">Bank of America to Deploy $250 Billion to Bolster AI and Energy Infrastructure</a>
+            <div class="pub">2026-08-12 09:01 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Bank of America is launching a $250 billion &#39;Critical Infrastructure Finance Initiative&#39; to be deployed over 18 months, specifically targeting data centers, semiconductor facilities, and power generation projects.</li><li>The initiative aims to mobilize capital through lending, advisory, and investment transactions to address the massive surge in demand for computing power and energy security, signaling significant institutional support for AI-related physical infrastructure.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">WSJ</span></td>
+          <td class="rating">
+            <span class="rating-chip r5">5</span>
+            <span class="reason">Major institutional capital commitment to the sector.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMijwFBVV95cUxNTm5iS291djBxc3ZRbi1UaG5zRWlWNUg3Z0xJZVNVRzBqTGlJQUdyUTE4TW9GaFpqWjczN2Z5dXFPOWc4RU1US29SVEotQTF3bVpLMWFZZFlrZF9vZXZSbW1FRWN3YXZJMlRYaC1KektXNENSUnBycUoybzhPekpxUElxRVpLTXlZMVpEeEM5UQ?oc=5"
             data-title="Nvidia found a new way to keep the AI boom funded: your retirement money"
             data-source="fortune.com"
@@ -2292,45 +2326,13 @@ A seven-month domestic downturn contrasts with a 147.8 per cent jump in overseas
           </td>
           <td class="summary">
             <ul>
-              <li>Nvidia is partnering with major alternative asset managers like Apollo, Blackstone, and KKR to mobilize over $500 billion for AI infrastructure, effectively moving capital expenditure off its own balance sheet.</li><li>This model treats AI compute as a long-term infrastructure asset, allowing institutional investors to finance data centers through debt backed by predictable, lease-based cash flows from AI companies.</li>
+              <li>Nvidia is partnering with major alternative asset managers like Apollo, Blackstone, and KKR to create financing platforms that treat AI compute as a long-term infrastructure asset rather than a depreciating hardware expense.</li><li>By shifting AI infrastructure financing to third-party institutional investors, Nvidia aims to move capital-intensive data center projects off its customers&#39; balance sheets, potentially sustaining demand for its GPUs despite rising interest rates.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">fortune.com</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Represents a fundamental shift in how AI infrastructure is financed at scale.</span>
-          </td>
-          <td class="save-cell">
-            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
-              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </td>
-        </tr>
-        
-        <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMilgFBVV95cUxPU2ZVZHJmZWp1TGJBSm4tSS1MSzJmOWw1V254OTJIbkFpbzZ0SGl4emI2VzdWNk5Jc0xTZG5PcTZWS2dUQmZRU3RXNUJHUTdkUDdZVkREQmNmR2JZZU54Y0w4WFhkLXZjV01aTjctOGkyaTY0S1Fhc0hnNUdjdF9sekxlZDBJWENFdUs5STVMLVMtMUxxV1E?oc=5"
-            data-title="Dominion ordered to directly assign some transmission costs to data centers"
-            data-source="Utility Dive"
-            data-category="Data Centers"
-            data-rating="4"
-            data-date="2026-08-13">
-          <td class="headline">
-            <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxPU2ZVZHJmZWp1TGJBSm4tSS1MSzJmOWw1V254OTJIbkFpbzZ0SGl4emI2VzdWNk5Jc0xTZG5PcTZWS2dUQmZRU3RXNUJHUTdkUDdZVkREQmNmR2JZZU54Y0w4WFhkLXZjV01aTjctOGkyaTY0S1Fhc0hnNUdjdF9sekxlZDBJWENFdUs5STVMLVMtMUxxV1E?oc=5" target="_blank" rel="noopener">Dominion ordered to directly assign some transmission costs to data centers</a>
-            <div class="pub">2026-08-12 16:14 UTC</div>
-          </td>
-          <td class="summary">
-            <ul>
-              <li>The Virginia State Corporation Commission has mandated that Dominion Energy directly assign transmission infrastructure costs to large-load facilities, specifically targeting data centers to protect residential ratepayers.</li><li>This regulatory shift requires data centers to pay a mandatory contribution in aid of construction for substations and transmission lines, potentially altering the cost-benefit analysis for new developments in the region.</li>
-            </ul>
-          </td>
-          <td class="source"><span class="chip">Utility Dive</span></td>
-          <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="reason">Signals a tightening regulatory environment that could increase capital costs for data center operators.</span>
+            <span class="reason">Structural shift in how AI infrastructure is financed.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2358,38 +2360,6 @@ A seven-month domestic downturn contrasts with a 147.8 per cent jump in overseas
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMimwFBVV95cUxOalhtVFBfM2lLV3lpYjhMTUNlOFdlS0RNcEpvY3lnTjlZSEF0VzBvazFMd2o0RTQtQlJKaGlrSUNfN3FNRlVqeDE5SUtsY1N2X3piOXVKWlVEUFV1ZWhmVXE1ZUFRWnBLZ2NaSFNEc2FCcnM2MmJtVENDWkkxaDBTYXJhLXNBVTlFeFh3MHFyMWFHMGl4cmxUZXlQSQ?oc=5"
-            data-title="SpaceX could make $500 billion in 2028, Elon Musk says"
-            data-source="space.com"
-            data-category="Space &amp; Aerospace"
-            data-rating="5"
-            data-date="2026-08-13">
-          <td class="headline">
-            <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxOalhtVFBfM2lLV3lpYjhMTUNlOFdlS0RNcEpvY3lnTjlZSEF0VzBvazFMd2o0RTQtQlJKaGlrSUNfN3FNRlVqeDE5SUtsY1N2X3piOXVKWlVEUFV1ZWhmVXE1ZUFRWnBLZ2NaSFNEc2FCcnM2MmJtVENDWkkxaDBTYXJhLXNBVTlFeFh3MHFyMWFHMGl4cmxUZXlQSQ?oc=5" target="_blank" rel="noopener">SpaceX could make $500 billion in 2028, Elon Musk says</a>
-            <div class="pub">2026-08-11 23:42 UTC</div>
-          </td>
-          <td class="summary">
-            <ul>
-              <li>CEO Elon Musk projects that SpaceX&#39;s AI-related revenue will surpass all other business segments by Q4 2026, signaling a fundamental pivot from a launch-focused company to an AI-infrastructure provider.</li><li>The company aims to reach 10 gigawatts of AI compute capacity by the end of 2027, with Musk estimating that this infrastructure could generate $300 to $500 billion in annual revenue by 2028.</li>
-            </ul>
-          </td>
-          <td class="source"><span class="chip">space.com</span></td>
-          <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="reason">Major strategic pivot with massive revenue implications.</span>
-          </td>
-          <td class="save-cell">
-            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
-              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </td>
-        </tr>
-        
-        <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMiwAFBVV95cUxNOWdQSkpBTHNmZ0lESUVBWEUtWjVsLTczZWhJWHF1QjdVTmZESGRUQVVTdXo2bWpQbXhrcWMzd3A4MXRpNVkzcFlnbTdlOFQ4ZnNmaHVWTFRtUkpuQl8zamUxTE9lU1F3T01HdFZ6NmFFYlJoUmhaM2VtSDhEWUtGd1lTcHlQNjJEa1pQcDFEZFc5ZVVnYTBYYlMwZzk1ZWRUWTZlM19hQ1Q4VnBmVEV0a3lGdHlaWHh5NGF3c1NtaHg?oc=5"
             data-title="Firefly Aerospace pushes debut of Alpha Block 2 rocket to the fourth quarter of 2026"
             data-source="Spaceflight Now"
@@ -2403,13 +2373,45 @@ A seven-month domestic downturn contrasts with a 147.8 per cent jump in overseas
           </td>
           <td class="summary">
             <ul>
-              <li>Firefly Aerospace reported a $25.8 million increase in R&amp;D costs for Q2 2026, driven by production scaling for the Alpha Block 2 configuration and associated engineering upgrades.</li><li>The company has secured a majority of its 2027 launch manifest and expanded its partnership with Lockheed Martin, highlighting strong commercial demand despite the delay of its next-generation rocket.</li>
+              <li>Firefly Aerospace reported a $25.8 million increase in second-quarter R&amp;D costs, primarily driven by production scaling for its Alpha Block 2 rocket and stock-based compensation expenses.</li><li>The company has delayed the debut of its Block 2 configuration to Q4 2026, though it claims to have already sold the majority of its 2027 launch manifest to commercial and government customers.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Spaceflight Now</span></td>
           <td class="rating">
             <span class="rating-chip r3">3</span>
-            <span class="reason">Operational delay coupled with significant R&amp;D spending and commercial backlog growth.</span>
+            <span class="reason">Operational delays and rising R&amp;D costs impact the financial outlook for a key private launch provider.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMisgFBVV95cUxQRHh2dlAxZ2JmTGpIMmFZbHpGZExMc3Z2alhQOURNU185UUNWQ0Utb2hWU0RuUElacFJHWjRiaGM0N2xuR2hCU0lmSUR6czY1alFraDJFNGgwRWp4SU43MXdKRVd3c1FPZHlYTXBnMUdxR0VLd1RJQUl6MUtlUEZMMmFSYVN3T19xTW1Ja1ZXTjNoSWsxeXJJbVBKVkhNcTVZZzVZZnR5MGR0YkxNSzZiM2Fn?oc=5"
+            data-title="Vietnam’s VinSpace Signs Deal With Elon Musk’s SpaceX to Launch Satellites in 2027"
+            data-source="Broadband Breakfast"
+            data-category="Space &amp; Aerospace"
+            data-rating="2"
+            data-date="2026-08-13">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxQRHh2dlAxZ2JmTGpIMmFZbHpGZExMc3Z2alhQOURNU185UUNWQ0Utb2hWU0RuUElacFJHWjRiaGM0N2xuR2hCU0lmSUR6czY1alFraDJFNGgwRWp4SU43MXdKRVd3c1FPZHlYTXBnMUdxR0VLd1RJQUl6MUtlUEZMMmFSYVN3T19xTW1Ja1ZXTjNoSWsxeXJJbVBKVkhNcTVZZzVZZnR5MGR0YkxNSzZiM2Fn?oc=5" target="_blank" rel="noopener">Vietnam’s VinSpace Signs Deal With Elon Musk’s SpaceX to Launch Satellites in 2027</a>
+            <div class="pub">2026-08-11 23:24 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>VinSpace has contracted with SpaceX for a 2027 Transporter rideshare mission, marking a strategic expansion of Vietnam&#39;s domestic aerospace capabilities and satellite manufacturing sector.</li><li>The mission will focus on in-house technology demonstrations, signaling a move toward full-stack aerospace operations including satellite design, manufacturing, and downstream data services.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">Broadband Breakfast</span></td>
+          <td class="rating">
+            <span class="rating-chip r2">2</span>
+            <span class="reason">Highlights the growing international commercial demand for SpaceX&#39;s rideshare program and emerging market space investment.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2440,7 +2442,7 @@ A seven-month domestic downturn contrasts with a 147.8 per cent jump in overseas
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-13 00:55 HKT");
+  var dataTS = encodeURIComponent("2026-08-13 01:07 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = "2026-08-13";
@@ -2876,7 +2878,9 @@ A seven-month domestic downturn contrasts with a 147.8 per cent jump in overseas
 
   document.addEventListener("click", function (ev) {
     var btn = ev.target.closest ? ev.target.closest(".save-btn") : null;
-    if (!btn || !btn.closest("#saved-list")) return; // ignore archive remove buttons
+    // Skip the archive's own remove buttons (they're inside #saved-list);
+    // every other .save-btn (news rows, Analytics, Repo Radar cards) saves.
+    if (!btn || btn.closest("#saved-list")) return;
     var url = savedAttrs(btn, "url");
     if (!url) return;
     var map = loadSaved();

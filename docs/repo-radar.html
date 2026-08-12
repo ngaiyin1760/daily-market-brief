@@ -1246,17 +1246,18 @@
   .repo-img {
     width: 100%;
     height: auto;
-    max-height: 280px;
-    object-fit: cover;
+    max-height: 520px;
+    object-fit: contain;       /* never crop a diagram */
     border-radius: 8px;
     border: 1px solid var(--rule);
     margin: 8px 0 4px;
     background: #fff;
+    display: block;
   }
   .repo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 14px;
+    grid-template-columns: 1fr;   /* one repo card per row — big, readable */
+    gap: 20px;
   }
 
   /* ---------- Analytics / Repo Radar day-history accordion ---------- */
@@ -1369,7 +1370,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Repo Radar</h1>
-    <div class="generated">3 interesting new GitHub repos · finance/tech weighted · updated 2026-08-13 00:55 HKT</div>
+    <div class="generated">3 interesting new GitHub repos · finance/tech weighted · updated 2026-08-13 01:07 HKT</div>
   </header>
 
   
@@ -1398,12 +1399,12 @@
               <span class="chip stars">583★</span>
             </div>
             <h3><a href="https://github.com/mikehasa/agentacct" target="_blank" rel="noopener">mikehasa/agentacct</a></h3>
-            <p class="rc-oneliner">A local-first observability and cost-tracking dashboard for AI coding agents.</p>
+            <p class="rc-oneliner">A local-first observability and cost-tracking dashboard specifically designed for AI coding agents.</p>
             <img class="repo-img" src="./data/repo-radar-img/2026-08-13/mikehasa_agentacct_0.jpg" alt="agentacct tui — live usage, cost, provider rate-limit bars, and recent sessions with per-session weekly-plan-cost estimates" loading="lazy">
             <img class="repo-img" src="./data/repo-radar-img/2026-08-13/mikehasa_agentacct_1.jpg" alt="agentacct tui session detail — the per-step work ledger with pass/fail check evidence and a weekly-plan-cost estimate" loading="lazy">
             
             <ul class="rc-bullets">
-              <li>Built with Python to provide granular visibility into agentic workflows.</li><li>Tracks specific metrics including token consumption, latency, file modifications, and test execution results.</li><li>Enables financial accountability for engineering teams by mapping agent tasks to actual operational costs.</li><li>Supports integration with popular coding agents like Claude Code and Codex.</li>
+              <li>Tech Stack: Python-based local dashboard that parses agent logs and execution metadata.</li><li>Purpose: Provides granular visibility into the efficiency and financial cost of autonomous coding agents.</li><li>Use Cases: Auditing token consumption, tracking file modification history, and verifying the ROI of AI-driven development workflows.</li><li>Key Features: Breaks down tasks by tools used, tests run, and total time spent per agent session.</li>
             </ul>
             
             <div class="bc-footer">
@@ -1429,12 +1430,12 @@
               <span class="chip stars">178★</span>
             </div>
             <h3><a href="https://github.com/simonlin1212/vibe-astock" target="_blank" rel="noopener">simonlin1212/vibe-astock</a></h3>
-            <p class="rc-oneliner">A local-first, high-performance dashboard for A-share market sentiment analysis and short-term trading review.</p>
+            <p class="rc-oneliner">A high-performance, local-first dashboard for A-share market sentiment analysis and short-term trading review.</p>
             
             
             
             <ul class="rc-bullets">
-              <li>Uses deterministic computational logic for market metrics like limit-up pools and sentiment cycles, avoiding AI hallucination.</li><li>Integrates AI specifically for synthesizing raw data into readable market commentary.</li><li>Designed for privacy and cost-efficiency by running entirely locally with support for subscription-based LLM access.</li><li>Provides actionable insights for quantitative traders focusing on market breadth and liquidity flow.</li>
+              <li>Tech Stack: Python-based engine utilizing deterministic calculation for market metrics rather than relying solely on LLMs.</li><li>Purpose: Visualizes complex market data like limit-up pools, liquidity ladders, and sentiment cycles to identify trading opportunities.</li><li>Use Cases: Daily market review for quantitative traders and retail investors focusing on short-term momentum.</li><li>Key Features: Fully local execution with optional AI integration for summarizing market narrative, supporting Claude/Codex for analysis.</li>
             </ul>
             
             <div class="bc-footer">
@@ -1456,24 +1457,24 @@
           
           <article class="repo-card">
             <div class="rc-head">
-              <span class="chip">Python</span>
-              <span class="chip stars">352★</span>
+              <span class="chip">Rust</span>
+              <span class="chip stars">874★</span>
             </div>
-            <h3><a href="https://github.com/EthanXiang777/circuit-framework" target="_blank" rel="noopener">EthanXiang777/circuit-framework</a></h3>
-            <p class="rc-oneliner">A multi-agent LLM framework specifically architected for quantitative trading research.</p>
+            <h3><a href="https://github.com/Flaminis/Dalaran" target="_blank" rel="noopener">Flaminis/Dalaran</a></h3>
+            <p class="rc-oneliner">A robotics-first, high-performance visualization and data infrastructure tool for multimodal time-series analysis.</p>
             
             
             
             <ul class="rc-bullets">
-              <li>Utilizes a multi-agent orchestration pattern to separate research, strategy formulation, and backtesting.</li><li>Designed to automate the lifecycle of trading research from hypothesis generation to performance validation.</li><li>Provides a modular structure for integrating LLM reasoning into traditional quantitative finance workflows.</li><li>Focuses on scaling research throughput by leveraging agentic collaboration for strategy discovery.</li>
+              <li>Tech Stack: Rust-based, hard fork of Rerun, optimized for high-throughput data streams and ROS 2 native integration.</li><li>Purpose: Provides a robust infrastructure for visualizing and analyzing complex, multi-sensor time-series data.</li><li>Use Cases: Analyzing high-frequency financial tick data, sensor fusion in robotics, or any time-aligned telemetry stream.</li><li>Key Features: Supports existing .rrd recording formats and offers low-latency rendering for large-scale datasets.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/EthanXiang777/circuit-framework" target="_blank" rel="noopener">https://github.com/EthanXiang777/circuit-framework</a></div>
+              <div class="bc-url"><a href="https://github.com/Flaminis/Dalaran" target="_blank" rel="noopener">https://github.com/Flaminis/Dalaran</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/EthanXiang777/circuit-framework"
-                      data-save-title="EthanXiang777/circuit-framework"
-                      data-save-source="Python"
+                      data-save-url="https://github.com/Flaminis/Dalaran"
+                      data-save-title="Flaminis/Dalaran"
+                      data-save-source="Rust"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
                       data-save-date="2026-08-13">
@@ -1504,7 +1505,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-13 00:55 HKT");
+  var dataTS = encodeURIComponent("2026-08-13 01:07 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
@@ -1918,7 +1919,9 @@
 
   document.addEventListener("click", function (ev) {
     var btn = ev.target.closest ? ev.target.closest(".save-btn") : null;
-    if (!btn || !btn.closest("#saved-list")) return; // ignore archive remove buttons
+    // Skip the archive's own remove buttons (they're inside #saved-list);
+    // every other .save-btn (news rows, Analytics, Repo Radar cards) saves.
+    if (!btn || btn.closest("#saved-list")) return;
     var url = savedAttrs(btn, "url");
     if (!url) return;
     var map = loadSaved();
