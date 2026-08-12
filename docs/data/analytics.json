@@ -1,28 +1,6 @@
 {
- "generated_at": "2026-08-13 03:04 HKT",
+ "generated_at": "2026-08-13 03:10 HKT",
  "blogs": [
-  {
-   "name": "CNEVPOST",
-   "status": "ok",
-   "posts": [
-    {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/",
-     "blog": "CNEVPOST",
-     "title": "Xiaomi EV delivers 31,267 units in July, 39% of annual target",
-     "link": "https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/",
-     "summary": "Xiaomi EV needs average monthly deliveries of nearly 67,000 units over the remaining 5 months to achieve its full-year target of 550,000 units.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-08-12 09:30 UTC",
-     "_ts": 1786527023,
-     "preview": false,
-     "bullets": [
-      "Xiaomi EV delivered 31,267 units in July, marking its fourth consecutive month above 30,000 units but leaving the company at only 39% of its 550,000-unit annual target.",
-      "To meet its full-year goal, Xiaomi must significantly accelerate production to average nearly 67,000 units per month for the remainder of the year.",
-      "The company is pivoting toward the extended-range electric vehicle (EREV) segment with its new Sky Nomad series, aiming to compete directly with Li Auto and Huawei-backed Aito at aggressive price points."
-     ],
-     "rating": 5
-    }
-   ]
-  },
   {
    "name": "SemiEngineering",
    "status": "ok",
@@ -38,9 +16,9 @@
      "preview": false,
      "bullets": [
       "Synopsys has introduced a 112G PHY IP compliant with the OIF-CEI-112G-LINEAR-PAM4 standard, designed to enable DSP-less host-to-module connectivity.",
-      "Adopting linear optics can reduce module power consumption by up to 50% and significantly lower thermal loads, which is essential for scaling dense AI infrastructure.",
-      "By eliminating the need for power-hungry DSPs and retimers, this technology provides a scalable path toward 224G/448G interconnects and Co-Packaged Optics (CPO).",
-      "The standardization of linear drive optics creates a repeatable, interoperable ecosystem, addressing a major bottleneck in high-speed data movement for AI data centers."
+      "Adopting linear optics can reduce module power consumption by up to 50% by eliminating the need for power-hungry DSPs and retimers in AI data center racks.",
+      "The solution addresses critical thermal and latency bottlenecks, providing a scalable pathway for future interconnect speeds of 224G, 448G, and Co-Packaged Optics (CPO).",
+      "Standardization of the linear drive interface ensures interoperability across the ecosystem, which is essential for the rapid scaling of high-density AI infrastructure."
      ],
      "rating": 5
     },
@@ -54,29 +32,12 @@
      "_ts": 1786557663,
      "preview": false,
      "bullets": [
-      "Imec researchers evaluated 2D Gate-All-Around (GAA) CFET architectures for the A2 node, utilizing a 36 nm contacted poly pitch (CPP) and 10 nm gate length.",
-      "The study concludes that 2D GAA CFETs do not currently offer a scaling advantage over silicon GAA CFETs at the A2 node due to similar contact formation constraints.",
-      "Successful implementation of these architectures requires rigorous co-optimization of contact resistance and parasitic extraction to realize potential PPA benefits.",
-      "The findings highlight the necessity of multiscale power-performance-area (PPA) evaluation frameworks to bridge the gap between theoretical channel advantages and practical fab integration."
+      "Imec research indicates that 2D Gate-All-Around (GAA) CFETs do not offer a contacted poly pitch (CPP) scaling advantage over traditional Si GAA CFETs at the A2 node.",
+      "The study establishes a minimum CPP of 36 nm for 2D CFETs, constrained by contact formation requirements despite the use of atomically thin channels.",
+      "Effective implementation of 2D CFETs at the A2 node requires rigorous co-optimization of contact structures and parasitic extraction to realize potential power-performance-area (PPA) benefits.",
+      "The findings utilize a comprehensive multiscale evaluation framework, including quantum transport simulations and circuit-level benchmarking, to assess the viability of 2D architectures."
      ],
      "rating": 4
-    },
-    {
-     "_key": "SemiEngineering|https://semiengineering.com/defect-prediction-in-optical-lithography-euvl-and-nil-national-taiwan-university/",
-     "blog": "SemiEngineering",
-     "title": "Defect Prediction in Optical Lithography, EUVL, and NIL (National Taiwan University)",
-     "link": "https://semiengineering.com/defect-prediction-in-optical-lithography-euvl-and-nil-national-taiwan-university/",
-     "summary": "National Taiwan University researchers published a technical paper titled “From Lithography to Nanoimprint: Physics-Based, Data-Driven, and Hybrid Frameworks for Defect Prediction in Advanced Patterning Technologies.” Abstract: “Advanced patterning technologies have evolved from direct optical image transfer into predictive manufacturing frameworks in which defects are shaped by imaging physics, material response, process variation, and computational correction.... » read more\nThe post Defect Prediction in Optical Lithography, EUVL, and NIL (National Taiwan University) appeared first on Semiconductor Engineering.",
-     "published": "2026-08-12 17:46 UTC",
-     "_ts": 1786556789,
-     "preview": false,
-     "bullets": [
-      "National Taiwan University researchers reviewed the evolution of defect prediction, noting that modern patterning technologies like EUVL and Nanoimprint Lithography (NIL) require new modeling paradigms beyond traditional optical correction.",
-      "EUVL introduces unique stochastic challenges such as photon-limited variability and mask 3D effects, while NIL shifts defect origins toward viscoelastic deformation and template interaction.",
-      "The paper advocates for hybrid frameworks that combine physics-based interpretability with data-driven machine learning to improve pattern recognition and uncertainty-aware screening.",
-      "This shift toward physically grounded, data-efficient prediction is critical for maintaining yield as advanced patterning moves away from simple geometry-driven correction logic."
-     ],
-     "rating": 3
     }
    ]
   },
@@ -94,10 +55,50 @@
      "_ts": 1786553517,
      "preview": false,
      "bullets": [
-      "Enterprise adoption of agentic AI is currently constrained by legacy data infrastructure, which limits the ability of agents to access the structured and unstructured data required for autonomous decision-making.",
-      "A survey of 300 executives reveals that AI agents currently have access to only 45% of total enterprise data on average, with 'data laggards' restricted to 30% or less.",
-      "Organizations identified as 'data leaders' provide agents with access to over 70% of their data, directly correlating with higher ROI and more successful deployment of autonomous systems.",
-      "With Gartner predicting that AI agents will automate or augment 50% of business decisions by 2027, firms must modernize data architectures to prevent operational bottlenecks and ensure agent reliability."
+      "Enterprise adoption of agentic AI is currently bottlenecked by legacy data infrastructure, which struggles to provide the real-time, cross-functional access required for autonomous decision-making.",
+      "Data leaders currently provide AI agents access to over 70% of enterprise data, whereas the average organization limits agents to just 45%, significantly impacting ROI and performance.",
+      "With Gartner predicting that AI agents will automate or augment 50% of business decisions by 2027, firms must modernize data architectures to ensure agents have the context and reliability needed for high-stakes operations.",
+      "The shift from passive AI chatbots to active, agentic systems necessitates a transition from siloed legacy systems to unified data environments that support frictionless, secure operational integration."
+     ],
+     "rating": 4
+    },
+    {
+     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/12/1141768/scientists-just-created-female-clones-of-male-mice/",
+     "blog": "MIT Technology Review",
+     "title": "Scientists just created female clones of male mice",
+     "link": "https://www.technologyreview.com/2026/08/12/1141768/scientists-just-created-female-clones-of-male-mice/",
+     "summary": "Scientists have deliberately turned male mouse embryos into females for the first time. A team based in Japan used a CRISPR-based approach to remove the Y chromosome from male cells and create female clones of male mice.  “No one has done this before,” says Monika Ward, a reproductive biologist at the University of Hawaii, who…",
+     "published": "2026-08-12 18:59 UTC",
+     "_ts": 1786561188,
+     "preview": false,
+     "bullets": [
+      "Researchers in Japan have successfully used a CRISPR-based technique to remove the Y chromosome from male mouse embryos, effectively creating female clones from male cells.",
+      "While currently in the preprint stage, this breakthrough challenges the biological assumption that both male and female gametes are strictly required for mammalian reproduction.",
+      "The technology holds significant potential for wildlife conservation, offering a pathway to rescue endangered species by managing sex ratios or preserving genetic diversity when only male individuals remain.",
+      "This development builds on previous observations of sex-reversal in nature, such as the Okinawa rubble goby, and could eventually refine current, inefficient cloning methods used for species like black-footed ferrets."
+     ],
+     "rating": 3
+    }
+   ]
+  },
+  {
+   "name": "CNEVPOST",
+   "status": "ok",
+   "posts": [
+    {
+     "_key": "CNEVPOST|https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/",
+     "blog": "CNEVPOST",
+     "title": "Xiaomi EV delivers 31,267 units in July, 39% of annual target",
+     "link": "https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/",
+     "summary": "Xiaomi EV needs average monthly deliveries of nearly 67,000 units over the remaining 5 months to achieve its full-year target of 550,000 units.\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-08-12 09:30 UTC",
+     "_ts": 1786527023,
+     "preview": false,
+     "bullets": [
+      "Xiaomi EV delivered 31,267 vehicles in July, marking the fourth consecutive month above the 30,000-unit threshold despite a 9.99% month-on-month decline.",
+      "The company has achieved only 39% of its 550,000-unit annual delivery target, necessitating a significant production ramp-up to an average of 67,000 units per month for the remainder of the year.",
+      "Xiaomi is pivoting toward the extended-range electric vehicle (EREV) market with its new Sky Nomad series, positioning the N90 Max and N70 Max to compete directly with Li Auto and Aito.",
+      "While initial market reaction to the Sky Nomad pricing was negative, causing a 7.28% drop in Xiaomi's stock, early reports suggest strong consumer interest with potential pre-orders exceeding 100,000 units."
      ],
      "rating": 4
     }

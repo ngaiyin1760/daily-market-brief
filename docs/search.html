@@ -1466,7 +1466,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-13 03:04 HKT");
+  var dataTS = encodeURIComponent("2026-08-13 03:10 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
@@ -2272,7 +2272,6 @@
 <script>
 (function () {
   var base = ".";
-  var GEMINI_BROWSER_KEY = "AIzaSyCK9oIRam51mcVuqpAv5PiVtv4P9O8Q0uM";
   // Cloudflare Worker proxy URL — set via the WORKER_URL env var at build time
   // (e.g. "https://your-worker.workers.dev"). When empty, semantic mode calls
   // Gemini directly (needs a non-HK IP / VPN).
@@ -2348,8 +2347,11 @@
         })
       };
     } else {
+      // Direct fallback only used if WORKER_URL is unset; the browser key is
+      // injected ONLY when there is no proxy (so the key never ships to the
+      // browser in proxy mode).
       url = "https://generativelanguage.googleapis.com/v1beta/models/"
-        + EMBED_MODEL + ":embedContent?key=" + encodeURIComponent(GEMINI_BROWSER_KEY);
+        + EMBED_MODEL + ":embedContent?key=" + encodeURIComponent("");
       init = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -2422,7 +2424,7 @@
       };
     } else {
       url = "https://generativelanguage.googleapis.com/v1beta/models/"
-        + GENERATION_MODEL + ":generateContent?key=" + encodeURIComponent(GEMINI_BROWSER_KEY);
+        + GENERATION_MODEL + ":generateContent?key=" + encodeURIComponent("");
       init = {
         method: "POST",
         headers: { "Content-Type": "application/json" },

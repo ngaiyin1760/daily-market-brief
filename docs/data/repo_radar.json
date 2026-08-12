@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-13 03:04 HKT",
+ "generated_at": "2026-08-13 03:10 HKT",
  "repos": [
   {
    "name": "mikehasa/agentacct",
@@ -9,10 +9,10 @@
    "description": "See what your coding agents did and what it cost. Breaks each task down into work steps — tools used, files changed, tests run, time and tokens spent. Local-first dashboard for Claude Code, Codex, OpenCode, and more. No login, no telemetry.",
    "one_liner": "A local-first observability and cost-tracking dashboard for AI coding agents.",
    "bullets": [
-    "Built in Python, providing a local-first dashboard to monitor agent activity.",
-    "Tracks granular metrics including token usage, time spent, files modified, and tool execution.",
+    "Built with Python, providing a local-first dashboard to monitor agent activity.",
+    "Tracks granular metrics including time spent, token usage, file modifications, and tool execution.",
     "Integrates with popular coding agents like Claude Code and Codex to provide transparency into development costs.",
-    "Enables financial oversight for engineering teams utilizing autonomous coding workflows."
+    "Enables developers to audit agent performance and optimize workflows by analyzing specific work steps."
    ],
    "img": "mikehasa_agentacct_0.jpg",
    "img_alt": "agentacct tui — live usage, cost, provider rate-limit bars, and recent sessions with per-session weekly-plan-cost estimates",
@@ -25,26 +25,26 @@
    "language": "Python",
    "stars": 178,
    "description": "A 股短线复盘看板：涨停池·连板梯队·龙虎榜·板块资金一屏看完，赚钱效应/晋级率/梯队断层/情绪周期等派生指标纯计算直出（不经过 AI），AI 只把数据串成能读的盘面研判。全本地运行，可用 Claude/Codex 订阅免 API key。| A-share short-term daily-review dashboard: derived sentiment metrics computed locally, AI only writes the narrative. No API key needed.",
-   "one_liner": "A local-first A-share market sentiment and short-term trading dashboard.",
+   "one_liner": "A local-first A-share market dashboard providing sentiment analysis and technical indicators.",
    "bullets": [
-    "Python-based dashboard that computes market sentiment metrics locally without relying on AI for core calculations.",
-    "Visualizes complex market data like limit-up pools, liquidity flows, and sentiment cycles.",
-    "Uses AI exclusively for synthesizing data into readable market commentary.",
-    "Supports local execution, allowing users to bypass API costs for real-time market analysis."
+    "Uses a hybrid approach: pure mathematical computation for market metrics and AI for narrative synthesis.",
+    "Features include limit-up pools, sentiment cycles, and capital flow tracking for A-share short-term trading.",
+    "Operates entirely locally, supporting integration with Claude/Codex for automated market commentary.",
+    "Designed for quantitative traders who need real-time, data-driven insights without relying on external API-heavy platforms."
    ]
   },
   {
-   "name": "Flaminis/Dalaran",
-   "url": "https://github.com/Flaminis/Dalaran",
-   "language": "Rust",
-   "stars": 882,
-   "description": "Dalaran — Apache-2.0, robotics-first visualization and data infrastructure for multimodal time-series. ROS 2 native, reads existing .rrd recordings. A hard fork of Rerun.",
-   "one_liner": "A robotics-first, high-performance visualization and data infrastructure for multimodal time-series.",
+   "name": "EthanXiang777/circuit-framework",
+   "url": "https://github.com/EthanXiang777/circuit-framework",
+   "language": "Python",
+   "stars": 352,
+   "description": "Circuit Framework — multi-agent LLM trading research system",
+   "one_liner": "A multi-agent LLM framework specifically designed for trading research and strategy development.",
    "bullets": [
-    "Written in Rust, serving as a hard fork of Rerun optimized for robotics and time-series data.",
-    "Native ROS 2 support with the ability to ingest and visualize existing .rrd recording files.",
-    "Designed for high-throughput data streams, making it ideal for monitoring complex sensor or financial time-series data.",
-    "Provides a robust infrastructure for real-time observability in data-intensive environments."
+    "Python-based architecture designed to orchestrate multiple LLM agents for financial research tasks.",
+    "Provides a structured environment for testing trading hypotheses using agentic workflows.",
+    "Focuses on the intersection of LLM reasoning and quantitative finance research.",
+    "Useful for researchers looking to automate the generation and validation of trading strategies through multi-agent collaboration."
    ]
   }
  ]
