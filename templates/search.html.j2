@@ -74,8 +74,23 @@
   }
 
   // ---------- Keyword search ----------
+  // Stopwords + single chars are dropped: a query like "how's China EV
+  // development" becomes ["china","ev","development"] — the stray "s" from
+  // "how's" and filler words never match broadly.
+  var STOPWORDS = {
+    "a":1,"an":1,"the":1,"and":1,"or":1,"of":1,"to":1,"in":1,"on":1,"for":1,
+    "is":1,"are":1,"was":1,"were":1,"be":1,"been":1,"how":1,"what":1,"when":1,
+    "where":1,"who":1,"why":1,"which":1,"this":1,"that":1,"these":1,"those":1,
+    "it":1,"its":1,"with":1,"from":1,"by":1,"at":1,"as":1,"into":1,"over":1,
+    "about":1,"does":1,"do":1,"did":1,"has":1,"have":1,"had":1,"can":1,"could":1,
+    "would":1,"should":1,"will":1,"just":1,"my":1,"our":1,"your":1,"s":1,"t":1,
+    "re":1,"d":1,"ll":1,"ve":1,"any":1,"all":1,"up":1,"down":1,"out":1,"so":1,
+    "too":1,"very":1,"not":1,"no":1,"yes":1,"get":1,"got":1,"make":1,"much":1
+  };
   function tokenize(s) {
-    return String(s || "").toLowerCase().split(/[^a-z0-9\u4e00-\u9fff]+/).filter(Boolean);
+    return String(s || "").toLowerCase()
+      .split(/[^a-z0-9\u4e00-\u9fff]+/)
+      .filter(function (t) { return t.length >= 2 && !STOPWORDS[t]; });
   }
   function scoreKeyword(item, terms) {
     var title = String(item.title || "").toLowerCase();
@@ -135,12 +150,19 @@
     if (!na || !nb) return 0;
     return dot(a, b) / (na * nb);
   }
-  var SIM_THRESHOLD = 0.22;   // below this, a semantic match is too weak — drop it
+  var SIM_THRESHOLD = 0.26;   // cosine floor — below this, drop the match
   function semanticSearch(q, topN) {
     return embedQuery(q).then(function (qv) {
       if (!qv) return [];
+      var terms = tokenize(q);   // query tokens (stopwords stripped)
       var scored = index.filter(function (it) { return it.embedding && it.embedding.length === qv.length; })
-        .map(function (it) { return { item: it, score: cosine(it.embedding, qv) }; })
+        .map(function (it) {
+          // Hybrid: cosine similarity PLUS a keyword bonus when the item's
+          // title/body actually contains a query term. A post that says "EV"
+          // or "China" ranks above one that only scores semantically close.
+          var kw = scoreKeyword(it, terms);
+          return { item: it, score: cosine(it.embedding, qv) + kw * 0.04 };
+        })
         .filter(function (r) { return r.score >= SIM_THRESHOLD; });   // cut the noise
       scored.sort(function (a, b) { return b.score - a.score; });
       // If semantic is thin, blend in keyword matches (which are exact) to
