@@ -421,7 +421,9 @@
 
   document.addEventListener("click", function (ev) {
     var btn = ev.target.closest ? ev.target.closest(".save-btn") : null;
-    if (!btn || !btn.closest("#saved-list")) return; // ignore archive remove buttons
+    // Skip the archive's own remove buttons (they're inside #saved-list);
+    // every other .save-btn (news rows, Analytics, Repo Radar cards) saves.
+    if (!btn || btn.closest("#saved-list")) return;
     var url = savedAttrs(btn, "url");
     if (!url) return;
     var map = loadSaved();

@@ -1240,17 +1240,18 @@
   .repo-img {
     width: 100%;
     height: auto;
-    max-height: 280px;
-    object-fit: cover;
+    max-height: 520px;
+    object-fit: contain;       /* never crop a diagram */
     border-radius: 8px;
     border: 1px solid var(--rule);
     margin: 8px 0 4px;
     background: #fff;
+    display: block;
   }
   .repo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 14px;
+    grid-template-columns: 1fr;   /* one repo card per row — big, readable */
+    gap: 20px;
   }
 
   /* ---------- Analytics / Repo Radar day-history accordion ---------- */

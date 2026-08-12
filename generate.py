@@ -1936,12 +1936,12 @@ def curate_repos(candidates):
 # --- Repo Radar: README images ----------------------------------------------
 
 REPO_RADAR_IMG_DIR = DATA_DIR / "repo-radar-img"
-REPO_IMG_PER_REPO = 2         # max images embedded per repo card
-REPO_IMG_CANDIDATES = 5       # candidate images pulled from the README
-REPO_IMG_MAX_WIDTH = 480      # downscale to this max width
-REPO_IMG_QUALITY = 70         # JPEG quality
+REPO_IMG_PER_REPO = 3         # max images embedded per repo card
+REPO_IMG_CANDIDATES = 6       # candidate images pulled from the README
+REPO_IMG_MAX_WIDTH = 1000     # downscale to this max width (keeps clarity)
+REPO_IMG_QUALITY = 80         # JPEG quality
 REPO_IMG_MIN_BYTES = 8000     # skip tiny images (usually logos/1px spacers)
-REPO_IMG_MAX_SRC_BYTES = 3 * 1024 * 1024  # skip huge sources
+REPO_IMG_MAX_SRC_BYTES = 5 * 1024 * 1024  # skip huge sources
 _IMG_EXT_RE = re.compile(r"\.(png|jpe?g|gif|webp)$", re.I)
 _MD_IMG_RE = re.compile(r"!\[([^\]]*)\]\(([^)\s]+)(?:\s+[^)]*)?\)")
 
