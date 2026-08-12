@@ -31,6 +31,9 @@ jobs:
           # the free-tier path. Auto-detect would route AQ.-prefixed keys to
           # Vertex AI, which bills through the linked GCP project.
           GEMINI_PROVIDER: aistudio
+          # GitHub API token for the Repo Radar tab's search queries
+          # (higher rate limit than anonymous; automatically provided).
+          GH_TOKEN: ${{ github.token }}
         run: |
           # Rare native crashes (e.g. "double free or corruption" from the
           # HTML-parsing stack under threads) are flaky — retry once before

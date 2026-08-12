@@ -19,6 +19,21 @@ performance chips, and per-group "as of" freshness stamps. Run `python
 generate.py --check` to validate outputs (used by CI to fail loudly on
 structural problems or a fully-heuristic run).
 
+Two more always-visible tabs sit under **Markets**:
+- **Analytics** — each day it scans every blog in `analytics_sources.md`,
+  captures posts published in the last 24 hours, and shows at most **5 posts
+  per day ranked by importance** (AI-rated). If more than 5 blogs update, only
+  the top 5 are shown and the rest are carried forward in a 7-day backlog that
+  fills in on quiet days (e.g. 3 fresh updates + 2 carried = 5). Can be zero.
+  Grouped by blog, tech & engineering scope, every post links to its source.
+- **Repo Radar** — three interesting/trendy GitHub repos picked daily
+  (finance/tech weighted, open to anything), each with an AI summary of what
+  it is / tech structure / purpose / use cases plus repo URL, language, and
+  stars. Configure the search topics in `repo_radar.md`.
+
+Both tabs follow the site's non-fatal rule: a source that fails to load just
+runs short or shows an empty note — it never breaks the daily brief.
+
 The site is a set of static HTML files in `docs/`, hosted free on GitHub Pages
 and regenerated daily by GitHub Actions at 7:00 AM Hong Kong time. News
 summaries use the Google Gemini API (free tier); without a key the generator
@@ -66,9 +81,16 @@ the model (default `gemini-3.1-flash-lite`).
   stories (3 for Global Economy, 2 for other categories; Gemini or heuristic
   fallback per category on any failure; cross-category title dedup so each
   story appears once; a hard 24-hour age cutoff so nothing stale is ever
-  shown), pulls
+  shown). Sources are ranked by tier — Tier 1 → 2 → 3 → unranked — and tier
+  outranks timeliness (see `NEWS_SOURCES.md`), pulls
   up to 10 years of daily closes per ticker via yfinance (US 2Y yield from
   FRED), and renders `templates/dashboard.html.j2` into `docs/`.
+  It also scans the blogs in `analytics_sources.md` (feed auto-discovery +
+  article-text extraction; captures only posts published in the last 24 hours
+  and summarizes them with AI, 3–5 bullets per post, grouped by blog), and
+  picks 3 trending new GitHub repos per the topics in `repo_radar.md`
+  (GitHub Search API, one Gemini curation call), rendering both
+  `analytics.html` and `repo-radar.html`.
 - Output: `docs/index.html` (latest day), `docs/days/YYYY-MM-DD.html` (one
   standalone page per day), `docs/markets.html` (all indicator charts +
   figures with 10y history and zoom buttons, driven by

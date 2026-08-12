@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analytics — Daily Market Brief</title>
+{% include "partials/head.j2" %}
+</head>
+<body>
+<div class="reading-bar" id="reading-bar" aria-hidden="true"></div>
+{% set is_analytics = true %}
+{% include "partials/sidebar.j2" %}
+
+<div class="content">
+  <header class="masthead">
+    <div class="kicker">Daily Market Brief</div>
+    <h1>Analytics</h1>
+    <div class="generated">Today's top {{ daily_max }} from your blogs · tech &amp; engineering scope · updated {{ generated_at|e }}</div>
+  </header>
+
+  {% if blogs %}
+    {% for blog in blogs %}
+    <section class="desk reveal" id="analytics-{{ loop.index0 }}">
+      <h2>{{ blog.name|e }}</h2>
+      {% for post in blog.posts %}
+      <article class="blog-card">
+        <div class="bc-head">
+          {% if post.preview %}<span class="preview-tag">preview only</span>{% endif %}
+        </div>
+        <h3><a href="{{ post.link|e }}" target="_blank" rel="noopener">{{ post.title|e }}</a></h3>
+        {% if post.published %}<div class="pub">{{ post.published|e }}</div>{% endif %}
+        {% if post.bullets %}
+        <ul class="bc-bullets">
+          {% for b in post.bullets %}<li>{{ b|e }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+        <div class="bc-url"><a href="{{ post.link|e }}" target="_blank" rel="noopener">{{ post.link|e }}</a></div>
+      </article>
+      {% endfor %}
+    </section>
+    {% endfor %}
+  {% else %}
+  <p class="empty-note">No blog updates in the last 24 hours and the backlog is empty — check back tomorrow.</p>
+  {% endif %}
+
+  <footer class="colophon">
+    Daily Market Brief — generated automatically from public news feeds and market data. For information only; not investment advice.
+  </footer>
+</div>
+
+{% include "partials/core.js.j2" %}
+</body>
+</html>

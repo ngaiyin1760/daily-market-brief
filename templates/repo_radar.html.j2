@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repo Radar — Daily Market Brief</title>
+{% include "partials/head.j2" %}
+</head>
+<body>
+<div class="reading-bar" id="reading-bar" aria-hidden="true"></div>
+{% set is_repo_radar = true %}
+{% include "partials/sidebar.j2" %}
+
+<div class="content">
+  <header class="masthead">
+    <div class="kicker">Daily Market Brief</div>
+    <h1>Repo Radar</h1>
+    <div class="generated">3 interesting new GitHub repos · finance/tech weighted · updated {{ generated_at|e }}</div>
+  </header>
+
+  {% if repos %}
+  <section class="desk reveal" id="repo-radar">
+    <h2>Today's picks</h2>
+    <div class="repo-grid">
+      {% for repo in repos %}
+      <article class="repo-card">
+        <div class="rc-head">
+          <span class="chip">{{ repo.language|e }}</span>
+          <span class="chip stars">{{ repo.stars }}★</span>
+        </div>
+        <h3><a href="{{ repo.url|e }}" target="_blank" rel="noopener">{{ repo.name|e }}</a></h3>
+        {% if repo.one_liner %}<p class="rc-oneliner">{{ repo.one_liner|e }}</p>{% endif %}
+        {% if repo.bullets %}
+        <ul class="rc-bullets">
+          {% for b in repo.bullets %}<li>{{ b|e }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+        <div class="rc-url"><a href="{{ repo.url|e }}" target="_blank" rel="noopener">{{ repo.url|e }}</a></div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% else %}
+  <p class="empty-note">No repos picked today — check back after the next daily run.</p>
+  {% endif %}
+
+  <footer class="colophon">
+    Daily Market Brief — generated automatically from public news feeds and market data. For information only; not investment advice.
+  </footer>
+</div>
+
+{% include "partials/core.js.j2" %}
+</body>
+</html>

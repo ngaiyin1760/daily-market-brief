@@ -1126,4 +1126,60 @@
 
     section.desk { margin-bottom: 36px; }
   }
+
+  /* ---------- Analytics + Repo Radar cards ---------- */
+  .blog-card, .repo-card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 2px rgba(34, 31, 26, .05);
+  }
+  .blog-card h3, .repo-card h3 {
+    margin: 6px 0 4px;
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.3;
+  }
+  .blog-card h3 a, .repo-card h3 a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .blog-card h3 a:hover, .repo-card h3 a:hover { text-decoration: underline; }
+  .bc-head, .rc-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .bc-head .chip, .rc-head .chip { font-size: 12px; }
+  .bc-blog { color: var(--accent-2); }
+  .rc-head .stars { color: var(--gold); font-weight: 700; }
+  .preview-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    background: rgba(141, 133, 116, .12);
+    border-radius: 999px;
+    padding: 2px 8px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .bc-bullets, .rc-bullets { margin: 8px 0 6px; padding-left: 18px; }
+  .bc-bullets li, .rc-bullets li { margin-bottom: 5px; line-height: 1.5; }
+  .bc-url, .rc-url {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .bc-url a, .rc-url a { color: var(--muted); text-decoration: none; }
+  .bc-url a:hover, .rc-url a:hover { color: var(--accent); text-decoration: underline; }
+  .rc-oneliner { color: var(--ink-soft); font-size: 14.5px; margin: 6px 0 2px; }
+  .repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+  }
 </style>
