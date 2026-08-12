@@ -1535,7 +1535,7 @@ def _group_posts_by_blog(posts):
 # Search index (keyword + semantic embeddings) for the Search page
 # ---------------------------------------------------------------------------
 
-SEARCH_INDEX_VERSION = 1
+SEARCH_INDEX_VERSION = 2   # bump = re-embed all items (embed input changed)
 
 
 def embed_texts(texts):
@@ -1610,12 +1610,15 @@ def build_search_index(page_date, news, analytics_blogs, repos):
     seen = {(i.get("kind"), i.get("url")) for i in existing}
     new_items = [i for i in items if (i.get("kind"), i.get("url")) not in seen]
 
-    # Embed any item lacking an embedding — new items AND existing items from
-    # before embeddings existed (backfill), so semantic search covers the
-    # whole corpus, not just today.
-    to_embed = [i for i in new_items] + [i for i in existing if not i.get("embedding")]
+    # Embed anything lacking an embedding OR carrying an embedding from a
+    # previous embed format (version bump forces a full re-embed, so semantic
+    # search always uses the current input format).
+    need_reembed = existing and existing[0].get("embed_ver") != SEARCH_INDEX_VERSION
+    to_embed = [i for i in new_items] + [
+        i for i in existing if not i.get("embedding") or need_reembed]
     for i in to_embed:
         i["embedding"] = None
+        i["embed_ver"] = SEARCH_INDEX_VERSION
     if to_embed:
         try:
             texts = [f"{i['title']}\n{i['text']}\nSource: {i.get('source','')}"
@@ -1624,7 +1627,7 @@ def build_search_index(page_date, news, analytics_blogs, repos):
             for i, v in zip(to_embed, vectors):
                 if v:
                     i["embedding"] = v
-            log.info("Search: embedded %d item(s) (%d new, %d backfilled)",
+            log.info("Search: embedded %d item(s) (%d new, %d re-embedded)",
                      len(to_embed), len(new_items),
                      len(to_embed) - len(new_items))
         except Exception as exc:
