@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search — Daily Market Brief</title>
+{% include "partials/head.j2" %}
+</head>
+<body>
+<div class="reading-bar" id="reading-bar" aria-hidden="true"></div>
+{% set is_search = true %}
+{% include "partials/sidebar.j2" %}
+
+<div class="content">
+  <header class="masthead">
+    <div class="kicker">Daily Market Brief</div>
+    <h1>Search</h1>
+    <div class="generated">Search everything we've covered — news, blog digests, and repos</div>
+  </header>
+
+  <div class="search-box">
+    <input type="search" id="search-input" placeholder="Try 'TSMC', 'Fed rate cut', 'BYD', 'EV exports'…"
+           autocomplete="off" spellcheck="false">
+    <div class="search-mode">
+      <label><input type="radio" name="mode" value="keyword" checked> Keyword</label>
+      <label><input type="radio" name="mode" value="rag"> Semantic (AI)</label>
+    </div>
+    <button type="button" id="search-btn" class="search-btn">Search</button>
+  </div>
+
+  <div class="search-status" id="search-status" aria-live="polite"></div>
+  <div id="search-results" class="search-results"></div>
+
+  <footer class="colophon">
+    Daily Market Brief — generated automatically from public news feeds and market data. For information only; not investment advice.
+  </footer>
+</div>
+
+{% include "partials/core.js.j2" %}
+<script>
+(function () {
+  var base = {{ base|tojson }};
+  var GEMINI_BROWSER_KEY = {{ gemini_browser_key | default("") | tojson }};
+  var EMBED_MODEL = "text-embedding-004";
+  var GENERATION_MODEL = "gemini-3.1-flash-lite";
+
+  var input = document.getElementById("search-input");
+  var btn = document.getElementById("search-btn");
+  var status = document.getElementById("search-status");
+  var results = document.getElementById("search-results");
+  var index = null;
+  var indexPromise = null;
+
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+  function fmtDate(d) { return String(d || "").slice(0, 10); }
+  function kindLabel(k) {
+    return k === "news" ? "News" : k === "analytics" ? "Analytics" : "Repo Radar";
+  }
+
+  function loadIndex() {
+    if (indexPromise) return indexPromise;
+    indexPromise = fetch(base + "/data/search_index.json?v=" + Date.now())
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (d) { index = (d && d.items) || []; status.textContent = index.length + " items indexed"; })
+      .catch(function () { status.textContent = "Search index unavailable — try again later."; });
+    return indexPromise;
+  }
+
+  // ---------- Keyword search ----------
+  function tokenize(s) {
+    return String(s || "").toLowerCase().split(/[^a-z0-9\u4e00-\u9fff]+/).filter(Boolean);
+  }
+  function scoreKeyword(item, terms) {
+    var title = String(item.title || "").toLowerCase();
+    var text = String(item.text || "").toLowerCase();
+    var score = 0;
+    terms.forEach(function (t) {
+      if (title.indexOf(t) !== -1) score += 3;
+      if (text.indexOf(t) !== -1) score += 1;
+    });
+    // recency boost: newer items rank slightly higher
+    var date = Date.parse(item.date || "2000-01-01");
+    if (date) score += (Date.now() - date) / 1000 / 86400 / 30 * 0.2;
+    return score;
+  }
+  function keywordSearch(q) {
+    var terms = tokenize(q);
+    if (!terms.length) return [];
+    var scored = index.map(function (it) {
+      return { item: it, score: scoreKeyword(it, terms) };
+    }).filter(function (r) { return r.score > 0; });
+    scored.sort(function (a, b) { return b.score - a.score; });
+    return scored.slice(0, 50).map(function (r) { return r.item; });
+  }
+
+  // ---------- Semantic (RAG) ----------
+  function embedQuery(q) {
+    return fetch("https://generativelanguage.googleapis.com/v1beta/models/"
+        + EMBED_MODEL + ":embedContent?key=" + encodeURIComponent(GEMINI_BROWSER_KEY), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "models/" + EMBED_MODEL,
+        content: { parts: [{ text: q }] }
+      })
+    }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (d) { return d.embedding && d.embedding.values; });
+  }
+  function dot(a, b) {
+    var s = 0; for (var i = 0; i < a.length; i++) s += a[i] * b[i]; return s;
+  }
+  function semanticSearch(q, topN) {
+    return embedQuery(q).then(function (qv) {
+      if (!qv) return [];
+      var scored = index.filter(function (it) { return it.embedding && it.embedding.length === qv.length; })
+        .map(function (it) { return { item: it, score: dot(it.embedding, qv) }; });
+      scored.sort(function (a, b) { return b.score - a.score; });
+      return scored.slice(0, topN).map(function (r) { return r.item; });
+    });
+  }
+  function ragAnswer(q, items) {
+    var ctx = items.slice(0, 8).map(function (it, i) {
+      return (i + 1) + ". [" + kindLabel(it.kind) + " · " + fmtDate(it.date) + "] "
+        + it.title + " — " + (it.text || "");
+    }).join("\n");
+    var prompt = "Answer the question based ONLY on the notes below. Be concise (2-5 sentences). "
+      + "Cite sources inline like [1], [2]. If the notes don't cover it, say so.\n\n"
+      + "Notes:\n" + ctx + "\n\nQuestion: " + q;
+    return fetch("https://generativelanguage.googleapis.com/v1beta/models/"
+        + GENERATION_MODEL + ":generateContent?key=" + encodeURIComponent(GEMINI_BROWSER_KEY), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ role: "user", parts: [{ text: prompt }] }],
+        generationConfig: { temperature: 0.2, maxOutputTokens: 500 }
+      })
+    }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (d) {
+        var t = d.candidates && d.candidates[0] && d.candidates[0].content
+          && d.candidates[0].content.parts && d.candidates[0].content.parts[0].text;
+        return t || "";
+      });
+  }
+
+  // ---------- Render ----------
+  function renderCards(items) {
+    results.innerHTML = "";
+    if (!items.length) {
+      results.innerHTML = '<p class="empty-note">No matches found.</p>';
+      return;
+    }
+    items.forEach(function (it) {
+      var card = document.createElement("article");
+      card.className = "blog-card";
+      var head = '<div class="bc-head"><span class="chip">' + esc(kindLabel(it.kind))
+        + '</span><span class="day-meta">' + esc(fmtDate(it.date)) + "</span></div>";
+      var title = '<h3><a href="' + esc(it.url) + '" target="_blank" rel="noopener">'
+        + esc(it.title) + "</a></h3>";
+      var body = '<p class="rc-oneliner">' + esc(it.text || "") + "</p>";
+      card.innerHTML = head + title + body;
+      results.appendChild(card);
+    });
+  }
+
+  function doSearch(q) {
+    q = (q || "").trim();
+    if (!q) { results.innerHTML = ""; return; }
+    loadIndex().then(function () {
+      var mode = document.querySelector('input[name="mode"]:checked').value;
+      if (mode === "keyword") {
+        status.textContent = "Searching…";
+        var items = keywordSearch(q);
+        status.textContent = items.length + " result(s)";
+        renderCards(items);
+      } else {
+        status.textContent = "Embedding query…";
+        semanticSearch(q, 20).then(function (items) {
+          renderCards(items);
+          if (!items.length) { status.textContent = "No semantic matches."; return; }
+          status.textContent = "Writing answer…";
+          ragAnswer(q, items).then(function (ans) {
+            var box = document.createElement("div");
+            box.className = "rag-answer";
+            box.innerHTML = "<strong>Answer</strong><p>" + esc(ans).replace(/\n/g, "<br>") + "</p>";
+            results.insertBefore(box, results.firstChild);
+            status.textContent = "Done";
+          }).catch(function (e) {
+            status.textContent = "Answer failed (" + e.message + ") — showing matches only.";
+          });
+        }).catch(function (e) {
+          status.textContent = "Semantic search failed (" + e.message + ").";
+        });
+      }
+    });
+  }
+
+  btn.addEventListener("click", function () { doSearch(input.value); });
+  input.addEventListener("keydown", function (e) { if (e.key === "Enter") doSearch(input.value); });
+  loadIndex();
+})();
+</script>
+</body>
+</html>

@@ -45,6 +45,14 @@ TEMPLATE_PATH = ROOT / "templates" / "dashboard.html.j2"
 HK_TZ = ZoneInfo("Asia/Hong_Kong")
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
+# Browser-side RAG key: separate AI Studio key, referrer-restricted to the
+# site. Used at BUILD time here only to precompute embeddings for the search
+# index (client search uses it from the browser; the raw key is not written
+# into docs/).
+GEMINI_BROWSER_KEY = os.environ.get("GEMINI_BROWSER_KEY", "").strip()
+# Embedding model for semantic search (server-side precompute).
+GEMINI_EMBED_MODEL = os.environ.get("GEMINI_EMBED_MODEL",
+                                    "text-embedding-004").strip()
 # Default: gemini-3.1-flash-lite — the current low-tier flash-lite class.
 # Its free tier (~500 req/day) comfortably covers the 12 calls/run, whereas
 # gemini-2.5-flash's free tier is only 20 req/day on this account (exhausted
@@ -1285,6 +1293,7 @@ ANALYTICS_HISTORY_PATH = DATA_DIR / "analytics_history.json"
 REPO_RADAR_CONFIG_PATH = ROOT / "repo_radar.md"
 REPO_RADAR_DATA_PATH = DATA_DIR / "repo_radar.json"
 REPO_RADAR_HISTORY_PATH = DATA_DIR / "repo_radar_history.json"
+SEARCH_INDEX_PATH = DATA_DIR / "search_index.json"
 
 ANALYTICS_DAILY_MAX = 5               # max posts shown per day (top-N by importance)
 ANALYTICS_BACKLOG_MAX_AGE_DAYS = 7    # carried-forward posts older than this are dropped
@@ -1520,6 +1529,109 @@ def _group_posts_by_blog(posts):
                            key=lambda n: -max(p.get("rating", 0)
                                               for p in by_blog[n]))
     ]
+
+
+# ---------------------------------------------------------------------------
+# Search index (keyword + semantic embeddings) for the Search page
+# ---------------------------------------------------------------------------
+
+SEARCH_INDEX_VERSION = 1
+
+
+def embed_texts(texts):
+    """Batch-embed a list of strings with Gemini's embedding model, using the
+    server-side key. Returns a list of vectors (same order). Raises on
+    failure (caller decides whether to degrade to keyword-only)."""
+    if not GEMINI_API_KEY:
+        raise RuntimeError("No GEMINI_API_KEY for embeddings")
+    url = ("https://generativelanguage.googleapis.com/v1beta/models/"
+           f"{GEMINI_EMBED_MODEL}:batchEmbedContents?key={GEMINI_API_KEY}")
+    payload = {"requests": [{"model": f"models/{GEMINI_EMBED_MODEL}",
+                             "content": {"parts": [{"text": t}]}}
+                            for t in texts]}
+    resp = requests.post(url, json=payload, headers={}, timeout=60)
+    if resp.status_code == 429:
+        time.sleep(5)
+        resp = requests.post(url, json=payload, headers={}, timeout=60)
+    resp.raise_for_status()
+    data = resp.json()
+    embs = data.get("embeddings") or []
+    return [e.get("values", []) for e in embs]
+
+
+def search_item(text, kind, date, title, url, source, rating):
+    """One normalized entry for the search index."""
+    return {
+        "kind": kind,          # news | analytics | repo
+        "date": date,
+        "title": title,
+        "url": url,
+        "source": source,
+        "rating": rating,
+        "text": text,          # searchable body (bullets/one-liner/etc.)
+    }
+
+
+def build_search_index(page_date, news, analytics_blogs, repos):
+    """Append this day's items (news + analytics + repos) to the search index,
+    deduped by (kind, url). Returns the items added this run. Non-fatal: on
+    any failure the index is left as-is and search falls back to keyword-only."""
+    items = []
+    for cat in news:
+        for it in cat["items"]:
+            body = " ".join(it.get("bullets") or [])
+            items.append(search_item(
+                body or it.get("title", ""), "news", page_date,
+                it.get("title", ""), it.get("url", ""),
+                it.get("source", ""), it.get("rating", 0)))
+    for blog in analytics_blogs:
+        for p in blog.get("posts", []):
+            body = " ".join(p.get("bullets") or [])
+            items.append(search_item(
+                body or p.get("title", ""), "analytics", page_date,
+                p.get("title", ""), p.get("link", ""),
+                p.get("blog", ""), p.get("rating", 0)))
+    for r in repos:
+        body = " ".join(r.get("bullets") or []) + " " + (r.get("one_liner") or "")
+        items.append(search_item(
+            body.strip() or r.get("name", ""), "repo", page_date,
+            r.get("name", ""), r.get("url", ""),
+            r.get("language", ""), 0))
+    if not items:
+        return []
+
+    # Load existing index, dedupe by (kind, url).
+    existing = []
+    try:
+        data = json.loads(SEARCH_INDEX_PATH.read_text(encoding="utf-8"))
+        existing = data.get("items", []) if isinstance(data, dict) else []
+    except Exception:
+        existing = []
+    seen = {(i.get("kind"), i.get("url")) for i in existing}
+    new_items = [i for i in items if (i.get("kind"), i.get("url")) not in seen]
+
+    # Embed new items (best-effort: failure -> keyword-only index).
+    for i in new_items:
+        i["embedding"] = None
+    try:
+        texts = [i["title"] + "\n" + i["text"] for i in new_items]
+        vectors = embed_texts(texts)
+        for i, v in zip(new_items, vectors):
+            if v:
+                i["embedding"] = v
+        log.info("Search: embedded %d new item(s)", len(new_items))
+    except Exception as exc:
+        log.warning("Search embeddings failed (%s); keyword-only index", exc)
+
+    all_items = existing + new_items
+    # Bound the index (cap ~5 years of daily data).
+    if len(all_items) > 50000:
+        all_items = all_items[-50000:]
+    payload = {"version": SEARCH_INDEX_VERSION, "items": all_items}
+    SEARCH_INDEX_PATH.write_text(
+        json.dumps(payload, indent=1, ensure_ascii=False), encoding="utf-8")
+    log.info("Wrote %s (%d items)", SEARCH_INDEX_PATH, len(all_items))
+    return new_items
 
 
 # --- Analytics: AI summaries (3-5 bullets per post) -------------------------
@@ -2244,6 +2356,20 @@ def render_repo_radar_page(page_date, generated_at, repos):
     log.info("Wrote %s", REPO_RADAR_DATA_PATH)
 
 
+def render_search_page(generated_at):
+    """Render the Search page (keyword + semantic RAG)."""
+    from jinja2 import Environment, FileSystemLoader, select_autoescape
+    env = Environment(
+        loader=FileSystemLoader(str(TEMPLATE_PATH.parent)),
+        autoescape=select_autoescape(["html", "j2"]),
+    )
+    html = env.get_template("search.html.j2").render(
+        base=".", generated_at=generated_at, is_search=True,
+        gemini_browser_key=GEMINI_BROWSER_KEY)
+    (DOCS_DIR / "search.html").write_text(html, encoding="utf-8")
+    log.info("Wrote %s", DOCS_DIR / "search.html")
+
+
 # ---------------------------------------------------------------------------
 
 def check_outputs(page_date, generated_at, news, groups):
@@ -2255,6 +2381,7 @@ def check_outputs(page_date, generated_at, news, groups):
         DOCS_DIR / "archive.html",
         DOCS_DIR / "analytics.html",
         DOCS_DIR / "repo-radar.html",
+        DOCS_DIR / "search.html",
         DATA_DIR / f"{page_date}.json",
         DATA_DIR / "indicators.json",
         DATA_DIR / "analytics.json",
@@ -2341,6 +2468,12 @@ def check_outputs(page_date, generated_at, news, groups):
             problems.append(f"repo radar history missing entry for {page_date}")
     except Exception as exc:
         problems.append(f"repo radar history unreadable: {exc}")
+    try:
+        si = json.loads(SEARCH_INDEX_PATH.read_text(encoding="utf-8"))
+        if not isinstance(si.get("items"), list):
+            problems.append("search index items not a list")
+    except Exception as exc:
+        problems.append(f"search index unreadable: {exc}")
     return problems
 
 
@@ -2481,12 +2614,19 @@ def main():
     except Exception:
         log.exception("Repo Radar failed; continuing without it")
 
+    # ---- Search index (keyword + semantic) — non-fatal -------------------
+    try:
+        build_search_index(page_date, news, analytics_blogs, repos)
+    except Exception:
+        log.exception("Search index build failed; continuing")
+
     render_pages("dashboard.html.j2", page_date, generated_at, snapshot,
                  takeaways, news, groups, hero=hero, new_count=new_count,
                  day_importance=day_importance, day_verdict=day_verdict,
                  weekly_obj=weekly)
     render_analytics_page(page_date, generated_at, analytics_blogs)
     render_repo_radar_page(page_date, generated_at, repos)
+    render_search_page(generated_at)
 
     problems = check_outputs(page_date, generated_at, news, groups)
     print_summary(page_date, generated_at, news, takeaways, groups, snapshot,

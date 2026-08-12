@@ -42,6 +42,12 @@ Two more always-visible tabs sit under **Markets**:
   day history + "Jump to" menu, bookmark buttons that save to Archive, and a
   cumulative history (`docs/data/repo_radar_history.json`). Configure the
   search topics in `repo_radar.md`.
+- **Search** — a sidebar tab (below the date list) that searches everything
+  we've covered. **Keyword** mode is instant and local (title/body match with
+  recency boost); **Semantic (AI)** mode embeds the query with a
+  referrer-restricted browser key, retrieves the closest matches from the
+  precomputed embeddings, and answers with inline citations. The index lives
+  in `docs/data/search_index.json` (built + embedded daily in CI).
 
 Both tabs follow the site's non-fatal rule: a source that fails to load just
 runs short or shows an empty note — it never breaks the daily brief.

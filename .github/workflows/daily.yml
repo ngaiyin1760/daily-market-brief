@@ -27,6 +27,10 @@ jobs:
       - name: Generate brief
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # Browser-side search key (referrer-restricted AI Studio key). Used
+          # at build time to precompute embeddings for the search index; the
+          # raw key is embedded in search.html for the client search box.
+          GEMINI_BROWSER_KEY: ${{ secrets.GEMINI_BROWSER_KEY }}
           # Force the AI Studio endpoint (generativelanguage.googleapis.com) —
           # the free-tier path. Auto-detect would route AQ.-prefixed keys to
           # Vertex AI, which bills through the linked GCP project.

@@ -37,4 +37,13 @@
     </a>
   </nav>
   <nav id="date-nav"><a href="#" class="na">Loading…</a></nav>
+  <nav class="sidebar-search">
+    <a class="archive-link{% if is_search | default(false) %} active{% endif %}"
+       href="{{ base }}/search.html"{% if is_search | default(false) %} aria-current="page"{% endif %}>
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M10.5 3a7.5 7.5 0 0 1 5.96 12.1l4.5 4.5-1.42 1.42-4.5-4.5A7.5 7.5 0 1 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z" fill="currentColor"/>
+      </svg>
+      <span>Search</span>
+    </a>
+  </nav>
 </aside>
