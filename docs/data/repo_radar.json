@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-13 03:22 HKT",
+ "generated_at": "2026-08-13 06:59 HKT",
  "repos": [
   {
    "name": "mikehasa/agentacct",
@@ -7,12 +7,12 @@
    "language": "Python",
    "stars": 584,
    "description": "See what your coding agents did and what it cost. Breaks each task down into work steps — tools used, files changed, tests run, time and tokens spent. Local-first dashboard for Claude Code, Codex, OpenCode, and more. No login, no telemetry.",
-   "one_liner": "A local-first observability and cost-tracking dashboard for AI coding agents.",
+   "one_liner": "A local-first observability dashboard for tracking the performance, token usage, and cost of coding agents.",
    "bullets": [
-    "Built with Python, providing a local-first interface to monitor agent activity.",
-    "Tracks granular metrics including token consumption, latency, file modifications, and test execution results.",
-    "Enables financial oversight for engineering teams by breaking down costs per task and tool usage.",
-    "Integrates with popular agentic coding tools like Claude Code and Codex to provide transparency into automated workflows."
+    "Built in Python with a focus on local-first data storage and privacy.",
+    "Provides granular visibility into agent workflows, including file changes, tool execution, and test results.",
+    "Calculates real-time financial metrics like token consumption and time-to-completion per task.",
+    "Designed to integrate with popular coding agents like Claude Code and Codex to audit development efficiency."
    ],
    "img": "mikehasa_agentacct_0.jpg",
    "img_alt": "agentacct tui — live usage, cost, provider rate-limit bars, and recent sessions with per-session weekly-plan-cost estimates",
@@ -25,26 +25,26 @@
    "language": "Python",
    "stars": 178,
    "description": "A 股短线复盘看板：涨停池·连板梯队·龙虎榜·板块资金一屏看完，赚钱效应/晋级率/梯队断层/情绪周期等派生指标纯计算直出（不经过 AI），AI 只把数据串成能读的盘面研判。全本地运行，可用 Claude/Codex 订阅免 API key。| A-share short-term daily-review dashboard: derived sentiment metrics computed locally, AI only writes the narrative. No API key needed.",
-   "one_liner": "A high-performance local dashboard for A-share market sentiment analysis and short-term trading review.",
+   "one_liner": "A local-running A-share market sentiment and short-term trading dashboard that combines deterministic financial metrics with AI-driven analysis.",
    "bullets": [
-    "Uses a hybrid approach: pure computational logic for market metrics and AI for narrative synthesis.",
-    "Calculates complex sentiment indicators like market breadth, ladder tiers, and capital flow without relying on external API calls.",
-    "Designed for local execution, ensuring data privacy and zero latency for high-frequency market monitoring.",
-    "Provides a comprehensive 'one-screen' view of market sentiment cycles and profit-making opportunities for quantitative traders."
+    "Uses a hybrid architecture: deterministic calculation for market metrics and LLM-based synthesis for narrative reporting.",
+    "Features specialized modules for tracking limit-up pools, liquidity flows, and market sentiment cycles.",
+    "Operates entirely locally to ensure data privacy and zero-cost API usage for market monitoring.",
+    "Ideal for quantitative traders needing a high-level overview of Chinese market dynamics without relying on cloud-based financial platforms."
    ]
   },
   {
    "name": "Flaminis/Dalaran",
    "url": "https://github.com/Flaminis/Dalaran",
    "language": "Rust",
-   "stars": 882,
+   "stars": 885,
    "description": "Dalaran — Apache-2.0, robotics-first visualization and data infrastructure for multimodal time-series. ROS 2 native, reads existing .rrd recordings. A hard fork of Rerun.",
-   "one_liner": "A robotics-first visualization and data infrastructure for multimodal time-series analysis.",
+   "one_liner": "A robotics-first visualization and data infrastructure tool for multimodal time-series data, built as a high-performance fork of Rerun.",
    "bullets": [
-    "Built in Rust as a high-performance fork of Rerun, optimized for handling massive time-series datasets.",
-    "Native ROS 2 support allows for seamless integration with existing robotics and sensor data pipelines.",
-    "Designed to ingest and visualize .rrd recordings, making it ideal for auditing complex automated system behaviors.",
-    "Provides a robust infrastructure for developers to inspect multimodal data streams in real-time, critical for debugging autonomous agents."
+    "Written in Rust, optimized for high-throughput ingestion and visualization of time-series data.",
+    "Native ROS 2 support allows for seamless integration into existing robotics and automated data pipelines.",
+    "Designed to handle complex, multi-sensor data streams with low latency, making it suitable for high-frequency trading backtesting or sensor fusion.",
+    "Provides a robust framework for replaying and analyzing historical data recordings (.rrd files) with advanced visual inspection."
    ]
   }
  ]
