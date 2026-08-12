@@ -1610,18 +1610,26 @@ def build_search_index(page_date, news, analytics_blogs, repos):
     seen = {(i.get("kind"), i.get("url")) for i in existing}
     new_items = [i for i in items if (i.get("kind"), i.get("url")) not in seen]
 
-    # Embed new items (best-effort: failure -> keyword-only index).
-    for i in new_items:
+    # Embed any item lacking an embedding — new items AND existing items from
+    # before embeddings existed (backfill), so semantic search covers the
+    # whole corpus, not just today.
+    to_embed = [i for i in new_items] + [i for i in existing if not i.get("embedding")]
+    for i in to_embed:
         i["embedding"] = None
-    try:
-        texts = [i["title"] + "\n" + i["text"] for i in new_items]
-        vectors = embed_texts(texts)
-        for i, v in zip(new_items, vectors):
-            if v:
-                i["embedding"] = v
-        log.info("Search: embedded %d new item(s)", len(new_items))
-    except Exception as exc:
-        log.warning("Search embeddings failed (%s); keyword-only index", exc)
+    if to_embed:
+        try:
+            texts = [i["title"] + "\n" + i["text"] for i in to_embed]
+            vectors = embed_texts(texts)
+            for i, v in zip(to_embed, vectors):
+                if v:
+                    i["embedding"] = v
+            log.info("Search: embedded %d item(s) (%d new, %d backfilled)",
+                     len(to_embed), len(new_items),
+                     len(to_embed) - len(new_items))
+        except Exception as exc:
+            log.warning("Search embeddings failed (%s); keyword-only index", exc)
+    else:
+        log.info("Search: all %d item(s) already embedded", len(existing))
 
     all_items = existing + new_items
     # Bound the index (cap ~5 years of daily data).
