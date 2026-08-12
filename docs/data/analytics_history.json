@@ -2,8 +2,25 @@
  "days": [
   {
    "date": "2026-08-13",
-   "generated_at": "2026-08-13 03:10 HKT",
+   "generated_at": "2026-08-13 03:17 HKT",
    "posts": [
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/2d-gaa-cfets-need-contact-and-parasitic-co-optimization-at-a2-node-imec/",
+     "blog": "SemiEngineering",
+     "title": "2D GAA CFETs Need Contact And Parasitic Co-Optimization At A2 Node (imec)",
+     "link": "https://semiengineering.com/2d-gaa-cfets-need-contact-and-parasitic-co-optimization-at-a2-node-imec/",
+     "summary": "Researchers from imec published a technical paper titled “Are Gate-All-Around 2D CFETs the Optimal Architecture for the A2 Node and Beyond?” Abstract Excerpt: “Here, we develop an A2-oriented 2D CFET integration flow with a CPP of 36 nm and Lg of 10 nm and present initial demonstrations of several key process modules. Despite their atomically... » read more\nThe post 2D GAA CFETs Need Contact And Parasitic Co-Optimization At A2 Node (imec) appeared first on Semiconductor Engineering.",
+     "published": "2026-08-12 18:01 UTC",
+     "_ts": 1786557663,
+     "preview": false,
+     "bullets": [
+      "Imec researchers evaluated 2D Gate-All-Around (GAA) CFETs for the A2 node, utilizing a 36 nm contacted poly pitch (CPP) and 10 nm gate length (Lg).",
+      "The study concludes that 2D GAA CFETs do not offer a scaling advantage over traditional Si GAA CFETs at the A2 node due to persistent contact formation constraints.",
+      "Effective implementation of this architecture requires rigorous co-optimization of parasitic extraction and contact design to overcome current integration bottlenecks.",
+      "The findings utilize a multiscale PPA evaluation framework, highlighting that atomically thin channels alone are insufficient to drive density improvements without broader process integration breakthroughs."
+     ],
+     "rating": 5
+    },
     {
      "_key": "SemiEngineering|https://semiengineering.com/standards-compliant-112g-phy-for-linear-optics-driving-efficient-ai-infrastructure/",
      "blog": "SemiEngineering",
@@ -15,26 +32,9 @@
      "preview": false,
      "bullets": [
       "Synopsys has introduced a 112G PHY IP compliant with the OIF-CEI-112G-LINEAR-PAM4 standard, designed to enable DSP-less host-to-module connectivity.",
-      "Adopting linear optics can reduce module power consumption by up to 50% by eliminating the need for power-hungry DSPs and retimers in AI data center racks.",
-      "The solution addresses critical thermal and latency bottlenecks, providing a scalable pathway for future interconnect speeds of 224G, 448G, and Co-Packaged Optics (CPO).",
-      "Standardization of the linear drive interface ensures interoperability across the ecosystem, which is essential for the rapid scaling of high-density AI infrastructure."
-     ],
-     "rating": 5
-    },
-    {
-     "_key": "SemiEngineering|https://semiengineering.com/2d-gaa-cfets-need-contact-and-parasitic-co-optimization-at-a2-node-imec/",
-     "blog": "SemiEngineering",
-     "title": "2D GAA CFETs Need Contact And Parasitic Co-Optimization At A2 Node (imec)",
-     "link": "https://semiengineering.com/2d-gaa-cfets-need-contact-and-parasitic-co-optimization-at-a2-node-imec/",
-     "summary": "Researchers from imec published a technical paper titled “Are Gate-All-Around 2D CFETs the Optimal Architecture for the A2 Node and Beyond?” Abstract Excerpt: “Here, we develop an A2-oriented 2D CFET integration flow with a CPP of 36 nm and Lg of 10 nm and present initial demonstrations of several key process modules. Despite their atomically... » read more\nThe post 2D GAA CFETs Need Contact And Parasitic Co-Optimization At A2 Node (imec) appeared first on Semiconductor Engineering.",
-     "published": "2026-08-12 18:01 UTC",
-     "_ts": 1786557663,
-     "preview": false,
-     "bullets": [
-      "Imec research indicates that 2D Gate-All-Around (GAA) CFETs do not offer a contacted poly pitch (CPP) scaling advantage over traditional Si GAA CFETs at the A2 node.",
-      "The study establishes a minimum CPP of 36 nm for 2D CFETs, constrained by contact formation requirements despite the use of atomically thin channels.",
-      "Effective implementation of 2D CFETs at the A2 node requires rigorous co-optimization of contact structures and parasitic extraction to realize potential power-performance-area (PPA) benefits.",
-      "The findings utilize a comprehensive multiscale evaluation framework, including quantum transport simulations and circuit-level benchmarking, to assess the viability of 2D architectures."
+      "Adopting linear optics can reduce module power consumption by up to 50% by eliminating the need for power-hungry DSPs and retimers in high-speed data center interconnects.",
+      "The technology addresses critical thermal management issues in dense AI racks, facilitating the scaling of interconnects beyond 800G.",
+      "This development provides a standardized, interoperable path toward future 224G/448G speeds and Co-Packaged Optics (CPO) architectures."
      ],
      "rating": 4
     },
@@ -48,10 +48,11 @@
      "_ts": 1786553517,
      "preview": false,
      "bullets": [
-      "Enterprise adoption of agentic AI is currently bottlenecked by legacy data infrastructure, which struggles to provide the real-time, cross-functional access required for autonomous decision-making.",
-      "Data leaders currently provide AI agents access to over 70% of enterprise data, whereas the average organization limits agents to just 45%, significantly impacting ROI and performance.",
-      "With Gartner predicting that AI agents will automate or augment 50% of business decisions by 2027, firms must modernize data architectures to ensure agents have the context and reliability needed for high-stakes operations.",
-      "The shift from passive AI chatbots to active, agentic systems necessitates a transition from siloed legacy systems to unified data environments that support frictionless, secure operational integration."
+      "Sponsored\nScaling AI agents with trustworthy data\nHow companies are freeing themselves of legacy data systems to power AI agents that deliver trusted, autonomous action.",
+      "In partnership withGoogle Cloud\nBusiness and technology leaders need no convincing that the time of agentic AI is here.",
+      "Organizations are rapidly adopting agents, and few executives doubt the technology’s potential to transform work.",
+      "But many organizations find that realizing the desired return on investment (ROI) from AI hinges on having the right foundation, with inadequate infrastructure and data being major blockers.",
+      "Agentic AI places considerable new demands on enterprise data systems."
      ],
      "rating": 4
     },
@@ -65,10 +66,11 @@
      "_ts": 1786561188,
      "preview": false,
      "bullets": [
-      "Researchers in Japan have successfully used a CRISPR-based technique to remove the Y chromosome from male mouse embryos, effectively creating female clones from male cells.",
-      "While currently in the preprint stage, this breakthrough challenges the biological assumption that both male and female gametes are strictly required for mammalian reproduction.",
-      "The technology holds significant potential for wildlife conservation, offering a pathway to rescue endangered species by managing sex ratios or preserving genetic diversity when only male individuals remain.",
-      "This development builds on previous observations of sex-reversal in nature, such as the Okinawa rubble goby, and could eventually refine current, inefficient cloning methods used for species like black-footed ferrets."
+      "Scientists just created female clones of male mice\nThe sex reversal technique could be used to help rescue endangered species, say the researchers behind the work.",
+      "Scientists have deliberately turned male mouse embryos into females for the first time.",
+      "A team based in Japan used a CRISPR-based approach to remove the Y chromosome from male cells and create female clones of male mice.",
+      "“No one has done this before,” says Monika Ward, a reproductive biologist at the University of Hawaii, who was not involved in the research.",
+      "The feat could change the way scientists think about reproduction, says Takashi Ishiuchi, a reproductive biologist at the University of Yamanashi, who co-led the work."
      ],
      "rating": 3
     },
@@ -82,10 +84,10 @@
      "_ts": 1786527023,
      "preview": false,
      "bullets": [
-      "Xiaomi EV delivered 31,267 vehicles in July, marking the fourth consecutive month above the 30,000-unit threshold despite a 9.99% month-on-month decline.",
+      "Xiaomi EV delivered 31,267 vehicles in July, marking a fourth consecutive month above the 30,000-unit threshold despite a 9.99% month-on-month decline.",
       "The company has achieved only 39% of its 550,000-unit annual delivery target, necessitating a significant production ramp-up to an average of 67,000 units per month for the remainder of the year.",
       "Xiaomi is pivoting toward the extended-range electric vehicle (EREV) market with its new Sky Nomad series, positioning the N90 Max and N70 Max to compete directly with Li Auto and Aito.",
-      "While initial market reaction to the Sky Nomad pricing was negative, causing a 7.28% drop in Xiaomi's stock, early reports suggest strong consumer interest with potential pre-orders exceeding 100,000 units."
+      "Market reception to the new product line remains uncertain, as evidenced by a 7.28% drop in Xiaomi's Hong Kong-listed shares following the initial announcement of the aggressive pricing strategy."
      ],
      "rating": 4
     }
