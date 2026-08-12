@@ -101,35 +101,21 @@
   }
 
   // ---------- Semantic (RAG) ----------
+  // All semantic calls go through the Cloudflare Worker proxy (WORKER_URL),
+  // which forwards to Gemini from a US edge — so it works from HK without a
+  // VPN, and no API key ever ships to the browser.
   function embedQuery(q) {
-    var url, init;
-    if (WORKER_URL) {
-      url = WORKER_URL + "/embed";
-      init = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        referrerPolicy: "no-referrer",
-        body: JSON.stringify({
-          model: "models/" + EMBED_MODEL,
-          content: { parts: [{ text: q }] }
-        })
-      };
-    } else {
-      // Direct fallback only used if WORKER_URL is unset; the browser key is
-      // injected ONLY when there is no proxy (so the key never ships to the
-      // browser in proxy mode).
-      url = "https://generativelanguage.googleapis.com/v1beta/models/"
-        + EMBED_MODEL + ":embedContent?key=" + encodeURIComponent({% if not worker_url %}{{ gemini_browser_key | default("") | tojson }}{% else %}""{% endif %});
-      init = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        referrerPolicy: "no-referrer",
-        body: JSON.stringify({
-          model: "models/" + EMBED_MODEL,
-          content: { parts: [{ text: q }] }
-        })
-      };
-    }
+    if (!WORKER_URL) return Promise.reject(new Error("Semantic search not configured (no WORKER_URL)."));
+    var url = WORKER_URL + "/embed";
+    var init = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      referrerPolicy: "no-referrer",
+      body: JSON.stringify({
+        model: "models/" + EMBED_MODEL,
+        content: { parts: [{ text: q }] }
+      })
+    };
     return fetch(url, init).then(function (r) {
       return r.json().catch(function () { return {}; }).then(function (body) {
         if (!r.ok) {
@@ -178,31 +164,17 @@
     var prompt = "Answer the question based ONLY on the notes below. Be concise (2-5 sentences). "
       + "Cite sources inline like [1], [2]. If the notes don't cover it, say so.\n\n"
       + "Notes:\n" + ctx + "\n\nQuestion: " + q;
-    var url, init;
-    if (WORKER_URL) {
-      url = WORKER_URL + "/gen";
-      init = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        referrerPolicy: "no-referrer",
-        body: JSON.stringify({
-          contents: [{ role: "user", parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.2, maxOutputTokens: 500 }
-        })
-      };
-    } else {
-      url = "https://generativelanguage.googleapis.com/v1beta/models/"
-        + GENERATION_MODEL + ":generateContent?key=" + encodeURIComponent({% if not worker_url %}{{ gemini_browser_key | default("") | tojson }}{% else %}""{% endif %});
-      init = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        referrerPolicy: "no-referrer",
-        body: JSON.stringify({
-          contents: [{ role: "user", parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.2, maxOutputTokens: 500 }
-        })
-      };
-    }
+    if (!WORKER_URL) return Promise.reject(new Error("Semantic search not configured (no WORKER_URL)."));
+    var url = WORKER_URL + "/gen";
+    var init = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      referrerPolicy: "no-referrer",
+      body: JSON.stringify({
+        contents: [{ role: "user", parts: [{ text: prompt }] }],
+        generationConfig: { temperature: 0.2, maxOutputTokens: 500 }
+      })
+    };
     return fetch(url, init).then(function (r) {
       return r.json().catch(function () { return {}; }).then(function (body) {
         if (!r.ok) {
