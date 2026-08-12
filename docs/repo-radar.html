@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Markets — Daily Market Brief</title>
+<title>Repo Radar — Daily Market Brief</title>
 <meta name="theme-color" content="#4338ca">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1201,8 +1201,8 @@
   <div class="site-title">Daily Market Brief</div>
   <div class="site-sub">Market Intelligence</div>
   <nav class="sidebar-top">
-    <a class="archive-link active"
-       href="./markets.html" aria-current="page">
+    <a class="archive-link"
+       href="./markets.html">
       <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
         <path d="M4 19V9M10 19V5M16 19v-7M22 19H2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
@@ -1215,8 +1215,8 @@
       </svg>
       <span>Analytics</span>
     </a>
-    <a class="archive-link"
-       href="./repo-radar.html">
+    <a class="archive-link active"
+       href="./repo-radar.html" aria-current="page">
       <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
         <path d="M8 3a2 2 0 0 0-2 2v6a2 2 0 0 1-2 2 2 2 0 0 1 2 2v6a2 2 0 0 0 2 2M16 3a2 2 0 0 1 2 2v6a2 2 0 0 0 2 2 2 2 0 0 0-2 2v6a2 2 0 0 1-2 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
@@ -1237,188 +1237,63 @@
 <div class="content">
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
-    <h1>Markets</h1>
-    <div class="generated">Key indicators — up to 10 years of daily history · updated 2026-08-13 00:13 HKT<span class="session-badge" id="session-badge"></span></div>
+    <h1>Repo Radar</h1>
+    <div class="generated">3 interesting new GitHub repos · finance/tech weighted · updated 2026-08-13 00:13 HKT</div>
   </header>
 
-  <div id="markets-body">
-    
-    <section class="desk">
-      <h2 class="skel-title">&nbsp;</h2>
-      <div class="chart-grid">
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
+  
+  <section class="desk reveal" id="repo-radar">
+    <h2>Today's picks</h2>
+    <div class="repo-grid">
+      
+      <article class="repo-card">
+        <div class="rc-head">
+          <span class="chip">Python</span>
+          <span class="chip stars">583★</span>
         </div>
+        <h3><a href="https://github.com/mikehasa/agentacct" target="_blank" rel="noopener">mikehasa/agentacct</a></h3>
+        <p class="rc-oneliner">A local-first observability and cost-tracking dashboard specifically designed for AI coding agents.</p>
         
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
+        <ul class="rc-bullets">
+          <li>Tech Stack: Python-based local dashboard with integration for Claude Code, Codex, and OpenAI agents.</li><li>Purpose: Provides granular visibility into agentic workflows by tracking work steps, file modifications, test execution, and token consumption.</li><li>Use Cases: Financial auditing of AI development costs, debugging agent performance, and optimizing token usage for enterprise coding teams.</li>
+        </ul>
+        
+        <div class="rc-url"><a href="https://github.com/mikehasa/agentacct" target="_blank" rel="noopener">https://github.com/mikehasa/agentacct</a></div>
+      </article>
+      
+      <article class="repo-card">
+        <div class="rc-head">
+          <span class="chip">Python</span>
+          <span class="chip stars">178★</span>
         </div>
+        <h3><a href="https://github.com/simonlin1212/vibe-astock" target="_blank" rel="noopener">simonlin1212/vibe-astock</a></h3>
+        <p class="rc-oneliner">A high-performance, local-first dashboard for A-share market sentiment analysis and short-term trading review.</p>
         
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
+        <ul class="rc-bullets">
+          <li>Tech Stack: Python-based engine that computes derived market metrics (sentiment, laddering, money flow) locally without relying on external AI for calculations.</li><li>Purpose: Delivers real-time, data-driven market insights and sentiment indicators for short-term stock trading.</li><li>Use Cases: Quantitative traders analyzing market breadth, identifying &#39;money-making&#39; effects, and automating daily market reviews without API dependency.</li>
+        </ul>
+        
+        <div class="rc-url"><a href="https://github.com/simonlin1212/vibe-astock" target="_blank" rel="noopener">https://github.com/simonlin1212/vibe-astock</a></div>
+      </article>
+      
+      <article class="repo-card">
+        <div class="rc-head">
+          <span class="chip">Rust</span>
+          <span class="chip stars">873★</span>
         </div>
+        <h3><a href="https://github.com/Flaminis/Dalaran" target="_blank" rel="noopener">Flaminis/Dalaran</a></h3>
+        <p class="rc-oneliner">A robotics-first, multimodal time-series visualization and data infrastructure tool.</p>
         
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
+        <ul class="rc-bullets">
+          <li>Tech Stack: Rust-based, ROS 2 native architecture; a hard fork of Rerun optimized for high-throughput data.</li><li>Purpose: Provides a robust infrastructure for visualizing and managing complex, time-synchronized multimodal data streams.</li><li>Use Cases: Analyzing high-frequency sensor data, debugging robotics control loops, and visualizing time-series telemetry for industrial or financial systems.</li>
+        </ul>
         
-      </div>
-    </section>
-    
-    <section class="desk">
-      <h2 class="skel-title">&nbsp;</h2>
-      <div class="chart-grid">
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-      </div>
-    </section>
-    
-    <section class="desk">
-      <h2 class="skel-title">&nbsp;</h2>
-      <div class="chart-grid">
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-      </div>
-    </section>
-    
-    <section class="desk">
-      <h2 class="skel-title">&nbsp;</h2>
-      <div class="chart-grid">
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-      </div>
-    </section>
-    
-    <section class="desk">
-      <h2 class="skel-title">&nbsp;</h2>
-      <div class="chart-grid">
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-        <div class="chart-card skeleton">
-          <div class="skel-bar"></div>
-          <div class="skel-bar short"></div>
-          <div class="skel-chart"></div>
-          <div class="skel-bar tiny"></div>
-        </div>
-        
-      </div>
-    </section>
-    
-  </div>
+        <div class="rc-url"><a href="https://github.com/Flaminis/Dalaran" target="_blank" rel="noopener">https://github.com/Flaminis/Dalaran</a></div>
+      </article>
+      
+    </div>
+  </section>
+  
 
   <footer class="colophon">
     Daily Market Brief — generated automatically from public news feeds and market data. For information only; not investment advice.
@@ -2211,512 +2086,6 @@
   // Deferred Firebase scripts execute before window.load, so firebase is
   // available here if the CDN delivered it.
   window.addEventListener("load", initFirebaseSync);
-})();
-</script>
-<script>
-(function () {
-  var base = ".";
-  var UP = "#0d9d6c", DOWN = "#d13438";
-  var CHART_FONT = "'Source Sans 3', 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif";
-  // Trailing-point windows for the zoom buttons (10y max) and the x-axis
-  // tick spacing/format per window (step in trading days).
-  var ZOOM_RANGES = { "1M": 22, "3M": 66, "1Y": 262, "5Y": 1305, "10Y": 0 };
-  var ZOOM_CFG = {
-    // step: 1M = trading-day spacing; 3M/1Y = months; 5Y/10Y = years.
-    // Month/year ticks anchor to the 1st trading day of the month/year.
-    "1M":  { step: 5,   fmt: "day",   mode: "step" },   // ~1 week between ticks
-    "3M":  { step: 1,   fmt: "month", mode: "month" },  // every month
-    "1Y":  { step: 2,   fmt: "my",    mode: "month" },  // every 2 months
-    "5Y":  { step: 1,   fmt: "year",  mode: "year" },   // every year
-    "10Y": { step: 2,   fmt: "year",  mode: "year" }    // every 2 years
-  };
-  var DEFAULT_ZOOM = "1Y";
-  var charts = [];
-
-  function hexToRgba(hex, alpha) {
-    var r = parseInt(hex.slice(1, 3), 16),
-        g = parseInt(hex.slice(3, 5), 16),
-        b = parseInt(hex.slice(5, 7), 16);
-    return "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
-  }
-
-  function fmtNum(v, kind) {
-    return v.toLocaleString(undefined, { maximumFractionDigits: 2 })
-      + (kind === "yield" ? "%" : "");
-  }
-
-  // Decimals for y-axis/tooltip numbers adapt to the visible value span, so
-  // small-priced instruments (e.g. HKD/CNY ~0.86) don't collapse to "0.9".
-  function yDecimals(scale) {
-    var span = scale ? Math.abs(scale.max - scale.min) : 0;
-    var step = span > 0 ? span / 4 : 0;
-    return step > 0 ? Math.min(6, Math.max(0, Math.ceil(-Math.log10(step)))) : 4;
-  }
-
-  // Instruments priced below 10 need at least 2 decimals (e.g. JPY/HKD ~5.0),
-  // otherwise the axis/tooltip collapse to whole numbers ("5 5 5 5 5").
-  function minDecimals(scale) {
-    var mag = scale ? Math.max(Math.abs(scale.min), Math.abs(scale.max)) : 0;
-    return mag < 10 ? 2 : 0;
-  }
-
-  // Performance-chip helpers (full-series closes).
-  function pctChange(closes, back) {
-    var n = closes.length;
-    if (n <= back || !closes[n - 1 - back] || !closes[n - 1]) return null;
-    return (closes[n - 1] - closes[n - 1 - back]) / closes[n - 1 - back] * 100;
-  }
-
-  // Year-to-date: last close vs the final close of the previous year.
-  function ytdChange(labels, closes) {
-    var n = labels.length;
-    if (n < 2) return null;
-    var lastD = parseDate(labels[n - 1]);
-    if (!lastD) return null;
-    var prevIdx = -1;
-    for (var i = n - 2; i >= 0; i--) {
-      var d = parseDate(labels[i]);
-      if (d && d.y < lastD.y) { prevIdx = i; break; }
-    }
-    if (prevIdx < 0 || !closes[prevIdx] || !closes[n - 1]) return null;
-    return (closes[n - 1] - closes[prevIdx]) / closes[prevIdx] * 100;
-  }
-
-  function makeCard(item) {
-    var card = document.createElement("div");
-    card.className = "chart-card";
-    var chg = item.kind === "yield" ? item.change_bp : item.change;
-    var dir = "flat";
-    if (chg !== null && chg !== undefined) dir = chg >= 0 ? "up" : "down";
-    if (dir !== "flat") card.classList.add(dir);
-    var up = dir !== "down";
-
-    var head = document.createElement("div");
-    head.className = "cc-head";
-    var name = document.createElement("span");
-    name.className = "cc-name";
-    name.textContent = item.label;
-    var last = document.createElement("span");
-    last.className = "cc-last";
-    last.textContent = (item.last !== null && item.last !== undefined)
-      ? fmtNum(item.last, item.kind) : "n/a";
-    head.appendChild(name);
-    head.appendChild(last);
-    card.appendChild(head);
-
-    var change = document.createElement("div");
-    change.className = "cc-change " + (chg === null || chg === undefined ? "na" : (chg >= 0 ? "pos" : "neg"));
-    if (chg === null || chg === undefined) {
-      change.textContent = "—";
-    } else if (item.kind === "yield") {
-      change.textContent = (chg >= 0 ? "+" : "") + chg.toFixed(1) + " bp";
-    } else {
-      change.textContent = (chg >= 0 ? "+" : "") + chg.toFixed(2) + "%";
-    }
-    card.appendChild(change);
-
-    var closes = item.closes || [];
-    var labels = item.labels || [];
-    if (labels.length !== closes.length) {
-      labels = closes.map(function (_, i) { return i; });
-    }
-
-    // Performance chips: YTD / 1M / 1Y computed from the full series.
-    var chips = document.createElement("div");
-    chips.className = "cc-chips";
-    [["YTD", ytdChange(labels, closes)],
-     ["1M", pctChange(closes, 22)],
-     ["1Y", pctChange(closes, 262)]].forEach(function (pair) {
-      if (pair[1] === null || pair[1] === undefined) return;
-      var c = document.createElement("span");
-      c.className = "chip " + (pair[1] >= 0 ? "pos" : "neg");
-      c.textContent = pair[0] + " " + (pair[1] >= 0 ? "+" : "")
-        + pair[1].toFixed(1) + "%";
-      chips.appendChild(c);
-    });
-    if (chips.childNodes.length) card.appendChild(chips);
-
-    if (closes.length >= 2) {
-      // Full series is kept on the chart; the default view is DEFAULT_ZOOM.
-      var total = closes.length;
-      var defWin = ZOOM_RANGES[DEFAULT_ZOOM] || 0;
-      var defLo = (defWin > 0 && defWin < total) ? total - defWin : 0;
-
-      var body = document.createElement("div");
-      body.className = "cc-body";
-      var cv = document.createElement("canvas");
-      body.appendChild(cv);
-      card.appendChild(body);
-
-      var bar = document.createElement("div");
-      bar.className = "zoom-bar";
-      Object.keys(ZOOM_RANGES).forEach(function (key) {
-        var b = document.createElement("button");
-        b.type = "button";
-        b.className = "zoom-btn" + (key === DEFAULT_ZOOM ? " active" : "");
-        b.textContent = key;
-        b.setAttribute("aria-pressed", key === DEFAULT_ZOOM ? "true" : "false");
-        b.addEventListener("click", function () {
-          setZoom(chart, key);
-          bar.querySelectorAll(".zoom-btn").forEach(function (x) {
-            var on = x === b;
-            x.classList.toggle("active", on);
-            x.setAttribute("aria-pressed", on ? "true" : "false");
-          });
-        });
-        bar.appendChild(b);
-      });
-      card.appendChild(bar);
-
-      var chart = new Chart(cv.getContext("2d"), {
-        type: "line",
-        data: {
-          labels: labels.slice(defLo),
-          datasets: [{
-            data: closes.slice(defLo),
-            borderColor: up ? UP : DOWN,
-            borderWidth: 1.8,
-            pointRadius: 0,
-            pointHitRadius: 10,
-            pointHoverRadius: 4,
-            pointHoverBackgroundColor: up ? UP : DOWN,
-            tension: 0.35,
-            fill: true,
-            backgroundColor: function (ctx) {
-              var area = ctx.chart.chartArea;
-              if (!area) return hexToRgba(up ? UP : DOWN, 0.15);
-              var grad = ctx.chart.ctx.createLinearGradient(0, area.top, 0, area.bottom);
-              grad.addColorStop(0, hexToRgba(up ? UP : DOWN, 0.28));
-              grad.addColorStop(1, hexToRgba(up ? UP : DOWN, 0.02));
-              return grad;
-            }
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          // Charts draw in on load/zoom (groups render progressively, so the
-          // animations naturally stagger); disabled for reduced motion.
-          animation: { duration: 450, easing: "easeOutQuart" },
-          interaction: { mode: "index", intersect: false },
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              displayColors: false,
-              backgroundColor: "rgba(34, 31, 26, .92)",
-              titleColor: "#c9a227",
-              bodyColor: "#f6f1e4",
-              padding: 10,
-              cornerRadius: 6,
-              titleFont: { family: CHART_FONT, size: 12 },
-              bodyFont: { family: CHART_FONT, size: 14, weight: "600" },
-              callbacks: {
-                title: function (items) {
-                  return items.length ? String(items[0].label) : "";
-                },
-                label: function (ctx) {
-                  var y = ctx.chart.scales.y;
-                  var decimals = Math.max(yDecimals(y), minDecimals(y));
-                  var v = ctx.parsed.y;
-                  return v.toLocaleString(undefined, {
-                    minimumFractionDigits: decimals,
-                    maximumFractionDigits: decimals
-                  });
-                }
-              }
-            }
-          },
-          scales: {
-            x: {
-              grid: { display: false },
-              border: { display: false },
-              ticks: {
-                autoSkip: false,
-                source: "data",
-                maxRotation: 0,
-                font: { family: CHART_FONT, size: 10.5 },
-                color: "#8d8574",
-                padding: 4,
-                // Labels adapt to the active zoom window so ticks never
-                // collapse into repeated month codes (1M) or overlap (10Y).
-                callback: function (value) {
-                  var chart = this.chart;
-                  var key = (chart && chart._zoomKey) || DEFAULT_ZOOM;
-                  var cfg = ZOOM_CFG[key] || ZOOM_CFG[DEFAULT_ZOOM];
-                  var label = String(this.getLabelForValue(value));
-                  var m = label.match(/^([A-Z][a-z]{2})\s+(\d+)(?:\s+'(\d{2}))?$/);
-                  if (!m) return label;
-                  var mon = m[1], day = m[2], yy = m[3];
-                  // Year of the NEXT data point: if it differs, this tick is
-                  // the last of its year — show the year to mark the change
-                  // (e.g. "Dec '25 · Jan · Feb").
-                  var nextYY = null;
-                  if (chart && chart.data && chart.data.labels) {
-                    var nextLbl = chart.data.labels[value + 1];
-                    var nm = nextLbl && nextLbl.match(/'(\d{2})$/);
-                    if (nm) nextYY = nm[1];
-                  }
-                  if (cfg.fmt === "day") {
-                    return (nextYY && nextYY !== yy)
-                      ? mon + " " + day + " '" + yy : mon + " " + day;
-                  }
-                  if (cfg.fmt === "month") {
-                    // Month ticks sit on the 1st; mark the year exactly once
-                    // at its January tick (e.g. "Jan '26").
-                    return mon === "Jan" ? mon + " '" + yy : mon;
-                  }
-                  if (cfg.fmt === "my") {
-                    return mon + " '" + yy;
-                  }
-                  return yy ? "20" + yy : label;
-                }
-              },
-              // Category scales build one tick per point; replace them with
-              // an exact stepped subset for the active zoom window so the
-              // labels never overlap.
-              afterBuildTicks: buildZoomTicks
-            },
-            y: {
-              position: "right",
-              grid: { color: "#ece5d4", drawTicks: false },
-              border: { display: false },
-              ticks: {
-                maxTicksLimit: 4,
-                font: { family: CHART_FONT, size: 10.5 },
-                color: "#8d8574",
-                padding: 4,
-                callback: function (v) {
-                  var decimals = Math.max(yDecimals(this), minDecimals(this));
-                  return v.toLocaleString(undefined, {
-                    minimumFractionDigits: decimals,
-                    maximumFractionDigits: decimals
-                  });
-                }
-              }
-            }
-          }
-        }
-      });
-      charts.push(chart);
-      chart._fullLabels = labels;
-      chart._fullCloses = closes;
-      chart._zoomKey = DEFAULT_ZOOM;
-    } else {
-      var na = document.createElement("div");
-      na.className = "cc-na";
-      na.textContent = "No data available";
-      card.appendChild(na);
-    }
-    return card;
-  }
-
-  // Slice the chart data to the zoom window (this also re-fits the y-axis
-  // to the visible range) and let afterBuildTicks emit the stepped x labels.
-  function setZoom(chart, key) {
-    chart._zoomKey = key;
-    var total = chart._fullLabels.length;
-    var win = ZOOM_RANGES[key] || 0;
-    var lo = 0;
-    if (win > 0 && win < total) lo = total - win;
-    chart.data.labels = chart._fullLabels.slice(lo);
-    var closes = chart._fullCloses.slice(lo);
-    chart.data.datasets[0].data = closes;
-    // Fit the y-axis tightly to the visible slice: Chart.js's default "nice"
-    // bounds can be far wider than the data (e.g. 4-8 for a 4.8-7.1 series),
-    // which wastes chart height and makes the ticks look coarse.
-    var yMin = Infinity, yMax = -Infinity;
-    for (var i = 0; i < closes.length; i++) {
-      if (closes[i] < yMin) yMin = closes[i];
-      if (closes[i] > yMax) yMax = closes[i];
-    }
-    var span = yMax - yMin;
-    var pad = span > 0 ? span * 0.05 : (yMax !== 0 ? Math.abs(yMax) * 0.005 : 1);
-    chart.options.scales.y.min = yMin - pad;
-    chart.options.scales.y.max = yMax + pad;
-    chart.update();
-  }
-
-  var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-  function parseDate(label) {
-    var m = String(label).match(/^([A-Z][a-z]{2})\s+(\d+)(?:\s+'(\d{2}))?$/);
-    if (!m) return null;
-    var mi = MONTHS.indexOf(m[1]);
-    if (mi < 0) return null;
-    return { y: parseInt(m[3] || "0", 10), mon: mi, day: parseInt(m[2], 10) };
-  }
-
-  // Month/year ticks land on the FIRST trading day of their month/year,
-  // anchored at the newest boundary and stepping back so the most recent
-  // months/years are always represented.
-  function buildBoundaryTicks(labels, cfg) {
-    var first = parseDate(labels[0]);
-    var last = parseDate(labels[labels.length - 1]);
-    if (!first || !last) return null;
-    var stepMonths = cfg.step * (cfg.mode === "year" ? 12 : 1);
-    var bounds = [];
-    var y = last.y, m = (cfg.mode === "year") ? 0 : last.mon;
-    for (;;) {
-      if (y < first.y || (y === first.y && m < first.mon)) break;
-      bounds.push({ y: y, m: m });
-      var total = y * 12 + m - stepMonths;
-      y = Math.floor(total / 12);
-      m = total - y * 12;
-    }
-    bounds.reverse();
-    var ticks = [];
-    for (var b = 0; b < bounds.length; b++) {
-      var target = bounds[b].y * 12 + bounds[b].m;
-      var tickIndex = -1;
-      for (var i = 0; i < labels.length; i++) {
-        var d = parseDate(labels[i]);
-        if (d && d.y * 12 + d.mon >= target) { tickIndex = i; break; }
-      }
-      if (tickIndex < 0) continue;
-      // Month ticks: drop a boundary that falls on the window's first point
-      // when the window starts more than a week into that month — it's a
-      // partial month, and the tick would sit mid-month instead of on the 1st.
-      if (cfg.mode === "month" && tickIndex === 0 && first.day > 7) continue;
-      ticks.push({ value: tickIndex });
-    }
-    return ticks;
-  }
-
-  // Category scales build one tick per data point; we replace them with a
-  // small exact subset for the active zoom so labels never overlap.
-  function buildZoomTicks(axis) {
-    var chart = axis.chart;
-    var key = (chart && chart._zoomKey) || DEFAULT_ZOOM;
-    var cfg = ZOOM_CFG[key] || ZOOM_CFG[DEFAULT_ZOOM];
-    var labels = axis.getLabels();
-    var n = labels.length;
-    if (!n) return;
-    var ticks = null;
-    if (cfg.mode !== "step") ticks = buildBoundaryTicks(labels, cfg);
-    if (!ticks) {
-      // Fixed trading-day spacing (1M) or fallback when labels don't parse.
-      ticks = [];
-      for (var i = 0; i < n; i += cfg.step) ticks.push({ value: i });
-      var lastv = ticks.length ? ticks[ticks.length - 1].value : -1;
-      // Include the newest point unless it would land right next to an
-      // existing tick (adjacent labels look like duplicates).
-      if (n - 1 - lastv >= Math.max(1, Math.floor(cfg.step / 2))) {
-        ticks.push({ value: n - 1 });
-      }
-    }
-    axis.ticks = ticks;
-  }
-
-  function makeFigures(group) {
-    var table = document.createElement("table");
-    table.className = "figures";
-    var thead = document.createElement("thead");
-    var htr = document.createElement("tr");
-    ["Instrument", "Last", "Daily Change"].forEach(function (h, i) {
-      var th = document.createElement("th");
-      if (i > 0) th.className = "num";
-      th.textContent = h;
-      htr.appendChild(th);
-    });
-    thead.appendChild(htr);
-    table.appendChild(thead);
-    var tbody = document.createElement("tbody");
-    group.items.forEach(function (item) {
-      var tr = document.createElement("tr");
-      var tdName = document.createElement("td");
-      tdName.textContent = item.label;
-      tr.appendChild(tdName);
-      var tdLast = document.createElement("td");
-      tdLast.className = "num";
-      tdLast.textContent = (item.last !== null && item.last !== undefined)
-        ? fmtNum(item.last, item.kind) : "n/a";
-      tr.appendChild(tdLast);
-      var tdChg = document.createElement("td");
-      tdChg.className = "num";
-      var chg = item.kind === "yield" ? item.change_bp : item.change;
-      if (chg === null || chg === undefined) {
-        var na = document.createElement("span");
-        na.className = "na";
-        na.textContent = "n/a";
-        tdChg.appendChild(na);
-      } else {
-        var span = document.createElement("span");
-        span.className = chg >= 0 ? "pos" : "neg";
-        span.textContent = item.kind === "yield"
-          ? (chg >= 0 ? "+" : "") + chg.toFixed(1) + " bp"
-          : (chg >= 0 ? "+" : "") + chg.toFixed(2) + "%";
-        tdChg.appendChild(span);
-      }
-      tr.appendChild(tdChg);
-      tbody.appendChild(tr);
-    });
-    table.appendChild(tbody);
-    return table;
-  }
-
-  // Latest date seen across a group's series (for the "As of" subtitle).
-  function groupAsOf(group) {
-    var last = null;
-    (group.items || []).forEach(function (it) {
-      var l = (it.labels && it.labels.length)
-        ? it.labels[it.labels.length - 1] : null;
-      if (!l) return;
-      var d = parseDate(l);
-      if (!d) return;
-      var key = (d.y * 12 + d.mon) * 31 + d.day;
-      if (!last || key > last.key) last = { key: key, label: l };
-    });
-    return last ? last.label : null;
-  }
-
-  function render(data) {
-    var host = document.getElementById("markets-body");
-    host.innerHTML = "";
-    var groups = data.groups || [];
-    if (!groups.length) {
-      host.innerHTML = '<p class="empty-note">No indicator data available yet.</p>';
-      return;
-    }
-    // Progressive: insert one group at a time so the page fills in smoothly
-    // instead of stalling on one giant synchronous build.
-    groups.forEach(function (group, idx) {
-      setTimeout(function () {
-        var sec = document.createElement("section");
-        sec.className = "desk";
-        var h2 = document.createElement("h2");
-        h2.textContent = group.name;
-        sec.appendChild(h2);
-        var asof = groupAsOf(group);
-        if (asof) {
-          var a = document.createElement("div");
-          a.className = "asof";
-          a.textContent = "As of " + asof;
-          sec.appendChild(a);
-        }
-        var grid = document.createElement("div");
-        grid.className = "chart-grid";
-        (group.items || []).forEach(function (item) {
-          grid.appendChild(makeCard(item));
-        });
-        sec.appendChild(grid);
-        sec.appendChild(makeFigures(group));
-        host.appendChild(sec);
-      }, idx * 60);
-    });
-  }
-
-  fetch(base + "/data/indicators.json?v=" + encodeURIComponent("2026-08-13 00:13 HKT"))
-    .then(function (r) {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    })
-    .then(render)
-    .catch(function (e) {
-      console.error("Failed to load market data:", e);
-      document.getElementById("markets-body").innerHTML =
-        '<p class="empty-note">Market data unavailable — check back after the next daily run.</p>';
-    });
 })();
 </script>
 </body>

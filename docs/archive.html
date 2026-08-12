@@ -1132,6 +1132,62 @@
 
     section.desk { margin-bottom: 36px; }
   }
+
+  /* ---------- Analytics + Repo Radar cards ---------- */
+  .blog-card, .repo-card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 2px rgba(34, 31, 26, .05);
+  }
+  .blog-card h3, .repo-card h3 {
+    margin: 6px 0 4px;
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.3;
+  }
+  .blog-card h3 a, .repo-card h3 a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .blog-card h3 a:hover, .repo-card h3 a:hover { text-decoration: underline; }
+  .bc-head, .rc-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .bc-head .chip, .rc-head .chip { font-size: 12px; }
+  .bc-blog { color: var(--accent-2); }
+  .rc-head .stars { color: var(--gold); font-weight: 700; }
+  .preview-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    background: rgba(141, 133, 116, .12);
+    border-radius: 999px;
+    padding: 2px 8px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .bc-bullets, .rc-bullets { margin: 8px 0 6px; padding-left: 18px; }
+  .bc-bullets li, .rc-bullets li { margin-bottom: 5px; line-height: 1.5; }
+  .bc-url, .rc-url {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .bc-url a, .rc-url a { color: var(--muted); text-decoration: none; }
+  .bc-url a:hover, .rc-url a:hover { color: var(--accent); text-decoration: underline; }
+  .rc-oneliner { color: var(--ink-soft); font-size: 14.5px; margin: 6px 0 2px; }
+  .repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+  }
 </style>
 </head>
 <body>
@@ -1152,6 +1208,20 @@
         <path d="M4 19V9M10 19V5M16 19v-7M22 19H2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
       <span>Markets</span>
+    </a>
+    <a class="archive-link"
+       href="./analytics.html">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M3 3v18h18M7 15l4-4 3 3 5-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Analytics</span>
+    </a>
+    <a class="archive-link"
+       href="./repo-radar.html">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M8 3a2 2 0 0 0-2 2v6a2 2 0 0 1-2 2 2 2 0 0 1 2 2v6a2 2 0 0 0 2 2M16 3a2 2 0 0 1 2 2v6a2 2 0 0 0 2 2 2 2 0 0 0-2 2v6a2 2 0 0 1-2 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>Repo Radar</span>
     </a>
     <a class="archive-link active"
        href="./archive.html" aria-current="page">
@@ -1215,7 +1285,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-12 07:01 HKT");
+  var dataTS = encodeURIComponent("2026-08-13 00:13 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
