@@ -398,6 +398,66 @@
   }
   .takeaways li::marker { color: var(--gold); }
 
+  /* ---------- Day importance banner + weekly 5 ---------- */
+  .day-imp {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-left: 5px solid var(--muted);
+    border-radius: 8px;
+    padding: 12px 18px;
+    margin-bottom: 14px;
+  }
+  .imp-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    color: #fff;
+  }
+  .imp-1 { background: #6b7280; } .imp-2 { background: #0f766e; }
+  .imp-3 { background: #b45309; } .imp-4 { background: #c2410c; }
+  .imp-5 { background: #be123c; }
+  .imp-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.85);
+  }
+  .imp-stars { letter-spacing: .08em; color: #ffd86b; }
+  .imp-verdict { margin: 0; font-size: 15.5px; line-height: 1.45; color: var(--ink-soft); }
+
+  .weekly {
+    background: linear-gradient(135deg, #fef9e7 0%, #f1ecfd 100%);
+    border: 1px solid #ead9a8;
+    border-left: 5px solid var(--gold);
+    border-radius: 6px;
+    padding: 20px 26px 16px;
+    margin: 14px 0 40px;
+    box-shadow: 0 2px 8px rgba(201, 162, 39, .12);
+  }
+  .weekly .tw-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .weekly ul { margin: 0; padding-left: 20px; }
+  .weekly li {
+    margin-bottom: 8px;
+    font-size: 15.5px;
+    line-height: 1.45;
+  }
+  .weekly li::marker { color: var(--accent); }
+
   /* ---------- Saved news (localStorage) ---------- */
   .visually-hidden {
     position: absolute; width: 1px; height: 1px;
@@ -1183,11 +1243,82 @@
   .bc-url a, .rc-url a { color: var(--muted); text-decoration: none; }
   .bc-url a:hover, .rc-url a:hover { color: var(--accent); text-decoration: underline; }
   .rc-oneliner { color: var(--ink-soft); font-size: 14.5px; margin: 6px 0 2px; }
+  .repo-img {
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+    margin: 8px 0 4px;
+    background: #fff;
+  }
   .repo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 14px;
   }
+
+  /* ---------- Analytics / Repo Radar day-history accordion ---------- */
+  .day-jump-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 14px 0 18px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .day-jump {
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid var(--rule-dark);
+    border-radius: 6px;
+    background: var(--card);
+    color: var(--ink);
+  }
+  .day-group {
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    background: var(--card);
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(34, 31, 26, .05);
+  }
+  .day-group[open] { border-color: var(--rule-dark); }
+  .day-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .day-bar::-webkit-details-marker { display: none; }
+  .day-bar:hover { background: rgba(67, 56, 202, .04); }
+  .day-chevron { color: var(--muted); transition: transform .18s ease; }
+  .day-group[open] > .day-bar .day-chevron { transform: rotate(180deg); }
+  .day-date { font-family: var(--serif); font-size: 17px; font-weight: 600; }
+  .day-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--accent);
+    background: rgba(67, 56, 202, .1);
+    border-radius: 999px;
+    padding: 2px 8px;
+  }
+  .day-meta { margin-left: auto; font-size: 12.5px; color: var(--muted); }
+  .day-body { padding: 4px 16px 16px; }
+  .day-body .desk { margin-bottom: 10px; }
+  .bc-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .bc-footer .bc-url { flex: 1; min-width: 0; }
 </style>
 </head>
 <body>
@@ -1238,96 +1369,185 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Analytics</h1>
-    <div class="generated">Today's top 5 from your blogs · tech &amp; engineering scope · updated 2026-08-13 00:13 HKT</div>
+    <div class="generated">Today's top 5 from your blogs · tech &amp; engineering scope · updated 2026-08-13 00:55 HKT</div>
   </header>
 
   
-    
-    <section class="desk reveal" id="analytics-0">
-      <h2>SemiEngineering</h2>
+  <div class="day-jump-wrap">
+    <label for="day-jump">Jump to</label>
+    <select id="day-jump" class="day-jump">
+      <option value="2026-08-13">2026-08-13 (latest)</option>
+    </select>
+  </div>
+
+  
+  <details class="day-group" id="day-2026-08-13" open>
+    <summary class="day-bar">
+      <svg class="day-chevron" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="day-date">2026-08-13</span>
+      <span class="day-tag">Today</span>
+      <span class="day-meta">5 post(s) · 3 blog(s)</span>
+    </summary>
+    <div class="day-body">
       
-      <article class="blog-card">
-        <div class="bc-head">
+      <section class="desk reveal">
+        <h2>CNEVPOST</h2>
+        
+        <article class="blog-card">
+          <div class="bc-head">
+            
+          </div>
+          <h3><a href="https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/" target="_blank" rel="noopener">Xiaomi EV delivers 31,267 units in July, 39% of annual target</a></h3>
+          <div class="pub">2026-08-12 09:30 UTC</div>
           
-        </div>
-        <h3><a href="https://semiengineering.com/standards-compliant-112g-phy-for-linear-optics-driving-efficient-ai-infrastructure/" target="_blank" rel="noopener">Standards-Compliant 112G PHY for Linear Optics: Driving Efficient AI Infrastructure</a></h3>
-        <div class="pub">2026-08-12 07:01 UTC</div>
-        
-        <ul class="bc-bullets">
-          <li>Synopsys has introduced 112G PHY IP compliant with the OIF-CEI-112G-LINEAR-PAM4 standard, enabling DSP-less host-to-module connectivity.</li><li>Adopting linear optics can reduce module power consumption by up to 50% and significantly lower thermal loads in dense AI data center racks.</li><li>This technology provides a scalable path for future interconnects, supporting the transition toward 224G/448G speeds and co-packaged optics (CPO).</li>
-        </ul>
-        
-        <div class="bc-url"><a href="https://semiengineering.com/standards-compliant-112g-phy-for-linear-optics-driving-efficient-ai-infrastructure/" target="_blank" rel="noopener">https://semiengineering.com/standards-compliant-112g-phy-for-linear-optics-driving-efficient-ai-infrastructure/</a></div>
-      </article>
-      
-    </section>
-    
-    <section class="desk reveal" id="analytics-1">
-      <h2>CNEVPOST</h2>
-      
-      <article class="blog-card">
-        <div class="bc-head">
+          <ul class="bc-bullets">
+            <li>Xiaomi EV delivered 31,267 units in July, bringing its seven-month total to 216,322 vehicles, which accounts for only 39% of its 550,000-unit annual target.</li><li>To meet its full-year goal, the company must achieve an aggressive average of 67,000 monthly deliveries for the remainder of the year, more than double its current performance.</li><li>The company is pivoting toward the extended-range electric vehicle (EREV) segment with the new Sky Nomad series, aiming to compete directly with Li Auto and Huawei-backed models.</li>
+          </ul>
           
-        </div>
-        <h3><a href="https://cnevpost.com/2026/08/12/chengdu-auto-show-120-brands-1600-vehicles/" target="_blank" rel="noopener">Chengdu Auto Show opens next week with nearly 120 brands, 1,600 vehicles</a></h3>
-        <div class="pub">2026-08-12 13:36 UTC</div>
+          <div class="bc-footer">
+            <div class="bc-url"><a href="https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/" target="_blank" rel="noopener">https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/"
+                    data-save-title="Xiaomi EV delivers 31,267 units in July, 39% of annual target"
+                    data-save-source="CNEVPOST"
+                    data-save-category="Analytics"
+                    data-save-rating="5"
+                    data-save-date="2026-08-13">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
         
-        <ul class="bc-bullets">
-          <li>- The 2026 Chengdu Auto Show will cover 220,000 square meters, making it China&#39;s first A-level show of the second half of the year.</li><li>- BYD will have a dedicated group pavilion in Hall 9, with Huawei&#39;s HIMA, Xpeng and Nio also attending.</li><li>The 29th Chengdu International Automobile Exhibition (2026 Chengdu Auto Show) will be held from August 21 to 30 at the Western China Expo City in Chengdu, Sichuan province, making it China&#39;s first A-level auto show...</li><li>The show will cover 220,000 square meters and bring together nearly 120 domestic and international brands as well as about 1,600 display vehicles, the organizer said on Wednesday.</li><li>As one of China&#39;s five A-level auto shows, the Chengdu event is seen as a barometer of demand in the southwestern Chinese market.</li>
-        </ul>
-        
-        <div class="bc-url"><a href="https://cnevpost.com/2026/08/12/chengdu-auto-show-120-brands-1600-vehicles/" target="_blank" rel="noopener">https://cnevpost.com/2026/08/12/chengdu-auto-show-120-brands-1600-vehicles/</a></div>
-      </article>
-      
-      <article class="blog-card">
-        <div class="bc-head">
+        <article class="blog-card">
+          <div class="bc-head">
+            
+          </div>
+          <h3><a href="https://cnevpost.com/2026/08/12/hyundais-ioniq-v-pre-sales-chengdu-auto-show/" target="_blank" rel="noopener">Hyundai&#39;s first Ioniq model for China to open pre-sales at Chengdu Auto Show</a></h3>
+          <div class="pub">2026-08-12 11:49 UTC</div>
           
-        </div>
-        <h3><a href="https://cnevpost.com/2026/08/12/hyundais-ioniq-v-pre-sales-chengdu-auto-show/" target="_blank" rel="noopener">Hyundai&#39;s first Ioniq model for China to open pre-sales at Chengdu Auto Show</a></h3>
-        <div class="pub">2026-08-12 11:49 UTC</div>
-        
-        <ul class="bc-bullets">
-          <li>- The Ioniq V is the first production model in China from Hyundai&#39;s electric brand Ioniq, and will officially launch in September.</li><li>- The mid-size electric sedan was developed under the lead of Hyundai&#39;s China design center, tailored for Chinese users and planned for export to global markets.</li><li>Hyundai&#39;s electric comeback in China is about to deliver its first result.</li><li>Beijing Hyundai&#39;s Ioniq V will open pre-sales on August 21 at the 2026 Chengdu Auto Show and go on sale officially in September.</li><li>That timeline comes from reports by several Chinese auto media, with the September launch previously disclosed by Beijing Hyundai general manager Li Fenggang.</li>
-        </ul>
-        
-        <div class="bc-url"><a href="https://cnevpost.com/2026/08/12/hyundais-ioniq-v-pre-sales-chengdu-auto-show/" target="_blank" rel="noopener">https://cnevpost.com/2026/08/12/hyundais-ioniq-v-pre-sales-chengdu-auto-show/</a></div>
-      </article>
-      
-      <article class="blog-card">
-        <div class="bc-head">
+          <ul class="bc-bullets">
+            <li>Beijing Hyundai is launching the Ioniq V, its first China-specific production model under the Ioniq brand, with pre-sales beginning at the Chengdu Auto Show.</li><li>The vehicle features high-end specifications including a Qualcomm Snapdragon 8295 chip, integration with Baidu and ByteDance AI models, and an 800-volt fast-charging architecture.</li><li>Developed by Hyundai&#39;s China design center, the model is intended for both the domestic market and future global exports, signaling a strategic pivot in Hyundai&#39;s electrification efforts.</li>
+          </ul>
           
-        </div>
-        <h3><a href="https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/" target="_blank" rel="noopener">Xiaomi EV delivers 31,267 units in July, 39% of annual target</a></h3>
-        <div class="pub">2026-08-12 09:30 UTC</div>
+          <div class="bc-footer">
+            <div class="bc-url"><a href="https://cnevpost.com/2026/08/12/hyundais-ioniq-v-pre-sales-chengdu-auto-show/" target="_blank" rel="noopener">https://cnevpost.com/2026/08/12/hyundais-ioniq-v-pre-sales-chengdu-auto-show/</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="https://cnevpost.com/2026/08/12/hyundais-ioniq-v-pre-sales-chengdu-auto-show/"
+                    data-save-title="Hyundai&#39;s first Ioniq model for China to open pre-sales at Chengdu Auto Show"
+                    data-save-source="CNEVPOST"
+                    data-save-category="Analytics"
+                    data-save-rating="4"
+                    data-save-date="2026-08-13">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
         
-        <ul class="bc-bullets">
-          <li>- Xiaomi EV needs average monthly deliveries of nearly 67,000 units over the remaining 5 months to achieve its full-year target of 550,000 units.</li><li>- The key variable for the second half is the new Sky Nomad product line.</li><li>Xiaomi EV, the electric vehicle unit of Xiaomi (HKEX: 1810), delivered 31,267 vehicles in July, up 2.68% year-on-year but down 9.99% from june, according to data released Tuesday by the China Passenger Car...</li><li>This marked Xiaomi EV&#39;s fourth consecutive month with deliveries above 30,000 units, although year-on-year growth was nearly flat.</li><li>The company delivered 30,452 vehicles in July last year.</li>
-        </ul>
-        
-        <div class="bc-url"><a href="https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/" target="_blank" rel="noopener">https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/</a></div>
-      </article>
-      
-    </section>
-    
-    <section class="desk reveal" id="analytics-2">
-      <h2>Stratechery</h2>
-      
-      <article class="blog-card">
-        <div class="bc-head">
+        <article class="blog-card">
+          <div class="bc-head">
+            
+          </div>
+          <h3><a href="https://cnevpost.com/2026/08/12/chengdu-auto-show-120-brands-1600-vehicles/" target="_blank" rel="noopener">Chengdu Auto Show opens next week with nearly 120 brands, 1,600 vehicles</a></h3>
+          <div class="pub">2026-08-12 13:36 UTC</div>
           
-        </div>
-        <h3><a href="https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/" target="_blank" rel="noopener">Anthropic’s Watermarking, How It (Probably) Works, Worse Than It Seems</a></h3>
-        <div class="pub">2026-08-12 10:00 UTC</div>
+          <ul class="bc-bullets">
+            <li>The 2026 Chengdu Auto Show, China&#39;s first A-level event of the second half, will feature 120 brands and 1,600 vehicles across 220,000 square meters.</li><li>Major manufacturers including BYD, Huawei&#39;s HIMA, Xiaomi, Nio, and Xpeng are utilizing the event to debut flagship models and new product lines.</li><li>The show serves as a critical barometer for southwestern Chinese market demand and a strategic launchpad for automakers ahead of the peak autumn sales season.</li>
+          </ul>
+          
+          <div class="bc-footer">
+            <div class="bc-url"><a href="https://cnevpost.com/2026/08/12/chengdu-auto-show-120-brands-1600-vehicles/" target="_blank" rel="noopener">https://cnevpost.com/2026/08/12/chengdu-auto-show-120-brands-1600-vehicles/</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="https://cnevpost.com/2026/08/12/chengdu-auto-show-120-brands-1600-vehicles/"
+                    data-save-title="Chengdu Auto Show opens next week with nearly 120 brands, 1,600 vehicles"
+                    data-save-source="CNEVPOST"
+                    data-save-category="Analytics"
+                    data-save-rating="3"
+                    data-save-date="2026-08-13">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
         
-        <ul class="bc-bullets">
-          <li>Anthropic has implemented AI watermarking mechanisms primarily to ensure compliance with the European Union’s stringent AI regulatory framework.</li><li>The implementation of these watermarks raises significant philosophical concerns regarding the nature of AI-generated content and the potential for forced attribution.</li><li>Technical watermarking in LLMs is inherently flawed because it can be easily bypassed or stripped, rendering it ineffective as a long-term security or verification tool.</li><li>Regulatory mandates for watermarking may create a false sense of security for policymakers while imposing unnecessary technical debt on AI developers.</li>
-        </ul>
-        
-        <div class="bc-url"><a href="https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/" target="_blank" rel="noopener">https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/</a></div>
-      </article>
+      </section>
       
-    </section>
-    
+      <section class="desk reveal">
+        <h2>Stratechery</h2>
+        
+        <article class="blog-card">
+          <div class="bc-head">
+            
+          </div>
+          <h3><a href="https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/" target="_blank" rel="noopener">Anthropic’s Watermarking, How It (Probably) Works, Worse Than It Seems</a></h3>
+          <div class="pub">2026-08-12 10:00 UTC</div>
+          
+          <ul class="bc-bullets">
+            <li>Anthropic has introduced AI watermarking mechanisms primarily to ensure compliance with the European Union&#39;s stringent AI regulatory framework.</li><li>The implementation of these watermarks faces significant philosophical and technical criticism regarding the long-term viability and integrity of AI-generated content.</li><li>Mandatory watermarking requirements represent a growing friction point between global AI developers and regulatory bodies seeking to enforce transparency in synthetic media.</li><li>The move highlights the broader industry challenge of balancing regulatory adherence with the fundamental operational principles of generative AI models.</li>
+          </ul>
+          
+          <div class="bc-footer">
+            <div class="bc-url"><a href="https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/" target="_blank" rel="noopener">https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/"
+                    data-save-title="Anthropic’s Watermarking, How It (Probably) Works, Worse Than It Seems"
+                    data-save-source="Stratechery"
+                    data-save-category="Analytics"
+                    data-save-rating="4"
+                    data-save-date="2026-08-13">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+        
+      </section>
+      
+      <section class="desk reveal">
+        <h2>SemiEngineering</h2>
+        
+        <article class="blog-card">
+          <div class="bc-head">
+            
+          </div>
+          <h3><a href="https://semiengineering.com/standards-compliant-112g-phy-for-linear-optics-driving-efficient-ai-infrastructure/" target="_blank" rel="noopener">Standards-Compliant 112G PHY for Linear Optics: Driving Efficient AI Infrastructure</a></h3>
+          <div class="pub">2026-08-12 07:01 UTC</div>
+          
+          <ul class="bc-bullets">
+            <li>Synopsys has introduced the industry&#39;s first 112G PHY IP compliant with the OIF-CEI-112G-LINEAR-PAM4 standard, designed to support linear drive optics in high-speed AI infrastructure.</li><li>Transitioning to linear optics can reduce module power consumption by up to 50% by eliminating the need for power-hungry DSPs and retimers within the optical module.</li><li>The new PHY IP addresses critical thermal and latency bottlenecks in dense AI racks, providing a scalable path toward 224G/448G connectivity and Co-Packaged Optics (CPO).</li><li>Measured performance data for the 112G PHY indicates that TX/RX results meet or exceed OIF-CEI specifications, ensuring interoperability for DSP-less host-to-module connectivity.</li>
+          </ul>
+          
+          <div class="bc-footer">
+            <div class="bc-url"><a href="https://semiengineering.com/standards-compliant-112g-phy-for-linear-optics-driving-efficient-ai-infrastructure/" target="_blank" rel="noopener">https://semiengineering.com/standards-compliant-112g-phy-for-linear-optics-driving-efficient-ai-infrastructure/</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="https://semiengineering.com/standards-compliant-112g-phy-for-linear-optics-driving-efficient-ai-infrastructure/"
+                    data-save-title="Standards-Compliant 112G PHY for Linear Optics: Driving Efficient AI Infrastructure"
+                    data-save-source="SemiEngineering"
+                    data-save-category="Analytics"
+                    data-save-rating="4"
+                    data-save-date="2026-08-13">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+        
+      </section>
+      
+    </div>
+  </details>
+  
   
 
   <footer class="colophon">
@@ -1342,7 +1562,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-13 00:13 HKT");
+  var dataTS = encodeURIComponent("2026-08-13 00:55 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
@@ -1684,10 +1904,9 @@
 
   function markRowButtons() {
     var map = loadSaved();
-    document.querySelectorAll("tr.news-item").forEach(function (tr) {
-      var btn = tr.querySelector(".save-btn");
-      if (!btn) return;
-      var saved = !!map[tr.getAttribute("data-url")];
+    // Works for news rows and Analytics/Repo Radar cards: any .save-btn.
+    document.querySelectorAll(".save-btn").forEach(function (btn) {
+      var saved = !!map[savedAttrs(btn, "url")];
       btn.classList.toggle("saved", saved);
       btn.setAttribute("aria-pressed", saved ? "true" : "false");
       btn.title = saved ? "Remove from saved" : "Save this story";
@@ -1704,6 +1923,7 @@
     if (!urls.length) return;
 
     // Group by category, ordered like the daily brief's category order.
+    var EXTRA_CAT_COLORS = { "Analytics": "#7c3aed", "Repo Radar": "#0e7490" };
     var groups = {};
     urls.forEach(function (u) {
       var it = map[u];
@@ -1721,20 +1941,22 @@
         if (da !== db) return da < db ? 1 : -1;
         return (b.savedAt || 0) - (a.savedAt || 0);
       });
-      var color = CAT_COLORS[name] || "#4338ca";
+      var color = CAT_COLORS[name] || EXTRA_CAT_COLORS[name] || "#4338ca";
       var g = document.createElement("div");
       g.className = "saved-group";
       var html = '<h4 style="color:' + color + ';border-bottom-color:' + color + '">'
         + esc(name) + "</h4>";
       items.forEach(function (it) {
         var rating = Math.max(0, Math.min(5, parseInt(it.rating, 10) || 0));
-        var stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+        // rating 0 (e.g. repos) shows no stars instead of an empty row.
+        var stars = rating > 0 ? "★".repeat(rating) + "☆".repeat(5 - rating) : "";
         html += '<div class="saved-item" data-url="' + esc(it.url) + '">'
           + '<div class="si-headline"><a href="' + esc(it.url) + '" target="_blank" rel="noopener">'
           + esc(it.title) + "</a>"
           + '<div class="si-meta">' + esc(it.source)
           + (it.pageDate ? " · Brief of " + esc(it.pageDate) : "")
-          + '<span class="si-stars">' + stars + "</span></div></div>"
+          + (stars ? '<span class="si-stars">' + stars + "</span>" : "")
+          + "</div></div>"
           + '<button type="button" class="si-remove" aria-label="Remove saved story" title="Remove">✕</button>'
           + "</div>";
       });
@@ -1743,28 +1965,46 @@
     });
   }
 
-  document.querySelectorAll("tr.news-item .save-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var tr = btn.closest("tr.news-item");
-      var url = tr.getAttribute("data-url");
-      if (!url) return;
-      var map = loadSaved();
-      if (map[url]) {
-        delete map[url];
-      } else {
-        map[url] = {
-          title: tr.getAttribute("data-title") || "",
-          url: url,
-          source: tr.getAttribute("data-source") || "",
-          category: tr.getAttribute("data-category") || "",
-          rating: parseInt(tr.getAttribute("data-rating"), 10) || 0,
-          pageDate: tr.getAttribute("data-date") || "",
-          savedAt: Date.now()
-        };
-      }
-      storeSaved(map);
-      markRowButtons();
-      renderSaved();
+  // Save buttons: works for news rows AND Analytics/Repo Radar cards — the
+  // button carries its own data-save-* attributes (news rows still put them
+  // on the <tr>, so we read from the button or its closest row).
+  function savedAttrs(btn, key) {
+    if (btn.hasAttribute("data-save-" + key)) return btn.getAttribute("data-save-" + key);
+    var row = btn.closest("tr.news-item");
+    return row ? row.getAttribute("data-" + key) : null;
+  }
+
+  document.addEventListener("click", function (ev) {
+    var btn = ev.target.closest ? ev.target.closest(".save-btn") : null;
+    if (!btn || !btn.closest("#saved-list")) return; // ignore archive remove buttons
+    var url = savedAttrs(btn, "url");
+    if (!url) return;
+    var map = loadSaved();
+    if (map[url]) {
+      delete map[url];
+    } else {
+      map[url] = {
+        title: savedAttrs(btn, "title") || "",
+        url: url,
+        source: savedAttrs(btn, "source") || "",
+        category: savedAttrs(btn, "category") || "",
+        rating: parseInt(savedAttrs(btn, "rating"), 10) || 0,
+        pageDate: savedAttrs(btn, "date") || "",
+        savedAt: Date.now()
+      };
+    }
+    storeSaved(map);
+    markRowButtons();
+    renderSaved();
+  });
+
+  // Quick-jump select on Analytics / Repo Radar: open the day and scroll to it.
+  document.querySelectorAll("select.day-jump").forEach(function (sel) {
+    sel.addEventListener("change", function () {
+      var el = document.getElementById("day-" + sel.value);
+      if (!el) return;
+      if (el.tagName === "DETAILS" && !el.open) el.open = true;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
 
