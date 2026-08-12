@@ -1415,6 +1415,13 @@
       </svg>
       <span>Repo Radar</span>
     </a>
+    <a class="archive-link active"
+       href="./search.html" aria-current="page">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M10.5 3a7.5 7.5 0 0 1 5.96 12.1l4.5 4.5-1.42 1.42-4.5-4.5A7.5 7.5 0 1 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z" fill="currentColor"/>
+      </svg>
+      <span>Search</span>
+    </a>
     <a class="archive-link"
        href="./archive.html">
       <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
@@ -1425,15 +1432,6 @@
     </a>
   </nav>
   <nav id="date-nav"><a href="#" class="na">Loading…</a></nav>
-  <nav class="sidebar-search">
-    <a class="archive-link active"
-       href="./search.html" aria-current="page">
-      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-        <path d="M10.5 3a7.5 7.5 0 0 1 5.96 12.1l4.5 4.5-1.42 1.42-4.5-4.5A7.5 7.5 0 1 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z" fill="currentColor"/>
-      </svg>
-      <span>Search</span>
-    </a>
-  </nav>
 </aside>
 
 <div class="content">
@@ -1468,7 +1466,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-13 02:01 HKT");
+  var dataTS = encodeURIComponent("2026-08-13 02:04 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
