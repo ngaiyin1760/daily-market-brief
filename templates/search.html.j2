@@ -103,12 +103,20 @@
         + EMBED_MODEL + ":embedContent?key=" + encodeURIComponent(GEMINI_BROWSER_KEY), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      referrerPolicy: "no-referrer",   // don't send Referer (restriction-safe)
       body: JSON.stringify({
         model: "models/" + EMBED_MODEL,
         content: { parts: [{ text: q }] }
       })
-    }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-      .then(function (d) { return d.embedding && d.embedding.values; });
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (body) {
+        if (!r.ok) {
+          var msg = body && body.error && body.error.message ? body.error.message : "";
+          throw new Error("HTTP " + r.status + (msg ? ": " + msg : ""));
+        }
+        return body;
+      });
+    }).then(function (d) { return d.embedding && d.embedding.values; });
   }
   function dot(a, b) {
     var s = 0; for (var i = 0; i < a.length; i++) s += a[i] * b[i]; return s;
@@ -134,12 +142,20 @@
         + GENERATION_MODEL + ":generateContent?key=" + encodeURIComponent(GEMINI_BROWSER_KEY), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      referrerPolicy: "no-referrer",   // don't send Referer (restriction-safe)
       body: JSON.stringify({
         contents: [{ role: "user", parts: [{ text: prompt }] }],
         generationConfig: { temperature: 0.2, maxOutputTokens: 500 }
       })
-    }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-      .then(function (d) {
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (body) {
+        if (!r.ok) {
+          var msg = body && body.error && body.error.message ? body.error.message : "";
+          throw new Error("HTTP " + r.status + (msg ? ": " + msg : ""));
+        }
+        return body;
+      });
+    }).then(function (d) {
         var t = d.candidates && d.candidates[0] && d.candidates[0].content
           && d.candidates[0].content.parts && d.candidates[0].content.parts[0].text;
         return t || "";
