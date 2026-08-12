@@ -41,6 +41,10 @@
 (function () {
   var base = {{ base|tojson }};
   var GEMINI_BROWSER_KEY = {{ gemini_browser_key | default("") | tojson }};
+  // Cloudflare Worker proxy URL — set via the WORKER_URL env var at build time
+  // (e.g. "https://your-worker.workers.dev"). When empty, semantic mode calls
+  // Gemini directly (needs a non-HK IP / VPN).
+  var WORKER_URL = {{ worker_url | default("") | tojson }};
   var EMBED_MODEL = "gemini-embedding-001";
   var GENERATION_MODEL = "gemini-3.1-flash-lite";
 
@@ -99,16 +103,32 @@
 
   // ---------- Semantic (RAG) ----------
   function embedQuery(q) {
-    return fetch("https://generativelanguage.googleapis.com/v1beta/models/"
-        + EMBED_MODEL + ":embedContent?key=" + encodeURIComponent(GEMINI_BROWSER_KEY), {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      referrerPolicy: "no-referrer",   // don't send Referer (restriction-safe)
-      body: JSON.stringify({
-        model: "models/" + EMBED_MODEL,
-        content: { parts: [{ text: q }] }
-      })
-    }).then(function (r) {
+    var url, init;
+    if (WORKER_URL) {
+      url = WORKER_URL + "/embed";
+      init = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        referrerPolicy: "no-referrer",
+        body: JSON.stringify({
+          model: "models/" + EMBED_MODEL,
+          content: { parts: [{ text: q }] }
+        })
+      };
+    } else {
+      url = "https://generativelanguage.googleapis.com/v1beta/models/"
+        + EMBED_MODEL + ":embedContent?key=" + encodeURIComponent(GEMINI_BROWSER_KEY);
+      init = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        referrerPolicy: "no-referrer",
+        body: JSON.stringify({
+          model: "models/" + EMBED_MODEL,
+          content: { parts: [{ text: q }] }
+        })
+      };
+    }
+    return fetch(url, init).then(function (r) {
       return r.json().catch(function () { return {}; }).then(function (body) {
         if (!r.ok) {
           var msg = body && body.error && body.error.message ? body.error.message : "";
@@ -156,16 +176,32 @@
     var prompt = "Answer the question based ONLY on the notes below. Be concise (2-5 sentences). "
       + "Cite sources inline like [1], [2]. If the notes don't cover it, say so.\n\n"
       + "Notes:\n" + ctx + "\n\nQuestion: " + q;
-    return fetch("https://generativelanguage.googleapis.com/v1beta/models/"
-        + GENERATION_MODEL + ":generateContent?key=" + encodeURIComponent(GEMINI_BROWSER_KEY), {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      referrerPolicy: "no-referrer",   // don't send Referer (restriction-safe)
-      body: JSON.stringify({
-        contents: [{ role: "user", parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.2, maxOutputTokens: 500 }
-      })
-    }).then(function (r) {
+    var url, init;
+    if (WORKER_URL) {
+      url = WORKER_URL + "/gen";
+      init = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        referrerPolicy: "no-referrer",
+        body: JSON.stringify({
+          contents: [{ role: "user", parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.2, maxOutputTokens: 500 }
+        })
+      };
+    } else {
+      url = "https://generativelanguage.googleapis.com/v1beta/models/"
+        + GENERATION_MODEL + ":generateContent?key=" + encodeURIComponent(GEMINI_BROWSER_KEY);
+      init = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        referrerPolicy: "no-referrer",
+        body: JSON.stringify({
+          contents: [{ role: "user", parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.2, maxOutputTokens: 500 }
+        })
+      };
+    }
+    return fetch(url, init).then(function (r) {
       return r.json().catch(function () { return {}; }).then(function (body) {
         if (!r.ok) {
           var msg = body && body.error && body.error.message ? body.error.message : "";

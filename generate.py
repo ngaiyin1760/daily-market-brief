@@ -50,6 +50,10 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 # index (client search uses it from the browser; the raw key is not written
 # into docs/).
 GEMINI_BROWSER_KEY = os.environ.get("GEMINI_BROWSER_KEY", "").strip()
+# Cloudflare Worker proxy URL for browser-side Gemini calls (bypasses the HK
+# geo-block without a VPN). Set WORKER_URL in the workflow env; empty = the
+# Search page calls Gemini directly (needs a non-HK IP / VPN).
+WORKER_URL = os.environ.get("WORKER_URL", "").strip()
 # Embedding model for semantic search (server-side precompute).
 GEMINI_EMBED_MODEL = os.environ.get("GEMINI_EMBED_MODEL",
                                     "gemini-embedding-001").strip()
@@ -2377,7 +2381,7 @@ def render_search_page(generated_at):
     )
     html = env.get_template("search.html.j2").render(
         base=".", generated_at=generated_at, is_search=True,
-        gemini_browser_key=GEMINI_BROWSER_KEY)
+        gemini_browser_key=GEMINI_BROWSER_KEY, worker_url=WORKER_URL)
     (DOCS_DIR / "search.html").write_text(html, encoding="utf-8")
     log.info("Wrote %s", DOCS_DIR / "search.html")
 
