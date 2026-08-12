@@ -18,29 +18,62 @@
     <div class="generated">Today's top {{ daily_max }} from your blogs · tech &amp; engineering scope · updated {{ generated_at|e }}</div>
   </header>
 
-  {% if blogs %}
-    {% for blog in blogs %}
-    <section class="desk reveal" id="analytics-{{ loop.index0 }}">
-      <h2>{{ blog.name|e }}</h2>
-      {% for post in blog.posts %}
-      <article class="blog-card">
-        <div class="bc-head">
-          {% if post.preview %}<span class="preview-tag">preview only</span>{% endif %}
-        </div>
-        <h3><a href="{{ post.link|e }}" target="_blank" rel="noopener">{{ post.title|e }}</a></h3>
-        {% if post.published %}<div class="pub">{{ post.published|e }}</div>{% endif %}
-        {% if post.bullets %}
-        <ul class="bc-bullets">
-          {% for b in post.bullets %}<li>{{ b|e }}</li>{% endfor %}
-        </ul>
-        {% endif %}
-        <div class="bc-url"><a href="{{ post.link|e }}" target="_blank" rel="noopener">{{ post.link|e }}</a></div>
-      </article>
+  {% if days %}
+  <div class="day-jump-wrap">
+    <label for="day-jump">Jump to</label>
+    <select id="day-jump" class="day-jump">
+      {% for d in days %}<option value="{{ d.date|e }}">{{ d.date|e }}{% if loop.first %} (latest){% endif %}</option>{% endfor %}
+    </select>
+  </div>
+
+  {% for d in days %}
+  <details class="day-group" id="day-{{ d.date|e }}"{% if loop.first %} open{% endif %}>
+    <summary class="day-bar">
+      <svg class="day-chevron" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="day-date">{{ d.date|e }}</span>
+      {% if loop.first %}<span class="day-tag">Today</span>{% endif %}
+      <span class="day-meta">{{ d.post_count }} post(s) · {{ d.blogs|length }} blog(s)</span>
+    </summary>
+    <div class="day-body">
+      {% for b in d.blogs %}
+      <section class="desk reveal">
+        <h2>{{ b.name|e }}</h2>
+        {% for post in b.posts %}
+        <article class="blog-card">
+          <div class="bc-head">
+            {% if post.preview %}<span class="preview-tag">preview only</span>{% endif %}
+          </div>
+          <h3><a href="{{ post.link|e }}" target="_blank" rel="noopener">{{ post.title|e }}</a></h3>
+          {% if post.published %}<div class="pub">{{ post.published|e }}</div>{% endif %}
+          {% if post.bullets %}
+          <ul class="bc-bullets">
+            {% for bl in post.bullets %}<li>{{ bl|e }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+          <div class="bc-footer">
+            <div class="bc-url"><a href="{{ post.link|e }}" target="_blank" rel="noopener">{{ post.link|e }}</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="{{ post.link|e }}"
+                    data-save-title="{{ post.title|e }}"
+                    data-save-source="{{ post.blog|e }}"
+                    data-save-category="Analytics"
+                    data-save-rating="{{ post.rating }}"
+                    data-save-date="{{ d.date|e }}">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+        {% endfor %}
+      </section>
       {% endfor %}
-    </section>
-    {% endfor %}
+    </div>
+  </details>
+  {% endfor %}
   {% else %}
-  <p class="empty-note">No blog updates in the last 24 hours and the backlog is empty — check back tomorrow.</p>
+  <p class="empty-note">No blog updates yet — the history fills in once blogs start publishing.</p>
   {% endif %}
 
   <footer class="colophon">

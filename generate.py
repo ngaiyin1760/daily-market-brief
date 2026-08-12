@@ -98,6 +98,22 @@ def gemini_generate(payload):
         resp.raise_for_status()
         return resp.json()
 
+
+def gemini_json(prompt, temperature=0.2):
+    """One Gemini call that must return a JSON object; returns the parsed
+    dict. Raises on any failure (callers decide whether to fall back)."""
+    payload = {
+        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+        "generationConfig": {"response_mime_type": "application/json",
+                             "temperature": temperature},
+    }
+    data = gemini_generate(payload)
+    text = data["candidates"][0]["content"]["parts"][0]["text"]
+    parsed = json.loads(text)
+    if not isinstance(parsed, dict):
+        raise ValueError("Gemini response is not a JSON object")
+    return parsed
+
 # ---------------------------------------------------------------------------
 # News categories
 # ---------------------------------------------------------------------------
@@ -398,8 +414,200 @@ def build_takeaways(news):
 
 
 # ---------------------------------------------------------------------------
-# Market indicators
+# Day importance rating (1-5) — "how hard should I read today?"
 # ---------------------------------------------------------------------------
+
+DAY_IMPORTANCE_PROMPT = """You are a market editor deciding how significant today's news day is for a finance/tech professional.
+
+Below are today's top stories (with ratings) and the day's biggest market moves. Assess how important TODAY is overall, on a 1-5 scale where:
+1 = routine, nothing major — skim
+2 = light
+3 = moderate
+4 = significant — several meaningful developments
+5 = major — market-moving events (big policy, crisis, major earnings/CPI)
+
+Also give a one-sentence "verdict" that tells the reader at a glance whether today is a skim day or a read-carefully day, and WHY (mention the 1-2 biggest drivers).
+
+Return STRICT JSON only: {"importance": <1-5 int>, "verdict": "<one sentence>"}.
+
+Today's stories:
+{stories}
+
+Market moves (daily):
+{moves}
+"""
+
+
+def day_importance_input(news, groups):
+    """Compact text inputs for the day-importance call."""
+    story_lines = []
+    for cat in news:
+        for item in cat["items"]:
+            story_lines.append(
+                f"- [{cat['label']}] ({item['rating']}/5) {item['title']}")
+    move_lines = []
+    for grp in groups:
+        for it in grp["items"]:
+            if it["last"] is None:
+                continue
+            if it["kind"] == "yield" and it.get("change_bp") is not None:
+                move_lines.append(
+                    f"- {it['label']}: {it['last']}% ({it['change_bp']:+.1f} bp)")
+            elif it.get("change") is not None:
+                move_lines.append(
+                    f"- {it['label']}: {it['last']:,.2f} ({it['change']:+.2f}%)")
+    return "\n".join(story_lines) or "(no stories)", "\n".join(move_lines) or "(no moves)"
+
+
+def gemini_day_importance(news, groups):
+    """One Gemini call -> (importance int 1-5, verdict string). Raises on fail."""
+    stories, moves = day_importance_input(news, groups)
+    prompt = DAY_IMPORTANCE_PROMPT.format(stories=stories, moves=moves)
+    parsed = gemini_json(prompt)
+    imp = int(parsed.get("importance", 3))
+    imp = max(1, min(5, imp))
+    verdict = str(parsed.get("verdict", "")).strip()
+    if not verdict:
+        raise ValueError("Gemini day importance missing verdict")
+    return imp, verdict
+
+
+def heuristic_day_importance(news, groups):
+    """Fallback: mean of top story ratings + notable moves -> 1-5."""
+    ratings = [it["rating"] for cat in news for it in cat["items"]]
+    score = 2.0
+    if ratings:
+        score = sum(ratings) / len(ratings)
+    strong = sum(1 for r in ratings if r >= 4)
+    if strong >= 2:
+        score += 1.0
+    notable = 0
+    for grp in groups:
+        for it in grp["items"]:
+            chg = it.get("change_bp") if it["kind"] == "yield" else it.get("change")
+            if chg is not None and abs(chg) >= 1.5:
+                notable += 1
+    if notable >= 3:
+        score += 0.5
+    imp = max(1, min(5, round(score)))
+    labels = {1: "Quiet day — nothing major moved; skim today.",
+              2: "Light day — a few items worth a look.",
+              3: "Moderate day — some meaningful developments.",
+              4: "Significant day — several important developments.",
+              5: "Major day — market-moving events; read carefully."}
+    return imp, labels[imp]
+
+
+def build_day_importance(news, groups):
+    if GEMINI_API_KEY:
+        try:
+            log.info("Generating day importance with Gemini")
+            return gemini_day_importance(news, groups)
+        except Exception as exc:
+            log.warning("Gemini day importance failed (%s); heuristic", exc)
+    else:
+        log.info("No GEMINI_API_KEY; heuristic day importance")
+    return heuristic_day_importance(news, groups)
+
+
+# ---------------------------------------------------------------------------
+# Weekly "5 things that mattered" (Fridays)
+# ---------------------------------------------------------------------------
+
+WEEKLY_ISOWEEKDAY = 5   # Friday
+
+WEEKLY_PROMPT = """You are a market editor writing the Friday wrap-up. Below are the top stories and key numbers from THIS WEEK's daily briefs ({n_days} days: {dates}).
+
+Write exactly 5 bullets, each one short (max ~28 words), that capture the 5 most important things that happened this week for a finance/tech professional — the things that will still matter next week. Do NOT restate every day; prioritize the cross-week themes and biggest moves. Start each bullet with the day of the week it happened on, e.g. "Mon:" or "Wed:".
+
+Return STRICT JSON only: {"week": "<YYYY-MM-DD to YYYY-MM-DD>", "items": [5 bullet strings]}.
+
+This week's data:
+{data}
+"""
+
+
+def gemini_weekly(news_days, dates_str, week_label):
+    """One Gemini call for the weekly 5. Raises on failure."""
+    lines = []
+    for day in news_days:
+        lines.append(f"== {day['date']} ==")
+        for cat in day["categories"]:
+            for it in cat["items"]:
+                lines.append(f"- [{cat['label']}] ({it['rating']}/5) {it['title']}")
+    prompt = WEEKLY_PROMPT.format(n_days=len(news_days), dates=dates_str,
+                                  data="\n".join(lines))
+    parsed = gemini_json(prompt)
+    items = parsed.get("items")
+    if not isinstance(items, list) or not items:
+        raise ValueError("Gemini weekly items missing or not a list")
+    return {
+        "week": str(parsed.get("week", week_label)),
+        "items": [str(i) for i in items][:5],
+    }
+
+
+def heuristic_weekly(news_days, week_label):
+    """Fallback: top 5 items by rating across the week, prefixed by day."""
+    all_items = []
+    for day in news_days:
+        for cat in day["categories"]:
+            for it in cat["items"]:
+                all_items.append((it.get("rating", 0), day["date"],
+                                  cat.get("label", ""), it.get("title", "")))
+    all_items.sort(key=lambda x: x[0], reverse=True)
+    out = []
+    for rating, date, label, title in all_items[:5]:
+        dow = datetime.strptime(date, "%Y-%m-%d").strftime("%a")
+        out.append(f"{dow}: [{label}] {title}")
+    return {"week": week_label, "items": out}
+
+
+def load_week_days(end_date_str, days=5):
+    """Load the previous `days` daily briefs (including end_date), newest
+    first; skips missing dates. Returns [{date, categories}]."""
+    out = []
+    try:
+        end = datetime.strptime(end_date_str, "%Y-%m-%d")
+    except ValueError:
+        return out
+    for offset in range(days - 1, -1, -1):
+        day = (end - timedelta(days=offset)).strftime("%Y-%m-%d")
+        path = DATA_DIR / f"{day}.json"
+        if not path.exists():
+            continue
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            out.append({"date": day, "categories": data.get("categories", [])})
+        except Exception as exc:
+            log.warning("Weekly: could not read %s: %s", path, exc)
+    return out
+
+
+def build_weekly(page_date, news_days):
+    """Build the weekly-5 block. Returns None when not a Friday or when
+    fewer than 3 days of briefs are available (not enough signal)."""
+    try:
+        dt = datetime.strptime(page_date, "%Y-%m-%d")
+    except ValueError:
+        return None
+    if dt.isoweekday() != WEEKLY_ISOWEEKDAY or not news_days:
+        return None
+    if len(news_days) < 3:
+        log.info("Weekly: only %d day(s) of briefs; skipping", len(news_days))
+        return None
+    monday = (dt - timedelta(days=4)).strftime("%Y-%m-%d")
+    week_label = f"{monday} to {page_date}"
+    dates_str = ", ".join(d["date"] for d in news_days)
+    if GEMINI_API_KEY:
+        try:
+            log.info("Generating weekly 5 with Gemini")
+            return gemini_weekly(news_days, dates_str, week_label)
+        except Exception as exc:
+            log.warning("Gemini weekly failed (%s); heuristic", exc)
+    else:
+        log.info("No GEMINI_API_KEY; heuristic weekly 5")
+    return heuristic_weekly(news_days, week_label)
 # kind: "price" -> % change; "yield" -> bp change. yf=False -> FRED source.
 
 INDICATOR_GROUPS = [
@@ -1073,8 +1281,10 @@ def build_hero(groups, prev_indicators):
 ANALYTICS_SOURCES_PATH = ROOT / "analytics_sources.md"
 ANALYTICS_STATE_PATH = DATA_DIR / "analytics_state.json"
 ANALYTICS_DATA_PATH = DATA_DIR / "analytics.json"
+ANALYTICS_HISTORY_PATH = DATA_DIR / "analytics_history.json"
 REPO_RADAR_CONFIG_PATH = ROOT / "repo_radar.md"
 REPO_RADAR_DATA_PATH = DATA_DIR / "repo_radar.json"
+REPO_RADAR_HISTORY_PATH = DATA_DIR / "repo_radar_history.json"
 
 ANALYTICS_DAILY_MAX = 5               # max posts shown per day (top-N by importance)
 ANALYTICS_BACKLOG_MAX_AGE_DAYS = 7    # carried-forward posts older than this are dropped
@@ -1240,6 +1450,76 @@ def save_analytics_backlog(backlog):
             encoding="utf-8")
     except OSError as exc:
         log.warning("Could not write analytics backlog: %s", exc)
+
+
+# --- Analytics: cumulative history ------------------------------------------
+
+def update_analytics_history(page_date, generated_at, blogs_meta):
+    """Append today's selected posts to the cumulative history file.
+
+    The history is a durable, queryable record of every day's shown posts
+    (title, link, bullets, rating, source, preview flag) — for future use
+    (RAG, analysis). Newest first; re-running the same day overwrites that
+    day's entry (idempotent). Zero-post days are recorded too, so a missing
+    date means the pipeline didn't run, not that nothing was found."""
+    days = []
+    try:
+        data = json.loads(ANALYTICS_HISTORY_PATH.read_text(encoding="utf-8"))
+        days = data.get("days", []) if isinstance(data, dict) else []
+    except Exception:
+        days = []
+    posts = []
+    for blog in blogs_meta:
+        posts.extend(blog.get("posts", []))
+    days = [d for d in days if d.get("date") != page_date]
+    days.insert(0, {"date": page_date, "generated_at": generated_at,
+                    "posts": posts})
+    days.sort(key=lambda d: d.get("date", ""), reverse=True)
+    try:
+        ANALYTICS_HISTORY_PATH.write_text(
+            json.dumps({"days": days}, indent=1, ensure_ascii=False),
+            encoding="utf-8")
+    except OSError as exc:
+        log.warning("Could not write analytics history: %s", exc)
+
+
+# --- Repo Radar: cumulative history -----------------------------------------
+
+def update_repo_radar_history(page_date, generated_at, repos):
+    """Append today's selected repos to the cumulative history file, newest
+    first; re-running the same day overwrites that day's entry. Zero-repo
+    days are recorded too (a missing date means the pipeline didn't run)."""
+    days = []
+    try:
+        data = json.loads(REPO_RADAR_HISTORY_PATH.read_text(encoding="utf-8"))
+        days = data.get("days", []) if isinstance(data, dict) else []
+    except Exception:
+        days = []
+    days = [d for d in days if d.get("date") != page_date]
+    days.insert(0, {"date": page_date, "generated_at": generated_at,
+                    "repos": repos})
+    days.sort(key=lambda d: d.get("date", ""), reverse=True)
+    try:
+        REPO_RADAR_HISTORY_PATH.write_text(
+            json.dumps({"days": days}, indent=1, ensure_ascii=False),
+            encoding="utf-8")
+    except OSError as exc:
+        log.warning("Could not write repo radar history: %s", exc)
+
+
+def _group_posts_by_blog(posts):
+    """Group a flat post list by blog, blogs ordered by best-rated post,
+    posts within a blog ordered by rating desc."""
+    by_blog = {}
+    for post in posts:
+        by_blog.setdefault(post.get("blog") or "Other", []).append(post)
+    return [
+        {"name": name,
+         "posts": sorted(by_blog[name], key=lambda p: -(p.get("rating") or 0))}
+        for name in sorted(by_blog,
+                           key=lambda n: -max(p.get("rating", 0)
+                                              for p in by_blog[n]))
+    ]
 
 
 # --- Analytics: AI summaries (3-5 bullets per post) -------------------------
@@ -1653,12 +1933,149 @@ def curate_repos(candidates):
     return heuristic_curate_repos(candidates)
 
 
+# --- Repo Radar: README images ----------------------------------------------
+
+REPO_RADAR_IMG_DIR = DATA_DIR / "repo-radar-img"
+REPO_IMG_PER_REPO = 2         # max images embedded per repo card
+REPO_IMG_CANDIDATES = 5       # candidate images pulled from the README
+REPO_IMG_MAX_WIDTH = 480      # downscale to this max width
+REPO_IMG_QUALITY = 70         # JPEG quality
+REPO_IMG_MIN_BYTES = 8000     # skip tiny images (usually logos/1px spacers)
+REPO_IMG_MAX_SRC_BYTES = 3 * 1024 * 1024  # skip huge sources
+_IMG_EXT_RE = re.compile(r"\.(png|jpe?g|gif|webp)$", re.I)
+_MD_IMG_RE = re.compile(r"!\[([^\]]*)\]\(([^)\s]+)(?:\s+[^)]*)?\)")
+
+
+def fetch_repo_readme(full_name):
+    """Raw README markdown for a repo via the GitHub API (raw accept header),
+    or None. Rate limits are non-fatal."""
+    try:
+        resp = requests.get(
+            f"https://api.github.com/repos/{full_name}/readme",
+            headers={**_gh_headers(),
+                     "Accept": "application/vnd.github.raw+json"},
+            timeout=HTTP_TIMEOUT)
+        if resp.status_code == 404:
+            return None
+        resp.raise_for_status()
+        return resp.text
+    except Exception as exc:
+        log.warning("Repo Radar %s: README fetch failed: %s", full_name, exc)
+        return None
+
+
+def extract_readme_images(markdown, full_name):
+    """Absolute URLs of the first REPO_IMG_CANDIDATES raster images in the
+    README. Relative paths resolve against the repo's raw HEAD, so
+    'docs/img.png' and './assets/chart.png' work. SVGs are skipped (logos /
+    untrusted content); only png/jpg/gif/webp are returned."""
+    urls = []
+    for alt, url in _MD_IMG_RE.findall(markdown or ""):
+        url = url.strip()
+        if not url:
+            continue
+        if url.lower().startswith("data:"):
+            continue
+        if _IMG_EXT_RE.search(url):
+            if url.startswith("http://") or url.startswith("https://"):
+                urls.append((alt.strip(), url))
+            else:
+                path = url.lstrip("./")
+                urls.append((alt.strip(),
+                             f"https://raw.githubusercontent.com/"
+                             f"{full_name}/HEAD/{path}"))
+        if len(urls) >= REPO_IMG_CANDIDATES:
+            break
+    return urls
+
+
+def _fetch_and_downscale(image_url):
+    """Fetch an image URL; downscale + re-encode as JPEG bytes (RGB).
+    Returns (bytes, None) on success, (None, reason) on failure."""
+    try:
+        resp = requests.get(image_url, timeout=ARTICLE_TIMEOUT,
+                            headers={"User-Agent": BROWSER_UA})
+        if not resp.ok:
+            return None, f"HTTP {resp.status_code}"
+        data = resp.content
+        if len(data) < REPO_IMG_MIN_BYTES:
+            return None, "too small"
+        if len(data) > REPO_IMG_MAX_SRC_BYTES:
+            return None, "too large"
+        from io import BytesIO
+        from PIL import Image
+        img = Image.open(BytesIO(data))
+        img.load()
+        if img.mode in ("RGBA", "LA", "P"):
+            img = img.convert("RGBA")
+            bg = Image.new("RGB", img.size, (255, 255, 255))
+            bg.paste(img, mask=img.split()[-1])
+            img = bg
+        else:
+            img = img.convert("RGB")
+        if img.width > REPO_IMG_MAX_WIDTH:
+            h = max(1, round(img.height * REPO_IMG_MAX_WIDTH / img.width))
+            img = img.resize((REPO_IMG_MAX_WIDTH, h), Image.LANCZOS)
+        out = BytesIO()
+        img.save(out, format="JPEG", quality=REPO_IMG_QUALITY, optimize=True)
+        return out.getvalue(), None
+    except Exception as exc:
+        return None, str(exc)[:80]
+
+
+def attach_repo_images(repos, page_date):
+    """Attach downscaled README images to the day's curated repos, stored
+    under docs/data/repo-radar-img/<date>/. Sets repo['img'] = filename and
+    repo['img_alt'] = alt text; failures leave the card text-only."""
+    if not repos:
+        return repos
+    day_dir = REPO_RADAR_IMG_DIR / page_date
+    try:
+        day_dir.mkdir(parents=True, exist_ok=True)
+    except OSError as exc:
+        log.warning("Repo Radar: cannot create image dir: %s", exc)
+        return repos
+    for repo in repos:
+        full_name = repo.get("name", "")
+        if not full_name:
+            continue
+        readme = fetch_repo_readme(full_name)
+        candidates = extract_readme_images(readme, full_name) if readme else []
+        picked = []
+        for alt, img_url in candidates:
+            if len(picked) >= REPO_IMG_PER_REPO:
+                break
+            jpeg, reason = _fetch_and_downscale(img_url)
+            if jpeg is None:
+                log.info("Repo Radar %s: skip image %s (%s)",
+                         full_name, img_url, reason)
+                continue
+            fname = full_name.replace("/", "_") + f"_{len(picked)}.jpg"
+            try:
+                (day_dir / fname).write_bytes(jpeg)
+            except OSError as exc:
+                log.warning("Repo Radar %s: cannot write image: %s",
+                            full_name, exc)
+                break
+            picked.append({"file": fname, "alt": alt or full_name})
+        if picked:
+            repo["img"] = picked[0]["file"]
+            repo["img_alt"] = picked[0]["alt"]
+            if len(picked) > 1:
+                repo["img2"] = picked[1]["file"]
+                repo["img2_alt"] = picked[1]["alt"]
+        else:
+            log.info("Repo Radar %s: no README images found", full_name)
+    return repos
+
+
 # ---------------------------------------------------------------------------
 # Rendering
 # ---------------------------------------------------------------------------
 
 def render_pages(template, page_date, generated_at, snapshot, takeaways,
-                 news, groups, hero=None, new_count=0):
+                 news, groups, hero=None, new_count=0, day_importance=None,
+                 day_verdict=None, weekly=None, weekly_obj=None):
     from jinja2 import Environment, FileSystemLoader, select_autoescape
 
     env = Environment(
@@ -1676,6 +2093,9 @@ def render_pages(template, page_date, generated_at, snapshot, takeaways,
         "indicator_groups": groups,
         "hero": hero or [],
         "new_count": new_count,
+        "day_importance": day_importance,
+        "day_verdict": day_verdict,
+        "weekly": weekly_obj,
     }
 
     DOCS_DIR.mkdir(exist_ok=True)
@@ -1733,6 +2153,9 @@ def render_pages(template, page_date, generated_at, snapshot, takeaways,
         "generated_at": generated_at,
         "snapshot": snapshot,
         "takeaways": takeaways,
+        "day_importance": day_importance,
+        "day_verdict": day_verdict,
+        "weekly": weekly_obj,
         "categories": news,
         "indicator_groups": indicator_summary(groups),
     }
@@ -1745,15 +2168,37 @@ def render_pages(template, page_date, generated_at, snapshot, takeaways,
 
 
 def render_analytics_page(page_date, generated_at, blogs_meta):
-    """Render the Analytics (blog digest) page + raw debug JSON."""
+    """Render the Analytics (blog digest) page + raw debug JSON.
+
+    The page shows the cumulative history as collapsible per-day sections
+    (today open by default, newest first); today's run is also appended to
+    the history store."""
     from jinja2 import Environment, FileSystemLoader, select_autoescape
+
+    update_analytics_history(page_date, generated_at, blogs_meta)
+
+    history_days = []
+    try:
+        data = json.loads(ANALYTICS_HISTORY_PATH.read_text(encoding="utf-8"))
+        raw_days = data.get("days", []) if isinstance(data, dict) else []
+    except Exception:
+        raw_days = []
+    for d in raw_days:
+        posts = d.get("posts") or []
+        history_days.append({
+            "date": d.get("date", ""),
+            "generated_at": d.get("generated_at", ""),
+            "blogs": _group_posts_by_blog(posts),
+            "post_count": len(posts),
+        })
+
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATE_PATH.parent)),
         autoescape=select_autoescape(["html", "j2"]),
     )
     html = env.get_template("analytics.html.j2").render(
         base=".", page_date=page_date, generated_at=generated_at,
-        blogs=blogs_meta, daily_max=ANALYTICS_DAILY_MAX, is_analytics=True)
+        days=history_days, daily_max=ANALYTICS_DAILY_MAX, is_analytics=True)
     (DOCS_DIR / "analytics.html").write_text(html, encoding="utf-8")
     log.info("Wrote %s", DOCS_DIR / "analytics.html")
     payload = {"generated_at": generated_at, "blogs": blogs_meta}
@@ -1762,15 +2207,35 @@ def render_analytics_page(page_date, generated_at, blogs_meta):
     log.info("Wrote %s", ANALYTICS_DATA_PATH)
 
 
-def render_repo_radar_page(generated_at, repos):
-    """Render the Repo Radar page + raw debug JSON."""
+def render_repo_radar_page(page_date, generated_at, repos):
+    """Render the Repo Radar page + raw debug JSON.
+
+    Like Analytics: cumulative per-day history as collapsible sections
+    (today open by default), and today's run is appended to the history."""
     from jinja2 import Environment, FileSystemLoader, select_autoescape
+
+    update_repo_radar_history(page_date, generated_at, repos)
+
+    history_days = []
+    try:
+        data = json.loads(REPO_RADAR_HISTORY_PATH.read_text(encoding="utf-8"))
+        raw_days = data.get("days", []) if isinstance(data, dict) else []
+    except Exception:
+        raw_days = []
+    for d in raw_days:
+        history_days.append({
+            "date": d.get("date", ""),
+            "generated_at": d.get("generated_at", ""),
+            "repos": d.get("repos") or [],
+        })
+
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATE_PATH.parent)),
         autoescape=select_autoescape(["html", "j2"]),
     )
     html = env.get_template("repo_radar.html.j2").render(
-        base=".", generated_at=generated_at, repos=repos, is_repo_radar=True)
+        base=".", page_date=page_date, generated_at=generated_at,
+        days=history_days, is_repo_radar=True)
     (DOCS_DIR / "repo-radar.html").write_text(html, encoding="utf-8")
     log.info("Wrote %s", DOCS_DIR / "repo-radar.html")
     payload = {"generated_at": generated_at, "repos": repos}
@@ -1854,11 +2319,28 @@ def check_outputs(page_date, generated_at, news, groups):
     except Exception as exc:
         problems.append(f"analytics json unreadable: {exc}")
     try:
+        hist = json.loads(ANALYTICS_HISTORY_PATH.read_text(encoding="utf-8"))
+        if not isinstance(hist.get("days"), list):
+            problems.append("analytics history days not a list")
+        # today's run must have written its entry
+        elif not any(d.get("date") == page_date for d in hist["days"]):
+            problems.append(f"analytics history missing entry for {page_date}")
+    except Exception as exc:
+        problems.append(f"analytics history unreadable: {exc}")
+    try:
         rr = json.loads(REPO_RADAR_DATA_PATH.read_text(encoding="utf-8"))
         if not isinstance(rr.get("repos"), list):
             problems.append("repo_radar.json repos not a list")
     except Exception as exc:
         problems.append(f"repo radar json unreadable: {exc}")
+    try:
+        rrh = json.loads(REPO_RADAR_HISTORY_PATH.read_text(encoding="utf-8"))
+        if not isinstance(rrh.get("days"), list):
+            problems.append("repo radar history days not a list")
+        elif not any(d.get("date") == page_date for d in rrh["days"]):
+            problems.append(f"repo radar history missing entry for {page_date}")
+    except Exception as exc:
+        problems.append(f"repo radar history unreadable: {exc}")
     return problems
 
 
@@ -1970,6 +2452,14 @@ def main():
     log.info("Snapshot: %s", " · ".join(t["text"] for t in snapshot)
              if snapshot else "(empty)")
 
+    day_importance, day_verdict = build_day_importance(news, groups)
+    log.info("Day importance: %d/5 — %s", day_importance, day_verdict)
+
+    weekly = build_weekly(page_date, load_week_days(page_date))
+    if weekly:
+        log.info("Weekly 5: %d items (%s)", len(weekly["items"]),
+                 weekly["week"])
+
     hero = build_hero(groups, load_day_indicators(page_date, offset=1))
     log.info("Hero: %d cells; %d new story(ies)", len(hero), new_count)
 
@@ -1987,13 +2477,16 @@ def main():
     try:
         repos = curate_repos(fetch_repo_candidates())
         log.info("Repo Radar: %d repo(s) curated", len(repos))
+        attach_repo_images(repos, page_date)
     except Exception:
         log.exception("Repo Radar failed; continuing without it")
 
     render_pages("dashboard.html.j2", page_date, generated_at, snapshot,
-                 takeaways, news, groups, hero=hero, new_count=new_count)
+                 takeaways, news, groups, hero=hero, new_count=new_count,
+                 day_importance=day_importance, day_verdict=day_verdict,
+                 weekly_obj=weekly)
     render_analytics_page(page_date, generated_at, analytics_blogs)
-    render_repo_radar_page(generated_at, repos)
+    render_repo_radar_page(page_date, generated_at, repos)
 
     problems = check_outputs(page_date, generated_at, news, groups)
     print_summary(page_date, generated_at, news, takeaways, groups, snapshot,

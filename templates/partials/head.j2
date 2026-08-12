@@ -392,6 +392,66 @@
   }
   .takeaways li::marker { color: var(--gold); }
 
+  /* ---------- Day importance banner + weekly 5 ---------- */
+  .day-imp {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-left: 5px solid var(--muted);
+    border-radius: 8px;
+    padding: 12px 18px;
+    margin-bottom: 14px;
+  }
+  .imp-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    color: #fff;
+  }
+  .imp-1 { background: #6b7280; } .imp-2 { background: #0f766e; }
+  .imp-3 { background: #b45309; } .imp-4 { background: #c2410c; }
+  .imp-5 { background: #be123c; }
+  .imp-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.85);
+  }
+  .imp-stars { letter-spacing: .08em; color: #ffd86b; }
+  .imp-verdict { margin: 0; font-size: 15.5px; line-height: 1.45; color: var(--ink-soft); }
+
+  .weekly {
+    background: linear-gradient(135deg, #fef9e7 0%, #f1ecfd 100%);
+    border: 1px solid #ead9a8;
+    border-left: 5px solid var(--gold);
+    border-radius: 6px;
+    padding: 20px 26px 16px;
+    margin: 14px 0 40px;
+    box-shadow: 0 2px 8px rgba(201, 162, 39, .12);
+  }
+  .weekly .tw-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .weekly ul { margin: 0; padding-left: 20px; }
+  .weekly li {
+    margin-bottom: 8px;
+    font-size: 15.5px;
+    line-height: 1.45;
+  }
+  .weekly li::marker { color: var(--accent); }
+
   /* ---------- Saved news (localStorage) ---------- */
   .visually-hidden {
     position: absolute; width: 1px; height: 1px;
@@ -1177,9 +1237,80 @@
   .bc-url a, .rc-url a { color: var(--muted); text-decoration: none; }
   .bc-url a:hover, .rc-url a:hover { color: var(--accent); text-decoration: underline; }
   .rc-oneliner { color: var(--ink-soft); font-size: 14.5px; margin: 6px 0 2px; }
+  .repo-img {
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+    margin: 8px 0 4px;
+    background: #fff;
+  }
   .repo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 14px;
   }
+
+  /* ---------- Analytics / Repo Radar day-history accordion ---------- */
+  .day-jump-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 14px 0 18px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .day-jump {
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid var(--rule-dark);
+    border-radius: 6px;
+    background: var(--card);
+    color: var(--ink);
+  }
+  .day-group {
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    background: var(--card);
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(34, 31, 26, .05);
+  }
+  .day-group[open] { border-color: var(--rule-dark); }
+  .day-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .day-bar::-webkit-details-marker { display: none; }
+  .day-bar:hover { background: rgba(67, 56, 202, .04); }
+  .day-chevron { color: var(--muted); transition: transform .18s ease; }
+  .day-group[open] > .day-bar .day-chevron { transform: rotate(180deg); }
+  .day-date { font-family: var(--serif); font-size: 17px; font-weight: 600; }
+  .day-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--accent);
+    background: rgba(67, 56, 202, .1);
+    border-radius: 999px;
+    padding: 2px 8px;
+  }
+  .day-meta { margin-left: auto; font-size: 12.5px; color: var(--muted); }
+  .day-body { padding: 4px 16px 16px; }
+  .day-body .desk { margin-bottom: 10px; }
+  .bc-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .bc-footer .bc-url { flex: 1; min-width: 0; }
 </style>

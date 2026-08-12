@@ -349,10 +349,9 @@
 
   function markRowButtons() {
     var map = loadSaved();
-    document.querySelectorAll("tr.news-item").forEach(function (tr) {
-      var btn = tr.querySelector(".save-btn");
-      if (!btn) return;
-      var saved = !!map[tr.getAttribute("data-url")];
+    // Works for news rows and Analytics/Repo Radar cards: any .save-btn.
+    document.querySelectorAll(".save-btn").forEach(function (btn) {
+      var saved = !!map[savedAttrs(btn, "url")];
       btn.classList.toggle("saved", saved);
       btn.setAttribute("aria-pressed", saved ? "true" : "false");
       btn.title = saved ? "Remove from saved" : "Save this story";
@@ -369,6 +368,7 @@
     if (!urls.length) return;
 
     // Group by category, ordered like the daily brief's category order.
+    var EXTRA_CAT_COLORS = { "Analytics": "#7c3aed", "Repo Radar": "#0e7490" };
     var groups = {};
     urls.forEach(function (u) {
       var it = map[u];
@@ -386,20 +386,22 @@
         if (da !== db) return da < db ? 1 : -1;
         return (b.savedAt || 0) - (a.savedAt || 0);
       });
-      var color = CAT_COLORS[name] || "#4338ca";
+      var color = CAT_COLORS[name] || EXTRA_CAT_COLORS[name] || "#4338ca";
       var g = document.createElement("div");
       g.className = "saved-group";
       var html = '<h4 style="color:' + color + ';border-bottom-color:' + color + '">'
         + esc(name) + "</h4>";
       items.forEach(function (it) {
         var rating = Math.max(0, Math.min(5, parseInt(it.rating, 10) || 0));
-        var stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+        // rating 0 (e.g. repos) shows no stars instead of an empty row.
+        var stars = rating > 0 ? "★".repeat(rating) + "☆".repeat(5 - rating) : "";
         html += '<div class="saved-item" data-url="' + esc(it.url) + '">'
           + '<div class="si-headline"><a href="' + esc(it.url) + '" target="_blank" rel="noopener">'
           + esc(it.title) + "</a>"
           + '<div class="si-meta">' + esc(it.source)
           + (it.pageDate ? " · Brief of " + esc(it.pageDate) : "")
-          + '<span class="si-stars">' + stars + "</span></div></div>"
+          + (stars ? '<span class="si-stars">' + stars + "</span>" : "")
+          + "</div></div>"
           + '<button type="button" class="si-remove" aria-label="Remove saved story" title="Remove">✕</button>'
           + "</div>";
       });
@@ -408,28 +410,46 @@
     });
   }
 
-  document.querySelectorAll("tr.news-item .save-btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var tr = btn.closest("tr.news-item");
-      var url = tr.getAttribute("data-url");
-      if (!url) return;
-      var map = loadSaved();
-      if (map[url]) {
-        delete map[url];
-      } else {
-        map[url] = {
-          title: tr.getAttribute("data-title") || "",
-          url: url,
-          source: tr.getAttribute("data-source") || "",
-          category: tr.getAttribute("data-category") || "",
-          rating: parseInt(tr.getAttribute("data-rating"), 10) || 0,
-          pageDate: tr.getAttribute("data-date") || "",
-          savedAt: Date.now()
-        };
-      }
-      storeSaved(map);
-      markRowButtons();
-      renderSaved();
+  // Save buttons: works for news rows AND Analytics/Repo Radar cards — the
+  // button carries its own data-save-* attributes (news rows still put them
+  // on the <tr>, so we read from the button or its closest row).
+  function savedAttrs(btn, key) {
+    if (btn.hasAttribute("data-save-" + key)) return btn.getAttribute("data-save-" + key);
+    var row = btn.closest("tr.news-item");
+    return row ? row.getAttribute("data-" + key) : null;
+  }
+
+  document.addEventListener("click", function (ev) {
+    var btn = ev.target.closest ? ev.target.closest(".save-btn") : null;
+    if (!btn || !btn.closest("#saved-list")) return; // ignore archive remove buttons
+    var url = savedAttrs(btn, "url");
+    if (!url) return;
+    var map = loadSaved();
+    if (map[url]) {
+      delete map[url];
+    } else {
+      map[url] = {
+        title: savedAttrs(btn, "title") || "",
+        url: url,
+        source: savedAttrs(btn, "source") || "",
+        category: savedAttrs(btn, "category") || "",
+        rating: parseInt(savedAttrs(btn, "rating"), 10) || 0,
+        pageDate: savedAttrs(btn, "date") || "",
+        savedAt: Date.now()
+      };
+    }
+    storeSaved(map);
+    markRowButtons();
+    renderSaved();
+  });
+
+  // Quick-jump select on Analytics / Repo Radar: open the day and scroll to it.
+  document.querySelectorAll("select.day-jump").forEach(function (sel) {
+    sel.addEventListener("change", function () {
+      var el = document.getElementById("day-" + sel.value);
+      if (!el) return;
+      if (el.tagName === "DETAILS" && !el.open) el.open = true;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
 

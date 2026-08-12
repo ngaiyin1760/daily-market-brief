@@ -11,13 +11,15 @@ the past 24 hours are ever shown — a category runs short rather than showing
 stale news.
 
 Daily pages are all about the news: a snapshot ticker of the day's key moves
-(with 1-month trend arrows), the takeaways, and the stories — with color-coded
-importance chips and an importance filter. All indicator charts and figures
-live on a separate **Markets** tab — up to 10 years of daily history per
-instrument, per-chart zoom buttons (1M / 3M / 1Y / 5Y / 10Y), YTD/1M/1Y
-performance chips, and per-group "as of" freshness stamps. Run `python
-generate.py --check` to validate outputs (used by CI to fail loudly on
-structural problems or a fully-heuristic run).
+(with 1-month trend arrows), a **Day importance banner** (1–5★ telling you at a
+glance how hard to read today, with a one-line verdict), the takeaways, and —
+on Fridays — **"The Week in 5"** (the 5 things that mattered this week), then
+the stories with color-coded importance chips and an importance filter. All
+indicator charts and figures live on a separate **Markets** tab — up to 10
+years of daily history per instrument, per-chart zoom buttons (1M / 3M / 1Y /
+5Y / 10Y), YTD/1M/1Y performance chips, and per-group "as of" freshness
+stamps. Run `python generate.py --check` to validate outputs (used by CI to
+fail loudly on structural problems or a fully-heuristic run).
 
 Two more always-visible tabs sit under **Markets**:
 - **Analytics** — each day it scans every blog in `analytics_sources.md`,
@@ -25,11 +27,21 @@ Two more always-visible tabs sit under **Markets**:
   per day ranked by importance** (AI-rated). If more than 5 blogs update, only
   the top 5 are shown and the rest are carried forward in a 7-day backlog that
   fills in on quiet days (e.g. 3 fresh updates + 2 carried = 5). Can be zero.
+  The page is a **collapsible day history** (today open, older days collapse
+  with the new day on top; a quick "Jump to" menu opens any day). Every post
+  has a bookmark button that saves to the same Archive tab as the news.
   Grouped by blog, tech & engineering scope, every post links to its source.
+  Every day's shown posts are also appended to a cumulative history
+  (`docs/data/analytics_history.json` — newest first, one entry per date) so
+  nothing is lost for later use (analysis, RAG, etc.).
 - **Repo Radar** — three interesting/trendy GitHub repos picked daily
   (finance/tech weighted, open to anything), each with an AI summary of what
-  it is / tech structure / purpose / use cases plus repo URL, language, and
-  stars. Configure the search topics in `repo_radar.md`.
+  it is / tech structure / purpose / use cases plus repo URL, language, stars,
+  and — when the repo's README has one — an embedded screenshot/diagram/chart
+  (downscaled, stored under `docs/data/repo-radar-img/`). Same collapsible
+  day history + "Jump to" menu, bookmark buttons that save to Archive, and a
+  cumulative history (`docs/data/repo_radar_history.json`). Configure the
+  search topics in `repo_radar.md`.
 
 Both tabs follow the site's non-fatal rule: a source that fails to load just
 runs short or shows an empty note — it never breaks the daily brief.

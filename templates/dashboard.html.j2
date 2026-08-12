@@ -59,11 +59,30 @@
   </section>
   {% endif %}
 
+  {% if day_importance %}
+  <section class="day-imp reveal" id="day-importance">
+    <div class="imp-badge imp-{{ day_importance }}">
+      <span class="imp-label">Day importance</span>
+      <span class="imp-stars">{{ "★" * day_importance }}{{ "☆" * (5 - day_importance) }}</span>
+    </div>
+    <p class="imp-verdict">{{ day_verdict|e }}</p>
+  </section>
+  {% endif %}
+
   {% if takeaways %}
   <section class="takeaways reveal" id="takeaways">
     <div class="tw-label">Today's Key Takeaways</div>
     <ul>
       {% for t in takeaways %}<li>{{ t|e }}</li>{% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if weekly %}
+  <section class="weekly reveal" id="weekly">
+    <div class="tw-label">The Week in 5 — {{ weekly.week|e }}</div>
+    <ul>
+      {% for w in weekly.items %}<li>{{ w|e }}</li>{% endfor %}
     </ul>
   </section>
   {% endif %}

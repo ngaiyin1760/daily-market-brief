@@ -9,6 +9,12 @@ an empty backlog means the page shows nothing that day. Scope: technology &
 engineering — finance/economics included, but technical and engineering posts
 are equally welcome.
 
+Every day's shown posts are also appended to a cumulative history at
+`docs/data/analytics_history.json` (newest first, one entry per date, keyed by
+date so re-running a day overwrites it). Each entry keeps the full post record
+(title, link, bullets, rating, source, publish time, preview flag) so the data
+is available for future builds.
+
 ## How to edit
 
 - One source per line: `- Name — URL` (URL may be a direct feed or a page

@@ -18,30 +18,64 @@
     <div class="generated">3 interesting new GitHub repos · finance/tech weighted · updated {{ generated_at|e }}</div>
   </header>
 
-  {% if repos %}
-  <section class="desk reveal" id="repo-radar">
-    <h2>Today's picks</h2>
-    <div class="repo-grid">
-      {% for repo in repos %}
-      <article class="repo-card">
-        <div class="rc-head">
-          <span class="chip">{{ repo.language|e }}</span>
-          <span class="chip stars">{{ repo.stars }}★</span>
+  {% if days %}
+  <div class="day-jump-wrap">
+    <label for="day-jump">Jump to</label>
+    <select id="day-jump" class="day-jump">
+      {% for d in days %}<option value="{{ d.date|e }}">{{ d.date|e }}{% if loop.first %} (latest){% endif %}</option>{% endfor %}
+    </select>
+  </div>
+
+  {% for d in days %}
+  <details class="day-group" id="day-{{ d.date|e }}"{% if loop.first %} open{% endif %}>
+    <summary class="day-bar">
+      <svg class="day-chevron" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="day-date">{{ d.date|e }}</span>
+      {% if loop.first %}<span class="day-tag">Today</span>{% endif %}
+      <span class="day-meta">{{ d.repos|length }} repo(s)</span>
+    </summary>
+    <div class="day-body">
+      <section class="desk reveal">
+        <div class="repo-grid">
+          {% for repo in d.repos %}
+          <article class="repo-card">
+            <div class="rc-head">
+              <span class="chip">{{ repo.language|e }}</span>
+              <span class="chip stars">{{ repo.stars }}★</span>
+            </div>
+            <h3><a href="{{ repo.url|e }}" target="_blank" rel="noopener">{{ repo.name|e }}</a></h3>
+            {% if repo.one_liner %}<p class="rc-oneliner">{{ repo.one_liner|e }}</p>{% endif %}
+            {% if repo.img %}<img class="repo-img" src="{{ base }}/data/repo-radar-img/{{ d.date|e }}/{{ repo.img|e }}" alt="{{ repo.img_alt|e }}" loading="lazy">{% endif %}
+            {% if repo.img2 %}<img class="repo-img" src="{{ base }}/data/repo-radar-img/{{ d.date|e }}/{{ repo.img2|e }}" alt="{{ repo.img2_alt|e }}" loading="lazy">{% endif %}
+            {% if repo.bullets %}
+            <ul class="rc-bullets">
+              {% for b in repo.bullets %}<li>{{ b|e }}</li>{% endfor %}
+            </ul>
+            {% endif %}
+            <div class="bc-footer">
+              <div class="bc-url"><a href="{{ repo.url|e }}" target="_blank" rel="noopener">{{ repo.url|e }}</a></div>
+              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
+                      data-save-url="{{ repo.url|e }}"
+                      data-save-title="{{ repo.name|e }}"
+                      data-save-source="{{ repo.language|e }}"
+                      data-save-category="Repo Radar"
+                      data-save-rating="0"
+                      data-save-date="{{ d.date|e }}">
+                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+          {% endfor %}
         </div>
-        <h3><a href="{{ repo.url|e }}" target="_blank" rel="noopener">{{ repo.name|e }}</a></h3>
-        {% if repo.one_liner %}<p class="rc-oneliner">{{ repo.one_liner|e }}</p>{% endif %}
-        {% if repo.bullets %}
-        <ul class="rc-bullets">
-          {% for b in repo.bullets %}<li>{{ b|e }}</li>{% endfor %}
-        </ul>
-        {% endif %}
-        <div class="rc-url"><a href="{{ repo.url|e }}" target="_blank" rel="noopener">{{ repo.url|e }}</a></div>
-      </article>
-      {% endfor %}
+      </section>
     </div>
-  </section>
+  </details>
+  {% endfor %}
   {% else %}
-  <p class="empty-note">No repos picked today — check back after the next daily run.</p>
+  <p class="empty-note">No repos picked yet — the history fills in once the daily runs start.</p>
   {% endif %}
 
   <footer class="colophon">
