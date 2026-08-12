@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Saved Archive — Daily Market Brief</title>
+<title>Search — Daily Market Brief</title>
 <meta name="theme-color" content="#4338ca">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1386,7 +1386,6 @@
 <body>
 <div class="reading-bar" id="reading-bar" aria-hidden="true"></div>
 
-
 <aside class="sidebar">
   <button type="button" class="sidebar-toggle" id="sidebar-toggle"
           aria-label="Collapse sidebar" title="Collapse sidebar" aria-expanded="true">
@@ -1416,8 +1415,8 @@
       </svg>
       <span>Repo Radar</span>
     </a>
-    <a class="archive-link active"
-       href="./archive.html" aria-current="page">
+    <a class="archive-link"
+       href="./archive.html">
       <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
         <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
               fill="currentColor"/>
@@ -1427,8 +1426,8 @@
   </nav>
   <nav id="date-nav"><a href="#" class="na">Loading…</a></nav>
   <nav class="sidebar-search">
-    <a class="archive-link"
-       href="./search.html">
+    <a class="archive-link active"
+       href="./search.html" aria-current="page">
       <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
         <path d="M10.5 3a7.5 7.5 0 0 1 5.96 12.1l4.5 4.5-1.42 1.42-4.5-4.5A7.5 7.5 0 1 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z" fill="currentColor"/>
       </svg>
@@ -1440,44 +1439,26 @@
 <div class="content">
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
-    <h1>Saved Archive</h1>
-    <div class="generated">Your saved stories across all briefs</div>
+    <h1>Search</h1>
+    <div class="generated">Search everything we've covered — news, blog digests, and repos</div>
   </header>
 
-    <section class="saved" id="saved">
-      <div class="saved-header">
-        <div class="archive-title">
-          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" class="saved-icon">
-            <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                  fill="currentColor"/>
-          </svg>
-          <span class="saved-title">Saved Archive</span>
-          <span class="saved-count" id="saved-count">0</span>
-        </div>
-        <div class="saved-header-right">
-          <span class="sync-status" id="sync-status"></span>
-          <div class="sync-area" id="sync-area">
-            <button type="button" class="sync-signin" id="sync-signin">
-              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-                <path fill="currentColor" d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81z"/>
-              </svg>
-              Sign in to sync
-            </button>
-            <div class="sync-user" id="sync-user" style="display:none">
-              <img class="sync-avatar" id="sync-avatar" alt="" referrerpolicy="no-referrer" style="display:none">
-              <span class="sync-initial" id="sync-initial" style="display:none"></span>
-              <span class="sync-label">Synced</span>
-              <button type="button" class="sync-signout" id="sync-signout">Sign out</button>
-            </div>
-          </div>
-          <button type="button" class="saved-clear" id="saved-clear">Clear all</button>
-        </div>
-      </div>
-      <div class="saved-body" id="saved-body">
-        <p class="saved-empty" id="saved-empty">No saved news yet — tap the bookmark on any story to pin it here.</p>
-        <div id="saved-list"></div>
-      </div>
-    </section>
+  <div class="search-box">
+    <input type="search" id="search-input" placeholder="Try 'TSMC', 'Fed rate cut', 'BYD', 'EV exports'…"
+           autocomplete="off" spellcheck="false">
+    <div class="search-mode">
+      <label><input type="radio" name="mode" value="keyword" checked> Keyword</label>
+      <label><input type="radio" name="mode" value="rag"> Semantic (AI)</label>
+    </div>
+    <button type="button" id="search-btn" class="search-btn">Search</button>
+  </div>
+
+  <div class="search-status" id="search-status" aria-live="polite"></div>
+  <div id="search-results" class="search-results"></div>
+
+  <footer class="colophon">
+    Daily Market Brief — generated automatically from public news feeds and market data. For information only; not investment advice.
+  </footer>
 </div>
 
 <script>
@@ -1823,30 +1804,8 @@
 
   // Category order + accent colors for Archive grouping (from the brief's
   // configured categories, so group order matches the daily brief).
-  var CAT_ORDER = ["Global Economy", "Equity Markets", "Fixed Income", "China Economy", "Hong Kong Economy", "Global Technology", "Artificial Intelligence", "Semiconductors", "Electric Vehicles", "Data Centers", "Space \u0026 Aerospace"];
+  var CAT_ORDER = [];
   var CAT_COLORS = {};
-  
-  CAT_COLORS["Global Economy"] = "#4338ca";
-  
-  CAT_COLORS["Equity Markets"] = "#047857";
-  
-  CAT_COLORS["Fixed Income"] = "#92400e";
-  
-  CAT_COLORS["China Economy"] = "#be123c";
-  
-  CAT_COLORS["Hong Kong Economy"] = "#1d4ed8";
-  
-  CAT_COLORS["Global Technology"] = "#7c3aed";
-  
-  CAT_COLORS["Artificial Intelligence"] = "#c026d3";
-  
-  CAT_COLORS["Semiconductors"] = "#0e7490";
-  
-  CAT_COLORS["Electric Vehicles"] = "#65a30d";
-  
-  CAT_COLORS["Data Centers"] = "#b45309";
-  
-  CAT_COLORS["Space \u0026 Aerospace"] = "#581c87";
   
 
   function markRowButtons() {
@@ -2310,6 +2269,172 @@
   // Deferred Firebase scripts execute before window.load, so firebase is
   // available here if the CDN delivered it.
   window.addEventListener("load", initFirebaseSync);
+})();
+</script>
+<script>
+(function () {
+  var base = ".";
+  var GEMINI_BROWSER_KEY = "AIzaSyApp9mxHnTxhDHA0SpjJrrWUebli0IuMHI";
+  var EMBED_MODEL = "text-embedding-004";
+  var GENERATION_MODEL = "gemini-3.1-flash-lite";
+
+  var input = document.getElementById("search-input");
+  var btn = document.getElementById("search-btn");
+  var status = document.getElementById("search-status");
+  var results = document.getElementById("search-results");
+  var index = null;
+  var indexPromise = null;
+
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+  function fmtDate(d) { return String(d || "").slice(0, 10); }
+  function kindLabel(k) {
+    return k === "news" ? "News" : k === "analytics" ? "Analytics" : "Repo Radar";
+  }
+
+  function loadIndex() {
+    if (indexPromise) return indexPromise;
+    indexPromise = fetch(base + "/data/search_index.json?v=" + Date.now())
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (d) { index = (d && d.items) || []; status.textContent = index.length + " items indexed"; })
+      .catch(function () { status.textContent = "Search index unavailable — try again later."; });
+    return indexPromise;
+  }
+
+  // ---------- Keyword search ----------
+  function tokenize(s) {
+    return String(s || "").toLowerCase().split(/[^a-z0-9\u4e00-\u9fff]+/).filter(Boolean);
+  }
+  function scoreKeyword(item, terms) {
+    var title = String(item.title || "").toLowerCase();
+    var text = String(item.text || "").toLowerCase();
+    var score = 0;
+    terms.forEach(function (t) {
+      if (title.indexOf(t) !== -1) score += 3;
+      if (text.indexOf(t) !== -1) score += 1;
+    });
+    // recency boost: newer items rank slightly higher
+    var date = Date.parse(item.date || "2000-01-01");
+    if (date) score += (Date.now() - date) / 1000 / 86400 / 30 * 0.2;
+    return score;
+  }
+  function keywordSearch(q) {
+    var terms = tokenize(q);
+    if (!terms.length) return [];
+    var scored = index.map(function (it) {
+      return { item: it, score: scoreKeyword(it, terms) };
+    }).filter(function (r) { return r.score > 0; });
+    scored.sort(function (a, b) { return b.score - a.score; });
+    return scored.slice(0, 50).map(function (r) { return r.item; });
+  }
+
+  // ---------- Semantic (RAG) ----------
+  function embedQuery(q) {
+    return fetch("https://generativelanguage.googleapis.com/v1beta/models/"
+        + EMBED_MODEL + ":embedContent?key=" + encodeURIComponent(GEMINI_BROWSER_KEY), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "models/" + EMBED_MODEL,
+        content: { parts: [{ text: q }] }
+      })
+    }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (d) { return d.embedding && d.embedding.values; });
+  }
+  function dot(a, b) {
+    var s = 0; for (var i = 0; i < a.length; i++) s += a[i] * b[i]; return s;
+  }
+  function semanticSearch(q, topN) {
+    return embedQuery(q).then(function (qv) {
+      if (!qv) return [];
+      var scored = index.filter(function (it) { return it.embedding && it.embedding.length === qv.length; })
+        .map(function (it) { return { item: it, score: dot(it.embedding, qv) }; });
+      scored.sort(function (a, b) { return b.score - a.score; });
+      return scored.slice(0, topN).map(function (r) { return r.item; });
+    });
+  }
+  function ragAnswer(q, items) {
+    var ctx = items.slice(0, 8).map(function (it, i) {
+      return (i + 1) + ". [" + kindLabel(it.kind) + " · " + fmtDate(it.date) + "] "
+        + it.title + " — " + (it.text || "");
+    }).join("\n");
+    var prompt = "Answer the question based ONLY on the notes below. Be concise (2-5 sentences). "
+      + "Cite sources inline like [1], [2]. If the notes don't cover it, say so.\n\n"
+      + "Notes:\n" + ctx + "\n\nQuestion: " + q;
+    return fetch("https://generativelanguage.googleapis.com/v1beta/models/"
+        + GENERATION_MODEL + ":generateContent?key=" + encodeURIComponent(GEMINI_BROWSER_KEY), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ role: "user", parts: [{ text: prompt }] }],
+        generationConfig: { temperature: 0.2, maxOutputTokens: 500 }
+      })
+    }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (d) {
+        var t = d.candidates && d.candidates[0] && d.candidates[0].content
+          && d.candidates[0].content.parts && d.candidates[0].content.parts[0].text;
+        return t || "";
+      });
+  }
+
+  // ---------- Render ----------
+  function renderCards(items) {
+    results.innerHTML = "";
+    if (!items.length) {
+      results.innerHTML = '<p class="empty-note">No matches found.</p>';
+      return;
+    }
+    items.forEach(function (it) {
+      var card = document.createElement("article");
+      card.className = "blog-card";
+      var head = '<div class="bc-head"><span class="chip">' + esc(kindLabel(it.kind))
+        + '</span><span class="day-meta">' + esc(fmtDate(it.date)) + "</span></div>";
+      var title = '<h3><a href="' + esc(it.url) + '" target="_blank" rel="noopener">'
+        + esc(it.title) + "</a></h3>";
+      var body = '<p class="rc-oneliner">' + esc(it.text || "") + "</p>";
+      card.innerHTML = head + title + body;
+      results.appendChild(card);
+    });
+  }
+
+  function doSearch(q) {
+    q = (q || "").trim();
+    if (!q) { results.innerHTML = ""; return; }
+    loadIndex().then(function () {
+      var mode = document.querySelector('input[name="mode"]:checked').value;
+      if (mode === "keyword") {
+        status.textContent = "Searching…";
+        var items = keywordSearch(q);
+        status.textContent = items.length + " result(s)";
+        renderCards(items);
+      } else {
+        status.textContent = "Embedding query…";
+        semanticSearch(q, 20).then(function (items) {
+          renderCards(items);
+          if (!items.length) { status.textContent = "No semantic matches."; return; }
+          status.textContent = "Writing answer…";
+          ragAnswer(q, items).then(function (ans) {
+            var box = document.createElement("div");
+            box.className = "rag-answer";
+            box.innerHTML = "<strong>Answer</strong><p>" + esc(ans).replace(/\n/g, "<br>") + "</p>";
+            results.insertBefore(box, results.firstChild);
+            status.textContent = "Done";
+          }).catch(function (e) {
+            status.textContent = "Answer failed (" + e.message + ") — showing matches only.";
+          });
+        }).catch(function (e) {
+          status.textContent = "Semantic search failed (" + e.message + ").";
+        });
+      }
+    });
+  }
+
+  btn.addEventListener("click", function () { doSearch(input.value); });
+  input.addEventListener("keydown", function (e) { if (e.key === "Enter") doSearch(input.value); });
+  loadIndex();
 })();
 </script>
 </body>

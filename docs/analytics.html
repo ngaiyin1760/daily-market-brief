@@ -1320,6 +1320,67 @@
     margin-top: 8px;
   }
   .bc-footer .bc-url { flex: 1; min-width: 0; }
+
+  /* ---------- Search page ---------- */
+  .search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 6px 0 18px;
+  }
+  .search-box input[type="search"] {
+    flex: 1;
+    min-width: 220px;
+    font-family: var(--sans);
+    font-size: 16px;
+    padding: 10px 14px;
+    border: 1px solid var(--rule-dark);
+    border-radius: 8px;
+    background: var(--card);
+    color: var(--ink);
+  }
+  .search-box input[type="search"]:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 0;
+  }
+  .search-mode {
+    display: flex;
+    gap: 14px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    align-items: center;
+  }
+  .search-mode label { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+  .search-btn {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+  }
+  .search-btn:hover { background: #3730a3; }
+  .search-status { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+  .search-results .blog-card { margin-bottom: 12px; }
+  .rag-answer {
+    background: linear-gradient(135deg, #f1ecfd 0%, #e9f6f2 100%);
+    border: 1px solid #d4c8f2;
+    border-left: 5px solid var(--accent);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+  }
+  .rag-answer strong {
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .rag-answer p { margin: 6px 0 0; font-size: 15.5px; line-height: 1.5; }
 </style>
 </head>
 <body>
@@ -1364,13 +1425,22 @@
     </a>
   </nav>
   <nav id="date-nav"><a href="#" class="na">Loading…</a></nav>
+  <nav class="sidebar-search">
+    <a class="archive-link"
+       href="./search.html">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M10.5 3a7.5 7.5 0 0 1 5.96 12.1l4.5 4.5-1.42 1.42-4.5-4.5A7.5 7.5 0 1 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z" fill="currentColor"/>
+      </svg>
+      <span>Search</span>
+    </a>
+  </nav>
 </aside>
 
 <div class="content">
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Analytics</h1>
-    <div class="generated">Today's top 5 from your blogs · tech &amp; engineering scope · updated 2026-08-13 01:07 HKT</div>
+    <div class="generated">Today's top 5 from your blogs · tech &amp; engineering scope · updated 2026-08-13 01:41 HKT</div>
   </header>
 
   
@@ -1392,27 +1462,27 @@
     <div class="day-body">
       
       <section class="desk reveal">
-        <h2>CNEVPOST</h2>
+        <h2>MIT Technology Review</h2>
         
         <article class="blog-card">
           <div class="bc-head">
             
           </div>
-          <h3><a href="https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/" target="_blank" rel="noopener">Xiaomi EV delivers 31,267 units in July, 39% of annual target</a></h3>
-          <div class="pub">2026-08-12 09:30 UTC</div>
+          <h3><a href="https://www.technologyreview.com/2026/08/12/1141032/scaling-ai-agents-with-trustworthy-data/" target="_blank" rel="noopener">Scaling AI agents with trustworthy data</a></h3>
+          <div class="pub">2026-08-12 16:51 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Xiaomi EV delivered 31,267 units in July, bringing its seven-month total to 216,322 vehicles, which accounts for only 39% of its 550,000-unit annual target.</li><li>To meet its full-year goal, the company must significantly accelerate production to average nearly 67,000 monthly deliveries for the remainder of the year.</li><li>The company is pivoting toward the extended-range electric vehicle (EREV) segment with its new Sky Nomad N90 Max and N70 Max models, which are priced to compete directly with Li Auto and Huawei-backed Aito.</li><li>Despite reports of strong pre-orders for the new series, investor sentiment remains cautious regarding the aggressive pricing strategy and the massive delivery gap required to hit annual targets.</li>
+            <li>Enterprise AI agents currently have access to only 45% of organizational data on average, creating a significant bottleneck for autonomous decision-making.</li><li>Gartner projects that AI agents will automate or augment 50% of business decisions by 2027, necessitating a shift away from restrictive legacy data architectures.</li><li>Data leaders who provide agents with access to over 70% of enterprise information report higher ROI and greater success compared to laggards who provide access to 30% or less.</li><li>Effective agentic AI requires frictionless, real-time integration across structured and unstructured data sources, including supply chain and HR systems, to ensure trustworthy outcomes.</li>
           </ul>
           
           <div class="bc-footer">
-            <div class="bc-url"><a href="https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/" target="_blank" rel="noopener">https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/</a></div>
+            <div class="bc-url"><a href="https://www.technologyreview.com/2026/08/12/1141032/scaling-ai-agents-with-trustworthy-data/" target="_blank" rel="noopener">https://www.technologyreview.com/2026/08/12/1141032/scaling-ai-agents-with-trustworthy-data/</a></div>
             <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
-                    data-save-url="https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/"
-                    data-save-title="Xiaomi EV delivers 31,267 units in July, 39% of annual target"
-                    data-save-source="CNEVPOST"
+                    data-save-url="https://www.technologyreview.com/2026/08/12/1141032/scaling-ai-agents-with-trustworthy-data/"
+                    data-save-title="Scaling AI agents with trustworthy data"
+                    data-save-source="MIT Technology Review"
                     data-save-category="Analytics"
-                    data-save-rating="5"
+                    data-save-rating="4"
                     data-save-date="2026-08-13">
               <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
                 <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
@@ -1422,6 +1492,11 @@
           </div>
         </article>
         
+      </section>
+      
+      <section class="desk reveal">
+        <h2>CNEVPOST</h2>
+        
         <article class="blog-card">
           <div class="bc-head">
             
@@ -1430,7 +1505,7 @@
           <div class="pub">2026-08-12 13:36 UTC</div>
           
           <ul class="bc-bullets">
-            <li>The 2026 Chengdu Auto Show, China&#39;s first A-level event of the second half, will feature 120 brands and 1,600 vehicles across 220,000 square meters.</li><li>Major manufacturers are using the event to debut new flagship models, including BYD&#39;s D-segment luxury sedan, the Da Han, and Huawei&#39;s Maextro V800/V680 MPVs.</li><li>The show serves as a critical barometer for southwestern Chinese market demand and a strategic launchpad for automakers ahead of the peak autumn sales season.</li><li>Xiaomi will showcase its expanded portfolio by displaying battery electric and extended-range SUV series side-by-side for the first time.</li>
+            <li>- The 2026 Chengdu Auto Show will cover 220,000 square meters, making it China&#39;s first A-level show of the second half of the year.</li><li>- BYD will have a dedicated group pavilion in Hall 9, with Huawei&#39;s HIMA, Xpeng and Nio also attending.</li><li>The 29th Chengdu International Automobile Exhibition (2026 Chengdu Auto Show) will be held from August 21 to 30 at the Western China Expo City in Chengdu, Sichuan province, making it China&#39;s first A-level auto show...</li><li>The show will cover 220,000 square meters and bring together nearly 120 domestic and international brands as well as about 1,600 display vehicles, the organizer said on Wednesday.</li><li>As one of China&#39;s five A-level auto shows, the Chengdu event is seen as a barometer of demand in the southwestern Chinese market.</li>
           </ul>
           
           <div class="bc-footer">
@@ -1440,7 +1515,7 @@
                     data-save-title="Chengdu Auto Show opens next week with nearly 120 brands, 1,600 vehicles"
                     data-save-source="CNEVPOST"
                     data-save-category="Analytics"
-                    data-save-rating="3"
+                    data-save-rating="4"
                     data-save-date="2026-08-13">
               <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
                 <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
@@ -1458,7 +1533,7 @@
           <div class="pub">2026-08-12 11:49 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Beijing Hyundai will open pre-sales for the Ioniq V, its first China-produced Ioniq model, at the Chengdu Auto Show with an official launch scheduled for September.</li><li>The mid-size electric sedan was developed by Hyundai&#39;s China design center and features high-end tech including a Qualcomm Snapdragon 8295 chip and dual AI integration via Baidu and ByteDance.</li><li>The vehicle utilizes an 800-volt E-GMP platform and incorporates smart driving solutions from Momenta, supporting L2+ capabilities on urban and highway roads.</li><li>Designed for both the domestic market and global export, the Ioniq V offers battery options from CATL with ranges between 520 km and 650 km.</li>
+            <li>- The Ioniq V is the first production model in China from Hyundai&#39;s electric brand Ioniq, and will officially launch in September.</li><li>- The mid-size electric sedan was developed under the lead of Hyundai&#39;s China design center, tailored for Chinese users and planned for export to global markets.</li><li>Hyundai&#39;s electric comeback in China is about to deliver its first result.</li><li>Beijing Hyundai&#39;s Ioniq V will open pre-sales on August 21 at the 2026 Chengdu Auto Show and go on sale officially in September.</li><li>That timeline comes from reports by several Chinese auto media, with the September launch previously disclosed by Beijing Hyundai general manager Li Fenggang.</li>
           </ul>
           
           <div class="bc-footer">
@@ -1468,7 +1543,35 @@
                     data-save-title="Hyundai&#39;s first Ioniq model for China to open pre-sales at Chengdu Auto Show"
                     data-save-source="CNEVPOST"
                     data-save-category="Analytics"
-                    data-save-rating="3"
+                    data-save-rating="4"
+                    data-save-date="2026-08-13">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+        
+        <article class="blog-card">
+          <div class="bc-head">
+            
+          </div>
+          <h3><a href="https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/" target="_blank" rel="noopener">Xiaomi EV delivers 31,267 units in July, 39% of annual target</a></h3>
+          <div class="pub">2026-08-12 09:30 UTC</div>
+          
+          <ul class="bc-bullets">
+            <li>- Xiaomi EV needs average monthly deliveries of nearly 67,000 units over the remaining 5 months to achieve its full-year target of 550,000 units.</li><li>- The key variable for the second half is the new Sky Nomad product line.</li><li>Xiaomi EV, the electric vehicle unit of Xiaomi (HKEX: 1810), delivered 31,267 vehicles in July, up 2.68% year-on-year but down 9.99% from june, according to data released Tuesday by the China Passenger Car...</li><li>This marked Xiaomi EV&#39;s fourth consecutive month with deliveries above 30,000 units, although year-on-year growth was nearly flat.</li><li>The company delivered 30,452 vehicles in July last year.</li>
+          </ul>
+          
+          <div class="bc-footer">
+            <div class="bc-url"><a href="https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/" target="_blank" rel="noopener">https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/"
+                    data-save-title="Xiaomi EV delivers 31,267 units in July, 39% of annual target"
+                    data-save-source="CNEVPOST"
+                    data-save-category="Analytics"
+                    data-save-rating="4"
                     data-save-date="2026-08-13">
               <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
                 <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
@@ -1491,7 +1594,7 @@
           <div class="pub">2026-08-12 07:01 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Synopsys has introduced the industry&#39;s first 112G PHY IP compliant with the OIF-CEI-112G-LINEAR-PAM4 standard, designed to support linear drive optics in high-speed AI infrastructure.</li><li>Adopting linear optics can reduce module power consumption by up to 50% by eliminating the need for power-hungry DSPs and retimers within the optical module.</li><li>The new PHY IP addresses critical thermal and latency bottlenecks in dense AI racks, providing a scalable path toward 224G/448G speeds and co-packaged optics (CPO).</li><li>Measured performance data for the 112G PHY indicates that TX/RX results meet or exceed OIF-CEI specifications, ensuring interoperability within the broader data center ecosystem.</li>
+            <li>Synopsys has introduced the industry&#39;s first 112G PHY IP compliant with the OIF-CEI-112G-LINEAR-PAM4 standard, designed to support linear drive optics in high-speed AI infrastructure.</li><li>Transitioning to linear optics eliminates the need for power-hungry DSPs and retimers, potentially reducing module power consumption by up to 50%.</li><li>The new PHY IP addresses critical thermal and latency bottlenecks in dense AI racks, providing a scalable path toward 224G/448G connectivity and co-packaged optics (CPO).</li><li>Measured performance data indicates that the IP meets or exceeds OIF-CEI-112G-LINEAR-PAM4 specifications for TX VMA, jitter, and RX JTOL, ensuring interoperability in high-speed data center environments.</li>
           </ul>
           
           <div class="bc-footer">
@@ -1502,39 +1605,6 @@
                     data-save-source="SemiEngineering"
                     data-save-category="Analytics"
                     data-save-rating="4"
-                    data-save-date="2026-08-13">
-              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-        </article>
-        
-      </section>
-      
-      <section class="desk reveal">
-        <h2>Stratechery</h2>
-        
-        <article class="blog-card">
-          <div class="bc-head">
-            
-          </div>
-          <h3><a href="https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/" target="_blank" rel="noopener">Anthropic’s Watermarking, How It (Probably) Works, Worse Than It Seems</a></h3>
-          <div class="pub">2026-08-12 10:00 UTC</div>
-          
-          <ul class="bc-bullets">
-            <li>Anthropic has introduced watermarking for its AI models primarily to comply with the European Union&#39;s AI Act.</li><li>The implementation of watermarking faces significant philosophical and technical criticism regarding its efficacy and long-term impact on AI utility.</li><li>Regulatory mandates like the E.U. AI Act are forcing AI developers to adopt defensive measures that may undermine the open nature of generative technology.</li><li>The move highlights the growing tension between global regulatory compliance and the fundamental design principles of large language models.</li>
-          </ul>
-          
-          <div class="bc-footer">
-            <div class="bc-url"><a href="https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/" target="_blank" rel="noopener">https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/</a></div>
-            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
-                    data-save-url="https://stratechery.com/2026/anthropics-watermarking-how-it-probably-works-worse-than-it-seems/"
-                    data-save-title="Anthropic’s Watermarking, How It (Probably) Works, Worse Than It Seems"
-                    data-save-source="Stratechery"
-                    data-save-category="Analytics"
-                    data-save-rating="3"
                     data-save-date="2026-08-13">
               <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
                 <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
@@ -1563,7 +1633,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-13 01:07 HKT");
+  var dataTS = encodeURIComponent("2026-08-13 01:41 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
