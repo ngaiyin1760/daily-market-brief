@@ -2,7 +2,7 @@
  "days": [
   {
    "date": "2026-08-13",
-   "generated_at": "2026-08-13 02:04 HKT",
+   "generated_at": "2026-08-13 02:12 HKT",
    "repos": [
     {
      "name": "mikehasa/agentacct",
@@ -10,12 +10,12 @@
      "language": "Python",
      "stars": 583,
      "description": "See what your coding agents did and what it cost. Breaks each task down into work steps — tools used, files changed, tests run, time and tokens spent. Local-first dashboard for Claude Code, Codex, OpenCode, and more. No login, no telemetry.",
-     "one_liner": "A local-first observability dashboard designed to track the performance, token consumption, and cost of coding agents.",
+     "one_liner": "A local-first observability and cost-tracking dashboard for AI coding agents.",
      "bullets": [
-      "Built with Python, providing a local-first architecture to ensure data privacy for sensitive development workflows.",
-      "Integrates directly with popular coding agents like Claude Code and Codex to monitor granular work steps.",
-      "Provides detailed cost-per-task analysis, including token usage, file modifications, and test execution metrics.",
-      "Enables developers to audit agent efficiency and optimize prompt engineering based on real-world expenditure."
+      "Built with Python to provide granular visibility into agentic workflows.",
+      "Tracks specific work steps including tool execution, file modifications, test results, and token consumption.",
+      "Provides financial transparency for development teams by calculating the exact cost per task.",
+      "Integrates with popular coding agents like Claude Code and Codex to monitor efficiency and spend."
      ],
      "img": "mikehasa_agentacct_0.jpg",
      "img_alt": "agentacct tui — live usage, cost, provider rate-limit bars, and recent sessions with per-session weekly-plan-cost estimates",
@@ -28,26 +28,26 @@
      "language": "Python",
      "stars": 178,
      "description": "A 股短线复盘看板：涨停池·连板梯队·龙虎榜·板块资金一屏看完，赚钱效应/晋级率/梯队断层/情绪周期等派生指标纯计算直出（不经过 AI），AI 只把数据串成能读的盘面研判。全本地运行，可用 Claude/Codex 订阅免 API key。| A-share short-term daily-review dashboard: derived sentiment metrics computed locally, AI only writes the narrative. No API key needed.",
-     "one_liner": "A high-performance, local-first dashboard for A-share market analysis that combines deterministic financial metrics with AI-driven sentiment synthesis.",
+     "one_liner": "A high-performance local dashboard for A-share market sentiment analysis and short-term trading review.",
      "bullets": [
-      "Uses a hybrid architecture: pure deterministic computation for financial indicators and AI for narrative market synthesis.",
-      "Features a comprehensive suite of market metrics including limit-up pools, liquidity flows, and sentiment cycles.",
-      "Designed for local execution, supporting subscription-based models to bypass API key dependencies.",
-      "Ideal for quantitative traders needing a real-time, visual overview of market momentum and sector-specific capital movement."
+      "Uses a deterministic, non-AI calculation engine for core financial metrics like sentiment cycles and ladder tiers.",
+      "Leverages LLMs only for synthesizing data into actionable market narratives.",
+      "Designed for local execution, supporting private API keys for Claude/Codex to ensure data privacy.",
+      "Ideal for quantitative traders needing real-time visualization of liquidity flows and market-wide momentum."
      ]
     },
     {
-     "name": "Flaminis/Dalaran",
-     "url": "https://github.com/Flaminis/Dalaran",
-     "language": "Rust",
-     "stars": 879,
-     "description": "Dalaran — Apache-2.0, robotics-first visualization and data infrastructure for multimodal time-series. ROS 2 native, reads existing .rrd recordings. A hard fork of Rerun.",
-     "one_liner": "A robotics-first, multimodal time-series visualization and data infrastructure tool built in Rust.",
+     "name": "EthanXiang777/circuit-framework",
+     "url": "https://github.com/EthanXiang777/circuit-framework",
+     "language": "Python",
+     "stars": 352,
+     "description": "Circuit Framework — multi-agent LLM trading research system",
+     "one_liner": "A multi-agent LLM framework specifically architected for quantitative trading research.",
      "bullets": [
-      "Engineered in Rust as a high-performance fork of Rerun, optimized for low-latency data processing.",
-      "Native ROS 2 support allows for seamless integration with existing robotics and sensor-heavy data pipelines.",
-      "Capable of reading and visualizing legacy .rrd recordings, making it highly compatible with existing research stacks.",
-      "Provides a robust framework for visualizing complex, high-frequency time-series data common in both robotics and high-frequency trading environments."
+      "Python-based framework designed to orchestrate multiple specialized agents for financial analysis.",
+      "Focuses on automating the research pipeline, from hypothesis generation to strategy validation.",
+      "Modular architecture allows for the integration of custom financial data sources and backtesting engines.",
+      "Enables complex trading research workflows that require cross-agent collaboration and iterative data refinement."
      ]
     }
    ]
