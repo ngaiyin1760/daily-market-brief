@@ -52,7 +52,7 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 GEMINI_BROWSER_KEY = os.environ.get("GEMINI_BROWSER_KEY", "").strip()
 # Embedding model for semantic search (server-side precompute).
 GEMINI_EMBED_MODEL = os.environ.get("GEMINI_EMBED_MODEL",
-                                    "text-embedding-004").strip()
+                                    "gemini-embedding-001").strip()
 # Default: gemini-3.1-flash-lite — the current low-tier flash-lite class.
 # Its free tier (~500 req/day) comfortably covers the 12 calls/run, whereas
 # gemini-2.5-flash's free tier is only 20 req/day on this account (exhausted

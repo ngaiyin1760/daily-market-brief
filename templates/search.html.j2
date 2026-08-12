@@ -41,7 +41,7 @@
 (function () {
   var base = {{ base|tojson }};
   var GEMINI_BROWSER_KEY = {{ gemini_browser_key | default("") | tojson }};
-  var EMBED_MODEL = "text-embedding-004";
+  var EMBED_MODEL = "gemini-embedding-001";
   var GENERATION_MODEL = "gemini-3.1-flash-lite";
 
   var input = document.getElementById("search-input");
