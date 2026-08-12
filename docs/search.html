@@ -1468,7 +1468,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-13 01:41 HKT");
+  var dataTS = encodeURIComponent("2026-08-13 01:48 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
@@ -2275,7 +2275,7 @@
 (function () {
   var base = ".";
   var GEMINI_BROWSER_KEY = "AIzaSyApp9mxHnTxhDHA0SpjJrrWUebli0IuMHI";
-  var EMBED_MODEL = "text-embedding-004";
+  var EMBED_MODEL = "gemini-embedding-001";
   var GENERATION_MODEL = "gemini-3.1-flash-lite";
 
   var input = document.getElementById("search-input");
