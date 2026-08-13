@@ -560,46 +560,25 @@ def gemini_weekly(news_days, dates_str, week_label):
 
 
 def heuristic_weekly(news_days, week_label):
-    """Fallback: 5 items spanning the week, not just one big day.
+    """Fallback: the 5 highest-rated items across the whole week, period.
 
-    First pass takes the single best-rated item from each day (so every day
-    that had news is represented); remaining slots are filled round-robin by
-    the next-best item from each day. Prevents one huge news day (e.g.
-    Monday) from taking all 5 slots."""
-    per_day = {}
+    Importance is the only signal — if all 5 most important events happened
+    on Monday, all 5 are Monday. Day diversity is deliberately NOT enforced:
+    the point is the week's most important 5, not one-per-day. Ties break by
+    the day order given (news_days is oldest-first, so earlier days win a
+    rating tie)."""
+    all_items = []
     for day in news_days:
-        items = []
         for cat in day["categories"]:
             for it in cat["items"]:
-                items.append((it.get("rating", 0), day["date"],
-                              cat.get("label", ""), it.get("title", "")))
-        items.sort(key=lambda x: x[0], reverse=True)
-        per_day[day["date"]] = items
-    days_ordered = [d["date"] for d in news_days]
-
-    picked = []
-    used = set()
-    # Iterate passes over days until we have 5 or run out: each pass takes the
-    # best unused item from each day, so the week is represented broadly.
-    for _ in range(5):
-        if len(picked) >= 5:
-            break
-        progressed = False
-        for date in days_ordered:
-            if len(picked) >= 5:
-                break
-            for rating, d, label, title in per_day[date]:
-                key = (d, title)
-                if key in used:
-                    continue
-                dow = datetime.strptime(d, "%Y-%m-%d").strftime("%a")
-                picked.append(f"{dow}: [{label}] {title}")
-                used.add(key)
-                progressed = True
-                break
-        if not progressed:
-            break
-    return {"week": week_label, "items": picked[:5]}
+                all_items.append((it.get("rating", 0), day["date"],
+                                  cat.get("label", ""), it.get("title", "")))
+    all_items.sort(key=lambda x: x[0], reverse=True)
+    out = []
+    for rating, date, label, title in all_items[:5]:
+        dow = datetime.strptime(date, "%Y-%m-%d").strftime("%a")
+        out.append(f"{dow}: [{label}] {title}")
+    return {"week": week_label, "items": out}
 
 
 def load_week_days(end_date_str, days=5):
