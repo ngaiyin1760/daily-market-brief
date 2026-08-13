@@ -45,14 +45,9 @@ TEMPLATE_PATH = ROOT / "templates" / "dashboard.html.j2"
 HK_TZ = ZoneInfo("Asia/Hong_Kong")
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
-# Browser-side RAG key: separate AI Studio key, referrer-restricted to the
-# site. Used at BUILD time here only to precompute embeddings for the search
-# index (client search uses it from the browser; the raw key is not written
-# into docs/).
-GEMINI_BROWSER_KEY = os.environ.get("GEMINI_BROWSER_KEY", "").strip()
 # Cloudflare Worker proxy URL for browser-side Gemini calls (bypasses the HK
 # geo-block without a VPN). Set WORKER_URL in the workflow env; empty = the
-# Search page calls Gemini directly (needs a non-HK IP / VPN).
+# Search page has no semantic mode.
 WORKER_URL = os.environ.get("WORKER_URL", "").strip()
 # Embedding model for semantic search (server-side precompute).
 GEMINI_EMBED_MODEL = os.environ.get("GEMINI_EMBED_MODEL",
@@ -2381,7 +2376,7 @@ def render_search_page(generated_at):
     )
     html = env.get_template("search.html.j2").render(
         base=".", generated_at=generated_at, is_search=True,
-        gemini_browser_key=GEMINI_BROWSER_KEY, worker_url=WORKER_URL)
+        worker_url=WORKER_URL)
     (DOCS_DIR / "search.html").write_text(html, encoding="utf-8")
     log.info("Wrote %s", DOCS_DIR / "search.html")
 
