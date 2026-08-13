@@ -2,8 +2,40 @@
  "days": [
   {
    "date": "2026-08-14",
-   "generated_at": "2026-08-14 01:11 HKT",
+   "generated_at": "2026-08-14 07:00 HKT",
    "posts": [
+    {
+     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/13/1141041/building-a-practical-path-to-post-quantum-cryptography/",
+     "blog": "MIT Technology Review",
+     "title": "Building a practical path to post-quantum cryptography",
+     "link": "https://www.technologyreview.com/2026/08/13/1141041/building-a-practical-path-to-post-quantum-cryptography/",
+     "summary": "Quantum computing has alternated between breakthrough darling and overhyped promise in technology circles. Its powerful new capabilities come with a threat to break current cryptography, but for business leaders navigating the noise, the signal should be clear: post-quantum cryptography (PQC) is a manageable evolution, not a crisis. The mathematics behind today’s encrypted digital transactions may…",
+     "published": "2026-08-13 18:11 UTC",
+     "_ts": 1786644702,
+     "preview": false,
+     "bullets": [
+      "Experts estimate a 50-50 probability that quantum computers will be capable of breaking 2048-bit RSA encryption by 2040, necessitating a long-term strategic shift in cybersecurity.",
+      "Enterprises are advised to prioritize protection against 'harvest now, decrypt later' attacks, where sensitive data is intercepted today for future decryption by quantum-capable adversaries.",
+      "The transition to post-quantum cryptography (PQC) is framed as a manageable, phased evolution rather than an immediate crisis, allowing firms to modernize infrastructure without systemic disruption."
+     ],
+     "rating": 5
+    },
+    {
+     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/13/1141904/flock-is-tightening-its-rules-in-response-to-a-growing-surveillance-backlash/",
+     "blog": "MIT Technology Review",
+     "title": "Flock is tightening its rules in response to a growing surveillance backlash",
+     "link": "https://www.technologyreview.com/2026/08/13/1141904/flock-is-tightening-its-rules-in-response-to-a-growing-surveillance-backlash/",
+     "summary": "The police-tech giant Flock is announcing today that it will change officers’ access to its nationwide network of license plate readers, in an apparent effort to quell a growing backlash and win back contracts lost amid concerns about mass surveillance and police abuse. Several changes aim directly at a problem that has made recent headlines:…",
+     "published": "2026-08-13 13:41 UTC",
+     "_ts": 1786628470,
+     "preview": false,
+     "bullets": [
+      "Flock is implementing mandatory criminal case number requirements and automated auditing for its 120,000-camera network to mitigate widespread reports of officer abuse and stalking.",
+      "Despite these new guardrails, critics and civil liberties groups remain skeptical, noting that officers have historically bypassed similar safeguards by entering generic or mocking data.",
+      "The company is facing significant reputational and financial risk as cities terminate contracts due to concerns over mass surveillance and the lack of independent verification for its internal auditing tools."
+     ],
+     "rating": 4
+    },
     {
      "_key": "SemiEngineering|https://semiengineering.com/the-1-megawatt-rack-debate/",
      "blog": "SemiEngineering",
@@ -14,10 +46,11 @@
      "_ts": 1786605349,
      "preview": false,
      "bullets": [
-      "Hyperscalers including Google, Meta, and Microsoft are collaborating via the OCP 'Mount Diablo' project to standardize 1-megawatt rack architectures.",
-      "The transition to 1-megawatt racks necessitates a fundamental shift where the rack is treated as an integrated compute system rather than a passive enclosure.",
-      "Key technical hurdles include managing extreme power density, liquid cooling requirements, and the physical limitations of copper connectivity for high-lane-count AI systems.",
-      "Industry experts are debating whether extreme rack density is a necessary evolution for AI workloads or if distributed, fragmented architectures might offer a more efficient alternative."
+      "Is it better to cram more compute into each rack or rethink the architecture?",
+      "Key Takeaways:\nData centers are gearing up for a future in which a single rack could consume as much power as an entire building.",
+      "Hyperscalers already are collaborating to establish standards for 1-megawatt racks, and as AI workloads grow more continuous, autonomous, and power-intensive, there is an ongoing debate about whether developing...",
+      "Technologies like optics, specialized silicon, and high-voltage DC systems can enable a more fragmented future with distributed workloads and reduced density.",
+      "At least for now, data center operators and cloud service providers (CSPs) are preparing for the move to 1-megawatt racks, which will require foundational changes to the data center architecture."
      ],
      "rating": 5
     },
@@ -31,46 +64,13 @@
      "_ts": 1786605096,
      "preview": false,
      "bullets": [
-      "The traditional distinction between copper-based 'scale-up' and optical 'scale-out' is blurring as copper reaches physical limits regarding signal loss and power consumption.",
-      "Optical interconnects are increasingly penetrating the rack-scale domain to address latency issues that currently leave GPUs underutilized at roughly 25% efficiency.",
-      "New scaling terminology is emerging, including 'scale-in,' which refers to the bandwidth capacity maintained within a single chassis as clusters grow beyond individual racks.",
-      "Major players like Google are adopting optical circuit switching (OCS) in torus configurations to overcome the bandwidth and distance constraints of traditional electrical signaling."
+      "As AI clusters push beyond rack-scale limits, optical interconnects and circuit switching are reshaping how data centers scale.",
+      "Key Takeaways:\nData-center network fabrics are undergoing another architectural shift as optical interconnects assume a larger role in AI-cluster connectivity, extending into scale-up domains and influencing overall...",
+      "Scale-up has typically been defined as a single rack with copper interconnect, with programmers using memory semantics.",
+      "That definition is getting fuzzier.",
+      "“The old rule that scale-up is copper and scale-out is optical is starting to blur,” said Steven Woo, fellow and distinguished inventor at Rambus."
      ],
-     "rating": 4
-    },
-    {
-     "_key": "SemiEngineering|https://semiengineering.com/what-will-it-take-to-deploy-cpo-at-scale/",
-     "blog": "SemiEngineering",
-     "title": "What Will It Take To Deploy CPO At Scale?",
-     "link": "https://semiengineering.com/what-will-it-take-to-deploy-cpo-at-scale/",
-     "summary": "The path to widespread deployment of co-packaged optics depends on solving challenges in manufacturing, testing, and operations.\nThe post What Will It Take To Deploy CPO At Scale? appeared first on Semiconductor Engineering.",
-     "published": "2026-08-13 07:04 UTC",
-     "_ts": 1786604682,
-     "preview": false,
-     "bullets": [
-      "Co-packaged optics (CPO) are transitioning from prototypes to production, initially targeting scale-out switch ASICs where copper bandwidth is insufficient.",
-      "Widespread adoption of CPO for 'scale-up' networks—where thousands of XPUs must communicate with minimal latency—remains the next major technical hurdle.",
-      "Commercial success for CPO depends on maturing the entire ecosystem, specifically addressing manufacturing, testing, and supply chain reliability for high-volume deployment.",
-      "Industry leaders are focused on standardizing wavelength multiplication and port density to ensure CPO can support multi-generational scaling for AI infrastructure."
-     ],
-     "rating": 4
-    },
-    {
-     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/13/1141904/flock-is-tightening-its-rules-in-response-to-a-growing-surveillance-backlash/",
-     "blog": "MIT Technology Review",
-     "title": "Flock is tightening its rules in response to a growing surveillance backlash",
-     "link": "https://www.technologyreview.com/2026/08/13/1141904/flock-is-tightening-its-rules-in-response-to-a-growing-surveillance-backlash/",
-     "summary": "The police-tech giant Flock is announcing today that it will change officers’ access to its nationwide network of license plate readers, in an apparent effort to quell a growing backlash and win back contracts lost amid concerns about mass surveillance and police abuse. Several changes aim directly at a problem that has made recent headlines:…",
-     "published": "2026-08-13 13:41 UTC",
-     "_ts": 1786628470,
-     "preview": false,
-     "bullets": [
-      "Flock is mandating that officers input a criminal case number for all searches, a response to a Washington Post investigation identifying 46 instances of police using the 120,000-camera network for unauthorized stalking.",
-      "The company is making its automatic auditing system mandatory to flag suspicious search patterns, though the tool's accuracy remains unverified by independent third parties.",
-      "To mitigate privacy concerns, Flock now recommends that agencies reduce data retention periods from 30 days to seven days, though this remains an optional setting for local departments.",
-      "Despite new guardrails, critics argue the system remains vulnerable to abuse because Flock does not verify the validity of entered case numbers, allowing officers to bypass safeguards with placeholder text."
-     ],
-     "rating": 4
+     "rating": 5
     },
     {
      "_key": "CNEVPOST|https://cnevpost.com/2026/08/13/byd-qin-max-goes-on-sale-china/",
@@ -82,10 +82,10 @@
      "_ts": 1786625027,
      "preview": false,
      "bullets": [
-      "BYD has launched the Qin Max sedan, priced between 99,900 and 143,900 yuan, as a strategic move to revitalize its flagship Qin lineup following a significant sales decline this year.",
-      "The EV variant features BYD's second-generation Blade Battery and flash charging technology, enabling a 10% to 97% charge in just nine minutes.",
-      "The DM-i plug-in hybrid model achieves a class-leading fuel consumption of 2.59 liters per 100 km and offers an impressive combined range of 2,370 km.",
-      "The vehicle integrates advanced technology, including LiDAR-based 'God's Eye B' navigation assist and a built-in AI agent, targeting younger demographics to regain market share."
+      "BYD has launched the Qin Max sedan, priced between 99,900 and 143,900 yuan, as a strategic effort to revitalize its flagship Qin lineup following a significant sales decline this year.",
+      "The EV variant features BYD's second-generation Blade Battery and ultra-fast 'flash charging' technology, capable of charging from 10% to 97% in just nine minutes.",
+      "The DM-i plug-in hybrid model achieves a combined range of 2,370 km and a fuel consumption rate of 2.59 liters per 100 km, setting a new efficiency benchmark for its class.",
+      "The vehicle integrates advanced technology, including LiDAR-based 'God's Eye B' navigation assist and an AI agent named Didi Xia, targeting younger consumer demographics."
      ],
      "rating": 4
     }
