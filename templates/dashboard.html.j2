@@ -82,7 +82,7 @@
   <section class="weekly reveal" id="weekly">
     <div class="tw-label">The Week in 5 — {{ weekly.week|e }}</div>
     <ul>
-      {% for w in weekly.items %}<li>{{ w|e }}</li>{% endfor %}
+      {% for w in weekly["items"] %}<li>{{ w|e }}</li>{% endfor %}
     </ul>
   </section>
   {% endif %}
