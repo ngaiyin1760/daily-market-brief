@@ -1,30 +1,6 @@
 {
- "generated_at": "2026-08-14 00:58 HKT",
+ "generated_at": "2026-08-14 01:05 HKT",
  "blogs": [
-  {
-   "name": "MIT Technology Review",
-   "status": "ok",
-   "posts": [
-    {
-     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/13/1141904/flock-is-tightening-its-rules-in-response-to-a-growing-surveillance-backlash/",
-     "blog": "MIT Technology Review",
-     "title": "Flock is tightening its rules in response to a growing surveillance backlash",
-     "link": "https://www.technologyreview.com/2026/08/13/1141904/flock-is-tightening-its-rules-in-response-to-a-growing-surveillance-backlash/",
-     "summary": "The police-tech giant Flock is announcing today that it will change officers’ access to its nationwide network of license plate readers, in an apparent effort to quell a growing backlash and win back contracts lost amid concerns about mass surveillance and police abuse. Several changes aim directly at a problem that has made recent headlines:…",
-     "published": "2026-08-13 13:41 UTC",
-     "_ts": 1786628470,
-     "preview": false,
-     "bullets": [
-      "Flock is tightening its rules in response to a growing surveillance backlash\nThe company is imposing new guardrails on its police tech after reports that officers are abusing it and cities are dropping contracts.",
-      "But the changes leave glaring loopholes.",
-      "The police-tech giant Flock is announcing today that it will change officers’ access to its nationwide network of license plate readers, in an apparent effort to quell a growing backlash and win back contracts lost...",
-      "Several changes aim directly at a problem that has made recent headlines: officers abusing Flock’s technology to stalk and harass current or former romantic partners.",
-      "Flock’s 120,000 cameras form a nationwide network that police departments can use, giving officers access to an enormous pool of searchable location data."
-     ],
-     "rating": 5
-    }
-   ]
-  },
   {
    "name": "SemiEngineering",
    "status": "ok",
@@ -41,8 +17,8 @@
      "bullets": [
       "Hyperscalers including Google, Meta, and Microsoft are collaborating via the OCP 'Mount Diablo' project to standardize 1-megawatt rack architectures.",
       "The transition to 1-megawatt racks necessitates a fundamental shift where the rack is treated as an integrated compute system rather than a passive enclosure.",
-      "Key technical hurdles for these high-density racks include managing extreme power delivery, advanced liquid cooling, and the physical limitations of copper-based signaling.",
-      "While some argue for distributed, fragmented architectures, the industry is currently prioritizing dense, rack-scale designs to support the escalating power and compute demands of AI workloads."
+      "Key technical hurdles for these high-density racks include advanced liquid cooling, high-voltage DC power delivery, and managing the massive increase in electrical signaling connections.",
+      "Industry experts are debating whether extreme rack density is a necessary evolution for AI workloads or if distributed, fragmented architectures might offer a more efficient alternative."
      ],
      "rating": 5
     },
@@ -56,10 +32,10 @@
      "_ts": 1786605096,
      "preview": false,
      "bullets": [
-      "Copper interconnects are reaching physical limits regarding signal loss and power consumption, forcing a shift toward optical interconnects even within the rack.",
-      "New scaling terminology is emerging, including 'scale-in,' which refers to the bandwidth capacity maintained within a single chassis to prevent GPU underutilization.",
-      "Optical circuit switching (OCS) is being adopted by major players like Google to reduce latency and improve the efficiency of AI clusters that currently suffer from high idle times.",
-      "The traditional distinction between copper-based 'scale-up' and optical 'scale-out' is blurring as AI clusters expand across multiple racks, necessitating fiber-based solutions for longer distances."
+      "Copper interconnects are reaching physical limits regarding signal loss and power consumption, forcing a shift toward optical interconnects even within single racks.",
+      "Inefficient GPU utilization, often dropping to 25% due to data-wait times, is driving the industry to prioritize lower-latency optical circuit switching (OCS) networks.",
+      "The industry is adopting new terminology like 'scale-in' to describe the massive bandwidth requirements staying within a single chassis, reflecting the blurring lines between traditional scale-up and scale-out definitions.",
+      "Major players like Google are already implementing torus-configured optical networks to overcome the distance and bandwidth constraints inherent in copper-based scaling."
      ],
      "rating": 4
     },
@@ -74,9 +50,32 @@
      "preview": false,
      "bullets": [
       "Co-packaged optics (CPO) are transitioning from prototypes to production, initially targeting scale-out switch ASICs where copper bandwidth is insufficient.",
-      "Widespread adoption of CPO requires solving complex ecosystem challenges, including establishing reliable supply chains, standardized manufacturing processes, and scalable testing protocols.",
-      "The industry is currently focused on moving CPO from switch-based applications to 'scale-up' networks, which aim to unify thousands of XPUs into a single, low-latency compute engine.",
-      "Commercial success for CPO depends on achieving cost-performance parity through wavelength multiplication and higher port density, moving beyond the current reliance on standard networking technologies."
+      "Widespread adoption of CPO for scale-up networks—where thousands of XPUs must function as a single unit—remains the next major technical and commercial hurdle.",
+      "Success for CPO depends on maturing the entire ecosystem, specifically addressing manufacturing, testing, and supply chain reliability for high-volume deployment.",
+      "Industry leaders are focused on leveraging wavelength multiplication and higher modulation rates to ensure CPO provides the multi-generational scaling required for future AI infrastructure."
+     ],
+     "rating": 4
+    }
+   ]
+  },
+  {
+   "name": "MIT Technology Review",
+   "status": "ok",
+   "posts": [
+    {
+     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/13/1141904/flock-is-tightening-its-rules-in-response-to-a-growing-surveillance-backlash/",
+     "blog": "MIT Technology Review",
+     "title": "Flock is tightening its rules in response to a growing surveillance backlash",
+     "link": "https://www.technologyreview.com/2026/08/13/1141904/flock-is-tightening-its-rules-in-response-to-a-growing-surveillance-backlash/",
+     "summary": "The police-tech giant Flock is announcing today that it will change officers’ access to its nationwide network of license plate readers, in an apparent effort to quell a growing backlash and win back contracts lost amid concerns about mass surveillance and police abuse. Several changes aim directly at a problem that has made recent headlines:…",
+     "published": "2026-08-13 13:41 UTC",
+     "_ts": 1786628470,
+     "preview": false,
+     "bullets": [
+      "Flock is mandating that officers input a criminal case number for every search, a response to a Washington Post investigation identifying 46 instances of police using the 120,000-camera network for unauthorized stalking.",
+      "The company is making its automatic auditing system mandatory to flag suspicious search patterns, though the tool's efficacy remains unverified by independent third parties.",
+      "To mitigate privacy concerns, Flock now recommends that agencies reduce data retention periods from 30 days to seven days, though local departments retain the authority to override this setting.",
+      "Despite these new guardrails, critics argue that the system remains vulnerable to abuse because Flock does not verify the validity of entered case numbers, allowing officers to bypass safeguards with generic or nonsensical inputs."
      ],
      "rating": 4
     }
@@ -98,8 +97,8 @@
      "bullets": [
       "BYD has launched the Qin Max sedan with a starting price of 99,900 yuan ($14,720), positioning it as a flagship model to revitalize the declining sales of its core Qin lineup.",
       "The EV variant features second-generation Blade Battery technology, enabling ultra-fast charging that reaches 97% capacity in just nine minutes.",
-      "The DM-i plug-in hybrid version achieves a combined range of 2,370 km and a fuel consumption rate of 2.59 liters per 100 km, setting a new efficiency benchmark for its class.",
-      "The vehicle integrates advanced driver-assistance systems via the 'God's Eye B' LiDAR platform and includes a proprietary AI agent, Didi Xia, to enhance the user experience for younger demographics."
+      "The DM-i plug-in hybrid version achieves a class-leading fuel consumption rate of 2.59 liters per 100 km and offers a combined range of 2,370 km.",
+      "The vehicle integrates advanced driver-assistance systems via the 'God's Eye B' LiDAR platform and includes a built-in AI agent to enhance competitiveness in the youth-oriented B-segment market."
      ],
      "rating": 4
     }
