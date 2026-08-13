@@ -528,11 +528,11 @@ def build_day_importance(news, groups):
 
 WEEKLY_ISOWEEKDAY = 5   # Friday
 
-WEEKLY_PROMPT = """You are a market editor writing the Friday wrap-up. Below are the top stories and key numbers from THIS WEEK's daily briefs ({n_days} days: {dates}).
+WEEKLY_PROMPT = """You are a market editor writing the Friday wrap-up. Below are the week's top stories, numbered 1..N across all days ({n_days} days: {dates}).
 
-Write exactly 5 bullets, each one short (max ~28 words), that capture the 5 most important things that happened this week for a finance/tech professional — the things that will still matter next week. Do NOT restate every day; prioritize the cross-week themes and biggest moves. Start each bullet with the day of the week it happened on, e.g. "Mon:" or "Wed:".
+Pick the 5 most important STORIES this week for a finance/tech professional — the things that will still matter next week. Prioritize the biggest stories by their rating and impact; if several of the biggest all happened on one day, that's fine — importance wins over day diversity. Do NOT write your own text; simply return the numbers (indices) of the 5 stories you pick, in order of importance.
 
-Return STRICT JSON only: {"week": "<YYYY-MM-DD to YYYY-MM-DD>", "items": [5 bullet strings]}.
+Return STRICT JSON only: {"week": "<YYYY-MM-DD to YYYY-MM-DD>", "items": [5 integers, the indices of the chosen stories]}.
 
 This week's data:
 {data}
@@ -540,23 +540,53 @@ This week's data:
 
 
 def gemini_weekly(news_days, dates_str, week_label):
-    """One Gemini call for the weekly 5. Raises on failure."""
+    """One Gemini call for the weekly 5. Raises on failure.
+
+    Gemini selects by index (1-based across all week items); each returned
+    entry is mapped back to its source item so it carries title, url, and
+    the digest bullet."""
     lines = []
+    idx = 1
+    index_map = {}   # idx -> {date, label, item}
     for day in news_days:
         lines.append(f"== {day['date']} ==")
         for cat in day["categories"]:
             for it in cat["items"]:
-                lines.append(f"- [{cat['label']}] ({it['rating']}/5) {it['title']}")
+                lines.append(f"{idx}. [{cat['label']}] ({it.get('rating',0)}/5) {it.get('title','')}")
+                index_map[idx] = {"date": day["date"], "label": cat.get("label", ""),
+                                  "item": it}
+                idx += 1
     prompt = WEEKLY_PROMPT.format(n_days=len(news_days), dates=dates_str,
                                   data="\n".join(lines))
     parsed = gemini_json(prompt)
     items = parsed.get("items")
     if not isinstance(items, list) or not items:
         raise ValueError("Gemini weekly items missing or not a list")
-    return {
-        "week": str(parsed.get("week", week_label)),
-        "items": [str(i) for i in items][:5],
-    }
+
+    out = []
+    for entry in items[:5]:
+        # entry may be an index (int) or a short text containing the index.
+        sel = None
+        if isinstance(entry, (int, float)):
+            sel = int(entry)
+        elif isinstance(entry, str):
+            m = re.match(r"^\s*(\d+)", entry)
+            if m:
+                sel = int(m.group(1))
+        src = index_map.get(sel) if sel else None
+        if not src:
+            continue
+        bullets = src["item"].get("bullets") or []
+        out.append({
+            "day": datetime.strptime(src["date"], "%Y-%m-%d").strftime("%a"),
+            "label": src["label"],
+            "title": src["item"].get("title", ""),
+            "url": src["item"].get("url", ""),
+            "bullet": bullets[0] if bullets else "",
+        })
+    if len(out) < 2:
+        raise ValueError("Gemini weekly didn't map to enough source items")
+    return {"week": str(parsed.get("week", week_label)), "items": out}
 
 
 def heuristic_weekly(news_days, week_label):
@@ -566,18 +596,34 @@ def heuristic_weekly(news_days, week_label):
     on Monday, all 5 are Monday. Day diversity is deliberately NOT enforced:
     the point is the week's most important 5, not one-per-day. Ties break by
     the day order given (news_days is oldest-first, so earlier days win a
-    rating tie)."""
+    rating tie).
+
+    Each selected item carries its title, url (hyperlink), and first bullet
+    from the daily digest, so the weekly shows substance + a link, not just
+    a headline."""
     all_items = []
     for day in news_days:
         for cat in day["categories"]:
             for it in cat["items"]:
-                all_items.append((it.get("rating", 0), day["date"],
-                                  cat.get("label", ""), it.get("title", "")))
-    all_items.sort(key=lambda x: x[0], reverse=True)
+                all_items.append({
+                    "rating": it.get("rating", 0),
+                    "date": day["date"],
+                    "label": cat.get("label", ""),
+                    "title": it.get("title", ""),
+                    "url": it.get("url", ""),
+                    "bullets": it.get("bullets") or [],
+                })
+    all_items.sort(key=lambda x: x["rating"], reverse=True)
     out = []
-    for rating, date, label, title in all_items[:5]:
-        dow = datetime.strptime(date, "%Y-%m-%d").strftime("%a")
-        out.append(f"{dow}: [{label}] {title}")
+    for it in all_items[:5]:
+        dow = datetime.strptime(it["date"], "%Y-%m-%d").strftime("%a")
+        out.append({
+            "day": dow,
+            "label": it["label"],
+            "title": it["title"],
+            "url": it["url"],
+            "bullet": it["bullets"][0] if it["bullets"] else "",
+        })
     return {"week": week_label, "items": out}
 
 

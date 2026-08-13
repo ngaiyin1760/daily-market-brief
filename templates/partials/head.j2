@@ -444,13 +444,31 @@
     color: var(--gold);
     margin-bottom: 10px;
   }
-  .weekly ul { margin: 0; padding-left: 20px; }
+  .weekly ul { margin: 0; padding-left: 0; list-style: none; }
   .weekly li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     font-size: 15.5px;
     line-height: 1.45;
   }
-  .weekly li::marker { color: var(--accent); }
+  .weekly-day {
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 12.5px;
+    letter-spacing: .04em;
+  }
+  .weekly li a {
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .weekly li a:hover { text-decoration: underline; color: var(--accent); }
+  .weekly-bullet {
+    display: block;
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin-top: 2px;
+  }
 
   /* ---------- Saved news (localStorage) ---------- */
   .visually-hidden {

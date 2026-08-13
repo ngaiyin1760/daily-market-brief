@@ -81,8 +81,14 @@
   {% if weekly %}
   <section class="weekly reveal" id="weekly">
     <div class="tw-label">The Week in 5 — {{ weekly.week|e }}</div>
-    <ul>
-      {% for w in weekly["items"] %}<li>{{ w|e }}</li>{% endfor %}
+    <ul class="weekly-list">
+      {% for w in weekly["items"] %}
+      <li class="weekly-item">
+        <span class="weekly-day">{{ w.day|e }} · {{ w.label|e }}:</span>
+        <a href="{{ w.url|e }}" target="_blank" rel="noopener">{{ w.title|e }}</a>
+        {% if w.bullet %}<span class="weekly-bullet">{{ w.bullet|e }}</span>{% endif %}
+      </li>
+      {% endfor %}
     </ul>
   </section>
   {% endif %}
