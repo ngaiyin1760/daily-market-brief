@@ -2,7 +2,7 @@
  "days": [
   {
    "date": "2026-08-14",
-   "generated_at": "2026-08-14 01:05 HKT",
+   "generated_at": "2026-08-14 01:11 HKT",
    "posts": [
     {
      "_key": "SemiEngineering|https://semiengineering.com/the-1-megawatt-rack-debate/",
@@ -16,7 +16,7 @@
      "bullets": [
       "Hyperscalers including Google, Meta, and Microsoft are collaborating via the OCP 'Mount Diablo' project to standardize 1-megawatt rack architectures.",
       "The transition to 1-megawatt racks necessitates a fundamental shift where the rack is treated as an integrated compute system rather than a passive enclosure.",
-      "Key technical hurdles for these high-density racks include advanced liquid cooling, high-voltage DC power delivery, and managing the massive increase in electrical signaling connections.",
+      "Key technical hurdles include managing extreme power density, liquid cooling requirements, and the physical limitations of copper connectivity for high-lane-count AI systems.",
       "Industry experts are debating whether extreme rack density is a necessary evolution for AI workloads or if distributed, fragmented architectures might offer a more efficient alternative."
      ],
      "rating": 5
@@ -31,10 +31,10 @@
      "_ts": 1786605096,
      "preview": false,
      "bullets": [
-      "Copper interconnects are reaching physical limits regarding signal loss and power consumption, forcing a shift toward optical interconnects even within single racks.",
-      "Inefficient GPU utilization, often dropping to 25% due to data-wait times, is driving the industry to prioritize lower-latency optical circuit switching (OCS) networks.",
-      "The industry is adopting new terminology like 'scale-in' to describe the massive bandwidth requirements staying within a single chassis, reflecting the blurring lines between traditional scale-up and scale-out definitions.",
-      "Major players like Google are already implementing torus-configured optical networks to overcome the distance and bandwidth constraints inherent in copper-based scaling."
+      "The traditional distinction between copper-based 'scale-up' and optical 'scale-out' is blurring as copper reaches physical limits regarding signal loss and power consumption.",
+      "Optical interconnects are increasingly penetrating the rack-scale domain to address latency issues that currently leave GPUs underutilized at roughly 25% efficiency.",
+      "New scaling terminology is emerging, including 'scale-in,' which refers to the bandwidth capacity maintained within a single chassis as clusters grow beyond individual racks.",
+      "Major players like Google are adopting optical circuit switching (OCS) in torus configurations to overcome the bandwidth and distance constraints of traditional electrical signaling."
      ],
      "rating": 4
     },
@@ -49,9 +49,9 @@
      "preview": false,
      "bullets": [
       "Co-packaged optics (CPO) are transitioning from prototypes to production, initially targeting scale-out switch ASICs where copper bandwidth is insufficient.",
-      "Widespread adoption of CPO for scale-up networks—where thousands of XPUs must function as a single unit—remains the next major technical and commercial hurdle.",
-      "Success for CPO depends on maturing the entire ecosystem, specifically addressing manufacturing, testing, and supply chain reliability for high-volume deployment.",
-      "Industry leaders are focused on leveraging wavelength multiplication and higher modulation rates to ensure CPO provides the multi-generational scaling required for future AI infrastructure."
+      "Widespread adoption of CPO for 'scale-up' networks—where thousands of XPUs must communicate with minimal latency—remains the next major technical hurdle.",
+      "Commercial success for CPO depends on maturing the entire ecosystem, specifically addressing manufacturing, testing, and supply chain reliability for high-volume deployment.",
+      "Industry leaders are focused on standardizing wavelength multiplication and port density to ensure CPO can support multi-generational scaling for AI infrastructure."
      ],
      "rating": 4
     },
@@ -65,10 +65,10 @@
      "_ts": 1786628470,
      "preview": false,
      "bullets": [
-      "Flock is mandating that officers input a criminal case number for every search, a response to a Washington Post investigation identifying 46 instances of police using the 120,000-camera network for unauthorized stalking.",
-      "The company is making its automatic auditing system mandatory to flag suspicious search patterns, though the tool's efficacy remains unverified by independent third parties.",
-      "To mitigate privacy concerns, Flock now recommends that agencies reduce data retention periods from 30 days to seven days, though local departments retain the authority to override this setting.",
-      "Despite these new guardrails, critics argue that the system remains vulnerable to abuse because Flock does not verify the validity of entered case numbers, allowing officers to bypass safeguards with generic or nonsensical inputs."
+      "Flock is mandating that officers input a criminal case number for all searches, a response to a Washington Post investigation identifying 46 instances of police using the 120,000-camera network for unauthorized stalking.",
+      "The company is making its automatic auditing system mandatory to flag suspicious search patterns, though the tool's accuracy remains unverified by independent third parties.",
+      "To mitigate privacy concerns, Flock now recommends that agencies reduce data retention periods from 30 days to seven days, though this remains an optional setting for local departments.",
+      "Despite new guardrails, critics argue the system remains vulnerable to abuse because Flock does not verify the validity of entered case numbers, allowing officers to bypass safeguards with placeholder text."
      ],
      "rating": 4
     },
@@ -82,10 +82,10 @@
      "_ts": 1786625027,
      "preview": false,
      "bullets": [
-      "BYD has launched the Qin Max sedan with a starting price of 99,900 yuan ($14,720), positioning it as a flagship model to revitalize the declining sales of its core Qin lineup.",
-      "The EV variant features second-generation Blade Battery technology, enabling ultra-fast charging that reaches 97% capacity in just nine minutes.",
-      "The DM-i plug-in hybrid version achieves a class-leading fuel consumption rate of 2.59 liters per 100 km and offers a combined range of 2,370 km.",
-      "The vehicle integrates advanced driver-assistance systems via the 'God's Eye B' LiDAR platform and includes a built-in AI agent to enhance competitiveness in the youth-oriented B-segment market."
+      "BYD has launched the Qin Max sedan, priced between 99,900 and 143,900 yuan, as a strategic move to revitalize its flagship Qin lineup following a significant sales decline this year.",
+      "The EV variant features BYD's second-generation Blade Battery and flash charging technology, enabling a 10% to 97% charge in just nine minutes.",
+      "The DM-i plug-in hybrid model achieves a class-leading fuel consumption of 2.59 liters per 100 km and offers an impressive combined range of 2,370 km.",
+      "The vehicle integrates advanced technology, including LiDAR-based 'God's Eye B' navigation assist and a built-in AI agent, targeting younger demographics to regain market share."
      ],
      "rating": 4
     }

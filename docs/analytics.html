@@ -450,13 +450,31 @@
     color: var(--gold);
     margin-bottom: 10px;
   }
-  .weekly ul { margin: 0; padding-left: 20px; }
+  .weekly ul { margin: 0; padding-left: 0; list-style: none; }
   .weekly li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     font-size: 15.5px;
     line-height: 1.45;
   }
-  .weekly li::marker { color: var(--accent); }
+  .weekly-day {
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 12.5px;
+    letter-spacing: .04em;
+  }
+  .weekly li a {
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .weekly li a:hover { text-decoration: underline; color: var(--accent); }
+  .weekly-bullet {
+    display: block;
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin-top: 2px;
+  }
 
   /* ---------- Saved news (localStorage) ---------- */
   .visually-hidden {
@@ -1438,7 +1456,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Analytics</h1>
-    <div class="generated">Today's top 5 from your blogs · tech &amp; engineering scope · updated 2026-08-14 01:05 HKT</div>
+    <div class="generated">Today's top 5 from your blogs · tech &amp; engineering scope · updated 2026-08-14 01:11 HKT</div>
   </header>
 
   
@@ -1470,7 +1488,7 @@
           <div class="pub">2026-08-13 07:15 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Hyperscalers including Google, Meta, and Microsoft are collaborating via the OCP &#39;Mount Diablo&#39; project to standardize 1-megawatt rack architectures.</li><li>The transition to 1-megawatt racks necessitates a fundamental shift where the rack is treated as an integrated compute system rather than a passive enclosure.</li><li>Key technical hurdles for these high-density racks include advanced liquid cooling, high-voltage DC power delivery, and managing the massive increase in electrical signaling connections.</li><li>Industry experts are debating whether extreme rack density is a necessary evolution for AI workloads or if distributed, fragmented architectures might offer a more efficient alternative.</li>
+            <li>Hyperscalers including Google, Meta, and Microsoft are collaborating via the OCP &#39;Mount Diablo&#39; project to standardize 1-megawatt rack architectures.</li><li>The transition to 1-megawatt racks necessitates a fundamental shift where the rack is treated as an integrated compute system rather than a passive enclosure.</li><li>Key technical hurdles include managing extreme power density, liquid cooling requirements, and the physical limitations of copper connectivity for high-lane-count AI systems.</li><li>Industry experts are debating whether extreme rack density is a necessary evolution for AI workloads or if distributed, fragmented architectures might offer a more efficient alternative.</li>
           </ul>
           
           <div class="bc-footer">
@@ -1498,7 +1516,7 @@
           <div class="pub">2026-08-13 07:11 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Copper interconnects are reaching physical limits regarding signal loss and power consumption, forcing a shift toward optical interconnects even within single racks.</li><li>Inefficient GPU utilization, often dropping to 25% due to data-wait times, is driving the industry to prioritize lower-latency optical circuit switching (OCS) networks.</li><li>The industry is adopting new terminology like &#39;scale-in&#39; to describe the massive bandwidth requirements staying within a single chassis, reflecting the blurring lines between traditional scale-up and scale-out definitions.</li><li>Major players like Google are already implementing torus-configured optical networks to overcome the distance and bandwidth constraints inherent in copper-based scaling.</li>
+            <li>The traditional distinction between copper-based &#39;scale-up&#39; and optical &#39;scale-out&#39; is blurring as copper reaches physical limits regarding signal loss and power consumption.</li><li>Optical interconnects are increasingly penetrating the rack-scale domain to address latency issues that currently leave GPUs underutilized at roughly 25% efficiency.</li><li>New scaling terminology is emerging, including &#39;scale-in,&#39; which refers to the bandwidth capacity maintained within a single chassis as clusters grow beyond individual racks.</li><li>Major players like Google are adopting optical circuit switching (OCS) in torus configurations to overcome the bandwidth and distance constraints of traditional electrical signaling.</li>
           </ul>
           
           <div class="bc-footer">
@@ -1526,7 +1544,7 @@
           <div class="pub">2026-08-13 07:04 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Co-packaged optics (CPO) are transitioning from prototypes to production, initially targeting scale-out switch ASICs where copper bandwidth is insufficient.</li><li>Widespread adoption of CPO for scale-up networks—where thousands of XPUs must function as a single unit—remains the next major technical and commercial hurdle.</li><li>Success for CPO depends on maturing the entire ecosystem, specifically addressing manufacturing, testing, and supply chain reliability for high-volume deployment.</li><li>Industry leaders are focused on leveraging wavelength multiplication and higher modulation rates to ensure CPO provides the multi-generational scaling required for future AI infrastructure.</li>
+            <li>Co-packaged optics (CPO) are transitioning from prototypes to production, initially targeting scale-out switch ASICs where copper bandwidth is insufficient.</li><li>Widespread adoption of CPO for &#39;scale-up&#39; networks—where thousands of XPUs must communicate with minimal latency—remains the next major technical hurdle.</li><li>Commercial success for CPO depends on maturing the entire ecosystem, specifically addressing manufacturing, testing, and supply chain reliability for high-volume deployment.</li><li>Industry leaders are focused on standardizing wavelength multiplication and port density to ensure CPO can support multi-generational scaling for AI infrastructure.</li>
           </ul>
           
           <div class="bc-footer">
@@ -1559,7 +1577,7 @@
           <div class="pub">2026-08-13 13:41 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Flock is mandating that officers input a criminal case number for every search, a response to a Washington Post investigation identifying 46 instances of police using the 120,000-camera network for unauthorized stalking.</li><li>The company is making its automatic auditing system mandatory to flag suspicious search patterns, though the tool&#39;s efficacy remains unverified by independent third parties.</li><li>To mitigate privacy concerns, Flock now recommends that agencies reduce data retention periods from 30 days to seven days, though local departments retain the authority to override this setting.</li><li>Despite these new guardrails, critics argue that the system remains vulnerable to abuse because Flock does not verify the validity of entered case numbers, allowing officers to bypass safeguards with generic or nonsensical inputs.</li>
+            <li>Flock is mandating that officers input a criminal case number for all searches, a response to a Washington Post investigation identifying 46 instances of police using the 120,000-camera network for unauthorized stalking.</li><li>The company is making its automatic auditing system mandatory to flag suspicious search patterns, though the tool&#39;s accuracy remains unverified by independent third parties.</li><li>To mitigate privacy concerns, Flock now recommends that agencies reduce data retention periods from 30 days to seven days, though this remains an optional setting for local departments.</li><li>Despite new guardrails, critics argue the system remains vulnerable to abuse because Flock does not verify the validity of entered case numbers, allowing officers to bypass safeguards with placeholder text.</li>
           </ul>
           
           <div class="bc-footer">
@@ -1592,7 +1610,7 @@
           <div class="pub">2026-08-13 12:43 UTC</div>
           
           <ul class="bc-bullets">
-            <li>BYD has launched the Qin Max sedan with a starting price of 99,900 yuan ($14,720), positioning it as a flagship model to revitalize the declining sales of its core Qin lineup.</li><li>The EV variant features second-generation Blade Battery technology, enabling ultra-fast charging that reaches 97% capacity in just nine minutes.</li><li>The DM-i plug-in hybrid version achieves a class-leading fuel consumption rate of 2.59 liters per 100 km and offers a combined range of 2,370 km.</li><li>The vehicle integrates advanced driver-assistance systems via the &#39;God&#39;s Eye B&#39; LiDAR platform and includes a built-in AI agent to enhance competitiveness in the youth-oriented B-segment market.</li>
+            <li>BYD has launched the Qin Max sedan, priced between 99,900 and 143,900 yuan, as a strategic move to revitalize its flagship Qin lineup following a significant sales decline this year.</li><li>The EV variant features BYD&#39;s second-generation Blade Battery and flash charging technology, enabling a 10% to 97% charge in just nine minutes.</li><li>The DM-i plug-in hybrid model achieves a class-leading fuel consumption of 2.59 liters per 100 km and offers an impressive combined range of 2,370 km.</li><li>The vehicle integrates advanced technology, including LiDAR-based &#39;God&#39;s Eye B&#39; navigation assist and a built-in AI agent, targeting younger demographics to regain market share.</li>
           </ul>
           
           <div class="bc-footer">
@@ -1798,7 +1816,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-14 01:05 HKT");
+  var dataTS = encodeURIComponent("2026-08-14 01:11 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;

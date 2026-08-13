@@ -450,13 +450,31 @@
     color: var(--gold);
     margin-bottom: 10px;
   }
-  .weekly ul { margin: 0; padding-left: 20px; }
+  .weekly ul { margin: 0; padding-left: 0; list-style: none; }
   .weekly li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     font-size: 15.5px;
     line-height: 1.45;
   }
-  .weekly li::marker { color: var(--accent); }
+  .weekly-day {
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 12.5px;
+    letter-spacing: .04em;
+  }
+  .weekly li a {
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .weekly li a:hover { text-decoration: underline; color: var(--accent); }
+  .weekly-bullet {
+    display: block;
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin-top: 2px;
+  }
 
   /* ---------- Saved news (localStorage) ---------- */
   .visually-hidden {
@@ -1438,12 +1456,12 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>2026-08-14</h1>
-    <div class="generated">Generated 2026-08-14 01:05 HKT</div>
+    <div class="generated">Generated 2026-08-14 01:11 HKT</div>
   </header>
   
   <div class="ticker-wrap">
-    <div class="ticker"><span class="pos"><span class="m1 pos" style="animation-delay: 0ms" title="1-month trend">▲</span>S&amp;P +0.6%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 70ms" title="1-month trend">▲</span>Nasdaq +0.7%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 140ms" title="1-month trend">▼</span>HSI -0.8%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 210ms" title="1-month trend">▼</span>US10Y 4.64%</span> · <span class="flat">USD/HKD +0.0%</span> · <span class="flat">HKD/CNY -0.0%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 420ms" title="1-month trend">▼</span>JPY/HKD(¥100) -0.7%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 490ms" title="1-month trend">▲</span>Gold +0.3%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 560ms" title="1-month trend">▼</span>BTC -0.5%</span></div>
-    <div class="asof">Market data as of 2026-08-14 01:05 HKT<span class="session-badge" id="session-badge"></span><span class="new-count">23 new stories</span></div>
+    <div class="ticker"><span class="pos"><span class="m1 pos" style="animation-delay: 0ms" title="1-month trend">▲</span>S&amp;P +0.6%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 70ms" title="1-month trend">▲</span>Nasdaq +0.8%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 140ms" title="1-month trend">▼</span>HSI -0.8%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 210ms" title="1-month trend">▼</span>US10Y 4.64%</span> · <span class="flat">USD/HKD +0.0%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 350ms" title="1-month trend">▼</span>HKD/CNY -0.2%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 420ms" title="1-month trend">▼</span>JPY/HKD(¥100) -0.6%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 490ms" title="1-month trend">▲</span>Gold +0.3%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 560ms" title="1-month trend">▼</span>BTC -0.5%</span></div>
+    <div class="asof">Market data as of 2026-08-14 01:11 HKT<span class="session-badge" id="session-badge"></span><span class="new-count">23 new stories</span></div>
   </div>
   
 
@@ -1459,27 +1477,27 @@
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">S&amp;P 500</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,20.2 L4.4,17.0 L7.8,19.0 L11.1,20.2 L14.5,16.7 L17.9,14.8 L21.3,18.3 L24.7,16.7 L28.0,15.0 L31.4,17.2 L34.8,21.7 L38.2,22.5 L41.6,18.7 L44.9,19.3 L48.3,24.6 L51.7,24.4 L55.1,24.3 L58.4,23.4 L61.8,30.0 L65.2,22.9 L68.6,19.8 L72.0,13.3 L75.3,5.3 L78.7,6.1 L82.1,6.9 L85.5,4.1 L88.9,4.4 L92.2,5.8 L95.6,4.6 L99.0,2.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,22.7 L4.4,19.3 L7.8,20.2 L11.1,20.2 L14.5,17.0 L17.9,19.0 L21.3,20.2 L24.7,16.7 L28.0,14.8 L31.4,18.3 L34.8,16.7 L38.2,15.0 L41.6,17.3 L44.9,21.7 L48.3,22.6 L51.7,24.6 L55.1,24.4 L58.4,24.3 L61.8,23.4 L65.2,30.0 L68.6,22.9 L72.0,13.4 L75.3,5.4 L78.7,6.2 L82.1,6.9 L85.5,4.2 L88.9,4.4 L92.2,5.9 L95.6,4.7 L99.0,2.0"/></svg>
         </div>
-        <div class="hero-last">7,793.32</div>
-        <div class="hero-chg pos">+0.58%</div>
-        <div class="hero-delta pos">Δ +0.58% vs yesterday</div>
+        <div class="hero-last">7,794.46</div>
+        <div class="hero-chg pos">+0.59%</div>
+        <div class="hero-delta pos">Δ +0.59% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">Nasdaq</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,13.4 L4.4,9.9 L7.8,13.5 L11.1,12.9 L14.5,8.9 L17.9,8.0 L21.3,12.9 L24.7,10.1 L28.0,8.1 L31.4,12.8 L34.8,17.1 L38.2,17.3 L41.6,13.3 L44.9,15.1 L48.3,21.7 L51.7,23.6 L55.1,24.1 L58.4,24.8 L61.8,30.0 L65.2,21.9 L68.6,18.9 L72.0,12.4 L75.3,4.4 L78.7,7.0 L82.1,7.2 L85.5,3.1 L88.9,4.1 L92.2,6.0 L95.6,4.3 L99.0,2.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,13.6 L4.4,8.9 L7.8,11.0 L11.1,13.5 L14.5,10.0 L17.9,13.6 L21.3,13.0 L24.7,9.0 L28.0,8.1 L31.4,13.0 L34.8,10.2 L38.2,8.3 L41.6,12.9 L44.9,17.2 L48.3,17.3 L51.7,21.7 L55.1,23.7 L58.4,24.2 L61.8,24.8 L65.2,30.0 L68.6,21.9 L72.0,12.5 L75.3,4.5 L78.7,7.2 L82.1,7.3 L85.5,3.3 L88.9,4.3 L92.2,6.2 L95.6,4.5 L99.0,2.0"/></svg>
         </div>
-        <div class="hero-last">26,782.50</div>
-        <div class="hero-chg pos">+0.73%</div>
-        <div class="hero-delta pos">Δ +0.73% vs yesterday</div>
+        <div class="hero-last">26,796.39</div>
+        <div class="hero-chg pos">+0.78%</div>
+        <div class="hero-delta pos">Δ +0.78% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">HSI</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,30.0 L4.4,27.2 L7.8,24.7 L11.1,25.8 L14.5,19.2 L17.9,20.8 L21.3,19.4 L24.7,19.0 L28.0,17.8 L31.4,14.6 L34.8,11.5 L38.2,15.7 L41.6,10.2 L44.9,10.3 L48.3,12.6 L51.7,9.6 L55.1,11.9 L58.4,9.6 L61.8,8.6 L65.2,3.9 L68.6,3.4 L72.0,3.2 L75.3,2.0 L78.7,3.5 L82.1,2.9 L85.5,6.5 L88.9,5.2 L92.2,2.7 L95.6,5.4 L99.0,7.4"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,30.0 L4.4,27.0 L7.8,28.2 L11.1,26.8 L14.5,24.3 L17.9,22.1 L21.3,23.1 L24.7,17.2 L28.0,18.6 L31.4,17.4 L34.8,17.1 L38.2,16.0 L41.6,13.1 L44.9,10.4 L48.3,14.1 L51.7,9.3 L55.1,8.7 L58.4,10.8 L61.8,8.7 L65.2,7.9 L68.6,3.7 L72.0,3.3 L75.3,2.0 L78.7,3.3 L82.1,2.8 L85.5,6.0 L88.9,4.9 L92.2,2.6 L95.6,5.0 L99.0,6.8"/></svg>
         </div>
         <div class="hero-last">25,440.17</div>
         <div class="hero-chg neg">-0.83%</div>
@@ -1489,61 +1507,61 @@
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">US10Y</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-flat" d="M1.0,2.0 L8.0,8.8 L15.0,19.5 L22.0,30.0 L29.0,24.9 L36.0,13.3 L43.0,6.8 L50.0,23.5 L57.0,26.3 L64.0,11.3 L71.0,14.2 L78.0,3.1 L85.0,7.4 L92.0,7.9 L99.0,19.5"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-flat" d="M1.0,2.0 L8.0,8.8 L15.0,19.5 L22.0,30.0 L29.0,24.9 L36.0,13.3 L43.0,6.8 L50.0,23.5 L57.0,26.3 L64.0,11.3 L71.0,14.2 L78.0,3.1 L85.0,7.4 L92.0,7.9 L99.0,19.0"/></svg>
         </div>
         <div class="hero-last">4.64%</div>
-        <div class="hero-chg neg">-4.1 bp</div>
-        <div class="hero-delta neg">Δ -4.1 bp vs yesterday</div>
+        <div class="hero-chg neg">-3.9 bp</div>
+        <div class="hero-delta neg">Δ -3.9 bp vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">USD/HKD</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,11.7 L4.4,11.7 L7.8,13.0 L11.1,14.8 L14.5,22.1 L17.9,30.0 L21.3,20.3 L24.7,25.6 L28.0,25.6 L31.4,23.5 L34.8,17.7 L38.2,19.8 L41.6,17.2 L44.9,15.3 L48.3,19.3 L51.7,16.1 L55.1,14.3 L58.4,14.6 L61.8,17.2 L65.2,13.8 L68.6,11.7 L72.0,14.3 L75.3,14.6 L78.7,13.3 L82.1,10.4 L85.5,7.8 L88.9,5.4 L92.2,5.7 L95.6,2.3 L99.0,2.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,12.5 L4.4,12.5 L7.8,13.8 L11.1,15.5 L14.5,22.5 L17.9,30.0 L21.3,20.7 L24.7,25.7 L28.0,25.7 L31.4,23.7 L34.8,18.3 L38.2,20.3 L41.6,17.8 L44.9,16.0 L48.3,19.7 L51.7,16.8 L55.1,15.0 L58.4,15.2 L61.8,17.8 L65.2,14.5 L68.6,12.5 L72.0,15.0 L75.3,15.2 L78.7,14.0 L82.1,11.3 L85.5,8.8 L88.9,6.5 L92.2,6.7 L95.6,3.5 L99.0,2.0"/></svg>
         </div>
         <div class="hero-last">7.85</div>
-        <div class="hero-chg flat">+0.00%</div>
-        <div class="hero-delta pos">Δ -0.00% vs yesterday</div>
+        <div class="hero-chg flat">+0.01%</div>
+        <div class="hero-delta pos">Δ +0.00% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">HKD/CNY</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,9.2 L4.4,9.6 L7.8,6.3 L11.1,6.9 L14.5,2.0 L17.9,5.3 L21.3,13.2 L24.7,11.2 L28.0,15.2 L31.4,16.5 L34.8,15.2 L38.2,15.2 L41.6,15.5 L44.9,18.5 L48.3,15.2 L51.7,15.5 L55.1,16.2 L58.4,18.5 L61.8,16.2 L65.2,18.5 L68.6,23.4 L72.0,24.7 L75.3,24.1 L78.7,24.1 L82.1,26.0 L85.5,26.7 L88.9,27.7 L92.2,27.4 L95.6,29.0 L99.0,30.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,8.2 L4.4,8.4 L7.8,5.6 L11.1,6.2 L14.5,2.0 L17.9,4.8 L21.3,11.5 L24.7,9.8 L28.0,13.2 L31.4,14.3 L34.8,13.2 L38.2,13.2 L41.6,13.5 L44.9,16.0 L48.3,13.2 L51.7,13.5 L55.1,14.0 L58.4,16.0 L61.8,14.0 L65.2,16.0 L68.6,20.2 L72.0,21.3 L75.3,20.8 L78.7,20.8 L82.1,22.4 L85.5,23.0 L88.9,23.8 L92.2,23.6 L95.6,25.0 L99.0,30.0"/></svg>
         </div>
         <div class="hero-last">0.86</div>
-        <div class="hero-chg flat">-0.03%</div>
-        <div class="hero-delta neg">Δ -0.05% vs yesterday</div>
+        <div class="hero-chg neg">-0.21%</div>
+        <div class="hero-delta neg">Δ -0.22% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">JPY/HKD</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,19.4 L4.4,19.5 L7.8,22.3 L11.1,23.5 L14.5,24.5 L17.9,24.0 L21.3,21.6 L24.7,24.1 L28.0,23.1 L31.4,22.5 L34.8,23.7 L38.2,24.3 L41.6,24.1 L44.9,27.1 L48.3,26.8 L51.7,29.9 L55.1,28.9 L58.4,29.5 L61.8,30.0 L65.2,27.5 L68.6,13.8 L72.0,2.2 L75.3,2.0 L78.7,2.7 L82.1,2.2 L85.5,5.8 L88.9,3.3 L92.2,9.0 L95.6,9.4 L99.0,14.1"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,19.4 L4.4,19.5 L7.8,22.3 L11.1,23.5 L14.5,24.5 L17.9,24.0 L21.3,21.6 L24.7,24.1 L28.0,23.1 L31.4,22.5 L34.8,23.7 L38.2,24.3 L41.6,24.1 L44.9,27.1 L48.3,26.8 L51.7,29.9 L55.1,28.9 L58.4,29.5 L61.8,30.0 L65.2,27.5 L68.6,13.8 L72.0,2.2 L75.3,2.0 L78.7,2.7 L82.1,2.2 L85.5,5.8 L88.9,3.3 L92.2,9.0 L95.6,9.4 L99.0,14.0"/></svg>
         </div>
         <div class="hero-last">4.89</div>
-        <div class="hero-chg neg">-0.66%</div>
-        <div class="hero-delta neg">Δ -0.08% vs yesterday</div>
+        <div class="hero-chg neg">-0.64%</div>
+        <div class="hero-delta neg">Δ -0.06% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">Gold</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,21.9 L4.4,19.2 L7.8,19.8 L11.1,24.5 L14.5,20.7 L17.9,22.4 L21.3,29.3 L24.7,25.2 L28.0,26.3 L31.4,30.0 L34.8,28.3 L38.2,28.4 L41.6,24.5 L44.9,19.7 L48.3,26.1 L51.7,24.8 L55.1,24.3 L58.4,26.8 L61.8,26.9 L65.2,22.7 L68.6,25.9 L72.0,26.9 L75.3,23.0 L78.7,13.4 L82.1,13.6 L85.5,7.3 L88.9,6.0 L92.2,4.6 L95.6,3.0 L99.0,2.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,21.9 L4.4,19.2 L7.8,19.8 L11.1,24.6 L14.5,20.7 L17.9,22.4 L21.3,29.3 L24.7,25.2 L28.0,26.3 L31.4,30.0 L34.8,28.3 L38.2,28.4 L41.6,24.5 L44.9,19.7 L48.3,26.1 L51.7,24.8 L55.1,24.3 L58.4,26.8 L61.8,26.9 L65.2,22.7 L68.6,25.9 L72.0,26.9 L75.3,23.0 L78.7,13.4 L82.1,13.6 L85.5,7.3 L88.9,6.0 L92.2,4.6 L95.6,3.0 L99.0,2.0"/></svg>
         </div>
-        <div class="hero-last">4,423.80</div>
-        <div class="hero-chg pos">+0.34%</div>
-        <div class="hero-delta neg">Δ -0.80% vs yesterday</div>
+        <div class="hero-last">4,424.40</div>
+        <div class="hero-chg pos">+0.35%</div>
+        <div class="hero-delta neg">Δ -0.78% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">BTC</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,15.4 L4.4,22.3 L7.8,21.5 L11.1,14.8 L14.5,15.6 L17.9,11.5 L21.3,2.0 L24.7,5.0 L28.0,12.9 L31.4,20.0 L34.8,18.4 L38.2,10.7 L41.6,22.8 L44.9,21.7 L48.3,21.4 L51.7,15.3 L55.1,29.6 L58.4,30.0 L61.8,24.6 L65.2,24.8 L68.6,20.3 L72.0,16.3 L75.3,18.8 L78.7,14.2 L82.1,14.0 L85.5,14.4 L88.9,21.4 L92.2,24.1 L95.6,25.2 L99.0,27.8"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,15.4 L4.4,22.3 L7.8,21.5 L11.1,14.8 L14.5,15.6 L17.9,11.5 L21.3,2.0 L24.7,5.0 L28.0,12.9 L31.4,20.0 L34.8,18.4 L38.2,10.7 L41.6,22.8 L44.9,21.7 L48.3,21.4 L51.7,15.3 L55.1,29.6 L58.4,30.0 L61.8,24.6 L65.2,24.8 L68.6,20.3 L72.0,16.3 L75.3,18.8 L78.7,14.2 L82.1,14.0 L85.5,14.4 L88.9,21.4 L92.2,24.1 L95.6,25.2 L99.0,27.6"/></svg>
         </div>
-        <div class="hero-last">63,062.89</div>
-        <div class="hero-chg neg">-0.54%</div>
-        <div class="hero-delta neg">Δ -0.47% vs yesterday</div>
+        <div class="hero-last">63,077.75</div>
+        <div class="hero-chg neg">-0.51%</div>
+        <div class="hero-delta neg">Δ -0.45% vs yesterday</div>
       </div>
       
     </div>
@@ -1564,7 +1582,7 @@
   <section class="takeaways reveal" id="takeaways">
     <div class="tw-label">Today's Key Takeaways</div>
     <ul>
-      <li>Cooling US inflation and declining Treasury yields are boosting market sentiment, though persistent core price pressures and geopolitical risks in the Middle East continue to temper risk appetite.</li><li>The AI sector faces a divergence between rapid innovation in China and leadership instability at OpenAI, while institutional capital aggressively targets high-density data center infrastructure for valuation growth.</li><li>Global EV sales are fragmenting as North American demand falters and manufacturers prioritize margin preservation, contrasting with the structural shift toward gold as a hedge against dedollarization.</li>
+      <li>Cooling US inflation and stable PPI data have eased rate-hike fears, though geopolitical risks in the Middle East and energy supply concerns continue to cap broader market optimism.</li><li>Nvidia’s $500 billion infrastructure financing initiative signals a structural shift, treating AI compute as a long-term asset class while intensifying competition with China’s rapidly advancing, cost-efficient AI models.</li><li>Global EV growth is stalling in North America as manufacturers prioritize margin preservation over volume, while Hong Kong’s property sector faces prolonged stagnation due to structural and interest-rate headwinds.</li>
     </ul>
   </section>
   
@@ -1572,8 +1590,38 @@
   
   <section class="weekly reveal" id="weekly">
     <div class="tw-label">The Week in 5 — 2026-08-10 to 2026-08-14</div>
-    <ul>
-      <li>Mon: [Global Economy] China&#39;s Gold Reserves Are Growing Faster Than Many Expected</li><li>Mon: [Equity Markets] Iran negotiations, Berkshire&#39;s stock purchases, Shein&#39;s tariff troubles and more in Morning Squawk - CNBC</li><li>Mon: [Fixed Income] Behind Bessent Moves, Wall Street Sees Sign of Bond-Market Angst</li><li>Mon: [China Economy] China&#39;s Economic Slowdown Is Getting Harder To Ignore (SP500)</li><li>Mon: [Artificial Intelligence] OpenAI Pauses Astra Model Over Critical Cybersecurity Risk Concerns</li>
+    <ul class="weekly-list">
+      
+      <li class="weekly-item">
+        <span class="weekly-day">Mon · Global Economy:</span>
+        <a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxOb1FpcVNpLTdVcHlvU0ZMNkRYY29BZmVXbjZ3cF82b283Y0dpWGxZTzBUWXowR1diTE1aM21FeXhNVndvRW5nTUpUQnhKcDN2NjZSdVNTYTBOd21sMTNqekhDekx0WGdoaDB3T0JkMTV1Tkh5UlgzQ2JTR3p2WWNHck5lUnpfeHk4LUhQQ0J6LUZ6SWk5cWtB?oc=5" target="_blank" rel="noopener">China&#39;s Gold Reserves Are Growing Faster Than Many Expected</a>
+        <span class="weekly-bullet">The People’s Bank of China acquired 640,000 ounces of gold in July, marking its largest monthly purchase since October 2023 and the 21st consecutive month of accumulation.</span>
+      </li>
+      
+      <li class="weekly-item">
+        <span class="weekly-day">Mon · Equity Markets:</span>
+        <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxNaDQ4VDVRX0IxSXNZTWxFaGRBX3NJWWZOZTFkOHhUSGVXbldTV09TYnNKSlU0YUtIUGVpa0dCNWF2RDVrVnIxLVVuNy0tQmptTHg5WHFkSW40Zy02dFhhVU5TQnJ1Z0NTekZHUXJScGdtZGwzQnlIdGQxa0MyemxxS3FMQTJqd1doeURN0gGQAUFVX3lxTE02Zk13RGplTnllRDl5XzBxLThTcWthVnY5WjcyMmFjakY5RG9VQVNjVDdwbi1uM05pRVNKNUY4OTNVVkpXMGtXT1prVU40Q0lJTmk4RFRlTVBYUkhhRURwSnhvWEF4NmxPY3p6eU5qeHEzNjRyOXlmN1RKal9FR3dPZUpCV3RoZWhPOWFXMlZfZA?oc=5" target="_blank" rel="noopener">Iran negotiations, Berkshire&#39;s stock purchases, Shein&#39;s tariff troubles and more in Morning Squawk - CNBC</a>
+        <span class="weekly-bullet">Berkshire Hathaway reported a 16% increase in Q2 operating earnings and ended a 14-quarter streak of net selling by executing nearly $20 billion in net stock purchases.</span>
+      </li>
+      
+      <li class="weekly-item">
+        <span class="weekly-day">Mon · Fixed Income:</span>
+        <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxPTGtZcUxST3BKd3FOQ2l3TDltSUlfQl82cGhRLU9XOHZNdHltaEFUM3RaMmNzdGRIQWJRSWR1c0VEUVJDYTVycVhRbVpTNjc4SFBFdUo2TnBHTWF0MjVIc0ZWb254Uzc4MXlkQnFORUd3d0RWT3VJdkpWMUJfTVNIOGtvUTNZVUVaUUVOYXRsQUtFeXZmbzRSOHNSWHRGT2FXaTFNNGNuZXFwVUs1T2JUUnpDWnM?oc=5" target="_blank" rel="noopener">Behind Bessent Moves, Wall Street Sees Sign of Bond-Market Angst</a>
+        <span class="weekly-bullet">Market participants are interpreting recent strategic maneuvers by Scott Bessent as a broader indicator of underlying anxiety within the US Treasury market regarding fiscal sustainability.</span>
+      </li>
+      
+      <li class="weekly-item">
+        <span class="weekly-day">Mon · China Economy:</span>
+        <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxQRGZjRy1VVlBtR0wyb0ZYM2NQYXlwWTVjbzZFLUhZQ1l1eW9SX2lOQV96VDRobUxybE1HeWxtQmctdHU2TUNLNnBVTzJnLVRLX0N2Zk1mRHNpMzNPeGEzNDhPQklfc0pIbm1KeTJncEtWZDlLRFEyYUZHekNxU0VBcGNEd0VOVzF2ZldxUDl6SkhteUh3OFpqMw?oc=5" target="_blank" rel="noopener">China&#39;s Economic Slowdown Is Getting Harder To Ignore (SP500)</a>
+        <span class="weekly-bullet">Persistent structural headwinds in the Chinese economy are increasingly impacting global market sentiment, specifically affecting S&amp;P 500 companies with significant revenue exposure to the region.</span>
+      </li>
+      
+      <li class="weekly-item">
+        <span class="weekly-day">Mon · Artificial Intelligence:</span>
+        <a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxPdU9faFdjci0tNkxqVHV0bkNBZnpWQThJS1VWcjl6YkJQdks1bHIzbl9qNDdVdGYyUHZNeEpvcXliVGE1Tk5sdXNaUnV0bEpoQk1mMWpjeUFzTUhWWDVZYTIxT3k0bUpRaDZsYU53ZjlteUNvNU81bDNuNXczOXYzUjNoeHZRbFNidWstTlhtTkFNQklScktGQmMzQlJHdkFQR3F0REQ5WnR1OE04VG9B0gG0AUFVX3lxTE5jV28xVFNVQ1d2WmVFR2dHZEFXNHZscThzMGV5bTFNQmkycU1yM2ZDQ19PNWZZTmZxWGZUZFplMzI1QTltWnZSRzFpWV9WbENJOW11cW9jalJiSzhGaEh1aThQa1FuQ3ZVYVJENHpta09EaXllb3VqWkNMOWNCSnh5Ym5yTlVsTnpfQ3M3d1ZrN1hSTWRyNFlSb2hreTR6azhBLUZKeXoxYXBHd01ILVUwVEo3Sg?oc=5" target="_blank" rel="noopener">OpenAI Pauses Astra Model Over Critical Cybersecurity Risk Concerns</a>
+        <span class="weekly-bullet">OpenAI has halted the development of its Astra model after internal testing revealed it possesses &#39;critical&#39; cyber capabilities that pose significant security risks.</span>
+      </li>
+      
     </ul>
   </section>
   
@@ -1624,7 +1672,7 @@
           </td>
           <td class="summary">
             <ul>
-              <li>US annual inflation cooled to 3.4% with core inflation hitting a multi-month low of 2.5%, significantly reducing market expectations for further Federal Reserve rate hikes in 2026.</li><li>Geopolitical tensions in the Strait of Hormuz and uncertainty regarding the extension of the US-Iran ceasefire continue to cap risk appetite despite positive momentum in AI-driven tech equities.</li>
+              <li>US annual inflation cooled to 3.4% with core inflation hitting a multi-month low of 2.5%, significantly reducing market expectations for further Federal Reserve rate hikes this year.</li><li>Geopolitical tensions in the Strait of Hormuz and uncertainty regarding the extension of the US-Iran ceasefire continue to act as a ceiling on market optimism despite positive economic data.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Anadolu Ajansı</span></td>
@@ -1656,13 +1704,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Indonesia holds 3,600 metric tons of gold reserves but maintains only 87.1 metric tons in official central bank holdings, highlighting a significant potential for domestic reserve accumulation.</li><li>Financial authorities are under pressure to shift away from heavy reliance on USD-denominated foreign exchange reserves, potentially signaling a long-term structural shift toward gold as a hedge against dedollarization.</li>
+              <li>Indonesia holds 3,600 metric tons of gold reserves but maintains only 87.1 metric tons in official central bank holdings, highlighting a massive potential for domestic reserve accumulation.</li><li>Financial authorities are under pressure to pivot from holding $145.6 billion primarily in fiat currencies toward gold to hedge against global dedollarization and currency volatility.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">InvestorTrust</span></td>
           <td class="rating">
             <span class="rating-chip r3">3</span>
-            <span class="reason">Highlights a potential shift in central bank reserve management strategies in emerging markets.</span>
+            <span class="reason">Significant shift in central bank reserve strategy for a major emerging market.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1675,26 +1723,26 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNcXdLRm83Z3lqdDQ2eFpZVWw2dk5ITGhkYVdadFNRT0Q3OVIxd3RJVjFzUlgxeVhyZG9WcVFpelRhX1ZkMnFxX002YXpxTnpZdDlNb2doNTZGNk5UUXdPdTVlQXkxTTFIWEwtVmZYc2tWSW1QSUpkTjVrZ3U2aEQxVWpiTVByeW54LXllZmdocjBhRlRrR19qUVV0WXhWMGFvZ3V3M0NMakI?oc=5"
-            data-title="Non-farm payrolls ignite gold rally, while central bank purchases provide support"
-            data-source="富途牛牛"
+            data-url="https://news.google.com/rss/articles/CBMixAFBVV95cUxPWDRIeXlQSm5GQkRzdWxheVhOLWZrRThDWmFfNXRqLWdqMm9ELTdDdTJKeEVIUnBnTWJJSlM0Y3RZWHJMbU1WYm01MEc3RmRiVFBBVkdzWjU3OW1DalluQlBxUXJnSGNhQmpLYldIRGN1OVFoUmhkQ01jV1h4QkZCaGNrVm1xd2VnaHRUekNVd1pEc1VJSzlybVRsN0N1cmtjR2ZUc1dZbHd4V0kyTDdVQ1hKVmpGZUVFbUdMVWFPTU5qV1hy?oc=5"
+            data-title="AI driving rise in tech stock"
+            data-source="Anadolu Ajansı"
             data-category="Global Economy"
             data-rating="4"
             data-date="2026-08-14">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNcXdLRm83Z3lqdDQ2eFpZVWw2dk5ITGhkYVdadFNRT0Q3OVIxd3RJVjFzUlgxeVhyZG9WcVFpelRhX1ZkMnFxX002YXpxTnpZdDlNb2doNTZGNk5UUXdPdTVlQXkxTTFIWEwtVmZYc2tWSW1QSUpkTjVrZ3U2aEQxVWpiTVByeW54LXllZmdocjBhRlRrR19qUVV0WXhWMGFvZ3V3M0NMakI?oc=5" target="_blank" rel="noopener">Non-farm payrolls ignite gold rally, while central bank purchases provide support</a>
-            <div class="pub">2026-08-13 01:11 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxPWDRIeXlQSm5GQkRzdWxheVhOLWZrRThDWmFfNXRqLWdqMm9ELTdDdTJKeEVIUnBnTWJJSlM0Y3RZWHJMbU1WYm01MEc3RmRiVFBBVkdzWjU3OW1DalluQlBxUXJnSGNhQmpLYldIRGN1OVFoUmhkQ01jV1h4QkZCaGNrVm1xd2VnaHRUekNVd1pEc1VJSzlybVRsN0N1cmtjR2ZUc1dZbHd4V0kyTDdVQ1hKVmpGZUVFbUdMVWFPTU5qV1hy?oc=5" target="_blank" rel="noopener">AI driving rise in tech stock</a>
+            <div class="pub">2026-08-13 09:04 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Recent non-farm payroll data has acted as a catalyst for a gold price rally, supported by sustained central bank buying activity that provides a floor for the precious metal.</li><li>Market participants are shifting focus toward upcoming commentary from Fed officials at Jackson Hole to determine if the current gold rebound can sustain a secondary bull market trajectory.</li>
+              <li>Corporate earnings in the AI sector remain robust, with CoreWeave reporting a near-doubling of quarterly revenue and Supermicro exceeding market expectations, fueling a broader tech rally.</li><li>The sustained performance of AI-related equities like Nvidia and Micron suggests that institutional demand for infrastructure-heavy tech remains a primary driver of market liquidity.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">富途牛牛</span></td>
+          <td class="source"><span class="chip">Anadolu Ajansı</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="reason">Signals a critical technical and fundamental inflection point for gold markets.</span>
+            <span class="reason">Strong earnings momentum in the AI sector continues to dictate market leadership.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1722,26 +1770,26 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMimgFBVV95cUxQdUZyYkFWa1NZZlM0R3BYVlNhX3ZjZXBYVU5DaHRKaE1oTm9zUzJ6Zm8yMmVBTi1SOWZiTnFybmRDbXk4YjB2MlczUjlkdVA2amxBakVzdWw2cHFEUmdERWRHdmh4Uk1MS0hwNUd5b0hzV3JwOWtkSXpwaGltUUZfWG1yaEpJT2c2Um5vOS1Gay1LcWNUQlotdFB3?oc=5"
-            data-title="ONDS Stock Drops After Earnings – CEO Expects ‘Sustained Momentum’, Raises 2026 Revenue Outlook To $550M"
-            data-source="Yahoo Finance"
+            data-url="https://news.google.com/rss/articles/CBMihgFBVV95cUxQQnJkWmJHSE1PNWNnbDJIRzNSZlYzeDRlNmFCekJ3b2xEcWxMd3RWVGI0dmtsS1dMcUw3SmpzLUxEVU9WVnJKNVI3TTc5T1FHTmk0VF8yeDRJdXFOY1ZRX2xSSElRMC1sc1dnamYtVHFPZ1hlQlNEWG9TbDFfQnpYakNiNXh1d9IBiwFBVV95cUxNLVVLTFBUTUNxRjlxME0wemhiZmdNQ0lWV19XT1Jfc1hGZVBKSnpyVE54V2d5dWk4OUwwLVJRSlVpYnhSRjROZnhWTllDbUFUMTlTcl9QQ01rSDZhblo1YmUyQUJDdXpNQnZmSWNWQUhqN0tfb2JhdXFjZ1lLNXpubi1nOVZsbEhlX2Yw?oc=5"
+            data-title="Easing inflation pressures, Cerebras earnings, falling Hormuz traffic and more in Morning Squawk"
+            data-source="CNBC"
             data-category="Equity Markets"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-08-14">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxQdUZyYkFWa1NZZlM0R3BYVlNhX3ZjZXBYVU5DaHRKaE1oTm9zUzJ6Zm8yMmVBTi1SOWZiTnFybmRDbXk4YjB2MlczUjlkdVA2amxBakVzdWw2cHFEUmdERWRHdmh4Uk1MS0hwNUd5b0hzV3JwOWtkSXpwaGltUUZfWG1yaEpJT2c2Um5vOS1Gay1LcWNUQlotdFB3?oc=5" target="_blank" rel="noopener">ONDS Stock Drops After Earnings – CEO Expects ‘Sustained Momentum’, Raises 2026 Revenue Outlook To $550M</a>
-            <div class="pub">2026-08-13 12:55 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxQQnJkWmJHSE1PNWNnbDJIRzNSZlYzeDRlNmFCekJ3b2xEcWxMd3RWVGI0dmtsS1dMcUw3SmpzLUxEVU9WVnJKNVI3TTc5T1FHTmk0VF8yeDRJdXFOY1ZRX2xSSElRMC1sc1dnamYtVHFPZ1hlQlNEWG9TbDFfQnpYakNiNXh1d9IBiwFBVV95cUxNLVVLTFBUTUNxRjlxME0wemhiZmdNQ0lWV19XT1Jfc1hGZVBKSnpyVE54V2d5dWk4OUwwLVJRSlVpYnhSRjROZnhWTllDbUFUMTlTcl9QQ01rSDZhblo1YmUyQUJDdXpNQnZmSWNWQUhqN0tfb2JhdXFjZ1lLNXpubi1nOVZsbEhlX2Yw?oc=5" target="_blank" rel="noopener">Easing inflation pressures, Cerebras earnings, falling Hormuz traffic and more in Morning Squawk</a>
+            <div class="pub">2026-08-13 12:09 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Ondas Holdings reported record Q2 revenue of $83.8 million, significantly exceeding the $68 million analyst consensus and marking a 13-fold increase compared to the same period last year.</li><li>Despite the revenue growth, the company reported a widened adjusted EBITDA loss of $50.6 million and a gross margin decline to 43.1%, leading to a 5% drop in share price.</li>
+              <li>Annual inflation growth cooled slightly in July, prompting traders to scale back expectations for a Federal Reserve interest rate hike in September despite a modest uptick in headline CPI.</li><li>Chipmaker Cerebras saw shares plunge 15% in extended trading after reporting revenue that missed analyst expectations, even as management emphasized that AI inference demand remains exceptionally strong.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Yahoo Finance</span></td>
+          <td class="source"><span class="chip">CNBC</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="reason">Strong revenue growth coupled with margin compression and stock volatility.</span>
+            <span class="rating-chip r5">5</span>
+            <span class="reason">Macroeconomic data shifts and significant earnings volatility in the AI sector.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1754,26 +1802,26 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiogFBVV95cUxPakItSkJQeURsbjVaZHo4dGdLc1JrUW84RXNkN0hRWjNza29LdzJSeTgyb1BKX2c1NG5LOXdPVFBoX2J3dFlfVUxRMzg0a3VwbUFRa2tRWGtuWkNldUdnbXFaTEhJdVJ2MnlLZVowSEFxenJha1ZyXzJyVTZhRWJSTW9yMGt6NE1yVUxNczR6SmxJODdBTGs5Y3lteVZQcXFDeFE?oc=5"
-            data-title="Applied Materials stock jumps ahead of Q3 earnings"
-            data-source="Yahoo Finance"
+            data-url="https://news.google.com/rss/articles/CBMiigFBVV95cUxORnZvUVFsanZqazRqY3NHNUtzZUxmUkFGSXlZX3BXdkFIbXN6c3dNOTNGLW1nQ21DMGZrTFN3RVRCS0U4R1VkamhsR1hyZEE4aGFNUkZmRWFQUGxaQUxaUkdaSnIzc1RZT2M3MG1LLTRyQnQ5VDFyelR6cGhibHowVUNOZHh1SS0yVWc?oc=5"
+            data-title="Exclusive / Saudi regulator probes investment banks as stock market listings flop"
+            data-source="Semafor"
             data-category="Equity Markets"
-            data-rating="5"
+            data-rating="4"
             data-date="2026-08-14">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxPakItSkJQeURsbjVaZHo4dGdLc1JrUW84RXNkN0hRWjNza29LdzJSeTgyb1BKX2c1NG5LOXdPVFBoX2J3dFlfVUxRMzg0a3VwbUFRa2tRWGtuWkNldUdnbXFaTEhJdVJ2MnlLZVowSEFxenJha1ZyXzJyVTZhRWJSTW9yMGt6NE1yVUxNczR6SmxJODdBTGs5Y3lteVZQcXFDeFE?oc=5" target="_blank" rel="noopener">Applied Materials stock jumps ahead of Q3 earnings</a>
-            <div class="pub">2026-08-13 12:35 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxORnZvUVFsanZqazRqY3NHNUtzZUxmUkFGSXlZX3BXdkFIbXN6c3dNOTNGLW1nQ21DMGZrTFN3RVRCS0U4R1VkamhsR1hyZEE4aGFNUkZmRWFQUGxaQUxaUkdaSnIzc1RZT2M3MG1LLTRyQnQ5VDFyelR6cGhibHowVUNOZHh1SS0yVWc?oc=5" target="_blank" rel="noopener">Exclusive / Saudi regulator probes investment banks as stock market listings flop</a>
+            <div class="pub">2026-08-13 11:53 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Applied Materials shares rose 4% ahead of its fiscal Q3 report, with analysts projecting revenue of $8.99 billion and adjusted earnings of $3.36 per share, representing 23% and 36% year-over-year growth respectively.</li><li>Investors are closely monitoring the report for signs of sustained demand from advanced logic and memory customers, as options markets imply a potential 7.4% move in the stock following the release.</li>
+              <li>Saudi Arabia&#39;s Capital Market Authority is investigating investment banks regarding the poor performance of recent IPOs, specifically scrutinizing share pricing decisions and investor allocation records.</li><li>The probe follows a period where 10 out of 13 companies that listed in 2025 were trading below their IPO price by early 2026, threatening the kingdom&#39;s broader economic diversification and funding plans.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Yahoo Finance</span></td>
+          <td class="source"><span class="chip">Semafor</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="reason">High market anticipation for a key semiconductor infrastructure bellwether.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="reason">Regulatory scrutiny impacting regional capital markets and future IPO pipelines.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1803,7 +1851,7 @@
         <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMi5wFBVV95cUxNZTdxNUR0ZU5VaWVRM19tVFloYjJMc09tY2k2Q2RVNk5WRE9hWnJEOEtDU0h5Wm1xVXZFV1oxZ1hJT2dMY09aVGJzWmkxYmZzbHFBS2dkSFQwWm9ZaTlsTFhaaWFnc3V2YWlFUlRJV3M5VGY5M3BCZ0t4TW90VTN2b1did0EzdTJ6Z2YyVWhxUktWSG5RTFNaOTRsMnRvMUZUU2ZRcG1ZOTAtRTFSODJfeEF5VFcxMjhfak1HZG8tVlBhQTZxMm1ZbGlKY2YtTzc1SHBjSjFGTDEtc251bXVLX1BRbW5qT1k?oc=5"
             data-title="Pre-Markets in Green on Soft PPI, Falling Oil Prices and Bond Yields"
-            data-source="theglobeandmail.com"
+            data-source="The Globe and Mail"
             data-category="Fixed Income"
             data-rating="5"
             data-date="2026-08-14">
@@ -1814,13 +1862,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>U.S. Treasury yields across the 2-year, 10-year, and 30-year maturities declined following benign July producer price index data, which showed headline PPI remained unchanged against expectations of a 0.1% increase.</li><li>While headline inflation metrics appear cooling, core PPI rose 0.4% in July, exceeding the 0.3% consensus estimate and signaling persistent underlying price pressures despite the broader market rally in fixed income.</li>
+              <li>The July producer price index remained unchanged, defying expectations of a 0.1% increase, while the annual headline PPI rose 4.7% as core PPI also climbed 4.7% year-over-year.</li><li>Market sentiment shifted as benchmark 10-year and 2-year U.S. Treasury yields both declined by 2 basis points, driven by lower crude oil prices and benign inflation data.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">theglobeandmail.com</span></td>
+          <td class="source"><span class="chip">The Globe and Mail</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Direct impact on benchmark interest rates and market sentiment.</span>
+            <span class="reason">Direct impact on interest rate expectations and Treasury market pricing.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1833,26 +1881,26 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiV0FVX3lxTFBtbFN2MTdiMWJqUFEtbGZMLUFmS3NVQXlFZks3QXQtV2lCYTB6Ym96WG9mUDRqazlDNmw1cU9VdE5YWmRxejFUVzJ1Nzlpdks3SXJ6QUMzUQ?oc=5"
-            data-title="Metaplanet enters Japan bond market with new BitBonds program"
-            data-source="Cryptonews.net"
+            data-url="https://news.google.com/rss/articles/CBMimgFBVV95cUxPSFJUQlFPcGptQWtJcnRQN1VjLUZ4VEExODRRamUwNVRSQmZXM044c09NdjE4ZEFVSndEY1p6X0szV0J2SDFpRzNGb1doRmJ1ZmU4RFdQeGlleWxKTUROdlA1U2xfOTlKZHZEeVpCV05JcUxjVDFZTG1DQkszTWw2Sk44XzhpYlQzeG1kdW1iSTZsUkh4TU14UDFn?oc=5"
+            data-title="BNY Mellon International Bond Fund Q2 2026 Commentary"
+            data-source="Seeking Alpha"
             data-category="Fixed Income"
-            data-rating="3"
+            data-rating="4"
             data-date="2026-08-14">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMiV0FVX3lxTFBtbFN2MTdiMWJqUFEtbGZMLUFmS3NVQXlFZks3QXQtV2lCYTB6Ym96WG9mUDRqazlDNmw1cU9VdE5YWmRxejFUVzJ1Nzlpdks3SXJ6QUMzUQ?oc=5" target="_blank" rel="noopener">Metaplanet enters Japan bond market with new BitBonds program</a>
-            <div class="pub">2026-08-13 15:45 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxPSFJUQlFPcGptQWtJcnRQN1VjLUZ4VEExODRRamUwNVRSQmZXM044c09NdjE4ZEFVSndEY1p6X0szV0J2SDFpRzNGb1doRmJ1ZmU4RFdQeGlleWxKTUROdlA1U2xfOTlKZHZEeVpCV05JcUxjVDFZTG1DQkszTWw2Sk44XzhpYlQzeG1kdW1iSTZsUkh4TU14UDFn?oc=5" target="_blank" rel="noopener">BNY Mellon International Bond Fund Q2 2026 Commentary</a>
+            <div class="pub">2026-08-13 16:53 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Metaplanet has initiated a corporate bond program dubbed &#39;BitBonds,&#39; completing an inaugural ¥200 million private placement with three-year maturities and annual yields ranging between 4.0% and 4.3%.</li><li>The program utilizes the company&#39;s wholly owned securities subsidiary to distribute credit-based investment products to a broader retail and corporate investor base, marking a strategic shift in its capital structure.</li>
+              <li>Japanese 10-year government bond yields surged 33 basis points to 2.68% during the second quarter, marking the highest level observed in nearly three decades.</li><li>The fund manager reduced topline duration and shifted geographic exposure by cutting Australian, Chinese, and Peruvian holdings while increasing weightings in Poland and Brazil.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Cryptonews.net</span></td>
+          <td class="source"><span class="chip">Seeking Alpha</span></td>
           <td class="rating">
-            <span class="rating-chip r3">3</span>
-            <span class="reason">Innovative corporate debt issuance strategy in the Japanese market.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="reason">Significant shift in Japanese yield environment and institutional portfolio rebalancing.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1893,7 +1941,7 @@
           </td>
           <td class="summary">
             <ul>
-              <li>China is actively expanding its &#39;Polar Silk Road&#39; initiative, signaling a strategic pivot toward Arctic shipping routes to reduce reliance on traditional maritime chokepoints like the Malacca Strait.</li><li>The development of Arctic infrastructure suggests long-term shifts in global trade logistics and energy supply chains, which could significantly impact shipping costs and geopolitical risk premiums for international investors.</li>
+              <li>China is actively expanding its &#39;Polar Silk Road&#39; initiative, signaling a strategic pivot toward Arctic shipping routes to reduce reliance on traditional maritime chokepoints like the Malacca Strait.</li><li>The development of these northern corridors carries significant long-term implications for global logistics costs and energy supply chains, potentially altering the competitive landscape for international trade and infrastructure investment.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Adam Tooze | Substack</span></td>
@@ -1913,25 +1961,25 @@
         
         <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMic0FVX3lxTE1rVTVNN3FKZGJkZ0ljY0pwdzZQSEwtZ2otOWhCd0lSZmRyTFNXMmdvTVBGd1J2THM4YXl0bVBMWnpidW5ka2gxX3I0QUNRSFFiOU1nM29sZEc2bk1RamNDSTNoSExvRi13RVdmUnp2S3BMNjQ?oc=5"
-            data-title="Impact of USAID Funding Cuts on Global Development and Chinese Influence"
+            data-title="Analysis of USAID Funding Cuts and Geopolitical Impact"
             data-source="Adam Tooze | Substack"
             data-category="China Economy"
             data-rating="3"
             data-date="2026-08-14">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE1rVTVNN3FKZGJkZ0ljY0pwdzZQSEwtZ2otOWhCd0lSZmRyTFNXMmdvTVBGd1J2THM4YXl0bVBMWnpidW5ka2gxX3I0QUNRSFFiOU1nM29sZEc2bk1RamNDSTNoSExvRi13RVdmUnp2S3BMNjQ?oc=5" target="_blank" rel="noopener">Impact of USAID Funding Cuts on Global Development and Chinese Influence</a>
+            <a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE1rVTVNN3FKZGJkZ0ljY0pwdzZQSEwtZ2otOWhCd0lSZmRyTFNXMmdvTVBGd1J2THM4YXl0bVBMWnpidW5ka2gxX3I0QUNRSFFiOU1nM29sZEc2bk1RamNDSTNoSExvRi13RVdmUnp2S3BMNjQ?oc=5" target="_blank" rel="noopener">Analysis of USAID Funding Cuts and Geopolitical Impact</a>
             <div class="pub">2026-08-13 13:19 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Potential reductions in U.S. foreign aid create a vacuum in emerging markets that China is likely to fill through its Belt and Road Initiative, strengthening its economic leverage in the Global South.</li><li>Investors should monitor how shifting development aid dynamics influence sovereign debt profiles and infrastructure project financing in developing nations, as these factors directly affect regional market stability.</li>
+              <li>Proposed reductions in USAID funding suggest a broader retrenchment in U.S. foreign aid, which may create a vacuum in developing markets that China is positioned to fill through its own development financing.</li><li>Investors should monitor how these shifts in soft power and development capital influence emerging market stability and the adoption of Chinese-backed economic standards in regions previously reliant on Western aid.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Adam Tooze | Substack</span></td>
           <td class="rating">
             <span class="rating-chip r3">3</span>
-            <span class="reason">Geopolitical influence on emerging market debt</span>
+            <span class="reason">Geopolitical influence on emerging market capital flows</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1972,13 +2020,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>UBS forecasts stagnant home price growth through 2027, significantly trailing the market consensus of 5-6% growth, citing interest-rate uncertainty and tighter cross-border investment controls.</li><li>The firm highlights structural headwinds including a major population shortfall—with net inflows failing to meet government targets—and potential AI-driven labor disruption affecting up to 19% of the local workforce.</li>
+              <li>UBS analysts project Hong Kong home prices will remain flat through 2027, significantly underperforming market consensus expectations of 5-6% growth, due to persistent interest-rate uncertainty and tighter cross-border investment controls.</li><li>The firm warns that structural headwinds, including a major population shortfall, elevated youth unemployment, and potential AI-driven labor disruption, are creating a mismatch between supply and demand that limits long-term residential price appreciation.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">The Standard (HK)</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="reason">Major institutional downgrade of the Hong Kong residential property outlook.</span>
+            <span class="reason">Major downward revision to property market outlook by a leading global financial institution.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2004,13 +2052,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>MTR Corporation reported a 120.7% surge in property-development profit to HK$12.23 billion, though management cautioned these are non-recurring gains tied to specific project completion schedules.</li><li>The operator plans to tender three new projects in the coming year, aiming to supply 8,000 units, while earmarking current profits for significant asset maintenance and new railway infrastructure investments.</li>
+              <li>MTR Corporation reported a 120.7% surge in property-development profit to HK$12.23 billion for the first half of 2026, driven by project completions at Tai Wai station and The Southside, which masked flat performance in core rail operations.</li><li>Management cautioned that these property gains are non-recurring and indicated that a significant portion of the profit will be diverted toward heavy capital expenditure for asset renewal and new railway projects, rather than increased shareholder distributions.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">South China Morning Post</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="reason">Significant earnings report from a bellwether stock impacting local property and infrastructure sectors.</span>
+            <span class="reason">Significant earnings beat driven by property development, highlighting the company&#39;s reliance on non-recurring income.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2051,7 +2099,7 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Chinese AI firms have released 10 major models in 70 days, utilizing Mixture-of-Experts (MoE) architectures to achieve performance parity with US models while bypassing hardware constraints imposed by export controls.</li><li>DeepSeek’s V4 Pro demonstrates significant cost-efficiency, delivering competitive intelligence at approximately $0.06 per task, which is roughly 1/39th the cost of leading US-based alternatives like Claude Opus 5.</li>
+              <li>Chinese AI firms have released 10 major models in 70 days, utilizing Mixture-of-Experts (MoE) architectures to achieve performance parity with US models while drastically reducing computational requirements.</li><li>DeepSeek’s V4 Pro model demonstrates a significant cost advantage, delivering competitive intelligence at approximately $0.06 per task, which is roughly 1/39th the cost of leading US-based alternatives like Claude Opus 5.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">finance.biggo.com</span></td>
@@ -2083,13 +2131,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Germany secured €6.3 billion in funding across 267 deals in H1 2026, with capital heavily concentrated in robotics and fintech, led by major rounds for Neura Robotics ($1.4B) and Cloover ($1.2B).</li><li>The funding landscape shows a shift toward mature, capital-intensive companies, as Series C and debt financing dominated the market, while early-stage activity remained broad but characterized by smaller ticket sizes.</li>
+              <li>Germany secured €6.3 billion in tech funding across 267 deals in H1 2026, with capital heavily concentrated in capital-intensive sectors including robotics, fintech, and security.</li><li>Large-scale financing rounds, such as Neura Robotics&#39; €1.2 billion Series C and Cloover’s €1.0 billion debt financing, indicate a maturing market favoring companies with tangible industrial and infrastructure applications.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Tech.eu</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="reason">Highlights significant capital flows and sector-specific growth trends in the European tech market.</span>
+            <span class="reason">Highlights significant capital allocation trends in Europe&#39;s second-largest tech market.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2121,7 +2169,7 @@
             data-title="OpenAI revenue chief Denise Dresser leaving, second major executive departure in days"
             data-source="CNBC"
             data-category="Artificial Intelligence"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-08-14">
           <td class="headline">
             <span class="new-badge">NEW</span>
@@ -2130,13 +2178,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>The departure of Chief Revenue Officer Denise Dresser, following the exit of longtime executive Brad Lightcap, creates significant leadership instability as OpenAI prepares for a high-stakes public market debut.</li><li>OpenAI is currently under intense pressure to justify its $852 billion valuation to potential investors, making the loss of key enterprise-focused leadership a critical risk to its growth strategy.</li>
+              <li>The departure of Chief Revenue Officer Denise Dresser, following the exit of longtime executive Brad Lightcap, creates significant leadership instability as OpenAI prepares for a highly anticipated IPO.</li><li>OpenAI is under intense pressure to justify its $852 billion valuation, and the loss of key enterprise-focused leadership threatens the company&#39;s ability to execute its commercial strategy against rivals like Anthropic.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">CNBC</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="reason">Executive turnover during a pre-IPO phase creates significant uncertainty for valuation.</span>
+            <span class="rating-chip r5">5</span>
+            <span class="reason">Executive turnover during a pre-IPO phase signals potential internal friction and operational risk.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2153,7 +2201,7 @@
             data-title="Automate legacy web applications with Amazon Bedrock AgentCore Browser Tool"
             data-source="Amazon Web Services (AWS)"
             data-category="Artificial Intelligence"
-            data-rating="3"
+            data-rating="4"
             data-date="2026-08-14">
           <td class="headline">
             <span class="new-badge">NEW</span>
@@ -2162,13 +2210,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>AWS is addressing a major enterprise cost center by launching a browser-based tool that allows AI agents to interact with legacy web interfaces, bypassing the need for modern APIs.</li><li>By enabling autonomous navigation of complex, multi-step workflows in legacy systems, this solution targets significant operational inefficiencies and manual data entry costs across the financial and insurance sectors.</li>
+              <li>AWS is expanding its Bedrock AgentCore platform to include a managed browser tool, specifically targeting the automation of legacy enterprise systems that lack modern APIs.</li><li>By enabling AI agents to interact with server-side rendered interfaces, AWS is unlocking a massive addressable market for digital transformation in sectors like insurance and finance, where manual data entry remains a high-cost operational burden.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Amazon Web Services (AWS)</span></td>
           <td class="rating">
-            <span class="rating-chip r3">3</span>
-            <span class="reason">Direct impact on enterprise operational efficiency and cost reduction.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="reason">New enterprise-grade AI tooling directly impacts operational efficiency and cost-reduction for large-scale legacy infrastructure.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2196,26 +2244,26 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMieEFVX3lxTE43b1ZLa0tEWUk0SFRYdjlkUzBOVTNBSFN6MWtTYmc2aGdMNW1FcVVxME1ka1dSODFKcEdmSnFVMHFudWdsRUQ2S3dZbGpmZEdzaDRVdmkzemlMdnR2VUJvQ1NtQXNRcHljWG8wR25OeHZyWURKcmZhXw?oc=5"
-            data-title="Why Nvidia Stock Is Stuck Despite a Wild Week for AI - Barron&#39;s"
-            data-source="Barron&#39;s"
+            data-url="https://news.google.com/rss/articles/CBMiqAFBVV95cUxOTnhDaERRZW9PS2FkZkJUV3lSUWMwQTdSN3ljaTBUa3gzb2Z3Znc4d2V3akU3YUhvSERkdi1hLTBvdzRRakdsN1pMYVJLZGpXS1dXamxUMTdqbGFKTjR3WUlBdGJkdzhPZmFDVERPRU5TdS0zVzJzbEFwVDhXcTFMaFdKdmEwUFBGc1pUQ2ZXbVBZWXotc1B4dHA3MUk2eXRHWlh2WWx5N1k?oc=5"
+            data-title="Nvidia&#39;s new $500B plan is risky but brilliant, especially for aging GPUs"
+            data-source="TechCrunch"
             data-category="Semiconductors"
-            data-rating="2"
+            data-rating="5"
             data-date="2026-08-14">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE43b1ZLa0tEWUk0SFRYdjlkUzBOVTNBSFN6MWtTYmc2aGdMNW1FcVVxME1ka1dSODFKcEdmSnFVMHFudWdsRUQ2S3dZbGpmZEdzaDRVdmkzemlMdnR2VUJvQ1NtQXNRcHljWG8wR25OeHZyWURKcmZhXw?oc=5" target="_blank" rel="noopener">Why Nvidia Stock Is Stuck Despite a Wild Week for AI - Barron&#39;s</a>
-            <div class="pub">2026-08-13 13:59 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxOTnhDaERRZW9PS2FkZkJUV3lSUWMwQTdSN3ljaTBUa3gzb2Z3Znc4d2V3akU3YUhvSERkdi1hLTBvdzRRakdsN1pMYVJLZGpXS1dXamxUMTdqbGFKTjR3WUlBdGJkdzhPZmFDVERPRU5TdS0zVzJzbEFwVDhXcTFMaFdKdmEwUFBGc1pUQ2ZXbVBZWXotc1B4dHA3MUk2eXRHWlh2WWx5N1k?oc=5" target="_blank" rel="noopener">Nvidia&#39;s new $500B plan is risky but brilliant, especially for aging GPUs</a>
+            <div class="pub">2026-08-13 15:08 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Why Nvidia Stock Is Stuck Despite a Wild Week for AI  Barron&#39;s</li>
+              <li>Nvidia is partnering with major financial institutions like BlackRock and KKR to mobilize $500 billion for AI infrastructure, effectively treating GPU compute as a new, financeable asset class.</li><li>To mitigate lender risk, Nvidia is providing a residual-value guarantee of up to 25% on chips used as collateral, a move that creates &#39;wrong-way&#39; risk where Nvidia&#39;s liabilities could spike if demand for its hardware weakens.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Barron&#39;s</span></td>
+          <td class="source"><span class="chip">TechCrunch</span></td>
           <td class="rating">
-            <span class="rating-chip r2">2</span>
-            <span class="reason">Heuristic rating (no AI summary).</span>
+            <span class="rating-chip r5">5</span>
+            <span class="reason">Significant shift in business model and systemic financial risk.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2228,26 +2276,26 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiowFBVV95cUxPOC1QRFdFSkhfVE12aXVUYzhNS3ctREVYSHVLZTlxcWRKVnpqVmVFZnBXWUZzdDBCUzdwVXBxT1lEd3dUaGtKSDh2R09tVTJTQnFGcHVWT3hxekt6VnFGQzNNWTlOSVk2SHdZbjFIUFkxTGtRTWpZUmo1Y3N0MDJVR1pWb1FGYkpPUmdvMi1FRFh4REJsZ2ZuR25mcWFyRHlRU2Vn?oc=5"
-            data-title="Here are Thursday&#39;s biggest analyst calls: Nvidia, SpaceX, AMD, Five Below, Disney, Nebius, Salesforce &amp; more - CNBC"
+            data-url="https://news.google.com/rss/articles/CBMinAFBVV95cUxPcnVIcnVwNEw5T0g1WHhVMEg5M2dLRGh0YzhCd05CWHh6MTBjNkk3d24zZXRveHpibjlKNG0xZm5URWRCUjA2Zm13U1llbFZkdHUzaWtYM3VHNmRFZDZYZmRvenQtV2E5bVVNbW9mY3RpbEl6eHp5MklYUUFBRTMtVGpQRE52RHhCQmM1WXhLQkxiZ1dkc2RnWlJaRTXSAaIBQVVfeXFMUGdTdTNkU1hPYnRJTFZUcERZdDVLZjN0ZGMzUW40ZDdTd1BYMXJXNDhJMzNQUm1aQldLOUlVNVpnUjlYd2Jyb3FRcFp6cXNBS2tDZjRrVTRuS3ZhVkVkVnVJUEcxSmNSbTFSdURWMmUtQ1JtWVRQaEpBWnd1ZzJMRC1FcGF3WDBnZ28yNl9UNjNUR2JjRloydGdmOHd3UHh2dk13?oc=5"
+            data-title="This Chinese firm has topped Micron and Kioxia in shipments of crucial NAND memory chips"
             data-source="CNBC"
             data-category="Semiconductors"
-            data-rating="5"
+            data-rating="4"
             data-date="2026-08-14">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxPOC1QRFdFSkhfVE12aXVUYzhNS3ctREVYSHVLZTlxcWRKVnpqVmVFZnBXWUZzdDBCUzdwVXBxT1lEd3dUaGtKSDh2R09tVTJTQnFGcHVWT3hxekt6VnFGQzNNWTlOSVk2SHdZbjFIUFkxTGtRTWpZUmo1Y3N0MDJVR1pWb1FGYkpPUmdvMi1FRFh4REJsZ2ZuR25mcWFyRHlRU2Vn?oc=5" target="_blank" rel="noopener">Here are Thursday&#39;s biggest analyst calls: Nvidia, SpaceX, AMD, Five Below, Disney, Nebius, Salesforce &amp; more - CNBC</a>
-            <div class="pub">2026-08-13 12:34 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxPcnVIcnVwNEw5T0g1WHhVMEg5M2dLRGh0YzhCd05CWHh6MTBjNkk3d24zZXRveHpibjlKNG0xZm5URWRCUjA2Zm13U1llbFZkdHUzaWtYM3VHNmRFZDZYZmRvenQtV2E5bVVNbW9mY3RpbEl6eHp5MklYUUFBRTMtVGpQRE52RHhCQmM1WXhLQkxiZ1dkc2RnWlJaRTXSAaIBQVVfeXFMUGdTdTNkU1hPYnRJTFZUcERZdDVLZjN0ZGMzUW40ZDdTd1BYMXJXNDhJMzNQUm1aQldLOUlVNVpnUjlYd2Jyb3FRcFp6cXNBS2tDZjRrVTRuS3ZhVkVkVnVJUEcxSmNSbTFSdURWMmUtQ1JtWVRQaEpBWnd1ZzJMRC1FcGF3WDBnZ28yNl9UNjNUR2JjRloydGdmOHd3UHh2dk13?oc=5" target="_blank" rel="noopener">This Chinese firm has topped Micron and Kioxia in shipments of crucial NAND memory chips</a>
+            <div class="pub">2026-08-13 02:59 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Bank Here are the biggest calls on Wall Street on Thursday: HSBC upgrades Keurig Dr Pepper to buy from hold The bank says Keurig Dr Pepper has an &#34;improving&#34; coffee outlook. &#34;Strong trends in refreshment beverages...</li>
+              <li>Yangtze Memory Technologies (YMTC) captured 14% of the global NAND memory market in Q2, surpassing U.S.-based Micron and Japan&#39;s Kioxia in shipment volume.</li><li>While YMTC currently focuses on consumer applications, analysts project the firm will continue to gain market share through 2028, potentially challenging the competitive landscape for established memory manufacturers.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">CNBC</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="reason">Heuristic rating (no AI summary).</span>
+            <span class="rating-chip r4">4</span>
+            <span class="reason">Competitive disruption in the global memory chip market.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2276,25 +2324,25 @@
         
         <tr class="news-item"
             data-url="https://news.google.com/rss/articles/CBMiigFBVV95cUxOWk02NDNOOU5SZVdVOUNFNXZwb1N1REtQaWlQRGNwT1RWckR5eDYySXllT09LYTFZdVh0eXk5THV2X3lJV1NBOWxiMTBDSmxLY1ZMb3BjckpaOWdDd1NkWmxhTGlnVFBjS2JnSUFiVndOeGt5ekJuV0I1Nk9DbU9GdEtGRUFteFhJOXc?oc=5"
-            data-title="Global EV sales rose 9% in July – except in North America"
+            data-title="Global EV sales rose 9% in July, but the growth map couldn’t look more uneven."
             data-source="Electrek"
             data-category="Electric Vehicles"
             data-rating="4"
             data-date="2026-08-14">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxOWk02NDNOOU5SZVdVOUNFNXZwb1N1REtQaWlQRGNwT1RWckR5eDYySXllT09LYTFZdVh0eXk5THV2X3lJV1NBOWxiMTBDSmxLY1ZMb3BjckpaOWdDd1NkWmxhTGlnVFBjS2JnSUFiVndOeGt5ekJuV0I1Nk9DbU9GdEtGRUFteFhJOXc?oc=5" target="_blank" rel="noopener">Global EV sales rose 9% in July – except in North America</a>
+            <a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxOWk02NDNOOU5SZVdVOUNFNXZwb1N1REtQaWlQRGNwT1RWckR5eDYySXllT09LYTFZdVh0eXk5THV2X3lJV1NBOWxiMTBDSmxLY1ZMb3BjckpaOWdDd1NkWmxhTGlnVFBjS2JnSUFiVndOeGt5ekJuV0I1Nk9DbU9GdEtGRUFteFhJOXc?oc=5" target="_blank" rel="noopener">Global EV sales rose 9% in July, but the growth map couldn’t look more uneven.</a>
             <div class="pub">2026-08-12 23:01 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Global EV sales reached 1.85 million units in July, marking a 9% year-over-year increase, though the market remains highly fragmented with Europe serving as the primary growth engine.</li><li>North American performance significantly lagged, with sales dropping 27% year-over-year to 140,000 units, highlighting a stark regional divergence as other markets benefit from renewed government incentives.</li>
+              <li>Global EV sales reached 1.85 million units in July, representing a 9% year-over-year increase, though regional performance remains highly fragmented with Europe serving as the primary growth engine.</li><li>North American EV sales experienced a significant 27% year-over-year decline in July, while China&#39;s overall new energy vehicle sales fell 5% as plug-in hybrid demand dragged down the broader market average.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Electrek</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="reason">Significant regional divergence in EV adoption impacting global growth projections.</span>
+            <span class="reason">Significant regional divergence in EV adoption trends.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2311,7 +2359,7 @@
             data-title="US EV prices are going back up as discounts shrink"
             data-source="Electrek"
             data-category="Electric Vehicles"
-            data-rating="3"
+            data-rating="4"
             data-date="2026-08-14">
           <td class="headline">
             <span class="new-badge">NEW</span>
@@ -2320,13 +2368,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Average transaction prices for US EVs rose to $56,126 in July, representing the first annual increase since December as automakers aggressively pulled back on incentive spending.</li><li>Incentives dropped to 11.8% of the average transaction price, down from 15.8% a year ago, signaling a shift in manufacturer strategy toward margin preservation despite slowing demand.</li>
+              <li>The average transaction price for a new EV in the US rose to $56,126 in July, marking the first annual increase since December 2025 as automakers aggressively pulled back on consumer incentives.</li><li>Incentive spending dropped 24.3% year-over-year to an average of $6,626 per vehicle, signaling a shift in manufacturer strategy toward margin preservation despite the cooling demand in the North American market.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Electrek</span></td>
           <td class="rating">
-            <span class="rating-chip r3">3</span>
-            <span class="reason">Indicates a shift in automaker pricing strategy and margin management in the US market.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="reason">Direct impact on automaker margins and consumer affordability.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2367,7 +2415,7 @@
           </td>
           <td class="summary">
             <ul>
-              <li>Vantage Data Centers is reportedly evaluating a potential IPO or outright sale, with the company seeking a valuation reaching $100 billion.</li><li>This move signals significant institutional interest in large-scale digital infrastructure assets as hyperscalers and AI firms aggressively compete for high-density, AI-ready data center capacity.</li>
+              <li>Vantage Data Centers is reportedly evaluating a potential IPO or outright sale, with the company seeking a valuation reaching $100 billion.</li><li>This move highlights the massive capital appreciation in the independent data center sector as hyperscalers and AI firms aggressively secure long-term infrastructure capacity.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Reuters</span></td>
@@ -2386,26 +2434,26 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMitwFBVV95cUxQdXRQYUJKbS02ZWNsbDh6aFd3ZnF2ejNKRkE4Wl81WGpXYl9UY2xWcDBpUnZjUUZwcWNlWUZVcjhvLVhDWTNRdUIxVmZkS1NzMENudjRReHUzRnZoQl9sOTE4SkZTa0NUbUVJSGZXTmdLQnR2Wld5djc4Qy1yYnJ0SW81YnRnMUdwTEUxdF9INElyTlZBazlzNnVoWHphZ0RETWVwVkw2MTZmR2duXzl2QmhGUWIzZGs?oc=5"
-            data-title="City council in Fort Worth, Texas, issues temporary data center moratorium"
-            data-source="Data Center Dynamics"
+            data-url="https://news.google.com/rss/articles/CBMivwFBVV95cUxNYzEtQVFxSk1LT1NhTDRaVkVjQVY5Y3V2VGNUTHRKZlhxZ1gwRTN2UFJQR3JRdFNYaEIydWdwU3Myb1NQVjVUX1FSenFxaU5wMmxRYjROZW4xcUhyVEV2ZmZpREZ0ODFJSEJ3d0dnVHJFcmxTYVJCV0h5Ti1MYnBORFpSY3hiWmV2cVFReVdnM2lKd25zdzc2TTNvMU1sSXFxZy1JYUF4dUlmV3JOSkI5T09URFRWUWJxZFRUUXVPZw?oc=5"
+            data-title="NVIDIA Pushes the AI Factory From Rack to Asset Class"
+            data-source="Data Center Frontier"
             data-category="Data Centers"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-08-14">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxQdXRQYUJKbS02ZWNsbDh6aFd3ZnF2ejNKRkE4Wl81WGpXYl9UY2xWcDBpUnZjUUZwcWNlWUZVcjhvLVhDWTNRdUIxVmZkS1NzMENudjRReHUzRnZoQl9sOTE4SkZTa0NUbUVJSGZXTmdLQnR2Wld5djc4Qy1yYnJ0SW81YnRnMUdwTEUxdF9INElyTlZBazlzNnVoWHphZ0RETWVwVkw2MTZmR2duXzl2QmhGUWIzZGs?oc=5" target="_blank" rel="noopener">City council in Fort Worth, Texas, issues temporary data center moratorium</a>
-            <div class="pub">2026-08-13 16:06 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxNYzEtQVFxSk1LT1NhTDRaVkVjQVY5Y3V2VGNUTHRKZlhxZ1gwRTN2UFJQR3JRdFNYaEIydWdwU3Myb1NQVjVUX1FSenFxaU5wMmxRYjROZW4xcUhyVEV2ZmZpREZ0ODFJSEJ3d0dnVHJFcmxTYVJCV0h5Ti1MYnBORFpSY3hiWmV2cVFReVdnM2lKd25zdzc2TTNvMU1sSXFxZy1JYUF4dUlmV3JOSkI5T09URFRWUWJxZFRUUXVPZw?oc=5" target="_blank" rel="noopener">NVIDIA Pushes the AI Factory From Rack to Asset Class</a>
+            <div class="pub">2026-08-13 14:26 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Fort Worth has initiated a 90-day moratorium on new data center developments to investigate concerns regarding water usage, noise, and community impact, with potential for a 90-day extension.</li><li>The city is establishing a Data Center &amp; Infrastructure Commission (DCIC) to evaluate these impacts, creating regulatory uncertainty for developers in a key Texas market that is currently a major hub for grid-connected AI projects.</li>
+              <li>NVIDIA is partnering with major financial institutions, including BlackRock and KKR, to mobilize over $500 billion in third-party capital for AI infrastructure development.</li><li>The company is actively promoting a shift in financial modeling, urging investors to treat AI compute as a long-term infrastructure asset rather than depreciating IT equipment.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Data Center Dynamics</span></td>
+          <td class="source"><span class="chip">Data Center Frontier</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="reason">Regulatory headwinds impacting expansion in a key data center market.</span>
+            <span class="rating-chip r5">5</span>
+            <span class="reason">Significant institutional capital mobilization for AI infrastructure.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2437,7 +2485,7 @@
             data-title="Vietnam&#39;s VinSpace signs deal with Elon Musk&#39;s SpaceX to launch its first satellites in 2027"
             data-source="The Wenatchee World"
             data-category="Space &amp; Aerospace"
-            data-rating="4"
+            data-rating="3"
             data-date="2026-08-14">
           <td class="headline">
             <span class="new-badge">NEW</span>
@@ -2446,13 +2494,13 @@
           </td>
           <td class="summary">
             <ul>
-              <li>VinSpace has secured a launch agreement with SpaceX for 2027, marking a significant expansion of SpaceX&#39;s commercial satellite launch manifest into the Southeast Asian market.</li><li>This partnership signals growing demand for sovereign satellite infrastructure in emerging economies, providing SpaceX with recurring revenue streams from international telecommunications and Earth-observation clients.</li>
+              <li>VinSpace, a subsidiary of the Vietnamese conglomerate Vingroup, has secured a launch contract with SpaceX for a 2027 mission, signaling Vietnam&#39;s formal entry into the commercial satellite manufacturing and operations sector.</li><li>The partnership utilizes SpaceX&#39;s Transporter rideshare model, highlighting the continued dominance of low-cost, multi-manifest launch services in enabling emerging market aerospace companies to test orbital technologies.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">The Wenatchee World</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="reason">Expansion of commercial launch partnerships in emerging markets</span>
+            <span class="rating-chip r3">3</span>
+            <span class="reason">Indicates emerging market growth and continued demand for SpaceX&#39;s rideshare services.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2465,26 +2513,26 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiUEFVX3lxTE1uVXc3djI0YUVwMnV0VTRGMm45Z2cxT3dZYUl5SjVkV3NWUGJDdnp6eXpTTzNWVUkxSXRZYjBnOVBaUTFkakNXLXBQQjJyV2ow?oc=5"
-            data-title="USSF-366 Mission - SpaceX"
-            data-source="SpaceX"
+            data-url="https://news.google.com/rss/articles/CBMi2gFBVV95cUxQbTJ1VDVvQjFJUjRsTmNiNXdNNFF1bTlPQTBUNWlsUkFUZUg4Zk54d09MakdOS1ctVGhQMjRueFVsanRyQWw4RVpoVUJ2SS1NTjlhcVc1X2xwcXJLc2RJZDNrRzF2MzJ4RWpqS0FoMHVlemlKRlhVajFrODc3UUpnT2gya3Z3WTRxUDR3MlRZM0hWUU1OZDVORmlwLUJvektudVBmbjdDREhuZjNuYm9XNEpMWXU3YUQ2NzFrYlN1emFTV1hyTC1pbDVid0NSVDhzN2lBdldJU0g2QQ?oc=5"
+            data-title="On this day in space! Aug. 13, 2014: Game-changing WorldView-3 Earth-observing satellite launches to orbit"
+            data-source="Space"
             data-category="Space &amp; Aerospace"
-            data-rating="3"
+            data-rating="2"
             data-date="2026-08-14">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMiUEFVX3lxTE1uVXc3djI0YUVwMnV0VTRGMm45Z2cxT3dZYUl5SjVkV3NWUGJDdnp6eXpTTzNWVUkxSXRZYjBnOVBaUTFkakNXLXBQQjJyV2ow?oc=5" target="_blank" rel="noopener">USSF-366 Mission - SpaceX</a>
-            <div class="pub">2026-08-13 14:53 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMi2gFBVV95cUxQbTJ1VDVvQjFJUjRsTmNiNXdNNFF1bTlPQTBUNWlsUkFUZUg4Zk54d09MakdOS1ctVGhQMjRueFVsanRyQWw4RVpoVUJ2SS1NTjlhcVc1X2xwcXJLc2RJZDNrRzF2MzJ4RWpqS0FoMHVlemlKRlhVajFrODc3UUpnT2gya3Z3WTRxUDR3MlRZM0hWUU1OZDVORmlwLUJvektudVBmbjdDREhuZjNuYm9XNEpMWXU3YUQ2NzFrYlN1emFTV1hyTC1pbDVid0NSVDhzN2lBdldJU0g2QQ?oc=5" target="_blank" rel="noopener">On this day in space! Aug. 13, 2014: Game-changing WorldView-3 Earth-observing satellite launches to orbit</a>
+            <div class="pub">2026-08-13 14:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The USSF-366 mission represents continued collaboration between SpaceX and the U.S. Space Force, reinforcing SpaceX&#39;s dominant position as a primary launch provider for national security payloads.</li><li>Frequent government mission execution validates the reliability of the Falcon launch vehicle architecture, which remains a critical factor for SpaceX&#39;s valuation and its ability to secure high-margin defense contracts.</li>
+              <li>The legacy of the WorldView-3 satellite demonstrates the long-term commercial viability of high-resolution Earth observation data, particularly in monitoring environmental metrics like methane emissions for ESG-focused industrial clients.</li><li>The integration of advanced algorithms for atmospheric correction and data processing remains a critical value-add for modern satellite operators, driving the shift from raw imagery to actionable climate and infrastructure intelligence.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">SpaceX</span></td>
+          <td class="source"><span class="chip">Space</span></td>
           <td class="rating">
-            <span class="rating-chip r3">3</span>
-            <span class="reason">Reinforces SpaceX&#39;s dominance in national security launch contracts</span>
+            <span class="rating-chip r2">2</span>
+            <span class="reason">Provides historical context on the evolution of the high-resolution Earth observation market.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2515,7 +2563,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-14 01:05 HKT");
+  var dataTS = encodeURIComponent("2026-08-14 01:11 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = "2026-08-14";

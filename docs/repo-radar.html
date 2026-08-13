@@ -450,13 +450,31 @@
     color: var(--gold);
     margin-bottom: 10px;
   }
-  .weekly ul { margin: 0; padding-left: 20px; }
+  .weekly ul { margin: 0; padding-left: 0; list-style: none; }
   .weekly li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     font-size: 15.5px;
     line-height: 1.45;
   }
-  .weekly li::marker { color: var(--accent); }
+  .weekly-day {
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 12.5px;
+    letter-spacing: .04em;
+  }
+  .weekly li a {
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .weekly li a:hover { text-decoration: underline; color: var(--accent); }
+  .weekly-bullet {
+    display: block;
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin-top: 2px;
+  }
 
   /* ---------- Saved news (localStorage) ---------- */
   .visually-hidden {
@@ -1438,7 +1456,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Repo Radar</h1>
-    <div class="generated">3 interesting new GitHub repos · finance/tech weighted · updated 2026-08-14 01:05 HKT</div>
+    <div class="generated">3 interesting new GitHub repos · finance/tech weighted · updated 2026-08-14 01:11 HKT</div>
   </header>
 
   
@@ -1467,12 +1485,12 @@
               <span class="chip stars">585★</span>
             </div>
             <h3><a href="https://github.com/mikehasa/agentacct" target="_blank" rel="noopener">mikehasa/agentacct</a></h3>
-            <p class="rc-oneliner">A local-first observability and cost-tracking dashboard for AI coding agents.</p>
+            <p class="rc-oneliner">A local-first observability and cost-tracking dashboard specifically designed for AI coding agents.</p>
             <img class="repo-img" src="./data/repo-radar-img/2026-08-14/mikehasa_agentacct_0.jpg" alt="agentacct tui — live usage, cost, provider rate-limit bars, and recent sessions with per-session weekly-plan-cost estimates" loading="lazy">
             <img class="repo-img" src="./data/repo-radar-img/2026-08-14/mikehasa_agentacct_1.jpg" alt="agentacct tui session detail — the per-step work ledger with pass/fail check evidence and a weekly-plan-cost estimate" loading="lazy">
             
             <ul class="rc-bullets">
-              <li>Built in Python, providing a local-first dashboard to monitor agentic workflows.</li><li>Tracks granular metrics including work steps, tool usage, file modifications, and test execution.</li><li>Provides financial transparency by calculating exact token consumption and time spent per task.</li><li>Integrates with popular coding agents like Claude Code and Codex to audit agent productivity and ROI.</li>
+              <li>Built with Python, providing a local-first architecture that ensures data privacy for sensitive development workflows.</li><li>Integrates directly with agentic tools like Claude Code and Codex to monitor execution steps, file modifications, and test outcomes.</li><li>Provides granular financial transparency by calculating token usage, latency, and monetary costs per individual task.</li><li>Enables developers to audit agent performance and optimize spending on LLM-driven software engineering.</li>
             </ul>
             
             <div class="bc-footer">
@@ -1498,12 +1516,12 @@
               <span class="chip stars">350★</span>
             </div>
             <h3><a href="https://github.com/EthanXiang777/circuit-framework" target="_blank" rel="noopener">EthanXiang777/circuit-framework</a></h3>
-            <p class="rc-oneliner">A multi-agent LLM framework specifically designed for quantitative trading research.</p>
+            <p class="rc-oneliner">A specialized multi-agent framework designed for quantitative trading research and strategy development.</p>
             
             
             
             <ul class="rc-bullets">
-              <li>Python-based architecture designed to orchestrate multiple LLM agents for financial analysis.</li><li>Focuses on automating the research pipeline for trading strategies, from data ingestion to hypothesis testing.</li><li>Enables complex reasoning tasks by delegating specific research components to specialized agent roles.</li><li>Useful for quant developers looking to integrate LLM-driven sentiment analysis and strategy backtesting.</li>
+              <li>Utilizes a Python-based multi-agent architecture to decouple data processing, strategy generation, and backtesting.</li><li>Designed to facilitate complex financial workflows where autonomous agents collaborate on market analysis and signal validation.</li><li>Supports modular research pipelines, allowing quants to swap agent roles for different asset classes or trading styles.</li><li>Focuses on the intersection of LLM reasoning and systematic trading, bridging the gap between natural language research and quantitative execution.</li>
             </ul>
             
             <div class="bc-footer">
@@ -1529,12 +1547,12 @@
               <span class="chip stars">186★</span>
             </div>
             <h3><a href="https://github.com/simonlin1212/vibe-astock" target="_blank" rel="noopener">simonlin1212/vibe-astock</a></h3>
-            <p class="rc-oneliner">A high-performance, local-first dashboard for A-share market sentiment and short-term trading analysis.</p>
+            <p class="rc-oneliner">A high-performance local dashboard for A-share market sentiment analysis and short-term trading review.</p>
             
             
             
             <ul class="rc-bullets">
-              <li>Python-based dashboard that computes market sentiment metrics (e.g., limit-up pools, sentiment cycles) locally.</li><li>Separates data processing from AI; uses deterministic calculations for financial metrics and LLMs only for narrative synthesis.</li><li>Supports local execution, allowing users to bypass API costs by integrating with local models via Claude/Codex.</li><li>Ideal for retail or professional traders requiring real-time, privacy-focused market monitoring without external dependencies.</li>
+              <li>Engineered with a hybrid approach: deterministic mathematical computation for sentiment metrics and LLM integration for narrative synthesis.</li><li>Features a local-first execution model that supports private API keys, ensuring zero-latency data processing for time-sensitive market reviews.</li><li>Calculates complex financial indicators like &#39;limit-up&#39; pools, ladder sequences, and capital flow without relying on external AI black boxes.</li><li>Provides a visual interface for tracking market &#39;money-making effects&#39; and sentiment cycles, essential for high-frequency retail trading.</li>
             </ul>
             
             <div class="bc-footer">
@@ -1682,7 +1700,7 @@
   document.documentElement.classList.add("js");
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-14 01:05 HKT");
+  var dataTS = encodeURIComponent("2026-08-14 01:11 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;

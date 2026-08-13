@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-14 01:05 HKT",
+ "generated_at": "2026-08-14 01:11 HKT",
  "repos": [
   {
    "name": "mikehasa/agentacct",
@@ -7,12 +7,12 @@
    "language": "Python",
    "stars": 585,
    "description": "See what your coding agents did and what it cost. Breaks each task down into work steps — tools used, files changed, tests run, time and tokens spent. Local-first dashboard for Claude Code, Codex, OpenCode, and more. No login, no telemetry.",
-   "one_liner": "A local-first observability and cost-tracking dashboard for AI coding agents.",
+   "one_liner": "A local-first observability and cost-tracking dashboard specifically designed for AI coding agents.",
    "bullets": [
-    "Built in Python, providing a local-first dashboard to monitor agentic workflows.",
-    "Tracks granular metrics including work steps, tool usage, file modifications, and test execution.",
-    "Provides financial transparency by calculating exact token consumption and time spent per task.",
-    "Integrates with popular coding agents like Claude Code and Codex to audit agent productivity and ROI."
+    "Built with Python, providing a local-first architecture that ensures data privacy for sensitive development workflows.",
+    "Integrates directly with agentic tools like Claude Code and Codex to monitor execution steps, file modifications, and test outcomes.",
+    "Provides granular financial transparency by calculating token usage, latency, and monetary costs per individual task.",
+    "Enables developers to audit agent performance and optimize spending on LLM-driven software engineering."
    ],
    "img": "mikehasa_agentacct_0.jpg",
    "img_alt": "agentacct tui — live usage, cost, provider rate-limit bars, and recent sessions with per-session weekly-plan-cost estimates",
@@ -25,12 +25,12 @@
    "language": "Python",
    "stars": 350,
    "description": "Circuit Framework — multi-agent LLM trading research system",
-   "one_liner": "A multi-agent LLM framework specifically designed for quantitative trading research.",
+   "one_liner": "A specialized multi-agent framework designed for quantitative trading research and strategy development.",
    "bullets": [
-    "Python-based architecture designed to orchestrate multiple LLM agents for financial analysis.",
-    "Focuses on automating the research pipeline for trading strategies, from data ingestion to hypothesis testing.",
-    "Enables complex reasoning tasks by delegating specific research components to specialized agent roles.",
-    "Useful for quant developers looking to integrate LLM-driven sentiment analysis and strategy backtesting."
+    "Utilizes a Python-based multi-agent architecture to decouple data processing, strategy generation, and backtesting.",
+    "Designed to facilitate complex financial workflows where autonomous agents collaborate on market analysis and signal validation.",
+    "Supports modular research pipelines, allowing quants to swap agent roles for different asset classes or trading styles.",
+    "Focuses on the intersection of LLM reasoning and systematic trading, bridging the gap between natural language research and quantitative execution."
    ]
   },
   {
@@ -39,12 +39,12 @@
    "language": "Python",
    "stars": 186,
    "description": "A 股短线复盘看板：涨停池·连板梯队·龙虎榜·板块资金一屏看完，赚钱效应/晋级率/梯队断层/情绪周期等派生指标纯计算直出（不经过 AI），AI 只把数据串成能读的盘面研判。全本地运行，可用 Claude/Codex 订阅免 API key。| A-share short-term daily-review dashboard: derived sentiment metrics computed locally, AI only writes the narrative. No API key needed.",
-   "one_liner": "A high-performance, local-first dashboard for A-share market sentiment and short-term trading analysis.",
+   "one_liner": "A high-performance local dashboard for A-share market sentiment analysis and short-term trading review.",
    "bullets": [
-    "Python-based dashboard that computes market sentiment metrics (e.g., limit-up pools, sentiment cycles) locally.",
-    "Separates data processing from AI; uses deterministic calculations for financial metrics and LLMs only for narrative synthesis.",
-    "Supports local execution, allowing users to bypass API costs by integrating with local models via Claude/Codex.",
-    "Ideal for retail or professional traders requiring real-time, privacy-focused market monitoring without external dependencies."
+    "Engineered with a hybrid approach: deterministic mathematical computation for sentiment metrics and LLM integration for narrative synthesis.",
+    "Features a local-first execution model that supports private API keys, ensuring zero-latency data processing for time-sensitive market reviews.",
+    "Calculates complex financial indicators like 'limit-up' pools, ladder sequences, and capital flow without relying on external AI black boxes.",
+    "Provides a visual interface for tracking market 'money-making effects' and sentiment cycles, essential for high-frequency retail trading."
    ]
   }
  ]
