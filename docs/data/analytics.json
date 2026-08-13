@@ -1,60 +1,57 @@
 {
- "generated_at": "2026-08-13 06:59 HKT",
+ "generated_at": "2026-08-14 00:51 HKT",
  "blogs": [
   {
    "name": "SemiEngineering",
    "status": "ok",
    "posts": [
     {
-     "_key": "SemiEngineering|https://semiengineering.com/2d-gaa-cfets-need-contact-and-parasitic-co-optimization-at-a2-node-imec/",
+     "_key": "SemiEngineering|https://semiengineering.com/the-1-megawatt-rack-debate/",
      "blog": "SemiEngineering",
-     "title": "2D GAA CFETs Need Contact And Parasitic Co-Optimization At A2 Node (imec)",
-     "link": "https://semiengineering.com/2d-gaa-cfets-need-contact-and-parasitic-co-optimization-at-a2-node-imec/",
-     "summary": "Researchers from imec published a technical paper titled “Are Gate-All-Around 2D CFETs the Optimal Architecture for the A2 Node and Beyond?” Abstract Excerpt: “Here, we develop an A2-oriented 2D CFET integration flow with a CPP of 36 nm and Lg of 10 nm and present initial demonstrations of several key process modules. Despite their atomically... » read more\nThe post 2D GAA CFETs Need Contact And Parasitic Co-Optimization At A2 Node (imec) appeared first on Semiconductor Engineering.",
-     "published": "2026-08-12 18:01 UTC",
-     "_ts": 1786557663,
+     "title": "The 1-Megawatt Rack Debate",
+     "link": "https://semiengineering.com/the-1-megawatt-rack-debate/",
+     "summary": "Is it better to cram more compute into each rack or rethink the architecture?\nThe post The 1-Megawatt Rack Debate appeared first on Semiconductor Engineering.",
+     "published": "2026-08-13 07:15 UTC",
+     "_ts": 1786605349,
      "preview": false,
      "bullets": [
-      "Imec research indicates that 2D Gate-All-Around (GAA) CFETs do not offer a contacted poly pitch (CPP) scaling advantage over traditional Silicon GAA CFETs at the A2 node.",
-      "The study highlights that contact formation constraints impose a minimum CPP of 36nm, necessitating rigorous co-optimization of contacts and parasitics.",
-      "The team utilized a multiscale power-performance-area (PPA) evaluation framework, incorporating quantum transport simulations and circuit-level benchmarking to assess the viability of 2D materials.",
-      "These findings suggest that while 2D materials are promising, their integration into A2-node architectures requires significant process module innovation to overcome current physical scaling limitations."
+      "Data center operators are preparing for 1-megawatt racks to support the massive power and cooling demands of next-generation AI compute clusters.",
+      "Hyperscalers including Google, Meta, and Microsoft are collaborating via the OCP 'Mount Diablo' project to standardize rack infrastructure, cooling, and power delivery.",
+      "The shift necessitates moving away from passive rack enclosures toward integrated compute systems that tightly couple liquid cooling, power shelves, and high-speed interconnects."
      ],
      "rating": 5
     },
     {
-     "_key": "SemiEngineering|https://semiengineering.com/standards-compliant-112g-phy-for-linear-optics-driving-efficient-ai-infrastructure/",
+     "_key": "SemiEngineering|https://semiengineering.com/coppers-grip-on-ai-scaling-is-starting-to-slip/",
      "blog": "SemiEngineering",
-     "title": "Standards-Compliant 112G PHY for Linear Optics: Driving Efficient AI Infrastructure",
-     "link": "https://semiengineering.com/standards-compliant-112g-phy-for-linear-optics-driving-efficient-ai-infrastructure/",
-     "summary": "112G PHY IP for linear optics to reduce power, latency and thermal load for high-speed data movement in AI and data center systems.\nThe post Standards-Compliant 112G PHY for Linear Optics: Driving Efficient AI Infrastructure appeared first on Semiconductor Engineering.",
-     "published": "2026-08-12 07:01 UTC",
-     "_ts": 1786518100,
+     "title": "Copper’s Grip On AI Scaling Is Starting To Slip",
+     "link": "https://semiengineering.com/coppers-grip-on-ai-scaling-is-starting-to-slip/",
+     "summary": "As AI clusters push beyond rack-scale limits, optical interconnects and circuit switching are reshaping how data centers scale. \nThe post Copper’s Grip On AI Scaling Is Starting To Slip appeared first on Semiconductor Engineering.",
+     "published": "2026-08-13 07:11 UTC",
+     "_ts": 1786605096,
      "preview": false,
      "bullets": [
-      "Synopsys has introduced the industry's first 112G PHY IP compliant with the OIF-CEI-112G-LINEAR-PAM4 standard, enabling DSP-less host-to-module connectivity.",
-      "Transitioning to linear optics can reduce module power consumption by up to 50%, significantly lowering thermal loads in high-density AI data center racks.",
-      "The solution eliminates the need for power-hungry DSPs and retimers, providing a scalable path toward 224G/448G interconnects and Co-Packaged Optics (CPO).",
-      "By meeting or exceeding CEI-112G-LINEAR-PAM4 specifications for jitter and eye-closure, this IP provides a standardized, interoperable foundation for next-generation AI infrastructure."
+      "Copper interconnects are reaching physical limits regarding signal loss and power consumption, forcing a transition to optical interconnects even within rack-scale environments.",
+      "The industry is redefining scaling terminology to include 'scale-in,' which refers to the bandwidth capacity managed within a single chassis.",
+      "Optical circuit switching (OCS) is gaining traction as a way to reduce latency and improve GPU utilization, which currently suffers when processors wait for data."
      ],
      "rating": 5
     },
     {
-     "_key": "SemiEngineering|https://semiengineering.com/self-supervised-layout-generation-to-fix-advanced-node-drvs-nvidia-duke/",
+     "_key": "SemiEngineering|https://semiengineering.com/what-will-it-take-to-deploy-cpo-at-scale/",
      "blog": "SemiEngineering",
-     "title": "Self-Supervised Layout Generation To Fix Advanced-Node DRVs (Nvidia, Duke)",
-     "link": "https://semiengineering.com/self-supervised-layout-generation-to-fix-advanced-node-drvs-nvidia-duke/",
-     "summary": "Researchers from NVIDIA and Duke University published a technical paper titled “SCALE: Self-Supervised Constraint-Aware Layout GEneration for Local P&R DRV Fixing at Advanced Nodes.” Abstract “As semiconductor manufacturing advances toward sub-2nm nodes, local place-and-route (P&R) design-rule violation (DRV) fixing is increasingly limited by complex rule interactions, dense multi-layer routing geometries, and foundry-specific constraints. While Large... » read more\nThe post Self-Supervised Layout Generation To Fix Advanced-Node DRVs (Nvidia, Duke) appeared first on Semiconductor Engineering.",
-     "published": "2026-08-12 22:47 UTC",
-     "_ts": 1786574863,
+     "title": "What Will It Take To Deploy CPO At Scale?",
+     "link": "https://semiengineering.com/what-will-it-take-to-deploy-cpo-at-scale/",
+     "summary": "The path to widespread deployment of co-packaged optics depends on solving challenges in manufacturing, testing, and operations.\nThe post What Will It Take To Deploy CPO At Scale? appeared first on Semiconductor Engineering.",
+     "published": "2026-08-13 07:04 UTC",
+     "_ts": 1786604682,
      "preview": false,
      "bullets": [
-      "Researchers from NVIDIA and Duke University developed SCALE, a self-supervised framework designed to automate the fixing of design-rule violations (DRVs) at sub-2nm nodes.",
-      "The framework utilizes a domain-adapted Vision-Language Model (VLM) that learns to reconstruct masked layout polygons, providing geometric guidance for complex routing issues.",
-      "SCALE improves the solve rates of existing automated agents by 12% to 25%, achieving up to 97% success on real-world sub-2nm layout cases.",
-      "By automating the repair of spacing, width, and color-spacing violations, this technology addresses the growing bottleneck of manual layout fixing in advanced semiconductor manufacturing."
+      "Co-packaged optics (CPO) is moving from proof-of-concept to production, initially targeting scale-out switch ASICs where copper bandwidth is insufficient.",
+      "The transition to using CPO in scale-up networks—connecting thousands of XPUs—remains the next major technical hurdle for the industry.",
+      "Widespread adoption depends on standardizing manufacturing, testing, and supply chain operations to ensure cost-effective, high-volume deployment."
      ],
-     "rating": 4
+     "rating": 5
     }
    ]
   },
@@ -63,19 +60,19 @@
    "status": "ok",
    "posts": [
     {
-     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/12/1141032/scaling-ai-agents-with-trustworthy-data/",
+     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/13/1141904/flock-is-tightening-its-rules-in-response-to-a-growing-surveillance-backlash/",
      "blog": "MIT Technology Review",
-     "title": "Scaling AI agents with trustworthy data",
-     "link": "https://www.technologyreview.com/2026/08/12/1141032/scaling-ai-agents-with-trustworthy-data/",
-     "summary": "Business and technology leaders need no convincing that the time of agentic AI is here. Organizations are rapidly adopting agents, and few executives doubt the technology’s potential to transform work. But many organizations find that realizing the desired return on investment (ROI) from AI hinges on having the right foundation, with inadequate infrastructure and data…",
-     "published": "2026-08-12 16:51 UTC",
-     "_ts": 1786553517,
+     "title": "Flock is tightening its rules in response to a growing surveillance backlash",
+     "link": "https://www.technologyreview.com/2026/08/13/1141904/flock-is-tightening-its-rules-in-response-to-a-growing-surveillance-backlash/",
+     "summary": "The police-tech giant Flock is announcing today that it will change officers’ access to its nationwide network of license plate readers, in an apparent effort to quell a growing backlash and win back contracts lost amid concerns about mass surveillance and police abuse. Several changes aim directly at a problem that has made recent headlines:…",
+     "published": "2026-08-13 13:41 UTC",
+     "_ts": 1786628470,
      "preview": false,
      "bullets": [
-      "A survey of 300 executives reveals that legacy data infrastructure is the primary bottleneck preventing the effective scaling of autonomous AI agents.",
-      "Current enterprise AI agents have access to an average of only 45% of company data, while top-performing 'data leaders' ensure access to over 70%.",
-      "Gartner predicts that AI agents will automate or augment 50% of business decisions by 2027, making the modernization of data access systems a critical priority for ROI.",
-      "Successful deployment of agentic AI requires moving beyond simple question-answering systems to providing agents with real-time, frictionless access to structured and unstructured operational data."
+      "Flock is implementing mandatory criminal case number requirements for all license plate reader searches to curb unauthorized use by law enforcement.",
+      "The company is scaling an automatic auditing system to flag suspicious search patterns, though it has not yet allowed independent verification of the tool's efficacy.",
+      "Despite these guardrails, critics note that the system lacks verification for case numbers, allowing officers to bypass safeguards with generic or nonsensical entries.",
+      "Flock is also encouraging agencies to reduce data retention periods from 30 days to seven days to mitigate public backlash regarding mass surveillance."
      ],
      "rating": 4
     }
@@ -86,19 +83,18 @@
    "status": "ok",
    "posts": [
     {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/",
+     "_key": "CNEVPOST|https://cnevpost.com/2026/08/13/byd-qin-max-goes-on-sale-china/",
      "blog": "CNEVPOST",
-     "title": "Xiaomi EV delivers 31,267 units in July, 39% of annual target",
-     "link": "https://cnevpost.com/2026/08/12/xiaomi-ev-delivers-31267-jul-2026/",
-     "summary": "Xiaomi EV needs average monthly deliveries of nearly 67,000 units over the remaining 5 months to achieve its full-year target of 550,000 units.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-08-12 09:30 UTC",
-     "_ts": 1786527023,
+     "title": "BYD's flash charging Qin Max sedan goes on sale in China for under $15,000",
+     "link": "https://cnevpost.com/2026/08/13/byd-qin-max-goes-on-sale-china/",
+     "summary": "The BYD Qin Max is the flagship of the Qin family, available in EV and DM-i versions.\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-08-13 12:43 UTC",
+     "_ts": 1786625027,
      "preview": false,
      "bullets": [
-      "Xiaomi EV delivered 31,267 vehicles in July, marking a fourth consecutive month above the 30,000-unit threshold but representing a 9.99% decline from June.",
-      "With only 216,322 units delivered in the first seven months, Xiaomi has achieved just 39% of its 550,000-unit annual target, necessitating a significant production ramp-up to nearly 67,000 units per month for the remainder of the year.",
-      "The company is pivoting toward the extended-range electric vehicle (EREV) market with its new Sky Nomad series, positioning the N90 Max and N70 Max to compete directly with Li Auto and Aito.",
-      "Market reception to the new product line remains uncertain, as evidenced by a 7.28% drop in Xiaomi's Hong Kong-listed shares following the initial pricing announcement on July 31."
+      "BYD launched the Qin Max sedan, available in both DM-i plug-in hybrid and EV versions, starting at 99,900 yuan ($14,720).",
+      "The EV variant features BYD's second-generation Blade Battery and flash charging technology, allowing a 10% to 97% charge in nine minutes.",
+      "The launch is a strategic effort to revitalize the Qin family, which has seen sales volume halve over the past year."
      ],
      "rating": 4
     }

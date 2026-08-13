@@ -1,51 +1,48 @@
 {
- "generated_at": "2026-08-13 06:59 HKT",
+ "generated_at": "2026-08-14 00:51 HKT",
  "repos": [
   {
-   "name": "mikehasa/agentacct",
-   "url": "https://github.com/mikehasa/agentacct",
-   "language": "Python",
-   "stars": 584,
-   "description": "See what your coding agents did and what it cost. Breaks each task down into work steps — tools used, files changed, tests run, time and tokens spent. Local-first dashboard for Claude Code, Codex, OpenCode, and more. No login, no telemetry.",
-   "one_liner": "A local-first observability dashboard for tracking the performance, token usage, and cost of coding agents.",
+   "name": "yc-software/qm",
+   "url": "https://github.com/yc-software/qm",
+   "language": "TypeScript",
+   "stars": 13405,
+   "description": "Multiplayer agent harness for work. https://qm.ycombinator.com",
+   "one_liner": "Multiplayer agent harness for work. https://qm.ycombinator.com",
    "bullets": [
-    "Built in Python with a focus on local-first data storage and privacy.",
-    "Provides granular visibility into agent workflows, including file changes, tool execution, and test results.",
-    "Calculates real-time financial metrics like token consumption and time-to-completion per task.",
-    "Designed to integrate with popular coding agents like Claude Code and Codex to audit development efficiency."
+    "Tech structure: primary language TypeScript.",
+    "Purpose: new open-source project (see description).",
+    "Use case: evaluate in your stack if the description fits."
    ],
-   "img": "mikehasa_agentacct_0.jpg",
-   "img_alt": "agentacct tui — live usage, cost, provider rate-limit bars, and recent sessions with per-session weekly-plan-cost estimates",
-   "img2": "mikehasa_agentacct_1.jpg",
-   "img2_alt": "agentacct tui session detail — the per-step work ledger with pass/fail check evidence and a weekly-plan-cost estimate"
+   "img": "yc-software_qm_0.jpg",
+   "img_alt": "The QM web UI: two concurrent sessions, a sidebar of personal files, crons, keychain, deploys, memory, and skills"
   },
   {
-   "name": "simonlin1212/vibe-astock",
-   "url": "https://github.com/simonlin1212/vibe-astock",
-   "language": "Python",
-   "stars": 178,
-   "description": "A 股短线复盘看板：涨停池·连板梯队·龙虎榜·板块资金一屏看完，赚钱效应/晋级率/梯队断层/情绪周期等派生指标纯计算直出（不经过 AI），AI 只把数据串成能读的盘面研判。全本地运行，可用 Claude/Codex 订阅免 API key。| A-share short-term daily-review dashboard: derived sentiment metrics computed locally, AI only writes the narrative. No API key needed.",
-   "one_liner": "A local-running A-share market sentiment and short-term trading dashboard that combines deterministic financial metrics with AI-driven analysis.",
+   "name": "trycompai/crm",
+   "url": "https://github.com/trycompai/crm",
+   "language": "TypeScript",
+   "stars": 8382,
+   "description": "Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM.",
+   "one_liner": "Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM.",
    "bullets": [
-    "Uses a hybrid architecture: deterministic calculation for market metrics and LLM-based synthesis for narrative reporting.",
-    "Features specialized modules for tracking limit-up pools, liquidity flows, and market sentiment cycles.",
-    "Operates entirely locally to ensure data privacy and zero-cost API usage for market monitoring.",
-    "Ideal for quantitative traders needing a high-level overview of Chinese market dynamics without relying on cloud-based financial platforms."
+    "Tech structure: primary language TypeScript.",
+    "Purpose: new open-source project (see description).",
+    "Use case: evaluate in your stack if the description fits."
    ]
   },
   {
-   "name": "Flaminis/Dalaran",
-   "url": "https://github.com/Flaminis/Dalaran",
-   "language": "Rust",
-   "stars": 885,
-   "description": "Dalaran — Apache-2.0, robotics-first visualization and data infrastructure for multimodal time-series. ROS 2 native, reads existing .rrd recordings. A hard fork of Rerun.",
-   "one_liner": "A robotics-first visualization and data infrastructure tool for multimodal time-series data, built as a high-performance fork of Rerun.",
+   "name": "drumih/turbo-fieldfare",
+   "url": "https://github.com/drumih/turbo-fieldfare",
+   "language": "Swift",
+   "stars": 5922,
+   "description": "Gemma 4 26B-A4B inference in ~2 GB of RAM on any M-series MacBook",
+   "one_liner": "Gemma 4 26B-A4B inference in ~2 GB of RAM on any M-series MacBook",
    "bullets": [
-    "Written in Rust, optimized for high-throughput ingestion and visualization of time-series data.",
-    "Native ROS 2 support allows for seamless integration into existing robotics and automated data pipelines.",
-    "Designed to handle complex, multi-sensor data streams with low latency, making it suitable for high-frequency trading backtesting or sensor fusion.",
-    "Provides a robust framework for replaying and analyzing historical data recordings (.rrd files) with advanced visual inspection."
-   ]
+    "Tech structure: primary language Swift.",
+    "Purpose: new open-source project (see description).",
+    "Use case: evaluate in your stack if the description fits."
+   ],
+   "img": "drumih_turbo-fieldfare_0.jpg",
+   "img_alt": "TurboFieldfare Mac app generating text with Gemma 4 26B-A4B"
   }
  ]
 }
