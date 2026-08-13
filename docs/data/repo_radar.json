@@ -1,48 +1,51 @@
 {
- "generated_at": "2026-08-14 00:51 HKT",
+ "generated_at": "2026-08-14 00:58 HKT",
  "repos": [
   {
-   "name": "yc-software/qm",
-   "url": "https://github.com/yc-software/qm",
-   "language": "TypeScript",
-   "stars": 13405,
-   "description": "Multiplayer agent harness for work. https://qm.ycombinator.com",
-   "one_liner": "Multiplayer agent harness for work. https://qm.ycombinator.com",
+   "name": "mikehasa/agentacct",
+   "url": "https://github.com/mikehasa/agentacct",
+   "language": "Python",
+   "stars": 585,
+   "description": "See what your coding agents did and what it cost. Breaks each task down into work steps — tools used, files changed, tests run, time and tokens spent. Local-first dashboard for Claude Code, Codex, OpenCode, and more. No login, no telemetry.",
+   "one_liner": "A local-first observability dashboard for tracking the performance and financial cost of AI coding agents.",
    "bullets": [
-    "Tech structure: primary language TypeScript.",
-    "Purpose: new open-source project (see description).",
-    "Use case: evaluate in your stack if the description fits."
+    "Tech Stack: Python-based local dashboard designed to ingest logs from Claude Code, Codex, and similar agents.",
+    "Purpose: Provides granular visibility into agentic workflows by breaking down tasks into specific steps, file changes, and tool usage.",
+    "Use Cases: Financial auditing of LLM token spend, debugging agentic reasoning loops, and measuring developer productivity gains.",
+    "Key Feature: Calculates real-time cost-per-task, allowing teams to optimize prompt engineering and model selection for cost efficiency."
    ],
-   "img": "yc-software_qm_0.jpg",
-   "img_alt": "The QM web UI: two concurrent sessions, a sidebar of personal files, crons, keychain, deploys, memory, and skills"
+   "img": "mikehasa_agentacct_0.jpg",
+   "img_alt": "agentacct tui — live usage, cost, provider rate-limit bars, and recent sessions with per-session weekly-plan-cost estimates",
+   "img2": "mikehasa_agentacct_1.jpg",
+   "img2_alt": "agentacct tui session detail — the per-step work ledger with pass/fail check evidence and a weekly-plan-cost estimate"
   },
   {
-   "name": "trycompai/crm",
-   "url": "https://github.com/trycompai/crm",
-   "language": "TypeScript",
-   "stars": 8382,
-   "description": "Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM.",
-   "one_liner": "Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM.",
+   "name": "EthanXiang777/circuit-framework",
+   "url": "https://github.com/EthanXiang777/circuit-framework",
+   "language": "Python",
+   "stars": 350,
+   "description": "Circuit Framework — multi-agent LLM trading research system",
+   "one_liner": "A specialized multi-agent framework designed specifically for LLM-driven quantitative trading research.",
    "bullets": [
-    "Tech structure: primary language TypeScript.",
-    "Purpose: new open-source project (see description).",
-    "Use case: evaluate in your stack if the description fits."
+    "Tech Stack: Python-based architecture utilizing multi-agent orchestration to handle complex financial data pipelines.",
+    "Purpose: Automates the research lifecycle for trading strategies, from hypothesis generation to backtesting and signal validation.",
+    "Use Cases: Developing algorithmic trading strategies, conducting automated market research, and testing alpha signals.",
+    "Key Feature: Modular agent design allows for the separation of data retrieval, strategy logic, and risk management components."
    ]
   },
   {
-   "name": "drumih/turbo-fieldfare",
-   "url": "https://github.com/drumih/turbo-fieldfare",
-   "language": "Swift",
-   "stars": 5922,
-   "description": "Gemma 4 26B-A4B inference in ~2 GB of RAM on any M-series MacBook",
-   "one_liner": "Gemma 4 26B-A4B inference in ~2 GB of RAM on any M-series MacBook",
+   "name": "simonlin1212/vibe-astock",
+   "url": "https://github.com/simonlin1212/vibe-astock",
+   "language": "Python",
+   "stars": 186,
+   "description": "A 股短线复盘看板：涨停池·连板梯队·龙虎榜·板块资金一屏看完，赚钱效应/晋级率/梯队断层/情绪周期等派生指标纯计算直出（不经过 AI），AI 只把数据串成能读的盘面研判。全本地运行，可用 Claude/Codex 订阅免 API key。| A-share short-term daily-review dashboard: derived sentiment metrics computed locally, AI only writes the narrative. No API key needed.",
+   "one_liner": "A high-performance, local-first dashboard for A-share market sentiment analysis and short-term trading review.",
    "bullets": [
-    "Tech structure: primary language Swift.",
-    "Purpose: new open-source project (see description).",
-    "Use case: evaluate in your stack if the description fits."
-   ],
-   "img": "drumih_turbo-fieldfare_0.jpg",
-   "img_alt": "TurboFieldfare Mac app generating text with Gemma 4 26B-A4B"
+    "Tech Stack: Python-based dashboard utilizing local computation for derived market metrics without relying on external AI for core calculations.",
+    "Purpose: Provides a real-time view of market liquidity, sentiment cycles, and stock momentum for A-share traders.",
+    "Use Cases: Daily market review, identifying 'money-making' effects in the market, and tracking sector rotation.",
+    "Key Feature: Uses AI only for synthesizing data into readable insights, ensuring high-speed performance and privacy by running entirely locally."
+   ]
   }
  ]
 }

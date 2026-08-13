@@ -1,60 +1,6 @@
 {
- "generated_at": "2026-08-14 00:51 HKT",
+ "generated_at": "2026-08-14 00:58 HKT",
  "blogs": [
-  {
-   "name": "SemiEngineering",
-   "status": "ok",
-   "posts": [
-    {
-     "_key": "SemiEngineering|https://semiengineering.com/the-1-megawatt-rack-debate/",
-     "blog": "SemiEngineering",
-     "title": "The 1-Megawatt Rack Debate",
-     "link": "https://semiengineering.com/the-1-megawatt-rack-debate/",
-     "summary": "Is it better to cram more compute into each rack or rethink the architecture?\nThe post The 1-Megawatt Rack Debate appeared first on Semiconductor Engineering.",
-     "published": "2026-08-13 07:15 UTC",
-     "_ts": 1786605349,
-     "preview": false,
-     "bullets": [
-      "Data center operators are preparing for 1-megawatt racks to support the massive power and cooling demands of next-generation AI compute clusters.",
-      "Hyperscalers including Google, Meta, and Microsoft are collaborating via the OCP 'Mount Diablo' project to standardize rack infrastructure, cooling, and power delivery.",
-      "The shift necessitates moving away from passive rack enclosures toward integrated compute systems that tightly couple liquid cooling, power shelves, and high-speed interconnects."
-     ],
-     "rating": 5
-    },
-    {
-     "_key": "SemiEngineering|https://semiengineering.com/coppers-grip-on-ai-scaling-is-starting-to-slip/",
-     "blog": "SemiEngineering",
-     "title": "Copper’s Grip On AI Scaling Is Starting To Slip",
-     "link": "https://semiengineering.com/coppers-grip-on-ai-scaling-is-starting-to-slip/",
-     "summary": "As AI clusters push beyond rack-scale limits, optical interconnects and circuit switching are reshaping how data centers scale. \nThe post Copper’s Grip On AI Scaling Is Starting To Slip appeared first on Semiconductor Engineering.",
-     "published": "2026-08-13 07:11 UTC",
-     "_ts": 1786605096,
-     "preview": false,
-     "bullets": [
-      "Copper interconnects are reaching physical limits regarding signal loss and power consumption, forcing a transition to optical interconnects even within rack-scale environments.",
-      "The industry is redefining scaling terminology to include 'scale-in,' which refers to the bandwidth capacity managed within a single chassis.",
-      "Optical circuit switching (OCS) is gaining traction as a way to reduce latency and improve GPU utilization, which currently suffers when processors wait for data."
-     ],
-     "rating": 5
-    },
-    {
-     "_key": "SemiEngineering|https://semiengineering.com/what-will-it-take-to-deploy-cpo-at-scale/",
-     "blog": "SemiEngineering",
-     "title": "What Will It Take To Deploy CPO At Scale?",
-     "link": "https://semiengineering.com/what-will-it-take-to-deploy-cpo-at-scale/",
-     "summary": "The path to widespread deployment of co-packaged optics depends on solving challenges in manufacturing, testing, and operations.\nThe post What Will It Take To Deploy CPO At Scale? appeared first on Semiconductor Engineering.",
-     "published": "2026-08-13 07:04 UTC",
-     "_ts": 1786604682,
-     "preview": false,
-     "bullets": [
-      "Co-packaged optics (CPO) is moving from proof-of-concept to production, initially targeting scale-out switch ASICs where copper bandwidth is insufficient.",
-      "The transition to using CPO in scale-up networks—connecting thousands of XPUs—remains the next major technical hurdle for the industry.",
-      "Widespread adoption depends on standardizing manufacturing, testing, and supply chain operations to ensure cost-effective, high-volume deployment."
-     ],
-     "rating": 5
-    }
-   ]
-  },
   {
    "name": "MIT Technology Review",
    "status": "ok",
@@ -69,10 +15,68 @@
      "_ts": 1786628470,
      "preview": false,
      "bullets": [
-      "Flock is implementing mandatory criminal case number requirements for all license plate reader searches to curb unauthorized use by law enforcement.",
-      "The company is scaling an automatic auditing system to flag suspicious search patterns, though it has not yet allowed independent verification of the tool's efficacy.",
-      "Despite these guardrails, critics note that the system lacks verification for case numbers, allowing officers to bypass safeguards with generic or nonsensical entries.",
-      "Flock is also encouraging agencies to reduce data retention periods from 30 days to seven days to mitigate public backlash regarding mass surveillance."
+      "Flock is tightening its rules in response to a growing surveillance backlash\nThe company is imposing new guardrails on its police tech after reports that officers are abusing it and cities are dropping contracts.",
+      "But the changes leave glaring loopholes.",
+      "The police-tech giant Flock is announcing today that it will change officers’ access to its nationwide network of license plate readers, in an apparent effort to quell a growing backlash and win back contracts lost...",
+      "Several changes aim directly at a problem that has made recent headlines: officers abusing Flock’s technology to stalk and harass current or former romantic partners.",
+      "Flock’s 120,000 cameras form a nationwide network that police departments can use, giving officers access to an enormous pool of searchable location data."
+     ],
+     "rating": 5
+    }
+   ]
+  },
+  {
+   "name": "SemiEngineering",
+   "status": "ok",
+   "posts": [
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/the-1-megawatt-rack-debate/",
+     "blog": "SemiEngineering",
+     "title": "The 1-Megawatt Rack Debate",
+     "link": "https://semiengineering.com/the-1-megawatt-rack-debate/",
+     "summary": "Is it better to cram more compute into each rack or rethink the architecture?\nThe post The 1-Megawatt Rack Debate appeared first on Semiconductor Engineering.",
+     "published": "2026-08-13 07:15 UTC",
+     "_ts": 1786605349,
+     "preview": false,
+     "bullets": [
+      "Hyperscalers including Google, Meta, and Microsoft are collaborating via the OCP 'Mount Diablo' project to standardize 1-megawatt rack architectures.",
+      "The transition to 1-megawatt racks necessitates a fundamental shift where the rack is treated as an integrated compute system rather than a passive enclosure.",
+      "Key technical hurdles for these high-density racks include managing extreme power delivery, advanced liquid cooling, and the physical limitations of copper-based signaling.",
+      "While some argue for distributed, fragmented architectures, the industry is currently prioritizing dense, rack-scale designs to support the escalating power and compute demands of AI workloads."
+     ],
+     "rating": 5
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/coppers-grip-on-ai-scaling-is-starting-to-slip/",
+     "blog": "SemiEngineering",
+     "title": "Copper’s Grip On AI Scaling Is Starting To Slip",
+     "link": "https://semiengineering.com/coppers-grip-on-ai-scaling-is-starting-to-slip/",
+     "summary": "As AI clusters push beyond rack-scale limits, optical interconnects and circuit switching are reshaping how data centers scale. \nThe post Copper’s Grip On AI Scaling Is Starting To Slip appeared first on Semiconductor Engineering.",
+     "published": "2026-08-13 07:11 UTC",
+     "_ts": 1786605096,
+     "preview": false,
+     "bullets": [
+      "Copper interconnects are reaching physical limits regarding signal loss and power consumption, forcing a shift toward optical interconnects even within the rack.",
+      "New scaling terminology is emerging, including 'scale-in,' which refers to the bandwidth capacity maintained within a single chassis to prevent GPU underutilization.",
+      "Optical circuit switching (OCS) is being adopted by major players like Google to reduce latency and improve the efficiency of AI clusters that currently suffer from high idle times.",
+      "The traditional distinction between copper-based 'scale-up' and optical 'scale-out' is blurring as AI clusters expand across multiple racks, necessitating fiber-based solutions for longer distances."
+     ],
+     "rating": 4
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/what-will-it-take-to-deploy-cpo-at-scale/",
+     "blog": "SemiEngineering",
+     "title": "What Will It Take To Deploy CPO At Scale?",
+     "link": "https://semiengineering.com/what-will-it-take-to-deploy-cpo-at-scale/",
+     "summary": "The path to widespread deployment of co-packaged optics depends on solving challenges in manufacturing, testing, and operations.\nThe post What Will It Take To Deploy CPO At Scale? appeared first on Semiconductor Engineering.",
+     "published": "2026-08-13 07:04 UTC",
+     "_ts": 1786604682,
+     "preview": false,
+     "bullets": [
+      "Co-packaged optics (CPO) are transitioning from prototypes to production, initially targeting scale-out switch ASICs where copper bandwidth is insufficient.",
+      "Widespread adoption of CPO requires solving complex ecosystem challenges, including establishing reliable supply chains, standardized manufacturing processes, and scalable testing protocols.",
+      "The industry is currently focused on moving CPO from switch-based applications to 'scale-up' networks, which aim to unify thousands of XPUs into a single, low-latency compute engine.",
+      "Commercial success for CPO depends on achieving cost-performance parity through wavelength multiplication and higher port density, moving beyond the current reliance on standard networking technologies."
      ],
      "rating": 4
     }
@@ -92,9 +96,10 @@
      "_ts": 1786625027,
      "preview": false,
      "bullets": [
-      "BYD launched the Qin Max sedan, available in both DM-i plug-in hybrid and EV versions, starting at 99,900 yuan ($14,720).",
-      "The EV variant features BYD's second-generation Blade Battery and flash charging technology, allowing a 10% to 97% charge in nine minutes.",
-      "The launch is a strategic effort to revitalize the Qin family, which has seen sales volume halve over the past year."
+      "BYD has launched the Qin Max sedan with a starting price of 99,900 yuan ($14,720), positioning it as a flagship model to revitalize the declining sales of its core Qin lineup.",
+      "The EV variant features second-generation Blade Battery technology, enabling ultra-fast charging that reaches 97% capacity in just nine minutes.",
+      "The DM-i plug-in hybrid version achieves a combined range of 2,370 km and a fuel consumption rate of 2.59 liters per 100 km, setting a new efficiency benchmark for its class.",
+      "The vehicle integrates advanced driver-assistance systems via the 'God's Eye B' LiDAR platform and includes a proprietary AI agent, Didi Xia, to enhance the user experience for younger demographics."
      ],
      "rating": 4
     }
