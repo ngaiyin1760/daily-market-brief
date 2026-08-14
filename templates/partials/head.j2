@@ -33,6 +33,71 @@
     --serif: 'Playfair Display', Garamond, Cambria, Georgia, serif;
     --sans: 'Source Sans 3', 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   }
+  /* Dark mode: reassign the theme variables. Applied via data-theme="dark"
+     on <html> (set by the toggle in core.js, persisted in localStorage). */
+  [data-theme="dark"] {
+    --paper: #16141d;
+    --card: #1f1c28;
+    --ink: #ece7db;
+    --ink-soft: #c2bbac;
+    --muted: #8d8574;
+    --rule: #35303f;
+    --rule-dark: #4c4657;
+    --accent: #7c7ef2;          /* lighter indigo for contrast on dark */
+    --accent-2: #2dd4bf;        /* lighter teal */
+    --gold: #e0b84e;
+    --green: #34d399;
+    --red: #f87171;
+  }
+  [data-theme="dark"] body { background: var(--paper); color: var(--ink); }
+  [data-theme="dark"] .desk {
+    background: var(--card);
+    border-color: var(--rule);
+  }
+  [data-theme="dark"] .desk h2 { color: var(--ink); }
+  [data-theme="dark"] .takeaways,
+  [data-theme="dark"] .weekly {
+    background: linear-gradient(135deg, #241f33 0%, #1d2a2a 100%);
+    border-color: var(--rule-dark);
+  }
+  [data-theme="dark"] .rating-chip,
+  [data-theme="dark"] .chip { color: #1c1440; }
+  [data-theme="dark"] .news td { border-color: var(--rule); color: var(--ink); }
+  [data-theme="dark"] .news th { color: var(--muted); border-color: var(--rule); }
+  [data-theme="dark"] .headline a { color: var(--ink); }
+  [data-theme="dark"] .headline a:hover { color: var(--accent); }
+  [data-theme="dark"] .summary li { color: var(--ink-soft); }
+  [data-theme="dark"] .colophon { color: var(--muted); }
+  [data-theme="dark"] .day-group,
+  [data-theme="dark"] .blog-card,
+  [data-theme="dark"] .repo-card,
+  [data-theme="dark"] .chart-card { background: var(--card); border-color: var(--rule); }
+  [data-theme="dark"] .repo-img { background: #fff; }  /* images keep white bg */
+  [data-theme="dark"] .saved-item,
+  [data-theme="dark"] .search-box input,
+  [data-theme="dark"] .day-jump { background: var(--card); border-color: var(--rule-dark); color: var(--ink); }
+  [data-theme="dark"] .rag-answer { background: #241f33; border-color: var(--rule-dark); }
+  [data-theme="dark"] .imp-badge { color: #fff; }  /* badges keep colored bg */
+  [data-theme="dark"] .imp-verdict { color: var(--ink-soft); }
+
+  /* Theme toggle (dark mode) */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: calc(100% - 24px);
+    margin: 0 12px 14px;
+    padding: 8px 12px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 6px;
+    color: #cfc9bb;
+    font-family: var(--sans);
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .theme-toggle:hover { background: rgba(255, 255, 255, .08); color: #fff; }
+  .theme-toggle .theme-icon { opacity: .9; }
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -1393,4 +1458,26 @@
     color: var(--accent);
   }
   .rag-answer p { margin: 6px 0 0; font-size: 15.5px; line-height: 1.5; }
+
+  /* Search highlight + relevance bar */
+  mark.hl {
+    background: rgba(201, 162, 39, .28);
+    color: inherit;
+    padding: 0 2px;
+    border-radius: 3px;
+  }
+  [data-theme="dark"] mark.hl { background: rgba(224, 184, 78, .35); color: #fff; }
+  .rel-bar {
+    height: 4px;
+    background: var(--rule);
+    border-radius: 2px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  .rel-bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-2), var(--accent));
+    border-radius: 2px;
+  }
 </style>

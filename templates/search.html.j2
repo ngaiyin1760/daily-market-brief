@@ -109,7 +109,9 @@
     var terms = tokenize(q);
     if (!terms.length) return [];
     var scored = index.map(function (it) {
-      return { item: it, score: scoreKeyword(it, terms) };
+      var s = scoreKeyword(it, terms);
+      it._score = s / 10;   // normalize ~0-1 for the relevance bar
+      return { item: it, score: s };
     }).filter(function (r) { return r.score > 0; });
     scored.sort(function (a, b) { return b.score - a.score; });
     return scored.slice(0, 50).map(function (r) { return r.item; });
@@ -161,7 +163,9 @@
           // title/body actually contains a query term. A post that says "EV"
           // or "China" ranks above one that only scores semantically close.
           var kw = scoreKeyword(it, terms);
-          return { item: it, score: cosine(it.embedding, qv) + kw * 0.04 };
+          var s = cosine(it.embedding, qv) + kw * 0.04;
+          it._score = s;   // for the relevance bar
+          return { item: it, score: s };
         })
         .filter(function (r) { return r.score >= SIM_THRESHOLD; });   // cut the noise
       scored.sort(function (a, b) { return b.score - a.score; });
@@ -172,7 +176,7 @@
         var have = {};
         scored.forEach(function (r) { have[r.item.url] = true; });
         key.forEach(function (it) {
-          if (!have[it.url]) { scored.push({ item: it, score: 0.3 }); have[it.url] = true; }
+          if (!have[it.url]) { it._score = 0.3; scored.push({ item: it, score: 0.3 }); have[it.url] = true; }
         });
       }
       return scored.slice(0, topN).map(function (r) { return r.item; });
@@ -213,7 +217,17 @@
   }
 
   // ---------- Render ----------
-  function renderCards(items) {
+  // Highlight query terms in a text (case-insensitive) — returns HTML.
+  function highlight(text, terms) {
+    var s = esc(text || "");
+    if (!terms || !terms.length) return s;
+    var re = new RegExp("(" + terms.map(function (t) {
+      return t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }).join("|") + ")", "gi");
+    return s.replace(re, '<mark class="hl">$1</mark>');
+  }
+
+  function renderCards(items, terms, withScore) {
     results.innerHTML = "";
     if (!items.length) {
       results.innerHTML = '<p class="empty-note">No matches found.</p>';
@@ -224,10 +238,17 @@
       card.className = "blog-card";
       var head = '<div class="bc-head"><span class="chip">' + esc(kindLabel(it.kind))
         + '</span><span class="day-meta">' + esc(fmtDate(it.date)) + "</span></div>";
+      // Relevance indicator (semantic mode): a small % bar from the score.
+      var rel = "";
+      if (withScore && it._score) {
+        var pct = Math.max(0, Math.min(100, Math.round(it._score * 100)));
+        rel = '<div class="rel-bar" title="Relevance ' + pct + '%">'
+          + '<span style="width:' + pct + '%"></span></div>';
+      }
       var title = '<h3><a href="' + esc(it.url) + '" target="_blank" rel="noopener">'
-        + esc(it.title) + "</a></h3>";
-      var body = '<p class="rc-oneliner">' + esc(it.text || "") + "</p>";
-      card.innerHTML = head + title + body;
+        + highlight(it.title, terms) + "</a></h3>";
+      var body = '<p class="rc-oneliner">' + highlight(it.text || "", terms) + "</p>";
+      card.innerHTML = head + title + body + rel;
       results.appendChild(card);
     });
   }
@@ -241,11 +262,11 @@
         status.textContent = "Searching…";
         var items = keywordSearch(q);
         status.textContent = items.length + " result(s)";
-        renderCards(items);
+        renderCards(items, tokenize(q), true);
       } else {
         status.textContent = "Embedding query…";
         semanticSearch(q, 20).then(function (items) {
-          renderCards(items);
+          renderCards(items, tokenize(q), true);
           if (!items.length) { status.textContent = "No semantic matches."; return; }
           status.textContent = "Writing answer…";
           ragAnswer(q, items).then(function (ans) {
