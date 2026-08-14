@@ -938,6 +938,7 @@ def heuristic_summarize(candidates, top_n=DEFAULT_TOP_N):
             "rating": heuristic_rating(
                 item["title"] + " " + (item.get("content") or item["summary"])),
             "reason": "Heuristic rating (no AI summary).",
+            "read_time": item.get("read_time"),
         })
     return out
 
@@ -984,6 +985,11 @@ def gemini_summarize(category, candidates, top_n=DEFAULT_TOP_N):
     if not isinstance(parsed, list):
         raise ValueError("Gemini response is not a JSON array")
 
+    # Map candidates by URL so we can carry over the extracted full-article
+    # reading time (set in attach_article_texts) — the AI response only gives
+    # title/url/bullets/rating.
+    cand_by_url = {c.get("url"): c for c in candidates}
+
     out = []
     for entry in parsed[:top_n]:
         bullets = entry.get("bullets") or []
@@ -994,14 +1000,17 @@ def gemini_summarize(category, candidates, top_n=DEFAULT_TOP_N):
             rating = int(entry.get("rating", 3))
         except (TypeError, ValueError):
             rating = 3
+        entry_url = str(entry.get("url", ""))
+        cand = cand_by_url.get(entry_url) or {}
         out.append({
             "title": str(entry.get("title", "")),
-            "url": str(entry.get("url", "")),
+            "url": entry_url,
             "source": str(entry.get("source", "")),
             "published": str(entry.get("published", "")),
             "bullets": bullets,
             "rating": max(1, min(5, rating)),
             "reason": str(entry.get("reason", "")),
+            "read_time": cand.get("read_time"),
         })
     if not out:
         raise ValueError("Gemini returned no usable items")
