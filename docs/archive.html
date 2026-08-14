@@ -86,24 +86,26 @@
   [data-theme="dark"] .imp-badge { color: #fff; }  /* badges keep colored bg */
   [data-theme="dark"] .imp-verdict { color: var(--ink-soft); }
 
-  /* Theme toggle (dark mode) */
+  /* Theme toggle (dark mode) — compact square icon button */
   .theme-toggle {
     display: flex;
     align-items: center;
-    gap: 8px;
-    width: calc(100% - 24px);
-    margin: 0 12px 14px;
-    padding: 8px 12px;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    margin: 0 0 14px 12px;
+    padding: 0;
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, .15);
     border-radius: 6px;
     color: #cfc9bb;
-    font-family: var(--sans);
-    font-size: 13px;
     cursor: pointer;
   }
-  .theme-toggle:hover { background: rgba(255, 255, 255, .08); color: #fff; }
-  .theme-toggle .theme-icon { opacity: .9; }
+  .theme-toggle:hover { background: rgba(255, 255, 255, .1); color: #fff; }
+  .theme-toggle .theme-icon { display: none; }
+  /* In light mode show the moon; in dark mode show the sun. */
+  html:not([data-theme="dark"]) .theme-toggle .icon-moon { display: block; }
+  html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -1500,11 +1502,16 @@
   <div class="site-title">Daily Market Brief</div>
   <div class="site-sub">Market Intelligence</div>
   <button type="button" class="theme-toggle" id="theme-toggle"
-          aria-label="Toggle dark mode" title="Toggle dark mode">
-    <svg class="theme-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+          aria-label="Toggle dark mode" title="Toggle dark mode" aria-pressed="false">
+    <!-- Sun (shown in dark mode: tap to go light) -->
+    <svg class="theme-icon icon-sun" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+      <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <!-- Moon (shown in light mode: tap to go dark) -->
+    <svg class="theme-icon icon-moon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
       <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.4 5.4 0 0 1-3.77-9.22A8.97 8.97 0 0 0 12 3z" fill="currentColor"/>
     </svg>
-    <span>Dark mode</span>
   </button>
   <nav class="sidebar-top">
     <a class="archive-link"
@@ -1609,11 +1616,7 @@
       window.matchMedia("(prefers-color-scheme: dark)").matches);
     applyTheme(dark);
     var btn = document.getElementById("theme-toggle");
-    if (btn) {
-      var label = btn.querySelector("span");
-      if (label) label.textContent = dark ? "Light mode" : "Dark mode";
-      btn.setAttribute("aria-pressed", dark ? "true" : "false");
-    }
+    if (btn) btn.setAttribute("aria-pressed", dark ? "true" : "false");
   }
   initTheme();   // apply before paint (no flash)
   var themeBtn = document.getElementById("theme-toggle");
@@ -1622,15 +1625,13 @@
       var dark = document.documentElement.getAttribute("data-theme") !== "dark";
       applyTheme(dark);
       try { localStorage.setItem(THEME_KEY, dark ? "dark" : "light"); } catch (e) {}
-      var label = themeBtn.querySelector("span");
-      if (label) label.textContent = dark ? "Light mode" : "Dark mode";
       themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
     });
   }
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-15 02:28 HKT");
+  var dataTS = encodeURIComponent("2026-08-15 02:34 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
