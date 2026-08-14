@@ -1991,11 +1991,27 @@ def _gh_headers():
 
 def fetch_repo_candidates():
     """GitHub Search API per topic -> deduped, star-ranked candidate repos.
-    Rate limits (403) are non-fatal — the topic is skipped and the radar may
-    run short rather than fail."""
+    Repos already shown in previous days' Repo Radar are EXCLUDED, so the same
+    hot repo doesn't reappear every day. Rate limits (403) are non-fatal — the
+    topic is skipped and the radar may run short rather than fail."""
     topics = load_repo_topics()
     created_after = (datetime.now(timezone.utc) - timedelta(days=REPO_RADAR_DAYS)) \
         .strftime("%Y-%m-%d")
+
+    # Repos already shown in prior days (from the committed history).
+    seen_before = set()
+    try:
+        data = json.loads(REPO_RADAR_HISTORY_PATH.read_text(encoding="utf-8"))
+        for day in data.get("days", []):
+            for r in day.get("repos", []):
+                name = r.get("name")
+                if name:
+                    seen_before.add(name)
+    except Exception:
+        seen_before = set()
+    log.info("Repo Radar: %d repo(s) already shown before; excluding",
+             len(seen_before))
+
     candidates = {}
     for name, query in topics:
         q = f"{query} created:>{created_after} stars:>{REPO_RADAR_MIN_STARS}"
@@ -2018,6 +2034,8 @@ def fetch_repo_candidates():
             full = it.get("full_name") or ""
             if it.get("fork") or not (it.get("description") or "").strip():
                 continue
+            if full in seen_before:
+                continue   # already shown in a previous day's radar
             candidates[full] = {
                 "name": full,
                 "url": it.get("html_url", ""),
