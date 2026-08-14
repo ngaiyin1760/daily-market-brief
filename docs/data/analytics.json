@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-15 03:19 HKT",
+ "generated_at": "2026-08-15 03:25 HKT",
  "blogs": [
   {
    "name": "SemiEngineering",
@@ -15,38 +15,14 @@
      "_ts": 1786690908,
      "preview": false,
      "bullets": [
-      "ASE subsidiary SPIL is investing $3.1 billion in a new Taiwan-based facility to expand CoWoS capacity for AI chips, with production slated to begin in 2028.",
-      "Data center architecture is undergoing a major shift toward 1-megawatt racks, necessitating fundamental changes in power delivery, cooling systems, and 3D-IC packaging to support AI workloads.",
-      "Rhodium Group projects that China's legacy-chip capacity will approach 50% of global output by 2030, as domestic equipment manufacturers continue to scale despite restrictions on leading-edge AI hardware.",
-      "Lam Research announced a $3 billion, five-year investment to expand its global R&D lab network, aiming to increase its experimental capacity by over 50%.",
-      "Sony and TSMC have finalized a joint venture in Japan for next-generation image sensors, with Sony contributing approximately $2.9 billion to lead the project."
+      "Lam Research and ASE expansions; data center shifts; CPO system architecture initiative; 2D-transistor interface solution; USENIX HW security; patent suits; image sensors; programmable AI memtransistor; Nvidia’s new...",
+      "UC Berkeley experts argue that AI progress does not require ever-larger data centers.",
+      "Smaller open-source models are becoming capable enough for many tasks while using far less compute, energy, and water — and increasingly they could run on local HW.",
+      "Data-center network fabrics are undergoing another architectural shift as optical interconnects assume a larger role in AI-cluster connectivity.",
+      "The push toward 1-megawatt racks is forcing fundamental changes in data center architecture, including cooling, power delivery, rack design, and 3D-IC packaging."
      ],
      "rating": 5,
      "read_time": 12
-    }
-   ]
-  },
-  {
-   "name": "Stratechery",
-   "status": "ok",
-   "posts": [
-    {
-     "_key": "Stratechery|https://stratechery.com/2026/the-capex-train-keeps-rolling/",
-     "blog": "Stratechery",
-     "title": "2026.33: The CapEx Train Keeps Rolling",
-     "link": "https://stratechery.com/2026/the-capex-train-keeps-rolling/",
-     "summary": "The best Stratechery content from the week of August 10, 2026, including the capital constraint, AI writing, and a tale of two cities.",
-     "published": "2026-08-14 17:00 UTC",
-     "_ts": 1786726800,
-     "preview": false,
-     "bullets": [
-      "Nvidia is implementing new financial engineering mechanisms to secure long-duration capital, signaling a shift in how AI infrastructure is funded as the industry faces potential capital constraints.",
-      "The reliance on creative financing and equity taps by major players like Google suggests that AI investment is not yet self-sustaining, raising concerns about the sustainability of current margins.",
-      "New EU regulations mandating the labeling of AI-generated content are being met with industry resistance, as critics argue such mandates fail to account for the evolving nature of human-AI collaboration.",
-      "The divergence between New York City's resilient financial sector and Hollywood's declining local production base highlights how network effects can protect some industries while leaving others vulnerable to geographic outsourcing."
-     ],
-     "rating": 4,
-     "read_time": 3
     }
    ]
   },
@@ -65,9 +41,9 @@
      "preview": false,
      "bullets": [
       "Li Auto is in the early stages of developing an in-house cloud inference chip to handle workloads currently managed by GPUs.",
-      "The project aims to leverage the dataflow architecture used in the company's vehicle-side assisted driving chips to reduce R&D costs through shared design and software tools.",
-      "While technically feasible, the company faces significant challenges in achieving cost-competitive inference performance compared to established cloud-scale solutions.",
-      "The initiative reflects a broader trend of automotive companies seeking vertical integration in AI hardware to optimize both vehicle performance and backend data processing."
+      "The project aims to leverage the dataflow architecture used in the company's vehicle-side assisted driving chips to achieve cost efficiencies.",
+      "By reusing compute designs and software tools from its vehicle NPU, Li Auto seeks to optimize R&D spending while addressing cloud-specific requirements like dynamic batching and cluster scheduling.",
+      "The initiative highlights a broader trend of automotive companies moving vertically into specialized silicon to manage the high costs of AI model training and inference."
      ],
      "rating": 4,
      "read_time": 4
@@ -82,10 +58,10 @@
      "_ts": 1786679801,
      "preview": false,
      "bullets": [
-      "Li Auto's L6 SUV has surpassed 400,000 cumulative deliveries in less than 27 months, cementing its status as a core volume driver for the company.",
-      "Demand for the model has rebounded sharply following the July 2026 launch of a revamped version, with deliveries reaching approximately 9,000 units in the first half of August.",
-      "The new L6 features significant technical upgrades, including a 51 kWh battery for extended range and the integration of Li Auto's in-house Mach M100 assisted driving chip.",
-      "The successful refresh of the L6 is a critical component of Li Auto's broader strategy to modernize its L-series lineup and recover from a temporary sales slump earlier this year."
+      "Cumulative deliveries of the Li L6 SUV have surpassed 400,000 units, with the model reaching this milestone in less than 27 months.",
+      "Demand has rebounded significantly following the July 16 launch of a revamped model, with approximately 9,000 units delivered in the first half of August compared to 2,716 for all of July.",
+      "The new L6 features upgraded specifications, including a 51 kWh battery for 300 km of all-electric range and the integration of Li Auto's in-house Mach M100 assisted driving chip.",
+      "As the company's entry-level model, the L6 remains a critical volume driver, having accounted for 41% of Li Auto's total deliveries in 2025."
      ],
      "rating": 4,
      "read_time": 3
@@ -100,13 +76,37 @@
      "_ts": 1786687464,
      "preview": false,
      "bullets": [
-      "Geely Farizon has commenced operations at its first overseas knock-down (KD) assembly plant in Indonesia, located southeast of Jakarta.",
-      "The facility began production with the V8E all-electric logistics vehicle, which has been specifically calibrated for local road conditions and tropical climates.",
-      "This localized production strategy is designed to bypass import tariffs, streamline supply chains, and lower operating costs in the competitive Southeast Asian market.",
-      "The company plans to gradually expand its localized product lineup and integrate further into the Indonesian industrial chain to support long-term growth."
+      "Geely Farizon has commenced operations at its first overseas knock-down (KD) plant in Indonesia, located southeast of Jakarta.",
+      "The facility has begun assembly of the V8E all-electric logistics vehicle, which is specifically calibrated for local road conditions and tropical climates.",
+      "This localized production strategy is designed to bypass import tariffs, streamline supply chains, and reduce operating costs in the competitive Southeast Asian market."
      ],
      "rating": 3,
      "read_time": 2
+    }
+   ]
+  },
+  {
+   "name": "Stratechery",
+   "status": "ok",
+   "posts": [
+    {
+     "_key": "Stratechery|https://stratechery.com/2026/the-capex-train-keeps-rolling/",
+     "blog": "Stratechery",
+     "title": "2026.33: The CapEx Train Keeps Rolling",
+     "link": "https://stratechery.com/2026/the-capex-train-keeps-rolling/",
+     "summary": "The best Stratechery content from the week of August 10, 2026, including the capital constraint, AI writing, and a tale of two cities.",
+     "published": "2026-08-14 17:00 UTC",
+     "_ts": 1786726800,
+     "preview": false,
+     "bullets": [
+      "Welcome back to This Week in Stratechery!",
+      "As a reminder, each week, every Friday, we’re sending out this overview of content in the Stratechery bundle; highlighted links are free for everyone.",
+      "Additionally, you have complete control over what we send to you.",
+      "If you don’t want to receive This Week in Stratechery emails (there is no podcast), please uncheck the box in your delivery settings.",
+      "On that note, here were a few of our favorites this week."
+     ],
+     "rating": 2,
+     "read_time": 3
     }
    ]
   }
