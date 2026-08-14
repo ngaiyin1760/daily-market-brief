@@ -810,7 +810,9 @@ def extract_article_text(link):
 
 def attach_article_texts(category, items):
     """Extract full article text for the top candidates, concurrently.
-    Sets item['content'] (None when extraction failed)."""
+    Sets item['content'] (None when extraction failed) and item['read_time']
+    estimated from the FULL article text when available (so the chip reflects
+    how long the original article is, not the ~1-min digest)."""
     for item in items:
         item["content"] = None
     top = items[:ARTICLE_EXTRACT_TOP_N]
@@ -828,6 +830,11 @@ def attach_article_texts(category, items):
                 item["content"] = None
             if item["content"]:
                 extracted += 1
+                # Full article available: reading time reflects the ORIGINAL
+                # article length, not the digest.
+                item["read_time"] = read_time_minutes(item["content"])
+    # Items with no extracted text keep their digest-based estimate (set
+    # later in summarize_category), which is all we can know.
     log.info("%s: extracted %d/%d articles",
              category["label"], extracted, len(futures))
 
@@ -1021,10 +1028,13 @@ def summarize_category(category, candidates):
     else:
         log.info("No GEMINI_API_KEY; heuristic summary: %s", category["label"])
         out = heuristic_summarize(candidates, top_n)
-    # Reading-time chip per story (from the digest word count).
+    # Reading-time chip: prefer the FULL-article estimate (set in
+    # attach_article_texts); fall back to the digest length when the article
+    # text wasn't extractable.
     for it in out:
-        it["read_time"] = read_time_minutes(it.get("title", ""),
-                                           *it.get("bullets", []))
+        if not it.get("read_time"):
+            it["read_time"] = read_time_minutes(it.get("title", ""),
+                                                *it.get("bullets", []))
     return out
 
 
@@ -1900,6 +1910,10 @@ def fetch_analytics():
                 post["content"] = fut.result()
             except Exception:
                 post["content"] = None
+            if post.get("content"):
+                # Full post text available: reading time reflects the original
+                # article, not the digest.
+                post["read_time"] = read_time_minutes(post["content"])
 
     # Summarize + rate per blog (one Gemini call per blog with fresh posts).
     all_fresh = []
@@ -1922,8 +1936,9 @@ def fetch_analytics():
         for post in posts:
             post["preview"] = not bool(post.get("content"))
             post["blog"] = name
-            post["read_time"] = read_time_minutes(post.get("title", ""),
-                                                  *post.get("bullets", []))
+            if not post.get("read_time"):
+                post["read_time"] = read_time_minutes(post.get("title", ""),
+                                                      *post.get("bullets", []))
             all_fresh.append(_sanitize_post(post))
         log.info("Analytics %s: %d post(s) within 24h (%d preview-only)",
                  name, len(posts), sum(1 for p in posts if p.get("preview")))
