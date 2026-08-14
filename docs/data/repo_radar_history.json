@@ -1,6 +1,58 @@
 {
  "days": [
   {
+   "date": "2026-08-15",
+   "generated_at": "2026-08-15 02:28 HKT",
+   "repos": [
+    {
+     "name": "mikehasa/agentacct",
+     "url": "https://github.com/mikehasa/agentacct",
+     "language": "Python",
+     "stars": 589,
+     "description": "See what your coding agents did and what it cost. Breaks each task down into work steps — tools used, files changed, tests run, time and tokens spent. Local-first dashboard for Claude Code, Codex, OpenCode, and more. No login, no telemetry.",
+     "one_liner": "A local-first observability and cost-tracking dashboard for AI coding agents.",
+     "bullets": [
+      "Built with Python to provide granular visibility into agentic workflows.",
+      "Tracks specific metrics including token consumption, latency, file modifications, and test execution results.",
+      "Provides a transparent audit trail for developers to optimize agent performance and manage operational costs.",
+      "Integrates directly with popular coding agents like Claude Code and Codex to visualize work steps."
+     ],
+     "img": "mikehasa_agentacct_0.jpg",
+     "img_alt": "agentacct tui — live usage, cost, provider rate-limit bars, and recent sessions with per-session weekly-plan-cost estimates",
+     "img2": "mikehasa_agentacct_1.jpg",
+     "img2_alt": "agentacct tui session detail — the per-step work ledger with pass/fail check evidence and a weekly-plan-cost estimate"
+    },
+    {
+     "name": "EthanXiang777/circuit-framework",
+     "url": "https://github.com/EthanXiang777/circuit-framework",
+     "language": "Python",
+     "stars": 349,
+     "description": "Circuit Framework — multi-agent LLM trading research system",
+     "one_liner": "A specialized multi-agent framework designed for LLM-based quantitative trading research.",
+     "bullets": [
+      "Python-based architecture optimized for modular agent interaction in financial contexts.",
+      "Facilitates complex research workflows by orchestrating multiple agents to handle data analysis, strategy backtesting, and signal generation.",
+      "Designed to bridge the gap between high-level LLM reasoning and rigorous quantitative financial modeling.",
+      "Enables researchers to iterate on trading hypotheses using agentic workflows rather than manual scripting."
+     ]
+    },
+    {
+     "name": "simonlin1212/vibe-astock",
+     "url": "https://github.com/simonlin1212/vibe-astock",
+     "language": "Python",
+     "stars": 190,
+     "description": "A 股短线复盘看板：涨停池·连板梯队·龙虎榜·板块资金一屏看完，赚钱效应/晋级率/梯队断层/情绪周期等派生指标纯计算直出（不经过 AI），AI 只把数据串成能读的盘面研判。全本地运行，可用 Claude/Codex 订阅免 API key。| A-share short-term daily-review dashboard: derived sentiment metrics computed locally, AI only writes the narrative. No API key needed.",
+     "one_liner": "A local-first A-share market sentiment and daily-review dashboard for quantitative traders.",
+     "bullets": [
+      "Uses a hybrid approach: pure mathematical computation for market metrics and AI for narrative synthesis.",
+      "Calculates proprietary sentiment indicators like 'money-making effect' and 'ladder gaps' locally without external API dependencies.",
+      "Provides a comprehensive visual dashboard for short-term market analysis, including limit-up pools and capital flow tracking.",
+      "Supports local LLM integration (Claude/Codex) to interpret raw data into actionable market insights."
+     ]
+    }
+   ]
+  },
+  {
    "date": "2026-08-14",
    "generated_at": "2026-08-14 07:00 HKT",
    "repos": [

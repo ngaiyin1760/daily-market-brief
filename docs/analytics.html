@@ -39,6 +39,71 @@
     --serif: 'Playfair Display', Garamond, Cambria, Georgia, serif;
     --sans: 'Source Sans 3', 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   }
+  /* Dark mode: reassign the theme variables. Applied via data-theme="dark"
+     on <html> (set by the toggle in core.js, persisted in localStorage). */
+  [data-theme="dark"] {
+    --paper: #16141d;
+    --card: #1f1c28;
+    --ink: #ece7db;
+    --ink-soft: #c2bbac;
+    --muted: #8d8574;
+    --rule: #35303f;
+    --rule-dark: #4c4657;
+    --accent: #7c7ef2;          /* lighter indigo for contrast on dark */
+    --accent-2: #2dd4bf;        /* lighter teal */
+    --gold: #e0b84e;
+    --green: #34d399;
+    --red: #f87171;
+  }
+  [data-theme="dark"] body { background: var(--paper); color: var(--ink); }
+  [data-theme="dark"] .desk {
+    background: var(--card);
+    border-color: var(--rule);
+  }
+  [data-theme="dark"] .desk h2 { color: var(--ink); }
+  [data-theme="dark"] .takeaways,
+  [data-theme="dark"] .weekly {
+    background: linear-gradient(135deg, #241f33 0%, #1d2a2a 100%);
+    border-color: var(--rule-dark);
+  }
+  [data-theme="dark"] .rating-chip,
+  [data-theme="dark"] .chip { color: #1c1440; }
+  [data-theme="dark"] .news td { border-color: var(--rule); color: var(--ink); }
+  [data-theme="dark"] .news th { color: var(--muted); border-color: var(--rule); }
+  [data-theme="dark"] .headline a { color: var(--ink); }
+  [data-theme="dark"] .headline a:hover { color: var(--accent); }
+  [data-theme="dark"] .summary li { color: var(--ink-soft); }
+  [data-theme="dark"] .colophon { color: var(--muted); }
+  [data-theme="dark"] .day-group,
+  [data-theme="dark"] .blog-card,
+  [data-theme="dark"] .repo-card,
+  [data-theme="dark"] .chart-card { background: var(--card); border-color: var(--rule); }
+  [data-theme="dark"] .repo-img { background: #fff; }  /* images keep white bg */
+  [data-theme="dark"] .saved-item,
+  [data-theme="dark"] .search-box input,
+  [data-theme="dark"] .day-jump { background: var(--card); border-color: var(--rule-dark); color: var(--ink); }
+  [data-theme="dark"] .rag-answer { background: #241f33; border-color: var(--rule-dark); }
+  [data-theme="dark"] .imp-badge { color: #fff; }  /* badges keep colored bg */
+  [data-theme="dark"] .imp-verdict { color: var(--ink-soft); }
+
+  /* Theme toggle (dark mode) */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: calc(100% - 24px);
+    margin: 0 12px 14px;
+    padding: 8px 12px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 6px;
+    color: #cfc9bb;
+    font-family: var(--sans);
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .theme-toggle:hover { background: rgba(255, 255, 255, .08); color: #fff; }
+  .theme-toggle .theme-icon { opacity: .9; }
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -1399,6 +1464,28 @@
     color: var(--accent);
   }
   .rag-answer p { margin: 6px 0 0; font-size: 15.5px; line-height: 1.5; }
+
+  /* Search highlight + relevance bar */
+  mark.hl {
+    background: rgba(201, 162, 39, .28);
+    color: inherit;
+    padding: 0 2px;
+    border-radius: 3px;
+  }
+  [data-theme="dark"] mark.hl { background: rgba(224, 184, 78, .35); color: #fff; }
+  .rel-bar {
+    height: 4px;
+    background: var(--rule);
+    border-radius: 2px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  .rel-bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-2), var(--accent));
+    border-radius: 2px;
+  }
 </style>
 </head>
 <body>
@@ -1411,6 +1498,13 @@
   </button>
   <div class="site-title">Daily Market Brief</div>
   <div class="site-sub">Market Intelligence</div>
+  <button type="button" class="theme-toggle" id="theme-toggle"
+          aria-label="Toggle dark mode" title="Toggle dark mode">
+    <svg class="theme-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+      <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.4 5.4 0 0 1-3.77-9.22A8.97 8.97 0 0 0 12 3z" fill="currentColor"/>
+    </svg>
+    <span>Dark mode</span>
+  </button>
   <nav class="sidebar-top">
     <a class="archive-link"
        href="./markets.html">
@@ -1456,23 +1550,190 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Analytics</h1>
-    <div class="generated">Today's top 5 from your blogs · tech &amp; engineering scope · updated 2026-08-14 07:00 HKT</div>
+    <div class="generated">Today's top 5 from your blogs · tech &amp; engineering scope · updated 2026-08-15 02:28 HKT</div>
   </header>
 
   
   <div class="day-jump-wrap">
     <label for="day-jump">Jump to</label>
     <select id="day-jump" class="day-jump">
-      <option value="2026-08-14">2026-08-14 (latest)</option><option value="2026-08-13">2026-08-13</option>
+      <option value="2026-08-15">2026-08-15 (latest)</option><option value="2026-08-14">2026-08-14</option><option value="2026-08-13">2026-08-13</option>
     </select>
   </div>
 
   
-  <details class="day-group" id="day-2026-08-14" open>
+  <details class="day-group" id="day-2026-08-15" open>
+    <summary class="day-bar">
+      <svg class="day-chevron" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="day-date">2026-08-15</span>
+      <span class="day-tag">Today</span>
+      <span class="day-meta">5 post(s) · 3 blog(s)</span>
+    </summary>
+    <div class="day-body">
+      
+      <section class="desk reveal">
+        <h2>SemiEngineering</h2>
+        
+        <article class="blog-card">
+          <div class="bc-head">
+            
+          </div>
+          <h3><a href="https://semiengineering.com/chip-industry-week-in-review-151/" target="_blank" rel="noopener">Chip Industry Week In Review</a></h3>
+          <div class="pub">2026-08-14 07:01 UTC</div>
+          
+          <ul class="bc-bullets">
+            <li>ASE subsidiary SPIL is investing $3.1 billion in a new Taiwan-based facility to expand CoWoS capacity for AI chips, with production slated to begin in 2028.</li><li>Lam Research announced a $3 billion, five-year R&amp;D expansion plan to increase its experimental capacity by over 50%, alongside a workforce development partnership with NY Creates.</li><li>Data center infrastructure is undergoing a fundamental shift toward 1-megawatt racks, necessitating significant changes in cooling, power delivery, and the integration of optical interconnects.</li><li>Rhodium Group projects that China will control nearly 50% of global legacy-chip capacity by 2030, as domestic equipment manufacturers continue to scale despite restrictions on leading-edge AI hardware.</li><li>Industry experts are increasingly advocating for smaller, open-source AI models that reduce the reliance on massive data centers by optimizing energy, water, and compute efficiency.</li>
+          </ul>
+          
+          <div class="bc-footer">
+            <div class="bc-url"><a href="https://semiengineering.com/chip-industry-week-in-review-151/" target="_blank" rel="noopener">https://semiengineering.com/chip-industry-week-in-review-151/</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="https://semiengineering.com/chip-industry-week-in-review-151/"
+                    data-save-title="Chip Industry Week In Review"
+                    data-save-source="SemiEngineering"
+                    data-save-category="Analytics"
+                    data-save-rating="5"
+                    data-save-date="2026-08-15">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+        
+      </section>
+      
+      <section class="desk reveal">
+        <h2>CNEVPOST</h2>
+        
+        <article class="blog-card">
+          <div class="bc-head">
+            
+          </div>
+          <h3><a href="https://cnevpost.com/2026/08/14/geely-farizon-1st-overseas-plant-operations-indonesia/" target="_blank" rel="noopener">Geely Farizon&#39;s first overseas plant starts operations in Indonesia</a></h3>
+          <div class="pub">2026-08-14 06:04 UTC</div>
+          
+          <ul class="bc-bullets">
+            <li>- The first locally assembled V8E all-electric logistics vehicle rolled off the line on August 13 at a plant about 80 kilometers southeast of Jakarta.</li><li>- It is Geely Farizon&#39;s first overseas KD project, coming just months after the company entered Indonesia in January 2026.</li><li>Geely Farizon&#39;s KD (knock-down) plant in Indonesia has officially started operations, making it the first overseas localized production project for Geely&#39;s commercial new energy vehicle (NEV) unit.</li><li>The first locally assembled V8E all-electric logistics vehicle rolled off the line at the plant on August 13, the company said on Friday, marking the project&#39;s entry into large-scale operation.</li><li>The plant is located about 80 kilometers southeast of Jakarta and can currently carry out local assembly of the V8E.</li>
+          </ul>
+          
+          <div class="bc-footer">
+            <div class="bc-url"><a href="https://cnevpost.com/2026/08/14/geely-farizon-1st-overseas-plant-operations-indonesia/" target="_blank" rel="noopener">https://cnevpost.com/2026/08/14/geely-farizon-1st-overseas-plant-operations-indonesia/</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="https://cnevpost.com/2026/08/14/geely-farizon-1st-overseas-plant-operations-indonesia/"
+                    data-save-title="Geely Farizon&#39;s first overseas plant starts operations in Indonesia"
+                    data-save-source="CNEVPOST"
+                    data-save-category="Analytics"
+                    data-save-rating="5"
+                    data-save-date="2026-08-15">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+        
+        <article class="blog-card">
+          <div class="bc-head">
+            
+          </div>
+          <h3><a href="https://cnevpost.com/2026/08/14/li-auto-l6-tops-400000-cumulative-deliveries/" target="_blank" rel="noopener">Li Auto&#39;s L6 tops 400,000 cumulative deliveries as revamped model revives demand</a></h3>
+          <div class="pub">2026-08-14 03:56 UTC</div>
+          
+          <ul class="bc-bullets">
+            <li>- The Li L6 delivered about 9,000 units in the first half of August, compared with just 2,716 for the whole of July, based on CnEVPost-compiled data.</li><li>- In 2025, the Li L6 delivered 166,516 units, contributing 41% of the company&#39;s deliveries.</li><li>Li Auto (NASDAQ: LI) announced on Friday that cumulative deliveries of its Li L6 extended-range SUV (sport utility vehicle) have surpassed 400,000 units.</li><li>The model went on sale on April 18, 2024, meaning it took less than 27 months to reach the milestone.</li><li>As of the end of July, cumulative deliveries of the Li L6 stood at 391,002 units, according to CnEVPost-compiled data.</li>
+          </ul>
+          
+          <div class="bc-footer">
+            <div class="bc-url"><a href="https://cnevpost.com/2026/08/14/li-auto-l6-tops-400000-cumulative-deliveries/" target="_blank" rel="noopener">https://cnevpost.com/2026/08/14/li-auto-l6-tops-400000-cumulative-deliveries/</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="https://cnevpost.com/2026/08/14/li-auto-l6-tops-400000-cumulative-deliveries/"
+                    data-save-title="Li Auto&#39;s L6 tops 400,000 cumulative deliveries as revamped model revives demand"
+                    data-save-source="CNEVPOST"
+                    data-save-category="Analytics"
+                    data-save-rating="5"
+                    data-save-date="2026-08-15">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+        
+        <article class="blog-card">
+          <div class="bc-head">
+            
+          </div>
+          <h3><a href="https://cnevpost.com/2026/08/14/li-auto-chip-ambitions-extend-to-data-centers/" target="_blank" rel="noopener">Li Auto&#39;s chip ambitions extend from assisted driving to data centers, report says</a></h3>
+          <div class="pub">2026-08-14 14:33 UTC</div>
+          
+          <ul class="bc-bullets">
+            <li>- Li Auto is exploring an in-house cloud inference chip, and the project is still at an early stage.</li><li>- Cloud inference chips can take on some of the inference workloads that currently run on GPUs.</li><li>Li Auto (NASDAQ: LI) is exploring an in-house cloud inference chip, according to a report on Friday by local media outlet LatePost.</li><li>The chip will use the same dataflow architecture as its assisted driving chip, and the project is still at an early stage, the report said, citing multiple sources.</li><li>AI (artificial intelligence) data centers generally use GPUs for model training and inference, though some also deploy dedicated cloud inference chips, the report noted.</li>
+          </ul>
+          
+          <div class="bc-footer">
+            <div class="bc-url"><a href="https://cnevpost.com/2026/08/14/li-auto-chip-ambitions-extend-to-data-centers/" target="_blank" rel="noopener">https://cnevpost.com/2026/08/14/li-auto-chip-ambitions-extend-to-data-centers/</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="https://cnevpost.com/2026/08/14/li-auto-chip-ambitions-extend-to-data-centers/"
+                    data-save-title="Li Auto&#39;s chip ambitions extend from assisted driving to data centers, report says"
+                    data-save-source="CNEVPOST"
+                    data-save-category="Analytics"
+                    data-save-rating="4"
+                    data-save-date="2026-08-15">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+        
+      </section>
+      
+      <section class="desk reveal">
+        <h2>Stratechery</h2>
+        
+        <article class="blog-card">
+          <div class="bc-head">
+            
+          </div>
+          <h3><a href="https://stratechery.com/2026/the-capex-train-keeps-rolling/" target="_blank" rel="noopener">2026.33: The CapEx Train Keeps Rolling</a></h3>
+          <div class="pub">2026-08-14 17:00 UTC</div>
+          
+          <ul class="bc-bullets">
+            <li>Nvidia is implementing new financial engineering mechanisms to secure long-duration capital, signaling potential concerns about the sustainability of AI infrastructure spending.</li><li>The reliance on creative funding structures and equity taps by major players like Google suggests that AI compute investments are not yet generating sufficient organic returns to be self-funding.</li><li>New EU regulations mandating the labeling of AI-generated content face significant criticism for potentially stifling innovation and failing to account for evolving societal norms regarding synthetic output.</li><li>The divergence between New York City’s resilient financial sector and Hollywood’s declining production base highlights how network effects can be preserved in some industries while being easily disrupted in others.</li>
+          </ul>
+          
+          <div class="bc-footer">
+            <div class="bc-url"><a href="https://stratechery.com/2026/the-capex-train-keeps-rolling/" target="_blank" rel="noopener">https://stratechery.com/2026/the-capex-train-keeps-rolling/</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="https://stratechery.com/2026/the-capex-train-keeps-rolling/"
+                    data-save-title="2026.33: The CapEx Train Keeps Rolling"
+                    data-save-source="Stratechery"
+                    data-save-category="Analytics"
+                    data-save-rating="4"
+                    data-save-date="2026-08-15">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+        
+      </section>
+      
+    </div>
+  </details>
+  
+  <details class="day-group" id="day-2026-08-14">
     <summary class="day-bar">
       <svg class="day-chevron" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span class="day-date">2026-08-14</span>
-      <span class="day-tag">Today</span>
+      
       <span class="day-meta">5 post(s) · 3 blog(s)</span>
     </summary>
     <div class="day-body">
@@ -1816,9 +2077,42 @@ Data-center network fabrics are undergoing another architectural shift as optica
   var base = ".";
   // Reveal-on-scroll uses this to avoid hiding content when JS is unavailable.
   document.documentElement.classList.add("js");
+
+  // ---------- Dark mode toggle (persisted in localStorage) ----------
+  var THEME_KEY = "dmb_theme";
+  function applyTheme(dark) {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+  }
+  function initTheme() {
+    var stored = null;
+    try { stored = localStorage.getItem(THEME_KEY); } catch (e) {}
+    // Respect the stored choice; default to the system preference.
+    var dark = stored === "dark" || (stored === null && window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches);
+    applyTheme(dark);
+    var btn = document.getElementById("theme-toggle");
+    if (btn) {
+      var label = btn.querySelector("span");
+      if (label) label.textContent = dark ? "Light mode" : "Dark mode";
+      btn.setAttribute("aria-pressed", dark ? "true" : "false");
+    }
+  }
+  initTheme();   // apply before paint (no flash)
+  var themeBtn = document.getElementById("theme-toggle");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var dark = document.documentElement.getAttribute("data-theme") !== "dark";
+      applyTheme(dark);
+      try { localStorage.setItem(THEME_KEY, dark ? "dark" : "light"); } catch (e) {}
+      var label = themeBtn.querySelector("span");
+      if (label) label.textContent = dark ? "Light mode" : "Dark mode";
+      themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
+    });
+  }
+
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-14 07:00 HKT");
+  var dataTS = encodeURIComponent("2026-08-15 02:28 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;

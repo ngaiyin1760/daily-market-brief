@@ -39,6 +39,71 @@
     --serif: 'Playfair Display', Garamond, Cambria, Georgia, serif;
     --sans: 'Source Sans 3', 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   }
+  /* Dark mode: reassign the theme variables. Applied via data-theme="dark"
+     on <html> (set by the toggle in core.js, persisted in localStorage). */
+  [data-theme="dark"] {
+    --paper: #16141d;
+    --card: #1f1c28;
+    --ink: #ece7db;
+    --ink-soft: #c2bbac;
+    --muted: #8d8574;
+    --rule: #35303f;
+    --rule-dark: #4c4657;
+    --accent: #7c7ef2;          /* lighter indigo for contrast on dark */
+    --accent-2: #2dd4bf;        /* lighter teal */
+    --gold: #e0b84e;
+    --green: #34d399;
+    --red: #f87171;
+  }
+  [data-theme="dark"] body { background: var(--paper); color: var(--ink); }
+  [data-theme="dark"] .desk {
+    background: var(--card);
+    border-color: var(--rule);
+  }
+  [data-theme="dark"] .desk h2 { color: var(--ink); }
+  [data-theme="dark"] .takeaways,
+  [data-theme="dark"] .weekly {
+    background: linear-gradient(135deg, #241f33 0%, #1d2a2a 100%);
+    border-color: var(--rule-dark);
+  }
+  [data-theme="dark"] .rating-chip,
+  [data-theme="dark"] .chip { color: #1c1440; }
+  [data-theme="dark"] .news td { border-color: var(--rule); color: var(--ink); }
+  [data-theme="dark"] .news th { color: var(--muted); border-color: var(--rule); }
+  [data-theme="dark"] .headline a { color: var(--ink); }
+  [data-theme="dark"] .headline a:hover { color: var(--accent); }
+  [data-theme="dark"] .summary li { color: var(--ink-soft); }
+  [data-theme="dark"] .colophon { color: var(--muted); }
+  [data-theme="dark"] .day-group,
+  [data-theme="dark"] .blog-card,
+  [data-theme="dark"] .repo-card,
+  [data-theme="dark"] .chart-card { background: var(--card); border-color: var(--rule); }
+  [data-theme="dark"] .repo-img { background: #fff; }  /* images keep white bg */
+  [data-theme="dark"] .saved-item,
+  [data-theme="dark"] .search-box input,
+  [data-theme="dark"] .day-jump { background: var(--card); border-color: var(--rule-dark); color: var(--ink); }
+  [data-theme="dark"] .rag-answer { background: #241f33; border-color: var(--rule-dark); }
+  [data-theme="dark"] .imp-badge { color: #fff; }  /* badges keep colored bg */
+  [data-theme="dark"] .imp-verdict { color: var(--ink-soft); }
+
+  /* Theme toggle (dark mode) */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: calc(100% - 24px);
+    margin: 0 12px 14px;
+    padding: 8px 12px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 6px;
+    color: #cfc9bb;
+    font-family: var(--sans);
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .theme-toggle:hover { background: rgba(255, 255, 255, .08); color: #fff; }
+  .theme-toggle .theme-icon { opacity: .9; }
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -1399,6 +1464,28 @@
     color: var(--accent);
   }
   .rag-answer p { margin: 6px 0 0; font-size: 15.5px; line-height: 1.5; }
+
+  /* Search highlight + relevance bar */
+  mark.hl {
+    background: rgba(201, 162, 39, .28);
+    color: inherit;
+    padding: 0 2px;
+    border-radius: 3px;
+  }
+  [data-theme="dark"] mark.hl { background: rgba(224, 184, 78, .35); color: #fff; }
+  .rel-bar {
+    height: 4px;
+    background: var(--rule);
+    border-radius: 2px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  .rel-bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-2), var(--accent));
+    border-radius: 2px;
+  }
 </style>
 </head>
 <body>
@@ -1411,6 +1498,13 @@
   </button>
   <div class="site-title">Daily Market Brief</div>
   <div class="site-sub">Market Intelligence</div>
+  <button type="button" class="theme-toggle" id="theme-toggle"
+          aria-label="Toggle dark mode" title="Toggle dark mode">
+    <svg class="theme-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+      <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.4 5.4 0 0 1-3.77-9.22A8.97 8.97 0 0 0 12 3z" fill="currentColor"/>
+    </svg>
+    <span>Dark mode</span>
+  </button>
   <nav class="sidebar-top">
     <a class="archive-link"
        href="./markets.html">
@@ -1482,9 +1576,42 @@
   var base = ".";
   // Reveal-on-scroll uses this to avoid hiding content when JS is unavailable.
   document.documentElement.classList.add("js");
+
+  // ---------- Dark mode toggle (persisted in localStorage) ----------
+  var THEME_KEY = "dmb_theme";
+  function applyTheme(dark) {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+  }
+  function initTheme() {
+    var stored = null;
+    try { stored = localStorage.getItem(THEME_KEY); } catch (e) {}
+    // Respect the stored choice; default to the system preference.
+    var dark = stored === "dark" || (stored === null && window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches);
+    applyTheme(dark);
+    var btn = document.getElementById("theme-toggle");
+    if (btn) {
+      var label = btn.querySelector("span");
+      if (label) label.textContent = dark ? "Light mode" : "Dark mode";
+      btn.setAttribute("aria-pressed", dark ? "true" : "false");
+    }
+  }
+  initTheme();   // apply before paint (no flash)
+  var themeBtn = document.getElementById("theme-toggle");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var dark = document.documentElement.getAttribute("data-theme") !== "dark";
+      applyTheme(dark);
+      try { localStorage.setItem(THEME_KEY, dark ? "dark" : "light"); } catch (e) {}
+      var label = themeBtn.querySelector("span");
+      if (label) label.textContent = dark ? "Light mode" : "Dark mode";
+      themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
+    });
+  }
+
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-14 07:00 HKT");
+  var dataTS = encodeURIComponent("2026-08-15 02:28 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
@@ -2359,7 +2486,9 @@
     var terms = tokenize(q);
     if (!terms.length) return [];
     var scored = index.map(function (it) {
-      return { item: it, score: scoreKeyword(it, terms) };
+      var s = scoreKeyword(it, terms);
+      it._score = s / 10;   // normalize ~0-1 for the relevance bar
+      return { item: it, score: s };
     }).filter(function (r) { return r.score > 0; });
     scored.sort(function (a, b) { return b.score - a.score; });
     return scored.slice(0, 50).map(function (r) { return r.item; });
@@ -2411,7 +2540,9 @@
           // title/body actually contains a query term. A post that says "EV"
           // or "China" ranks above one that only scores semantically close.
           var kw = scoreKeyword(it, terms);
-          return { item: it, score: cosine(it.embedding, qv) + kw * 0.04 };
+          var s = cosine(it.embedding, qv) + kw * 0.04;
+          it._score = s;   // for the relevance bar
+          return { item: it, score: s };
         })
         .filter(function (r) { return r.score >= SIM_THRESHOLD; });   // cut the noise
       scored.sort(function (a, b) { return b.score - a.score; });
@@ -2422,7 +2553,7 @@
         var have = {};
         scored.forEach(function (r) { have[r.item.url] = true; });
         key.forEach(function (it) {
-          if (!have[it.url]) { scored.push({ item: it, score: 0.3 }); have[it.url] = true; }
+          if (!have[it.url]) { it._score = 0.3; scored.push({ item: it, score: 0.3 }); have[it.url] = true; }
         });
       }
       return scored.slice(0, topN).map(function (r) { return r.item; });
@@ -2463,7 +2594,17 @@
   }
 
   // ---------- Render ----------
-  function renderCards(items) {
+  // Highlight query terms in a text (case-insensitive) — returns HTML.
+  function highlight(text, terms) {
+    var s = esc(text || "");
+    if (!terms || !terms.length) return s;
+    var re = new RegExp("(" + terms.map(function (t) {
+      return t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    }).join("|") + ")", "gi");
+    return s.replace(re, '<mark class="hl">$1</mark>');
+  }
+
+  function renderCards(items, terms, withScore) {
     results.innerHTML = "";
     if (!items.length) {
       results.innerHTML = '<p class="empty-note">No matches found.</p>';
@@ -2474,10 +2615,17 @@
       card.className = "blog-card";
       var head = '<div class="bc-head"><span class="chip">' + esc(kindLabel(it.kind))
         + '</span><span class="day-meta">' + esc(fmtDate(it.date)) + "</span></div>";
+      // Relevance indicator (semantic mode): a small % bar from the score.
+      var rel = "";
+      if (withScore && it._score) {
+        var pct = Math.max(0, Math.min(100, Math.round(it._score * 100)));
+        rel = '<div class="rel-bar" title="Relevance ' + pct + '%">'
+          + '<span style="width:' + pct + '%"></span></div>';
+      }
       var title = '<h3><a href="' + esc(it.url) + '" target="_blank" rel="noopener">'
-        + esc(it.title) + "</a></h3>";
-      var body = '<p class="rc-oneliner">' + esc(it.text || "") + "</p>";
-      card.innerHTML = head + title + body;
+        + highlight(it.title, terms) + "</a></h3>";
+      var body = '<p class="rc-oneliner">' + highlight(it.text || "", terms) + "</p>";
+      card.innerHTML = head + title + body + rel;
       results.appendChild(card);
     });
   }
@@ -2491,11 +2639,11 @@
         status.textContent = "Searching…";
         var items = keywordSearch(q);
         status.textContent = items.length + " result(s)";
-        renderCards(items);
+        renderCards(items, tokenize(q), true);
       } else {
         status.textContent = "Embedding query…";
         semanticSearch(q, 20).then(function (items) {
-          renderCards(items);
+          renderCards(items, tokenize(q), true);
           if (!items.length) { status.textContent = "No semantic matches."; return; }
           status.textContent = "Writing answer…";
           ragAnswer(q, items).then(function (ans) {
