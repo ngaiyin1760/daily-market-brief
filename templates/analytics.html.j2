@@ -42,6 +42,7 @@
         <article class="blog-card">
           <div class="bc-head">
             {% if post.preview %}<span class="preview-tag">preview only</span>{% endif %}
+            {% if post.read_time %}<span class="chip read-time-chip">{{ post.read_time }} min</span>{% endif %}
           </div>
           <h3><a href="{{ post.link|e }}" target="_blank" rel="noopener">{{ post.title|e }}</a></h3>
           {% if post.published %}<div class="pub">{{ post.published|e }}</div>{% endif %}

@@ -145,6 +145,7 @@
           <td class="source"><span class="chip">{{ item.source|e }}</span></td>
           <td class="rating">
             <span class="rating-chip r{{ item.rating }}">{{ item.rating }}</span>
+            {% if item.read_time %}<span class="chip read-time-chip">{{ item.read_time }} min</span>{% endif %}
             {% if item.reason %}<span class="reason">{{ item.reason|e }}</span>{% endif %}
           </td>
           <td class="save-cell">

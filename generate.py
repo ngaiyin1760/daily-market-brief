@@ -752,6 +752,14 @@ def strip_html(text):
     return unescape(_TAG_RE.sub("", text)).strip()
 
 
+def read_time_minutes(*texts):
+    """Estimate reading time in minutes from the combined word count of the
+    given texts. ~200 words/min; a "skim" is flagged when it's under ~15
+    seconds. Returns an int (0 = quick skim)."""
+    words = sum(len(re.findall(r"[A-Za-z0-9]+", t or "")) for t in texts)
+    return max(1, round(words / 200)) if words else 0
+
+
 def resolve_article_url(link):
     """Resolve a news.google.com/rss/articles URL to the publisher URL.
 
@@ -1005,14 +1013,19 @@ def summarize_category(category, candidates):
         try:
             log.info("Summarizing with Gemini: %s", category["label"])
             AI_SUMMARIES["ok"] += 1
-            return gemini_summarize(category, candidates, top_n)
+            out = gemini_summarize(category, candidates, top_n)
         except Exception as exc:
             log.warning("Gemini failed for %s (%s); using heuristic fallback",
                         category["label"], exc)
+            out = heuristic_summarize(candidates, top_n)
     else:
         log.info("No GEMINI_API_KEY; heuristic summary: %s", category["label"])
-    AI_SUMMARIES["heuristic"] += 1
-    return heuristic_summarize(candidates, top_n)
+        out = heuristic_summarize(candidates, top_n)
+    # Reading-time chip per story (from the digest word count).
+    for it in out:
+        it["read_time"] = read_time_minutes(it.get("title", ""),
+                                           *it.get("bullets", []))
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -1490,7 +1503,7 @@ def analytics_post_key(blog_name, post):
 def _sanitize_post(post):
     """Drop bulky internal fields (article text) before persisting/rendering."""
     keys = ["_key", "blog", "title", "link", "summary", "published", "_ts",
-            "preview", "bullets", "rating"]
+            "preview", "bullets", "rating", "read_time"]
     return {k: post.get(k) for k in keys if k in post}
 
 
@@ -1909,6 +1922,8 @@ def fetch_analytics():
         for post in posts:
             post["preview"] = not bool(post.get("content"))
             post["blog"] = name
+            post["read_time"] = read_time_minutes(post.get("title", ""),
+                                                  *post.get("bullets", []))
             all_fresh.append(_sanitize_post(post))
         log.info("Analytics %s: %d post(s) within 24h (%d preview-only)",
                  name, len(posts), sum(1 for p in posts if p.get("preview")))
@@ -2069,14 +2084,17 @@ def heuristic_curate_repos(candidates):
     """Fallback: top N by stars with a generic structure/purpose framing."""
     out = []
     for c in candidates[:REPO_RADAR_PICK]:
+        bullets = [
+            f"Tech structure: primary language {c['language']}.",
+            "Purpose: new open-source project (see description).",
+            "Use case: evaluate in your stack if the description fits.",
+        ]
         out.append({
             **c,
             "one_liner": c["description"],
-            "bullets": [
-                f"Tech structure: primary language {c['language']}.",
-                "Purpose: new open-source project (see description).",
-                "Use case: evaluate in your stack if the description fits.",
-            ],
+            "bullets": bullets,
+            "read_time": read_time_minutes(c.get("name", ""), c["description"],
+                                           *bullets),
         })
     return out
 
@@ -2119,6 +2137,9 @@ def curate_repos(candidates):
                     "one_liner": str(entry.get("one_liner", "")
                                      or base["description"]),
                     "bullets": bullets,
+                    "read_time": read_time_minutes(base.get("name", ""),
+                                                   base.get("description", ""),
+                                                   *bullets),
                 })
                 if len(out) >= REPO_RADAR_PICK:
                     break

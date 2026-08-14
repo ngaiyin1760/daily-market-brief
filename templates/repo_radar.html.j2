@@ -42,6 +42,7 @@
             <div class="rc-head">
               <span class="chip">{{ repo.language|e }}</span>
               <span class="chip stars">{{ repo.stars }}★</span>
+              {% if repo.read_time %}<span class="chip read-time-chip">{{ repo.read_time }} min</span>{% endif %}
             </div>
             <h3><a href="{{ repo.url|e }}" target="_blank" rel="noopener">{{ repo.name|e }}</a></h3>
             {% if repo.one_liner %}<p class="rc-oneliner">{{ repo.one_liner|e }}</p>{% endif %}
