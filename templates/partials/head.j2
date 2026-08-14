@@ -80,24 +80,26 @@
   [data-theme="dark"] .imp-badge { color: #fff; }  /* badges keep colored bg */
   [data-theme="dark"] .imp-verdict { color: var(--ink-soft); }
 
-  /* Theme toggle (dark mode) */
+  /* Theme toggle (dark mode) — compact square icon button */
   .theme-toggle {
     display: flex;
     align-items: center;
-    gap: 8px;
-    width: calc(100% - 24px);
-    margin: 0 12px 14px;
-    padding: 8px 12px;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    margin: 0 0 14px 12px;
+    padding: 0;
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, .15);
     border-radius: 6px;
     color: #cfc9bb;
-    font-family: var(--sans);
-    font-size: 13px;
     cursor: pointer;
   }
-  .theme-toggle:hover { background: rgba(255, 255, 255, .08); color: #fff; }
-  .theme-toggle .theme-icon { opacity: .9; }
+  .theme-toggle:hover { background: rgba(255, 255, 255, .1); color: #fff; }
+  .theme-toggle .theme-icon { display: none; }
+  /* In light mode show the moon; in dark mode show the sun. */
+  html:not([data-theme="dark"]) .theme-toggle .icon-moon { display: block; }
+  html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
   * { box-sizing: border-box; }
   body {
     margin: 0;

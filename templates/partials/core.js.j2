@@ -17,11 +17,7 @@
       window.matchMedia("(prefers-color-scheme: dark)").matches);
     applyTheme(dark);
     var btn = document.getElementById("theme-toggle");
-    if (btn) {
-      var label = btn.querySelector("span");
-      if (label) label.textContent = dark ? "Light mode" : "Dark mode";
-      btn.setAttribute("aria-pressed", dark ? "true" : "false");
-    }
+    if (btn) btn.setAttribute("aria-pressed", dark ? "true" : "false");
   }
   initTheme();   // apply before paint (no flash)
   var themeBtn = document.getElementById("theme-toggle");
@@ -30,8 +26,6 @@
       var dark = document.documentElement.getAttribute("data-theme") !== "dark";
       applyTheme(dark);
       try { localStorage.setItem(THEME_KEY, dark ? "dark" : "light"); } catch (e) {}
-      var label = themeBtn.querySelector("span");
-      if (label) label.textContent = dark ? "Light mode" : "Dark mode";
       themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
     });
   }
