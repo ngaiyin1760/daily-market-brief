@@ -1570,7 +1570,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Markets</h1>
-    <div class="generated">Key indicators — up to 10 years of daily history · updated 2026-08-15 03:25 HKT<span class="session-badge" id="session-badge"></span></div>
+    <div class="generated">Key indicators — up to 10 years of daily history · updated 2026-08-15 03:44 HKT<span class="session-badge" id="session-badge"></span></div>
   </header>
 
   <div id="markets-body">
@@ -1791,7 +1791,7 @@
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-15 03:25 HKT");
+  var dataTS = encodeURIComponent("2026-08-15 03:44 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
@@ -3087,7 +3087,7 @@
     });
   }
 
-  fetch(base + "/data/indicators.json?v=" + encodeURIComponent("2026-08-15 03:25 HKT"))
+  fetch(base + "/data/indicators.json?v=" + encodeURIComponent("2026-08-15 03:44 HKT"))
     .then(function (r) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();

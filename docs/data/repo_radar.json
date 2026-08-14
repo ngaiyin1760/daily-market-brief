@@ -1,54 +1,52 @@
 {
- "generated_at": "2026-08-15 03:25 HKT",
+ "generated_at": "2026-08-15 03:44 HKT",
  "repos": [
   {
-   "name": "YizhiSong/FriesTrader",
-   "url": "https://github.com/YizhiSong/FriesTrader",
+   "name": "trycompai/crm",
+   "url": "https://github.com/trycompai/crm",
+   "language": "TypeScript",
+   "stars": 8435,
+   "description": "Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM.",
+   "one_liner": "An open-source, agent-first CRM designed specifically to serve as the backend for AI sales and support agents.",
+   "bullets": [
+    "Built with a modern TypeScript stack optimized for high-frequency agent interactions.",
+    "Provides structured data schemas that allow AI agents to read, write, and manage customer relationships autonomously.",
+    "Enables seamless integration between LLM workflows and traditional CRM data management.",
+    "Designed to solve the 'context window' problem for agents by providing persistent, structured memory of customer interactions."
+   ],
+   "read_time": 1
+  },
+  {
+   "name": "FedericoTs/quantprobe",
+   "url": "https://github.com/FedericoTs/quantprobe",
    "language": "Python",
-   "stars": 81,
-   "description": "A fully automated AI trading agent that trades real Robinhood orders via its Agentic Trading MCP under mechanical, auditable risk rules the model cannot override. Once set up, it is able to run on its own schedule, screening and trading stocks under a narrow, explicit gate. Cheap to run — Claude Pro only, no metered API spend. Not financial advice.",
-   "one_liner": "A fully automated AI trading agent that executes real Robinhood orders using an Agentic Trading MCP with hard-coded, immutable risk constraints.",
+   "stars": 84,
+   "description": "Run a 110B on a 2016 PC with 16 GB RAM. Know your tok/s before you download. Placement beats budget: predicts speed + memory fit for any GGUF on your exact hardware, self-calibrates, emits the exact llama.cpp command — or 'quantprobe auto' does it all. Falsification-tested laws; misses published at full size. pip install quantprobe",
+   "one_liner": "A diagnostic tool that predicts the performance and memory footprint of LLMs on specific hardware before deployment.",
    "bullets": [
-    "Built in Python using the Model Context Protocol (MCP) to bridge LLM reasoning with financial execution.",
-    "Implements a 'hard-coded' risk management layer that operates independently of the AI model's decision-making.",
-    "Designed for auditable, automated trading workflows on the Robinhood platform.",
-    "Focuses on the intersection of agentic autonomy and strict financial safety protocols."
+    "Python-based utility that benchmarks GGUF model compatibility against local hardware constraints.",
+    "Uses self-calibration algorithms to estimate tokens-per-second and RAM usage for models up to 110B parameters.",
+    "Essential for quantitative researchers and developers deploying local LLMs on constrained or legacy hardware.",
+    "Reduces infrastructure waste by preventing the download and testing of models that exceed local memory capacity."
    ],
    "read_time": 1
   },
   {
-   "name": "kvcache-ai/AgentENV",
-   "url": "https://github.com/kvcache-ai/AgentENV",
-   "language": "Rust",
-   "stars": 3193,
-   "description": "AgentENV (AENV) is a distributed platform for running agent environments at scale.",
-   "one_liner": "A high-performance, distributed platform built in Rust for scaling agent environments.",
+   "name": "opensible/opensible",
+   "url": "https://github.com/opensible/opensible",
+   "language": "Python",
+   "stars": 200,
+   "description": "An open source GitOps control plane for OpenTofu & Ansible - provision, configure and deploy across cloud, on-prem and hybrid, self-hosted and forever free.",
+   "one_liner": "An open-source GitOps control plane that unifies OpenTofu and Ansible for infrastructure-as-code management.",
    "bullets": [
-    "Core architecture written in Rust, emphasizing memory safety and high-concurrency execution.",
-    "Provides a distributed infrastructure layer to manage and scale multiple agent environments simultaneously.",
-    "Enables complex simulation and testing of agent behaviors in isolated, reproducible environments.",
-    "Ideal for enterprise-scale AI deployments requiring robust orchestration and environment management."
-   ],
-   "read_time": 1
-  },
-  {
-   "name": "FareedKhan-dev/kimi-k3-in-c",
-   "url": "https://github.com/FareedKhan-dev/kimi-k3-in-c",
-   "language": "C",
-   "stars": 5597,
-   "description": "A 2.78-trillion-parameter Kimi K3 running inference on a single CPU in 8.24 GB of RAM. Portable C99: no BLAS, no framework, no GPU.",
-   "one_liner": "A portable C99 implementation for running a 2.78-trillion-parameter model on a single CPU with minimal memory overhead.",
-   "bullets": [
-    "Zero-dependency C99 codebase requiring no external BLAS, frameworks, or GPU acceleration.",
-    "Achieves extreme efficiency by running massive parameter models in just 8.24 GB of RAM.",
-    "Demonstrates a breakthrough in local inference optimization for resource-constrained hardware.",
-    "Useful for developers looking to deploy large-scale intelligence on edge devices or standard server CPUs."
+    "Provides a centralized control plane for provisioning, configuring, and deploying across hybrid and multi-cloud environments.",
+    "Integrates GitOps workflows to ensure infrastructure state is version-controlled and auditable.",
+    "Supports self-hosted deployments, offering a free, enterprise-grade alternative to proprietary infrastructure management platforms.",
+    "Streamlines the orchestration of complex infrastructure stacks by bridging the gap between declarative provisioning and imperative configuration."
    ],
    "read_time": 1,
-   "img": "FareedKhan-dev_kimi-k3-in-c_0.jpg",
-   "img_alt": "A small resident working set on top, the model itself on NVMe underneath, and a few labelled pipes between them",
-   "img2": "FareedKhan-dev_kimi-k3-in-c_1.jpg",
-   "img2_alt": "Four steps from a server cluster down to an ordinary laptop, with the same output at both ends"
+   "img": "opensible_opensible_0.jpg",
+   "img_alt": "OpenSible Banner"
   }
  ]
 }
