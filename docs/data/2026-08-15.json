@@ -1,12 +1,7 @@
 {
   "date": "2026-08-15",
-  "generated_at": "2026-08-15 03:05 HKT",
+  "generated_at": "2026-08-15 03:19 HKT",
   "snapshot": [
-    {
-      "text": "S&P -0.2%",
-      "cls": "neg",
-      "m1": "down"
-    },
     {
       "text": "Nasdaq -0.4%",
       "cls": "neg",
@@ -28,9 +23,9 @@
       "m1": "flat"
     },
     {
-      "text": "HKD/CNY -0.0%",
-      "cls": "flat",
-      "m1": "flat"
+      "text": "HKD/CNY -0.1%",
+      "cls": "neg",
+      "m1": "down"
     },
     {
       "text": "JPY/HKD(¥100) -0.5%",
@@ -38,7 +33,7 @@
       "m1": "down"
     },
     {
-      "text": "Gold +1.5%",
+      "text": "Gold +1.6%",
       "cls": "pos",
       "m1": "up"
     },
@@ -49,9 +44,9 @@
     }
   ],
   "takeaways": [
-    "Equity markets are showing signs of fatigue as soft retail data and cooling consumer sentiment clash with record-high valuations, fueling uncertainty over the sustainability of the current rally.",
-    "The AI infrastructure boom is increasingly reliant on circular inter-industry spending and exotic financing, masking potential leverage risks and creating an artificial earnings floor for major tech firms.",
-    "Global EV demand remains highly sensitive to fiscal policy, evidenced by diverging regional sales as North American markets contract following incentive expirations while European growth accelerates under new subsidies."
+    "AI-driven infrastructure spending is fueling massive capital expansion and private valuations, yet opaque, leveraged financing structures are increasingly masking systemic risks across the global tech sector.",
+    "Global economic growth remains resilient, led by AI-related investment, even as cooling US inflation and geopolitical tensions create a complex, bifurcated outlook for equity and bond markets.",
+    "The transition to green energy and digital infrastructure faces headwinds, with EV mandate revisions and commercial property valuation pressures highlighting the friction between policy goals and market realities."
   ],
   "day_importance": 5,
   "day_verdict": "Major day — market-moving events; read carefully.",
@@ -60,7 +55,50 @@
     {
       "id": "global-macro",
       "label": "Global Economy",
-      "items": []
+      "items": [
+        {
+          "title": "Malaysia's central bank upbeat as Q2 growth beats expectations",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOUlZRUmVvQ0FnQkxJYXBLYTc2SW1JVHRLREVYT19EMDdXS2xFN1dvVkRNdUY5MHVFckwwcFlKVndvdmF0MEFDei12emFYNzdkZWJkcTJjMHhiYks4X2V6U0VPejloSlFpWmhPa0UzMHBBZzVvc3Y5UGoxaHduMTJwZ05EdnRGNkp1bEMzeE5uV2ZZRXVEUEdURkxKWGlDMWFWczF1bHNrLVpka1lMZE9oZQ?oc=5",
+          "source": "The Business Times",
+          "published": "2026-08-14 04:30 UTC",
+          "bullets": [
+            "Malaysia's GDP grew 6% in Q2 2026, exceeding the 5.8% median forecast and accelerating from the 5.4% expansion recorded in the first quarter.",
+            "The central bank now projects full-year growth to reach the upper end of its 4-5% target range, supported by resilient domestic consumption and a surge in AI-related infrastructure investments."
+          ],
+          "rating": 3,
+          "reason": "Stronger-than-expected growth in a key emerging market signals regional economic resilience.",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Global markets buoyed by US inflation data, Mideast woes linger",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPcWNpemVZMjZJYzgwWERoZGhLTzBXRTI2WGVOQ01vb043Q1o0eGZuYzk2U3EySzdtVmwzeVd0ZmxTd1liM2pvUWNsTVV0d08xZFp5eE0zanRMSWxneEFVR1J1RzgyWFB2T3hZZkw2RVBZQXFoNVFRTU9qWmhDLTRESFBOeDR6RGx0UEQ0a0lLSlBCQmhEOVU4ZVE5NV9HOFB4Xy1EX01n?oc=5",
+          "source": "Yeni Safak English",
+          "published": "2026-08-14 10:23 UTC",
+          "bullets": [
+            "US Producer Price Index (PPI) remained flat month-on-month in July, with annual growth of 4.7% falling below expectations and cooling rate hike bets.",
+            "Market sentiment remains split as the US Dollar Index dipped below 100, while geopolitical uncertainty in the Middle East and high energy prices continue to cap equity gains."
+          ],
+          "rating": 5,
+          "reason": "US inflation data is the primary driver of global asset allocation and central bank policy expectations.",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Nomura sees resilient H2 CY 26 global economy, but warns of US-Iran tensions, El Niño and AI setback",
+          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPRU1GcC1nWkVhZXRkaUp5UHJWSDUzOENCanYzdHUtZ1dJS19odF9yWnZPSjI4WVpBcFBQU1J2dFBlNjUwMl9CU1ZjRE96bVZOYWhRbkk1YXNuWndSc2pJS3dnd2xQdXZsQ2ZzQW5DdndzZXBtdGtRZHJMMGZrWVRYNTZSTkUyQnR5SzV6RUwzYlh3RVZWNDhQelYyTmk3eWZiaTc5dWlZeUM3QVpRYU91Z0ctMTQ0YUZxazBJbzdxZXYtUnlRRjBocTU1MklIcGpzVDVHMml4XzNMd3RxT0J5Q9IB7gFBVV95cUxORmVPWEh3ZC11TUVSbTRSZzNHSk1kZFRHT2hDVmlDWFAtdGdXZEpLV0Mzd0pMMklBLWRqOUF5U1hDMS1xbmFNUHl5bW41bG9RaEFCaTF3cWMxOE1BbDVBbkZ4STVybkNSSDNhMW5qWXJOQ1FDc0pGRFNEZHhIVXh4VndEbnVtemwyMHdvNTdwQWFCUGRzcW1ZWHpWM05IMnFxMktSYUZMUkstQzc3RDBNMDlzU1dQMGhCV3N4VE8zdXZuMXkySzJLOHpLS05zdXh1T3BlelZfNHFTYmV3dDdBZE4yX0paQnpTbnd3NmFn?oc=5",
+          "source": "Fortune India",
+          "published": "2026-08-14 08:50 UTC",
+          "bullets": [
+            "Nomura forecasts Q4 2026 core PCE inflation in the US at 3.2%, warning that the Federal Reserve's reluctance to address persistent price pressures could force a rapid, disruptive rate hike cycle.",
+            "The firm expects the ECB to deliver one final rate hike in September to 2.50%, while highlighting that AI-driven investment remains a critical buffer against fiscal fragility and energy shocks."
+          ],
+          "rating": 4,
+          "reason": "Institutional outlooks on inflation and central bank policy paths are essential for managing portfolio risk.",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
     },
     {
       "id": "equity",
@@ -72,25 +110,25 @@
           "source": "Yahoo Finance",
           "published": "2026-08-14 16:35 UTC",
           "bullets": [
-            "The S&P 500 and Nasdaq Composite retreated as investors reacted to soft retail data, with July retail sales falling for the first time in nine months and August consumer sentiment dropping to 51.",
-            "While the market remains near record highs, the combination of slowing sales and persistent inflation concerns is creating uncertainty regarding the sustainability of the current rally and the likelihood of future Federal Reserve rate cuts."
+            "The S&P 500 and Nasdaq Composite retreated as investors reacted to a decline in July retail sales and a drop in the University of Michigan consumer sentiment index to 51.",
+            "While the market is supported by strong AI-driven earnings, the combination of slowing sales and persistent inflation concerns is creating uncertainty regarding the sustainability of recent index highs."
           ],
           "rating": 4,
-          "reason": "Market reaction to cooling consumer data",
+          "reason": "Macroeconomic data shifts impacting market sentiment.",
           "read_time": 1,
           "is_new": true
         },
         {
-          "title": "Should You Buy, Hold or Sell Alto Ingredients Stock Post Q2 Earnings?",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOSkZycTlJa0RNMTVWQXZGOVF3eXFYTHFHS1lENTN4TmdLd1ZETHhkYnVDOU1rNktnRzZkNFFFMGVQak5tSmhNdXRjU3l2dl9RdTVybTdoZGFOU3lQaTdYZWc1Rm1MOWJhcm5zTVRYcC1NSzlRMnZfUHpwTXlZd0ROdUlHcTZVbHFLQW5VSkNhSWVqMV9BT2M1aTJlWQ?oc=5",
-          "source": "Yahoo Finance",
-          "published": "2026-08-14 16:36 UTC",
+          "title": "Earnings Prove AI Hardware Demand Is Strong. That’s Good News for Dell Stock.",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNTVRlNnc1eDFJU2JGY0xWODZHb3ZuT2VjYl9SNGZiT1EyX1psUThTTHZxeUJNczJVbWJ2STRDNHA3VzdvVVMzMHdyMkdkc3p6NjBxQ0xOXzlFcmRqdVQ5UHFCMVBkcTJ2RE1pRjRNZk1Nb2QycXdnbXI5Tk1SNVdvbjdJblBtRE9NNmlfbUZB?oc=5",
+          "source": "Barron's",
+          "published": "2026-08-14 18:12 UTC",
           "bullets": [
-            "Despite reporting a significant turnaround with a $16.6 million gross profit compared to a year-ago loss, Alto Ingredients shares have plummeted 17% since the earnings release on August 5.",
-            "The stock's sharp decline highlights a disconnect between fundamental operational improvements—driven by higher ethanol crush margins and increased sales volumes—and investor sentiment, as the shares continue to underperform broader market indices."
+            "Recent earnings reports confirm that demand for artificial intelligence hardware remains robust, providing a significant tailwind for companies like Dell Technologies.",
+            "The sustained capital expenditure on AI infrastructure by major tech firms continues to validate the growth thesis for hardware suppliers despite broader market volatility."
           ],
           "rating": 3,
-          "reason": "Divergence between earnings growth and stock performance",
+          "reason": "Sector-specific fundamental strength in AI hardware.",
           "read_time": 1,
           "is_new": true
         }
@@ -101,28 +139,30 @@
       "label": "Fixed Income",
       "items": [
         {
-          "title": "Bond yields are at multiyear highs, yet stocks have hit fresh records. Here’s how long the defiance can last. - MarketWatch",
-          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPd1ZRLWw4aVZXR0FJdDhhYWQwMV9rZVB6ZUlqcVhVMHZQVk5WWlotcXdzcjd1SWJwNkMtelV6SnJIamFEWmFMRmRBMjh0dF9wd2dIcTN2ZzZPQUxhaFA5MUVoZ3hiTjZ2UkZnenJOeGhUb19VUWlHaGp6Q3VxdG02UTdwZzlWeWZ3UlNaNEhfMnlGVXhSM3N0U1RCSDR3SlQxQVVIRnZMdFZOSE1ZQ3lOWk9CeDFjVmM1QTNKbTlIUGNQeVoyVGp2OGxVSkpFWDlHU2Fj?oc=5",
-          "source": "MarketWatch",
-          "published": "2026-08-14 13:31 UTC",
+          "title": "Why ‘Canada is not immune’ to the effects of Japan’s surging bond yields",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQLThLdjNpZGdmSG1xUkY3UVFXYnRaakhNcXZSY05Qa3lKVE9nUE1UNnpKdVc0VmZFVTZjNVI5V2doM2dheWlieE5nVnNudG1zNmFFQnJSRGx3MDliQU82aFNGWVNSZ2YzN0hMaXpNZnRaNUItV3dqdTdXb1pIbmFCemdva2JkcUpndFVOZDE2ZWRadTVqWTlWSFVVVEdrOUtUN3RJams1NU5MbDJ4c2c?oc=5",
+          "source": "The Globe and Mail",
+          "published": "2026-08-14 10:00 UTC",
           "bullets": [
-            "Bond yields are at multiyear highs, yet stocks have hit fresh records. Here’s how long the defiance can last.  MarketWatch"
+            "Rising Japanese government bond yields are incentivizing domestic investors to repatriate capital, potentially reducing demand for U.S. Treasuries and forcing a higher term premium on long-term debt.",
+            "Approximately 70% to 80% of U.S. Treasury yield movements typically transmit to the Canadian bond market, creating significant upward pressure on Canadian mortgage costs and domestic borrowing rates."
           ],
           "rating": 4,
-          "reason": "Heuristic rating (no AI summary).",
+          "reason": "Highlights a structural shift in global capital flows impacting North American yields.",
           "read_time": 1,
           "is_new": true
         },
         {
-          "title": "Ninety One’s Borbora-Sheen Is Betting Bond Markets Warm to Warsh - Bloomberg.com",
-          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQeHB5Y3JYbGRWZWFheUJ0MzVoaDlhaFBGdnBCdS1KWlN3UmZCei1oSWxqaXRwZUhXZVhQb0UweDBQUVJtWHZ1TFdDRkEwQWFwNkYzZ19admFIN2dKb0M5dmpzLU9QSmtMeGZjQkplcHJVRVJCdEU1VEVrLXF6WmhXNG1nNFpVbWFLTWR4WGllVTZScVNOMXQxczNKaHBIaE1mN3hQeVNGWEg1SEpZbTRVbkx6dmJ4dw?oc=5",
-          "source": "Bloomberg.com",
-          "published": "2026-08-14 07:49 UTC",
+          "title": "When will mortgage rates go down from close to a one-year high?",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQUFFGTW90Qjl5SmFfODZ1ZHNCVW1tZ1Mzam9WQ1BKcUxSdjBFY2NGb2ZlNllQWDN6d1Y4blNxZGJsUWdxNWVpOE54T1B3bENXUFU4N2N3d0JuLU1YbFVybUt3eS1oREhPVlZQV043MEFscHRpaGt1MDhNODdMX29hQ01uTkZ5X2RkOHhqc01XZW1fdjUzWGhyRGRLLVoydHlOa05QSFVKUGgtQXBmVUhnVkY3TTUwUFJhYllIU01BeE5TYy1qSEV4S2xIVVVjR2ZHVUlzZQ?oc=5",
+          "source": "Yahoo Finance",
+          "published": "2026-08-13 21:17 UTC",
           "bullets": [
-            "Ninety One’s Borbora-Sheen Is Betting Bond Markets Warm to Warsh  Bloomberg.com"
+            "Despite the Federal Reserve's pause in rate cuts, mortgage rates remain elevated near 6.67%, with Fannie Mae projecting these levels to persist through 2027 due to ongoing inflation and employment concerns.",
+            "The housing market has shown surprising resilience with year-to-date sales up 2.4%, though economists suggest a return to 6% mortgage rates is required for the sector to truly thrive."
           ],
-          "rating": 2,
-          "reason": "Heuristic rating (no AI summary).",
+          "rating": 3,
+          "reason": "Provides critical context on the disconnect between Fed policy and consumer borrowing costs.",
           "read_time": 1,
           "is_new": true
         }
@@ -133,30 +173,30 @@
       "label": "China Economy",
       "items": [
         {
-          "title": "China Widening C/A Surplus",
+          "title": "China Widening C/A Surplus - Continuum Economics",
           "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5KNWtsU0JoOG1rQ3drVWxKeFd0Zm50VXg1QmZ0dldZcDYwU3JwUkpzbi03a05JMDMwOC0wbW4xRTJIVG5URV9JbW1VWHJ3Skw5bExsZXB2SkJkdXRZTFBjbTQwT3hsel9nWWJ3a3VOUVBzNmpTZkE?oc=5",
           "source": "Continuum Economics",
-          "published": "2026-08-14 13:06 UTC",
+          "published": "2026-08-14 19:05 UTC",
           "bullets": [
-            "China's current account surplus continues to expand due to a persistent trade imbalance, driven by high export competitiveness and excess industrial capacity amid weak domestic demand.",
-            "Analysts project only modest Yuan appreciation to 6.65 USDCNY by end-2026, as authorities prioritize export competitiveness over structural reforms that could otherwise reduce the surplus."
+            "China's persistent current account surplus is driven by structural excess capacity and weak domestic demand, which authorities are managing through controlled currency appreciation rather than aggressive reform. Analysts project the USDCNY exchange rate to reach 6.65 by end-2026 and 6.50 by end-2027 to balance export competitiveness against potential U.S. tariff hikes.",
+            "The IMF suggests that meaningful reduction of the trade imbalance requires industrial policy reform and fiscal expansion to boost household consumption, yet Beijing remains reluctant to implement these measures. Investors should anticipate continued capital outflows and a reliance on trade-based growth, as current policy settings are insufficient to fundamentally shift the surplus."
           ],
           "rating": 4,
-          "reason": "Highlights structural trade imbalances and currency outlook",
+          "reason": "Highlights structural trade imbalances and currency outlook.",
           "read_time": 1,
           "is_new": true
         },
         {
-          "title": "China’s Economy Presses Forward Despite Headwinds",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPb0xLaWNFWm1na21GMk9DdVRDeUd2MGlsbUxKZHNGdzJUcHlXaE5PWVg5cjA5VzI3dU1PRGU2eUgybERWVkVBcDdlR3VtUFJPUFRCT3F1Z2c1WWJoZ1BwWndLWDlTN25OREN3WjF0V3loZF9udzV0alhKekNCMlQ4OUhxRGZXazdpVkJjY3FWeEZrS3ppUWVpNQ?oc=5",
-          "source": "China-US Focus",
-          "published": "2026-08-14 14:01 UTC",
+          "title": "Asia Economic Calendar: BI Rate, China Data, Japan GDP in Focus | Market Insights - News and Statistics - IndexBox",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQcWdkeHFaRGI1cHRHejZPZExmdmVxUUgyazU5eENBcTJiZmUwNEpMeks4WG9yZkRtSmM3bDdBd2ltNEJ1WmhneDhPdW0tUkg3YmhiMVI0Nmk1UGJ0ZnBac0E0Rk5HaUpubXJmRE5fWWFLV3JGeXlka1hKTnBUN2JEdFl2akJ1TDA2UExDVXQxbkxmaVRV?oc=5",
+          "source": "IndexBox",
+          "published": "2026-08-14 10:51 UTC",
           "bullets": [
-            "China reported a 4.7% GDP growth rate for the first half of 2026, maintaining its full-year target range of 4.5% to 5% despite a deceleration to 4.3% in the second quarter.",
-            "High-tech manufacturing and the digital economy now account for nearly half of total growth, signaling a strategic pivot toward new quality productive forces to offset real estate and infrastructure weakness."
+            "Upcoming July activity indicators are expected to show continued economic weakness, with retail sales growth remaining subdued at 1.7% and fixed asset investment projected to contract further to -6.3% year-on-year. While industrial production remains relatively resilient at 5.0%, the data underscores the ongoing struggle to gain momentum despite recent Politburo directives.",
+            "The market expects no changes to the 1-year and 5-year loan prime rates, holding at 3.0% and 3.5% respectively, signaling a cautious monetary stance. Investors should monitor the 70-city property price index for signs of stabilization in tier-1 and tier-2 cities, which remains a critical indicator for broader economic sentiment."
           ],
-          "rating": 4,
-          "reason": "Provides critical context on GDP targets and economic transition",
+          "rating": 5,
+          "reason": "Provides critical forward-looking economic data points.",
           "read_time": 1,
           "is_new": true
         }
@@ -172,25 +212,25 @@
           "source": "Mingtiandi",
           "published": "2026-08-14 11:50 UTC",
           "bullets": [
-            "CK Asset reported a 193% surge in property sales revenue to HK$21.6 billion, driven by luxury project completions, yet development profit margins compressed significantly from 24% to 3.5%.",
-            "The firm booked substantial one-time gains from UK infrastructure disposals to offset a HK$1.5 billion decline in investment property values and a HK$6 billion impairment on its REIT holdings."
+            "CK Asset reported a 193% surge in property sales revenue to HK$21.6 billion, driven by luxury project completions, yet development profit contribution plummeted 57% due to compressed margins falling to 3.5%.",
+            "The developer recorded significant impairment charges, including a HK$6 billion hit on its Hui Xian REIT stake and a HK$1.5 billion decline in investment property values, highlighting ongoing pressure on Hong Kong commercial asset valuations."
           ],
           "rating": 4,
-          "reason": "Significant margin compression and asset impairments highlight ongoing challenges in the Hong Kong property sector.",
+          "reason": "Significant earnings report from a major developer reflecting broader property market margin compression.",
           "read_time": 1,
           "is_new": true
         },
         {
-          "title": "DBS Hong Kong posts record interim profit; retiring CEO says he has made Hong Kong his home",
-          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNNFRLS1BrbEM4MUpmTUtQN2FFS2s3aDNtVDdxOS1uTzVaWUdRRjBrQmRzZ3RiY3VYenJpeVozZ0lxUlRMUEJtNno2RXVpWlQ3aDlwcU5QWTExRlFLTy1TYnhaaWtsaHpkNVZMbWZKY0hkVWFGTzdCQWhSMC10Z3d5UUJVa3lEaUs4VVBiT2xON3R0bDkxSWNleExKV2w3RjF3c085Wl9fLXZ1MmtoUnNpeGNGYWpzRDcwU3dTalBPZG1pZ0VKUm5ncDZiV2Z5dkpCeVhBYWF2bXctRW5J?oc=5",
-          "source": "The Standard (HK)",
-          "published": "2026-08-14 04:19 UTC",
+          "title": "URA posts HK$338 million operating surplus after three years of losses",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNSVJEZF83Ylg4V25SOF9Ba2FWM0wwdlk0Z2s1WFNhbHFOeG5pMEh5MVUyU2lUdWx4NjN4T1lVM09qWF9yLUdJS2ZLdE9VQk5nX196UC1nRElMWW1KNWxtYjVMT2M5WjFjaTdXaXp5WktKZnhOZUtBeUo0eDUtbUpfT2FVajZONmVDQV8xajN5SUFUOFZZamVEZkJ4anRrNk1BY290VlI5T1ZLa1hESHplblZEQzVzSnJ5eVh0WmgzV1h2Tm5nX2tJRzY4NHdRamlPUFHSAdIBQVVfeXFMUEtJVDZaZUJmYmFvTG4xX2VvdGhCbjE2XzQwX3N5aEtsU2xMWWNLYUJYeERnclJMN25zSEQ4OTFKdU5lWHJ3VWFRaHdzaWVISlFlZjZDYUxROVZxalhiMENDdjdFd0RLOHdoQUtfLU1kOGRiOE5Pd1oyMjktb2ZLdzBPdzVwYlRhWnBGRGtFWkowRE9SMTFUYVl1VGcyR3hvR0RJYXhLWGtmWFdxbjFVRllKLVY4SmtFU2UzTS04bXVXRmhLTFN5NzJVcG0yckl2RG9R?oc=5",
+          "source": "South China Morning Post",
+          "published": "2026-08-14 15:40 UTC",
           "bullets": [
-            "DBS Hong Kong achieved record interim profits, signaling resilience in the banking sector despite broader market volatility and property market headwinds.",
-            "The strong performance provides a key indicator of institutional health in the Hong Kong financial hub, contrasting with the weakness observed in the local property and tech equity markets."
+            "The Urban Renewal Authority returned to an operating surplus of HK$338 million in the 2025-26 financial year, ending a three-year streak of losses that previously forced the body to raise HK$8 billion via bond issuance.",
+            "Despite the return to profit, the authority faces ongoing financial sustainability challenges in urban redevelopment, necessitating a focus on 'flexible strategies' and upcoming enhancements to the 'Smart Tender' scheme for property owners."
           ],
           "rating": 3,
-          "reason": "Provides a positive counter-narrative to the broader market weakness and property sector concerns.",
+          "reason": "Indicates a stabilization in public-sector urban renewal finances amidst a volatile property market.",
           "read_time": 1,
           "is_new": true
         }
@@ -206,25 +246,25 @@
           "source": "Yahoo Tech",
           "published": "2026-08-14 12:11 UTC",
           "bullets": [
-            "Oracle has emerged as a primary driver of industry-wide workforce reductions, disclosing the elimination of 21,000 positions—approximately 13% of its total headcount—over the past year due to AI-driven operational shifts.",
-            "The pace of industry contraction remains elevated, with over 175,000 tech workers laid off in 2026 so far, as companies prioritize capital reallocation toward AI infrastructure over maintaining legacy staffing levels."
+            "The technology sector has seen over 175,000 job cuts in 2026, with Oracle leading the trend by eliminating 21,000 positions, or 13% of its workforce, explicitly citing AI-driven operational efficiency.",
+            "Rising layoff rates across major firms like Microsoft, Amazon, and TikTok suggest that aggressive AI investment is increasingly coming at the expense of human capital, prompting regulatory scrutiny in states like California."
           ],
           "rating": 4,
-          "reason": "Significant indicator of structural labor shifts and AI-driven cost-cutting trends.",
+          "reason": "Significant indicator of structural labor shifts and AI-driven cost-cutting in the tech sector.",
           "read_time": 1,
           "is_new": true
         },
         {
-          "title": "How Big Tech’s Earnings Are Inflated by Other Tech Companies",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNN1lvQVNDelc5YXJQYjBQVkVaRmVtdFlvVExLejM5YklKenRiTUFsVkR4UFI0SWV4dkJJczFvN0F6aTBUY3pGa3pqVzVBRjhQWG83alQxNEdfSXpFVE54WTUzLVB1TUFNZUpxaXJvaDdxU01GN0xJck51Y2EtY2h3akQyUDhRdFlmRUZmNlZGYlRROUU0amJiM0Z6NFpSbHA2U2NaSEU5VQ?oc=5",
-          "source": "WSJ",
-          "published": "2026-08-14 09:30 UTC",
+          "title": "Big tech could reshape healthcare faster than regulators expect, warns MEP",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNa1hFME9Lbkx5WDRMUDI2a1NJYUJ0OUFVU0h1anVzR2FGTkF0UVN0RXEwVDVIYzlZY0JjS0R5bGk3MWVRTmp3ZHl1SVBmalFiVWk0eUFtNjk3WEcyZ08xM1U5cThHS0FkTC1XT0hQYzlIVExUcXZsTnJib0lxYlpzbkdnRkpmbXY1RHFGMG1hb09yb3NzbDg3NFpqdDVlcHd2bWZ1NV9PVQ?oc=5",
+          "source": "euractiv.com",
+          "published": "2026-08-14 12:45 UTC",
           "bullets": [
-            "The current earnings cycle highlights a circular dependency where major tech firms derive significant revenue growth from selling cloud and AI services to other tech companies, potentially masking underlying demand weakness.",
-            "Investors should scrutinize the sustainability of these growth figures, as the reliance on inter-industry spending may create an artificial earnings floor that is vulnerable to sudden capital expenditure pullbacks across the sector."
+            "European policymakers are signaling concerns that Big Tech's rapid integration into the healthcare sector is outpacing current regulatory frameworks, potentially creating systemic risks for patient data and market competition.",
+            "Investors should monitor this tension as increased legislative oversight could impose significant compliance costs or operational constraints on tech giants attempting to monetize health-related AI and data services."
           ],
-          "rating": 5,
-          "reason": "Addresses critical risks regarding the quality and sustainability of Big Tech earnings growth.",
+          "rating": 3,
+          "reason": "Highlights emerging regulatory headwinds for Big Tech's expansion into the high-growth healthcare vertical.",
           "read_time": 1,
           "is_new": true
         }
@@ -235,16 +275,16 @@
       "label": "Artificial Intelligence",
       "items": [
         {
-          "title": "OpenAI talent exodus raises 'huge red flag' ahead of IPO",
-          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE44OUJZSWt3dkU4Vmh6T1lEbkFhMi1SNnc0aEF2d1RNNzZ2Q0ViLWM2UGFYS0VSLVUzYW1PNjRPYm04ajJlV2JSdXlGS1BnYU1wcDhyT2pxMzNvNHRWQkoyZGY5bmdaZ2ZI0gFuQVVfeXFMT0hVcEpCdG9PRElhcFVtc211cnNmX0twcF9DeVU2aXNRYXdZaExmNFlDdGluaWtmQ0pjXzY0bVNKWVNRMHY1a0FkSlRTelZaLXBkaW9FNm01TFU0MGY0dVVIQXY2M2ZfekYxd3FiNnc?oc=5",
-          "source": "CNBC",
-          "published": "2026-08-14 15:45 UTC",
+          "title": "OpenAI’s Revenue Run Rate Tops $40 Billion as IPO Nears",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNY0Y0M1Y5TTFjVVBkZDlGSHlGeEdmcGg3Z3NNV1BDdXQzTEJKRTZCUzhXVUVTUVFRX3N4Z3ZfWFlKRkdqM0pzVjh5a2txSU01ZXlxMkF4VGhXQ29QNmhsbi03VVV2SG5zSFNCTUtTOXhNUnJHZE9ZaFBwVFp6dVNydEp4eVpTWXdWZ2xTdnJXZ1lLcDZwS19POWI2bkNtcVFnbGcyNkttMFZOUEd5M0pkaQ?oc=5",
+          "source": "PYMNTS.com",
+          "published": "2026-08-14 10:58 UTC",
           "bullets": [
-            "The departure of key executives, including the chief revenue officer and operating chief, creates significant leadership instability as the company attempts to justify an $852 billion valuation ahead of its IPO.",
-            "Market observers view this C-suite turnover as a major risk factor, particularly as the firm faces intensifying competition from rivals like Google and Anthropic alongside pressure from open-weight model adoption."
+            "OpenAI has reached a $40 billion revenue run rate, signaling massive commercial scale as the company prepares for a highly anticipated initial public offering.",
+            "This revenue milestone underscores the rapid monetization of generative AI models and sets a significant valuation benchmark for the broader artificial intelligence sector."
           ],
           "rating": 5,
-          "reason": "High-level executive churn at a pre-IPO unicorn is a major red flag for institutional investors.",
+          "reason": "Major market-moving IPO event",
           "read_time": 1,
           "is_new": true
         },
@@ -254,11 +294,11 @@
           "source": "Yahoo Finance",
           "published": "2026-08-14 11:20 UTC",
           "bullets": [
-            "SK Hynix currently commands a 58% market share in high bandwidth memory (HBM), positioning it as a dominant player in the critical memory infrastructure required for AI model training.",
-            "The company's market share in HBM is more than double that of competitors Samsung and Micron, suggesting a significant competitive moat as demand shifts from raw GPU power to specialized memory stacks."
+            "SK Hynix has captured a dominant 58% market share in the high bandwidth memory (HBM) segment, positioning it as a critical supplier for AI-focused hyperscalers.",
+            "The company's strong competitive standing in DRAM and NAND flash, combined with its recent ADR listing, offers investors a significant alternative to Western memory manufacturers in the AI supply chain."
           ],
           "rating": 4,
-          "reason": "Identifies a dominant, under-the-radar player in the critical AI memory supply chain.",
+          "reason": "Significant supply chain shift",
           "read_time": 1,
           "is_new": true
         }
@@ -269,30 +309,30 @@
       "label": "Semiconductors",
       "items": [
         {
-          "title": "Goldman in talks with investors on Nvidia financing deal after landing prized role, sources say",
-          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQTGtpQWFuNVlwSS1yTW93a3R0WXBqa1UtVDIweVVzNnZQUG03d1lhRTJtWjJ6ODdYQ3ItX0pwRzN0Z0hSdndlbXh4a1c5dDBhTzRLYnh5NHVzSDB1dHJPQUtqMGxmOUFsZjNuRUtDRFFMQ0tSX2R2RXFlRTZKOHFKb0JGSml5emJXblRFZ01xS05FWG5wa0RWLWFjTnFmTk5GN1lwdFhfWWItYkEyREhWZ1lQaU9IenJ2OVlTR2lWclJ6UkF6S0c2d3hmX00?oc=5",
-          "source": "Reuters",
-          "published": "2026-08-14 04:04 UTC",
+          "title": "Nvidia’s $500 Billion Plan Envelops Wall Street in Its AI Frenzy",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxORXU4emV6ZDh1Nzh0TGRNSVQ2ZURZcFVJcHk5bEt6RFZpclBIOHBDU252QndqTng1WGpIZ2NaSmQzZUlQUEJOTHFfNHNWbGY3VkRlM0FIdExOZTRJTmlrLVZvNXFkaGxIbURCWDY4bHNCMEMwZVBJVlUwYnpUYXFEa3NEU2FkUkkzdzZsR0dmMXNZN3pKVGcyYWU5b0xySXltRi05VExkVnQ3UEN6N21DTkg0NW5rUQ?oc=5",
+          "source": "Bloomberg.com",
+          "published": "2026-08-14 16:42 UTC",
           "bullets": [
-            "Goldman Sachs is actively courting institutional investors to participate in a massive $500 billion financing initiative designed to sustain the AI infrastructure boom.",
-            "This complex financial structure, described by some as an 'exotic' money line, highlights Nvidia's strategy to ensure its customers have the necessary capital to continue purchasing high-end AI hardware."
+            "Nvidia is reportedly orchestrating a massive $500 billion financing initiative, with Goldman Sachs actively courting investors to support the capital-intensive expansion of AI infrastructure.",
+            "The scale of this funding suggests a strategic effort to sustain the AI hardware boom by providing liquidity to customers, though critics and analysts are debating whether this represents a sustainable growth model or a risky financial stunt."
           ],
           "rating": 5,
-          "reason": "Significant structural shift in AI capital expenditure financing.",
+          "reason": "Significant capital deployment strategy impacting AI market sustainability.",
           "read_time": 1,
           "is_new": true
         },
         {
-          "title": "Here are Friday's biggest analyst calls: Nvidia, Apple, SpaceX, SanDisk, JPMorgan, Dell, Wayfair, Micron & more",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPSzZ0MFlkd0FMTldwTER0Q25UUnpVNXh5Qkt5M25NZnJGRmFVZnF5REZoZldIZnRRZlY1d0VZVDM4dUVSZy0wODUxWnRYWUpKUjVYU0pXQS12d1BlMjhFZTE2S2ZCbVZlOF9wTUVDV3NyUVgzZzNUODRwY2lEeDlVbDZyaEFsM29BNXVXcVVfVHdfdW1NOTZoT2NyX0MzQndXc2M2bFJR?oc=5",
-          "source": "CNBC",
-          "published": "2026-08-14 12:40 UTC",
+          "title": "Nvidia, Nancy Pelosi, Cathie Wood Strike Gold With Databricks' $190 Billion Valuation",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPbEdObjZPaVhNbTQ3c2l4YUJNbXNXQzFlM3Y0dm9nYTJBT3BQc19SZ3BmUEJKdExqb19ScDN0NENEVnR2a3F2aW1uZlJHVkk4LWlkSHNlZnJUbVQ4djhiNWlkYktRVVg4UHp0Q0txbnVBamxaUFVLVGhTVVZZdjEtVGUxMjRwNGdYcWZSWkw2TEtLVTc0eVdwaWtoRlU?oc=5",
+          "source": "Yahoo Finance",
+          "published": "2026-08-14 17:23 UTC",
           "bullets": [
-            "JPMorgan has reinstated coverage on SanDisk with an Overweight rating, citing the company's unique positioning to benefit from the structural inflection in NAND demand driven by AI inference growth.",
-            "Jefferies initiated coverage on Aehr Test Systems with a Buy rating and a $175 price target, identifying the firm as a critical vendor for both wafer- and package-level burn-in testing in AI production."
+            "Databricks has achieved a $190 billion valuation following a new $5 billion funding round, marking a 558.8% increase in private market value since the 2023 funding cycle.",
+            "The valuation surge provides substantial unrealized gains for high-profile early backers, including Nvidia, Cathie Wood’s Ark Venture Fund, and political figures, highlighting the massive capital appreciation occurring in the private AI software ecosystem."
           ],
           "rating": 4,
-          "reason": "Direct impact on semiconductor sector stock valuations and analyst sentiment.",
+          "reason": "Major valuation milestone for a key AI software player with significant institutional backing.",
           "read_time": 1,
           "is_new": true
         }
@@ -308,11 +348,11 @@
           "source": "Yahoo Finance UK",
           "published": "2026-08-14 16:12 UTC",
           "bullets": [
-            "The UK government has initiated a formal consultation to potentially reduce the 2030 zero-emission vehicle (ZEV) sales target from 80% to as low as 50%, citing industry pressure and challenging global trading conditions.",
-            "While the 2035 deadline for a total phase-out of new petrol and diesel car sales remains unchanged, the proposed flexibility could allow manufacturers to rely more heavily on hybrid vehicles to meet interim compliance requirements."
+            "The UK government has initiated a formal consultation to potentially reduce the 2030 ZEV mandate target from 80% of new car sales to as low as 50%, citing difficult global trading conditions and supply chain pressures.",
+            "While the 2035 deadline for a total phase-out of petrol and diesel vehicles remains intact, the proposed flexibility could allow manufacturers to rely more heavily on hybrid vehicles to meet compliance requirements through 2034."
           ],
           "rating": 5,
-          "reason": "Significant regulatory shift impacting automotive OEM compliance costs and long-term product strategy.",
+          "reason": "Significant regulatory shift impacting automotive OEM compliance strategies and long-term capital allocation.",
           "read_time": 1,
           "is_new": true
         },
@@ -322,11 +362,11 @@
           "source": "Investing News Network",
           "published": "2026-08-14 18:29 UTC",
           "bullets": [
-            "Global EV sales reached 1.85 million units in July 2026, a 9% year-on-year increase, though regional performance diverged significantly with a 33% surge in Europe contrasted by a 27% contraction in North America.",
-            "The North American decline follows the expiration of federal tax incentives, while European growth remains robust due to new subsidy frameworks like France's 'Auto+' program, highlighting the sensitivity of EV demand to government fiscal support."
+            "Global EV sales reached 1.85 million units in July 2026, a 9% year-on-year increase, though regional performance diverged sharply with a 33% surge in Europe contrasted by a 27% contraction in North American markets.",
+            "The North American decline is attributed to the expiration of federal tax incentives, while European growth is being actively sustained by new consumer subsidy frameworks like the 'Auto+' program in Spain."
           ],
           "rating": 4,
-          "reason": "Provides critical data on regional market health and the direct impact of fiscal policy on global EV adoption rates.",
+          "reason": "Highlights critical regional market volatility and the direct impact of government fiscal policy on EV adoption rates.",
           "read_time": 1,
           "is_new": true
         }
@@ -342,11 +382,11 @@
           "source": "CNBC",
           "published": "2026-08-14 08:29 UTC",
           "bullets": [
-            "Hyperscalers have accumulated $1.5 trillion in total lease commitments for data centers and equipment, a massive increase from $200 billion five years ago that includes $1 trillion in 'uncommenced' obligations not yet on balance sheets.",
-            "The reliance on complex financing structures and private asset-based vehicles is obscuring true leverage levels, raising concerns among analysts about future liquidity needs and the ability of AI infrastructure returns to justify the massive capital expenditure."
+            "Hyperscalers have accumulated $1.5 trillion in lease commitments for data centers and equipment, a massive increase from $200 billion five years ago, with $1 trillion currently categorized as 'uncommenced' and hidden from balance sheets.",
+            "The surge in complex financing structures, including joint ventures and asset-based lending, is masking true leverage levels and creating potential liquidity risks as the industry undergoes an investment cycle comparable to 19th-century railway construction."
           ],
           "rating": 5,
-          "reason": "Highlights systemic financial risk and hidden leverage in the AI infrastructure sector.",
+          "reason": "Systemic financial risk in AI infrastructure",
           "read_time": 1,
           "is_new": true
         },
@@ -356,11 +396,11 @@
           "source": "CNBC",
           "published": "2026-08-14 11:19 UTC",
           "bullets": [
-            "Major tech players including SpaceX, Blue Origin, and Google are actively pursuing orbital data center infrastructure, with SpaceX proposing a constellation of up to 1 million satellites to host AI computing.",
-            "The emergence of this sector creates a new, potentially massive insurance market, as current annual space premiums of $500 million to $750 million are insufficient to cover the hundreds of billions of dollars in projected orbital hardware assets."
+            "Major tech players including SpaceX, Blue Origin, and Google are actively developing orbital data center constellations, with SpaceX proposing a massive network of up to 1 million satellites to leverage lower launch costs and solar-powered computing.",
+            "The potential for hundreds of billions of dollars in orbital assets creates a new, uncorrelated insurance market, though current global space insurance premiums of $500 million to $750 million are insufficient to cover the scale of this emerging infrastructure."
           ],
           "rating": 4,
-          "reason": "Identifies a significant emerging asset class and a new growth vertical for the insurance and space-tech industries.",
+          "reason": "Emerging high-growth asset class and insurance market",
           "read_time": 1,
           "is_new": true
         }
@@ -371,30 +411,30 @@
       "label": "Space & Aerospace",
       "items": [
         {
-          "title": "US Space Force gives Rocket Lab $397 million to build threat-tracking 'Flatellites'",
-          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQcXNpTHhyY20ybS1qUVctb3lQSEo3MUFtaDBweHRPVE9fMXhETHNRdE0wSkRPc2VfM2dUdFU0UUtBSWRyQ2xZYVA0UGR1OGpXYkU4R2wtdmRkZUZDRjNLZFJzb1BId2dxRHhHNjQtUkxnSHR6YnRGVi0yanZJalRPSWZoUHdteUhqLXEyVHhEVDN0ZHJTbFRZMERkYXJURm1KNVBiQVJUNl8wNGxNd09xZGVwdHNjT3NNWTVHd3l3SkE0Y3dYRldpOFpOUVpKV1E?oc=5",
-          "source": "Space",
-          "published": "2026-08-14 17:00 UTC",
-          "bullets": [
-            "Rocket Lab has secured a $397 million contract from the U.S. Space Force to develop 'Flatellites,' a specialized satellite design optimized for orbital constellations and real-time threat tracking.",
-            "This award marks the company's fourth major defense contract in 2026, bringing its total government-funded defense backlog to $943 million and underscoring its growing role in national security infrastructure."
-          ],
-          "rating": 5,
-          "reason": "Significant revenue growth and strategic expansion into high-margin defense contracts.",
-          "read_time": 1,
-          "is_new": true
-        },
-        {
           "title": "Rocket Lab Enters Europe’s Crowded Launch Market",
           "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5ka3lOTHptdWNMV2hlTmRBVEozVWFKV2ltZGVmc0c3bHV4QVB3V0dJUXhkS0dvaERwVVc4M0JMSXRVdFdKRTJodFhiU2szbktyTFBlajZhQ2xSbXg0emtRbWJEc0pCQl9vYk85M1Z2SVN2RHBSMVVmZjZ1MW1TUQ?oc=5",
           "source": "Payload Space",
           "published": "2026-08-14 05:58 UTC",
           "bullets": [
-            "Rocket Lab is establishing a German subsidiary to deliver launch services and satellite production, directly challenging European incumbents like Arianespace and Avio with a superior launch cadence.",
-            "With $2.13 billion in cash reserves, Rocket Lab possesses a significant capital advantage over European startups, potentially triggering a price war in the region's commercial launch sector."
+            "Rocket Lab has established a German subsidiary to localize satellite production and launch services, directly challenging European incumbents like Arianespace and Avio with a significantly higher launch cadence.",
+            "With $2.13 billion in cash and cash-equivalents as of Q2 2026, Rocket Lab possesses a substantial financial advantage over European startups, potentially triggering a price war in the region's commercial launch sector."
           ],
           "rating": 4,
-          "reason": "Aggressive international expansion threatens established market share and pricing power.",
+          "reason": "Significant market expansion and competitive threat to European aerospace incumbents.",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "US Space Force gives Rocket Lab $397 million to build threat-tracking 'Flatellites'",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQcXNpTHhyY20ybS1qUVctb3lQSEo3MUFtaDBweHRPVE9fMXhETHNRdE0wSkRPc2VfM2dUdFU0UUtBSWRyQ2xZYVA0UGR1OGpXYkU4R2wtdmRkZUZDRjNLZFJzb1BId2dxRHhHNjQtUkxnSHR6YnRGVi0yanZJalRPSWZoUHdteUhqLXEyVHhEVDN0ZHJTbFRZMERkYXJURm1KNVBiQVJUNl8wNGxNd09xZGVwdHNjT3NNWTVHd3l3SkE0Y3dYRldpOFpOUVpKV1E?oc=5",
+          "source": "Space",
+          "published": "2026-08-14 17:00 UTC",
+          "bullets": [
+            "Rocket Lab secured a $397 million contract from the U.S. Space Force to develop advanced threat-tracking satellites, signaling a major shift toward high-value defense manufacturing for the company.",
+            "This contract, combined with the company's new 'GHOST' portable launch system, underscores Rocket Lab's deepening integration into U.S. military infrastructure and its role in addressing critical launch capacity shortages."
+          ],
+          "rating": 5,
+          "reason": "Major government contract win and strategic pivot toward high-margin defense hardware.",
           "read_time": 1,
           "is_new": true
         }
@@ -408,22 +448,22 @@
         {
           "label": "S&P 500",
           "kind": "price",
-          "last": 7781.3999,
-          "change": -0.23,
+          "last": null,
+          "change": null,
           "change_bp": null
         },
         {
           "label": "Nasdaq",
           "kind": "price",
-          "last": 26686.8789,
+          "last": 26689.0156,
           "change": -0.43,
           "change_bp": null
         },
         {
           "label": "Dow Jones",
           "kind": "price",
-          "last": null,
-          "change": null,
+          "last": 53766.3711,
+          "change": -0.14,
           "change_bp": null
         },
         {
@@ -495,50 +535,50 @@
         {
           "label": "US Dollar Index",
           "kind": "price",
-          "last": 99.657,
+          "last": 99.656,
           "change": -0.3,
           "change_bp": null
         },
         {
           "label": "EUR/USD",
           "kind": "price",
-          "last": 1.1569,
-          "change": 0.34,
+          "last": 1.1571,
+          "change": 0.36,
           "change_bp": null
         },
         {
           "label": "USD/JPY",
           "kind": "price",
-          "last": 159.377,
-          "change": 0.03,
+          "last": 159.367,
+          "change": 0.02,
           "change_bp": null
         },
         {
           "label": "USD/CNY",
           "kind": "price",
-          "last": 6.7322,
-          "change": -0.16,
+          "last": 6.7412,
+          "change": -0.03,
           "change_bp": null
         },
         {
           "label": "USD/HKD",
           "kind": "price",
-          "last": 7.8465,
-          "change": 0.0,
+          "last": 7.8471,
+          "change": 0.01,
           "change_bp": null
         },
         {
           "label": "HKD/CNY",
           "kind": "price",
-          "last": 0.8592,
-          "change": -0.02,
+          "last": 0.8586,
+          "change": -0.09,
           "change_bp": null
         },
         {
           "label": "JPY/HKD (¥100)",
           "kind": "price",
-          "last": 4.898,
-          "change": -0.54,
+          "last": 4.899,
+          "change": -0.52,
           "change_bp": null
         }
       ]
@@ -549,29 +589,29 @@
         {
           "label": "Gold",
           "kind": "price",
-          "last": 4430.3999,
-          "change": 1.53,
+          "last": 4433.2002,
+          "change": 1.6,
           "change_bp": null
         },
         {
           "label": "WTI Crude",
           "kind": "price",
-          "last": 82.43,
-          "change": 1.45,
+          "last": 82.32,
+          "change": 1.32,
           "change_bp": null
         },
         {
           "label": "Brent",
           "kind": "price",
-          "last": 88.57,
-          "change": 1.72,
+          "last": 88.54,
+          "change": 1.69,
           "change_bp": null
         },
         {
           "label": "Copper",
           "kind": "price",
-          "last": 6.602,
-          "change": 0.14,
+          "last": 6.6025,
+          "change": 0.15,
           "change_bp": null
         }
       ]
@@ -582,14 +622,14 @@
         {
           "label": "VIX",
           "kind": "price",
-          "last": 14.34,
-          "change": -1.98,
+          "last": 14.41,
+          "change": -1.5,
           "change_bp": null
         },
         {
           "label": "Bitcoin",
           "kind": "price",
-          "last": 62773.4414,
+          "last": 62774.6602,
           "change": -0.99,
           "change_bp": null
         }
