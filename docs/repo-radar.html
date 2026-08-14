@@ -1327,6 +1327,19 @@
   }
   .bc-url a, .rc-url a { color: var(--muted); text-decoration: none; }
   .bc-url a:hover, .rc-url a:hover { color: var(--accent); text-decoration: underline; }
+  .read-time-chip {
+    color: var(--muted);
+    font-size: 11.5px;
+    background: transparent;
+    border: 1px solid var(--rule-dark);
+    border-radius: 999px;
+    padding: 1px 7px;
+    white-space: nowrap;
+  }
+  [data-theme="dark"] .read-time-chip {
+    color: var(--muted);
+    border-color: var(--rule-dark);
+  }
   .rc-oneliner { color: var(--ink-soft); font-size: 14.5px; margin: 6px 0 2px; }
   .repo-img {
     width: 100%;
@@ -1557,7 +1570,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Repo Radar</h1>
-    <div class="generated">3 interesting new GitHub repos · finance/tech weighted · updated 2026-08-15 02:55 HKT</div>
+    <div class="generated">3 interesting new GitHub repos · finance/tech weighted · updated 2026-08-15 03:05 HKT</div>
   </header>
 
   
@@ -1582,54 +1595,24 @@
           
           <article class="repo-card">
             <div class="rc-head">
-              <span class="chip">TypeScript</span>
-              <span class="chip stars">8433★</span>
-            </div>
-            <h3><a href="https://github.com/trycompai/crm" target="_blank" rel="noopener">trycompai/crm</a></h3>
-            <p class="rc-oneliner">An open-source, agent-first CRM platform designed specifically to integrate with and support autonomous AI agents.</p>
-            
-            
-            
-            <ul class="rc-bullets">
-              <li>Built with a modern TypeScript stack optimized for agentic workflows.</li><li>Provides a structured data layer that allows AI agents to read, write, and manage customer relationships autonomously.</li><li>Enables automated lead qualification, personalized outreach, and CRM data maintenance without human intervention.</li><li>Designed to bridge the gap between traditional sales operations and the emerging agent-based enterprise architecture.</li>
-            </ul>
-            
-            <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/trycompai/crm" target="_blank" rel="noopener">https://github.com/trycompai/crm</a></div>
-              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/trycompai/crm"
-                      data-save-title="trycompai/crm"
-                      data-save-source="TypeScript"
-                      data-save-category="Repo Radar"
-                      data-save-rating="0"
-                      data-save-date="2026-08-15">
-                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </div>
-          </article>
-          
-          <article class="repo-card">
-            <div class="rc-head">
               <span class="chip">Python</span>
-              <span class="chip stars">84★</span>
+              <span class="chip stars">81★</span>
+              <span class="chip read-time-chip">1 min</span>
             </div>
-            <h3><a href="https://github.com/FedericoTs/quantprobe" target="_blank" rel="noopener">FedericoTs/quantprobe</a></h3>
-            <p class="rc-oneliner">A diagnostic tool that predicts inference performance and memory requirements for GGUF models on specific hardware configurations.</p>
+            <h3><a href="https://github.com/YizhiSong/FriesTrader" target="_blank" rel="noopener">YizhiSong/FriesTrader</a></h3>
+            <p class="rc-oneliner">A fully automated AI trading agent that executes real Robinhood orders via an Agentic Trading MCP with hard-coded, immutable risk constraints.</p>
             
             
             
             <ul class="rc-bullets">
-              <li>Uses a Python-based calibration engine to benchmark hardware capabilities against model architecture.</li><li>Predicts tokens-per-second and memory fit for large models (e.g., 110B) on constrained or legacy hardware.</li><li>Allows finance and tech professionals to optimize local LLM deployment costs by matching model size to exact hardware specs.</li><li>Eliminates the trial-and-error process of downloading massive model files that may not run on local workstations.</li>
+              <li>Built in Python using the Model Context Protocol (MCP) to bridge LLM reasoning with financial execution.</li><li>Implements a &#39;hard-coded&#39; risk management layer that operates independently of the AI model&#39;s decision-making.</li><li>Designed for auditable, automated trading workflows on the Robinhood platform.</li><li>Focuses on bridging the gap between agentic reasoning and secure, real-world financial transaction execution.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/FedericoTs/quantprobe" target="_blank" rel="noopener">https://github.com/FedericoTs/quantprobe</a></div>
+              <div class="bc-url"><a href="https://github.com/YizhiSong/FriesTrader" target="_blank" rel="noopener">https://github.com/YizhiSong/FriesTrader</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/FedericoTs/quantprobe"
-                      data-save-title="FedericoTs/quantprobe"
+                      data-save-url="https://github.com/YizhiSong/FriesTrader"
+                      data-save-title="YizhiSong/FriesTrader"
                       data-save-source="Python"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
@@ -1644,24 +1627,57 @@
           
           <article class="repo-card">
             <div class="rc-head">
-              <span class="chip">Python</span>
-              <span class="chip stars">200★</span>
+              <span class="chip">C</span>
+              <span class="chip stars">5597★</span>
+              <span class="chip read-time-chip">1 min</span>
             </div>
-            <h3><a href="https://github.com/opensible/opensible" target="_blank" rel="noopener">opensible/opensible</a></h3>
-            <p class="rc-oneliner">An open-source GitOps control plane for OpenTofu and Ansible, enabling unified infrastructure management across hybrid environments.</p>
-            <img class="repo-img" src="./data/repo-radar-img/2026-08-15/opensible_opensible_0.jpg" alt="OpenSible Banner" loading="lazy">
-            
+            <h3><a href="https://github.com/FareedKhan-dev/kimi-k3-in-c" target="_blank" rel="noopener">FareedKhan-dev/kimi-k3-in-c</a></h3>
+            <p class="rc-oneliner">A high-performance C99 implementation for running massive 2.78T parameter models on standard CPUs with minimal memory overhead.</p>
+            <img class="repo-img" src="./data/repo-radar-img/2026-08-15/FareedKhan-dev_kimi-k3-in-c_0.jpg" alt="A small resident working set on top, the model itself on NVMe underneath, and a few labelled pipes between them" loading="lazy">
+            <img class="repo-img" src="./data/repo-radar-img/2026-08-15/FareedKhan-dev_kimi-k3-in-c_1.jpg" alt="Four steps from a server cluster down to an ordinary laptop, with the same output at both ends" loading="lazy">
             
             <ul class="rc-bullets">
-              <li>Python-based control plane that orchestrates infrastructure-as-code (IaC) workflows.</li><li>Provides a centralized GitOps interface for provisioning and configuring cloud, on-prem, and hybrid resources.</li><li>Supports self-hosted, free-tier infrastructure management, reducing reliance on expensive proprietary cloud management platforms.</li><li>Ideal for DevOps teams looking to standardize deployment pipelines and maintain consistent state across complex enterprise environments.</li>
+              <li>Written in pure C99 with zero dependencies on BLAS, external frameworks, or GPU acceleration.</li><li>Optimized for extreme memory efficiency, enabling inference of massive models within 8.24 GB of RAM.</li><li>Demonstrates a breakthrough in local model deployment, bypassing the need for expensive enterprise-grade hardware.</li><li>Ideal for finance professionals needing to run proprietary or large-scale models on local, air-gapped infrastructure.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/opensible/opensible" target="_blank" rel="noopener">https://github.com/opensible/opensible</a></div>
+              <div class="bc-url"><a href="https://github.com/FareedKhan-dev/kimi-k3-in-c" target="_blank" rel="noopener">https://github.com/FareedKhan-dev/kimi-k3-in-c</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/opensible/opensible"
-                      data-save-title="opensible/opensible"
-                      data-save-source="Python"
+                      data-save-url="https://github.com/FareedKhan-dev/kimi-k3-in-c"
+                      data-save-title="FareedKhan-dev/kimi-k3-in-c"
+                      data-save-source="C"
+                      data-save-category="Repo Radar"
+                      data-save-rating="0"
+                      data-save-date="2026-08-15">
+                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+          
+          <article class="repo-card">
+            <div class="rc-head">
+              <span class="chip">Rust</span>
+              <span class="chip stars">3192★</span>
+              <span class="chip read-time-chip">1 min</span>
+            </div>
+            <h3><a href="https://github.com/kvcache-ai/AgentENV" target="_blank" rel="noopener">kvcache-ai/AgentENV</a></h3>
+            <p class="rc-oneliner">A distributed platform designed to scale the execution of agent environments for complex, multi-step workflows.</p>
+            
+            
+            
+            <ul class="rc-bullets">
+              <li>Built in Rust to ensure high-performance, memory-safe execution of distributed agent tasks.</li><li>Provides a scalable infrastructure layer for managing the lifecycle and environment state of autonomous agents.</li><li>Addresses the &#39;scaling bottleneck&#39; in agentic systems by decoupling environment execution from the core agent logic.</li><li>Useful for building robust, production-grade agentic systems that require consistent, repeatable, and isolated execution environments.</li>
+            </ul>
+            
+            <div class="bc-footer">
+              <div class="bc-url"><a href="https://github.com/kvcache-ai/AgentENV" target="_blank" rel="noopener">https://github.com/kvcache-ai/AgentENV</a></div>
+              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
+                      data-save-url="https://github.com/kvcache-ai/AgentENV"
+                      data-save-title="kvcache-ai/AgentENV"
+                      data-save-source="Rust"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
                       data-save-date="2026-08-15">
@@ -1693,6 +1709,7 @@
             <div class="rc-head">
               <span class="chip">Python</span>
               <span class="chip stars">587★</span>
+              
             </div>
             <h3><a href="https://github.com/mikehasa/agentacct" target="_blank" rel="noopener">mikehasa/agentacct</a></h3>
             <p class="rc-oneliner">A local-first observability and cost-tracking dashboard for AI coding agents.</p>
@@ -1724,6 +1741,7 @@
             <div class="rc-head">
               <span class="chip">Python</span>
               <span class="chip stars">349★</span>
+              
             </div>
             <h3><a href="https://github.com/EthanXiang777/circuit-framework" target="_blank" rel="noopener">EthanXiang777/circuit-framework</a></h3>
             <p class="rc-oneliner">A multi-agent LLM framework specifically architected for quantitative trading research.</p>
@@ -1755,6 +1773,7 @@
             <div class="rc-head">
               <span class="chip">Python</span>
               <span class="chip stars">186★</span>
+              
             </div>
             <h3><a href="https://github.com/simonlin1212/vibe-astock" target="_blank" rel="noopener">simonlin1212/vibe-astock</a></h3>
             <p class="rc-oneliner">A high-performance, local-first dashboard for A-share market sentiment analysis and short-term trading review.</p>
@@ -1802,6 +1821,7 @@
             <div class="rc-head">
               <span class="chip">Python</span>
               <span class="chip stars">584★</span>
+              
             </div>
             <h3><a href="https://github.com/mikehasa/agentacct" target="_blank" rel="noopener">mikehasa/agentacct</a></h3>
             <p class="rc-oneliner">A local-first observability dashboard for tracking the performance, token usage, and cost of coding agents.</p>
@@ -1833,6 +1853,7 @@
             <div class="rc-head">
               <span class="chip">Python</span>
               <span class="chip stars">178★</span>
+              
             </div>
             <h3><a href="https://github.com/simonlin1212/vibe-astock" target="_blank" rel="noopener">simonlin1212/vibe-astock</a></h3>
             <p class="rc-oneliner">A local-running A-share market sentiment and short-term trading dashboard that combines deterministic financial metrics with AI-driven analysis.</p>
@@ -1864,6 +1885,7 @@
             <div class="rc-head">
               <span class="chip">Rust</span>
               <span class="chip stars">885★</span>
+              
             </div>
             <h3><a href="https://github.com/Flaminis/Dalaran" target="_blank" rel="noopener">Flaminis/Dalaran</a></h3>
             <p class="rc-oneliner">A robotics-first visualization and data infrastructure tool for multimodal time-series data, built as a high-performance fork of Rerun.</p>
@@ -1937,7 +1959,7 @@
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-15 02:55 HKT");
+  var dataTS = encodeURIComponent("2026-08-15 03:05 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;

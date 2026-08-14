@@ -1,49 +1,54 @@
 {
- "generated_at": "2026-08-15 02:55 HKT",
+ "generated_at": "2026-08-15 03:05 HKT",
  "repos": [
   {
-   "name": "trycompai/crm",
-   "url": "https://github.com/trycompai/crm",
-   "language": "TypeScript",
-   "stars": 8433,
-   "description": "Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM.",
-   "one_liner": "An open-source, agent-first CRM platform designed specifically to integrate with and support autonomous AI agents.",
-   "bullets": [
-    "Built with a modern TypeScript stack optimized for agentic workflows.",
-    "Provides a structured data layer that allows AI agents to read, write, and manage customer relationships autonomously.",
-    "Enables automated lead qualification, personalized outreach, and CRM data maintenance without human intervention.",
-    "Designed to bridge the gap between traditional sales operations and the emerging agent-based enterprise architecture."
-   ]
-  },
-  {
-   "name": "FedericoTs/quantprobe",
-   "url": "https://github.com/FedericoTs/quantprobe",
+   "name": "YizhiSong/FriesTrader",
+   "url": "https://github.com/YizhiSong/FriesTrader",
    "language": "Python",
-   "stars": 84,
-   "description": "Run a 110B on a 2016 PC with 16 GB RAM. Know your tok/s before you download. Placement beats budget: predicts speed + memory fit for any GGUF on your exact hardware, self-calibrates, emits the exact llama.cpp command — or 'quantprobe auto' does it all. Falsification-tested laws; misses published at full size. pip install quantprobe",
-   "one_liner": "A diagnostic tool that predicts inference performance and memory requirements for GGUF models on specific hardware configurations.",
+   "stars": 81,
+   "description": "A fully automated AI trading agent that trades real Robinhood orders via its Agentic Trading MCP under mechanical, auditable risk rules the model cannot override. Once set up, it is able to run on its own schedule, screening and trading stocks under a narrow, explicit gate. Cheap to run — Claude Pro only, no metered API spend. Not financial advice.",
+   "one_liner": "A fully automated AI trading agent that executes real Robinhood orders via an Agentic Trading MCP with hard-coded, immutable risk constraints.",
    "bullets": [
-    "Uses a Python-based calibration engine to benchmark hardware capabilities against model architecture.",
-    "Predicts tokens-per-second and memory fit for large models (e.g., 110B) on constrained or legacy hardware.",
-    "Allows finance and tech professionals to optimize local LLM deployment costs by matching model size to exact hardware specs.",
-    "Eliminates the trial-and-error process of downloading massive model files that may not run on local workstations."
-   ]
-  },
-  {
-   "name": "opensible/opensible",
-   "url": "https://github.com/opensible/opensible",
-   "language": "Python",
-   "stars": 200,
-   "description": "An open source GitOps control plane for OpenTofu & Ansible - provision, configure and deploy across cloud, on-prem and hybrid, self-hosted and forever free.",
-   "one_liner": "An open-source GitOps control plane for OpenTofu and Ansible, enabling unified infrastructure management across hybrid environments.",
-   "bullets": [
-    "Python-based control plane that orchestrates infrastructure-as-code (IaC) workflows.",
-    "Provides a centralized GitOps interface for provisioning and configuring cloud, on-prem, and hybrid resources.",
-    "Supports self-hosted, free-tier infrastructure management, reducing reliance on expensive proprietary cloud management platforms.",
-    "Ideal for DevOps teams looking to standardize deployment pipelines and maintain consistent state across complex enterprise environments."
+    "Built in Python using the Model Context Protocol (MCP) to bridge LLM reasoning with financial execution.",
+    "Implements a 'hard-coded' risk management layer that operates independently of the AI model's decision-making.",
+    "Designed for auditable, automated trading workflows on the Robinhood platform.",
+    "Focuses on bridging the gap between agentic reasoning and secure, real-world financial transaction execution."
    ],
-   "img": "opensible_opensible_0.jpg",
-   "img_alt": "OpenSible Banner"
+   "read_time": 1
+  },
+  {
+   "name": "FareedKhan-dev/kimi-k3-in-c",
+   "url": "https://github.com/FareedKhan-dev/kimi-k3-in-c",
+   "language": "C",
+   "stars": 5597,
+   "description": "A 2.78-trillion-parameter Kimi K3 running inference on a single CPU in 8.24 GB of RAM. Portable C99: no BLAS, no framework, no GPU.",
+   "one_liner": "A high-performance C99 implementation for running massive 2.78T parameter models on standard CPUs with minimal memory overhead.",
+   "bullets": [
+    "Written in pure C99 with zero dependencies on BLAS, external frameworks, or GPU acceleration.",
+    "Optimized for extreme memory efficiency, enabling inference of massive models within 8.24 GB of RAM.",
+    "Demonstrates a breakthrough in local model deployment, bypassing the need for expensive enterprise-grade hardware.",
+    "Ideal for finance professionals needing to run proprietary or large-scale models on local, air-gapped infrastructure."
+   ],
+   "read_time": 1,
+   "img": "FareedKhan-dev_kimi-k3-in-c_0.jpg",
+   "img_alt": "A small resident working set on top, the model itself on NVMe underneath, and a few labelled pipes between them",
+   "img2": "FareedKhan-dev_kimi-k3-in-c_1.jpg",
+   "img2_alt": "Four steps from a server cluster down to an ordinary laptop, with the same output at both ends"
+  },
+  {
+   "name": "kvcache-ai/AgentENV",
+   "url": "https://github.com/kvcache-ai/AgentENV",
+   "language": "Rust",
+   "stars": 3192,
+   "description": "AgentENV (AENV) is a distributed platform for running agent environments at scale.",
+   "one_liner": "A distributed platform designed to scale the execution of agent environments for complex, multi-step workflows.",
+   "bullets": [
+    "Built in Rust to ensure high-performance, memory-safe execution of distributed agent tasks.",
+    "Provides a scalable infrastructure layer for managing the lifecycle and environment state of autonomous agents.",
+    "Addresses the 'scaling bottleneck' in agentic systems by decoupling environment execution from the core agent logic.",
+    "Useful for building robust, production-grade agentic systems that require consistent, repeatable, and isolated execution environments."
+   ],
+   "read_time": 1
   }
  ]
 }
