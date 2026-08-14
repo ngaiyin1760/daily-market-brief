@@ -985,10 +985,10 @@ def gemini_summarize(category, candidates, top_n=DEFAULT_TOP_N):
     if not isinstance(parsed, list):
         raise ValueError("Gemini response is not a JSON array")
 
-    # Map candidates by URL so we can carry over the extracted full-article
+    # Map candidates by link/url so we can carry over the extracted full-article
     # reading time (set in attach_article_texts) — the AI response only gives
-    # title/url/bullets/rating.
-    cand_by_url = {c.get("url"): c for c in candidates}
+    # title/url/bullets/rating. Candidates use "link"; the AI echoes it as "url".
+    cand_by_url = {c.get("link") or c.get("url"): c for c in candidates}
 
     out = []
     for entry in parsed[:top_n]:
