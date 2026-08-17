@@ -2,109 +2,109 @@
  "days": [
   {
    "date": "2026-08-18",
-   "generated_at": "2026-08-18 00:45 HKT",
+   "generated_at": "2026-08-18 06:38 HKT",
    "repos": [
     {
-     "name": "internet-court/internet-court-skill",
-     "url": "https://github.com/internet-court/internet-court-skill",
+     "name": "deepseek-ai/deepseek-harness",
+     "url": "https://github.com/deepseek-ai/deepseek-harness",
      "language": "TypeScript",
-     "description": "The trust layer for agent-to-agent commerce — natural-language mandates, ERC-7710 delegated permissions, x402 payments, escrow, and dispute resolution as one open, catch-all Agent Skill / Claude Code plugin.",
-     "keywords": [
-      "AI agent",
-      "AI skills"
-     ],
-     "trendshift_pos": 16,
-     "stars": 3367,
-     "fork": false,
-     "parent_name": "",
-     "one_liner": "A trust and commerce layer for agent-to-agent transactions using delegated permissions and escrow.",
-     "bullets": [
-      "Built on TypeScript, integrating ERC-7710 for delegated permissions and x402 payment protocols.",
-      "Provides a standardized 'Agent Skill' for dispute resolution and secure commerce between autonomous entities.",
-      "Enables complex agent-to-agent economic interactions by codifying natural-language mandates into executable logic.",
-      "Essential for the emerging agentic economy where agents need to handle payments and contractual obligations."
-     ]
-    },
-    {
-     "name": "unslothai/unsloth",
-     "url": "https://github.com/unslothai/unsloth",
-     "language": "Python",
-     "description": "Local UI to run and train LLMs and diffusion models, including Qwen3.8, Kimi K3, MiniMax-H3, Gemma 4, DeepSeek-V4, FLUX and more.",
-     "keywords": [
-      "NLP",
-      "Local LLM"
-     ],
-     "trendshift_pos": 24,
-     "stars": 73082,
-     "fork": false,
-     "parent_name": "",
-     "one_liner": "High-performance framework for training and fine-tuning LLMs with significantly reduced memory usage.",
-     "bullets": [
-      "Utilizes optimized kernels and Triton to accelerate training of models like DeepSeek-V4, Qwen, and Llama.",
-      "Reduces VRAM consumption by up to 70%, making fine-tuning accessible on consumer-grade hardware.",
-      "Supports seamless integration with Hugging Face ecosystem for rapid deployment of custom-trained models.",
-      "Critical infrastructure for enterprises building proprietary, domain-specific AI models."
-     ]
-    },
-    {
-     "name": "holaboss-ai/holaOS",
-     "url": "https://github.com/holaboss-ai/holaOS",
-     "language": "TypeScript",
-     "description": "Open-source All in One AI agent workspace. Run any agent — Claude Code, Codex — across your tools (100+ integrations + MCP), apps, browser, and files, with shared memory. Built-in models or BYOK.",
+     "description": "DeepSeek Harness: Everything is a Plugin.",
      "keywords": [
       "AI agent"
      ],
-     "trendshift_pos": 11,
-     "stars": 9109,
+     "trendshift_pos": 1,
+     "stars": 149564,
      "fork": false,
      "parent_name": "",
-     "one_liner": "An all-in-one AI agent workspace designed to orchestrate multiple agents across tools and files.",
+     "one_liner": "A modular, plugin-based architecture designed to extend the capabilities of DeepSeek models into a versatile agentic framework.",
      "bullets": [
-      "TypeScript-based architecture supporting 100+ integrations and the Model Context Protocol (MCP).",
-      "Features shared memory across agents, allowing for persistent context in complex workflows.",
-      "Supports both built-in models and BYOK (Bring Your Own Key) for flexibility in enterprise environments.",
-      "Acts as a centralized control plane for managing agentic tasks across browser, desktop, and cloud environments."
+      "Built on a TypeScript-based plugin architecture that treats every capability as a modular component.",
+      "Serves as the core runtime for integrating LLM reasoning into complex, multi-step workflows.",
+      "Enables developers to build custom agentic behaviors by chaining plugins for specific tasks.",
+      "Provides a standardized interface for extending model functionality beyond simple text generation."
      ]
     },
     {
-     "name": "microsoft/data-formulator",
-     "url": "https://github.com/microsoft/data-formulator",
-     "language": "Python",
-     "description": "🪄 Data Formulator is an interactive AI-powered data analysis system makes it easy to connect, explore and visualize data.",
+     "name": "truefoundry/trueforge",
+     "url": "https://github.com/truefoundry/trueforge",
+     "language": "TypeScript",
+     "description": "The open-source agent harness - the runtime layer that turns an LLM into a working agent.",
+     "keywords": [
+      "AI agent"
+     ],
+     "trendshift_pos": 25,
+     "stars": 874,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An open-source agent harness providing the essential runtime layer to transform raw LLMs into functional, autonomous agents.",
+     "bullets": [
+      "Acts as the middleware between LLM providers and agentic execution environments.",
+      "Focuses on the infrastructure layer required to manage agent state, tool execution, and memory.",
+      "Designed to bridge the gap between experimental LLM prompts and production-grade agentic systems.",
+      "Provides a unified interface for developers to deploy and orchestrate agent workflows."
+     ],
+     "img": "truefoundry_trueforge_0.jpg",
+     "img_alt": "TrueForge Chat UI"
+    },
+    {
+     "name": "yetone/cumora",
+     "url": "https://github.com/yetone/cumora",
+     "language": "TypeScript",
+     "description": "Where agent teams gather. Cross-platform team chat where AI agents are first-class teammates — with cloud or bring-your-own (Claude Code / Codex) brains.",
+     "keywords": [],
+     "trendshift_pos": 11,
+     "stars": 1030,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A cross-platform team chat application where AI agents act as first-class, collaborative teammates.",
+     "bullets": [
+      "Integrates AI agents directly into the communication flow, allowing them to participate in team discussions.",
+      "Supports flexible backend configurations including cloud-based models or local 'bring-your-own' brains like Claude Code.",
+      "Designed for collaborative agentic workflows where humans and AI co-develop software or manage projects.",
+      "Focuses on the human-agent interaction layer to improve team productivity and coordination."
+     ]
+    },
+    {
+     "name": "santifer/career-ops",
+     "url": "https://github.com/santifer/career-ops",
+     "language": "JavaScript",
+     "description": "Open-source AI job search: scan job portals, evaluate listings with a structured A-F rubric into a 1.0-5.0 score, tailor your CV, track applications — runs locally in your AI coding CLI (Claude Code, Codex, OpenCode, Antigravity…)",
      "keywords": [
       "AI agent",
-      "Data visualization"
+      "Web scraping",
+      "Resume building"
      ],
-     "trendshift_pos": 23,
-     "stars": 16394,
+     "trendshift_pos": 17,
+     "stars": 64574,
      "fork": false,
      "parent_name": "",
-     "one_liner": "An AI-powered data analysis and visualization system that simplifies complex data exploration.",
+     "one_liner": "An AI-powered CLI tool that automates job searching, application tracking, and CV tailoring using structured evaluation rubrics.",
      "bullets": [
-      "Combines LLM-driven natural language processing with interactive data transformation and visualization tools.",
-      "Automates the creation of charts and data insights, reducing the barrier to entry for complex data analysis.",
-      "Designed for data professionals to quickly iterate on datasets and generate high-quality visual reports.",
-      "Leverages AI to bridge the gap between raw data and actionable business intelligence."
+      "Uses LLM-based analysis to score job listings on a 1.0-5.0 scale based on custom criteria.",
+      "Automates the tedious process of tailoring CVs to match specific job descriptions.",
+      "Operates locally within an AI coding CLI environment for privacy and seamless integration with development workflows.",
+      "Provides a structured, data-driven approach to the job hunting process for tech professionals."
      ]
     },
     {
-     "name": "ifixai-ai/iFixAi",
-     "url": "https://github.com/ifixai-ai/iFixAi",
+     "name": "usestrix/strix",
+     "url": "https://github.com/usestrix/strix",
      "language": "Python",
-     "description": "Independent Auditing of AI Agents. Run by human or the agent itself, to answer the most crucial question in the AI Agent Economy. Is the agent doing what is supposed to do? With iFixAi you can have this answer in less than 120 seconds.",
+     "description": "Open-source AI penetration testing tool to find and fix your app’s vulnerabilities.",
      "keywords": [
-      "AI infrastructure"
+      "AI agent",
+      "Pentesting"
      ],
-     "trendshift_pos": 5,
-     "stars": 9697,
+     "trendshift_pos": 19,
+     "stars": 54091,
      "fork": false,
      "parent_name": "",
-     "one_liner": "An independent auditing framework designed to verify that AI agents are executing tasks as intended.",
+     "one_liner": "An open-source AI-driven penetration testing tool designed to identify and remediate application vulnerabilities.",
      "bullets": [
-      "Python-based auditing engine that can be triggered by humans or autonomous agents themselves.",
-      "Provides a verification layer to ensure agentic outputs align with predefined goals and safety constraints.",
-      "Addresses the critical 'AI alignment' problem in production environments where agents handle sensitive operations.",
-      "Essential for fintech and high-stakes industries requiring observability and accountability in automated workflows."
+      "Leverages LLM agents to automate the discovery of security flaws in application codebases.",
+      "Provides actionable remediation steps to fix identified vulnerabilities, reducing manual security overhead.",
+      "Focuses on the intersection of AI and DevSecOps to improve software infrastructure security.",
+      "Designed to be integrated into CI/CD pipelines for continuous security monitoring."
      ]
     }
    ]
