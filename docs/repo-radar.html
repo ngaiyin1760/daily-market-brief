@@ -1286,6 +1286,8 @@
     padding: 14px 16px;
     margin-bottom: 14px;
     box-shadow: 0 1px 2px rgba(34, 31, 26, .05);
+    min-width: 0;               /* allow shrink below nowrap content on mobile */
+    overflow-wrap: break-word;  /* never let long URLs/tokens widen the box */
   }
   .blog-card h3, .repo-card h3 {
     margin: 6px 0 4px;
@@ -1343,6 +1345,7 @@
   .rc-oneliner { color: var(--ink-soft); font-size: 14.5px; margin: 6px 0 2px; }
   .repo-img {
     width: 100%;
+    max-width: 100%;
     height: auto;
     max-height: 520px;
     object-fit: contain;       /* never crop a diagram */
@@ -1354,7 +1357,7 @@
   }
   .repo-grid {
     display: grid;
-    grid-template-columns: 1fr;   /* one repo card per row — big, readable */
+    grid-template-columns: minmax(0, 1fr);   /* one repo card per row — big, readable */
     gap: 20px;
   }
 
@@ -1570,7 +1573,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Repo Radar</h1>
-    <div class="generated">5 trending GitHub repos · finance/tech weighted · never repeated across days · updated 2026-08-18 00:29 HKT</div>
+    <div class="generated">5 trending GitHub repos · finance/tech weighted · never repeated across days · updated 2026-08-18 00:39 HKT</div>
   </header>
 
   
@@ -1595,24 +1598,54 @@
           
           <article class="repo-card">
             <div class="rc-head">
-              <span class="chip">TypeScript</span>
-              <span class="chip stars">148081★</span>
-              <span class="chip read-time-chip">1 min</span>
+              <span class="chip">Python</span>
+              <span class="chip stars">7485★</span>
             </div>
-            <h3><a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">deepseek-ai/deepseek-harness</a></h3>
-            <p class="rc-oneliner">A modular, plugin-based architecture designed to standardize and extend the capabilities of DeepSeek models.</p>
+            <h3><a href="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin" target="_blank" rel="noopener">awesome-dsh-plugin/awesome-dsh-plugin</a></h3>
+            <p class="rc-oneliner">A curated list of plugins for DeepSeek Harness (dsh) · DeepSeek Harness 插件精选列表</p>
+            <img class="repo-img" src="./data/repo-radar-img/2026-08-18/awesome-dsh-plugin_awesome-dsh-plugin_0.jpg" alt="Awesome DSH Plugin" loading="lazy">
+            
+            
+            <ul class="rc-bullets">
+              <li>Tech structure: primary language Python.</li><li>Purpose: new open-source project (see description).</li><li>Use case: evaluate in your stack if the description fits.</li>
+            </ul>
+            
+            <div class="bc-footer">
+              <div class="bc-url"><a href="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin" target="_blank" rel="noopener">https://github.com/awesome-dsh-plugin/awesome-dsh-plugin</a></div>
+              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
+                      data-save-url="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin"
+                      data-save-title="awesome-dsh-plugin/awesome-dsh-plugin"
+                      data-save-source="Python"
+                      data-save-category="Repo Radar"
+                      data-save-rating="0"
+                      data-save-date="2026-08-18">
+                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+          
+          <article class="repo-card">
+            <div class="rc-head">
+              <span class="chip">TypeScript</span>
+              <span class="chip stars">11478★</span>
+            </div>
+            <h3><a href="https://github.com/anywhere-labs/deepseek-harness-desktop" target="_blank" rel="noopener">anywhere-labs/deepseek-harness-desktop</a></h3>
+            <p class="rc-oneliner">基于官方 DeepSeek Harness 打造的 Electron 桌面端，支持 macOS 和 Windows，免配置、下载即用。</p>
             
             
             
             <ul class="rc-bullets">
-              <li>Built on a TypeScript-based plugin architecture that treats every feature as an extensible module.</li><li>Provides a unified interface for integrating diverse AI-driven workflows into a single ecosystem.</li><li>Serves as the foundational infrastructure for the rapidly growing DeepSeek plugin ecosystem.</li><li>Enables developers to build highly customized agentic environments with shared state and logic.</li>
+              <li>Tech structure: primary language TypeScript.</li><li>Purpose: new open-source project (see description).</li><li>Use case: evaluate in your stack if the description fits.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">https://github.com/deepseek-ai/deepseek-harness</a></div>
+              <div class="bc-url"><a href="https://github.com/anywhere-labs/deepseek-harness-desktop" target="_blank" rel="noopener">https://github.com/anywhere-labs/deepseek-harness-desktop</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/deepseek-ai/deepseek-harness"
-                      data-save-title="deepseek-ai/deepseek-harness"
+                      data-save-url="https://github.com/anywhere-labs/deepseek-harness-desktop"
+                      data-save-title="anywhere-labs/deepseek-harness-desktop"
                       data-save-source="TypeScript"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
@@ -1627,56 +1660,23 @@
           
           <article class="repo-card">
             <div class="rc-head">
-              <span class="chip">TypeScript</span>
-              <span class="chip stars">3362★</span>
-              <span class="chip read-time-chip">1 min</span>
-            </div>
-            <h3><a href="https://github.com/internet-court/internet-court-skill" target="_blank" rel="noopener">internet-court/internet-court-skill</a></h3>
-            <p class="rc-oneliner">A trust and commerce layer for agent-to-agent interactions, integrating payments, permissions, and dispute resolution.</p>
-            
-            
-            
-            <ul class="rc-bullets">
-              <li>Implements ERC-7710 for delegated agent permissions and x402 payment protocols for machine-to-machine transactions.</li><li>Provides a standardized &#39;Agent Skill&#39; for handling escrow and natural-language mandates in autonomous commerce.</li><li>Addresses the critical need for governance and dispute resolution in the emerging AI agent economy.</li><li>Designed to be compatible with Claude Code and other major agentic frameworks.</li>
-            </ul>
-            
-            <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/internet-court/internet-court-skill" target="_blank" rel="noopener">https://github.com/internet-court/internet-court-skill</a></div>
-              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/internet-court/internet-court-skill"
-                      data-save-title="internet-court/internet-court-skill"
-                      data-save-source="TypeScript"
-                      data-save-category="Repo Radar"
-                      data-save-rating="0"
-                      data-save-date="2026-08-18">
-                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </div>
-          </article>
-          
-          <article class="repo-card">
-            <div class="rc-head">
               <span class="chip">Python</span>
-              <span class="chip stars">9697★</span>
-              <span class="chip read-time-chip">1 min</span>
+              <span class="chip stars">105603★</span>
             </div>
-            <h3><a href="https://github.com/ifixai-ai/iFixAi" target="_blank" rel="noopener">ifixai-ai/iFixAi</a></h3>
-            <p class="rc-oneliner">An independent auditing framework designed to verify that AI agents are executing their intended tasks correctly.</p>
-            
-            
+            <h3><a href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank" rel="noopener">harry0703/MoneyPrinterTurbo</a></h3>
+            <p class="rc-oneliner">利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.</p>
+            <img class="repo-img" src="./data/repo-radar-img/2026-08-18/harry0703_MoneyPrinterTurbo_0.jpg" alt="harry0703/MoneyPrinterTurbo" loading="lazy">
+            <img class="repo-img" src="./data/repo-radar-img/2026-08-18/harry0703_MoneyPrinterTurbo_1.jpg" alt="harry0703/MoneyPrinterTurbo" loading="lazy">
             
             <ul class="rc-bullets">
-              <li>Utilizes a Python-based auditing engine to monitor agent behavior and output against predefined mandates.</li><li>Supports both human-in-the-loop and autonomous self-auditing capabilities for continuous verification.</li><li>Focuses on the &#39;Agent Economy&#39; by providing a trust layer to ensure reliability in automated workflows.</li><li>Essential for enterprise use cases where agentic compliance and task accuracy are non-negotiable.</li>
+              <li>Tech structure: primary language Python.</li><li>Purpose: new open-source project (see description).</li><li>Use case: evaluate in your stack if the description fits.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/ifixai-ai/iFixAi" target="_blank" rel="noopener">https://github.com/ifixai-ai/iFixAi</a></div>
+              <div class="bc-url"><a href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank" rel="noopener">https://github.com/harry0703/MoneyPrinterTurbo</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/ifixai-ai/iFixAi"
-                      data-save-title="ifixai-ai/iFixAi"
+                      data-save-url="https://github.com/harry0703/MoneyPrinterTurbo"
+                      data-save-title="harry0703/MoneyPrinterTurbo"
                       data-save-source="Python"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
@@ -1691,25 +1691,24 @@
           
           <article class="repo-card">
             <div class="rc-head">
-              <span class="chip">Python</span>
-              <span class="chip stars">73079★</span>
-              <span class="chip read-time-chip">1 min</span>
+              <span class="chip">PowerShell</span>
+              <span class="chip stars">3719★</span>
             </div>
-            <h3><a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">unslothai/unsloth</a></h3>
-            <p class="rc-oneliner">High-performance framework for efficient fine-tuning and local inference of state-of-the-art LLMs.</p>
+            <h3><a href="https://github.com/yjh051108/dsh-routing-suite" target="_blank" rel="noopener">yjh051108/dsh-routing-suite</a></h3>
+            <p class="rc-oneliner">dsh-routing-suite — injector + router-standard kit: install the runtime injector first, then the task-aware reasoning-mode router preset (measured P1-P23).</p>
             
             
             
             <ul class="rc-bullets">
-              <li>Optimized for memory efficiency and speed, significantly reducing the hardware requirements for training large models.</li><li>Supports a wide range of architectures including DeepSeek-V4, Qwen, and Gemma, making it a versatile tool for custom model development.</li><li>Provides a local UI for managing training runs and diffusion model deployment.</li><li>Ideal for quant researchers and developers building domain-specific models on consumer-grade hardware.</li>
+              <li>Tech structure: primary language PowerShell.</li><li>Purpose: new open-source project (see description).</li><li>Use case: evaluate in your stack if the description fits.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">https://github.com/unslothai/unsloth</a></div>
+              <div class="bc-url"><a href="https://github.com/yjh051108/dsh-routing-suite" target="_blank" rel="noopener">https://github.com/yjh051108/dsh-routing-suite</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/unslothai/unsloth"
-                      data-save-title="unslothai/unsloth"
-                      data-save-source="Python"
+                      data-save-url="https://github.com/yjh051108/dsh-routing-suite"
+                      data-save-title="yjh051108/dsh-routing-suite"
+                      data-save-source="PowerShell"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
                       data-save-date="2026-08-18">
@@ -1723,25 +1722,24 @@
           
           <article class="repo-card">
             <div class="rc-head">
-              <span class="chip">Python</span>
-              <span class="chip stars">16394★</span>
-              <span class="chip read-time-chip">1 min</span>
+              <span class="chip">—</span>
+              <span class="chip stars">12163★</span>
             </div>
-            <h3><a href="https://github.com/microsoft/data-formulator" target="_blank" rel="noopener">microsoft/data-formulator</a></h3>
-            <p class="rc-oneliner">An AI-powered interactive system for data exploration, cleaning, and visualization.</p>
+            <h3><a href="https://github.com/liquidslr/system-design-notes" target="_blank" rel="noopener">liquidslr/system-design-notes</a></h3>
+            <p class="rc-oneliner">Notes of the book System Desgin Interview - An Insider&#39;s Guide</p>
             
             
             
             <ul class="rc-bullets">
-              <li>Combines LLM-driven natural language processing with structured data transformation pipelines.</li><li>Automates the process of data cleaning and chart generation, reducing the manual overhead of exploratory data analysis.</li><li>Integrates directly into data workflows to provide rapid insights from raw datasets.</li><li>Useful for fintech analysts and data scientists needing to bridge the gap between unstructured data and actionable visualizations.</li>
+              <li>Tech structure: primary language —.</li><li>Purpose: new open-source project (see description).</li><li>Use case: evaluate in your stack if the description fits.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/microsoft/data-formulator" target="_blank" rel="noopener">https://github.com/microsoft/data-formulator</a></div>
+              <div class="bc-url"><a href="https://github.com/liquidslr/system-design-notes" target="_blank" rel="noopener">https://github.com/liquidslr/system-design-notes</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/microsoft/data-formulator"
-                      data-save-title="microsoft/data-formulator"
-                      data-save-source="Python"
+                      data-save-url="https://github.com/liquidslr/system-design-notes"
+                      data-save-title="liquidslr/system-design-notes"
+                      data-save-source="—"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
                       data-save-date="2026-08-18">
@@ -1773,7 +1771,6 @@
             <div class="rc-head">
               <span class="chip">TypeScript</span>
               <span class="chip stars">8514★</span>
-              <span class="chip read-time-chip">1 min</span>
             </div>
             <h3><a href="https://github.com/trycompai/crm" target="_blank" rel="noopener">trycompai/crm</a></h3>
             <p class="rc-oneliner">An open-source, agent-first CRM designed specifically to manage and interact with AI agents.</p>
@@ -1805,7 +1802,6 @@
             <div class="rc-head">
               <span class="chip">Rust</span>
               <span class="chip stars">3206★</span>
-              <span class="chip read-time-chip">1 min</span>
             </div>
             <h3><a href="https://github.com/kvcache-ai/AgentENV" target="_blank" rel="noopener">kvcache-ai/AgentENV</a></h3>
             <p class="rc-oneliner">A distributed platform designed for running and scaling agent environments in production.</p>
@@ -1837,7 +1833,6 @@
             <div class="rc-head">
               <span class="chip">Python</span>
               <span class="chip stars">85★</span>
-              <span class="chip read-time-chip">1 min</span>
             </div>
             <h3><a href="https://github.com/Blackwellboy/model-serving-minefield" target="_blank" rel="noopener">Blackwellboy/model-serving-minefield</a></h3>
             <p class="rc-oneliner">A technical registry documenting common pitfalls and performance traps in LLM serving infrastructure.</p>
@@ -1885,7 +1880,6 @@
             <div class="rc-head">
               <span class="chip">C</span>
               <span class="chip stars">5752★</span>
-              <span class="chip read-time-chip">1 min</span>
             </div>
             <h3><a href="https://github.com/FareedKhan-dev/kimi-k3-in-c" target="_blank" rel="noopener">FareedKhan-dev/kimi-k3-in-c</a></h3>
             <p class="rc-oneliner">A highly optimized C99 implementation capable of running a 2.78-trillion-parameter model inference on a single CPU with minimal RAM.</p>
@@ -1917,7 +1911,6 @@
             <div class="rc-head">
               <span class="chip">Python</span>
               <span class="chip stars">85★</span>
-              <span class="chip read-time-chip">1 min</span>
             </div>
             <h3><a href="https://github.com/FedericoTs/quantprobe" target="_blank" rel="noopener">FedericoTs/quantprobe</a></h3>
             <p class="rc-oneliner">A diagnostic tool that predicts inference speed and memory fit for GGUF models on specific hardware configurations.</p>
@@ -1949,7 +1942,6 @@
             <div class="rc-head">
               <span class="chip">Python</span>
               <span class="chip stars">201★</span>
-              <span class="chip read-time-chip">1 min</span>
             </div>
             <h3><a href="https://github.com/opensible/opensible" target="_blank" rel="noopener">opensible/opensible</a></h3>
             <p class="rc-oneliner">An open-source GitOps control plane designed to unify OpenTofu and Ansible for hybrid cloud infrastructure management.</p>
@@ -1997,7 +1989,6 @@
             <div class="rc-head">
               <span class="chip">Python</span>
               <span class="chip stars">81★</span>
-              <span class="chip read-time-chip">1 min</span>
             </div>
             <h3><a href="https://github.com/YizhiSong/FriesTrader" target="_blank" rel="noopener">YizhiSong/FriesTrader</a></h3>
             <p class="rc-oneliner">A fully automated AI trading agent that executes real Robinhood orders via an Agentic Trading MCP with hard-coded, immutable risk constraints.</p>
@@ -2029,7 +2020,6 @@
             <div class="rc-head">
               <span class="chip">Swift</span>
               <span class="chip stars">5970★</span>
-              <span class="chip read-time-chip">1 min</span>
             </div>
             <h3><a href="https://github.com/drumih/turbo-fieldfare" target="_blank" rel="noopener">drumih/turbo-fieldfare</a></h3>
             <p class="rc-oneliner">A highly optimized inference engine enabling Gemma 4 26B-A4B models to run on standard M-series MacBooks using only 2 GB of RAM.</p>
@@ -2061,7 +2051,6 @@
             <div class="rc-head">
               <span class="chip">Rust</span>
               <span class="chip stars">130★</span>
-              <span class="chip read-time-chip">1 min</span>
             </div>
             <h3><a href="https://github.com/crabbuild/compass" target="_blank" rel="noopener">crabbuild/compass</a></h3>
             <p class="rc-oneliner">A native, local-first knowledge graph engine built in Rust for indexing and navigating complex codebases and project artifacts.</p>
@@ -2109,7 +2098,6 @@
             <div class="rc-head">
               <span class="chip">Python</span>
               <span class="chip stars">587★</span>
-              
             </div>
             <h3><a href="https://github.com/mikehasa/agentacct" target="_blank" rel="noopener">mikehasa/agentacct</a></h3>
             <p class="rc-oneliner">A local-first observability and cost-tracking dashboard for AI coding agents.</p>
@@ -2141,7 +2129,6 @@
             <div class="rc-head">
               <span class="chip">Python</span>
               <span class="chip stars">349★</span>
-              
             </div>
             <h3><a href="https://github.com/EthanXiang777/circuit-framework" target="_blank" rel="noopener">EthanXiang777/circuit-framework</a></h3>
             <p class="rc-oneliner">A multi-agent LLM framework specifically architected for quantitative trading research.</p>
@@ -2173,7 +2160,6 @@
             <div class="rc-head">
               <span class="chip">Python</span>
               <span class="chip stars">186★</span>
-              
             </div>
             <h3><a href="https://github.com/simonlin1212/vibe-astock" target="_blank" rel="noopener">simonlin1212/vibe-astock</a></h3>
             <p class="rc-oneliner">A high-performance, local-first dashboard for A-share market sentiment analysis and short-term trading review.</p>
@@ -2221,7 +2207,6 @@
             <div class="rc-head">
               <span class="chip">Python</span>
               <span class="chip stars">584★</span>
-              
             </div>
             <h3><a href="https://github.com/mikehasa/agentacct" target="_blank" rel="noopener">mikehasa/agentacct</a></h3>
             <p class="rc-oneliner">A local-first observability dashboard for tracking the performance, token usage, and cost of coding agents.</p>
@@ -2253,7 +2238,6 @@
             <div class="rc-head">
               <span class="chip">Python</span>
               <span class="chip stars">178★</span>
-              
             </div>
             <h3><a href="https://github.com/simonlin1212/vibe-astock" target="_blank" rel="noopener">simonlin1212/vibe-astock</a></h3>
             <p class="rc-oneliner">A local-running A-share market sentiment and short-term trading dashboard that combines deterministic financial metrics with AI-driven analysis.</p>
@@ -2285,7 +2269,6 @@
             <div class="rc-head">
               <span class="chip">Rust</span>
               <span class="chip stars">885★</span>
-              
             </div>
             <h3><a href="https://github.com/Flaminis/Dalaran" target="_blank" rel="noopener">Flaminis/Dalaran</a></h3>
             <p class="rc-oneliner">A robotics-first visualization and data infrastructure tool for multimodal time-series data, built as a high-performance fork of Rerun.</p>
@@ -2359,7 +2342,7 @@
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-08-18 00:29 HKT");
+  var dataTS = encodeURIComponent("2026-08-18 00:39 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
