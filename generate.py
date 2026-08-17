@@ -1394,7 +1394,20 @@ ANALYTICS_MAX_PER_BLOG_CALL = 10  # token safeguard: cap posts sent per AI call
 REPO_RADAR_DAYS = 30           # repos created within the last N days
 REPO_RADAR_MIN_STARS = 50
 REPO_RADAR_PER_TOPIC = 10
-REPO_RADAR_PICK = 3
+REPO_RADAR_PICK = 5
+REPO_RADAR_TRENDSHIFT_MAX = 40   # cap on trendshift candidates enriched per run
+
+# trendshift.io serves a client-rendered app; a browser-like UA avoids 403s.
+TRENDSHIFT_URL = "https://trendshift.io/"
+TRENDSHIFT_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                 "AppleWebKit/537.36 (KHTML, like Gecko) "
+                 "Chrome/124.0 Safari/537.36")
+
+# Derivative suffixes stripped when grouping near-duplicate repos (clones /
+# forks of the same project) so the radar doesn't show the whole family.
+_REPO_SUFFIXES = ("-extended", "-easy", "-desktop", "-clone", "-deploy",
+                  "-enhanced", "-improved", "-cracked", "-pro", "-ui",
+                  "-web", "-app", "-desktop-app", "-ai")
 REPO_RADAR_DEFAULT_TOPICS = [
     ("fintech", "fintech OR quant OR trading OR defi"),
     ("ai-llm", "llm OR ai-agent"),
@@ -2029,27 +2042,195 @@ def _gh_headers():
 
 
 def fetch_repo_candidates():
-    """GitHub Search API per topic -> deduped, star-ranked candidate repos.
-    Repos already shown in previous days' Repo Radar are EXCLUDED, so the same
-    hot repo doesn't reappear every day. Rate limits (403) are non-fatal — the
-    topic is skipped and the radar may run short rather than fail."""
-    topics = load_repo_topics()
-    created_after = (datetime.now(timezone.utc) - timedelta(days=REPO_RADAR_DAYS)) \
-        .strftime("%Y-%m-%d")
+    """Pick the day's repo candidates.
 
-    # Repos already shown in prior days (from the committed history).
-    seen_before = set()
+    PRIMARY source: trendshift.io's live momentum (velocity) ranking, so repos
+    that are rising fast right now surface even if they're old or don't match a
+    keyword bucket (e.g. MoneyPrinterTurbo, deepseek-harness). Candidates are
+    enriched with GitHub stars/language/fork, repos already shown before are
+    excluded, and near-duplicate clones/forks are collapsed to the one that best
+    matches the user's topics.
+
+    FALLBACK: GitHub Search API keyword search (see
+    fetch_repo_candidates_via_github_search) when trendshift is unreachable.
+    """
+    seen_before = _load_seen_repos()
+    topics = load_repo_topics()
+
+    candidates = fetch_trendshift_candidates()
+    if not candidates:
+        log.warning("Repo Radar: trendshift empty; falling back to GitHub search")
+        return fetch_repo_candidates_via_github_search(topics, seen_before)
+
+    candidates = [c for c in candidates if c["name"] not in seen_before]
+    log.info("Repo Radar: %d trendshift candidate(s) after excluding seen repos",
+             len(candidates))
+    candidates = dedupe_similar_repos(candidates, topics)
+    ranked = sorted(candidates, key=lambda r: r.get("trendshift_pos") or 10 ** 9)
+    log.info("Repo Radar: %d candidate(s) after similar-repo dedupe", len(ranked))
+    return ranked
+
+
+def _load_seen_repos():
+    """Full names of repos already shown in previous days' Repo Radar."""
+    seen = set()
     try:
         data = json.loads(REPO_RADAR_HISTORY_PATH.read_text(encoding="utf-8"))
         for day in data.get("days", []):
             for r in day.get("repos", []):
                 name = r.get("name")
                 if name:
-                    seen_before.add(name)
+                    seen.add(name)
     except Exception:
-        seen_before = set()
-    log.info("Repo Radar: %d repo(s) already shown before; excluding",
-             len(seen_before))
+        seen = set()
+    log.info("Repo Radar: %d repo(s) already shown before; excluding", len(seen))
+    return seen
+
+
+def fetch_trendshift_candidates():
+    """Parse trendshift.io's daily velocity ranking (JSON-LD ItemList) into raw
+    candidate dicts, enriched with GitHub stars/language/fork/parent.
+
+    Non-fatal: returns [] if trendshift or GitHub enrichment fails, so the
+    caller can fall back. Descriptions and languages are filled from the GitHub
+    repo when trendshift's JSON-LD omits them."""
+    try:
+        resp = requests.get(TRENDSHIFT_URL,
+                            headers={"User-Agent": TRENDSHIFT_UA},
+                            timeout=HTTP_TIMEOUT)
+        resp.raise_for_status()
+        html = resp.text
+    except Exception as exc:
+        log.warning("Repo Radar: trendshift fetch failed (%s)", exc)
+        return []
+
+    try:
+        m = re.search(r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)'
+                      r'</script>', html, re.S)
+        if not m:
+            log.warning("Repo Radar: no ld+json script in trendshift page")
+            return []
+        data = json.loads(m.group(1))
+        elems = ((data or {}).get("itemListElement") or [])
+    except Exception as exc:
+        log.warning("Repo Radar: trendshift JSON-LD parse failed (%s)", exc)
+        return []
+
+    raw = []
+    for e in elems[:REPO_RADAR_TRENDSHIFT_MAX]:
+        item = ((e or {}).get("item") or {}) or {}
+        name = (item.get("name") or "").strip()
+        if not name or "/" not in name:
+            continue
+        raw.append({
+            "name": name,
+            "url": (item.get("codeRepository") or item.get("url") or ""),
+            "language": (item.get("programmingLanguage") or "—"),
+            "description": (item.get("description") or "").strip(),
+            "keywords": item.get("keywords") or [],
+            "trendshift_pos": e.get("position"),
+        })
+    if not raw:
+        log.warning("Repo Radar: trendshift page had no ranked repos")
+        return []
+
+    enriched = []
+    for c in raw:
+        try:
+            rr = requests.get(f"https://api.github.com/repos/{c['name']}",
+                              headers=_gh_headers(), timeout=HTTP_TIMEOUT)
+            if rr.status_code == 403:
+                log.warning("Repo Radar: GitHub rate-limited (403) enriching %s",
+                            c["name"])
+                continue
+            if rr.status_code == 404:
+                continue
+            rr.raise_for_status()
+            j = rr.json()
+        except Exception as exc:
+            log.warning("Repo Radar: GitHub enrich failed for %s: %s",
+                        c["name"], exc)
+            continue
+        c["stars"] = j.get("stargazers_count", 0)
+        if not c["language"] or c["language"] == "—":
+            c["language"] = j.get("language") or "—"
+        if not c["description"]:
+            c["description"] = (j.get("description") or "").strip()
+        c["fork"] = bool(j.get("fork"))
+        parent = (j.get("parent") or {}) if c["fork"] else {}
+        c["parent_name"] = (parent.get("full_name") or "") if c["fork"] else ""
+        enriched.append(c)
+    log.info("Repo Radar: %d trendshift candidate(s) enriched from GitHub",
+             len(enriched))
+    return enriched
+
+
+def _repo_stem(full_name):
+    """Normalized identity stem used to group near-duplicate repos (forks /
+    clones of the same project) so the radar shows one representative, not the
+    whole family."""
+    repo = (full_name or "").split("/")[-1].lower()
+    for suf in _REPO_SUFFIXES:
+        if repo.endswith(suf):
+            repo = repo[: -len(suf)]
+            break
+    return repo.strip("-_")
+
+
+def _topic_score(candidate, topics):
+    """How many of the user's topic groups match a repo's name/description/
+    keywords. Each group contributes at most 1 (0..len(topics))."""
+    hay = " ".join(filter(None, [
+        candidate.get("name", ""),
+        candidate.get("description", ""),
+        " ".join(candidate.get("keywords") or []),
+    ])).lower()
+    score = 0
+    for _label, query in topics:
+        tokens = [t.strip().lower()
+                  for t in re.split(r"\s+or\s+", query or "") if t.strip()]
+        if any(tok in hay for tok in tokens):
+            score += 1
+    return score
+
+
+def dedupe_similar_repos(candidates, topics):
+    """Collapse groups of very similar repos (same normalized stem or fork of
+    the same parent) to a single representative.
+
+    Within a group, the repo with the highest topic-priority score wins;
+    ties break by trendshift position (canonical/original usually ranks first),
+    then by stars. Single-member groups pass through unchanged."""
+    groups = {}
+    for c in candidates:
+        key = _repo_stem(c.get("parent_name") or c["name"])
+        groups.setdefault(key, []).append(c)
+
+    out = []
+    for key, members in groups.items():
+        if len(members) == 1:
+            out.append(members[0])
+            continue
+        members.sort(key=lambda c: (-_topic_score(c, topics),
+                                    c.get("trendshift_pos") or 10 ** 9,
+                                    -c.get("stars", 0)))
+        out.append(members[0])
+        log.info("Repo Radar dedupe: kept %s over %s (similar)",
+                 members[0]["name"],
+                 ", ".join(m["name"] for m in members[1:]))
+    return out
+
+
+def fetch_repo_candidates_via_github_search(topics=None, seen_before=None):
+    """GitHub Search API per topic -> deduped, star-ranked candidate repos.
+    Used as a FALLBACK when trendshift is unreachable. Repos already shown in
+    previous days' Repo Radar are EXCLUDED. Rate limits (403) are non-fatal —
+    the topic is skipped and the radar may run short rather than fail."""
+    topics = topics or load_repo_topics()
+    if seen_before is None:
+        seen_before = _load_seen_repos()
+    created_after = (datetime.now(timezone.utc) - timedelta(days=REPO_RADAR_DAYS)) \
+        .strftime("%Y-%m-%d")
 
     candidates = {}
     for name, query in topics:
@@ -2090,7 +2271,15 @@ def fetch_repo_candidates():
 
 # --- Repo Radar: AI curation -------------------------------------------------
 
-REPO_CURATE_PROMPT = """You are a developer scanning GitHub for interesting NEW repositories (created in the last 30 days). Below are candidate repos. Pick the {k} most interesting for a finance/tech professional — weight toward finance & tech, but open to anything genuinely notable.
+REPO_CURATE_PROMPT = """You are a developer scanning a daily "trending by velocity" ranking of GitHub repositories (trendshift.io). These repos are rising fast right now — they are NOT necessarily brand-new. Below are candidate repos. Pick the {k} most interesting for a finance/tech professional.
+
+The user's priority topics (higher emphasis):
+{topics}
+
+Weight your picks toward these topics, but stay open to anything genuinely notable.
+
+Rules:
+- If several candidates are near-duplicates (forks/clones/variants of the same project), prefer the original/canonical repo.
 
 For each chosen repo provide:
 - "name": the exact full_name (verbatim)
@@ -2124,16 +2313,22 @@ def heuristic_curate_repos(candidates):
 
 
 def curate_repos(candidates):
-    """Pick the day's 3 repos with AI summaries (heuristic fallback)."""
+    """Pick the day's 5 repos with AI summaries (heuristic fallback)."""
     if not candidates:
         return []
     if GEMINI_API_KEY:
         try:
+            topics = load_repo_topics()
+            topics_str = ("\n".join(f"- {label}: {query}"
+                                    for label, query in topics)
+                          if topics
+                          else "- (no explicit topics — open to anything)")
             lines = [f"- {c['name']} ({c['language']}, {c['stars']}★): "
                      f"{c['description'][:200]}"
                      for c in candidates]
             prompt = REPO_CURATE_PROMPT.format(
-                k=REPO_RADAR_PICK, candidates="\n".join(lines))
+                k=REPO_RADAR_PICK, topics=topics_str,
+                candidates="\n".join(lines))
             payload = {
                 "contents": [{"role": "user", "parts": [{"text": prompt}]}],
                 "generationConfig": {"response_mime_type": "application/json",

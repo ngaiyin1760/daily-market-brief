@@ -106,8 +106,9 @@ the model (default `gemini-3.1-flash-lite`).
   It also scans the blogs in `analytics_sources.md` (feed auto-discovery +
   article-text extraction; captures only posts published in the last 24 hours
   and summarizes them with AI, 3–5 bullets per post, grouped by blog), and
-  picks 3 trending new GitHub repos per the topics in `repo_radar.md`
-  (GitHub Search API, one Gemini curation call), rendering both
+  picks 5 trending GitHub repos per the topics in `repo_radar.md`
+  (trendshift.io velocity ranking primary, GitHub Search API fallback, one
+  Gemini curation call), rendering both
   `analytics.html` and `repo-radar.html`.
 - Output: `docs/index.html` (latest day), `docs/days/YYYY-MM-DD.html` (one
   standalone page per day), `docs/markets.html` (all indicator charts +
