@@ -78,10 +78,11 @@ def gemini_provider():
 def gemini_generate(payload):
     """POST a generateContent request to the appropriate Gemini endpoint.
     Always sends contents with an explicit role (Vertex rejects role-less
-    requests; AI Studio accepts them). On HTTP 429 (rate limit) waits and
-    retries up to 2 times — a transient per-minute spike shouldn't cost the
-    AI summaries. Raises on any final failure, including the quota detail
-    from Google's error body so the logs show WHICH cap was hit."""
+    requests; AI Studio accepts them). On HTTP 429 (rate limit) or transient
+    server errors (5xx) / connection blips, waits and retries up to 2 times —
+    a transient per-minute spike shouldn't cost the AI summaries. Raises on
+    any final failure, including the quota detail from Google's error body so
+    the logs show WHICH cap was hit."""
     provider = gemini_provider()
     if provider == "vertex":
         url = ("https://aiplatform.googleapis.com/v1/publishers/google/models/"
@@ -92,7 +93,16 @@ def gemini_generate(payload):
                f"{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}")
         headers = {}
     for attempt in range(3):
-        resp = requests.post(url, json=payload, headers=headers, timeout=60)
+        try:
+            resp = requests.post(url, json=payload, headers=headers, timeout=60)
+        except requests.exceptions.RequestException as exc:
+            if attempt < 2:
+                wait = 5 * (attempt + 1)
+                log.warning("Gemini request error (%s); retry %d/2 in %ds",
+                            exc.__class__.__name__, attempt + 1, wait)
+                time.sleep(wait)
+                continue
+            raise
         if resp.status_code == 429:
             if attempt < 2:
                 wait = 65 * (attempt + 1)
@@ -102,6 +112,16 @@ def gemini_generate(payload):
                 continue
             raise requests.HTTPError(
                 f"429 Too Many Requests: {resp.text[:500]}", response=resp)
+        # Transient 5xx (503/502/500) from Gemini is common under load — retry
+        # before falling back, so one bad call doesn't degrade the whole batch.
+        if resp.status_code >= 500:
+            if attempt < 2:
+                wait = 5 * (attempt + 1)
+                log.warning("Gemini server error (%s); retry %d/2 in %ds",
+                            resp.status_code, attempt + 1, wait)
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
         resp.raise_for_status()
         return resp.json()
 
