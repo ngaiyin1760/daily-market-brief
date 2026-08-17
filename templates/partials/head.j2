@@ -1280,6 +1280,8 @@
     padding: 14px 16px;
     margin-bottom: 14px;
     box-shadow: 0 1px 2px rgba(34, 31, 26, .05);
+    min-width: 0;               /* allow shrink below nowrap content on mobile */
+    overflow-wrap: break-word;  /* never let long URLs/tokens widen the box */
   }
   .blog-card h3, .repo-card h3 {
     margin: 6px 0 4px;
@@ -1337,6 +1339,7 @@
   .rc-oneliner { color: var(--ink-soft); font-size: 14.5px; margin: 6px 0 2px; }
   .repo-img {
     width: 100%;
+    max-width: 100%;
     height: auto;
     max-height: 520px;
     object-fit: contain;       /* never crop a diagram */
@@ -1348,7 +1351,7 @@
   }
   .repo-grid {
     display: grid;
-    grid-template-columns: 1fr;   /* one repo card per row — big, readable */
+    grid-template-columns: minmax(0, 1fr);   /* one repo card per row — big, readable */
     gap: 20px;
   }
 

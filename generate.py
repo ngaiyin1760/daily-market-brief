@@ -2306,8 +2306,6 @@ def heuristic_curate_repos(candidates):
             **c,
             "one_liner": c["description"],
             "bullets": bullets,
-            "read_time": read_time_minutes(c.get("name", ""), c["description"],
-                                           *bullets),
         })
     return out
 
@@ -2356,9 +2354,6 @@ def curate_repos(candidates):
                     "one_liner": str(entry.get("one_liner", "")
                                      or base["description"]),
                     "bullets": bullets,
-                    "read_time": read_time_minutes(base.get("name", ""),
-                                                   base.get("description", ""),
-                                                   *bullets),
                 })
                 if len(out) >= REPO_RADAR_PICK:
                     break
