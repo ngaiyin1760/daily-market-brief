@@ -1,6 +1,119 @@
 {
  "days": [
   {
+   "date": "2026-08-19",
+   "generated_at": "2026-08-19 06:40 HKT",
+   "repos": [
+    {
+     "name": "volcengine/OpenViking",
+     "url": "https://github.com/volcengine/OpenViking",
+     "language": "Python",
+     "description": "Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills.",
+     "keywords": [
+      "AI agent",
+      "AI memory",
+      "RAG"
+     ],
+     "trendshift_pos": 19,
+     "stars": 29319,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A self-evolving context database designed to unify agent memory, knowledge RAG, and skill sets.",
+     "bullets": [
+      "Built as a centralized infrastructure layer for AI agents to manage long-term state.",
+      "Integrates RAG and skill-execution modules into a single, self-evolving database architecture.",
+      "Optimizes agent performance by reducing context fragmentation and improving knowledge retrieval.",
+      "Ideal for enterprise-grade agentic workflows requiring persistent, evolving memory."
+     ],
+     "img": "volcengine_OpenViking_0.jpg",
+     "img_alt": "OpenViking Studio playground"
+    },
+    {
+     "name": "llm-as-a-verifier/llm-as-a-verifier",
+     "url": "https://github.com/llm-as-a-verifier/llm-as-a-verifier",
+     "language": "Python",
+     "description": "LLM-as-a-Verifier is a general-purpose framework that provides fine-grained feedback for any agent without requiring additional training. It achieves SOTA performance across coding, robotics, and medical agentic benchmarks.",
+     "keywords": [
+      "AI agent"
+     ],
+     "trendshift_pos": 4,
+     "stars": 1812,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A general-purpose framework providing fine-grained feedback for AI agents without requiring additional model training.",
+     "bullets": [
+      "Uses a verification-based architecture to validate agent outputs in real-time.",
+      "Framework-agnostic design allows it to be applied to coding, robotics, and complex reasoning tasks.",
+      "Eliminates the need for expensive fine-tuning by leveraging LLMs as external verifiers.",
+      "Crucial for high-stakes environments where agent reliability and accuracy are paramount."
+     ]
+    },
+    {
+     "name": "ifixai-ai/iFixAi",
+     "url": "https://github.com/ifixai-ai/iFixAi",
+     "language": "Python",
+     "description": "Independent Auditing of AI Agents. Run by human or the agent itself, to answer the most crucial question in the AI Agent Economy. Is the agent doing what is supposed to do? With iFixAi you can have this answer in less than 120 seconds.",
+     "keywords": [
+      "AI infrastructure"
+     ],
+     "trendshift_pos": 6,
+     "stars": 10650,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An independent auditing framework designed to verify that AI agents are performing their intended tasks correctly.",
+     "bullets": [
+      "Provides a structured auditing layer for the AI agent economy to ensure operational compliance.",
+      "Supports both human-in-the-loop and autonomous self-auditing workflows.",
+      "Addresses the 'alignment' problem by validating agent actions against predefined goals.",
+      "Essential for fintech and regulated industries where agentic behavior must be auditable."
+     ]
+    },
+    {
+     "name": "RyanCodrai/turbovec",
+     "url": "https://github.com/RyanCodrai/turbovec",
+     "language": "Rust",
+     "description": "A vector index built on TurboQuant, written in Rust with Python bindings",
+     "keywords": [
+      "RAG",
+      "Vector database"
+     ],
+     "trendshift_pos": 24,
+     "stars": 15225,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A high-performance vector index built on TurboQuant, implemented in Rust with Python bindings.",
+     "bullets": [
+      "Leverages Rust for memory safety and high-speed vector computation.",
+      "Designed for low-latency similarity search, critical for quant trading and financial data analysis.",
+      "Provides Python bindings for seamless integration into existing data science and ML pipelines.",
+      "Optimized for large-scale vector operations where throughput and latency are key constraints."
+     ]
+    },
+    {
+     "name": "akitaonrails/ai-memory",
+     "url": "https://github.com/akitaonrails/ai-memory",
+     "language": "Rust",
+     "description": "Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors",
+     "keywords": [
+      "AI agent",
+      "AI coding assistant",
+      "AI memory"
+     ],
+     "trendshift_pos": 11,
+     "stars": 2682,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A Rust-based solution for long-term memory in agent coding CLIs, facilitating seamless handoffs between different agent vendors.",
+     "bullets": [
+      "Implements a standardized memory layer to bridge the gap between disparate agentic systems.",
+      "Written in Rust to ensure high performance and reliability for CLI-based development tools.",
+      "Enables state persistence across different agent sessions and vendor implementations.",
+      "Solves the 'context loss' problem in multi-agent development environments."
+     ]
+    }
+   ]
+  },
+  {
    "date": "2026-08-18",
    "generated_at": "2026-08-18 06:38 HKT",
    "repos": [
