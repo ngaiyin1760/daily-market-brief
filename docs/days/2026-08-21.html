@@ -1,0 +1,3526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Market Brief — 2026-08-21</title>
+<meta name="theme-color" content="#4338ca">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Market Brief">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9"></script>
+<!-- Firebase compat SDK (deferred: a slow CDN never blocks page render).
+     If these fail to load, the page works exactly as before, localStorage only. -->
+<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<style>
+  :root {
+    --sidebar-w: 230px;
+    --paper: #f7f2e9;
+    --card: #fffdf8;
+    --ink: #221f1a;
+    --ink-soft: #514c42;
+    --muted: #8d8574;
+    --rule: #e0d8c6;
+    --rule-dark: #b6ab92;
+    --accent: #4338ca;          /* deep indigo */
+    --accent-2: #0f766e;        /* teal */
+    --gold: #c9a227;
+    --green: #0d9d6c;
+    --red: #d13438;
+    --serif: 'Playfair Display', Garamond, Cambria, Georgia, serif;
+    --sans: 'Source Sans 3', 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  }
+  /* Dark mode: reassign the theme variables. Applied via data-theme="dark"
+     on <html> (set by the toggle in core.js, persisted in localStorage). */
+  [data-theme="dark"] {
+    --paper: #16141d;
+    --card: #1f1c28;
+    --ink: #ece7db;
+    --ink-soft: #c2bbac;
+    --muted: #8d8574;
+    --rule: #35303f;
+    --rule-dark: #4c4657;
+    --accent: #7c7ef2;          /* lighter indigo for contrast on dark */
+    --accent-2: #2dd4bf;        /* lighter teal */
+    --gold: #e0b84e;
+    --green: #34d399;
+    --red: #f87171;
+  }
+  [data-theme="dark"] body { background: var(--paper); color: var(--ink); }
+  [data-theme="dark"] .desk {
+    background: var(--card);
+    border-color: var(--rule);
+  }
+  [data-theme="dark"] .desk h2 { color: var(--ink); }
+  [data-theme="dark"] .takeaways,
+  [data-theme="dark"] .weekly {
+    background: linear-gradient(135deg, #241f33 0%, #1d2a2a 100%);
+    border-color: var(--rule-dark);
+  }
+  [data-theme="dark"] .rating-chip,
+  [data-theme="dark"] .chip { color: #1c1440; }
+  [data-theme="dark"] .news td { border-color: var(--rule); color: var(--ink); }
+  [data-theme="dark"] .news th { color: var(--muted); border-color: var(--rule); }
+  [data-theme="dark"] .headline a { color: var(--ink); }
+  [data-theme="dark"] .headline a:hover { color: var(--accent); }
+  [data-theme="dark"] .summary li { color: var(--ink-soft); }
+  [data-theme="dark"] .colophon { color: var(--muted); }
+  [data-theme="dark"] .day-group,
+  [data-theme="dark"] .blog-card,
+  [data-theme="dark"] .repo-card,
+  [data-theme="dark"] .chart-card { background: var(--card); border-color: var(--rule); }
+  [data-theme="dark"] .repo-img { background: #fff; }  /* images keep white bg */
+  [data-theme="dark"] .saved-item,
+  [data-theme="dark"] .search-box input,
+  [data-theme="dark"] .day-jump { background: var(--card); border-color: var(--rule-dark); color: var(--ink); }
+  [data-theme="dark"] .rag-answer { background: #241f33; border-color: var(--rule-dark); }
+  [data-theme="dark"] .imp-badge { color: #fff; }  /* badges keep colored bg */
+  [data-theme="dark"] .imp-verdict { color: var(--ink-soft); }
+
+  /* Theme toggle (dark mode) — compact square icon button */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    margin: 0 0 14px 12px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .15);
+    border-radius: 6px;
+    color: #cfc9bb;
+    cursor: pointer;
+  }
+  .theme-toggle:hover { background: rgba(255, 255, 255, .1); color: #fff; }
+  .theme-toggle .theme-icon { display: none; }
+  /* In light mode show the moon; in dark mode show the sun. */
+  html:not([data-theme="dark"]) .theme-toggle .icon-moon { display: block; }
+  html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.5;
+    font-size: 16px;
+  }
+
+  /* Reading progress bar (top of page) */
+  .reading-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--gold));
+    z-index: 1000;
+    pointer-events: none;
+    transition: width .08s linear;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: var(--sidebar-w);
+    background: linear-gradient(180deg, #171233 0%, #241a4d 60%, #1c1440 100%);
+    color: #cfc9bb;
+    padding: 28px 0;
+    overflow-y: auto;
+    border-right: 1px solid #0d0a1f;
+  }
+  .sidebar .site-title {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 700;
+    color: #f6f1e4;
+    padding: 0 22px 16px;
+    border-bottom: 1px solid rgba(201, 162, 39, .35);
+    margin-bottom: 6px;
+    letter-spacing: .01em;
+  }
+  /* Sidebar collapse/expand (desktop only) */
+  .sidebar-toggle {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    background: none;
+    border: 1px solid rgba(246, 241, 228, .25);
+    color: #cfc9bb;
+    cursor: pointer;
+    transition: background .12s, color .12s, border-color .12s;
+  }
+  .sidebar-toggle:hover {
+    background: rgba(255, 255, 255, .08);
+    color: #f6f1e4;
+    border-color: rgba(246, 241, 228, .5);
+  }
+  .sidebar-reopen {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 900;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: var(--card);
+    border: 1px solid var(--rule-dark);
+    color: var(--ink-soft);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(34, 31, 26, .15);
+    transition: color .12s, border-color .12s, transform .12s;
+  }
+  .sidebar-reopen:hover { color: var(--accent); border-color: var(--accent); }
+  .sidebar-reopen:active { transform: scale(.94); }
+  .sidebar-collapsed .sidebar { display: none; }
+  .sidebar-collapsed .content { margin-left: 0; }
+  .sidebar .site-sub {
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 0 22px 16px;
+  }
+  .sidebar nav { padding-top: 8px; }
+  .sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 22px;
+    color: #b0a898;
+    text-decoration: none;
+    font-size: 14.5px;
+    border-left: 3px solid transparent;
+    transition: background .12s, color .12s, border-color .12s;
+  }
+  .read-dot {
+    flex: 0 0 auto;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, .10), 0 1px 2px rgba(0, 0, 0, .4);
+  }
+  .read-dot.dot-red { background: #d13438; }
+  .read-dot.dot-yellow { background: #e6a700; }
+  .read-dot.dot-green { background: #0d9d6c; }
+  .sidebar nav a:hover { background: rgba(255, 255, 255, .06); color: #f4eedd; }
+  .sidebar nav a.active {
+    background: rgba(201, 162, 39, .14);
+    color: #f8f3e6;
+    border-left-color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ---------- Content ---------- */
+  .content {
+    margin-left: var(--sidebar-w);
+    padding: 34px 44px 80px;
+    max-width: 1240px;
+  }
+
+  /* Masthead band */
+  header.masthead {
+    background: linear-gradient(120deg, #241a4d 0%, #4338ca 55%, #0f766e 130%);
+    border-radius: 8px;
+    color: #f6f1e4;
+    padding: 30px 34px 26px;
+    margin-bottom: 0;
+    box-shadow: 0 3px 14px rgba(36, 26, 77, .25);
+  }
+  header.masthead .kicker {
+    font-size: 12px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  header.masthead h1 {
+    font-family: var(--serif);
+    margin: 0;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  header.masthead .generated {
+    color: rgba(246, 241, 228, .72);
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 8px;
+  }
+
+  /* Snapshot ticker strip */
+  .ticker-wrap {
+    border-bottom: 1px solid var(--rule-dark);
+    margin-bottom: 30px;
+  }
+  .ticker {
+    padding: 10px 4px 6px;
+    margin-bottom: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    color: var(--ink-soft);
+    font-variant: small-caps;
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+  .ticker .m1 { font-size: 11px; margin-right: 2px; }
+  .ticker .m1.pos { color: var(--green); }
+  .ticker .m1.neg { color: var(--red); }
+  .ticker .m1 {
+    animation: m1-in .5s ease both;
+  }
+  @keyframes m1-in {
+    from { opacity: 0; transform: translateY(3px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Data freshness note + live session badge */
+  .asof {
+    font-size: 12.5px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .ticker-wrap .asof { padding: 0 4px 10px; }
+  .desk .asof { margin: -4px 0 16px; }
+  .session-badge {
+    display: inline-block;
+    background: rgba(67, 56, 202, .08);
+    border: 1px solid #d4c8f2;
+    color: #4c3d8f;
+    border-radius: 999px;
+    padding: 1px 10px;
+    font-size: 11.5px;
+    font-weight: 600;
+    font-style: normal;
+    margin-left: 6px;
+  }
+  /* The Markets masthead is a dark gradient — the badge there needs light
+     colors so it doesn't blend into the background. */
+  header.masthead .session-badge {
+    background: rgba(246, 241, 228, .12);
+    border-color: rgba(246, 241, 228, .35);
+    color: #f6f1e4;
+  }
+  .new-count {
+    display: inline-block;
+    background: rgba(13, 157, 108, .12);
+    border: 1px solid rgba(13, 157, 108, .35);
+    color: #0b7a53;
+    border-radius: 999px;
+    padding: 0 9px;
+    font-size: 11.5px;
+    font-weight: 600;
+    font-style: normal;
+    margin-left: 8px;
+  }
+
+  /* Market Snapshot hero card */
+  .hero {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--gold);
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(34, 31, 26, .08);
+    padding: 16px 18px 18px;
+    margin-bottom: 32px;
+  }
+  .hero-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #6b5510;
+    margin-bottom: 12px;
+  }
+  /* Collapsible hero: header row is the toggle; grid hidden until opened. */
+  .hero-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: var(--sans);
+    text-align: left;
+  }
+  .hero-toggle .chevron {
+    color: var(--gold);
+    flex: 0 0 auto;
+    transition: transform .2s ease;
+  }
+  .hero.open .hero-toggle .chevron { transform: rotate(90deg); }
+  .hero-toggle .hero-label { margin-bottom: 0; }
+  .hero-hint {
+    font-size: 11.5px;
+    color: var(--muted);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-left: 2px;
+  }
+  .hero-grid { display: none; }
+  .hero.open .hero-grid { display: grid; }
+  .hero-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+  }
+  .hero-cell {
+    border: 1px solid var(--rule);
+    border-radius: 5px;
+    padding: 10px 12px;
+    background: linear-gradient(180deg, #fdfaf3, #f7f2e9);
+  }
+  .hero-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 14.5px;
+    color: var(--ink);
+  }
+  .hero-spark {
+    width: 58px;
+    height: 18px;
+    flex: 0 0 auto;
+    overflow: visible;
+  }
+  .hero-spark path {
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .hero-spark .spark-up { stroke: var(--green); }
+  .hero-spark .spark-down { stroke: var(--red); }
+  .hero-spark .spark-flat { stroke: var(--muted); }
+  .hero-last {
+    font-size: 17px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    margin-top: 4px;
+  }
+  .hero-chg {
+    font-size: 13px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .hero-delta {
+    font-size: 11.5px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    margin-top: 1px;
+  }
+
+  /* ---------- Key Takeaways ---------- */
+  .takeaways {
+    background: linear-gradient(135deg, #f1ecfd 0%, #e9f6f2 100%);
+    border: 1px solid #d4c8f2;
+    border-left: 5px solid var(--accent);
+    border-radius: 6px;
+    padding: 20px 26px 16px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 8px rgba(67, 56, 202, .10);
+  }
+  .takeaways .tw-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .takeaways ul { margin: 0; padding-left: 20px; }
+  .takeaways li {
+    margin-bottom: 8px;
+    font-size: 16.5px;
+    line-height: 1.45;
+  }
+  .takeaways li::marker { color: var(--gold); }
+
+  /* ---------- Day importance banner + weekly 5 ---------- */
+  .day-imp {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-left: 5px solid var(--muted);
+    border-radius: 8px;
+    padding: 12px 18px;
+    margin-bottom: 14px;
+  }
+  .imp-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    color: #fff;
+  }
+  .imp-1 { background: #6b7280; } .imp-2 { background: #0f766e; }
+  .imp-3 { background: #b45309; } .imp-4 { background: #c2410c; }
+  .imp-5 { background: #be123c; }
+  .imp-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.85);
+  }
+  .imp-stars { letter-spacing: .08em; color: #ffd86b; }
+  .imp-verdict { margin: 0; font-size: 15.5px; line-height: 1.45; color: var(--ink-soft); }
+
+  .weekly {
+    background: linear-gradient(135deg, #fef9e7 0%, #f1ecfd 100%);
+    border: 1px solid #ead9a8;
+    border-left: 5px solid var(--gold);
+    border-radius: 6px;
+    padding: 20px 26px 16px;
+    margin: 14px 0 40px;
+    box-shadow: 0 2px 8px rgba(201, 162, 39, .12);
+  }
+  .weekly .tw-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .weekly ul { margin: 0; padding-left: 0; list-style: none; }
+  .weekly li {
+    margin-bottom: 12px;
+    font-size: 15.5px;
+    line-height: 1.45;
+  }
+  .weekly-day {
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 12.5px;
+    letter-spacing: .04em;
+  }
+  .weekly li a {
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .weekly li a:hover { text-decoration: underline; color: var(--accent); }
+  .weekly-bullet {
+    display: block;
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin-top: 2px;
+  }
+
+  /* ---------- Saved news (localStorage) ---------- */
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+  }
+  .saved {
+    background: linear-gradient(135deg, #f5f2ea 0%, #efe9f9 100%);
+    border: 1px solid #d9cfae;
+    border-left: 5px solid var(--gold);
+    border-radius: 6px;
+    margin-bottom: 26px;
+    box-shadow: 0 2px 8px rgba(120, 95, 20, .10);
+  }
+  .saved-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 18px;
+  }
+  .saved-icon { color: var(--gold); }
+  .saved-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #6b5510;
+  }
+  .saved-count {
+    background: var(--gold);
+    color: #241a08;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    min-width: 22px;
+    padding: 1px 7px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .saved-clear {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding: 6px 4px;
+    min-height: 44px;
+  }
+  .saved-clear:hover { color: var(--red); }
+
+  /* ---------- Pinned Archive link (sidebar, above the date list) ---------- */
+  .sidebar-top {
+    border-bottom: 1px solid #3a3d44;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+  }
+  .sidebar .archive-link {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 22px;
+    color: #e8dfc9;
+    font-weight: 600;
+    font-size: 14.5px;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: background .12s, color .12s, border-color .12s;
+  }
+  .sidebar .archive-link svg { color: var(--gold); flex: 0 0 auto; }
+  .sidebar .archive-link:hover { background: rgba(255, 255, 255, .06); color: #fff; }
+  .sidebar .archive-link.active {
+    background: rgba(201, 162, 39, .14);
+    color: #f8f3e6;
+    border-left-color: var(--gold);
+  }
+  .archive-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 6px 4px;
+    min-height: 44px;
+  }
+  .sync-status {
+    font-size: 12.5px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .sync-status.sync-status-err { color: var(--red); font-style: normal; font-weight: 600; }
+
+  /* Firebase sync auth UI */
+  .saved-header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .sync-area { display: flex; align-items: center; }
+  .sync-signin {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 8px 16px;
+    min-height: 40px;
+    font-family: var(--sans);
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .12s, transform .12s;
+  }
+  .sync-signin:hover { background: #372ea6; }
+  .sync-signin:active { transform: scale(.97); }
+  .sync-user { display: flex; align-items: center; gap: 8px; }
+  .sync-avatar { width: 24px; height: 24px; border-radius: 50%; }
+  .sync-initial {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sync-label { font-size: 12.5px; color: var(--green); font-weight: 600; }
+  .sync-signout {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding: 6px 4px;
+    min-height: 40px;
+  }
+  .sync-signout:hover { color: var(--red); }
+  .saved-body { padding: 0 18px 14px; }
+  .saved-empty { color: var(--muted); font-style: italic; font-size: 14.5px; margin: 4px 0 6px; }
+  .saved-group { margin-top: 10px; }
+  .saved-group h4 {
+    margin: 0 0 4px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+  }
+  .saved-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .saved-group .saved-item:last-child { border-bottom: none; }
+  .saved-item .si-headline a {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--ink);
+    text-decoration: none;
+    line-height: 1.3;
+  }
+  .saved-item .si-headline a:hover { color: var(--accent); text-decoration: underline; }
+  .saved-item .si-meta {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .saved-item .si-stars { color: var(--gold); letter-spacing: .06em; margin-left: 6px; }
+  .saved-item .si-remove {
+    flex: 0 0 auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1;
+    padding: 10px;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 6px;
+  }
+  .saved-item .si-remove:hover { color: var(--red); background: rgba(209, 52, 56, .08); }
+
+  /* Save toggle button on each news row */
+  .save-col { width: 44px; }
+  td.save-cell { width: 44px; text-align: center; }
+  .save-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #b6ab92;
+    padding: 6px;
+    min-width: 32px;
+    min-height: 32px;
+    border-radius: 6px;
+    transition: color .12s, background .12s, transform .12s;
+  }
+  .save-btn:hover { color: var(--gold); background: rgba(201, 162, 39, .12); }
+  .save-btn.saved { color: var(--gold); }
+  .save-btn.saved svg path { fill: var(--gold); }
+  .save-btn.saved { animation: save-pop .35s ease; }
+  @keyframes save-pop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.35); }
+    100% { transform: scale(1); }
+  }
+  .save-btn:active { transform: scale(1.15); }
+
+  /* NEW badge on first-appearance stories */
+  .new-badge {
+    display: inline-block;
+    background: #0d9d6c;
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-right: 7px;
+    vertical-align: 2px;
+  }
+
+  /* ---------- Sections ---------- */
+  section.desk { margin-bottom: 44px; }
+  section.desk > h2 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--cat, var(--accent));
+    margin: 0 0 4px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule-dark);
+  }
+  section.desk > h2::before {
+    content: "";
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    background: var(--cat, var(--accent));
+    margin-right: 9px;
+  }
+  section.desk > h2::after {
+    content: "";
+    display: block;
+    width: 56px;
+    border-bottom: 3px solid var(--cat, var(--accent));
+    margin-top: 6px;
+    margin-bottom: -9px;
+  }
+
+  /* News table */
+  table.news { width: 100%; border-collapse: collapse; }
+  table.news th, table.news td {
+    text-align: left;
+    padding: 14px 14px 14px 8px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  table.news th {
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 6px;
+  }
+  table.news tbody tr { transition: background .12s; }
+  table.news tbody tr:nth-child(even) { background: rgba(67, 56, 202, .025); }
+  table.news tbody tr:hover { background: rgba(201, 162, 39, .09); }
+  table.news tr:last-child td { border-bottom: none; }
+  td.headline { width: 30%; }
+  td.headline a {
+    font-family: var(--serif);
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17.5px;
+    line-height: 1.3;
+  }
+  td.headline a:hover { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; }
+  td.headline .pub { font-size: 12.5px; color: var(--muted); font-style: italic; margin-top: 5px; }
+  td.summary ul { margin: 0; padding-left: 18px; }
+  td.summary li { margin-bottom: 5px; font-size: 15px; color: var(--ink-soft); }
+  td.source { white-space: nowrap; }
+  td.source .chip {
+    display: inline-block;
+    background: #efe9f9;
+    color: #4c3d8f;
+    border: 1px solid #ddd2f2;
+    border-radius: 999px;
+    padding: 2px 11px;
+    font-size: 12.5px;
+    font-style: normal;
+  }
+  td.rating { white-space: nowrap; }
+  .rating-chip {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 2px 9px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #fff;
+    min-width: 26px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .rating-chip.r5 { background: #c62828; }   /* red — top importance */
+  .rating-chip.r4 { background: #e65100; }   /* orange */
+  .rating-chip.r3 { background: #b8860b; }   /* amber */
+  .rating-chip.r2 { background: #0f766e; }   /* teal */
+  .rating-chip.r1 { background: #8d8574; }   /* gray */
+  td.rating .reason {
+    display: block;
+    color: var(--muted);
+    font-size: 12.5px;
+    font-style: italic;
+    letter-spacing: 0;
+    max-width: 130px;
+    white-space: normal;
+  }
+  .empty-note { color: var(--muted); font-style: italic; padding: 12px 0; }
+
+  /* ---------- Importance filter bar ---------- */
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 0 0 30px;
+  }
+  .filter-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .filter-btn {
+    background: none;
+    border: 1px solid var(--rule-dark);
+    border-radius: 999px;
+    color: var(--ink-soft);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 14px;
+    cursor: pointer;
+    min-height: 34px;
+    transition: background .12s, color .12s, border-color .12s;
+  }
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  /* Sticky "Jump to section" dropdown (compact, replaces the dense chip bar) */
+  .sec-nav {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    display: inline-block;
+    margin: 0 0 28px;
+    background: var(--paper);
+    border-radius: 999px;
+  }
+  .sec-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--card);
+    border: 1px solid var(--rule-dark);
+    border-radius: 999px;
+    color: var(--ink-soft);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    min-height: 36px;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(34, 31, 26, .10);
+    transition: border-color .12s, color .12s;
+  }
+  .sec-toggle:hover { border-color: var(--accent); color: var(--accent); }
+  .sec-chevron { transition: transform .2s ease; }
+  .sec-nav.open .sec-chevron { transform: rotate(180deg); }
+  .sec-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 230px;
+    max-height: 60vh;
+    overflow-y: auto;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(34, 31, 26, .16);
+    padding: 6px;
+    display: none;
+    z-index: 600;
+  }
+  .sec-nav.open .sec-menu { display: block; }
+  .sec-menu a {
+    display: block;
+    padding: 7px 12px;
+    border-radius: 6px;
+    color: var(--ink-soft);
+    font-family: var(--sans);
+    font-size: 13.5px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .sec-menu a:hover { background: rgba(67, 56, 202, .08); color: var(--accent); }
+  .sec-menu a.active { background: var(--accent); color: #fff; }
+
+  /* ---------- Indicators ---------- */
+  .indicator-group { margin-top: 30px; }
+  .indicator-group h3 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 14px;
+  }
+  .chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .chart-card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--rule-dark);
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(34, 31, 26, .08);
+    padding: 14px 16px 10px;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .chart-card.up { border-top-color: var(--green); }
+  .chart-card.down { border-top-color: var(--red); }
+  .chart-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(34, 31, 26, .14);
+  }
+  .chart-card .cc-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .chart-card .cc-name { font-family: var(--serif); font-weight: 600; font-size: 16px; }
+  .chart-card .cc-last {
+    font-size: 16px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .chart-card .cc-change {
+    font-size: 13.5px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    margin-top: 1px;
+  }
+  .chart-card .cc-change.pos { color: var(--green); }
+  .chart-card .cc-change.neg { color: var(--red); }
+  .chart-card .cc-change.na, .chart-card .cc-na { color: var(--muted); }
+  .chart-card .cc-body { height: 150px; margin-top: 8px; position: relative; }
+  .chart-card .cc-na {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    font-size: 14px;
+    border-top: 1px dashed var(--rule);
+    margin-top: 8px;
+  }
+
+  /* Zoom buttons under each chart */
+  .zoom-bar {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .zoom-btn {
+    background: none;
+    border: 1px solid var(--rule-dark);
+    border-radius: 999px;
+    color: var(--ink-soft);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    cursor: pointer;
+    min-height: 30px;
+    transition: background .12s, color .12s, border-color .12s;
+  }
+  .zoom-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .zoom-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  /* Performance chips (YTD / 1M / 1Y) on chart cards */
+  .cc-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .cc-chips .chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    border-radius: 4px;
+    padding: 2px 7px;
+    background: rgba(34, 31, 26, .05);
+  }
+  .cc-chips .chip.pos { color: var(--green); }
+  .cc-chips .chip.neg { color: var(--red); }
+
+  /* Skeleton placeholders while the Markets tab data loads */
+  .skeleton { position: relative; overflow: hidden; }
+  .skeleton .skel-bar {
+    height: 12px;
+    border-radius: 4px;
+    background: #e8e1d0;
+    margin: 6px 0;
+  }
+  .skeleton .skel-bar.short { width: 45%; }
+  .skeleton .skel-bar.tiny { width: 30%; height: 9px; }
+  .skeleton .skel-chart {
+    height: 150px;
+    border-radius: 4px;
+    background: #efe9dc;
+    margin-top: 10px;
+  }
+  .skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), transparent);
+    animation: skel-shimmer 1.4s infinite;
+  }
+  @keyframes skel-shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* Compact numbers table */
+  table.figures { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  table.figures th, table.figures td {
+    text-align: left;
+    padding: 6px 12px 6px 0;
+    border-bottom: 1px solid var(--rule);
+    font-variant-numeric: tabular-nums;
+  }
+  table.figures th {
+    font-size: 10.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  table.figures tr:last-child td { border-bottom: none; }
+  table.figures td.num, table.figures th.num { text-align: right; padding-right: 0; }
+  .pos { color: var(--green); }
+  .neg { color: var(--red); }
+  .flat { color: var(--muted); }
+  .na { color: var(--muted); }
+
+  footer.colophon {
+    margin-top: 40px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule-dark);
+    color: var(--muted);
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  html { scroll-behavior: smooth; }
+  section.desk, .takeaways, .hero { scroll-margin-top: 64px; }
+
+  /* Reveal-on-scroll — hidden state only applies once JS marks <html>.js,
+     so pages stay fully visible without JavaScript. */
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .js .reveal.revealed { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .js .reveal { opacity: 1; transform: none; transition: none; }
+    .ticker .m1, .save-btn.saved { animation: none; }
+  }
+
+  @media (max-width: 820px) {
+    body { font-size: 16px; line-height: 1.55; }
+
+    /* Sidebar becomes a compact, horizontally scrollable date strip */
+    .sidebar {
+      position: static;
+      width: 100%;
+      padding: 12px 0 10px;
+      border-right: none;
+      border-bottom: 1px solid #0d0a1f;
+    }
+    /* Collapse applies to desktop only — mobile keeps the strip */
+    .sidebar-collapsed .sidebar { display: block; }
+    .sidebar-collapsed .content { margin-left: 0; }
+    .sidebar-toggle, .sidebar-reopen { display: none; }
+    .sidebar .site-title {
+      padding: 0 16px 6px;
+      font-size: 18px;
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    .sidebar .site-sub { display: none; }
+    .sidebar nav {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      gap: 8px;
+      padding: 6px 14px 4px;
+      scrollbar-width: none;
+    }
+    .sidebar nav::-webkit-scrollbar { display: none; }
+    .sidebar nav a {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 16px;
+      border: 1px solid rgba(201, 162, 39, .45);
+      border-left: 1px solid rgba(201, 162, 39, .45);
+      border-radius: 999px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .sidebar nav a:hover { background: rgba(255, 255, 255, .08); }
+    .sidebar nav a.active {
+      background: var(--gold);
+      color: #1c1440;
+      border-color: var(--gold);
+      border-bottom: 1px solid var(--gold);
+      font-weight: 700;
+    }
+
+    .content { margin-left: 0; padding: 16px 14px 60px; }
+    header.masthead { padding: 20px 18px 18px; border-radius: 6px; }
+    header.masthead h1 { font-size: 27px; }
+
+    /* Ticker wraps instead of forcing horizontal scroll */
+    .ticker-wrap { margin-bottom: 24px; }
+    .ticker { white-space: normal; line-height: 1.7; }
+
+    .takeaways { padding: 16px 16px 12px; margin-bottom: 32px; }
+    .takeaways li { font-size: 15.5px; }
+
+    /* News rows reflow into stacked cards — no horizontal scrolling */
+    table.news thead { display: none; }
+    table.news, table.news tbody, table.news tr, table.news td {
+      display: block;
+      width: 100%;
+    }
+    table.news tbody tr {
+      border-bottom: 1px solid var(--rule-dark);
+      /* Reserve a clear strip at the card's top (below the save button zone)
+         and top-right, so the button can never overlap the title/summary,
+         regardless of headline length or button placement quirks. */
+      padding: 58px 56px 12px 0;
+      position: relative;
+    }
+    table.news tbody tr:nth-child(even) { background: none; }
+    table.news td { border-bottom: none; padding: 4px 4px; }
+    table.news td.headline { width: 100%; }
+    td.headline a { font-size: 17px; display: block; padding: 6px 0; }
+    td.save-cell {
+      position: absolute;
+      top: 8px;
+      right: 4px;
+      left: auto;
+      width: auto;
+      padding: 0;
+    }
+    .save-btn { min-width: 44px; min-height: 44px; padding: 10px; }
+    .saved-item .si-remove { min-width: 44px; min-height: 44px; }
+    .saved-header { flex-wrap: wrap; }
+    .sync-signin { min-height: 44px; }
+    /* Archive entry becomes the first pill of the strip */
+    .sidebar .sidebar-top { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .sidebar .archive-link { border-left: 1px solid rgba(201, 162, 39, .45); }
+    .sidebar .archive-link.active {
+      background: var(--gold);
+      color: #1c1440;
+      border-color: var(--gold);
+      font-weight: 700;
+    }
+    /* Active pill is gold-filled — switch the bookmark icon to the text color
+       so it stays visible (gold icon on gold background disappears). */
+    .sidebar .archive-link.active svg { color: #1c1440; }
+    td.summary li { font-size: 15px; }
+    td.source { padding-top: 6px; }
+    td.rating { padding-top: 4px; }
+    td.rating .reason { max-width: none; }
+
+    /* Figures tables stay 3 columns but get breathing room */
+    table.figures { font-size: 14px; }
+
+    .chart-grid { grid-template-columns: 1fr; gap: 14px; }
+    .chart-card .cc-body { height: 180px; }
+    .chart-card .cc-na { height: 120px; }
+
+    section.desk { margin-bottom: 36px; }
+  }
+
+  /* ---------- Analytics + Repo Radar cards ---------- */
+  .blog-card, .repo-card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 2px rgba(34, 31, 26, .05);
+    min-width: 0;               /* allow shrink below nowrap content on mobile */
+    overflow-wrap: break-word;  /* never let long URLs/tokens widen the box */
+  }
+  .blog-card h3, .repo-card h3 {
+    margin: 6px 0 4px;
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.3;
+  }
+  .blog-card h3 a, .repo-card h3 a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .blog-card h3 a:hover, .repo-card h3 a:hover { text-decoration: underline; }
+  .bc-head, .rc-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .bc-head .chip, .rc-head .chip { font-size: 12px; }
+  .bc-blog { color: var(--accent-2); }
+  .rc-head .stars { color: var(--gold); font-weight: 700; }
+  .preview-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    background: rgba(141, 133, 116, .12);
+    border-radius: 999px;
+    padding: 2px 8px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .bc-bullets, .rc-bullets { margin: 8px 0 6px; padding-left: 18px; }
+  .bc-bullets li, .rc-bullets li { margin-bottom: 5px; line-height: 1.5; }
+  .bc-url, .rc-url {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .bc-url a, .rc-url a { color: var(--muted); text-decoration: none; }
+  .bc-url a:hover, .rc-url a:hover { color: var(--accent); text-decoration: underline; }
+  .read-time-chip {
+    color: var(--muted);
+    font-size: 11.5px;
+    background: transparent;
+    border: 1px solid var(--rule-dark);
+    border-radius: 999px;
+    padding: 1px 7px;
+    white-space: nowrap;
+  }
+  [data-theme="dark"] .read-time-chip {
+    color: var(--muted);
+    border-color: var(--rule-dark);
+  }
+  .rc-oneliner { color: var(--ink-soft); font-size: 14.5px; margin: 6px 0 2px; }
+  .repo-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: contain;       /* never crop a diagram */
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+    margin: 8px 0 4px;
+    background: #fff;
+    display: block;
+  }
+  .repo-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);   /* one repo card per row — big, readable */
+    gap: 20px;
+  }
+
+  /* ---------- Analytics / Repo Radar day-history accordion ---------- */
+  .day-jump-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 14px 0 18px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .day-jump {
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid var(--rule-dark);
+    border-radius: 6px;
+    background: var(--card);
+    color: var(--ink);
+  }
+  .day-group {
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    background: var(--card);
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(34, 31, 26, .05);
+  }
+  .day-group[open] { border-color: var(--rule-dark); }
+  .day-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .day-bar::-webkit-details-marker { display: none; }
+  .day-bar:hover { background: rgba(67, 56, 202, .04); }
+  .day-chevron { color: var(--muted); transition: transform .18s ease; }
+  .day-group[open] > .day-bar .day-chevron { transform: rotate(180deg); }
+  .day-date { font-family: var(--serif); font-size: 17px; font-weight: 600; }
+  .day-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--accent);
+    background: rgba(67, 56, 202, .1);
+    border-radius: 999px;
+    padding: 2px 8px;
+  }
+  .day-meta { margin-left: auto; font-size: 12.5px; color: var(--muted); }
+  .day-body { padding: 4px 16px 16px; }
+  .day-body .desk { margin-bottom: 10px; }
+  .bc-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .bc-footer .bc-url { flex: 1; min-width: 0; }
+
+  /* ---------- Search page ---------- */
+  .search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 6px 0 18px;
+  }
+  .search-box input[type="search"] {
+    flex: 1;
+    min-width: 220px;
+    font-family: var(--sans);
+    font-size: 16px;
+    padding: 10px 14px;
+    border: 1px solid var(--rule-dark);
+    border-radius: 8px;
+    background: var(--card);
+    color: var(--ink);
+  }
+  .search-box input[type="search"]:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 0;
+  }
+  .search-mode {
+    display: flex;
+    gap: 14px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    align-items: center;
+  }
+  .search-mode label { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+  .search-btn {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border: none;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+  }
+  .search-btn:hover { background: #3730a3; }
+  .search-status { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+  .search-results .blog-card { margin-bottom: 12px; }
+  .rag-answer {
+    background: linear-gradient(135deg, #f1ecfd 0%, #e9f6f2 100%);
+    border: 1px solid #d4c8f2;
+    border-left: 5px solid var(--accent);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+  }
+  .rag-answer strong {
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .rag-answer p { margin: 6px 0 0; font-size: 15.5px; line-height: 1.5; }
+
+  /* Search highlight + relevance bar */
+  mark.hl {
+    background: rgba(201, 162, 39, .28);
+    color: inherit;
+    padding: 0 2px;
+    border-radius: 3px;
+  }
+  [data-theme="dark"] mark.hl { background: rgba(224, 184, 78, .35); color: #fff; }
+  .rel-bar {
+    height: 4px;
+    background: var(--rule);
+    border-radius: 2px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  .rel-bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-2), var(--accent));
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="reading-bar" id="reading-bar" aria-hidden="true"></div>
+
+<aside class="sidebar">
+  <button type="button" class="sidebar-toggle" id="sidebar-toggle"
+          aria-label="Collapse sidebar" title="Collapse sidebar" aria-expanded="true">
+    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="site-title">Daily Market Brief</div>
+  <div class="site-sub">Market Intelligence</div>
+  <button type="button" class="theme-toggle" id="theme-toggle"
+          aria-label="Toggle dark mode" title="Toggle dark mode" aria-pressed="false">
+    <!-- Sun (shown in dark mode: tap to go light) -->
+    <svg class="theme-icon icon-sun" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+      <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <!-- Moon (shown in light mode: tap to go dark) -->
+    <svg class="theme-icon icon-moon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+      <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.4 5.4 0 0 1-3.77-9.22A8.97 8.97 0 0 0 12 3z" fill="currentColor"/>
+    </svg>
+  </button>
+  <nav class="sidebar-top">
+    <a class="archive-link"
+       href="../markets.html">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M4 19V9M10 19V5M16 19v-7M22 19H2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>Markets</span>
+    </a>
+    <a class="archive-link"
+       href="../analytics.html">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M3 3v18h18M7 15l4-4 3 3 5-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Analytics</span>
+    </a>
+    <a class="archive-link"
+       href="../repo-radar.html">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M8 3a2 2 0 0 0-2 2v6a2 2 0 0 1-2 2 2 2 0 0 1 2 2v6a2 2 0 0 0 2 2M16 3a2 2 0 0 1 2 2v6a2 2 0 0 0 2 2 2 2 0 0 0-2 2v6a2 2 0 0 1-2 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>Repo Radar</span>
+    </a>
+    <a class="archive-link"
+       href="../search.html">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M10.5 3a7.5 7.5 0 0 1 5.96 12.1l4.5 4.5-1.42 1.42-4.5-4.5A7.5 7.5 0 1 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z" fill="currentColor"/>
+      </svg>
+      <span>Search</span>
+    </a>
+    <a class="archive-link"
+       href="../archive.html">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+              fill="currentColor"/>
+      </svg>
+      <span>Archive</span>
+    </a>
+  </nav>
+  <nav id="date-nav"><a href="#" class="na">Loading…</a></nav>
+</aside>
+
+<div class="content">
+  <header class="masthead">
+    <div class="kicker">Daily Market Brief</div>
+    <h1>2026-08-21</h1>
+    <div class="generated">Generated 2026-08-21 06:43 HKT</div>
+  </header>
+  
+  <div class="ticker-wrap">
+    <div class="ticker"><span class="neg"><span class="m1 neg" style="animation-delay: 0ms" title="1-month trend">▼</span>S&amp;P -0.9%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 70ms" title="1-month trend">▼</span>Nasdaq -1.0%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 140ms" title="1-month trend">▲</span>HSI +0.1%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 210ms" title="1-month trend">▲</span>US10Y 4.70%</span> · <span class="flat">USD/HKD -0.0%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 350ms" title="1-month trend">▼</span>HKD/CNY -0.2%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 420ms" title="1-month trend">▼</span>JPY/HKD(¥100) -0.2%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 490ms" title="1-month trend">▲</span>Gold +1.9%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 560ms" title="1-month trend">▲</span>BTC +4.9%</span></div>
+    <div class="asof">Market data as of 2026-08-21 06:43 HKT<span class="session-badge" id="session-badge"></span><span class="new-count">22 new stories</span></div>
+  </div>
+  
+
+  
+  <section class="hero reveal" id="snapshot">
+    <button type="button" class="hero-toggle" id="hero-toggle" aria-expanded="false" aria-controls="snapshot-grid">
+      <svg class="chevron" viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+      <span class="hero-label">Market Snapshot</span>
+      <span class="hero-hint">key moves at a glance</span>
+    </button>
+    <div class="hero-grid" id="snapshot-grid">
+      
+      <div class="hero-cell">
+        <div class="hero-top">
+          <span class="hero-name">S&amp;P 500</span>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,19.1 L4.4,20.3 L7.8,16.8 L11.1,15.0 L14.5,18.4 L17.9,16.8 L21.3,15.1 L24.7,17.4 L28.0,21.8 L31.4,22.6 L34.8,24.7 L38.2,24.4 L41.6,24.4 L44.9,23.5 L48.3,30.0 L51.7,23.0 L55.1,13.5 L58.4,5.6 L61.8,6.4 L65.2,7.2 L68.6,4.4 L72.0,4.7 L75.3,6.1 L78.7,4.9 L82.1,2.0 L85.5,2.8 L88.9,5.1 L92.2,8.2 L95.6,7.3 L99.0,11.2"/></svg>
+        </div>
+        <div class="hero-last">7,641.16</div>
+        <div class="hero-chg neg">-0.87%</div>
+        <div class="hero-delta neg">Δ -0.87% vs yesterday</div>
+      </div>
+      
+      <div class="hero-cell">
+        <div class="hero-top">
+          <span class="hero-name">Nasdaq</span>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,13.7 L4.4,13.1 L7.8,9.1 L11.1,8.2 L14.5,13.0 L17.9,10.3 L21.3,8.3 L24.7,12.9 L28.0,17.2 L31.4,17.4 L34.8,21.8 L38.2,23.7 L41.6,24.2 L44.9,24.9 L48.3,30.0 L51.7,21.9 L55.1,12.5 L58.4,4.6 L61.8,7.2 L65.2,7.4 L68.6,3.3 L72.0,4.3 L75.3,6.2 L78.7,4.5 L82.1,2.0 L85.5,2.9 L88.9,3.9 L92.2,8.1 L95.6,7.6 L99.0,10.7"/></svg>
+        </div>
+        <div class="hero-last">26,067.17</div>
+        <div class="hero-chg neg">-1.00%</div>
+        <div class="hero-delta neg">Δ -1.00% vs yesterday</div>
+      </div>
+      
+      <div class="hero-cell">
+        <div class="hero-top">
+          <span class="hero-name">HSI</span>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,28.7 L4.4,30.0 L7.8,22.2 L11.1,24.1 L14.5,22.4 L17.9,22.0 L21.3,20.6 L24.7,16.8 L28.0,13.2 L31.4,18.1 L34.8,11.7 L38.2,10.9 L41.6,13.7 L44.9,10.9 L48.3,9.8 L51.7,4.2 L55.1,3.7 L58.4,2.0 L61.8,3.7 L65.2,3.0 L68.6,7.3 L72.0,5.8 L75.3,2.8 L78.7,6.0 L82.1,8.3 L85.5,8.8 L88.9,11.9 L92.2,8.2 L95.6,8.0 L99.0,7.7"/></svg>
+        </div>
+        <div class="hero-last">25,495.07</div>
+        <div class="hero-chg pos">+0.09%</div>
+        <div class="hero-delta pos">Δ +0.09% vs yesterday</div>
+      </div>
+      
+      <div class="hero-cell">
+        <div class="hero-top">
+          <span class="hero-name">US10Y</span>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,26.2 L4.4,20.7 L7.8,24.0 L11.1,29.5 L14.5,26.2 L17.9,30.0 L21.3,22.2 L24.7,18.1 L28.0,14.1 L31.4,7.8 L34.8,11.1 L38.2,16.3 L41.6,21.4 L44.9,18.9 L48.3,13.3 L51.7,2.0 L55.1,10.1 L58.4,18.2 L61.8,19.6 L65.2,12.3 L68.6,13.7 L72.0,8.3 L75.3,10.4 L78.7,10.6 L82.1,16.3 L85.5,8.7 L88.9,4.9 L92.2,7.4 L95.6,14.6 L99.0,8.7"/></svg>
+        </div>
+        <div class="hero-last">4.70%</div>
+        <div class="hero-chg pos">+4.3 bp</div>
+        <div class="hero-delta pos">Δ +4.3 bp vs yesterday</div>
+      </div>
+      
+      <div class="hero-cell">
+        <div class="hero-top">
+          <span class="hero-name">USD/HKD</span>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-flat" d="M1.0,22.2 L4.4,30.0 L7.8,20.4 L11.1,25.6 L14.5,25.6 L17.9,23.5 L21.3,17.8 L24.7,19.9 L28.0,17.3 L31.4,15.5 L34.8,19.4 L38.2,16.3 L41.6,14.4 L44.9,14.7 L48.3,17.3 L51.7,13.9 L55.1,11.9 L58.4,14.4 L61.8,14.7 L65.2,13.4 L68.6,10.6 L72.0,8.0 L75.3,5.6 L78.7,5.9 L82.1,2.5 L85.5,2.8 L88.9,2.0 L92.2,8.7 L95.6,9.5 L99.0,12.4"/></svg>
+        </div>
+        <div class="hero-last">7.84</div>
+        <div class="hero-chg flat">-0.01%</div>
+        <div class="hero-delta pos">Δ +0.03% vs yesterday</div>
+      </div>
+      
+      <div class="hero-cell">
+        <div class="hero-top">
+          <span class="hero-name">HKD/CNY</span>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,2.0 L4.4,4.7 L7.8,11.3 L11.1,9.7 L14.5,13.0 L17.9,14.1 L21.3,13.0 L24.7,13.0 L28.0,13.3 L31.4,15.7 L34.8,13.0 L38.2,13.3 L41.6,13.8 L44.9,15.7 L48.3,13.8 L51.7,15.7 L55.1,19.8 L58.4,20.9 L61.8,20.4 L65.2,20.4 L68.6,22.0 L72.0,22.6 L75.3,23.4 L78.7,23.1 L82.1,24.5 L85.5,25.1 L88.9,25.3 L92.2,25.6 L95.6,24.5 L99.0,30.0"/></svg>
+        </div>
+        <div class="hero-last">0.86</div>
+        <div class="hero-chg neg">-0.23%</div>
+        <div class="hero-delta neg">Δ -0.09% vs yesterday</div>
+      </div>
+      
+      <div class="hero-cell">
+        <div class="hero-top">
+          <span class="hero-name">JPY/HKD</span>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,24.0 L4.4,21.6 L7.8,24.1 L11.1,23.1 L14.5,22.5 L17.9,23.7 L21.3,24.3 L24.7,24.1 L28.0,27.1 L31.4,26.8 L34.8,29.9 L38.2,28.9 L41.6,29.5 L44.9,30.0 L48.3,27.5 L51.7,13.8 L55.1,2.2 L58.4,2.0 L61.8,2.7 L65.2,2.2 L68.6,5.8 L72.0,3.3 L75.3,9.0 L78.7,9.4 L82.1,9.7 L85.5,10.1 L88.9,9.2 L92.2,10.0 L95.6,10.9 L99.0,12.1"/></svg>
+        </div>
+        <div class="hero-last">4.91</div>
+        <div class="hero-chg neg">-0.16%</div>
+        <div class="hero-delta neg">Δ -0.51% vs yesterday</div>
+      </div>
+      
+      <div class="hero-cell">
+        <div class="hero-top">
+          <span class="hero-name">Gold</span>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,24.4 L4.4,29.5 L7.8,26.4 L11.1,27.2 L14.5,30.0 L17.9,28.7 L21.3,28.8 L24.7,25.9 L28.0,22.4 L31.4,27.1 L34.8,26.1 L38.2,25.8 L41.6,27.6 L44.9,27.7 L48.3,24.6 L51.7,27.0 L55.1,27.7 L58.4,24.8 L61.8,17.7 L65.2,17.8 L68.6,13.2 L72.0,12.2 L75.3,11.2 L78.7,9.9 L82.1,12.1 L85.5,11.3 L88.9,9.5 L92.2,12.0 L95.6,6.1 L99.0,2.0"/></svg>
+        </div>
+        <div class="hero-last">4,576.30</div>
+        <div class="hero-chg pos">+1.94%</div>
+        <div class="hero-delta neg">Δ -0.05% vs yesterday</div>
+      </div>
+      
+      <div class="hero-cell">
+        <div class="hero-top">
+          <span class="hero-name">BTC</span>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,20.6 L4.4,23.6 L7.8,26.2 L11.1,25.6 L14.5,22.7 L17.9,27.3 L21.3,26.9 L24.7,26.8 L28.0,24.5 L31.4,29.9 L34.8,30.0 L38.2,28.0 L41.6,28.0 L44.9,26.4 L48.3,24.8 L51.7,25.8 L55.1,24.0 L58.4,24.0 L61.8,24.1 L65.2,26.8 L68.6,27.8 L72.0,28.2 L75.3,28.2 L78.7,29.4 L82.1,29.3 L85.5,29.8 L88.9,25.1 L92.2,24.6 L95.6,11.6 L99.0,2.0"/></svg>
+        </div>
+        <div class="hero-last">72,679.79</div>
+        <div class="hero-chg pos">+4.93%</div>
+        <div class="hero-delta pos">Δ +4.80% vs yesterday</div>
+      </div>
+      
+    </div>
+  </section>
+  
+
+  
+  <section class="day-imp reveal" id="day-importance">
+    <div class="imp-badge imp-5">
+      <span class="imp-label">Day importance</span>
+      <span class="imp-stars">★★★★★</span>
+    </div>
+    <p class="imp-verdict">Major day — market-moving events; read carefully.</p>
+  </section>
+  
+
+  
+  <section class="takeaways reveal" id="takeaways">
+    <div class="tw-label">Today's Key Takeaways</div>
+    <ul>
+      <li>Treasury intervention failures and surging long-term yields are tightening global financial conditions, creating friction with the Federal Reserve and fueling market volatility amid rising national debt concerns.</li><li>Massive AI infrastructure spending is driving industrial and semiconductor growth, yet local regulatory pushback against data center energy demands is emerging as a significant project execution risk.</li><li>Geopolitical tensions and climate-driven commodity inflation are pressuring global economies, accelerating the strategic shift toward EV adoption and sovereign technological independence in emerging markets.</li>
+    </ul>
+  </section>
+  
+
+  
+  <section class="weekly reveal" id="weekly">
+    <div class="tw-label">The Week in 5 — 2026-08-17 to 2026-08-21</div>
+    <ul class="weekly-list">
+      
+      <li class="weekly-item">
+        <span class="weekly-day">Mon · Global Economy:</span>
+        <a href="https://news.google.com/rss/articles/CBMi4gFBVV95cUxNXzNsdGtBMEllZTk2Nmx1b1pCVGZFX3BlbEEwN0hiZ3NteXlhMmJjcWJGRlVuYUdabkpNUEhDdVpfT2REb0QwbjJ2R0ZHMnBjYjR2VDU4VmJqX2MtNUpMNFRoQ2xfZXNFc09iU2RVZnhWR1ByLUt6aExvaUNfVzVMNERwRU83LVhuYUFSRmpuVzJsQ090aC1NeFQzWXRzbTF4NF9RX0cyU2J1Y2EwaXB1QU9DZVo0dXI0LW40c2FHM3NVMTRteHRCcXJSbEFOY1F1ejlLSFFyZWNiM2J2RVFIRzBn0gHnAUFVX3lxTE02X2tSUHNyalNtaV9Qd25rdXdKZnUxVTNhWThRTmNlVmlYX2lkWkdYYU81X1ptY2tzZWdUT3hFUlVIalRlekdSbDN1amRDNnJoQWxYRHpaOHdZeWFZMkhENWpiSmt3bFhkbzEzWnEzazh1SUVLX3JfdXpxRV8xNktZdm1KN0RuckVROHc4akZSU0h0by1aNm00MTNSVUVXdzlERXgycFo5bkFsRDdEY0RVOFl0WmI2N3AxdzlDTGNYQ3JVRVYwWFRjZmxJTmtKNTlBZ3lSZUtWR2RmOEllYWxnbFBydkdBMA?oc=5" target="_blank" rel="noopener">Charting the Global Economy: US CPI softens, UK economy expands</a>
+        <span class="weekly-bullet">US core inflation rose 2.5% annually in July, the slowest pace since March 2021, which reinforces the Federal Reserve&#39;s current pause on interest rate hikes.</span>
+      </li>
+      
+      <li class="weekly-item">
+        <span class="weekly-day">Mon · Semiconductors:</span>
+        <a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxNU2dvU0F2QV9PLVBGbndSY3BvcHBkR0h2VHYtMEQ5R0o2b0xrQjRqeTlWRU1OWG9YNDg3bGppRWRiSFZkOUNNQXFlX241Qy1FMjg2cU9YU2hzc2dwLTZEUEZsaXk4emFhUUFhS3VSdnJFLThvRlFES1lQWjZFZVJFS1U2Q3B1VDdfeGR5WHFlSndqeFpKbjBobUFMcVBSTEtvWk5tUHJsYk85ZldNbVZITnRKLS11NVhkc0E?oc=5" target="_blank" rel="noopener">Nvidia AI Financing Is The $500 Billion Risk Investors Aren’t Watching</a>
+        <span class="weekly-bullet">Major financial institutions, including Goldman Sachs and BlackRock, are mobilizing $500 billion to finance AI infrastructure, with Nvidia acting as a central marketplace for these &#39;compute bonds.&#39;</span>
+      </li>
+      
+      <li class="weekly-item">
+        <span class="weekly-day">Mon · Electric Vehicles:</span>
+        <a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxPVVpOZnhCUF9JZlVab2poMTBNNmhtSFBSU0RiRDhwdlU0Z0tscDBrQllMc1dwZmFUMW1fR09OdDZabzFVcEJFTlh6TlRiWjlqdU1CM2U4RXZvX3JneUVQUW92QVFNY2N1OV9yWjNCZVYxMVN2NDBtX0wxazgwV2Q0QUU1c2FsV1lveUlPR3pWT1ktVjBkdVFxak5hTlE4NFBBeVF5OTZLSHJJSEFGMGhUZEVHWFJlNFJWNnVvbXBkdjQzdw?oc=5" target="_blank" rel="noopener">This Week in Tesla: Elon Musk&#39;s Financial Windfall, EV Sales Fall and More</a>
+        <span class="weekly-bullet">North American EV sales experienced a significant contraction, falling 27% in July to 140,000 units, contributing to an 18% year-to-date decline compared to the same period in 2025.</span>
+      </li>
+      
+      <li class="weekly-item">
+        <span class="weekly-day">Mon · Data Centers:</span>
+        <a href="https://news.google.com/rss/articles/CBMi2wFBVV95cUxON3FKMnpJbkxKc3VRUWpWVXBwdnNLTlE1NnFOVzRySmxlN0NyZnRybTgxZFl6ei1PeFdJMk9yVnQ3eC00N2dxNFFsWGowc25TTGlEaGlxTG1SMXlvZE1RRzFkLXdBRzJ5ZFhiaUMxdkRkVkNRbGNISm5Nd0pmRndhTS1VclBEZ1ZSTG16VkFIXzJmNkpYYmZlaFZ3Nm4xWmNfenNBMFo0NFVZd2RWZHNhRlUzYmNDZnVpcE5mTmlKbmVUQ182RFUzeUZFUU5KbDhRc1FnRXVHQ3lPVm8?oc=5" target="_blank" rel="noopener">SpaceX is Planning to Spend Up to $500 Billion on Data Centers. Here&#39;s Why Elon Musk is Pushing All-In</a>
+        <span class="weekly-bullet">SpaceX is aggressively scaling its AI compute capacity from 1.4 gigawatts to a target of 6 to 10 gigawatts, with projected capital expenditures reaching $300 billion to $500 billion by 2027.</span>
+      </li>
+      
+      <li class="weekly-item">
+        <span class="weekly-day">Tue · Global Economy:</span>
+        <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxOejNkZVFTSjVNZEVpMms5aWtNbzdCcWMyZFQwT2xHRnQzanhqbHoxZzZKSGdTblptSHhUT0Jjamk3ZWI1VnJHOFZPWnk0VERidlZsNFItMzE2T2UyOEhfYWVGOUt1MkRLLVlNTWlNYnViUGhnalAtS3RDSS0tX3ZSckR1MjM4UmF4YzNDZ3hyN1AxYVhEaE1fMWpOQlFhVlZBbXdJVF9sVTNhNjJGMEQ0THlBVHc?oc=5" target="_blank" rel="noopener">AI market correction is coming, ECB blog predicts</a>
+        <span class="weekly-bullet">The European Central Bank has issued a formal warning suggesting that the current valuation levels in the artificial intelligence sector may be unsustainable, signaling a potential market correction.</span>
+      </li>
+      
+    </ul>
+  </section>
+  
+
+  <nav class="sec-nav" id="sec-nav" aria-label="Jump to section">
+    <button type="button" class="sec-toggle" id="sec-toggle" aria-expanded="false" aria-haspopup="true">
+      <span class="sec-current" id="sec-current">Sections</span>
+      <svg class="sec-chevron" viewBox="0 0 24 24" width="11" height="11" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="sec-menu" id="sec-menu" role="menu">
+      <a href="#snapshot" data-target="snapshot" role="menuitem">Snapshot</a>
+      <a href="#takeaways" data-target="takeaways" role="menuitem">Takeaways</a>
+      <a href="#global-macro" data-target="global-macro" role="menuitem">Global Economy</a><a href="#equity" data-target="equity" role="menuitem">Equity Markets</a><a href="#fixed-income" data-target="fixed-income" role="menuitem">Fixed Income</a><a href="#china" data-target="china" role="menuitem">China Economy</a><a href="#hk" data-target="hk" role="menuitem">Hong Kong Economy</a><a href="#tech" data-target="tech" role="menuitem">Global Technology</a><a href="#ai" data-target="ai" role="menuitem">Artificial Intelligence</a><a href="#semis" data-target="semis" role="menuitem">Semiconductors</a><a href="#ev" data-target="ev" role="menuitem">Electric Vehicles</a><a href="#data-center" data-target="data-center" role="menuitem">Data Centers</a><a href="#space" data-target="space" role="menuitem">Space &amp; Aerospace</a>
+    </div>
+  </nav>
+
+  <div class="filter-bar" id="importance-filter" role="group" aria-label="Filter stories by importance">
+    <span class="filter-label">Importance</span>
+    <button type="button" class="filter-btn active" data-min="0">All</button>
+    <button type="button" class="filter-btn" data-min="4">4★+</button>
+    <button type="button" class="filter-btn" data-min="3">3★+</button>
+    <button type="button" class="filter-btn" data-min="2">2★+</button>
+  </div>
+
+  
+  
+  <section class="desk reveal" id="global-macro"
+           style="--cat: #4338ca">
+    <h2>Global Economy</h2>
+    
+    <table class="news">
+      <thead>
+        <tr><th>Headline</th><th>Summary</th><th>Source</th><th>Rating</th><th class="save-col"><span class="visually-hidden">Save</span></th></tr>
+      </thead>
+      <tbody>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMizAFBVV95cUxQMGxRQnVkX0EtWEhIdGRTeHlBNTRiOE5QM0dlNmtfSmRFOXFyckdULVhPTkNYczJTcHZUeGhaalNPeHVjTDRzUzQ4N3RNVENVSVRNOXI3VFhRVTBWNjJ4NHRMdTdDQmg3WWRxeU1xVlM2M0NoX1NvTXREYzFKbUQtczkyZDJObTFjQlk5czdMYXhBSXVzWW5fV296U2ViR3ROa0JobFphZXVRZ1VYT0ZpZTE5QkFUVGQwOTdacDFvbzJ6ckhmX0lhNjlGS18?oc=5"
+            data-title="El Nino weather event may cost global economy trillions of dollars via agriculture and food"
+            data-source="Anadolu Ajansı"
+            data-category="Global Economy"
+            data-rating="5"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMizAFBVV95cUxQMGxRQnVkX0EtWEhIdGRTeHlBNTRiOE5QM0dlNmtfSmRFOXFyckdULVhPTkNYczJTcHZUeGhaalNPeHVjTDRzUzQ4N3RNVENVSVRNOXI3VFhRVTBWNjJ4NHRMdTdDQmg3WWRxeU1xVlM2M0NoX1NvTXREYzFKbUQtczkyZDJObTFjQlk5czdMYXhBSXVzWW5fV296U2ViR3ROa0JobFphZXVRZ1VYT0ZpZTE5QkFUVGQwOTdacDFvbzJ6ckhmX0lhNjlGS18?oc=5" target="_blank" rel="noopener">El Nino weather event may cost global economy trillions of dollars via agriculture and food</a>
+            <div class="pub">2026-08-20 10:59 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>The European Central Bank estimates that a moderate El Nino event can drive real commodity price inflation by approximately 3% within 6 to 12 months, with non-energy commodity prices potentially rising by 5%.</li><li>Global food prices are projected to face significant upward pressure for up to two years, with peak increases reaching 9% for critical staples like soybeans, corn, and rice due to disrupted agricultural yields.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">Anadolu Ajansı</span></td>
+          <td class="rating">
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">4 min</span>
+            <span class="reason">Significant inflationary impact on global food and commodity supply chains.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMikgFBVV95cUxQRHlkUjdVbTVPRlIyd2lhd0VhOVFSZFB4UFNBbXFvMXc2SmhQUFpsUW91b2hGbUNqcXZNR3k2czdJUlU1NHkxZU1NMllGVTVVUWxibTZfT2xEclctVVktdkZ0WWNvUTRDV1BDMjB1Wm5kcXpvNFFaNklzeGxGeEEtYkRLangyem41Uzk1Zmk0ekVGQdIBlwFBVV95cUxQUFRzdE9nWFZkajlxZHNPM1E0ZzNkNFdqbkdVOVFXUzhsN0VnVzRTVEVlMEpmMVRXUjEwOTl5U0NfWUpSUVJETkNha2ZEQzZIeHhodGJWX3FLenRVVTRsTndIVFp1Rk04ZjJpb3ctYXF1aUQtUTJxbUxhVm5tOURXNlRITm9yZ1ZQS3RRVS1ReUZ1QS1TaWdR?oc=5"
+            data-title="Trump says Iran&#39;s economy is collapsing. A former central bank adviser in Tehran pushes back"
+            data-source="CNBC"
+            data-category="Global Economy"
+            data-rating="4"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxQRHlkUjdVbTVPRlIyd2lhd0VhOVFSZFB4UFNBbXFvMXc2SmhQUFpsUW91b2hGbUNqcXZNR3k2czdJUlU1NHkxZU1NMllGVTVVUWxibTZfT2xEclctVVktdkZ0WWNvUTRDV1BDMjB1Wm5kcXpvNFFaNklzeGxGeEEtYkRLangyem41Uzk1Zmk0ekVGQdIBlwFBVV95cUxQUFRzdE9nWFZkajlxZHNPM1E0ZzNkNFdqbkdVOVFXUzhsN0VnVzRTVEVlMEpmMVRXUjEwOTl5U0NfWUpSUVJETkNha2ZEQzZIeHhodGJWX3FLenRVVTRsTndIVFp1Rk04ZjJpb3ctYXF1aUQtUTJxbUxhVm5tOURXNlRITm9yZ1ZQS3RRVS1ReUZ1QS1TaWdR?oc=5" target="_blank" rel="noopener">Trump says Iran&#39;s economy is collapsing. A former central bank adviser in Tehran pushes back</a>
+            <div class="pub">2026-08-20 08:08 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>The United Arab Emirates&#39; decision to sever all trade and financial ties with Iran removes a critical financial gateway, which experts warn will likely pressure the exchange rate and accelerate inflation.</li><li>While Iran&#39;s economy faces severe strain from sanctions and a 62.2% inflation rate, the banking system has maintained public confidence, suggesting the economy is deteriorating rather than facing an immediate collapse.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">CNBC</span></td>
+          <td class="rating">
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">3 min</span>
+            <span class="reason">Geopolitical escalation impacting regional trade and financial stability.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMitAFBVV95cUxQdlhJTjFFOGkxTWhId1dFMHQ1TjR2c3l3cVhTZUlfVl9oRzdUY21kelVpNk9WX2IwY19lcms0VE9CTEdMS0xabnJuVDQ4a3VUT1pYeTF0dXV0LWtGWWd3Qml0SzhLLWxMMktIUGZHLTIxcHZPOEhvYlpOaHdXc19ZbEQ0R3R2TDBwQWQ1OTdxcHZDWmxLeUhaN1gwcG1scWhfZnNjcng5RzNwTl9fOW55LWFDdnTSAboBQVVfeXFMTlVFM2tYR2FUckpCd3dCRVAtc0c1T0xoWmxsODNJMlhFMFRpVmJxXzkzLW5fM2twRnFuMHg5bWRZNXEyaEdnLXlvbkZUcHl4MnFxUWNqN2FOdnBNZ2VXR1dYcV9qdDJDMHNDa21MTTE5RTJHckFzNi1PMTVHQlJXM0o2bWpnejN0eDdhQ1IxcFBndC1sV1hyS0NWYzR5Rzd1bGthZzloZnNialJDY3l1Si1La2lDTTY3NDV3?oc=5"
+            data-title="Mexico&#39;s Central Bank: Balancing Act Amid Global Uncertainties"
+            data-source="Devdiscourse"
+            data-category="Global Economy"
+            data-rating="3"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxQdlhJTjFFOGkxTWhId1dFMHQ1TjR2c3l3cVhTZUlfVl9oRzdUY21kelVpNk9WX2IwY19lcms0VE9CTEdMS0xabnJuVDQ4a3VUT1pYeTF0dXV0LWtGWWd3Qml0SzhLLWxMMktIUGZHLTIxcHZPOEhvYlpOaHdXc19ZbEQ0R3R2TDBwQWQ1OTdxcHZDWmxLeUhaN1gwcG1scWhfZnNjcng5RzNwTl9fOW55LWFDdnTSAboBQVVfeXFMTlVFM2tYR2FUckpCd3dCRVAtc0c1T0xoWmxsODNJMlhFMFRpVmJxXzkzLW5fM2twRnFuMHg5bWRZNXEyaEdnLXlvbkZUcHl4MnFxUWNqN2FOdnBNZ2VXR1dYcV9qdDJDMHNDa21MTTE5RTJHckFzNi1PMTVHQlJXM0o2bWpnejN0eDdhQ1IxcFBndC1sV1hyS0NWYzR5Rzd1bGthZzloZnNialJDY3l1Si1La2lDTTY3NDV3?oc=5" target="_blank" rel="noopener">Mexico&#39;s Central Bank: Balancing Act Amid Global Uncertainties</a>
+            <div class="pub">2026-08-20 15:12 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Banxico has maintained interest rates at 6.5% in August, signaling a cautious monetary stance as it navigates persistent service price inflation and external trade policy uncertainties.</li><li>The central bank&#39;s decision reflects a broader strategy to mitigate risks from potential supply shocks and geopolitical tensions that could further destabilize the domestic economic landscape.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">Devdiscourse</span></td>
+          <td class="rating">
+            <span class="rating-chip r3">3</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Monetary policy signals from a major emerging market economy.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </section>
+  
+  <section class="desk reveal" id="equity"
+           style="--cat: #047857">
+    <h2>Equity Markets</h2>
+    
+    <table class="news">
+      <thead>
+        <tr><th>Headline</th><th>Summary</th><th>Source</th><th>Rating</th><th class="save-col"><span class="visually-hidden">Save</span></th></tr>
+      </thead>
+      <tbody>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMiiwFBVV95cUxQeEZKSnRRVU5QamRQWlRqYnE2QTFqVVdOWEFBYmJXOU96Qjl5WFBwU2RQT3JYXzY1bjdLeGU3WWREVWdhUVVDZzBfdkk5NGJHbkkzZmFBc2lpQ0VQRVFmQk9UcjBSVUxvZlA3WmNPVUtqV01KdFktR1dFVUR6UXhkU3VwNWJEU2tneFI40gGQAUFVX3lxTE5HVndEQUQxNkVDRWNVdklzeFp0U1F1RGZXVnItUjdlT2ZkQXpKTmh1SjVEZTdpRm5WY2xxN3VhVFlXMUwwbXNXZTZtcGhSNUdzSFJYdWNmNThSOWNKazd2c0pKODg1QkNhdEs2dzRfXzA0SW80eGN2d0NVMms3elRUQm43NGdmSDg3c0l4SVczVQ?oc=5"
+            data-title="The Treasury&#39;s debt buyback, Walmart earnings, Boise&#39;s AI boom and more in Morning Squawk"
+            data-source="CNBC"
+            data-category="Equity Markets"
+            data-rating="5"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxQeEZKSnRRVU5QamRQWlRqYnE2QTFqVVdOWEFBYmJXOU96Qjl5WFBwU2RQT3JYXzY1bjdLeGU3WWREVWdhUVVDZzBfdkk5NGJHbkkzZmFBc2lpQ0VQRVFmQk9UcjBSVUxvZlA3WmNPVUtqV01KdFktR1dFVUR6UXhkU3VwNWJEU2tneFI40gGQAUFVX3lxTE5HVndEQUQxNkVDRWNVdklzeFp0U1F1RGZXVnItUjdlT2ZkQXpKTmh1SjVEZTdpRm5WY2xxN3VhVFlXMUwwbXNXZTZtcGhSNUdzSFJYdWNmNThSOWNKazd2c0pKODg1QkNhdEs2dzRfXzA0SW80eGN2d0NVMms3elRUQm43NGdmSDg3c0l4SVczVQ?oc=5" target="_blank" rel="noopener">The Treasury&#39;s debt buyback, Walmart earnings, Boise&#39;s AI boom and more in Morning Squawk</a>
+            <div class="pub">2026-08-20 12:29 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>The U.S. Treasury has moved to double its government debt repurchases, a strategy intended to soothe bond markets that analysts warn could trigger inflationary pressures and complicate the Federal Reserve&#39;s interest rate policy.</li><li>Walmart shares fell 6% despite beating revenue expectations, as the retailer faces investor skepticism regarding its outlook, even as it leverages a $2.9 billion tariff refund to lower consumer prices.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">CNBC</span></td>
+          <td class="rating">
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">4 min</span>
+            <span class="reason">Macroeconomic policy shifts and major retail earnings impact.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNNGQwUFdxNTg1RnVlaXRpc0dYdmJMbmUxZHJ3TWxzWUtGeHlzNGEyQnRsNkotbWJUWkYxbTkxdWkwSE1BSENxYkI1bVBNdGFzYTNCenU2c3V4cG9yTVJqS2NOazJpalVuWmE2Y1Z2UWpXQ0VwLWpzVDRiQVFXLVVTVGVEWDBnT0ZOV3JuR1l0MjJLdFZDcW1kbE5fMmE3bHBMcnY0bnZrRmo?oc=5"
+            data-title="Why is the Trump administration causing turmoil in the bond markets?"
+            data-source="The Guardian"
+            data-category="Equity Markets"
+            data-rating="5"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNNGQwUFdxNTg1RnVlaXRpc0dYdmJMbmUxZHJ3TWxzWUtGeHlzNGEyQnRsNkotbWJUWkYxbTkxdWkwSE1BSENxYkI1bVBNdGFzYTNCenU2c3V4cG9yTVJqS2NOazJpalVuWmE2Y1Z2UWpXQ0VwLWpzVDRiQVFXLVVTVGVEWDBnT0ZOV3JuR1l0MjJLdFZDcW1kbE5fMmE3bHBMcnY0bnZrRmo?oc=5" target="_blank" rel="noopener">Why is the Trump administration causing turmoil in the bond markets?</a>
+            <div class="pub">2026-08-20 19:05 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Long-term U.S. Treasury yields have surged to levels not seen since 2007, driven by concerns over the sustainability of a $40 trillion national debt and the inflationary impact of ongoing geopolitical tensions in the Middle East.</li><li>The rise in U.S. borrowing costs is creating a global contagion effect, pushing G7 sovereign bond yields to multi-decade highs and tightening financial conditions for major economies including the UK, Germany, and Japan.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">The Guardian</span></td>
+          <td class="rating">
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">6 min</span>
+            <span class="reason">Systemic risk from rising sovereign debt yields.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </section>
+  
+  <section class="desk reveal" id="fixed-income"
+           style="--cat: #92400e">
+    <h2>Fixed Income</h2>
+    
+    <table class="news">
+      <thead>
+        <tr><th>Headline</th><th>Summary</th><th>Source</th><th>Rating</th><th class="save-col"><span class="visually-hidden">Save</span></th></tr>
+      </thead>
+      <tbody>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMiwgFBVV95cUxQdWFwMW54b3ZlZFpfVFJkREZzZVNwVXhRQmZteGg1cVNVXzJkNmJTd3Qzc3JNTm9IU3JJZDJteU0tSUgyOVl2VC1lTlAxdm9LUDltTzd0akp3QjNTQ3ZXWlBJRm5HX21OYUxDLUExSXNVU3dBRjdzQUNveHFUWklGMUUtcG1tQTVSS01Ic0dLcGFkczdWcThjYWozTkdHdlZ2TktYVHlEVDlJLUFnLU5vQmNHVDZIZ2VZN1dkb3dBc2pXd9IBxwFBVV95cUxPZTFXdmxMTks2MGotZUxtQXBXWTI3NEQ2Q0U0Wnc3TjBMUmhMMjlwb3drQjhCa0htNlNINEdKZjd3bWtJYTRsbmRpUWFWbktPaGItMnQ0Q3l2NG1vNll0UFdwZVZIMUtMWVdnMjMxMFF0Q3RKM0FVZWszQVU0VWxtSmRja1dZemh4WVJfT3ZKMHk4ZmFtbTRvcmlhVmtKS0ZvakMyR1ZiRi1oek5ieTQtaVhIY05zUnpaS2pmdlh4Q0xZcnVWb1ZR?oc=5"
+            data-title="Bessent&#39;s efforts in the Treasury market so far haven&#39;t worked. Here&#39;s what else he can try"
+            data-source="CNBC"
+            data-category="Fixed Income"
+            data-rating="5"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxQdWFwMW54b3ZlZFpfVFJkREZzZVNwVXhRQmZteGg1cVNVXzJkNmJTd3Qzc3JNTm9IU3JJZDJteU0tSUgyOVl2VC1lTlAxdm9LUDltTzd0akp3QjNTQ3ZXWlBJRm5HX21OYUxDLUExSXNVU3dBRjdzQUNveHFUWklGMUUtcG1tQTVSS01Ic0dLcGFkczdWcThjYWozTkdHdlZ2TktYVHlEVDlJLUFnLU5vQmNHVDZIZ2VZN1dkb3dBc2pXd9IBxwFBVV95cUxPZTFXdmxMTks2MGotZUxtQXBXWTI3NEQ2Q0U0Wnc3TjBMUmhMMjlwb3drQjhCa0htNlNINEdKZjd3bWtJYTRsbmRpUWFWbktPaGItMnQ0Q3l2NG1vNll0UFdwZVZIMUtMWVdnMjMxMFF0Q3RKM0FVZWszQVU0VWxtSmRja1dZemh4WVJfT3ZKMHk4ZmFtbTRvcmlhVmtKS0ZvakMyR1ZiRi1oek5ieTQtaVhIY05zUnpaS2pmdlh4Q0xZcnVWb1ZR?oc=5" target="_blank" rel="noopener">Bessent&#39;s efforts in the Treasury market so far haven&#39;t worked. Here&#39;s what else he can try</a>
+            <div class="pub">2026-08-20 20:09 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Treasury Secretary Scott Bessent&#39;s initiative to double bond buybacks to at least $4 billion per operation has failed to stabilize long-term yields, which rebounded shortly after the announcement.</li><li>Analysts warn that the current strategy resembles a weak form of &#39;Operation Twist&#39; and may backfire by signaling funding concerns, leaving the Treasury to consider riskier options like shifting issuance toward shorter-term bills.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">CNBC</span></td>
+          <td class="rating">
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">6 min</span>
+            <span class="reason">Direct impact of government intervention on market stability.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMiigFBVV95cUxOdUVSTjd5bEhZTDcwVG55a05tQ05tU0ZZNmZETXZma0k0RFFmdUZNY3lZd1ZKZlZTM1o1LWZSNDVJWHdRc192VkNKa1hxMjRFbEUyeXY2S1NPdjZSRE41TDluLVBoc0l0T3lpZ21DN2pSNEJlT3hQdXpseHJXNG96OWI5NTFuVEZrRVHSAY8BQVVfeXFMTWJROXFhcXR5TWZXVDlTZ3k4OHdpWkRzWGNiUVJUdFZFczgyM0lCQVVRdnJvdnhIWUNhWnNTRFAtUHdqVnlLOFVvUXc2dW9HMHNwZE9UdnY2Uy0xSHRlVWtnWkZjWThHcjZTU2p3LWs5Y0NFS3F1eDVCUXFaVDdYSXBjTFM2S1ludmhRS1dZWE0?oc=5"
+            data-title="Warsh faces Fed independence test as Bessent moves in on central bank&#39;s turf"
+            data-source="CNBC"
+            data-category="Fixed Income"
+            data-rating="4"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxOdUVSTjd5bEhZTDcwVG55a05tQ05tU0ZZNmZETXZma0k0RFFmdUZNY3lZd1ZKZlZTM1o1LWZSNDVJWHdRc192VkNKa1hxMjRFbEUyeXY2S1NPdjZSRE41TDluLVBoc0l0T3lpZ21DN2pSNEJlT3hQdXpseHJXNG96OWI5NTFuVEZrRVHSAY8BQVVfeXFMTWJROXFhcXR5TWZXVDlTZ3k4OHdpWkRzWGNiUVJUdFZFczgyM0lCQVVRdnJvdnhIWUNhWnNTRFAtUHdqVnlLOFVvUXc2dW9HMHNwZE9UdnY2Uy0xSHRlVWtnWkZjWThHcjZTU2p3LWs5Y0NFS3F1eDVCUXFaVDdYSXBjTFM2S1ludmhRS1dZWE0?oc=5" target="_blank" rel="noopener">Warsh faces Fed independence test as Bessent moves in on central bank&#39;s turf</a>
+            <div class="pub">2026-08-20 20:02 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>The Treasury&#39;s aggressive intervention in the bond market is creating friction with the Federal Reserve, placing Chairman Kevin Warsh under intense scrutiny regarding the central bank&#39;s independence.</li><li>Market participants are closely watching the upcoming Jackson Hole symposium for signs of coordination, as current Treasury actions fall below the historical threshold for Fed intervention, creating uncertainty about future policy alignment.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">CNBC</span></td>
+          <td class="rating">
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">4 min</span>
+            <span class="reason">Institutional tension between Treasury and Fed policy.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </section>
+  
+  <section class="desk reveal" id="china"
+           style="--cat: #be123c">
+    <h2>China Economy</h2>
+    
+    <table class="news">
+      <thead>
+        <tr><th>Headline</th><th>Summary</th><th>Source</th><th>Rating</th><th class="save-col"><span class="visually-hidden">Save</span></th></tr>
+      </thead>
+      <tbody>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMi3gFBVV95cUxQaXJwYjQ4Sl9YRm9rR3Vudnh6Sk9mbkFXR3M2cTNsd29FZzhoX0NnNkpXSnV2VmdVTm9EZjdzZk9vOXFaeWtGQ3djeHlTanFkeWRWZVVsWGlCb3BlSlpvRDRCcTY4VDRhQlBrY29YTWhlTTlQbDB4MUN4eFB4eS1qLUpmMDhtcUZUYlBRRHpmUUQ2UlFfQ1p1anpreDJkcm1Yam1UZWZnWk83Tl9tajFNVXdCMmxaWUVGZWJKbE5ndmxqTVNDNGdKR1N4N3NaWHFDREc5VkNIRTBlaEcySEHSAeMBQVVfeXFMT2dmb0VfNFM5SG1oX0ZiMnpSRE9pM0M2eG1XVkdGT2pmUDNtTDh3OVljTGV3aHhPLXBtWEhWaU51elRmSEJCc2dQZW5ialpkdEFEXzRSRlhIZmJFUXlaZW5XZXFoQ1FiR2E3OWNURVN0WTdYU2ZQX29EZkhOS2R2blUyTW1sUDFiQ1pyd0FHSUtSTXBfU2JkeUpHdHpRWlNDNHBHN2dNOGRQc3RPNE1YZDlSZHVYaDRmTldhSzF4N0FwUHRfUTdia043eVAwRkdJTW9TMnhIVnRhUHVfMzBEWUVSSWc?oc=5"
+            data-title="India outpaces China in GDP growth rate. Why it&#39;s a success but not a victory"
+            data-source="India Today"
+            data-category="China Economy"
+            data-rating="4"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxQaXJwYjQ4Sl9YRm9rR3Vudnh6Sk9mbkFXR3M2cTNsd29FZzhoX0NnNkpXSnV2VmdVTm9EZjdzZk9vOXFaeWtGQ3djeHlTanFkeWRWZVVsWGlCb3BlSlpvRDRCcTY4VDRhQlBrY29YTWhlTTlQbDB4MUN4eFB4eS1qLUpmMDhtcUZUYlBRRHpmUUQ2UlFfQ1p1anpreDJkcm1Yam1UZWZnWk83Tl9tajFNVXdCMmxaWUVGZWJKbE5ndmxqTVNDNGdKR1N4N3NaWHFDREc5VkNIRTBlaEcySEHSAeMBQVVfeXFMT2dmb0VfNFM5SG1oX0ZiMnpSRE9pM0M2eG1XVkdGT2pmUDNtTDh3OVljTGV3aHhPLXBtWEhWaU51elRmSEJCc2dQZW5ialpkdEFEXzRSRlhIZmJFUXlaZW5XZXFoQ1FiR2E3OWNURVN0WTdYU2ZQX29EZkhOS2R2blUyTW1sUDFiQ1pyd0FHSUtSTXBfU2JkeUpHdHpRWlNDNHBHN2dNOGRQc3RPNE1YZDlSZHVYaDRmTldhSzF4N0FwUHRfUTdia043eVAwRkdJTW9TMnhIVnRhUHVfMzBEWUVSSWc?oc=5" target="_blank" rel="noopener">India outpaces China in GDP growth rate. Why it&#39;s a success but not a victory</a>
+            <div class="pub">2026-08-20 05:58 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>India&#39;s GDP growth reached an estimated 7.7% in FY 2025-26, significantly outperforming China&#39;s growth rate of approximately 5% as the latter&#39;s economic engine continues to decelerate.</li><li>The shift represents a multi-year trend rather than a temporary anomaly, with India consistently outpacing China since 2015 and establishing a new trajectory for the 2020-2030 decade.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">India Today</span></td>
+          <td class="rating">
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">10 min</span>
+            <span class="reason">Structural shift in Asian economic leadership</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </section>
+  
+  <section class="desk reveal" id="hk"
+           style="--cat: #1d4ed8">
+    <h2>Hong Kong Economy</h2>
+    
+    <table class="news">
+      <thead>
+        <tr><th>Headline</th><th>Summary</th><th>Source</th><th>Rating</th><th class="save-col"><span class="visually-hidden">Save</span></th></tr>
+      </thead>
+      <tbody>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMihwFBVV95cUxQamplSVNibHpZSEFPSmFPRFpoVEpYWUI5TlJwYmYtUFRnbm83elNVcTBhTEg1a0p0WVktNmZya2tTMkhDbFlmeUk1ZU5xMFRvY2pFRkoyY21oU0owOUNSYVJPdm92ak5MZThtNTlVSHpFMnBuVE5NRUUxQXVXNkF3a1RuNlZsWXc?oc=5"
+            data-title="Chinese court sentences founder of property developer Evergrande to life in prison"
+            data-source="NPR"
+            data-category="Hong Kong Economy"
+            data-rating="5"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxQamplSVNibHpZSEFPSmFPRFpoVEpYWUI5TlJwYmYtUFRnbm83elNVcTBhTEg1a0p0WVktNmZya2tTMkhDbFlmeUk1ZU5xMFRvY2pFRkoyY21oU0owOUNSYVJPdm92ak5MZThtNTlVSHpFMnBuVE5NRUUxQXVXNkF3a1RuNlZsWXc?oc=5" target="_blank" rel="noopener">Chinese court sentences founder of property developer Evergrande to life in prison</a>
+            <div class="pub">2026-08-20 07:31 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>The Shenzhen Intermediate People&#39;s Court sentenced Hui Ka Yan to life in prison and imposed fines totaling $2.3 billion on Evergrande and its real estate subsidiary for large-scale financial fraud and asset misappropriation.</li><li>The ruling marks a definitive end to the saga of the world&#39;s most indebted developer, which collapsed under $300 billion in liabilities, triggering a multi-year property market downturn that continues to weigh on China&#39;s broader economy.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">NPR</span></td>
+          <td class="rating">
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Major systemic closure for the Chinese property crisis</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNMTBCYVNoeFcyUGlMUXh2N3B5R1BkS01fOFRwenR1YjdmU3AydldGV1pVTnl1UVNvaG9lYkxzanBFWXFKb2JBeUZoQm1Da1hOaDR6aUFGOUNMSnFQc0ZDUkVfUlNQUEJKZHB0WHJsc2kzNjFMVEt2UklXMnE0SzhXMlZpSGFKOGtlMDlJUk55MlZKdGljdF9PemxYTE4yUzBwQS1XSVZROFHSAagBQVVfeXFMUHY4Y2loQzV6ZEpIQmoxa3Ftb0dsWUNYTU16N3Y5RTdtY0p6S255UHQ3Y1BBdGFjQ1JUcXhBZjliMm0yMUhlMEFhaFJMVU9OUHJIaWpCTjZJQ1NTMXBhZEtIdHhnYWhjcF9JUGNBWkktSFM5cWpaQjhLdVUtbGdFUkpXUVgxTkVvMmZzVkY5aWJhQlp4UTRNNHVNam9KbFEzZHRWcnI1T1gw?oc=5"
+            data-title="Henderson Land posts 66% profit surge after run of strong sales"
+            data-source="South China Morning Post"
+            data-category="Hong Kong Economy"
+            data-rating="4"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNMTBCYVNoeFcyUGlMUXh2N3B5R1BkS01fOFRwenR1YjdmU3AydldGV1pVTnl1UVNvaG9lYkxzanBFWXFKb2JBeUZoQm1Da1hOaDR6aUFGOUNMSnFQc0ZDUkVfUlNQUEJKZHB0WHJsc2kzNjFMVEt2UklXMnE0SzhXMlZpSGFKOGtlMDlJUk55MlZKdGljdF9PemxYTE4yUzBwQS1XSVZROFHSAagBQVVfeXFMUHY4Y2loQzV6ZEpIQmoxa3Ftb0dsWUNYTU16N3Y5RTdtY0p6S255UHQ3Y1BBdGFjQ1JUcXhBZjliMm0yMUhlMEFhaFJMVU9OUHJIaWpCTjZJQ1NTMXBhZEtIdHhnYWhjcF9JUGNBWkktSFM5cWpaQjhLdVUtbGdFUkpXUVgxTkVvMmZzVkY5aWJhQlp4UTRNNHVNam9KbFEzZHRWcnI1T1gw?oc=5" target="_blank" rel="noopener">Henderson Land posts 66% profit surge after run of strong sales</a>
+            <div class="pub">2026-08-20 11:59 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Henderson Land reported a 66% surge in underlying profit to HK$5.07 billion for the first half of 2026, driven by a 188% increase in attributable contracted sales totaling HK$18.11 billion.</li><li>The developer plans to launch eight new residential projects in the second half of the year, signaling resilience in the local property market despite broader economic headwinds and government land resumption policies.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">South China Morning Post</span></td>
+          <td class="rating">
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Strong corporate performance in a challenging property sector</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </section>
+  
+  <section class="desk reveal" id="tech"
+           style="--cat: #7c3aed">
+    <h2>Global Technology</h2>
+    
+    <table class="news">
+      <thead>
+        <tr><th>Headline</th><th>Summary</th><th>Source</th><th>Rating</th><th class="save-col"><span class="visually-hidden">Save</span></th></tr>
+      </thead>
+      <tbody>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMimwJBVV95cUxPVnhiVVhPVlNPcVpRd292SUU3WDN4Z3cwWjVHRzIyUUYwbDVmZVhUVTVvallUSjJ3empNc293d2F0bFVlOWJMcW01TGs4emR6UVVabHpmYWFOZmJHWWpWNmxfQ2tvbFR4RXdUeThxdkZrMWpfTFFFLUt4dDYwYWtuZU5PaVhSaGM1aGdpU1JpNm5JTncwMV9sa0tDQk1uX0tkLVk3Um93eHV1ZjhrNVM0eFhtaDZZSHJVQ1VfeDFBZnJyalh5QzlCVHd1Q29FVmtvdXpDRFR0djNvTW5rblU3UEt0YVVCU3BBNXBrdGtGZVN4NHVKSk8waUNiclhBRHNhV05LNVZ1MVYyT09xMUR0ZXpMOVhRN1ZkdTJn?oc=5"
+            data-title="Big Tech Is on Pace to Spend $735 Billion on AI Data Centers in 2026. These 3 Industrial Stocks Collect the Checks."
+            data-source="The Globe and Mail"
+            data-category="Global Technology"
+            data-rating="5"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMimwJBVV95cUxPVnhiVVhPVlNPcVpRd292SUU3WDN4Z3cwWjVHRzIyUUYwbDVmZVhUVTVvallUSjJ3empNc293d2F0bFVlOWJMcW01TGs4emR6UVVabHpmYWFOZmJHWWpWNmxfQ2tvbFR4RXdUeThxdkZrMWpfTFFFLUt4dDYwYWtuZU5PaVhSaGM1aGdpU1JpNm5JTncwMV9sa0tDQk1uX0tkLVk3Um93eHV1ZjhrNVM0eFhtaDZZSHJVQ1VfeDFBZnJyalh5QzlCVHd1Q29FVmtvdXpDRFR0djNvTW5rblU3UEt0YVVCU3BBNXBrdGtGZVN4NHVKSk8waUNiclhBRHNhV05LNVZ1MVYyT09xMUR0ZXpMOVhRN1ZkdTJn?oc=5" target="_blank" rel="noopener">Big Tech Is on Pace to Spend $735 Billion on AI Data Centers in 2026. These 3 Industrial Stocks Collect the Checks.</a>
+            <div class="pub">2026-08-20 01:47 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Major tech firms including Amazon, Microsoft, Alphabet, and Meta are projected to reach a combined $735 billion in AI-related capital expenditures by 2026, signaling sustained demand for infrastructure.</li><li>Industrial players like Caterpillar are capturing significant revenue from this build-out, with the company&#39;s Power &amp; Energy segment reporting a 17% year-over-year revenue increase to $8.2 billion due to data center power requirements.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">The Globe and Mail</span></td>
+          <td class="rating">
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">5 min</span>
+            <span class="reason">Highlights massive capital allocation shifts and identifies secondary beneficiaries in the AI supply chain.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMimAFBVV95cUxNVE9DSFJfd094NHpnTUxXaC05ZS1SOXRYNXh5MFZLd1dtTjZBTGF4cER1WGhTb1JjWkZZOWVJWmpzTHljdF9uNFdaZTFQSTBxSVZ5ZUtJVjdtaUFmTC12Tm5zRlZPZ19YWWxfSlBGYW4zMWl4Zk9pQkxyWnZVRFpKS3NWRVdkMjhhOTM1LUVnaVVzbGl4Z29xdg?oc=5"
+            data-title="CPI | Australia Targets Big Tech With New Levy to Fund Local News"
+            data-source="PYMNTS.com"
+            data-category="Global Technology"
+            data-rating="4"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxNVE9DSFJfd094NHpnTUxXaC05ZS1SOXRYNXh5MFZLd1dtTjZBTGF4cER1WGhTb1JjWkZZOWVJWmpzTHljdF9uNFdaZTFQSTBxSVZ5ZUtJVjdtaUFmTC12Tm5zRlZPZ19YWWxfSlBGYW4zMWl4Zk9pQkxyWnZVRFpKS3NWRVdkMjhhOTM1LUVnaVVzbGl4Z29xdg?oc=5" target="_blank" rel="noopener">CPI | Australia Targets Big Tech With New Levy to Fund Local News</a>
+            <div class="pub">2026-08-20 18:06 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Australia has enacted a 2.5% levy on local advertising revenue for major platforms like Meta, Google, TikTok, and LinkedIn unless they secure commercial agreements with domestic news publishers.</li><li>The legislation includes a tiered offset system, offering 150% to 200% credits against levy liabilities for payments made to news organizations, effectively forcing tech giants to subsidize local media to avoid direct taxation.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">PYMNTS.com</span></td>
+          <td class="rating">
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">3 min</span>
+            <span class="reason">Represents a significant regulatory precedent that could impact global profit margins and set a template for other jurisdictions.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </section>
+  
+  <section class="desk reveal" id="ai"
+           style="--cat: #c026d3">
+    <h2>Artificial Intelligence</h2>
+    
+    <table class="news">
+      <thead>
+        <tr><th>Headline</th><th>Summary</th><th>Source</th><th>Rating</th><th class="save-col"><span class="visually-hidden">Save</span></th></tr>
+      </thead>
+      <tbody>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMiyAFBVV95cUxNWnI5Y0VrWDl0cjYtTlRNYWlMLXpTOFN0enl2TldXSW15bjB2bng4N2tTb0hpVjFvTmMwbXpyZVcxTHdveWVCd2VPNnRBOVRORXdPY2N1NERrM2s2SmxnY1RkRXJyX0dzd09CS3VyQmh3b2ZEaFpxZmNQWGUtanQ4R19JY3pXS2tsdjR5aUMzMEF3d3NLUG1BdC0zZWduMVRZQ0ZhS0h1LXpLM0hvV19MYWY3X3J4VTR5Y25SRUllOGNrSEFrSEtUaQ?oc=5"
+            data-title="Brazil launches AI supercomputer push, splits projects between Chinese, US firms"
+            data-source="Reuters"
+            data-category="Artificial Intelligence"
+            data-rating="4"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxNWnI5Y0VrWDl0cjYtTlRNYWlMLXpTOFN0enl2TldXSW15bjB2bng4N2tTb0hpVjFvTmMwbXpyZVcxTHdveWVCd2VPNnRBOVRORXdPY2N1NERrM2s2SmxnY1RkRXJyX0dzd09CS3VyQmh3b2ZEaFpxZmNQWGUtanQ4R19JY3pXS2tsdjR5aUMzMEF3d3NLUG1BdC0zZWduMVRZQ0ZhS0h1LXpLM0hvV19MYWY3X3J4VTR5Y25SRUllOGNrSEFrSEtUaQ?oc=5" target="_blank" rel="noopener">Brazil launches AI supercomputer push, splits projects between Chinese, US firms</a>
+            <div class="pub">2026-08-20 21:17 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Brazil is diversifying its sovereign AI infrastructure by splitting supercomputing contracts between Chinese and US technology providers, signaling a strategic hedge against geopolitical supply chain risks.</li><li>This dual-sourcing approach highlights the growing importance of national AI sovereignty and suggests that emerging markets are increasingly prioritizing technological neutrality to avoid over-reliance on a single superpower&#39;s ecosystem.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">Reuters</span></td>
+          <td class="rating">
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Geopolitical implications for global tech supply chains.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMimAFBVV95cUxPd05QUjZqYlBPWTk0bVJHYl8wcF9zQURmbmY0SHBEZC0tb1FjVExqUlB3RHhDQTNXMS1xc3ZRSXh4bHhDNmY0N0lOWEJuSXE4T19ISUg3YnFlYmtXc2hjb003UERVVTFORXE5WXdDbS1pZEJNMmdyN3pkdVJJd2hCNjBlMU1xX1VnVGV3T0hoaWVSS2U1a3Z1Uw?oc=5"
+            data-title="Billionaire Stanley Druckenmiller Sold Broadcom and Bought the Same Artificial Intelligence (AI) Stock Berkshire Piled $17 Billion Into"
+            data-source="The Motley Fool"
+            data-category="Artificial Intelligence"
+            data-rating="4"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPd05QUjZqYlBPWTk0bVJHYl8wcF9zQURmbmY0SHBEZC0tb1FjVExqUlB3RHhDQTNXMS1xc3ZRSXh4bHhDNmY0N0lOWEJuSXE4T19ISUg3YnFlYmtXc2hjb003UERVVTFORXE5WXdDbS1pZEJNMmdyN3pkdVJJd2hCNjBlMU1xX1VnVGV3T0hoaWVSS2U1a3Z1Uw?oc=5" target="_blank" rel="noopener">Billionaire Stanley Druckenmiller Sold Broadcom and Bought the Same Artificial Intelligence (AI) Stock Berkshire Piled $17 Billion Into</a>
+            <div class="pub">2026-08-20 20:27 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Stanley Druckenmiller’s recent portfolio rotation out of Broadcom into a major AI-focused equity mirrors a massive $17 billion position held by Berkshire Hathaway, signaling significant institutional conviction in specific AI infrastructure plays.</li><li>Investors should monitor this alignment as it suggests a shift in capital allocation toward companies with deep moats in the AI hardware and data center space, potentially indicating a broader market consensus on long-term winners.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">The Motley Fool</span></td>
+          <td class="rating">
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Significant institutional capital movement in AI sector.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </section>
+  
+  <section class="desk reveal" id="semis"
+           style="--cat: #0e7490">
+    <h2>Semiconductors</h2>
+    
+    <table class="news">
+      <thead>
+        <tr><th>Headline</th><th>Summary</th><th>Source</th><th>Rating</th><th class="save-col"><span class="visually-hidden">Save</span></th></tr>
+      </thead>
+      <tbody>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMinAFBVV95cUxNYnpDM2dfcFR0R0tkeENISmRybHN2T05GTHVUZnJjZmY3X1hVXzRSOTg5QmVETEF4QUVacU0yUWpBU0ZBNklsbjA2ZXZ0cVA2ekh5TkZsczZZcnAxcFVCWGFHYm13Qk9WdzlyVllXX25IMjktRndTMjB3d2g0V3A4RF9STmNRWTFxamVfWElvdldCdXFjTW5fT2pWdFk?oc=5"
+            data-title="Tencent Holdings (SEHK:700) Can Access Advanced AI Chips In China"
+            data-source="Yahoo Finance"
+            data-category="Semiconductors"
+            data-rating="4"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNYnpDM2dfcFR0R0tkeENISmRybHN2T05GTHVUZnJjZmY3X1hVXzRSOTg5QmVETEF4QUVacU0yUWpBU0ZBNklsbjA2ZXZ0cVA2ekh5TkZsczZZcnAxcFVCWGFHYm13Qk9WdzlyVllXX25IMjktRndTMjB3d2g0V3A4RF9STmNRWTFxamVfWElvdldCdXFjTW5fT2pWdFk?oc=5" target="_blank" rel="noopener">Tencent Holdings (SEHK:700) Can Access Advanced AI Chips In China</a>
+            <div class="pub">2026-08-20 22:09 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Tencent has begun receiving shipments of Nvidia H200 AI chips, marking a critical development in how Chinese tech giants navigate restrictive export controls to maintain AI infrastructure growth.</li><li>The integration of these advanced processors into Tencent&#39;s cloud and consumer platforms suggests a strategic easing of supply constraints that could improve the company&#39;s long-term AI cost efficiency and competitive positioning.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">Yahoo Finance</span></td>
+          <td class="rating">
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">3 min</span>
+            <span class="reason">Significant development in China&#39;s access to high-end AI hardware.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMipAFBVV95cUxOdThJVDZkazBPdmdrN2NlVW5QS05YNTNBbWN0NGNFVURCVWlPeU13eldKY2JSZ25HMzVGbGd4c1VMaHBoOUxQaEdFYXF0eHIwQlBENnM5dXFBTmE1eGhnNGdDcDVkX1BoWVFyc180RDY5d1ZNTVlOODE3T2lTeVN3MEVrNjRNbkc4QlFyUlRTYWJTLVl0dHRXWjVmWjdsSVIxNlU3aA?oc=5"
+            data-title="TSMC vs. GlobalFoundries: Which Foundry Stock Is the Better Buy?"
+            data-source="Yahoo Finance"
+            data-category="Semiconductors"
+            data-rating="4"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxOdThJVDZkazBPdmdrN2NlVW5QS05YNTNBbWN0NGNFVURCVWlPeU13eldKY2JSZ25HMzVGbGd4c1VMaHBoOUxQaEdFYXF0eHIwQlBENnM5dXFBTmE1eGhnNGdDcDVkX1BoWVFyc180RDY5d1ZNTVlOODE3T2lTeVN3MEVrNjRNbkc4QlFyUlRTYWJTLVl0dHRXWjVmWjdsSVIxNlU3aA?oc=5" target="_blank" rel="noopener">TSMC vs. GlobalFoundries: Which Foundry Stock Is the Better Buy?</a>
+            <div class="pub">2026-08-20 12:35 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>TSMC reported a 44.7% year-over-year revenue increase in July, driven by robust demand for leading-edge silicon and a multi-year AI opportunity that continues to outpace broader foundry market growth.</li><li>While TSMC&#39;s 2-nanometer ramp-up is critical for future competitiveness, the company anticipates a 3-4 percentage point dilution in gross margins during the second half of 2026 due to high-volume manufacturing costs.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">Yahoo Finance</span></td>
+          <td class="rating">
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">6 min</span>
+            <span class="reason">Provides essential financial performance data and margin outlook for the industry leader.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </section>
+  
+  <section class="desk reveal" id="ev"
+           style="--cat: #65a30d">
+    <h2>Electric Vehicles</h2>
+    
+    <table class="news">
+      <thead>
+        <tr><th>Headline</th><th>Summary</th><th>Source</th><th>Rating</th><th class="save-col"><span class="visually-hidden">Save</span></th></tr>
+      </thead>
+      <tbody>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMimAFBVV95cUxOaHFCNGtVRFFvWTdmV3ZrY3hGeHNMUTNENmdjSVlFRlFUcGFwSllTYm1LVWVvS3hJMC1hVjU4cHVsSWNxWlBOVVE1azAzRmtJNUJETDlhRWNuZlA5czdDTzFfdXlOOFA5OG1fVENEYUdxS2o4WjBFeXVsOWRzeDN5Z3doM3ozQTBQa0JERnYzOW9JRVNLamRuNdIBngFBVV95cUxOSFl1a1NZTDV3clRFMk5ZSGdxQlp5TE5UVzMwRWJfVEJ4LXMwQ18xNkJSQXlQelA4RnJzb1JsekF4eXJUdVhGektpVmVYMGZzanNMZUM4SXJKSGp4MTdqejJ0TEVyekJPTEVzd3FZSUMtQ1JIbF9Ma1F4VW1mVlhSTmpYY2JLN0cxVUVGSlg2X0JRX3RQVmhla1pkaTJSUQ?oc=5"
+            data-title="Hormuz Oil Crisis Accelerates Global EV Sales - Crude Oil Prices Today | OilPrice.com"
+            data-source="Crude Oil Prices Today | OilPrice.com"
+            data-category="Electric Vehicles"
+            data-rating="5"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxOaHFCNGtVRFFvWTdmV3ZrY3hGeHNMUTNENmdjSVlFRlFUcGFwSllTYm1LVWVvS3hJMC1hVjU4cHVsSWNxWlBOVVE1azAzRmtJNUJETDlhRWNuZlA5czdDTzFfdXlOOFA5OG1fVENEYUdxS2o4WjBFeXVsOWRzeDN5Z3doM3ozQTBQa0JERnYzOW9JRVNLamRuNdIBngFBVV95cUxOSFl1a1NZTDV3clRFMk5ZSGdxQlp5TE5UVzMwRWJfVEJ4LXMwQ18xNkJSQXlQelA4RnJzb1JsekF4eXJUdVhGektpVmVYMGZzanNMZUM4SXJKSGp4MTdqejJ0TEVyekJPTEVzd3FZSUMtQ1JIbF9Ma1F4VW1mVlhSTmpYY2JLN0cxVUVGSlg2X0JRX3RQVmhla1pkaTJSUQ?oc=5" target="_blank" rel="noopener">Hormuz Oil Crisis Accelerates Global EV Sales - Crude Oil Prices Today | OilPrice.com</a>
+            <div class="pub">2026-08-20 22:00 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Wood Mackenzie analysts have revised their base-case forecast, projecting global EV market share to reach 25% by 2040, with a potential &#39;electric shock&#39; scenario pushing that figure significantly higher if oil supply disruptions persist.</li><li>The shift away from internal combustion engines is expected to reduce global oil demand by 5 million barrels per day by 2040, potentially forcing the early closure of approximately 40 oil refineries worldwide.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">Crude Oil Prices Today | OilPrice.com</span></td>
+          <td class="rating">
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">5 min</span>
+            <span class="reason">Macroeconomic shift in energy demand and long-term structural risk to oil markets.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSUxPQUdDX1lIdVgxMTctTmJETkpEVlpyM3Z2WW0xX2xrN2xKNmtiVVdlVDd5RHFnQklDT2VTUE9hQW9JTkgtaGs4MFBMRlRsYm16eWN3Tl9HN2kzaThOUTl4S3pGdERUOVc5cmRILVRuMG1MeFkyWTRNUGtfVllBWXl0bWlmYWU3QlZhWkJENmE5Tm8zbkV6ekVDOG9iaF9sa3RHSU9OQzlsREk?oc=5"
+            data-title="ICCT report: China pulls ahead in battery-electric truck and bus sales - electrive.com"
+            data-source="electrive.com"
+            data-category="Electric Vehicles"
+            data-rating="4"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxQSUxPQUdDX1lIdVgxMTctTmJETkpEVlpyM3Z2WW0xX2xrN2xKNmtiVVdlVDd5RHFnQklDT2VTUE9hQW9JTkgtaGs4MFBMRlRsYm16eWN3Tl9HN2kzaThOUTl4S3pGdERUOVc5cmRILVRuMG1MeFkyWTRNUGtfVllBWXl0bWlmYWU3QlZhWkJENmE5Tm8zbkV6ekVDOG9iaF9sa3RHSU9OQzlsREk?oc=5" target="_blank" rel="noopener">ICCT report: China pulls ahead in battery-electric truck and bus sales - electrive.com</a>
+            <div class="pub">2026-08-20 13:00 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Global sales of zero-emission medium- and heavy-duty vehicles surged 86% year-on-year in 2025, reaching 520,000 units and capturing a 14% global market share in the commercial sector.</li><li>China maintains a dominant 88% share of the global zero-emission commercial vehicle market, though its relative lead is beginning to narrow as adoption accelerates in the U.S., EU, and India.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">electrive.com</span></td>
+          <td class="rating">
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">6 min</span>
+            <span class="reason">Significant growth in commercial EV adoption and shifting global market leadership.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </section>
+  
+  <section class="desk reveal" id="data-center"
+           style="--cat: #b45309">
+    <h2>Data Centers</h2>
+    
+    <table class="news">
+      <thead>
+        <tr><th>Headline</th><th>Summary</th><th>Source</th><th>Rating</th><th class="save-col"><span class="visually-hidden">Save</span></th></tr>
+      </thead>
+      <tbody>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMihgNBVV95cUxON040S0dsMHF6VkhCMjVGOC1YTHJmLWRrWFVxSDJWcW0telBmTzAwLUc5Y2liRjVRZlJqTkNEOEQyVC1pVEZCOThyUm1hSDZBYkpmemxkVUM4cWJnX0RhaFQtTFctcjd3ZEVTUmNLSVFKb0gxNTljZ3VhZEFzNGZaTnlPY2cwM2lrQXZ3VFJvaGVtUElNTV9sb3A1TnlQMUpONFZ4cXB0bGpTREtRczRpa25uZU4zNW5RVUg0VlNTY0w4cTV6RGhUZ2hpYlU3TXA3Y0xfLXAyRGhEVTZQYXRYQjcxOW9rMnpEQU0yc1hKbW5KeWlVSnh2UWlVTFd5UF9FR2pmNmdrSy1BUWQxRTJ4VXpDc0NHWERHN0ptZ2U4RHR1SlJYT256LVQ0bk82cWVpaHhtWENBdVV3Uk90QWZnOFp0bkw4MzNOWGF5Q1p3aGFNZ1JUT1lTTHRVOEpRckp3WEtDRjdzZHlVSHgwZ3VhV18zdWNMNUt2cU9QM0RWbG5TS2tpTXc?oc=5"
+            data-title="Michigan township combats nuclear weapons data center by passing ban on new electrical infrastructure"
+            data-source="Tom&#39;s Hardware"
+            data-category="Data Centers"
+            data-rating="4"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMihgNBVV95cUxON040S0dsMHF6VkhCMjVGOC1YTHJmLWRrWFVxSDJWcW0telBmTzAwLUc5Y2liRjVRZlJqTkNEOEQyVC1pVEZCOThyUm1hSDZBYkpmemxkVUM4cWJnX0RhaFQtTFctcjd3ZEVTUmNLSVFKb0gxNTljZ3VhZEFzNGZaTnlPY2cwM2lrQXZ3VFJvaGVtUElNTV9sb3A1TnlQMUpONFZ4cXB0bGpTREtRczRpa25uZU4zNW5RVUg0VlNTY0w4cTV6RGhUZ2hpYlU3TXA3Y0xfLXAyRGhEVTZQYXRYQjcxOW9rMnpEQU0yc1hKbW5KeWlVSnh2UWlVTFd5UF9FR2pmNmdrSy1BUWQxRTJ4VXpDc0NHWERHN0ptZ2U4RHR1SlJYT256LVQ0bk82cWVpaHhtWENBdVV3Uk90QWZnOFp0bkw4MzNOWGF5Q1p3aGFNZ1JUT1lTTHRVOEpRckp3WEtDRjdzZHlVSHgwZ3VhV18zdWNMNUt2cU9QM0RWbG5TS2tpTXc?oc=5" target="_blank" rel="noopener">Michigan township combats nuclear weapons data center by passing ban on new electrical infrastructure</a>
+            <div class="pub">2026-08-20 15:37 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Ypsilanti Township has implemented a six-month ban on new electrical infrastructure to stall a $1.25 billion, 220,000-square-foot hyperscale data center project backed by the University of Michigan and Los Alamos National Laboratory.</li><li>This regulatory maneuver highlights a growing trend of local municipalities using infrastructure permitting as a bottleneck to force concessions or delays on high-energy-demand AI computing facilities, creating significant project execution risk for developers.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">Tom&#39;s Hardware</span></td>
+          <td class="rating">
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">3 min</span>
+            <span class="reason">Signals a shift in local regulatory tactics that could delay large-scale AI infrastructure projects.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMisgFBVV95cUxORUo3WG1zaWgwZDNvbV9GRkpUV1hKRGNTeTlyU0JnTGNQMno5Y3JfQ1NoRUxNUXVxOWFISEUzLWxucXMtY3k0MjJSZThjUjQtSDFuOFpDZXE4NFBqLW9kVDRUdUtkUWtvU2o2Q28tSlZweThtMFA0XzJ3bGtvcDNFaUxmWFdkb2trdTNwVG1UUWtOSnpQU3JSRG9xbHVDbVprdGVrUFEyTnZwZ3pVOThwcklR?oc=5"
+            data-title="After data center investments revealed, Rogers backs statewide moratorium"
+            data-source="Michigan Advance"
+            data-category="Data Centers"
+            data-rating="5"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxORUo3WG1zaWgwZDNvbV9GRkpUV1hKRGNTeTlyU0JnTGNQMno5Y3JfQ1NoRUxNUXVxOWFISEUzLWxucXMtY3k0MjJSZThjUjQtSDFuOFpDZXE4NFBqLW9kVDRUdUtkUWtvU2o2Q28tSlZweThtMFA0XzJ3bGtvcDNFaUxmWFdkb2trdTNwVG1UUWtOSnpQU3JSRG9xbHVDbVprdGVrUFEyTnZwZ3pVOThwcklR?oc=5" target="_blank" rel="noopener">After data center investments revealed, Rogers backs statewide moratorium</a>
+            <div class="pub">2026-08-20 22:19 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Republican Senate candidate Mike Rogers has reversed his position to support a statewide moratorium on data center construction following public scrutiny of his personal financial holdings in AI-related tech and Blackstone Real Estate Income Trust.</li><li>The political pivot underscores how data center development is becoming a contentious national election issue, threatening to disrupt the legislative environment for developers and investors who rely on streamlined permitting and tax incentives.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">Michigan Advance</span></td>
+          <td class="rating">
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">10 min</span>
+            <span class="reason">Demonstrates the increasing political risk and public backlash facing the data center sector during election cycles.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </section>
+  
+  <section class="desk reveal" id="space"
+           style="--cat: #581c87">
+    <h2>Space &amp; Aerospace</h2>
+    
+    <table class="news">
+      <thead>
+        <tr><th>Headline</th><th>Summary</th><th>Source</th><th>Rating</th><th class="save-col"><span class="visually-hidden">Save</span></th></tr>
+      </thead>
+      <tbody>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMic0FVX3lxTE9lZ01YYl9DR2w5QTBFaGdWXy1NaUJKQURJdHlPVlloQy1CZDN0Qm9IcVlmV3lrcXl0T2xfODRqaWV3bHV0RVhjVEhpcWZMRHNxelhkSlNHb3FlQ1RPZTAyYVk3aUdTRE1uUUZmSXZUMklHMzQ?oc=5"
+            data-title="Rocket Lab launches 9th satellite for iQPS"
+            data-source="SpaceNews"
+            data-category="Space &amp; Aerospace"
+            data-rating="4"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE9lZ01YYl9DR2w5QTBFaGdWXy1NaUJKQURJdHlPVlloQy1CZDN0Qm9IcVlmV3lrcXl0T2xfODRqaWV3bHV0RVhjVEhpcWZMRHNxelhkSlNHb3FlQ1RPZTAyYVk3aUdTRE1uUUZmSXZUMklHMzQ?oc=5" target="_blank" rel="noopener">Rocket Lab launches 9th satellite for iQPS</a>
+            <div class="pub">2026-08-20 16:38 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Rocket Lab successfully deployed its ninth satellite for iQPS, reinforcing its dominant position in the small launch market as it tracks toward exceeding its annual record of 21 missions.</li><li>CFO Adam Spice noted that average selling prices for Electron launches have risen significantly over time, while the company leverages this flight heritage to secure early bookings for its upcoming Neutron rocket.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">SpaceNews</span></td>
+          <td class="rating">
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Demonstrates strong operational momentum and pricing power in the small-launch sector.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+        <tr class="news-item"
+            data-url="https://news.google.com/rss/articles/CBMikgFBVV95cUxPdFgtMWpra093cHlMVVBnZ2FIOHhBeVpMeVd3X0tpT0VSMkViR3h1ajF5ZVFmcTlCczgzT3VfTGRoZUprTm0wUDFmS2JYWFBUanNLVXp2dGFDbktaeDN4YVBPUE92bWNZREtUdnFYbWVPRmVyd3Y3Q2ZScnBDaWZJZE9NeHJzbENNbFlIY3NyWnR4dw?oc=5"
+            data-title="Portal Books Dedicated Falcon 9 Amid Constrained Launch Market"
+            data-source="Payload Space"
+            data-category="Space &amp; Aerospace"
+            data-rating="4"
+            data-date="2026-08-21">
+          <td class="headline">
+            <span class="new-badge">NEW</span>
+            <a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxPdFgtMWpra093cHlMVVBnZ2FIOHhBeVpMeVd3X0tpT0VSMkViR3h1ajF5ZVFmcTlCczgzT3VfTGRoZUprTm0wUDFmS2JYWFBUanNLVXp2dGFDbktaeDN4YVBPUE92bWNZREtUdnFYbWVPRmVyd3Y3Q2ZScnBDaWZJZE9NeHJzbENNbFlIY3NyWnR4dw?oc=5" target="_blank" rel="noopener">Portal Books Dedicated Falcon 9 Amid Constrained Launch Market</a>
+            <div class="pub">2026-08-20 13:04 UTC</div>
+          </td>
+          <td class="summary">
+            <ul>
+              <li>Portal Space Systems has purchased an entire Falcon 9 rocket for a 2028 mission, highlighting the increasing scarcity of launch capacity as SpaceX reportedly limits new reservations for its dedicated rideshare program.</li><li>The company plans to act as a launch aggregator by selling excess fairing capacity to secondary payloads, a strategic move to secure its own orbital access while mitigating costs in a tightening market.</li>
+            </ul>
+          </td>
+          <td class="source"><span class="chip">Payload Space</span></td>
+          <td class="rating">
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Highlights critical supply-chain constraints in the launch market and emerging business models for orbital access.</span>
+          </td>
+          <td class="save-cell">
+            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </section>
+  
+
+  <footer class="colophon">
+    Daily Market Brief — generated automatically from public news feeds and market data. For information only; not investment advice.
+  </footer>
+</div>
+
+
+<script>
+(function () {
+  var base = "..";
+  // Reveal-on-scroll uses this to avoid hiding content when JS is unavailable.
+  document.documentElement.classList.add("js");
+
+  // ---------- Dark mode toggle (persisted in localStorage) ----------
+  var THEME_KEY = "dmb_theme";
+  function applyTheme(dark) {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+  }
+  function initTheme() {
+    var stored = null;
+    try { stored = localStorage.getItem(THEME_KEY); } catch (e) {}
+    // Respect the stored choice; default to the system preference.
+    var dark = stored === "dark" || (stored === null && window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches);
+    applyTheme(dark);
+    var btn = document.getElementById("theme-toggle");
+    if (btn) btn.setAttribute("aria-pressed", dark ? "true" : "false");
+  }
+  initTheme();   // apply before paint (no flash)
+  var themeBtn = document.getElementById("theme-toggle");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var dark = document.documentElement.getAttribute("data-theme") !== "dark";
+      applyTheme(dark);
+      try { localStorage.setItem(THEME_KEY, dark ? "dark" : "light"); } catch (e) {}
+      themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
+    });
+  }
+
+  // Cache-buster: every generated page embeds its own generation timestamp,
+  // so the data files never serve stale from the CDN's 10-minute cache.
+  var dataTS = encodeURIComponent("2026-08-21 06:43 HKT");
+  // Dashboard pages set current_date_js to the page date; the archive page
+  // leaves it null (no per-day read tracking there).
+  var currentDate = "2026-08-21";
+
+  // Write-through hooks for Firebase cloud sync. No-ops until the Firebase
+  // layer (bottom of this script) replaces them after sign-in.
+  var syncPush = { saved: function () {}, read: function () {} };
+  function onLocalMutation(kind) {
+    try { if (syncPush[kind]) syncPush[kind](); } catch (e) {
+      console.warn("Sync push failed:", e);
+    }
+  }
+
+  // ---------- Read status traffic lights (localStorage) ----------
+  // dmb_read: { "YYYY-MM-DD": { v: [viewed category ids], t: total categories } }
+  var READ_KEY = "dmb_read";
+  var READ_TITLES = { red: "Unread", yellow: "Partially read", green: "Read" };
+
+  function loadRead() {
+    try {
+      var m = JSON.parse(localStorage.getItem(READ_KEY));
+      return (m && typeof m === "object") ? m : {};
+    } catch (e) { return {}; }
+  }
+  function storeRead(map) {
+    try { localStorage.setItem(READ_KEY, JSON.stringify(map)); } catch (e) {}
+    onLocalMutation("read");
+  }
+
+  // Reading covers only news category sections — indicators are optional.
+  var newsSections = Array.prototype.slice.call(
+    document.querySelectorAll("section.desk[id]:not(#indicators)"));
+  var newsTotal = newsSections.length;
+
+  function readStatusFor(date) {
+    var rec = loadRead()[date];
+    if (!rec || !rec.v || !rec.v.length) return "red";
+    if (rec.v.length >= (rec.t || rec.v.length)) return "green";
+    return "yellow";
+  }
+
+  function updateDots() {
+    document.querySelectorAll(".read-dot").forEach(function (dot) {
+      var st = readStatusFor(dot.getAttribute("data-dot-date"));
+      dot.className = "read-dot dot-" + st;
+      dot.title = READ_TITLES[st];
+    });
+  }
+
+  function makeDot(date) {
+    var st = readStatusFor(date);
+    var dot = document.createElement("span");
+    dot.className = "read-dot dot-" + st;
+    dot.setAttribute("data-dot-date", date);
+    dot.title = READ_TITLES[st];
+    return dot;
+  }
+
+  function markViewed(id) {
+    var map = loadRead();
+    var rec = map[currentDate] || { v: [], t: newsTotal };
+    rec.t = newsTotal;
+    if (rec.v.indexOf(id) === -1) {
+      rec.v.push(id);
+      map[currentDate] = rec;
+      storeRead(map);
+      updateDots();  // live red -> yellow -> green on this page
+    }
+  }
+
+  if ("IntersectionObserver" in window && newsTotal) {
+    var readObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          markViewed(en.target.id);
+          readObserver.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    newsSections.forEach(function (s) { readObserver.observe(s); });
+  }
+
+  // Build the sidebar date list from manifest.json so that every page —
+  // including older day pages — automatically shows newly added days.
+  fetch(base + "/manifest.json?v=" + dataTS)
+    .then(function (r) { return r.json(); })
+    .then(function (m) {
+      var nav = document.getElementById("date-nav");
+      nav.innerHTML = "";
+      (m.dates || []).forEach(function (d, idx) {
+        var a = document.createElement("a");
+        a.appendChild(makeDot(d));
+        a.appendChild(document.createTextNode(d));
+        a.href = idx === 0 ? base + "/index.html" : base + "/days/" + d + ".html";
+        if (d === currentDate) a.className = "active";
+        nav.appendChild(a);
+      });
+      updateDots();
+    })
+    .catch(function () {
+      document.getElementById("date-nav").innerHTML =
+        '<a href="' + base + '/index.html">Latest</a>';
+    });
+
+  // ---------- Live market session badge (approximate hours, HKT) ----------
+  // DST handled roughly: US & UK use summer hours Apr-Oct. Sessions:
+  // Tokyo 08:00-14:00, Hong Kong 09:30-16:00, London 15:00-23:30 (BST) /
+  // 16:00-00:30 (GMT), New York 21:30-04:00 (EDT) / 22:30-05:00 (EST).
+  var sessionEl = document.getElementById("session-badge");
+  if (sessionEl) {
+    var nowUtc = new Date();
+    var utcDay = nowUtc.getUTCDay();
+    var hktMin = ((nowUtc.getUTCHours() + 8) % 24) * 60
+      + nowUtc.getUTCMinutes();
+    var month = nowUtc.getUTCMonth() + 1;
+    var usSummer = month >= 4 && month <= 10;
+    var ukSummer = month >= 4 && month <= 10;
+    function openIn(s, e) {
+      if (s <= e) return hktMin >= s && hktMin <= e;
+      return hktMin >= s || hktMin <= e;
+    }
+    var open = [];
+    if (utcDay !== 0 && utcDay !== 6) {
+      if (openIn(8 * 60, 14 * 60)) open.push("Tokyo");
+      if (openIn(570, 16 * 60)) open.push("Hong Kong");
+      if (openIn((ukSummer ? 15 : 16) * 60, (ukSummer ? 23 : 0) * 60 + 30)) {
+        open.push("London");
+      }
+      if (openIn((usSummer ? 21 : 22) * 60 + 30,
+                 (usSummer ? 4 : 5) * 60)) {
+        open.push("New York");
+      }
+    }
+    sessionEl.textContent = open.length
+      ? open.join(" · ") + " open" : "Markets closed";
+  }
+
+  // ---------- Importance filter (daily pages) ----------
+  var filterBar = document.getElementById("importance-filter");
+  if (filterBar) {
+    var filterRows = Array.prototype.slice.call(
+      document.querySelectorAll("tr.news-item"));
+    var filterSections = document.querySelectorAll("section.desk");
+    function applyFilter(min) {
+      filterRows.forEach(function (tr) {
+        var r = parseInt(tr.getAttribute("data-rating"), 10) || 0;
+        tr.style.display = r >= min ? "" : "none";
+      });
+      Array.prototype.forEach.call(filterSections, function (sec) {
+        var anyVisible = Array.prototype.some.call(
+          sec.querySelectorAll("tr.news-item"),
+          function (tr) { return tr.style.display !== "none"; });
+        sec.style.display = anyVisible ? "" : "none";
+      });
+    }
+    filterBar.querySelectorAll(".filter-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        filterBar.querySelectorAll(".filter-btn").forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle("active", on);
+          b.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        applyFilter(parseInt(btn.getAttribute("data-min"), 10) || 0);
+      });
+    });
+  }
+
+  // ---------- Market Snapshot toggle (collapsed by default) ----------
+  var heroToggle = document.getElementById("hero-toggle");
+  if (heroToggle) {
+    heroToggle.addEventListener("click", function () {
+      var hero = document.getElementById("snapshot");
+      var open = hero.classList.toggle("open");
+      heroToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
+  // ---------- Sidebar collapse/expand (desktop) ----------
+  var sidebarToggle = document.getElementById("sidebar-toggle");
+  if (sidebarToggle) {
+    var SIDEBAR_KEY = "dmb_sidebar_collapsed";
+    var reopenBtn = document.createElement("button");
+    reopenBtn.type = "button";
+    reopenBtn.className = "sidebar-reopen";
+    reopenBtn.setAttribute("aria-label", "Show sidebar");
+    reopenBtn.title = "Show sidebar";
+    reopenBtn.innerHTML =
+      '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">'
+      + '<path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" '
+      + 'stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    document.body.appendChild(reopenBtn);
+    function applySidebar(collapsed) {
+      document.documentElement.classList.toggle("sidebar-collapsed", collapsed);
+      sidebarToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
+      sidebarToggle.setAttribute("aria-label",
+        collapsed ? "Show sidebar" : "Collapse sidebar");
+      sidebarToggle.title = collapsed ? "Show sidebar" : "Collapse sidebar";
+      reopenBtn.style.display = collapsed ? "flex" : "none";
+    }
+    sidebarToggle.addEventListener("click", function () {
+      var collapsed = !document.documentElement.classList.contains("sidebar-collapsed");
+      applySidebar(collapsed);
+      try { localStorage.setItem(SIDEBAR_KEY, collapsed ? "1" : "0"); } catch (e) {}
+    });
+    reopenBtn.addEventListener("click", function () {
+      applySidebar(false);
+      try { localStorage.setItem(SIDEBAR_KEY, "0"); } catch (e) {}
+    });
+    // Restore the persisted state on page load (desktop only).
+    if (window.matchMedia("(min-width: 821px)").matches) {
+      var stored = null;
+      try { stored = localStorage.getItem(SIDEBAR_KEY); } catch (e) {}
+      if (stored === "1") applySidebar(true);
+    }
+  }
+
+  // ---------- Reading progress bar ----------
+  var readingBar = document.getElementById("reading-bar");
+  if (readingBar) {
+    function updateProgress() {
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - doc.clientHeight;
+      readingBar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+    }
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  // ---------- Sticky "Jump to section" dropdown (scrollspy) ----------
+  var secNav = document.getElementById("sec-nav");
+  if (secNav && "IntersectionObserver" in window) {
+    var secToggle = document.getElementById("sec-toggle");
+    var secCurrent = document.getElementById("sec-current");
+    var secMenu = document.getElementById("sec-menu");
+    var secLinks = Array.prototype.slice.call(
+      secMenu.querySelectorAll("a[data-target]"));
+    var spySections = secLinks.map(function (a) {
+      return document.getElementById(a.getAttribute("data-target"));
+    }).filter(Boolean);
+
+    function setActive(id) {
+      secLinks.forEach(function (a) {
+        var on = a.getAttribute("data-target") === id;
+        a.classList.toggle("active", on);
+        a.setAttribute("aria-current", on ? "true" : "false");
+      });
+      var cur = null;
+      for (var i = 0; i < secLinks.length; i++) {
+        if (secLinks[i].getAttribute("data-target") === id) { cur = secLinks[i]; break; }
+      }
+      if (cur && secCurrent) secCurrent.textContent = cur.textContent;
+    }
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) setActive(en.target.id);
+      });
+    }, { rootMargin: "-20% 0px -70% 0px", threshold: 0 });
+    spySections.forEach(function (s) { spy.observe(s); });
+
+    function closeMenu() {
+      secNav.classList.remove("open");
+      secToggle.setAttribute("aria-expanded", "false");
+    }
+    secToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = secNav.classList.toggle("open");
+      secToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    secLinks.forEach(function (a) {
+      a.addEventListener("click", closeMenu);
+    });
+    document.addEventListener("click", function (e) {
+      if (!secNav.contains(e.target)) closeMenu();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeMenu();
+    });
+  }
+
+  // ---------- Reveal-on-scroll ----------
+  if ("IntersectionObserver" in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add("revealed");
+          revealObs.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      revealObs.observe(el);
+    });
+  }
+
+  // ---------- Saved news (localStorage) ----------
+  var STORE_KEY = "dmb_saved";
+
+  function loadSaved() {
+    try {
+      var m = JSON.parse(localStorage.getItem(STORE_KEY));
+      return (m && typeof m === "object") ? m : {};
+    } catch (e) { return {}; }
+  }
+  function storeSaved(map) {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(map)); } catch (e) {}
+    setSavedRev(Date.now());  // local mutation wins sync conflicts (LWW)
+    onLocalMutation("saved");
+  }
+
+  // Revision counter for last-writer-wins sync of the saved map. Union-merge
+  // alone can never propagate deletions (a cleared/removed key is simply
+  // absent from the union), so the remote doc carries a savedRev timestamp;
+  // a newer remote revision is adopted wholesale instead of unioned.
+  var SAVED_REV_KEY = "dmb_saved_rev";
+  function getSavedRev() {
+    try { return parseInt(localStorage.getItem(SAVED_REV_KEY), 10) || 0; }
+    catch (e) { return 0; }
+  }
+  function setSavedRev(rev) {
+    try { localStorage.setItem(SAVED_REV_KEY, String(rev)); } catch (e) {}
+  }
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
+  var savedList = document.getElementById("saved-list");
+  var savedEmpty = document.getElementById("saved-empty");
+  var savedCount = document.getElementById("saved-count");
+  var savedClear = document.getElementById("saved-clear");
+
+  // Category order + accent colors for Archive grouping (from the brief's
+  // configured categories, so group order matches the daily brief).
+  var CAT_ORDER = ["Global Economy", "Equity Markets", "Fixed Income", "China Economy", "Hong Kong Economy", "Global Technology", "Artificial Intelligence", "Semiconductors", "Electric Vehicles", "Data Centers", "Space \u0026 Aerospace"];
+  var CAT_COLORS = {};
+  
+  CAT_COLORS["Global Economy"] = "#4338ca";
+  
+  CAT_COLORS["Equity Markets"] = "#047857";
+  
+  CAT_COLORS["Fixed Income"] = "#92400e";
+  
+  CAT_COLORS["China Economy"] = "#be123c";
+  
+  CAT_COLORS["Hong Kong Economy"] = "#1d4ed8";
+  
+  CAT_COLORS["Global Technology"] = "#7c3aed";
+  
+  CAT_COLORS["Artificial Intelligence"] = "#c026d3";
+  
+  CAT_COLORS["Semiconductors"] = "#0e7490";
+  
+  CAT_COLORS["Electric Vehicles"] = "#65a30d";
+  
+  CAT_COLORS["Data Centers"] = "#b45309";
+  
+  CAT_COLORS["Space \u0026 Aerospace"] = "#581c87";
+  
+
+  function markRowButtons() {
+    var map = loadSaved();
+    // Works for news rows and Analytics/Repo Radar cards: any .save-btn.
+    document.querySelectorAll(".save-btn").forEach(function (btn) {
+      var saved = !!map[savedAttrs(btn, "url")];
+      btn.classList.toggle("saved", saved);
+      btn.setAttribute("aria-pressed", saved ? "true" : "false");
+      btn.title = saved ? "Remove from saved" : "Save this story";
+    });
+  }
+
+  function renderSaved() {
+    if (!savedList) return;  // brief pages have no archive list (by design)
+    var map = loadSaved();
+    var urls = Object.keys(map);
+    if (savedCount) savedCount.textContent = urls.length;
+    if (savedEmpty) savedEmpty.style.display = urls.length ? "none" : "";
+    savedList.innerHTML = "";
+    if (!urls.length) return;
+
+    // Group by category, ordered like the daily brief's category order.
+    var EXTRA_CAT_COLORS = { "Analytics": "#7c3aed", "Repo Radar": "#0e7490" };
+    var groups = {};
+    urls.forEach(function (u) {
+      var it = map[u];
+      (groups[it.category || "Other"] = groups[it.category || "Other"] || []).push(it);
+    });
+    var names = Object.keys(groups).sort(function (a, b) {
+      var ia = CAT_ORDER.indexOf(a), ib = CAT_ORDER.indexOf(b);
+      return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+    });
+
+    names.forEach(function (name) {
+      // Within a category: newest brief date first, tie-break by save time.
+      var items = groups[name].slice().sort(function (a, b) {
+        var da = a.pageDate || "", db = b.pageDate || "";
+        if (da !== db) return da < db ? 1 : -1;
+        return (b.savedAt || 0) - (a.savedAt || 0);
+      });
+      var color = CAT_COLORS[name] || EXTRA_CAT_COLORS[name] || "#4338ca";
+      var g = document.createElement("div");
+      g.className = "saved-group";
+      var html = '<h4 style="color:' + color + ';border-bottom-color:' + color + '">'
+        + esc(name) + "</h4>";
+      items.forEach(function (it) {
+        var rating = Math.max(0, Math.min(5, parseInt(it.rating, 10) || 0));
+        // rating 0 (e.g. repos) shows no stars instead of an empty row.
+        var stars = rating > 0 ? "★".repeat(rating) + "☆".repeat(5 - rating) : "";
+        html += '<div class="saved-item" data-url="' + esc(it.url) + '">'
+          + '<div class="si-headline"><a href="' + esc(it.url) + '" target="_blank" rel="noopener">'
+          + esc(it.title) + "</a>"
+          + '<div class="si-meta">' + esc(it.source)
+          + (it.pageDate ? " · Brief of " + esc(it.pageDate) : "")
+          + (stars ? '<span class="si-stars">' + stars + "</span>" : "")
+          + "</div></div>"
+          + '<button type="button" class="si-remove" aria-label="Remove saved story" title="Remove">✕</button>'
+          + "</div>";
+      });
+      g.innerHTML = html;
+      savedList.appendChild(g);
+    });
+  }
+
+  // Save buttons: works for news rows AND Analytics/Repo Radar cards — the
+  // button carries its own data-save-* attributes (news rows still put them
+  // on the <tr>, so we read from the button or its closest row).
+  function savedAttrs(btn, key) {
+    if (btn.hasAttribute("data-save-" + key)) return btn.getAttribute("data-save-" + key);
+    var row = btn.closest("tr.news-item");
+    return row ? row.getAttribute("data-" + key) : null;
+  }
+
+  document.addEventListener("click", function (ev) {
+    var btn = ev.target.closest ? ev.target.closest(".save-btn") : null;
+    // Skip the archive's own remove buttons (they're inside #saved-list);
+    // every other .save-btn (news rows, Analytics, Repo Radar cards) saves.
+    if (!btn || btn.closest("#saved-list")) return;
+    var url = savedAttrs(btn, "url");
+    if (!url) return;
+    var map = loadSaved();
+    if (map[url]) {
+      delete map[url];
+    } else {
+      map[url] = {
+        title: savedAttrs(btn, "title") || "",
+        url: url,
+        source: savedAttrs(btn, "source") || "",
+        category: savedAttrs(btn, "category") || "",
+        rating: parseInt(savedAttrs(btn, "rating"), 10) || 0,
+        pageDate: savedAttrs(btn, "date") || "",
+        savedAt: Date.now()
+      };
+    }
+    storeSaved(map);
+    markRowButtons();
+    renderSaved();
+  });
+
+  // Quick-jump select on Analytics / Repo Radar: open the day and scroll to it.
+  document.querySelectorAll("select.day-jump").forEach(function (sel) {
+    sel.addEventListener("change", function () {
+      var el = document.getElementById("day-" + sel.value);
+      if (!el) return;
+      if (el.tagName === "DETAILS" && !el.open) el.open = true;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  // Per-item remove (✕), event-delegated from the list container.
+  // BUG FIX: the old handler called ev.target.closest() directly — on mobile
+  // browsers the click target can be the ✕ TEXT NODE inside the button, and
+  // text nodes have no .closest(), so the handler threw and did nothing.
+  // Normalize to an Element first, and delegate robustly via closest().
+  if (savedList) {
+    savedList.addEventListener("click", function (ev) {
+      var t = ev.target;
+      if (t && t.nodeType !== 1) t = t.parentElement;  // text node -> element
+      var rm = (t && t.closest) ? t.closest(".si-remove") : null;
+      if (!rm) return;
+      ev.preventDefault();
+      var itemEl = rm.closest(".saved-item");
+      var url = itemEl && itemEl.getAttribute("data-url");
+      if (!url) return;
+      var map = loadSaved();
+      delete map[url];
+      storeSaved(map);   // persists localStorage + Firestore write-through
+      markRowButtons();  // un-bookmark the news row if present on this page
+      renderSaved();
+    });
+  }
+
+  if (savedClear) {
+    savedClear.addEventListener("click", function () {
+      if (!Object.keys(loadSaved()).length) return;
+      if (confirm("Remove all saved news?")) {
+        storeSaved({});
+        markRowButtons();
+        renderSaved();
+      }
+    });
+  }
+
+  markRowButtons();
+  renderSaved();
+  // ---------- Firebase cloud sync (optional; degrades to localStorage-only) ----------
+  var FIREBASE_CONFIG = {
+    apiKey: "AIzaSyCAubF71-5rKvRZ3NoKkOBfpoKVCzW2iYY",
+    authDomain: "daily-market-brief-2d93c.firebaseapp.com",
+    projectId: "daily-market-brief-2d93c",
+    storageBucket: "daily-market-brief-2d93c.firebasestorage.app",
+    messagingSenderId: "813144681948",
+    appId: "1:813144681948:web:2a8f45be4e7019bb03b319"
+  };
+
+  // saved: union by URL key; on conflict keep the entry with the later savedAt.
+  function mergeSavedMaps(local, remote) {
+    var out = {}, k;
+    for (k in local) out[k] = local[k];
+    for (k in remote) {
+      if (!out[k] || (remote[k].savedAt || 0) > (out[k].savedAt || 0)) {
+        out[k] = remote[k];
+      }
+    }
+    return out;
+  }
+
+  // read: per date, union of viewed category ids; t = max of the two totals.
+  function mergeReadMaps(local, remote) {
+    var out = {}, k;
+    for (k in local) out[k] = local[k];
+    for (k in remote) {
+      var cur = out[k], inc = remote[k];
+      if (!cur) { out[k] = inc; continue; }
+      var viewed = (cur.v || []).slice();
+      (inc.v || []).forEach(function (id) {
+        if (viewed.indexOf(id) === -1) viewed.push(id);
+      });
+      out[k] = { v: viewed, t: Math.max(cur.t || 0, inc.t || 0) };
+    }
+    return out;
+  }
+
+  // BUG FIX: the saved map is keyed by raw URLs, but Firestore field names
+  // cannot contain "/" (or ~ * [ ]) — every write with URL keys was being
+  // rejected with INVALID_ARGUMENT (silently, caught by console.warn), which
+  // is why saved items never reached the cloud. Keys are URL-encoded for
+  // Firestore (dots also escaped, so merge can never misread them as field
+  // paths) and decoded back to plain URLs for localStorage. Data model is
+  // unchanged: users/{uid} still has a `saved` map, just with encoded keys.
+  function encodeSavedForRemote(map) {
+    var out = {};
+    Object.keys(map || {}).forEach(function (k) {
+      out[encodeURIComponent(k).replace(/\./g, "%2E")] = map[k];
+    });
+    return out;
+  }
+  function decodeSavedFromRemote(map) {
+    var out = {};
+    Object.keys(map || {}).forEach(function (k) {
+      try { out[decodeURIComponent(k)] = map[k]; } catch (e) {
+        console.error("Skipping undecodable saved key:", k, e);
+      }
+    });
+    return out;
+  }
+
+  // Transient sync status shown in the Archive header (observability: silent
+  // failures made the original bug invisible).
+  function syncStatus(msg, isErr) {
+    var el = document.getElementById("sync-status");
+    if (!el) return;
+    el.textContent = msg || "";
+    el.classList.toggle("sync-status-err", !!isErr);
+  }
+  function timeNow() {
+    var d = new Date();
+    return ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+  }
+
+  // Write merged state to localStorage directly (no push-back) and re-render.
+  function applySyncedState(savedMap, readMap) {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(savedMap)); } catch (e) {}
+    try { localStorage.setItem(READ_KEY, JSON.stringify(readMap)); } catch (e) {}
+    markRowButtons();
+    renderSaved();
+    updateDots();
+  }
+
+  function initFirebaseSync() {
+    var area = document.getElementById("sync-area");
+    if (typeof firebase === "undefined" || !firebase.initializeApp) {
+      // CDN blocked/offline: hide the sync UI, keep localStorage behavior.
+      if (area) area.style.display = "none";
+      return;
+    }
+    try {
+      if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
+      var auth = firebase.auth();
+      var db = firebase.firestore();
+      var provider = new firebase.auth.GoogleAuthProvider();
+      var syncUser = null;
+      var unsubscribeSnapshot = null;
+      var readWriteTimer = null;
+
+      function userDoc() { return db.collection("users").doc(syncUser.uid); }
+
+      function serverTs() {
+        return firebase.firestore.FieldValue.serverTimestamp();
+      }
+
+      function updateSyncUI(user) {
+        // Auth UI lives only on the archive page; brief pages sync silently.
+        var inBtn = document.getElementById("sync-signin");
+        var userEl = document.getElementById("sync-user");
+        var avatar = document.getElementById("sync-avatar");
+        var initial = document.getElementById("sync-initial");
+        if (!inBtn || !userEl) return;
+        if (user) {
+          inBtn.style.display = "none";
+          userEl.style.display = "flex";
+          if (user.photoURL) {
+            avatar.src = user.photoURL;
+            avatar.style.display = "";
+            initial.style.display = "none";
+          } else {
+            avatar.style.display = "none";
+            initial.style.display = "";
+            initial.textContent = (user.email || "U").charAt(0).toUpperCase();
+          }
+        } else {
+          inBtn.style.display = "";
+          userEl.style.display = "none";
+        }
+      }
+
+      // Push the saved map so that it REPLACES the remote `saved` field
+      // wholesale (update semantics) — merge writes can never delete keys,
+      // which is why removals/clear-all previously never reached the cloud.
+      function pushSaved() {
+        var payload = {
+          saved: encodeSavedForRemote(loadSaved()),
+          savedRev: getSavedRev(),
+          updatedAt: serverTs()
+        };
+        return userDoc().update(payload).catch(function (e) {
+          if (e && e.code === "not-found") {
+            payload.read = loadRead();
+            return userDoc().set(payload);
+          }
+          throw e;
+        });
+      }
+
+      // On sign-in: last-writer-wins by savedRev, then write the result back.
+      // Union-merge alone resurrects deletions (a removed key is simply absent
+      // from the union), so the newer revision is adopted wholesale instead.
+      function initialSync() {
+        userDoc().get().then(function (snap) {
+          var remote = snap.exists ? (snap.data() || {}) : {};
+          var remoteSaved = decodeSavedFromRemote(remote.saved);
+          var remoteRev = remote.savedRev || 0;
+          var localRev = getSavedRev();
+          var localSaved = loadSaved();
+          var mergedSaved;
+          if (remoteRev > localRev) {
+            // Remote newer: adopt it (deletions stick). A never-synced device
+            // (rev 0) may hold pre-sync local items — fold those in.
+            mergedSaved = (localRev === 0)
+              ? mergeSavedMaps(localSaved, remoteSaved) : remoteSaved;
+          } else if (localRev === 0 && remoteRev === 0) {
+            mergedSaved = mergeSavedMaps(localSaved, remoteSaved);  // first-ever sync: union
+          } else {
+            mergedSaved = localSaved;  // local newer: already reflects local deletions
+          }
+          var newRev = Date.now();
+          setSavedRev(newRev);
+          var mergedRead = mergeReadMaps(loadRead(), remote.read || {});
+          applySyncedState(mergedSaved, mergedRead);
+          return userDoc().update(
+            { saved: encodeSavedForRemote(mergedSaved), savedRev: newRev,
+              read: mergedRead, updatedAt: serverTs() })
+            .catch(function (e) {
+              if (e && e.code === "not-found") {
+                return userDoc().set(
+                  { saved: encodeSavedForRemote(mergedSaved), savedRev: newRev,
+                    read: mergedRead, updatedAt: serverTs() });
+              }
+              throw e;
+            });
+        }).then(function () {
+          syncStatus("Synced · " + timeNow(), false);
+        }).catch(function (e) {
+          console.error("Initial sync failed:", e && e.code, e);
+          syncStatus("Sync failed — check console/rules", true);
+        });
+      }
+
+      // Realtime laptop <-> phone updates; skip our own pending writes.
+      function subscribeRemote() {
+        if (unsubscribeSnapshot) unsubscribeSnapshot();
+        unsubscribeSnapshot = userDoc().onSnapshot(function (snap) {
+          if (snap.metadata.hasPendingWrites || !snap.exists) return;
+          var remote = snap.data() || {};
+          var remoteRev = remote.savedRev || 0;
+          var localRev = getSavedRev();
+          var localSaved = loadSaved();
+          var newSaved = localSaved;
+          var needsPush = false;
+          if (remoteRev > localRev) {
+            // Remote newer: adopt wholesale (deletions propagate). Fold in
+            // legacy local items only on a never-synced device, then push.
+            newSaved = decodeSavedFromRemote(remote.saved);
+            if (localRev === 0) {
+              var folded = mergeSavedMaps(localSaved, newSaved);
+              if (Object.keys(folded).length !== Object.keys(newSaved).length) {
+                newSaved = folded;
+                setSavedRev(Date.now());
+                needsPush = true;
+              } else {
+                setSavedRev(remoteRev);
+              }
+            } else {
+              setSavedRev(remoteRev);
+            }
+          }
+          // Read status has no deletions — union-merge is always safe.
+          var mergedRead = mergeReadMaps(loadRead(), remote.read || {});
+          if (JSON.stringify(newSaved) !== JSON.stringify(localSaved) ||
+              JSON.stringify(mergedRead) !== JSON.stringify(loadRead())) {
+            applySyncedState(newSaved, mergedRead);
+            syncStatus("Synced · " + timeNow(), false);
+          }
+          if (needsPush) pushSaved();
+        }, function (e) {
+          console.error("Sync listener error:", e && e.code, e);
+          syncStatus("Sync failed — check console/rules", true);
+        });
+      }
+
+      function writeSaved() {
+        if (!syncUser) return;
+        pushSaved()
+          .then(function () { syncStatus("Synced · " + timeNow(), false); })
+          .catch(function (e) {
+            console.error("Sync write (saved) failed:", e && e.code, e);
+            syncStatus("Sync failed — check console/rules", true);
+          });
+      }
+      function flushRead() {
+        if (!syncUser) return;
+        userDoc().set({ read: loadRead(), updatedAt: serverTs() },
+          { merge: true })
+          .then(function () { syncStatus("Synced · " + timeNow(), false); })
+          .catch(function (e) {
+            console.error("Sync write (read) failed:", e && e.code, e);
+            syncStatus("Sync failed — check console/rules", true);
+          });
+      }
+      function scheduleReadWrite() {
+        clearTimeout(readWriteTimer);
+        readWriteTimer = setTimeout(flushRead, 5000);  // debounce scroll progress
+      }
+
+      window.addEventListener("pagehide", function () {
+        clearTimeout(readWriteTimer);
+        flushRead();
+      });
+      document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "hidden") {
+          clearTimeout(readWriteTimer);
+          flushRead();
+        }
+      });
+
+      var signinBtn = document.getElementById("sync-signin");
+      var signoutBtn = document.getElementById("sync-signout");
+      if (signinBtn) signinBtn.addEventListener("click", function () {
+        auth.signInWithPopup(provider).catch(function (err) {
+          // Popup blocked/failed (common on mobile) -> redirect flow.
+          if (err && err.code === "auth/popup-closed-by-user") return;
+          console.warn("Popup sign-in failed, falling back to redirect:",
+            err && err.code);
+          auth.signInWithRedirect(provider)
+            .catch(function (e2) { console.warn("Redirect sign-in failed:", e2); });
+        });
+      });
+      if (signoutBtn) signoutBtn.addEventListener("click", function () {
+        auth.signOut().catch(function (e) { console.warn("Sign-out failed:", e); });
+      });
+      auth.getRedirectResult()
+        .catch(function (e) {
+          console.error("Redirect result error:", e && e.code, e);
+          syncStatus("Sign-in failed — check console", true);
+        });
+
+      auth.onAuthStateChanged(function (user) {
+        syncUser = user || null;
+        updateSyncUI(user);
+        if (user) {
+          syncPush.saved = writeSaved;
+          syncPush.read = scheduleReadWrite;
+          initialSync();
+          subscribeRemote();
+        } else {
+          syncPush.saved = function () {};
+          syncPush.read = function () {};
+          syncStatus("", false);
+          if (unsubscribeSnapshot) {
+            unsubscribeSnapshot();
+            unsubscribeSnapshot = null;
+          }
+        }
+      });
+    } catch (e) {
+      console.warn("Firebase sync disabled:", e);
+      if (area) area.style.display = "none";
+    }
+  }
+  // Deferred Firebase scripts execute before window.load, so firebase is
+  // available here if the CDN delivered it.
+  window.addEventListener("load", initFirebaseSync);
+})();
+</script>
+</body>
+</html>

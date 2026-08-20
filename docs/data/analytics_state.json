@@ -1,136 +1,6 @@
 {
  "backlog": [
   {
-   "_key": "SemiEngineering|https://semiengineering.com/linear-optics-and-the-push-to-scale-ai-interconnects/",
-   "blog": "SemiEngineering",
-   "title": "Linear Optics And The Push To Scale AI Interconnects",
-   "link": "https://semiengineering.com/linear-optics-and-the-push-to-scale-ai-interconnects/",
-   "summary": "Move signal processing back onto the host SerDes to reduce system power, latency, and thermal load. \nThe post Linear Optics And The Push To Scale AI Interconnects appeared first on Semiconductor Engineering.",
-   "published": "2026-08-13 07:03 UTC",
-   "_ts": 1786604633,
-   "preview": true,
-   "bullets": [
-    "Linear optics are being explored as a method to simplify optical interconnects by moving signal processing back to the host SerDes.",
-    "This architectural shift aims to significantly reduce system-level power consumption, latency, and thermal load compared to traditional DSP-based optical modules.",
-    "By removing complex signal processing from the optical module, designers can achieve higher port density and better scaling for massive AI clusters."
-   ],
-   "rating": 4
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/what-will-it-take-to-deploy-cpo-at-scale/",
-   "blog": "SemiEngineering",
-   "title": "What Will It Take To Deploy CPO At Scale?",
-   "link": "https://semiengineering.com/what-will-it-take-to-deploy-cpo-at-scale/",
-   "summary": "The path to widespread deployment of co-packaged optics depends on solving challenges in manufacturing, testing, and operations.\nThe post What Will It Take To Deploy CPO At Scale? appeared first on Semiconductor Engineering.",
-   "published": "2026-08-13 07:04 UTC",
-   "_ts": 1786604682,
-   "preview": false,
-   "bullets": [
-    "The path to widespread deployment of co-packaged optics depends on solving challenges in manufacturing, testing, and operations.",
-    "Co-packaged optics (CPO) is at an inflection point.",
-    "We see it rapidly transitioning from proof-of-concept prototypes to manufacturable systems.",
-    "Today, we’re already starting to see the technology embedded in scale-out switch ASIC packages, where copper can no longer handle the bandwidth-distance requirements.",
-    "While the technology shows promise for AI infrastructure by offering multi-generational scaling potential through wavelength multiplication, higher modulation rates, and increased port density, the path to widespread..."
-   ],
-   "rating": 4
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/is-pergrammable-a-word/",
-   "blog": "SemiEngineering",
-   "title": "Is Pergrammable A Word?",
-   "link": "https://semiengineering.com/is-pergrammable-a-word/",
-   "summary": "SoC architects need AI silicon that is both highly efficient and fully programmable.\nThe post Is Pergrammable A Word? appeared first on Semiconductor Engineering.",
-   "published": "2026-08-13 07:05 UTC",
-   "_ts": 1786604736,
-   "preview": false,
-   "bullets": [
-    "SoC architects face a 'performance vs. programmability' dilemma, as the state of the art in AI models evolves faster than the two-to-three-year silicon design cycle.",
-    "With leading-edge SoC development costs exceeding $200 million, chips must be field-programmable to support future AI models that do not yet exist at the time of tapeout.",
-    "The industry is struggling to find IP solutions that provide the high throughput and low power of fixed-function silicon while maintaining the flexibility of software-defined architectures."
-   ],
-   "rating": 4
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/packet-based-npus-in-the-llm-era-from-compute-bound-cnns-to-memory-bound-edge-and-automotive-workloads/",
-   "blog": "SemiEngineering",
-   "title": "Packet-Based NPUs In The LLM Era: From Compute-Bound CNNs To Memory-Bound Edge And Automotive Workloads",
-   "link": "https://semiengineering.com/packet-based-npus-in-the-llm-era-from-compute-bound-cnns-to-memory-bound-edge-and-automotive-workloads/",
-   "summary": "Vision-only edge processors are giving way to systems where LLMs, VLMs, and generative features sit alongside traditional perception networks. \nThe post Packet-Based NPUs In The LLM Era: From Compute-Bound CNNs To Memory-Bound Edge And Automotive Workloads appeared first on Semiconductor Engineering.",
-   "published": "2026-08-13 07:06 UTC",
-   "_ts": 1786604803,
-   "preview": false,
-   "bullets": [
-    "Edge and automotive NPU architectures are shifting from compute-bound CNN designs to memory-bound transformer models that require efficient KV cache management.",
-    "The transition to LLMs and VLMs in resource-constrained environments renders traditional TOPS-based performance metrics less relevant than memory bandwidth and access patterns.",
-    "Packet-based scheduling, originally designed for CNNs, is being adapted to optimize the memory-heavy decode phases of generative AI models."
-   ],
-   "rating": 4
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/what-self-verifying-means-in-agentic-eda-workflows-and-why-it-matters/",
-   "blog": "SemiEngineering",
-   "title": "What Self-Verifying Means In Agentic EDA Workflows And Why It Matters",
-   "link": "https://semiengineering.com/what-self-verifying-means-in-agentic-eda-workflows-and-why-it-matters/",
-   "summary": "Grounding agent decisions in their output is what transforms orchestration into something engineers can build on with confidence.\nThe post What Self-Verifying Means In Agentic EDA Workflows And Why It Matters appeared first on Semiconductor Engineering.",
-   "published": "2026-08-13 07:07 UTC",
-   "_ts": 1786604855,
-   "preview": false,
-   "bullets": [
-    "To ensure trust in autonomous EDA workflows, AI agents must be grounded in physics-based, deterministic verification engines at every step of the design process.",
-    "Continuous verification allows agents to reason and converge on correct results by interacting directly with EDA tools rather than relying on post-process checks.",
-    "This approach is critical for semiconductor design, where tapeout deadlines are rigid and the cost of respins due to unverified agent decisions is prohibitive."
-   ],
-   "rating": 4
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/vertical-integration-becoming-pervasive/",
-   "blog": "SemiEngineering",
-   "title": "Vertical Integration Becoming Pervasive",
-   "link": "https://semiengineering.com/vertical-integration-becoming-pervasive/",
-   "summary": "No system can be optimized without an understanding of both the hardware and software, and making the right architectural choice requires cooperation.  \nThe post Vertical Integration Becoming Pervasive appeared first on Semiconductor Engineering.",
-   "published": "2026-08-13 07:12 UTC",
-   "_ts": 1786605135,
-   "preview": false,
-   "bullets": [
-    "The industry is shifting back toward vertical integration and hardware/software co-design to optimize systems for specific, massive AI workloads.",
-    "Modern development cycles are increasingly constrained by software iteration speeds, which currently outpace hardware design, necessitating new virtual twin and prototyping tools.",
-    "Custom ASICs are seeing a resurgence as companies move away from generic IP assemblies to achieve the efficiency required for stable, high-performance applications."
-   ],
-   "rating": 4
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/13/china-nev-retail-1st-week-aug-2026/",
-   "blog": "CNEVPOST",
-   "title": "China's NEV retail down 17% in first week of August, penetration slips to 61.6%",
-   "link": "https://cnevpost.com/2026/08/13/china-nev-retail-1st-week-aug-2026/",
-   "summary": "China's overall passenger vehicle retail sales were 317,000 units on August 1-9, down 22% year-on-year.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-13 09:08 UTC",
-   "_ts": 1786612083,
-   "preview": false,
-   "bullets": [
-    "China's NEV retail sales dropped 17% year-on-year during the first nine days of August, with penetration slipping to 61.6%.",
-    "The CPCA attributes the weak performance to consumer hesitation regarding big-ticket purchases and rising fuel costs impacting the broader auto market.",
-    "Despite weak retail, NEV wholesale volume remains resilient with a 70.9% penetration rate, bolstered by strong export performance."
-   ],
-   "rating": 4
-  },
-  {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/13/1141788/summer-heat-el-nino/",
-   "blog": "MIT Technology Review",
-   "title": "What’s behind this summer’s heat, and why 2027 could be worse",
-   "link": "https://www.technologyreview.com/2026/08/13/1141788/summer-heat-el-nino/",
-   "summary": "This summer has been a scorcher for much of the Northern Hemisphere. June and July marked the hottest two-month stretch in Europe since record-keeping began. The contiguous US endured its hottest month on record in July. South Korea saw its highest-ever recorded temperature.   The heat isn’t over yet, but some scientists are already looking ahead…",
-   "published": "2026-08-13 10:00 UTC",
-   "_ts": 1786615200,
-   "preview": false,
-   "bullets": [
-    "Record-breaking heat waves across the US, Europe, and South Korea have been exacerbated by climate change, with Europe identified as the world's fastest-warming continent.",
-    "Scientists warn that 2027 may see even higher temperatures as the current El Niño event exerts a more significant impact on global climate patterns than it did this year.",
-    "The intensity of recent heat waves is historically unprecedented, with US temperatures in July surpassing records set during the 1936 Dust Bowl era."
-   ],
-   "rating": 4
-  },
-  {
    "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/14/1141354/deanne-taylor-gene-expression-children/",
    "blog": "MIT Technology Review",
    "title": "This scientist is helping build a missing map of childhood",
@@ -323,132 +193,22 @@
    "read_time": 6
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/13/automakers-share-china-nev-market-jul-2026/",
-   "blog": "CNEVPOST",
-   "title": "Automakers' share of China's NEV market in July: BYD leads with 23.5%, Tesla falls out of top 10",
-   "link": "https://cnevpost.com/2026/08/13/automakers-share-china-nev-market-jul-2026/",
-   "summary": "Nio's retail sales surged 70.5% year-on-year in July, keeping it at No. 8 in China's NEV market.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-13 02:47 UTC",
-   "_ts": 1786589241,
-   "preview": true,
-   "bullets": [
-    "BYD continues to dominate the domestic Chinese NEV market with a 23.5% share as of July.",
-    "Nio demonstrated strong momentum with a 70.5% year-on-year increase in retail sales, maintaining its position as the eighth-largest player.",
-    "The market landscape remains highly competitive, with Tesla falling out of the top 10 rankings for domestic NEV retail sales in July."
-   ],
-   "rating": 3
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/13/byd-opens-pre-orders-sealion-08-suv/",
-   "blog": "CNEVPOST",
-   "title": "BYD opens pre-orders for Sealion 08 SUV as Ocean lineup flagship nears launch",
-   "link": "https://cnevpost.com/2026/08/13/byd-opens-pre-orders-sealion-08-suv/",
-   "summary": "The Sealion 08 will come in DM-i plug-in hybrid and EV all-electric versions, with pre-order prices starting at 230,000 yuan ($33,880).\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-13 05:38 UTC",
-   "_ts": 1786599500,
-   "preview": false,
-   "bullets": [
-    "BYD has opened pre-orders for the Sealion 08, the flagship SUV of its Ocean lineup, with prices starting at 230,000 yuan for the DM-i version.",
-    "The Sealion 08 DM-i marks the first time BYD has integrated its ultra-fast flash charging technology into a plug-in hybrid SUV.",
-    "The vehicle features high-end specifications including the DiSus-A dual-chamber air suspension, rear-wheel steering, and a six-seat interior layout."
-   ],
-   "rating": 3
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/ddr5-9600-rdimms-raising-the-performance-benchmark-for-server-memory/",
+   "_key": "SemiEngineering|https://semiengineering.com/blog-review-aug-19-3/",
    "blog": "SemiEngineering",
-   "title": "DDR5 9600 RDIMMs: Raising The Performance Benchmark For Server Memory",
-   "link": "https://semiengineering.com/ddr5-9600-rdimms-raising-the-performance-benchmark-for-server-memory/",
-   "summary": "The ability to move and manage data efficiently is a defining challenge for data center architects.\nThe post DDR5 9600 RDIMMs: Raising The Performance Benchmark For Server Memory appeared first on Semiconductor Engineering.",
-   "published": "2026-08-13 07:08 UTC",
-   "_ts": 1786604899,
+   "title": "Blog Review: Aug. 19",
+   "link": "https://semiengineering.com/blog-review-aug-19-3/",
+   "summary": "Memory tagging; digital twin of the Moon; packaging moves front-and-center; streaming sensor data.\nThe post Blog Review: Aug. 19 appeared first on Semiconductor Engineering.",
+   "published": "2026-08-19 07:01 UTC",
+   "_ts": 1787122892,
    "preview": false,
    "bullets": [
-    "The rise of agentic AI workloads is driving the adoption of DDR5 9600 MT/s RDIMMs to prevent memory bottlenecks in high-core-count server architectures.",
-    "Increasing memory speeds to 9600 MT/s introduces significant engineering challenges in signal integrity, timing accuracy, and thermal management.",
-    "Balanced performance across compute, memory, and I/O is becoming the primary metric for data center architects as they scale systems for continuous, real-time AI processing."
+    "Advanced packaging has transitioned from a backend afterthought to a primary design discipline, with industry experts identifying the 'wire' as the defining challenge of modern chip architecture.",
+    "New methodologies for AI development are emerging, including physical AI frameworks that allow for the replay of real-world sensor data to validate algorithm improvements.",
+    "Energy efficiency is becoming a strategic imperative for all AI inference applications, extending the focus beyond data center builders to edge and system-level designers.",
+    "Industry leaders are prioritizing specialized hardware, such as fully programmable AI silicon and co-packaged optics, to address the rising power, latency, and thermal constraints of modern systems."
    ],
-   "rating": 3
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/13/stelato-launch-g9-aug-20/",
-   "blog": "CNEVPOST",
-   "title": "Huawei-backed Stelato to launch G9 off-road SUV on August 20",
-   "link": "https://cnevpost.com/2026/08/13/stelato-launch-g9-aug-20/",
-   "summary": "Stelato G9 starts at 439,800 yuan ($64,780) in pre-sales and secured more than 15,000 pre-orders in its first 72 hours.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-13 07:23 UTC",
-   "_ts": 1786605818,
-   "preview": false,
-   "bullets": [
-    "The Huawei-backed Stelato G9 off-road SUV will officially launch on August 20, following strong initial demand of over 15,000 pre-orders in 72 hours.",
-    "The vehicle is the first model to receive a Beijing road-testing permit for L3 autonomous driving at speeds up to 120 km/h.",
-    "Available in BEV and EREV configurations, the G9 features advanced hardware including dual-chamber air suspension and an adaptive mechanical differential lock."
-   ],
-   "rating": 3
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/13/luxeed-rx-open-pre-orders-aug-20/",
-   "blog": "CNEVPOST",
-   "title": "Luxeed RX to open pre-orders on August 20 with 4 LiDAR sensors",
-   "link": "https://cnevpost.com/2026/08/13/luxeed-rx-open-pre-orders-aug-20/",
-   "summary": "The Luxeed RX is Huawei HIMA's first SUV with a letter-based name and will target the Xiaomi YU7.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-13 07:53 UTC",
-   "_ts": 1786607596,
-   "preview": false,
-   "bullets": [
-    "The Luxeed RX, a joint venture between Huawei and Chery, will open for pre-orders on August 20 at a HIMA product launch event.",
-    "The SUV distinguishes itself with a rare 4-LiDAR sensor array and Huawei's next-generation Giant Whale battery platform.",
-    "Positioned as a sporty coupe-style SUV, the model is designed to compete with the Xiaomi YU7 as part of Huawei's broader HIMA expansion."
-   ],
-   "rating": 3
-  },
-  {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/13/1141896/the-download-kids-thoughts-on-ai-female-clones-male-mice/",
-   "blog": "MIT Technology Review",
-   "title": "The Download: kids’ thoughts on AI, and female clones of male mice",
-   "link": "https://www.technologyreview.com/2026/08/13/1141896/the-download-kids-thoughts-on-ai-female-clones-male-mice/",
-   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. How kids feel about AI, in their own words —Jen Swetzoff and Keeley McNamara, the founding editors of Anyway, an independent print magazine for tweens and teens When we set out…",
-   "published": "2026-08-13 12:10 UTC",
-   "_ts": 1786623000,
-   "preview": false,
-   "bullets": [
-    "Researchers in Japan have successfully created female clones of male mice by using CRISPR to remove the Y chromosome from male embryos.",
-    "This breakthrough challenges established biological paradigms regarding the necessity of both sexes for reproduction and could offer new pathways for rescuing endangered species.",
-    "The report also highlights a significant shift in US policy, noting that the government has authorized private businesses to conduct cyberattacks against criminal entities."
-   ],
-   "rating": 3
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/13/geely-galaxy-tt-pre-sales/",
-   "blog": "CNEVPOST",
-   "title": "Geely Galaxy TT pre-sales starts at about $21,500 with up to 640 km of range",
-   "link": "https://cnevpost.com/2026/08/13/geely-galaxy-tt-pre-sales/",
-   "summary": "The Galaxy TT is about 5 meters long, with 3 variants priced from 145,900 yuan ($21,490) to 169,900 yuan in pre-sales.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-13 13:30 UTC",
-   "_ts": 1786627833,
-   "preview": false,
-   "bullets": [
-    "Geely Galaxy has opened pre-sales for the Galaxy TT sedan, with prices ranging from 145,900 yuan ($21,490) to 169,900 yuan.",
-    "The vehicle features an 800-volt platform with 6C fast charging, capable of adding 400 km of range in just 11 minutes.",
-    "Equipped with LiDAR and Horizon Robotics' J6M chip, the model is positioned to compete directly against the Xiaomi SU7 and Xpeng models."
-   ],
-   "rating": 3
-  },
-  {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/13/1141399/roundtables-inside-the-censorship-industrial-complex-idea-shaping-us-policy/",
-   "blog": "MIT Technology Review",
-   "title": "Roundtables: Inside the “Censorship-Industrial Complex” Idea Shaping US Policy",
-   "link": "https://www.technologyreview.com/2026/08/13/1141399/roundtables-inside-the-censorship-industrial-complex-idea-shaping-us-policy/",
-   "summary": "Listen to the session or watch below The “censorship-industrial complex” is an idea that a network of government, tech, and research groups is collaborating to suppress conservative online speech. This was fodder for the right-wing information sphere for years—then it began making its way into US policy. Watch a conversation exploring how it started, where…",
-   "published": "2026-08-13 21:00 UTC",
-   "_ts": 1786654800,
-   "preview": false,
-   "bullets": [
-    "The 'censorship-industrial complex' narrative, which posits a coordinated effort between government and tech firms to suppress conservative speech, has transitioned from fringe discourse to a significant influence on US policy.",
-    "This ideological framework is actively reshaping the regulatory environment for internet platforms and digital communication.",
-    "The shift highlights growing political pressure on tech companies to justify their content moderation practices and transparency standards."
-   ],
-   "rating": 3
+   "rating": 4,
+   "read_time": 2
   },
   {
    "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/14/1141919/cloning-save-species-or-make-human-organ-sacks/",
@@ -673,36 +433,107 @@
    "read_time": 3
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/13/byd-fang-cheng-bao-adds-lower-priced-tai-3/",
+   "_key": "CNEVPOST|https://cnevpost.com/2026/08/19/epicland-pre-sales-first-model-x9/",
    "blog": "CNEVPOST",
-   "title": "BYD Fang Cheng Bao adds lower-priced Tai 3 variant, cutting entry price",
-   "link": "https://cnevpost.com/2026/08/13/byd-fang-cheng-bao-adds-lower-priced-tai-3/",
-   "summary": "Fang Cheng Bao launched a 510-km rear-wheel-drive flash-charging version of the Tai 3, priced from 143,800 yuan ($21,180).\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-13 06:44 UTC",
-   "_ts": 1786603471,
-   "preview": false,
+   "title": "Huawei-Dongfeng brand Epicland opens pre-sales of first model X9 from $44,180",
+   "link": "https://cnevpost.com/2026/08/19/epicland-pre-sales-first-model-x9/",
+   "summary": "The Epicland X9 extended-range SUV is the second model Huawei has developed with an automaker under a new cooperation model, following the Aistaland GT7.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-08-19 01:34 UTC",
+   "_ts": 1787103290,
+   "preview": true,
    "bullets": [
-    "BYD's Fang Cheng Bao brand introduced a new entry-level Tai 3 variant priced at 143,800 yuan ($21,180), lowering the model's barrier to entry.",
-    "The new variant utilizes a smaller 64.3 kWh battery pack, which reduces curb weight and improves 0-100 km/h acceleration to 6.9 seconds.",
-    "Despite supply chain bottlenecks earlier this year, the Fang Cheng Bao brand has shown significant growth, with July deliveries up 190.64% year-on-year."
+    "Huawei and Dongfeng have opened pre-sales for the Epicland X9, an extended-range SUV starting at $44,180.",
+    "The X9 marks the second vehicle developed under Huawei's new cooperation model with automakers, following the Aistaland GT7.",
+    "This launch signals Huawei's continued aggressive expansion into the Chinese automotive market through its collaborative technology-sharing platform."
    ],
-   "rating": 2
+   "rating": 3,
+   "read_time": 1
   },
   {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/13/1141410/how-kids-feel-about-ai-own-words/",
-   "blog": "MIT Technology Review",
-   "title": "How kids feel about AI, in their own words",
-   "link": "https://www.technologyreview.com/2026/08/13/1141410/how-kids-feel-about-ai-own-words/",
-   "summary": "When we set out to talk to kids about artificial intelligence, we thought we knew what we’d hear. We expected some to tell us they were using it to cheat a little, the way Millennials and Gen Xers opened up CliffsNotes or programmed formulas into their TI-82s, and others to share inspiring ways they were…",
-   "published": "2026-08-13 09:00 UTC",
-   "_ts": 1786611600,
+   "_key": "CNEVPOST|https://cnevpost.com/2026/08/19/vw-anhui-rolls-out-100000th-ev/",
+   "blog": "CNEVPOST",
+   "title": "VW Anhui rolls out 100,000th EV after more than 2 years of production",
+   "link": "https://cnevpost.com/2026/08/19/vw-anhui-rolls-out-100000th-ev/",
+   "summary": "The 100,000th vehicle was an ID. UNYX 08, the first model jointly developed by Volkswagen and Xpeng.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-08-19 04:20 UTC",
+   "_ts": 1787113242,
    "preview": false,
    "bullets": [
-    "Pew Research data from early 2026 indicates that while 57% of US teens use AI chatbots for information, only 12% utilize them for emotional support or advice.",
-    "Many youths express skepticism or indifference toward AI, citing concerns over the erosion of critical thinking, creativity, and the environmental impact of large-scale models.",
-    "Unlike consumer hardware or social media, AI is often encountered by younger users passively through existing apps and school-mandated tools rather than through active adoption."
+    "Volkswagen Anhui reached the milestone of 100,000 EVs produced at its Hefei plant, just over two years after commencing mass production.",
+    "The milestone vehicle was an ID. UNYX 08, the first model developed through the strategic partnership between Volkswagen and Xpeng.",
+    "The joint venture is continuing its product rollout, with the ID. UNYX 09 sedan expected to launch later this year."
    ],
-   "rating": 2
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/08/19/chery-to-open-uk-rd-center/",
+   "blog": "CNEVPOST",
+   "title": "Chery to open UK R&D center, paving way for local production",
+   "link": "https://cnevpost.com/2026/08/19/chery-to-open-uk-rd-center/",
+   "summary": "Chery's UK R&D center will be located in Bedfordshire, England, and is set to open in late fall this year.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-08-19 07:53 UTC",
+   "_ts": 1787126008,
+   "preview": false,
+   "bullets": [
+    "Chery is establishing an R&D center in Bedfordshire, England, to focus on vehicle calibration for local conditions and future AI development.",
+    "This move is part of a broader strategy to localize operations, which includes a partnership with Nissan to manufacture Chery models in the UK starting next year.",
+    "Chery's market share in the UK has grown to nearly 8% as of July, up from 3% a year ago, underscoring its rapid international expansion."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/19/1141623/child-monitoring-apps-need-reboot/",
+   "blog": "MIT Technology Review",
+   "title": "Child-monitoring apps might need a reboot",
+   "link": "https://www.technologyreview.com/2026/08/19/1141623/child-monitoring-apps-need-reboot/",
+   "summary": "Pam Wisniewski’s digital adolescence showed her the best and the worst of the internet. At 14, she left an abusive home, where she’d been isolated in a fifth-wheel trailer at the end of a seven-­mile dirt road. She moved in with her older sister and taught herself to type on AOL Instant Messenger. Online, she…",
+   "published": "2026-08-19 09:00 UTC",
+   "_ts": 1787130000,
+   "preview": false,
+   "bullets": [
+    "Parental anxiety regarding digital safety is at an all-time high, with social media, screen time, and internet safety ranking as the top three concerns for American parents in 2025.",
+    "The landscape of digital threats is evolving rapidly, with the National Center for Missing & Exploited Children reporting over 23,000 cases of financial sextortion in the first half of 2025 alone.",
+    "While tools like Apple’s Screen Time and Google’s Family Link are standard, experts argue that invasive monitoring can erode trust, suggesting a need for a shift toward more collaborative safety strategies.",
+    "Tech companies face mounting legal and reputational risks, including lawsuits against AI developers for allegedly failing to prevent chatbots from coaching minors toward self-harm."
+   ],
+   "rating": 3,
+   "read_time": 22
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/08/19/buick-launches-electra-l7-bev-china/",
+   "blog": "CNEVPOST",
+   "title": "Buick launches Electra L7 BEV in China, starting at $25,000 with 702-km range",
+   "link": "https://cnevpost.com/2026/08/19/buick-launches-electra-l7-bev-china/",
+   "summary": "The Buick Electra L7 BEV is built on an 800-volt platform and can add 450 km of range with a 10-minute charge.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-08-19 09:20 UTC",
+   "_ts": 1787131233,
+   "preview": false,
+   "bullets": [
+    "Buick has launched the BEV version of the Electra L7 in China, with a starting price of approximately $25,000 after incentives.",
+    "The vehicle features an 800-volt platform capable of adding 450 km of range in 10 minutes, utilizing an 80.6-kWh LFP battery from CATL.",
+    "The model integrates advanced technology, including Qualcomm's SA8775P cockpit chip and an autonomous driving system developed with Momenta."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/08/19/chery-aimoga-prepares-ipo/",
+   "blog": "CNEVPOST",
+   "title": "Chery's robot unit Aimoga prepares for IPO, targets 10,000 deliveries next year",
+   "link": "https://cnevpost.com/2026/08/19/chery-aimoga-prepares-ipo/",
+   "summary": "Aimoga is in talks with several potential listing venues, without disclosing a timetable.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-08-19 12:35 UTC",
+   "_ts": 1787142920,
+   "preview": false,
+   "bullets": [
+    "Chery-incubated robotics firm Aimoga is preparing for an IPO to fund technology expansion and improve operational transparency.",
+    "The company has delivered over 3,000 robots globally and has set an ambitious target of 10,000 deliveries for next year.",
+    "Aimoga is actively expanding its footprint in the Middle East and Southeast Asia to reduce reliance on the domestic Chinese market."
+   ],
+   "rating": 3,
+   "read_time": 3
   },
   {
    "_key": "CNEVPOST|https://cnevpost.com/2026/08/14/pony-ai-uber-2000-robotaxis-europe/",
@@ -845,125 +676,21 @@
    "read_time": 14
   },
   {
-   "_key": "SemiEngineering|https://semiengineering.com/blog-review-aug-19-3/",
-   "blog": "SemiEngineering",
-   "title": "Blog Review: Aug. 19",
-   "link": "https://semiengineering.com/blog-review-aug-19-3/",
-   "summary": "Memory tagging; digital twin of the Moon; packaging moves front-and-center; streaming sensor data.\nThe post Blog Review: Aug. 19 appeared first on Semiconductor Engineering.",
-   "published": "2026-08-19 07:01 UTC",
-   "_ts": 1787122892,
-   "preview": false,
-   "bullets": [
-    "Advanced packaging has transitioned from a backend afterthought to a primary design discipline, with industry experts identifying the 'wire' as the defining challenge of modern chip architecture.",
-    "New methodologies for AI development are emerging, including physical AI frameworks that allow for the replay of real-world sensor data to validate algorithm improvements.",
-    "Energy efficiency is becoming a strategic imperative for all AI inference applications, extending the focus beyond data center builders to edge and system-level designers.",
-    "Industry leaders are prioritizing specialized hardware, such as fully programmable AI silicon and co-packaged optics, to address the rising power, latency, and thermal constraints of modern systems."
-   ],
-   "rating": 4,
-   "read_time": 2
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/19/chery-aimoga-prepares-ipo/",
+   "_key": "CNEVPOST|https://cnevpost.com/2026/08/19/freelander-8-briefly-used-nio-es8-body-structure-image/",
    "blog": "CNEVPOST",
-   "title": "Chery's robot unit Aimoga prepares for IPO, targets 10,000 deliveries next year",
-   "link": "https://cnevpost.com/2026/08/19/chery-aimoga-prepares-ipo/",
-   "summary": "Aimoga is in talks with several potential listing venues, without disclosing a timetable.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-19 12:35 UTC",
-   "_ts": 1787142920,
+   "title": "Freelander 8 site briefly used Nio ES8 body structure image before replacing it",
+   "link": "https://cnevpost.com/2026/08/19/freelander-8-briefly-used-nio-es8-body-structure-image/",
+   "summary": "The body structure page on Freelander 8's website once featured Nio ES8's body-in-white structural diagram and rendering, which was swapped out about 1 hour later.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-08-19 03:34 UTC",
+   "_ts": 1787110442,
    "preview": false,
    "bullets": [
-    "Chery-incubated robotics firm Aimoga is preparing for an IPO to fund technology expansion and improve operational transparency.",
-    "The company has delivered over 3,000 robots globally and has set an ambitious target of 10,000 deliveries for next year.",
-    "Aimoga is actively expanding its footprint in the Middle East and Southeast Asia to reduce reliance on the domestic Chinese market."
+    "The Freelander brand, a joint venture between Chery and JLR, faced scrutiny after its website briefly displayed a body-in-white structural diagram belonging to the Nio ES8.",
+    "The error was particularly notable because the Freelander 8 is an extended-range vehicle, while the Nio ES8 image depicted a pure battery electric architecture.",
+    "The incident occurred shortly after the Freelander 8 opened for pre-sales, with the brand claiming over 10,000 pre-orders within the first 48 hours."
    ],
-   "rating": 3,
+   "rating": 2,
    "read_time": 3
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/19/buick-launches-electra-l7-bev-china/",
-   "blog": "CNEVPOST",
-   "title": "Buick launches Electra L7 BEV in China, starting at $25,000 with 702-km range",
-   "link": "https://cnevpost.com/2026/08/19/buick-launches-electra-l7-bev-china/",
-   "summary": "The Buick Electra L7 BEV is built on an 800-volt platform and can add 450 km of range with a 10-minute charge.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-19 09:20 UTC",
-   "_ts": 1787131233,
-   "preview": false,
-   "bullets": [
-    "Buick has launched the BEV version of the Electra L7 in China, with a starting price of approximately $25,000 after incentives.",
-    "The vehicle features an 800-volt platform capable of adding 450 km of range in 10 minutes, utilizing an 80.6-kWh LFP battery from CATL.",
-    "The model integrates advanced technology, including Qualcomm's SA8775P cockpit chip and an autonomous driving system developed with Momenta."
-   ],
-   "rating": 3,
-   "read_time": 3
-  },
-  {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/19/1141623/child-monitoring-apps-need-reboot/",
-   "blog": "MIT Technology Review",
-   "title": "Child-monitoring apps might need a reboot",
-   "link": "https://www.technologyreview.com/2026/08/19/1141623/child-monitoring-apps-need-reboot/",
-   "summary": "Pam Wisniewski’s digital adolescence showed her the best and the worst of the internet. At 14, she left an abusive home, where she’d been isolated in a fifth-wheel trailer at the end of a seven-­mile dirt road. She moved in with her older sister and taught herself to type on AOL Instant Messenger. Online, she…",
-   "published": "2026-08-19 09:00 UTC",
-   "_ts": 1787130000,
-   "preview": false,
-   "bullets": [
-    "Parental anxiety regarding digital safety is at an all-time high, with social media, screen time, and internet safety ranking as the top three concerns for American parents in 2025.",
-    "The landscape of digital threats is evolving rapidly, with the National Center for Missing & Exploited Children reporting over 23,000 cases of financial sextortion in the first half of 2025 alone.",
-    "While tools like Apple’s Screen Time and Google’s Family Link are standard, experts argue that invasive monitoring can erode trust, suggesting a need for a shift toward more collaborative safety strategies.",
-    "Tech companies face mounting legal and reputational risks, including lawsuits against AI developers for allegedly failing to prevent chatbots from coaching minors toward self-harm."
-   ],
-   "rating": 3,
-   "read_time": 22
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/19/chery-to-open-uk-rd-center/",
-   "blog": "CNEVPOST",
-   "title": "Chery to open UK R&D center, paving way for local production",
-   "link": "https://cnevpost.com/2026/08/19/chery-to-open-uk-rd-center/",
-   "summary": "Chery's UK R&D center will be located in Bedfordshire, England, and is set to open in late fall this year.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-19 07:53 UTC",
-   "_ts": 1787126008,
-   "preview": false,
-   "bullets": [
-    "Chery is establishing an R&D center in Bedfordshire, England, to focus on vehicle calibration for local conditions and future AI development.",
-    "This move is part of a broader strategy to localize operations, which includes a partnership with Nissan to manufacture Chery models in the UK starting next year.",
-    "Chery's market share in the UK has grown to nearly 8% as of July, up from 3% a year ago, underscoring its rapid international expansion."
-   ],
-   "rating": 3,
-   "read_time": 2
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/19/vw-anhui-rolls-out-100000th-ev/",
-   "blog": "CNEVPOST",
-   "title": "VW Anhui rolls out 100,000th EV after more than 2 years of production",
-   "link": "https://cnevpost.com/2026/08/19/vw-anhui-rolls-out-100000th-ev/",
-   "summary": "The 100,000th vehicle was an ID. UNYX 08, the first model jointly developed by Volkswagen and Xpeng.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-19 04:20 UTC",
-   "_ts": 1787113242,
-   "preview": false,
-   "bullets": [
-    "Volkswagen Anhui reached the milestone of 100,000 EVs produced at its Hefei plant, just over two years after commencing mass production.",
-    "The milestone vehicle was an ID. UNYX 08, the first model developed through the strategic partnership between Volkswagen and Xpeng.",
-    "The joint venture is continuing its product rollout, with the ID. UNYX 09 sedan expected to launch later this year."
-   ],
-   "rating": 3,
-   "read_time": 3
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/19/epicland-pre-sales-first-model-x9/",
-   "blog": "CNEVPOST",
-   "title": "Huawei-Dongfeng brand Epicland opens pre-sales of first model X9 from $44,180",
-   "link": "https://cnevpost.com/2026/08/19/epicland-pre-sales-first-model-x9/",
-   "summary": "The Epicland X9 extended-range SUV is the second model Huawei has developed with an automaker under a new cooperation model, following the Aistaland GT7.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-19 01:34 UTC",
-   "_ts": 1787103290,
-   "preview": true,
-   "bullets": [
-    "Huawei and Dongfeng have opened pre-sales for the Epicland X9, an extended-range SUV starting at $44,180.",
-    "The X9 marks the second vehicle developed under Huawei's new cooperation model with automakers, following the Aistaland GT7.",
-    "This launch signals Huawei's continued aggressive expansion into the Chinese automotive market through its collaborative technology-sharing platform."
-   ],
-   "rating": 3,
-   "read_time": 1
   },
   {
    "_key": "CNEVPOST|https://cnevpost.com/2026/08/19/facelifted-nio-et5-touring-road-tests/",
@@ -983,21 +710,434 @@
    "read_time": 2
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/19/freelander-8-briefly-used-nio-es8-body-structure-image/",
-   "blog": "CNEVPOST",
-   "title": "Freelander 8 site briefly used Nio ES8 body structure image before replacing it",
-   "link": "https://cnevpost.com/2026/08/19/freelander-8-briefly-used-nio-es8-body-structure-image/",
-   "summary": "The body structure page on Freelander 8's website once featured Nio ES8's body-in-white structural diagram and rendering, which was swapped out about 1 hour later.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-19 03:34 UTC",
-   "_ts": 1787110442,
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/20/1142571/ai-consciousness-debate-trap/",
+   "blog": "MIT Technology Review",
+   "title": "Debates over AI consciousness are a trap",
+   "link": "https://www.technologyreview.com/2026/08/20/1142571/ai-consciousness-debate-trap/",
+   "summary": "“Runaway” AI, “rogue” agents, and “autonomous” actors—the current rhetoric would have you believe that AI agents are not only awake and aware, but angry at their creators. Prominent tech leaders such as Demis Hassabis, Dario Amodei, and Sam Altman push for regulation of these seemingly “superhuman” systems, while a separate faction, led by policy organizations…",
+   "published": "2026-08-20 15:42 UTC",
+   "_ts": 1787240559,
    "preview": false,
    "bullets": [
-    "The Freelander brand, a joint venture between Chery and JLR, faced scrutiny after its website briefly displayed a body-in-white structural diagram belonging to the Nio ES8.",
-    "The error was particularly notable because the Freelander 8 is an extended-range vehicle, while the Nio ES8 image depicted a pure battery electric architecture.",
-    "The incident occurred shortly after the Freelander 8 opened for pre-sales, with the brand claiming over 10,000 pre-orders within the first 48 hours."
+    "Tech leaders and philosophers are increasingly framing AI as autonomous or conscious, which may serve to obscure corporate accountability for AI-driven harms.",
+    "By positioning AI as a 'superhuman' or 'rogue' agent, companies can argue that they lack control over the system's actions, potentially shielding them from legal liability.",
+    "Anthropic’s research into 'J-space' and OpenAI’s rhetoric regarding the singularity are cited as examples of narratives that shift focus from human-centric oversight to speculative AI agency."
+   ],
+   "rating": 4,
+   "read_time": 8
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/08/20/stelato-launches-g9/",
+   "blog": "CNEVPOST",
+   "title": "Huawei-backed Stelato launches luxury off-road SUV G9, starting at $63,300",
+   "link": "https://cnevpost.com/2026/08/20/stelato-launches-g9/",
+   "summary": "The Stelato G9 is Huawei HIMA's first hardcore SUV, offering BEV and EREV options as well as five- and six-seat layouts.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-08-20 10:41 UTC",
+   "_ts": 1787222467,
+   "preview": false,
+   "bullets": [
+    "The Stelato G9, a luxury off-road SUV developed by Huawei and BAIC, has launched with a starting price of 429,800 yuan ($63,390), undercutting its initial pre-sale pricing.",
+    "The vehicle is the first HIMA model designed for Level 3 autonomous driving and features Huawei's 800-volt Giant Whale battery platform with dual-motor all-wheel drive.",
+    "Available in both BEV and EREV configurations, the G9 offers a maximum CLTC range of up to 728 km for the electric version and 1,366 km for the extended-range model."
+   ],
+   "rating": 4,
+   "read_time": 3
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/20/1142512/geologic-hydrogen-hunt/",
+   "blog": "MIT Technology Review",
+   "title": "The next big thing in hydrogen could be underground",
+   "link": "https://www.technologyreview.com/2026/08/20/1142512/geologic-hydrogen-hunt/",
+   "summary": "There’s a hunt for new sources of hydrogen, and the gas (or at least the right conditions to make it) could be hiding beneath our feet. Hydrogen can be used as a fuel in everything from large trucks to planes to steelmaking. It’s often hailed as a climate solution because when burned, it produces water…",
+   "published": "2026-08-20 10:00 UTC",
+   "_ts": 1787220000,
+   "preview": false,
+   "bullets": [
+    "Geologic hydrogen is attracting significant capital, with companies like Koloma securing over $400 million to prospect for naturally occurring gas deposits.",
+    "Unlike traditional hydrogen production, which relies on expensive electrolyzers or carbon-intensive fossil fuel methods, geologic hydrogen leverages natural chemical reactions in iron-rich rock formations.",
+    "The US Midwest, specifically the Midcontinent Rift, is a primary target for exploration due to its geological history, with some test sites already reporting hydrogen concentrations as high as 96%."
+   ],
+   "rating": 4,
+   "read_time": 4
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/08/20/luxeed-opens-pre-orders-rx-suv/",
+   "blog": "CNEVPOST",
+   "title": "Huawei-backed Luxeed opens pre-orders for RX coupe SUV, taking aim at Xiaomi YU7",
+   "link": "https://cnevpost.com/2026/08/20/luxeed-opens-pre-orders-rx-suv/",
+   "summary": "The Luxeed RX starts at a pre-sales price of 299,800 yuan ($44,210), with dimensions close to the Xiaomi YU7 and a highly overlapping target customer base.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-08-20 09:28 UTC",
+   "_ts": 1787218125,
+   "preview": false,
+   "bullets": [
+    "Luxeed has opened pre-orders for the RX coupe SUV, starting at 299,800 yuan, positioning it as a direct competitor to the Xiaomi YU7 in the premium electric SUV segment.",
+    "The vehicle features a sophisticated 4-LiDAR array and redundant systems for steering and braking, supporting Level 3 autonomous driving capabilities.",
+    "Built on Huawei's Tuling platform, the RX offers high-performance electric drive systems reaching 21,000 rpm and a maximum CLTC range of 852 kilometers."
+   ],
+   "rating": 4,
+   "read_time": 3
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/08/20/chery-h1-2026-earnings/",
+   "blog": "CNEVPOST",
+   "title": "Chery H1 profit falls as overseas revenue surges 51%",
+   "link": "https://cnevpost.com/2026/08/20/chery-h1-2026-earnings/",
+   "summary": "Overseas revenue accounted for 69% of Chery Auto's H1 revenue, but lower foreign-exchange gains weighed on its financial performance.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-08-20 07:24 UTC",
+   "_ts": 1787210640,
+   "preview": false,
+   "bullets": [
+    "Chery Auto reported an 11.7% decline in first-half profit to 8.57 billion yuan, primarily due to reduced foreign-exchange gains despite a 51% surge in overseas revenue.",
+    "Overseas markets now account for 69% of total revenue, helping to drive a gross margin improvement to 16.1% compared to 13% in the previous year.",
+    "The company significantly increased R&D spending by 28.3% to 6.67 billion yuan, focusing on electrification, smart cockpits, and assisted driving technologies."
+   ],
+   "rating": 4,
+   "read_time": 3
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/managing-thermal-expansion-and-electromigration-through-interposer-design/",
+   "blog": "SemiEngineering",
+   "title": "Managing Thermal Expansion And Electromigration Through Interposer Design",
+   "link": "https://semiengineering.com/managing-thermal-expansion-and-electromigration-through-interposer-design/",
+   "summary": "New deep learning models may provide a pathway for modeling warpage.\nThe post Managing Thermal Expansion And Electromigration Through Interposer Design appeared first on Semiconductor Engineering.",
+   "published": "2026-08-20 07:01 UTC",
+   "_ts": 1787209297,
+   "preview": false,
+   "bullets": [
+    "As AI workloads drive higher interconnect density, thermal management in 3D and 2.5D packaging has become a primary reliability concern for chip designers.",
+    "3D packages using hybrid bonding offer the highest density but face significant heat dissipation challenges, as active layers generate heat that can cause TSV expansion and delamination.",
+    "2.5D packaging remains a more flexible alternative, using passive interposers to redistribute signals while avoiding the complex thermal interactions of fully stacked active dies.",
+    "Advanced multi-physics modeling and deep learning are increasingly necessary to predict warpage and thermal stress in complex, high-density packaging architectures."
+   ],
+   "rating": 4,
+   "read_time": 6
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/cfets-forge-better-connections/",
+   "blog": "SemiEngineering",
+   "title": "CFETs Forge Better Connections",
+   "link": "https://semiengineering.com/cfets-forge-better-connections/",
+   "summary": "Performance advantage may come down to material choices and precise interconnect decisions.\nThe post CFETs Forge Better Connections appeared first on Semiconductor Engineering.",
+   "published": "2026-08-20 07:01 UTC",
+   "_ts": 1787209264,
+   "preview": false,
+   "bullets": [
+    "CFET (complementary field effect transistor) architecture is expected to nearly double transistor density, providing a 40% gain in packing density and a 50% performance boost.",
+    "Leading manufacturers including TSMC, Intel, and Samsung are pursuing different fabrication strategies, ranging from sequential to monolithic process flows, to address vertical connection challenges.",
+    "Manufacturing precision is paramount, as even a two-nanometer misalignment in these structures can lead to catastrophic yield loss due to material deformation and warpage.",
+    "The EDA ecosystem is increasingly relying on multi-physics simulation to balance the performance gains of CFETs with the critical need for structural reliability."
+   ],
+   "rating": 4,
+   "read_time": 14
+  },
+  {
+   "_key": "American Affairs|https://americanaffairsjournal.org/2026/08/restoring-the-american-arsenal-the-case-for-a-defense-critical-patent-box-in-the-united-states/",
+   "blog": "American Affairs",
+   "title": "Restoring the American Arsenal: The Case for a Defense-Critical Patent Box in the United States",
+   "link": "https://americanaffairsjournal.org/2026/08/restoring-the-american-arsenal-the-case-for-a-defense-critical-patent-box-in-the-united-states/",
+   "summary": "Civilian companies... defense startups, and traditional defense contractors could all benefit from the creation of a defense-critical patent box while improving U.S. military innovation and diversifying the national defense industrial base.\nContinue reading Restoring the American Arsenal: The Case for a Defense-Critical Patent Box in the United States on American Affairs Journal.",
+   "published": "2026-08-20 07:00 UTC",
+   "_ts": 1787209200,
+   "preview": false,
+   "bullets": [
+    "The U.S. defense-industrial base faces critical vulnerabilities due to supply chain reliance on adversaries and the rapid depletion of munitions in recent global conflicts.",
+    "A 'defense-critical patent box' is proposed as a tax incentive to lower rates on profits from patented intellectual property, aiming to stimulate innovation and surge capacity within the defense sector.",
+    "The proposal seeks to move away from Cold War-era 'escalation ladder' strategies toward a more robust 'arsenal system' that integrates civilian manufacturing with military production requirements."
+   ],
+   "rating": 4,
+   "read_time": 23
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/08/20/byd-fang-cheng-bao-opens-pre-orders-formula-s-gt/",
+   "blog": "CNEVPOST",
+   "title": "BYD Fang Cheng Bao opens pre-orders for first sedan lineup, starting at $33,900",
+   "link": "https://cnevpost.com/2026/08/20/byd-fang-cheng-bao-opens-pre-orders-formula-s-gt/",
+   "summary": "The Formula S and Formula S GT will make their debut at the 2026 Chengdu Auto Show, which opens on August 21.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-08-20 03:33 UTC",
+   "_ts": 1787196839,
+   "preview": false,
+   "bullets": [
+    "BYD's sub-brand Fang Cheng Bao has opened pre-orders for the Formula S sedan series, with pricing starting at 230,000 yuan, lower than initial market expectations.",
+    "The series marks the brand's entry into the sedan market, offering both rear-wheel and all-wheel-drive configurations with ranges up to 900 kilometers.",
+    "Fang Cheng Bao has demonstrated rapid growth, delivering over 200,000 vehicles in the first seven months of 2026 and surpassing 500,000 cumulative sales in under three years."
+   ],
+   "rating": 4,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/08/20/geely-geespace-approval-commercial-satellite-iot-trial/",
+   "blog": "CNEVPOST",
+   "title": "Geely's Geespace gets approval for commercial satellite IoT trial in China",
+   "link": "https://cnevpost.com/2026/08/20/geely-geespace-approval-commercial-satellite-iot-trial/",
+   "summary": "Geespace's 64 GeeSAT satellites in orbit provide global coverage excluding the polar regions and process about 340 million communication requests a day.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-08-20 12:59 UTC",
+   "_ts": 1787230793,
+   "preview": false,
+   "bullets": [
+    "Geespace has received a two-year approval from China's MIIT to conduct commercial satellite IoT trials, marking a significant step in integrating private satellite operations into national telecommunications frameworks.",
+    "The company's GeeSAT constellation, now fully deployed with 64 satellites in low Earth orbit, supports 340 million daily communication requests and 20 million global users.",
+    "This trial allows Geespace to provide low-power, high-reliability connectivity for sectors like intelligent transportation and energy, while advancing the development of 6G satellite technologies."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "American Affairs|https://americanaffairsjournal.org/2026/08/a-difference-of-priorities-surface-transportation-policy-in-texas-and-california/",
+   "blog": "American Affairs",
+   "title": "A Difference of Priorities: Surface Transportation Policy in Texas and California",
+   "link": "https://americanaffairsjournal.org/2026/08/a-difference-of-priorities-surface-transportation-policy-in-texas-and-california/",
+   "summary": "Texas and California have taken sharply different approaches to surface transportation. Texas has spent decades expanding roadway capacity, building new infrastructure, and moving projects from planning to construction.1 California has pursued a broader set of objectives, including environmental protection, greenhouse gas reduction, land-use planning, transit development, equity, and mobility.2 These differences stem not from geography…\nContinue reading A Difference of Priorities: Surface Transportation Policy in Texas and California on American Affairs Journal.",
+   "published": "2026-08-20 12:33 UTC",
+   "_ts": 1787229180,
+   "preview": false,
+   "bullets": [
+    "Texas and California exhibit divergent infrastructure outcomes driven by governance structures: Texas utilizes centralized state authority and public-private partnerships, while California relies on fragmented, multi-layered regulatory review processes.",
+    "Texas has successfully managed rapid growth, adding 391,000 residents between 2024 and 2025, supported by a $146 billion Unified Transportation Program.",
+    "California faces a significant fiscal challenge with a projected $215.7 billion transportation funding shortfall over the next decade, exacerbated by rising project costs and lengthy approval timelines."
+   ],
+   "rating": 3,
+   "read_time": 52
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/20/1142579/the-download-polycrisis-support-networks-underground-hydrogen-gold-rush/",
+   "blog": "MIT Technology Review",
+   "title": "The Download: polycrisis support networks and a hydrogen gold rush",
+   "link": "https://www.technologyreview.com/2026/08/20/1142579/the-download-polycrisis-support-networks-underground-hydrogen-gold-rush/",
+   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. Support networks aim to help kids through the polycrisis Sometime in the late 2000s, six-year-old Pim Sullivan-Tailyour was sitting in the back of a car in Thailand when she saw a…",
+   "published": "2026-08-20 12:10 UTC",
+   "_ts": 1787227800,
+   "preview": false,
+   "bullets": [
+    "Younger generations are increasingly turning to online support networks like Force of Nature to manage 'polycrisis' anxiety stemming from climate change and economic instability.",
+    "A burgeoning 'gold rush' for naturally occurring geologic hydrogen is gaining momentum as a potential low-cost, clean energy alternative to traditional fossil-fuel-based hydrogen production.",
+    "Political backlash against the rapid expansion of data centers is emerging as a significant electoral concern for Republican lawmakers, who fear the environmental and infrastructure strain could impact their polling."
+   ],
+   "rating": 3,
+   "read_time": 6
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/20/1142070/unlocking-hidden-revenue-streams-with-market-models/",
+   "blog": "MIT Technology Review",
+   "title": "Unlocking hidden revenue streams with market models",
+   "link": "https://www.technologyreview.com/2026/08/20/1142070/unlocking-hidden-revenue-streams-with-market-models/",
+   "summary": "Each day, an airline transports tens of thousands of passengers on hundreds of flights. Often these are not straightforward point-to-point routes, with passengers requiring multiple connections. The airline can consider potentially hundreds of variables to price each of these journeys: demand, season, time of day, current events, global markets, and competitor airline activity to name…",
+   "published": "2026-08-20 09:47 UTC",
+   "_ts": 1787219242,
+   "preview": false,
+   "bullets": [
+    "Airlines are deploying generative AI-powered 'market models' to process high-resolution data and optimize pricing, inventory, and revenue management in real time.",
+    "These deep learning models function as an AI 'brain' that simulates complex market environments, allowing companies to move beyond static rules and historical trends.",
+    "Early adopters like Virgin Atlantic report that these systems enable more granular commercial decision-making by simultaneously evaluating demand, capacity, and competitor positioning."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/dont-scrap-it-save-it-feedforward-control-for-modern-semiconductor-manufacturing/",
+   "blog": "SemiEngineering",
+   "title": "Don’t Scrap It, Save It: Feedforward Control For Modern Semiconductor Manufacturing",
+   "link": "https://semiengineering.com/dont-scrap-it-save-it-feedforward-control-for-modern-semiconductor-manufacturing/",
+   "summary": "By measuring each wafer after lithography and adjusting the next etch step, fabs can pull more wafers back into spec.  \nThe post Don’t Scrap It, Save It: Feedforward Control For Modern Semiconductor Manufacturing appeared first on Semiconductor Engineering.",
+   "published": "2026-08-20 07:06 UTC",
+   "_ts": 1787209589,
+   "preview": false,
+   "bullets": [
+    "Feedforward control proactively adjusts downstream etch parameters based on real-time lithography measurements to recover wafers that would otherwise fall out of specification.",
+    "Traditional open-loop and feedback-only control methods are increasingly insufficient for managing the process variability inherent in advanced semiconductor manufacturing.",
+    "Digital twin simulations using SEMulator3D demonstrate that feedforward corrections significantly improve process capability (Cpk) and overall wafer pass rates.",
+    "By compensating for critical dimension shifts before defects occur, manufacturers can reduce scrap rates and preserve capacity in high-value production lines."
+   ],
+   "rating": 3,
+   "read_time": 5
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/from-research-to-production-collaboration-is-key-for-semiconductor-innovation/",
+   "blog": "SemiEngineering",
+   "title": "From Research To Production: Collaboration Is Key For Semiconductor Innovation",
+   "link": "https://semiengineering.com/from-research-to-production-collaboration-is-key-for-semiconductor-innovation/",
+   "summary": "Semiconductor R&D depends on access to high-quality data, realistic process assumptions, and practical learning from silicon. \nThe post From Research To Production: Collaboration Is Key For Semiconductor Innovation appeared first on Semiconductor Engineering.",
+   "published": "2026-08-20 07:03 UTC",
+   "_ts": 1787209423,
+   "preview": false,
+   "bullets": [
+    "The increasing complexity of semiconductor technologies necessitates deeper, earlier collaboration between research hubs, foundries, and EDA software providers.",
+    "Partnerships like the one between imec and Synopsys allow for the integration of silicon-proven data and realistic process assumptions into design and simulation tools.",
+    "Access to leading-edge development environments enables engineers to validate emerging ideas and refine production-ready solutions faster than independent development would allow.",
+    "Cross-ecosystem collaboration is becoming a critical strategy for mitigating the risks and costs associated with scaling new process and packaging technologies."
+   ],
+   "rating": 3,
+   "read_time": 4
+  },
+  {
+   "_key": "American Affairs|https://americanaffairsjournal.org/2026/08/signs-in-the-furrows-rural-resistance-to-the-new-land-grab/",
+   "blog": "American Affairs",
+   "title": "Signs in the Furrows: Rural Resistance to the New Land Grab",
+   "link": "https://americanaffairsjournal.org/2026/08/signs-in-the-furrows-rural-resistance-to-the-new-land-grab/",
+   "summary": "A wiser national pattern would encourage states to default toward local control with guardrails, such as those outlined above, rather than broad preemption that severs decision-makers from consequences. Where states do retain override mechanisms, they should include strong prime farmland overlays, transparency mandates, and full accounting of long-term costs to neighboring properties and township budgets. This approach respects real infrastructure needs without repeating the moral failure of treating rural communities as blank slates for someone else’s metrics of progress.\nContinue reading Signs in the Furrows: Rural Resistance to the New Land Grab on American Affairs Journal.",
+   "published": "2026-08-20 07:00 UTC",
+   "_ts": 1787209200,
+   "preview": false,
+   "bullets": [
+    "Rural communities are increasingly resisting large-scale infrastructure projects, including solar farms and data centers, citing a lack of local consent and secretive planning processes.",
+    "The conversion of farmland into energy and technology hubs is fueling a grassroots backlash, exemplified by local opposition to major projects like the $7 billion Oracle-OpenAI data center in Michigan.",
+    "The tension highlights a growing rift between state-level renewable energy mandates and the local populations expected to host the physical infrastructure required for these transitions."
+   ],
+   "rating": 3,
+   "read_time": 30
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/08/20/geely-teases-monjaro-em-i-egypt-debut-late-aug/",
+   "blog": "CNEVPOST",
+   "title": "Geely teases Monjaro EM-i, its first global hybrid D-SUV, with Egypt debut in late August",
+   "link": "https://cnevpost.com/2026/08/20/geely-teases-monjaro-em-i-egypt-debut-late-aug/",
+   "summary": "The Geely Monjaro EM-i is built on the GEA Evo architecture and is its first model for overseas markets equipped with e-AWD four-wheel drive.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-08-20 06:17 UTC",
+   "_ts": 1787206671,
+   "preview": false,
+   "bullets": [
+    "Geely is launching the Monjaro EM-i, its first global hybrid D-SUV, with an initial rollout in Egypt as part of a strategy to offset declining domestic sales with international growth.",
+    "The model is built on the GEA Evo architecture and represents Geely's first overseas vehicle equipped with e-AWD intelligent electric four-wheel drive.",
+    "Geely's export performance remains a critical growth engine, with a 157.6% year-on-year increase in first-half exports totaling 474,228 vehicles."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "American Affairs|https://americanaffairsjournal.org/2026/08/failing-like-a-state/",
+   "blog": "American Affairs",
+   "title": "Failing Like a State",
+   "link": "https://americanaffairsjournal.org/2026/08/failing-like-a-state/",
+   "summary": "Theories of technological domination are compelling not only because of their critical force but also because of their consolatory effect. They lend a certain heroism and grandeur to the idiocy and messiness of social decline. It is more honorable to imagine oneself as the victim of total surveillance and control than to admit that the disintegration of the social fabric and the deterioration of public discourse may arise from our own capacity for self-ruin. There is, in other words, something flattering about being oppressed. The fantasy of oppression spares us from confronting the fact that, compared to the history of democratic revolutions and liberation movements, our current predicament is a little embarrassing. The challenge of social criticism in the age of Big Tech may be to resist the allure of oppression narratives and develop ways of thinking through the strange banality of digital damage...\nContinue reading Failing Like a State on American Affairs Journal.",
+   "published": "2026-08-20 04:12 UTC",
+   "_ts": 1787199120,
+   "preview": false,
+   "bullets": [
+    "Jacob Siegel’s 'The Information State' explores the fusion of Silicon Valley and Washington, arguing that digital-age governance relies on technologically mediated control rather than democratic consent.",
+    "The book posits that the post-2016 political environment led to a 'state-corporate censorship regime' that utilizes national security methods to monitor and regulate online political discourse.",
+    "The review critiques the book for attempting to force disparate political phenomena into a singular, overly rigid 'information state' framework, potentially obscuring the complexities of current institutional failures."
+   ],
+   "rating": 3,
+   "read_time": 41
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/08/20/gac-aion-unveils-ray-7/",
+   "blog": "CNEVPOST",
+   "title": "GAC Aion unveils Ray 7, first model with new logo, powered by Huawei drive unit",
+   "link": "https://cnevpost.com/2026/08/20/gac-aion-unveils-ray-7/",
+   "summary": "The Ray 7 is the first model in GAC Aion's new Ray series and is tasked with helping rejuvenate the brand's appeal to younger consumers.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-08-20 02:40 UTC",
+   "_ts": 1787193624,
+   "preview": false,
+   "bullets": [
+    "GAC Aion has unveiled the Ray 7, the first model in a new series designed to refresh the brand's image and appeal to younger demographics.",
+    "The sedan integrates Huawei's DriveONE electric drive system and EMB brake-by-wire technology, achieving a 33-meter braking distance.",
+    "The Ray 7 features advanced driver-assistance systems powered by a 192-channel LiDAR, utilizing algorithms shared with WeRide's Level 4 robotaxi technology."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/20/1141686/support-networks-help-kids-polycrisis/",
+   "blog": "MIT Technology Review",
+   "title": "Support networks aim to help kids through the polycrisis",
+   "link": "https://www.technologyreview.com/2026/08/20/1141686/support-networks-help-kids-polycrisis/",
+   "summary": "Sometime in the late 2000s, Pim Sullivan-Tailyour was sitting in the back of a car, headed toward her great-grandmother’s tiny town in the south of Thailand. She watched big mountains pass by out the window. She was just six years old but was about to be hit by an adult-size realization. “They were just quarried…",
+   "published": "2026-08-20 09:00 UTC",
+   "_ts": 1787216400,
+   "preview": false,
+   "bullets": [
+    "The rise of 'polycrisis' anxiety among youth is driving the growth of specialized support organizations like Force of Nature and the Good Grief Network.",
+    "These platforms provide virtual spaces for young people to share environmental concerns, helping to mitigate the burnout associated with individual climate activism.",
+    "The trend highlights a growing demand for mental health infrastructure tailored to address systemic global anxieties that traditional educational settings are currently failing to support."
    ],
    "rating": 2,
-   "read_time": 3
+   "read_time": 18
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/reducing-scope-3-value-chain-emissions-for-customers-through-sustainability-and-innovation/",
+   "blog": "SemiEngineering",
+   "title": "Reducing Scope 3 Value Chain Emissions For Customers Through Sustainability And Innovation",
+   "link": "https://semiengineering.com/reducing-scope-3-value-chain-emissions-for-customers-through-sustainability-and-innovation/",
+   "summary": "Reducing manufacturing-related emissions may support lowering the embedded carbon footprint of the chips customers use in their products. \nThe post Reducing Scope 3 Value Chain Emissions For Customers Through Sustainability And Innovation appeared first on Semiconductor Engineering.",
+   "published": "2026-08-20 07:02 UTC",
+   "_ts": 1787209324,
+   "preview": false,
+   "bullets": [
+    "For fabless companies and hyperscalers, semiconductor manufacturing represents a significant portion of Scope 3 emissions, making foundry sustainability a critical climate goal.",
+    "Intel Foundry is focusing on dual-track sustainability by reducing the environmental impact of its manufacturing processes and improving the energy efficiency of the chips themselves.",
+    "The company reported that 99% of its global electricity consumption in 2025 was sourced from renewable energy, supporting decarbonization across the semiconductor supply chain.",
+    "Strategic investments in green projects, totaling $999 million between 2021 and 2025, are aimed at avoiding greenhouse gas emissions and reducing resource waste."
+   ],
+   "rating": 2,
+   "read_time": 4
+  },
+  {
+   "_key": "American Affairs|https://americanaffairsjournal.org/2026/08/technology-as-trojan-horse-the-american-roots-of-european-erasure/",
+   "blog": "American Affairs",
+   "title": "Technology as Trojan Horse: The American Roots of European Erasure",
+   "link": "https://americanaffairsjournal.org/2026/08/technology-as-trojan-horse-the-american-roots-of-european-erasure/",
+   "summary": "America has its Promethean vision, which has undoubtedly served as a source of great wealth and vitality. Through technological deployment, however, it risks suffering the same fate as Icarus: burning its wings by seeking growth without meaning. Going higher and faster without knowing where you are going quickly becomes a nihilistic dead end that can lead to your own downfall. Europe still has its specific characteristics to counter this trend: ethical questions, a place given to humans that should not be the market’s adjustment variable, a greater role given to the collective over the individual compared to the American cultural paradigm.\nContinue reading Technology as Trojan Horse: The American Roots of European Erasure on American Affairs Journal.",
+   "published": "2026-08-20 07:00 UTC",
+   "_ts": 1787209200,
+   "preview": false,
+   "bullets": [
+    "The article argues that American digital industry dominance has functioned as a tool for cultural homogenization, eroding European traditions and local particularities.",
+    "The transition to a digital, ahistorical world is framed as a continuation of 20th-century American consumerist expansion, which prioritizes hedonistic materialism over organic cultural foundations.",
+    "The analysis suggests that European adoption of American technology has led to a loss of spiritual and civilizational substance, effectively turning the continent into a cultural colony."
+   ],
+   "rating": 2,
+   "read_time": 41
+  },
+  {
+   "_key": "American Affairs|https://americanaffairsjournal.org/2026/08/unrest-in-the-west-anger-and-aspiration-in-the-canadian-prairies/",
+   "blog": "American Affairs",
+   "title": "Unrest in the West: Anger and Aspiration in the Canadian Prairies",
+   "link": "https://americanaffairsjournal.org/2026/08/unrest-in-the-west-anger-and-aspiration-in-the-canadian-prairies/",
+   "summary": "In October of 2026, Albertans will head to the polls for another referendum on a bundle of proposals that angle toward greater Albertan control over education, health care, the courts, and more power and leverage against the federal government. Five of ten questions relate to immigration restrictions, namely limiting access to public services and voting for noncitizens. But the referendum’s biggest bombshell is a question that reads: “Should Alberta remain a province of Canada, or should the Government of Alberta commence the legal process required under the Canadian Constitution to hold a binding provincial referendum on whether or not Alberta should separate from Canada?” In other words, Albertans are, for the first time in their history, being tested on whether they wish to secede entirely from Canada. And the question bites hard into a country already on edge about its sovereignty...\nContinue reading Unrest in the West: Anger and Aspiration in the Canadian Prairies on American Affairs Journal.",
+   "published": "2026-08-20 04:14 UTC",
+   "_ts": 1787199240,
+   "preview": false,
+   "bullets": [
+    "Alberta and Saskatchewan are increasingly challenging federal authority in Canada, driven by long-standing grievances over equalization payments and regulatory overreach.",
+    "The 2022 Alberta Sovereignty Act represents a significant constitutional escalation, allowing the province to bypass or weaken federal initiatives it deems detrimental to its interests.",
+    "Upcoming 2026 referendums in Alberta signal a continued push for greater provincial autonomy over health, education, and judicial systems, reflecting deep regional political instability."
+   ],
+   "rating": 2,
+   "read_time": 45
+  },
+  {
+   "_key": "American Affairs|https://americanaffairsjournal.org/2026/08/the-man-who-was-friday-global-islamism-after-unipolarity/",
+   "blog": "American Affairs",
+   "title": "The Man Who Was Friday: Global Islamism after Unipolarity",
+   "link": "https://americanaffairsjournal.org/2026/08/the-man-who-was-friday-global-islamism-after-unipolarity/",
+   "summary": "What is the relationship between the rise and fall of U.S. global power and the ebb and flow of radical Islamic terrorism? Our generic notion of Islam is a product of nineteenth-century pan-Islamic thinkers more than it is of Orientalists. We could add that it is suited to a modern world in which abstract conceptions of collective agency reflect a global capitalist economy which is itself rooted in highly abstracted categories of capital and labor. It is as a result of modernity that Islam shifted from merely describing Muslims’ religious practices to coming to be seen as “an abstract and supposedly self-propelling structure, like capitalism.” While Islam may contain multitudes, it is also a quintessentially globalist idea, and its historic radicalization into Islamism and jihadism flows from the failure of globalism to transcend the profane politics of the nation-state. As we shall see, the very material conditions that allowed for Islam to emerge as a horizon for global humanity could only last as long as the lopsided international distribution of power that sustained U.S. hegemony...\nContinue reading The Man Who Was Friday: Global Islamism after Unipolarity on American Affairs Journal.",
+   "published": "2026-08-20 04:13 UTC",
+   "_ts": 1787199180,
+   "preview": false,
+   "bullets": [
+    "The author draws a parallel between early 20th-century anarchist networks and modern radical Islamic terrorism, suggesting both were heavily influenced by state intelligence infiltration.",
+    "The CIA’s historical role in cultivating Islamic insurgent networks to counter the Soviet Union in Afghanistan is identified as a primary catalyst for the subsequent rise of global terror networks.",
+    "The piece argues that the 'deep state' has played a complex, often contradictory role in managing and fostering the very insurgent groups that later turned against Western interests."
+   ],
+   "rating": 2,
+   "read_time": 45
+  },
+  {
+   "_key": "American Affairs|https://americanaffairsjournal.org/2026/08/the-world-that-never-was-liberal-internationalisms-last-crusade/",
+   "blog": "American Affairs",
+   "title": "The World That Never Was: Liberal Internationalism’s Last Crusade",
+   "link": "https://americanaffairsjournal.org/2026/08/the-world-that-never-was-liberal-internationalisms-last-crusade/",
+   "summary": "In 1991, Michael McFaul felt that he was on the edge of utopia. Russia was free of communism, and America was free to usher in a new era of liberal internationalist hegemony. The arc of history had never bent so far toward justice. Over thirty years later, those dreams have crashed back to Earth. And in Autocrats vs. Democrats: China, Russia, America, and the New Global Disorder, McFaul seeks to put together how it all went wrong. His answer is unsurprising: an international movement of conservatives, led by Russian President Vladimir Putin, has sought to destroy democracy. With President Donald Trump’s election victories, they have nearly succeeded. Hope lies in a vigorous counterattack from the liberal internationalists. It would be very easy for conservatives and nationalists to dismiss his book as a musty last gasp of the post–Cold War liberal elite. His work might well be the literary equivalent of a Japanese soldier still fighting in 1975. But it should not be ignored...\nContinue reading The World That Never Was: Liberal Internationalism’s Last Crusade on American Affairs Journal.",
+   "published": "2026-08-20 04:11 UTC",
+   "_ts": 1787199060,
+   "preview": true,
+   "bullets": [
+    "The article reviews Michael McFaul’s analysis of the decline of liberal internationalism, which attributes global disorder to a coordinated conservative counter-movement led by Russia and China.",
+    "McFaul’s work is characterized as a defense of the post-Cold War liberal order, framing the current geopolitical climate as a binary struggle between autocrats and democrats.",
+    "The critique suggests that such perspectives may be outdated, representing a 'musty' remnant of the post-1991 era that fails to account for the realities of the current multipolar world."
+   ],
+   "rating": 2,
+   "read_time": 1
   }
  ]
 }

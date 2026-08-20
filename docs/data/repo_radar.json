@@ -1,113 +1,110 @@
 {
- "generated_at": "2026-08-20 06:39 HKT",
+ "generated_at": "2026-08-21 06:43 HKT",
  "repos": [
   {
-   "name": "mukul975/Anthropic-Cybersecurity-Skills",
-   "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
-   "language": "Python",
-   "description": "817 structured cybersecurity skills for AI agents · Mapped to 6 frameworks: MITRE ATT&CK, NIST CSF 2.0, MITRE ATLAS, D3FEND, NIST AI RMF & MITRE F3 (Fight Fraud) · agentskills.io standard · Works with Claude Code, GitHub Copilot, Codex CLI, Cursor, Gemini CLI & 20+ platforms · 29 security domains · Apache 2.0",
-   "keywords": [
-    "AI agent",
-    "AI skills"
-   ],
-   "trendshift_pos": 10,
-   "stars": 29793,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A comprehensive library of 817 structured cybersecurity skills designed for AI agents.",
-   "bullets": [
-    "Built on the agentskills.io standard for interoperable agentic workflows.",
-    "Maps directly to major security frameworks including MITRE ATT&CK, NIST CSF 2.0, and NIST AI RMF.",
-    "Enables automated threat detection, fraud prevention, and security posture assessment.",
-    "Provides a standardized interface for LLMs to execute complex cybersecurity operations."
-   ]
-  },
-  {
-   "name": "jundot/omlx",
-   "url": "https://github.com/jundot/omlx",
-   "language": "Python",
-   "description": "LLM inference server with continuous batching & SSD caching for Apple Silicon — managed from the macOS menu bar",
-   "keywords": [
-    "AI infrastructure",
-    "Local LLM",
-    "Self-hosted"
-   ],
-   "trendshift_pos": 21,
-   "stars": 19816,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance LLM inference server optimized for Apple Silicon with continuous batching and SSD caching.",
-   "bullets": [
-    "Utilizes continuous batching to maximize throughput on local macOS hardware.",
-    "Features intelligent SSD caching to manage model weights and context efficiently.",
-    "Managed via a native macOS menu bar interface for seamless local development.",
-    "Ideal for running private, high-speed inference for local agentic or RAG applications."
-   ]
-  },
-  {
-   "name": "chaitanyagiri/munder-difflin",
-   "url": "https://github.com/chaitanyagiri/munder-difflin",
+   "name": "stablyai/orca",
+   "url": "https://github.com/stablyai/orca",
    "language": "TypeScript",
-   "description": "local multi-agent harness",
+   "description": "Orca is the ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available on desktop, mobile and VPS.",
    "keywords": [
     "AI agent",
-    "AI workflow",
-    "Self-hosted"
+    "AI coding assistant"
    ],
-   "trendshift_pos": 8,
-   "stars": 2647,
+   "trendshift_pos": 23,
+   "stars": 49982,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A local multi-agent harness designed for orchestrating complex task execution.",
+   "one_liner": "An Agent Development Environment (ADE) designed to orchestrate and manage fleets of parallel AI agents.",
    "bullets": [
-    "Framework for managing multi-agent interactions within a local environment.",
-    "Focuses on agent coordination, task delegation, and state management.",
-    "Provides a structured harness for testing and deploying agentic workflows.",
-    "Useful for developers building autonomous systems that require multi-step reasoning."
+    "Built with TypeScript for cross-platform compatibility across desktop, mobile, and VPS environments.",
+    "Provides a unified interface to manage multiple coding agents simultaneously using personal subscriptions.",
+    "Focuses on agentic workflow orchestration, enabling complex multi-agent task execution.",
+    "Ideal for developers scaling agentic automation for software engineering and complex task management."
    ]
   },
   {
-   "name": "dob323/session-kit",
-   "url": "https://github.com/dob323/session-kit",
+   "name": "vectorize-io/hindsight",
+   "url": "https://github.com/vectorize-io/hindsight",
    "language": "Python",
-   "description": "Persistent SSH sessions and exact local safety controls for Claude Code, Codex, and shells on Linux and macOS",
+   "description": "Hindsight: Agent Memory That  Learns",
+   "keywords": [
+    "AI agent",
+    "AI memory"
+   ],
+   "trendshift_pos": 22,
+   "stars": 20697,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An intelligent memory layer for AI agents that enables persistent learning and context retention.",
+   "bullets": [
+    "Python-based architecture designed to integrate seamlessly with existing LLM agent frameworks.",
+    "Implements advanced memory retrieval mechanisms to allow agents to 'learn' from past interactions.",
+    "Solves the context window limitation by providing long-term, searchable storage for agentic workflows.",
+    "Critical infrastructure for building autonomous agents that require stateful memory for complex reasoning."
+   ],
+   "img": "vectorize-io_hindsight_0.jpg",
+   "img_alt": "Hindsight Banner",
+   "img2": "vectorize-io_hindsight_1.jpg",
+   "img2_alt": "Overview"
+  },
+  {
+   "name": "CopilotKit/OpenBot",
+   "url": "https://github.com/CopilotKit/OpenBot",
+   "language": "TypeScript",
+   "description": "Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided before it happens and recorded after. Bring any AG-UI agent.",
+   "keywords": [
+    "AI agent",
+    "Headless browser"
+   ],
+   "trendshift_pos": 3,
+   "stars": 1574,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "Open-source AI coworkers equipped with their own virtual computer environments to execute tasks autonomously.",
+   "bullets": [
+    "TypeScript-based framework that provides agents with dedicated access to browsers, file systems, and CLI tools.",
+    "Features a 'plan-then-act' architecture where agent decisions are verified and recorded for transparency.",
+    "Designed to bring agentic capabilities to any UI, allowing for seamless human-AI collaboration.",
+    "Useful for automating repetitive desktop workflows, data extraction, and complex multi-step research tasks."
+   ]
+  },
+  {
+   "name": "vercel-labs/portless",
+   "url": "https://github.com/vercel-labs/portless",
+   "language": "TypeScript",
+   "description": "Replace port numbers with stable, named local URLs. For humans and agents.",
+   "keywords": [
+    "Proxy"
+   ],
+   "trendshift_pos": 13,
+   "stars": 11064,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A developer tool that replaces volatile port numbers with stable, human-readable local URLs.",
+   "bullets": [
+    "TypeScript implementation that simplifies local service discovery for both humans and automated agents.",
+    "Eliminates the friction of managing dynamic port assignments in complex microservice or agentic architectures.",
+    "Provides a stable networking layer that improves the reliability of local development environments.",
+    "Essential for infrastructure setups where agents need to reliably communicate with multiple local services."
+   ]
+  },
+  {
+   "name": "hydra-db/hydradb",
+   "url": "https://github.com/hydra-db/hydradb",
+   "language": "Rust",
+   "description": "HydraDB - fast graph database on object storage",
    "keywords": [],
-   "trendshift_pos": 18,
-   "stars": 670,
+   "trendshift_pos": 19,
+   "stars": 1041,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A toolkit for persistent SSH sessions and local safety controls for AI coding agents.",
+   "one_liner": "A high-performance graph database optimized for operation on object storage.",
    "bullets": [
-    "Provides secure, persistent session management for Claude Code and other coding agents.",
-    "Implements granular local safety controls to sandbox agentic execution.",
-    "Supports Linux and macOS environments for infrastructure-level agent integration.",
-    "Ensures reliable, long-running agentic tasks without session timeouts or security risks."
+    "Written in Rust to ensure memory safety and high-concurrency performance for large-scale data.",
+    "Architected to leverage low-cost object storage while maintaining the speed of a native graph database.",
+    "Designed for complex relationship mapping, making it ideal for financial fraud detection and entity resolution.",
+    "Provides a scalable backend for AI applications that require deep link analysis and knowledge graph traversal."
    ]
-  },
-  {
-   "name": "yizhiyanhua-ai/fireworks-tech-graph",
-   "url": "https://github.com/yizhiyanhua-ai/fireworks-tech-graph",
-   "language": "Python",
-   "description": "Generate production-quality SVG+PNG technical diagrams from natural language. 7 styles, UML support, and AI/Agent workflow patterns.",
-   "keywords": [
-    "AI agent",
-    "Data visualization"
-   ],
-   "trendshift_pos": 24,
-   "stars": 10578,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An AI-driven tool for generating production-quality technical diagrams from natural language.",
-   "bullets": [
-    "Generates SVG and PNG outputs using natural language prompts.",
-    "Supports UML, technical architecture patterns, and agentic workflow visualization.",
-    "Offers 7 distinct design styles for professional documentation.",
-    "Automates the creation of complex system diagrams, reducing manual design overhead."
-   ],
-   "img": "yizhiyanhua-ai_fireworks-tech-graph_0.jpg",
-   "img_alt": "Animated 12-style showcase — one distinct engineering scenario per style",
-   "img2": "yizhiyanhua-ai_fireworks-tech-graph_1.jpg",
-   "img2_alt": "Style 1 — Flat Icon"
   }
  ]
 }
