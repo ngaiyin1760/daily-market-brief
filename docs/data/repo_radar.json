@@ -1,113 +1,117 @@
 {
- "generated_at": "2026-08-22 06:39 HKT",
+ "generated_at": "2026-08-23 06:36 HKT",
  "repos": [
   {
-   "name": "Tencent/AI-Infra-Guard",
-   "url": "https://github.com/Tencent/AI-Infra-Guard",
-   "language": "Python",
-   "description": "A full-stack AI Red Teaming platform securing AI ecosystems via Agent Scan, Skills Scan, MCP scan, AI Infra scan and LLM jailbreak evaluation.",
+   "name": "HiThink-Tech/Financial-API",
+   "url": "https://github.com/HiThink-Tech/Financial-API",
+   "language": "TypeScript",
+   "description": "同花顺官方 A股金融数据服务，提供股票实时行情、历史行情、财务报表、指数、板块、涨停等数据，适用于 AI Agent、量化研究和应用开发，支持 API、MCP、CLI 和 Python。Official Tonghuashun (HiThink) A-share financial data service providing real-time and historical stock market data, financial statements, indices, sectors and limit-up data for AI agents, quantitative research and application development.",
    "keywords": [
-    "AI agent",
-    "AI infrastructure"
+    "Fintech"
    ],
-   "trendshift_pos": 17,
-   "stars": 5334,
+   "trendshift_pos": 19,
+   "stars": 973,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A comprehensive full-stack AI Red Teaming platform designed to secure AI ecosystems and LLM deployments.",
+   "one_liner": "Official A-share financial data service designed for AI agents, quantitative research, and application development.",
    "bullets": [
-    "Built with Python to provide automated security scanning for AI infrastructure and agentic workflows.",
-    "Features specialized modules for MCP (Model Context Protocol) scanning, AI Infra auditing, and LLM jailbreak evaluation.",
-    "Addresses critical enterprise security needs by identifying vulnerabilities in AI-integrated software pipelines.",
-    "Essential for fintech and high-stakes environments where AI model integrity and data safety are paramount."
+    "Provides real-time and historical stock market data, financial statements, and index information.",
+    "Supports multiple integration methods including API, MCP (Model Context Protocol), CLI, and Python.",
+    "Specifically engineered for quant developers and AI agents requiring structured financial data.",
+    "Official service from Tonghuashun (HiThink), ensuring high data reliability for trading applications."
    ],
-   "img": "Tencent_AI-Infra-Guard_0.jpg",
-   "img_alt": "A.I.G Main Page",
-   "img2": "Tencent_AI-Infra-Guard_1.jpg",
-   "img2_alt": "Plugin Management"
+   "img": "HiThink-Tech_Financial-API_0.jpg",
+   "img_alt": "单股行情与趋势速览"
   },
   {
-   "name": "Graphify-Labs/graphify",
-   "url": "https://github.com/Graphify-Labs/graphify",
+   "name": "PostHog/posthog",
+   "url": "https://github.com/PostHog/posthog",
    "language": "Python",
-   "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
+   "description": ":hedgehog: PostHog is the leading platform for building self-driving products. Our developer tools – AI observability, analytics, session replay, flags, experiments, error tracking, logs, and more – capture all the context agents need to diagnose problems, uncover opportunities, and ship fixes. Steer it all from Slack, web, desktop, or the MCP.",
+   "keywords": [
+    "Self-hosted"
+   ],
+   "trendshift_pos": 16,
+   "stars": 38590,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An all-in-one platform for product analytics, session replay, and AI observability.",
+   "bullets": [
+    "Comprehensive stack including analytics, feature flags, error tracking, and AI observability tools.",
+    "Enables developers to build 'self-driving' products by monitoring user behavior and model performance.",
+    "Ideal for fintech and SaaS companies needing deep insights into user interaction and system health.",
+    "Self-hostable infrastructure that integrates directly into the product development lifecycle."
+   ]
+  },
+  {
+   "name": "agentrhq/webcmd",
+   "url": "https://github.com/agentrhq/webcmd",
+   "language": "JavaScript",
+   "description": "The Browser Infra that learns and cuts token spend by upto 90%",
    "keywords": [
     "AI agent",
+    "Headless browser"
+   ],
+   "trendshift_pos": 3,
+   "stars": 1321,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "Browser-based infrastructure that optimizes AI agent performance while reducing token consumption.",
+   "bullets": [
+    "Acts as a specialized browser layer for agentic workflows to improve interaction efficiency.",
+    "Reduces LLM token spend by up to 90% through intelligent browser-based data extraction.",
+    "Provides a robust infrastructure layer for agents that need to navigate complex web environments.",
+    "Focuses on cost-effective automation for developers building high-frequency agentic tasks."
+   ]
+  },
+  {
+   "name": "affaan-m/ECC",
+   "url": "https://github.com/affaan-m/ECC",
+   "language": "JavaScript",
+   "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+   "keywords": [
+    "AI agent",
+    "AI coding assistant",
     "AI skills"
    ],
-   "trendshift_pos": 24,
-   "stars": 109233,
+   "trendshift_pos": 25,
+   "stars": 242152,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A tool that transforms complex codebases, SQL schemas, and documentation into a queryable knowledge graph.",
+   "one_liner": "A performance optimization system for agent harnesses, focusing on skills, memory, and security.",
    "bullets": [
-    "Utilizes local deterministic AST parsing to map relationships between code, configs, and database schemas.",
-    "Integrates directly with Claude Code, Cursor, and other CLI tools as a specialized agent skill.",
-    "Enables developers to perform semantic queries across massive repositories to understand architectural dependencies.",
-    "Highly relevant for quant and fintech engineers needing to audit complex logic or legacy financial systems."
-   ]
+    "Provides a structured framework for managing agent instincts, memory, and research capabilities.",
+    "Compatible with major coding agents like Claude Code, Codex, and Cursor.",
+    "Implements security and performance layers to optimize the development lifecycle of autonomous agents.",
+    "Designed to scale agentic workflows by standardizing how agents interact with external tools."
+   ],
+   "img": "affaan-m_ECC_0.jpg",
+   "img_alt": "Plan Canvas demo: reviewing an ECC plan in the browser, scrolling diagrams, attaching an anchored annotation, chatting with the agent, and approving the plan"
   },
   {
-   "name": "modular/modular",
-   "url": "https://github.com/modular/modular",
-   "language": "Mojo",
-   "description": "The Modular Platform (includes MAX & Mojo)",
+   "name": "Kodiqa-Solutions/VaultS3",
+   "url": "https://github.com/Kodiqa-Solutions/VaultS3",
+   "language": "Go",
+   "description": "Lightweight, S3-compatible object storage server with built-in web dashboard. Single binary, low memory, encryption at rest.",
    "keywords": [
-    "AI infrastructure"
+    "Self-hosted",
+    "File management"
    ],
-   "trendshift_pos": 5,
-   "stars": 28670,
+   "trendshift_pos": 20,
+   "stars": 1138,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A high-performance platform featuring the Mojo programming language and MAX engine for AI infrastructure.",
+   "one_liner": "A lightweight, S3-compatible object storage server designed for high-performance infrastructure.",
    "bullets": [
-    "Combines the usability of Python with the performance of C/C++ via the Mojo language.",
-    "Provides a unified AI engine (MAX) designed to optimize model inference across diverse hardware backends.",
-    "Focuses on low-latency execution, making it ideal for high-frequency trading or real-time AI inference.",
-    "Represents a significant shift in infrastructure tooling for developers building high-performance AI applications."
-   ]
-  },
-  {
-   "name": "wang2122/sprix-sage-router",
-   "url": "https://github.com/wang2122/sprix-sage-router",
-   "language": "Python",
-   "description": "Sprix AI at 屿智同行 — state-aware SELF/COLLABORATE/HANDOFF routing for A2A agent networks.",
-   "keywords": [
-    "AI agent"
+    "Built in Go as a single binary with low memory footprint, ideal for edge or containerized environments.",
+    "Includes a built-in web dashboard for easy management and monitoring of stored assets.",
+    "Features encryption at rest, making it suitable for secure data storage in fintech or sensitive applications.",
+    "Provides a drop-in S3-compatible interface for developers needing local or private cloud storage infrastructure."
    ],
-   "trendshift_pos": 21,
-   "stars": 1009,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A state-aware routing framework for agent-to-agent (A2A) networks supporting self-correction and collaboration.",
-   "bullets": [
-    "Implements advanced routing logic for multi-agent systems, including SELF, COLLABORATE, and HANDOFF patterns.",
-    "Built in Python to manage complex agent workflows where tasks must be delegated or verified by specialized sub-agents.",
-    "Focuses on state-awareness to ensure consistency across distributed agent interactions.",
-    "A critical component for building scalable, agentic infrastructure in complex enterprise environments."
-   ]
-  },
-  {
-   "name": "Panniantong/Agent-Reach",
-   "url": "https://github.com/Panniantong/Agent-Reach",
-   "language": "Python",
-   "description": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.",
-   "keywords": [
-    "AI agent",
-    "Web scraping",
-    "Search"
-   ],
-   "trendshift_pos": 23,
-   "stars": 73844,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A CLI-based tool that provides AI agents with real-time, zero-fee access to major social and content platforms.",
-   "bullets": [
-    "Enables agents to search and read data from Twitter, Reddit, YouTube, GitHub, and other platforms without API costs.",
-    "Acts as a bridge for agents to ingest live market sentiment or technical discussions directly into their context window.",
-    "Simplifies the infrastructure required for agents to perform web-based research and data gathering.",
-    "Highly useful for quant researchers and fintech analysts looking to automate the ingestion of alternative data sources."
-   ]
+   "img": "Kodiqa-Solutions_VaultS3_0.jpg",
+   "img_alt": "Buckets",
+   "img2": "Kodiqa-Solutions_VaultS3_1.jpg",
+   "img2_alt": "File Browser"
   }
  ]
 }
