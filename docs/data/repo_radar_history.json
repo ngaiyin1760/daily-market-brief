@@ -1,6 +1,113 @@
 {
  "days": [
   {
+   "date": "2026-08-24",
+   "generated_at": "2026-08-24 06:36 HKT",
+   "repos": [
+    {
+     "name": "Leonxlnx/unlazy",
+     "url": "https://github.com/Leonxlnx/unlazy",
+     "language": "JavaScript",
+     "description": "Anti-laziness skill for AI agents. Core: the Depth Tree method, which splits a task N layers deep and gives every leaf the full time budget of the whole task, so effort multiplies with depth. Grounded in 2025-2026 research on model laziness, underthinking and premature completion.",
+     "keywords": [
+      "AI agent",
+      "AI skills"
+     ],
+     "trendshift_pos": 8,
+     "stars": 1632,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An innovative framework for AI agents that uses a 'Depth Tree' method to multiply task effort and reasoning depth.",
+     "bullets": [
+      "Implements the Depth Tree algorithm to recursively split complex tasks into N layers.",
+      "Allocates the full task time budget to each leaf node to maximize reasoning output.",
+      "Designed to combat AI 'laziness' and improve performance on complex, multi-step reasoning tasks.",
+      "Provides a structured approach to agentic workflows that require deep, exhaustive analysis."
+     ]
+    },
+    {
+     "name": "NanoNets/Graft",
+     "url": "https://github.com/NanoNets/Graft",
+     "language": "TypeScript",
+     "description": "Turn docs into a structured context graph that AI agents read from before working and contribute learnings back to.",
+     "keywords": [
+      "AI agent",
+      "Document processing"
+     ],
+     "trendshift_pos": 19,
+     "stars": 4518,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A system that transforms unstructured documents into a structured context graph for AI agents to read and update.",
+     "bullets": [
+      "Uses a graph-based data structure to maintain relationships between document entities.",
+      "Enables bidirectional communication where agents read context and contribute new learnings back to the graph.",
+      "Optimizes RAG (Retrieval-Augmented Generation) by providing agents with structured, interconnected knowledge.",
+      "Ideal for enterprise knowledge management and long-term agent memory applications."
+     ]
+    },
+    {
+     "name": "duty1g/x64dbg-mcp-server",
+     "url": "https://github.com/duty1g/x64dbg-mcp-server",
+     "language": "Zig",
+     "description": "x64dbg-MCP Server is a native MCP (Model Context Protocol) plugin for x64dbg that exposes the debugger's full functionality over HTTP. Connect any MCP-compatible AI assistant and control x64dbg programmatically: set breakpoints, step through code, read memory, dump registers, and more.  Built with Zig — zero dependencies, single-binary output, cros",
+     "keywords": [],
+     "trendshift_pos": 10,
+     "stars": 805,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A native Model Context Protocol (MCP) server that exposes x64dbg functionality to AI assistants.",
+     "bullets": [
+      "Built in Zig to provide a high-performance bridge between the x64dbg debugger and AI models.",
+      "Exposes full debugger control via HTTP, allowing AI agents to perform reverse engineering tasks.",
+      "Enables agentic debugging, where an AI can step through code, inspect memory, and analyze crashes autonomously.",
+      "Integrates with any MCP-compatible AI assistant for automated security research and software analysis."
+     ]
+    },
+    {
+     "name": "VoltAgent/awesome-agent-skills",
+     "url": "https://github.com/VoltAgent/awesome-agent-skills",
+     "language": "—",
+     "description": "A curated collection of 1000+ agent skills from official dev teams and the community, compatible with Claude Code, Codex, Gemini CLI, Cursor, and more.",
+     "keywords": [
+      "AI skills",
+      "Curated list"
+     ],
+     "trendshift_pos": 20,
+     "stars": 31252,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A massive, curated repository of 1000+ interoperable skills for modern AI coding agents.",
+     "bullets": [
+      "Provides a standardized library of modular skills compatible with Claude Code, Codex, and Cursor.",
+      "Covers a wide range of operational domains, from infrastructure management to code refactoring.",
+      "Serves as a central hub for developers to extend the capabilities of their autonomous coding agents.",
+      "Facilitates the rapid deployment of agentic workflows by providing pre-built, community-vetted tools."
+     ]
+    },
+    {
+     "name": "oblien/openship",
+     "url": "https://github.com/oblien/openship",
+     "language": "TypeScript",
+     "description": "Self-hosted deployment platform",
+     "keywords": [
+      "Self-hosted"
+     ],
+     "trendshift_pos": 25,
+     "stars": 11505,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A self-hosted, open-source deployment platform designed to simplify infrastructure management.",
+     "bullets": [
+      "Built with TypeScript to provide a modern, developer-friendly interface for managing cloud deployments.",
+      "Focuses on self-hosting to give teams full control over their infrastructure and data privacy.",
+      "Streamlines CI/CD pipelines by automating the deployment process for containerized applications.",
+      "Acts as a cost-effective alternative to proprietary PaaS offerings for devops and infrastructure teams."
+     ]
+    }
+   ]
+  },
+  {
    "date": "2026-08-23",
    "generated_at": "2026-08-23 06:36 HKT",
    "repos": [

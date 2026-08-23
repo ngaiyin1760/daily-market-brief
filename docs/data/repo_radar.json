@@ -1,117 +1,106 @@
 {
- "generated_at": "2026-08-23 06:36 HKT",
+ "generated_at": "2026-08-24 06:36 HKT",
  "repos": [
   {
-   "name": "HiThink-Tech/Financial-API",
-   "url": "https://github.com/HiThink-Tech/Financial-API",
-   "language": "TypeScript",
-   "description": "同花顺官方 A股金融数据服务，提供股票实时行情、历史行情、财务报表、指数、板块、涨停等数据，适用于 AI Agent、量化研究和应用开发，支持 API、MCP、CLI 和 Python。Official Tonghuashun (HiThink) A-share financial data service providing real-time and historical stock market data, financial statements, indices, sectors and limit-up data for AI agents, quantitative research and application development.",
+   "name": "Leonxlnx/unlazy",
+   "url": "https://github.com/Leonxlnx/unlazy",
+   "language": "JavaScript",
+   "description": "Anti-laziness skill for AI agents. Core: the Depth Tree method, which splits a task N layers deep and gives every leaf the full time budget of the whole task, so effort multiplies with depth. Grounded in 2025-2026 research on model laziness, underthinking and premature completion.",
    "keywords": [
-    "Fintech"
+    "AI agent",
+    "AI skills"
    ],
-   "trendshift_pos": 19,
-   "stars": 973,
+   "trendshift_pos": 8,
+   "stars": 1632,
    "fork": false,
    "parent_name": "",
-   "one_liner": "Official A-share financial data service designed for AI agents, quantitative research, and application development.",
+   "one_liner": "An innovative framework for AI agents that uses a 'Depth Tree' method to multiply task effort and reasoning depth.",
    "bullets": [
-    "Provides real-time and historical stock market data, financial statements, and index information.",
-    "Supports multiple integration methods including API, MCP (Model Context Protocol), CLI, and Python.",
-    "Specifically engineered for quant developers and AI agents requiring structured financial data.",
-    "Official service from Tonghuashun (HiThink), ensuring high data reliability for trading applications."
-   ],
-   "img": "HiThink-Tech_Financial-API_0.jpg",
-   "img_alt": "单股行情与趋势速览"
+    "Implements the Depth Tree algorithm to recursively split complex tasks into N layers.",
+    "Allocates the full task time budget to each leaf node to maximize reasoning output.",
+    "Designed to combat AI 'laziness' and improve performance on complex, multi-step reasoning tasks.",
+    "Provides a structured approach to agentic workflows that require deep, exhaustive analysis."
+   ]
   },
   {
-   "name": "PostHog/posthog",
-   "url": "https://github.com/PostHog/posthog",
-   "language": "Python",
-   "description": ":hedgehog: PostHog is the leading platform for building self-driving products. Our developer tools – AI observability, analytics, session replay, flags, experiments, error tracking, logs, and more – capture all the context agents need to diagnose problems, uncover opportunities, and ship fixes. Steer it all from Slack, web, desktop, or the MCP.",
+   "name": "NanoNets/Graft",
+   "url": "https://github.com/NanoNets/Graft",
+   "language": "TypeScript",
+   "description": "Turn docs into a structured context graph that AI agents read from before working and contribute learnings back to.",
+   "keywords": [
+    "AI agent",
+    "Document processing"
+   ],
+   "trendshift_pos": 19,
+   "stars": 4518,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A system that transforms unstructured documents into a structured context graph for AI agents to read and update.",
+   "bullets": [
+    "Uses a graph-based data structure to maintain relationships between document entities.",
+    "Enables bidirectional communication where agents read context and contribute new learnings back to the graph.",
+    "Optimizes RAG (Retrieval-Augmented Generation) by providing agents with structured, interconnected knowledge.",
+    "Ideal for enterprise knowledge management and long-term agent memory applications."
+   ]
+  },
+  {
+   "name": "duty1g/x64dbg-mcp-server",
+   "url": "https://github.com/duty1g/x64dbg-mcp-server",
+   "language": "Zig",
+   "description": "x64dbg-MCP Server is a native MCP (Model Context Protocol) plugin for x64dbg that exposes the debugger's full functionality over HTTP. Connect any MCP-compatible AI assistant and control x64dbg programmatically: set breakpoints, step through code, read memory, dump registers, and more.  Built with Zig — zero dependencies, single-binary output, cros",
+   "keywords": [],
+   "trendshift_pos": 10,
+   "stars": 805,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A native Model Context Protocol (MCP) server that exposes x64dbg functionality to AI assistants.",
+   "bullets": [
+    "Built in Zig to provide a high-performance bridge between the x64dbg debugger and AI models.",
+    "Exposes full debugger control via HTTP, allowing AI agents to perform reverse engineering tasks.",
+    "Enables agentic debugging, where an AI can step through code, inspect memory, and analyze crashes autonomously.",
+    "Integrates with any MCP-compatible AI assistant for automated security research and software analysis."
+   ]
+  },
+  {
+   "name": "VoltAgent/awesome-agent-skills",
+   "url": "https://github.com/VoltAgent/awesome-agent-skills",
+   "language": "—",
+   "description": "A curated collection of 1000+ agent skills from official dev teams and the community, compatible with Claude Code, Codex, Gemini CLI, Cursor, and more.",
+   "keywords": [
+    "AI skills",
+    "Curated list"
+   ],
+   "trendshift_pos": 20,
+   "stars": 31252,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A massive, curated repository of 1000+ interoperable skills for modern AI coding agents.",
+   "bullets": [
+    "Provides a standardized library of modular skills compatible with Claude Code, Codex, and Cursor.",
+    "Covers a wide range of operational domains, from infrastructure management to code refactoring.",
+    "Serves as a central hub for developers to extend the capabilities of their autonomous coding agents.",
+    "Facilitates the rapid deployment of agentic workflows by providing pre-built, community-vetted tools."
+   ]
+  },
+  {
+   "name": "oblien/openship",
+   "url": "https://github.com/oblien/openship",
+   "language": "TypeScript",
+   "description": "Self-hosted deployment platform",
    "keywords": [
     "Self-hosted"
    ],
-   "trendshift_pos": 16,
-   "stars": 38590,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An all-in-one platform for product analytics, session replay, and AI observability.",
-   "bullets": [
-    "Comprehensive stack including analytics, feature flags, error tracking, and AI observability tools.",
-    "Enables developers to build 'self-driving' products by monitoring user behavior and model performance.",
-    "Ideal for fintech and SaaS companies needing deep insights into user interaction and system health.",
-    "Self-hostable infrastructure that integrates directly into the product development lifecycle."
-   ]
-  },
-  {
-   "name": "agentrhq/webcmd",
-   "url": "https://github.com/agentrhq/webcmd",
-   "language": "JavaScript",
-   "description": "The Browser Infra that learns and cuts token spend by upto 90%",
-   "keywords": [
-    "AI agent",
-    "Headless browser"
-   ],
-   "trendshift_pos": 3,
-   "stars": 1321,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "Browser-based infrastructure that optimizes AI agent performance while reducing token consumption.",
-   "bullets": [
-    "Acts as a specialized browser layer for agentic workflows to improve interaction efficiency.",
-    "Reduces LLM token spend by up to 90% through intelligent browser-based data extraction.",
-    "Provides a robust infrastructure layer for agents that need to navigate complex web environments.",
-    "Focuses on cost-effective automation for developers building high-frequency agentic tasks."
-   ]
-  },
-  {
-   "name": "affaan-m/ECC",
-   "url": "https://github.com/affaan-m/ECC",
-   "language": "JavaScript",
-   "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
-   "keywords": [
-    "AI agent",
-    "AI coding assistant",
-    "AI skills"
-   ],
    "trendshift_pos": 25,
-   "stars": 242152,
+   "stars": 11505,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A performance optimization system for agent harnesses, focusing on skills, memory, and security.",
+   "one_liner": "A self-hosted, open-source deployment platform designed to simplify infrastructure management.",
    "bullets": [
-    "Provides a structured framework for managing agent instincts, memory, and research capabilities.",
-    "Compatible with major coding agents like Claude Code, Codex, and Cursor.",
-    "Implements security and performance layers to optimize the development lifecycle of autonomous agents.",
-    "Designed to scale agentic workflows by standardizing how agents interact with external tools."
-   ],
-   "img": "affaan-m_ECC_0.jpg",
-   "img_alt": "Plan Canvas demo: reviewing an ECC plan in the browser, scrolling diagrams, attaching an anchored annotation, chatting with the agent, and approving the plan"
-  },
-  {
-   "name": "Kodiqa-Solutions/VaultS3",
-   "url": "https://github.com/Kodiqa-Solutions/VaultS3",
-   "language": "Go",
-   "description": "Lightweight, S3-compatible object storage server with built-in web dashboard. Single binary, low memory, encryption at rest.",
-   "keywords": [
-    "Self-hosted",
-    "File management"
-   ],
-   "trendshift_pos": 20,
-   "stars": 1138,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A lightweight, S3-compatible object storage server designed for high-performance infrastructure.",
-   "bullets": [
-    "Built in Go as a single binary with low memory footprint, ideal for edge or containerized environments.",
-    "Includes a built-in web dashboard for easy management and monitoring of stored assets.",
-    "Features encryption at rest, making it suitable for secure data storage in fintech or sensitive applications.",
-    "Provides a drop-in S3-compatible interface for developers needing local or private cloud storage infrastructure."
-   ],
-   "img": "Kodiqa-Solutions_VaultS3_0.jpg",
-   "img_alt": "Buckets",
-   "img2": "Kodiqa-Solutions_VaultS3_1.jpg",
-   "img2_alt": "File Browser"
+    "Built with TypeScript to provide a modern, developer-friendly interface for managing cloud deployments.",
+    "Focuses on self-hosting to give teams full control over their infrastructure and data privacy.",
+    "Streamlines CI/CD pipelines by automating the deployment process for containerized applications.",
+    "Acts as a cost-effective alternative to proprietary PaaS offerings for devops and infrastructure teams."
+   ]
   }
  ]
 }
