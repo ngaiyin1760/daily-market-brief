@@ -137,13 +137,20 @@ def gemini_json(prompt, temperature=0.2):
     }
     data = gemini_generate(payload)
     text = data["candidates"][0]["content"]["parts"][0]["text"].strip()
-    # Strip ```json ... ``` fences and any surrounding prose.
-    m = re.search(r"\{.*\}", text, re.S)
-    if m:
-        text = m.group(0)
-    parsed = json.loads(text)
+    # Prefer the raw text when it's already a bare JSON object (Gemini's JSON
+    # mode sometimes returns it without prose or fences).
+    parsed = None
+    try:
+        parsed = json.loads(text)
+    except Exception:
+        m = re.search(r"\{.*\}", text, re.S)
+        if m:
+            try:
+                parsed = json.loads(m.group(0))
+            except Exception:
+                parsed = None
     if not isinstance(parsed, dict):
-        raise ValueError("Gemini response is not a JSON object")
+        raise ValueError(f"Gemini response is not a JSON object: {text[:200]}")
     return parsed
 
 # ---------------------------------------------------------------------------
@@ -496,31 +503,54 @@ def gemini_day_importance(news, groups):
     stories, moves = day_importance_input(news, groups)
     prompt = DAY_IMPORTANCE_PROMPT.format(stories=stories, moves=moves)
     parsed = gemini_json(prompt)
-    imp = int(parsed.get("importance", 3))
+    imp_raw = parsed.get("importance", parsed.get("importance_rating", 3))
+    try:
+        imp = int(float(imp_raw))
+    except (TypeError, ValueError):
+        imp = 3
     imp = max(1, min(5, imp))
     verdict = str(parsed.get("verdict", "")).strip()
     if not verdict:
-        raise ValueError("Gemini day importance missing verdict")
+        raise ValueError("Gemini day importance missing verdict: "
+                         f"{json.dumps(parsed, ensure_ascii=False)[:200]}")
     return imp, verdict
 
 
 def heuristic_day_importance(news, groups):
-    """Fallback: mean of top story ratings + notable moves -> 1-5."""
+    """Fallback day-importance (1-5) from objective signal counts.
+
+    Uses the count of top-rated (5★) stories, the number of market moves
+    beyond ~1.5%, and the single largest move. The average story rating is
+    deliberately NOT used — Gemini rates most stories 4-5, so a mean-based
+    score saturates at 5 every day and tells the reader nothing."""
     ratings = [it["rating"] for cat in news for it in cat["items"]]
-    score = 2.0
-    if ratings:
-        score = sum(ratings) / len(ratings)
-    strong = sum(1 for r in ratings if r >= 4)
-    if strong >= 2:
-        score += 1.0
-    notable = 0
+    top5 = sum(1 for r in ratings if r >= 5)
+
+    big_moves = 0
+    max_move = 0.0
     for grp in groups:
         for it in grp["items"]:
+            if it.get("last") is None:
+                continue
             chg = it.get("change_bp") if it["kind"] == "yield" else it.get("change")
-            if chg is not None and abs(chg) >= 1.5:
-                notable += 1
-    if notable >= 3:
-        score += 0.5
+            if chg is None:
+                continue
+            a = abs(chg)
+            max_move = max(max_move, a)
+            if a >= 1.5:
+                big_moves += 1
+
+    score = 1.0
+    if top5 >= 3:
+        score += 1.0          # a few market-moving stories
+    if top5 >= 6:
+        score += 1.0          # many major stories
+    if big_moves >= 4:
+        score += 1.0          # broad market moves
+    if big_moves >= 7:
+        score += 1.0          # heavy market-wide action
+    if max_move >= 6.0:
+        score += 0.5          # a very large single move
     imp = max(1, min(5, round(score)))
     labels = {1: "Quiet day — nothing major moved; skim today.",
               2: "Light day — a few items worth a look.",
