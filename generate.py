@@ -565,8 +565,8 @@ def build_day_importance(news, groups):
         try:
             log.info("Generating day importance with Gemini")
             return gemini_day_importance(news, groups)
-        except Exception as exc:
-            log.warning("Gemini day importance failed (%s); heuristic", exc)
+        except Exception:
+            log.exception("Gemini day importance failed; using heuristic")
     else:
         log.info("No GEMINI_API_KEY; heuristic day importance")
     return heuristic_day_importance(news, groups)
