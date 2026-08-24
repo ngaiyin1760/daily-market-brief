@@ -1,109 +1,109 @@
 {
- "generated_at": "2026-08-24 22:23 HKT",
+ "generated_at": "2026-08-25 06:42 HKT",
  "repos": [
   {
-   "name": "NousResearch/hermes-agent",
-   "url": "https://github.com/NousResearch/hermes-agent",
+   "name": "MadsLorentzen/ai-job-search",
+   "url": "https://github.com/MadsLorentzen/ai-job-search",
    "language": "Python",
-   "description": "The agent that grows with you",
+   "description": "The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.",
+   "keywords": [
+    "AI agent",
+    "AI workflow",
+    "Workflow automation",
+    "Resume building"
+   ],
+   "trendshift_pos": 8,
+   "stars": 33990,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An AI-driven job application framework that automates the evaluation of postings, CV tailoring, and interview preparation.",
+   "bullets": [
+    "Built on top of Claude Code for high-fidelity LLM interaction.",
+    "Automates the end-to-end job search lifecycle including cover letter generation and interview prep.",
+    "Runs locally on the user's machine to ensure data privacy and ownership of the application process.",
+    "Ideal for professionals looking to scale their job search efforts using agentic workflows."
+   ]
+  },
+  {
+   "name": "Leonxlnx/unlazy",
+   "url": "https://github.com/Leonxlnx/unlazy",
+   "language": "JavaScript",
+   "description": "Anti-laziness skill for AI agents. Core: the Depth Tree method, which splits a task N layers deep and gives every leaf the full time budget of the whole task, so effort multiplies with depth. Grounded in 2025-2026 research on model laziness, underthinking and premature completion.",
    "keywords": [
     "AI agent",
     "AI skills"
    ],
-   "trendshift_pos": 20,
-   "stars": 235518,
+   "trendshift_pos": 11,
+   "stars": 2216,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A highly adaptive, evolving AI agent framework designed for complex task orchestration.",
+   "one_liner": "An anti-laziness framework for AI agents utilizing the Depth Tree method to maximize task execution quality.",
    "bullets": [
-    "Built on a modular Python architecture designed for continuous learning and state management.",
-    "Focuses on agentic workflows that scale in complexity alongside user requirements.",
-    "Ideal for automating multi-step research, coding, or data analysis tasks.",
-    "Leverages advanced LLM reasoning to maintain context across long-running operations."
+    "Implements the 'Depth Tree' method to recursively split complex tasks into granular sub-tasks.",
+    "Allocates full-task time budgets to leaf nodes to force deep reasoning and prevent LLM 'laziness'.",
+    "Designed to improve the output quality of autonomous agents in complex coding or research tasks.",
+    "Highly relevant for developers building agentic systems that require high-accuracy, multi-step reasoning."
    ]
   },
   {
-   "name": "tinyhumansai/openhuman",
-   "url": "https://github.com/tinyhumansai/openhuman",
-   "language": "Rust",
-   "description": "Your Personal AI super intelligence. A brain that builds a local-first memory of your life, a fantastic orchestrator of agent fleets and workflows, and a deep researcher.",
+   "name": "floci-io/floci",
+   "url": "https://github.com/floci-io/floci",
+   "language": "Java",
+   "description": "Light, fluffy, and always free - The AWS Local Emulator alternative",
    "keywords": [
-    "AI agent",
-    "AI memory",
-    "Digital human"
-   ],
-   "trendshift_pos": 15,
-   "stars": 37064,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A local-first personal AI orchestrator that builds a persistent memory of your digital life.",
-   "bullets": [
-    "Written in Rust for high-performance, memory-safe execution and local data privacy.",
-    "Functions as a central brain for managing agent fleets and complex automated workflows.",
-    "Provides deep research capabilities by indexing local-first memory stores.",
-    "Targeted at power users needing a private, persistent AI assistant for personal knowledge management."
-   ]
-  },
-  {
-   "name": "wafer-ai/gpu-perf-engineering-resources",
-   "url": "https://github.com/wafer-ai/gpu-perf-engineering-resources",
-   "language": "Python",
-   "description": "A curriculum for learning about gpu performance engineering, from scratch to what the frontier AI labs do",
-   "keywords": [
-    "AI infrastructure"
-   ],
-   "trendshift_pos": 18,
-   "stars": 1797,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A comprehensive curriculum for mastering GPU performance engineering at the scale of frontier AI labs.",
-   "bullets": [
-    "Curated educational path covering hardware architecture, CUDA optimization, and kernel tuning.",
-    "Focuses on the critical infrastructure layer required to train and serve large-scale LLMs.",
-    "Provides actionable insights into reducing latency and compute costs for AI workloads.",
-    "Essential for quant developers and infra engineers working on high-throughput AI systems."
-   ]
-  },
-  {
-   "name": "DietrichGebert/ponytail",
-   "url": "https://github.com/DietrichGebert/ponytail",
-   "language": "JavaScript",
-   "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
-   "keywords": [
-    "AI agent",
-    "AI coding assistant"
-   ],
-   "trendshift_pos": 16,
-   "stars": 109458,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An AI agent framework optimized for minimalist, high-efficiency code generation.",
-   "bullets": [
-    "Implements a 'lazy' heuristic to prioritize existing solutions and minimal code footprint.",
-    "Designed to integrate into developer workflows to reduce technical debt and bloat.",
-    "Utilizes LLM reasoning to evaluate whether a feature is necessary before implementation.",
-    "Useful for rapid prototyping and maintaining clean, maintainable codebases."
-   ]
-  },
-  {
-   "name": "virgiliojr94/book-to-skill",
-   "url": "https://github.com/virgiliojr94/book-to-skill",
-   "language": "Python",
-   "description": "Turn any technical book PDF into a Claude Code skill — ready to study, reference, and use while you work.",
-   "keywords": [
-    "AI skills",
-    "Document processing"
+    "Emulator"
    ],
    "trendshift_pos": 25,
-   "stars": 25088,
+   "stars": 21930,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A tool that converts technical PDF documentation into executable Claude Code skills.",
+   "one_liner": "A lightweight, open-source local emulator for AWS services designed to replace heavy infrastructure dependencies.",
    "bullets": [
-    "Python-based pipeline for parsing technical literature and transforming it into structured agent instructions.",
-    "Enables AI agents to reference domain-specific knowledge bases during coding or troubleshooting.",
-    "Streamlines the onboarding of new technical stacks by turning static manuals into active agent capabilities.",
-    "Highly relevant for fintech and quant teams needing to integrate proprietary documentation into AI workflows."
+    "Java-based architecture providing a fast, local alternative to cloud-based AWS environments.",
+    "Reduces infrastructure costs and latency during the development and testing phases of cloud-native apps.",
+    "Supports local integration testing for fintech and enterprise applications requiring AWS parity.",
+    "Simplifies devops workflows by eliminating the need for constant cloud connectivity."
+   ]
+  },
+  {
+   "name": "AgriciDaniel/claude-obsidian",
+   "url": "https://github.com/AgriciDaniel/claude-obsidian",
+   "language": "Python",
+   "description": "Self-organizing AI second brain for Obsidian + Claude Code. Drop any source and Claude reads, links, and files it into one connected knowledge graph of plain Markdown you own. AI note-taking, personal knowledge management (PKM), and an open-source Notion alternative. Based on Karpathy's LLM Wiki pattern.",
+   "keywords": [
+    "AI agent"
+   ],
+   "trendshift_pos": 18,
+   "stars": 11839,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A self-organizing AI second brain that integrates Claude Code with Obsidian for automated knowledge management.",
+   "bullets": [
+    "Uses Claude Code to parse, link, and categorize unstructured data into a Markdown-based knowledge graph.",
+    "Enables automated personal knowledge management (PKM) for researchers and tech professionals.",
+    "Maintains data sovereignty by storing all information in local, plain-text Markdown files.",
+    "Transforms disparate notes and documents into a searchable, interconnected intelligence layer."
+   ]
+  },
+  {
+   "name": "VoltAgent/awesome-agent-skills",
+   "url": "https://github.com/VoltAgent/awesome-agent-skills",
+   "language": "—",
+   "description": "A curated collection of 1000+ agent skills from official dev teams and the community, compatible with Claude Code, Codex, Gemini CLI, Cursor, and more.",
+   "keywords": [
+    "AI skills",
+    "Curated list"
+   ],
+   "trendshift_pos": 13,
+   "stars": 31833,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A massive, curated repository of 1000+ agent skills compatible with major CLI tools like Claude Code and Cursor.",
+   "bullets": [
+    "Provides a standardized library of 'skills' that extend the capabilities of LLM-based agents.",
+    "Cross-compatible with popular agentic frameworks including Gemini CLI, Codex, and Claude Code.",
+    "Accelerates the development of specialized agents by providing pre-built, community-vetted logic.",
+    "Essential infrastructure for developers building modular, high-utility agentic systems."
    ]
   }
  ]
