@@ -467,7 +467,7 @@ Below are today's top stories (with ratings) and the day's biggest market moves.
 
 Also give a one-sentence "verdict" that tells the reader at a glance whether today is a skim day or a read-carefully day, and WHY (mention the 1-2 biggest drivers).
 
-Return STRICT JSON only: {"importance": <1-5 int>, "verdict": "<one sentence>"}.
+Return STRICT JSON only: {{"importance": <1-5 int>, "verdict": "<one sentence>"}}.
 
 Today's stories:
 {stories}
@@ -582,7 +582,7 @@ WEEKLY_PROMPT = """You are a market editor writing the Friday wrap-up. Below are
 
 Pick the 5 most important STORIES this week for a finance/tech professional — the things that will still matter next week. Prioritize the biggest stories by their rating and impact; if several of the biggest all happened on one day, that's fine — importance wins over day diversity. Do NOT write your own text; simply return the numbers (indices) of the 5 stories you pick, in order of importance.
 
-Return STRICT JSON only: {"week": "<YYYY-MM-DD to YYYY-MM-DD>", "items": [5 integers, the indices of the chosen stories]}.
+Return STRICT JSON only: {{"week": "<YYYY-MM-DD to YYYY-MM-DD>", "items": [5 integers, the indices of the chosen stories]}}.
 
 This week's data:
 {data}
