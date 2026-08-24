@@ -2,107 +2,112 @@
  "days": [
   {
    "date": "2026-08-24",
-   "generated_at": "2026-08-24 06:36 HKT",
+   "generated_at": "2026-08-24 22:10 HKT",
    "repos": [
     {
-     "name": "Leonxlnx/unlazy",
-     "url": "https://github.com/Leonxlnx/unlazy",
-     "language": "JavaScript",
-     "description": "Anti-laziness skill for AI agents. Core: the Depth Tree method, which splits a task N layers deep and gives every leaf the full time budget of the whole task, so effort multiplies with depth. Grounded in 2025-2026 research on model laziness, underthinking and premature completion.",
+     "name": "NousResearch/hermes-agent",
+     "url": "https://github.com/NousResearch/hermes-agent",
+     "language": "Python",
+     "description": "The agent that grows with you",
      "keywords": [
       "AI agent",
       "AI skills"
      ],
-     "trendshift_pos": 8,
-     "stars": 1632,
+     "trendshift_pos": 20,
+     "stars": 235509,
      "fork": false,
      "parent_name": "",
-     "one_liner": "An innovative framework for AI agents that uses a 'Depth Tree' method to multiply task effort and reasoning depth.",
+     "one_liner": "A highly adaptive, scalable AI agent framework designed for continuous learning and growth.",
      "bullets": [
-      "Implements the Depth Tree algorithm to recursively split complex tasks into N layers.",
-      "Allocates the full task time budget to each leaf node to maximize reasoning output.",
-      "Designed to combat AI 'laziness' and improve performance on complex, multi-step reasoning tasks.",
-      "Provides a structured approach to agentic workflows that require deep, exhaustive analysis."
+      "Built on a modular Python architecture designed for long-term agentic memory and task persistence.",
+      "Focuses on self-improving workflows that evolve based on user interaction patterns.",
+      "Ideal for complex automation tasks requiring deep context retention and iterative problem-solving.",
+      "Leverages state-of-the-art LLM integration to serve as a persistent digital assistant."
      ]
     },
     {
-     "name": "NanoNets/Graft",
-     "url": "https://github.com/NanoNets/Graft",
-     "language": "TypeScript",
-     "description": "Turn docs into a structured context graph that AI agents read from before working and contribute learnings back to.",
+     "name": "tinyhumansai/openhuman",
+     "url": "https://github.com/tinyhumansai/openhuman",
+     "language": "Rust",
+     "description": "Your Personal AI super intelligence. A brain that builds a local-first memory of your life, a fantastic orchestrator of agent fleets and workflows, and a deep researcher.",
      "keywords": [
       "AI agent",
-      "Document processing"
+      "AI memory",
+      "Digital human"
      ],
-     "trendshift_pos": 19,
-     "stars": 4518,
+     "trendshift_pos": 15,
+     "stars": 37058,
      "fork": false,
      "parent_name": "",
-     "one_liner": "A system that transforms unstructured documents into a structured context graph for AI agents to read and update.",
+     "one_liner": "A local-first personal AI orchestrator that manages agent fleets and builds a private memory of your life.",
      "bullets": [
-      "Uses a graph-based data structure to maintain relationships between document entities.",
-      "Enables bidirectional communication where agents read context and contribute new learnings back to the graph.",
-      "Optimizes RAG (Retrieval-Augmented Generation) by providing agents with structured, interconnected knowledge.",
-      "Ideal for enterprise knowledge management and long-term agent memory applications."
+      "Written in Rust for high-performance, local-first data processing and memory management.",
+      "Acts as a central orchestrator for multi-agent systems, enabling complex workflow delegation.",
+      "Prioritizes user privacy by maintaining a local-first knowledge base and memory store.",
+      "Designed for deep research and personal productivity automation."
      ]
     },
     {
-     "name": "duty1g/x64dbg-mcp-server",
-     "url": "https://github.com/duty1g/x64dbg-mcp-server",
-     "language": "Zig",
-     "description": "x64dbg-MCP Server is a native MCP (Model Context Protocol) plugin for x64dbg that exposes the debugger's full functionality over HTTP. Connect any MCP-compatible AI assistant and control x64dbg programmatically: set breakpoints, step through code, read memory, dump registers, and more.  Built with Zig — zero dependencies, single-binary output, cros",
-     "keywords": [],
-     "trendshift_pos": 10,
-     "stars": 805,
+     "name": "wafer-ai/gpu-perf-engineering-resources",
+     "url": "https://github.com/wafer-ai/gpu-perf-engineering-resources",
+     "language": "Python",
+     "description": "A curriculum for learning about gpu performance engineering, from scratch to what the frontier AI labs do",
+     "keywords": [
+      "AI infrastructure"
+     ],
+     "trendshift_pos": 18,
+     "stars": 1793,
      "fork": false,
      "parent_name": "",
-     "one_liner": "A native Model Context Protocol (MCP) server that exposes x64dbg functionality to AI assistants.",
+     "one_liner": "A comprehensive curriculum for mastering GPU performance engineering, mirroring techniques used by frontier AI labs.",
      "bullets": [
-      "Built in Zig to provide a high-performance bridge between the x64dbg debugger and AI models.",
-      "Exposes full debugger control via HTTP, allowing AI agents to perform reverse engineering tasks.",
-      "Enables agentic debugging, where an AI can step through code, inspect memory, and analyze crashes autonomously.",
-      "Integrates with any MCP-compatible AI assistant for automated security research and software analysis."
+      "Curated educational resource covering hardware architecture, memory bandwidth, and kernel optimization.",
+      "Provides a structured path from foundational concepts to advanced performance tuning for LLM training.",
+      "Essential for infrastructure engineers and quant developers working on high-throughput AI workloads.",
+      "Includes practical methodologies for profiling and bottleneck analysis in GPU-accelerated environments."
      ]
     },
     {
-     "name": "VoltAgent/awesome-agent-skills",
-     "url": "https://github.com/VoltAgent/awesome-agent-skills",
-     "language": "—",
-     "description": "A curated collection of 1000+ agent skills from official dev teams and the community, compatible with Claude Code, Codex, Gemini CLI, Cursor, and more.",
+     "name": "Alishahryar1/free-claude-code",
+     "url": "https://github.com/Alishahryar1/free-claude-code",
+     "language": "Python",
+     "description": "Use Claude Code, Codex, Pi, and OpenCode for free (1.3B+ free tokens) from your terminal, app, IDE, or phone like OpenClaw (voice supported + ToS friendly)",
+     "keywords": [
+      "AI coding assistant",
+      "Local LLM",
+      "Proxy"
+     ],
+     "trendshift_pos": 9,
+     "stars": 48562,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A terminal-based interface providing free access to advanced coding models like Claude Code and Codex.",
+     "bullets": [
+      "Python-based utility that abstracts API interactions for multiple coding-focused LLMs.",
+      "Supports voice-to-code functionality and cross-platform integration (IDE, terminal, mobile).",
+      "Enables developers to leverage high-end agentic coding tools without immediate per-token costs.",
+      "Useful for rapid prototyping and integrating AI-assisted coding into existing dev workflows."
+     ]
+    },
+    {
+     "name": "virgiliojr94/book-to-skill",
+     "url": "https://github.com/virgiliojr94/book-to-skill",
+     "language": "Python",
+     "description": "Turn any technical book PDF into a Claude Code skill — ready to study, reference, and use while you work.",
      "keywords": [
       "AI skills",
-      "Curated list"
+      "Document processing"
      ],
-     "trendshift_pos": 20,
-     "stars": 31252,
+     "trendshift_pos": 23,
+     "stars": 25087,
      "fork": false,
      "parent_name": "",
-     "one_liner": "A massive, curated repository of 1000+ interoperable skills for modern AI coding agents.",
+     "one_liner": "A tool that converts technical PDF documentation and books into actionable skills for Claude Code.",
      "bullets": [
-      "Provides a standardized library of modular skills compatible with Claude Code, Codex, and Cursor.",
-      "Covers a wide range of operational domains, from infrastructure management to code refactoring.",
-      "Serves as a central hub for developers to extend the capabilities of their autonomous coding agents.",
-      "Facilitates the rapid deployment of agentic workflows by providing pre-built, community-vetted tools."
-     ]
-    },
-    {
-     "name": "oblien/openship",
-     "url": "https://github.com/oblien/openship",
-     "language": "TypeScript",
-     "description": "Self-hosted deployment platform",
-     "keywords": [
-      "Self-hosted"
-     ],
-     "trendshift_pos": 25,
-     "stars": 11505,
-     "fork": false,
-     "parent_name": "",
-     "one_liner": "A self-hosted, open-source deployment platform designed to simplify infrastructure management.",
-     "bullets": [
-      "Built with TypeScript to provide a modern, developer-friendly interface for managing cloud deployments.",
-      "Focuses on self-hosting to give teams full control over their infrastructure and data privacy.",
-      "Streamlines CI/CD pipelines by automating the deployment process for containerized applications.",
-      "Acts as a cost-effective alternative to proprietary PaaS offerings for devops and infrastructure teams."
+      "Python-based pipeline that parses technical literature into structured agent-ready knowledge.",
+      "Allows developers to 'teach' their AI agents specific proprietary or niche technical domains.",
+      "Enhances agentic performance by providing domain-specific context for coding and debugging tasks.",
+      "Streamlines the process of keeping AI assistants updated with the latest technical documentation."
      ]
     }
    ]
