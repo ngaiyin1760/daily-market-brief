@@ -1,109 +1,113 @@
 {
- "generated_at": "2026-08-25 06:42 HKT",
+ "generated_at": "2026-08-26 06:43 HKT",
  "repos": [
   {
-   "name": "MadsLorentzen/ai-job-search",
-   "url": "https://github.com/MadsLorentzen/ai-job-search",
+   "name": "TauricResearch/TradingAgents",
+   "url": "https://github.com/TauricResearch/TradingAgents",
    "language": "Python",
-   "description": "The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.",
+   "description": "TradingAgents: Multi-Agents LLM Financial Trading Framework",
    "keywords": [
     "AI agent",
-    "AI workflow",
-    "Workflow automation",
-    "Resume building"
-   ],
-   "trendshift_pos": 8,
-   "stars": 33990,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An AI-driven job application framework that automates the evaluation of postings, CV tailoring, and interview preparation.",
-   "bullets": [
-    "Built on top of Claude Code for high-fidelity LLM interaction.",
-    "Automates the end-to-end job search lifecycle including cover letter generation and interview prep.",
-    "Runs locally on the user's machine to ensure data privacy and ownership of the application process.",
-    "Ideal for professionals looking to scale their job search efforts using agentic workflows."
-   ]
-  },
-  {
-   "name": "Leonxlnx/unlazy",
-   "url": "https://github.com/Leonxlnx/unlazy",
-   "language": "JavaScript",
-   "description": "Anti-laziness skill for AI agents. Core: the Depth Tree method, which splits a task N layers deep and gives every leaf the full time budget of the whole task, so effort multiplies with depth. Grounded in 2025-2026 research on model laziness, underthinking and premature completion.",
-   "keywords": [
-    "AI agent",
-    "AI skills"
-   ],
-   "trendshift_pos": 11,
-   "stars": 2216,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An anti-laziness framework for AI agents utilizing the Depth Tree method to maximize task execution quality.",
-   "bullets": [
-    "Implements the 'Depth Tree' method to recursively split complex tasks into granular sub-tasks.",
-    "Allocates full-task time budgets to leaf nodes to force deep reasoning and prevent LLM 'laziness'.",
-    "Designed to improve the output quality of autonomous agents in complex coding or research tasks.",
-    "Highly relevant for developers building agentic systems that require high-accuracy, multi-step reasoning."
-   ]
-  },
-  {
-   "name": "floci-io/floci",
-   "url": "https://github.com/floci-io/floci",
-   "language": "Java",
-   "description": "Light, fluffy, and always free - The AWS Local Emulator alternative",
-   "keywords": [
-    "Emulator"
-   ],
-   "trendshift_pos": 25,
-   "stars": 21930,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A lightweight, open-source local emulator for AWS services designed to replace heavy infrastructure dependencies.",
-   "bullets": [
-    "Java-based architecture providing a fast, local alternative to cloud-based AWS environments.",
-    "Reduces infrastructure costs and latency during the development and testing phases of cloud-native apps.",
-    "Supports local integration testing for fintech and enterprise applications requiring AWS parity.",
-    "Simplifies devops workflows by eliminating the need for constant cloud connectivity."
-   ]
-  },
-  {
-   "name": "AgriciDaniel/claude-obsidian",
-   "url": "https://github.com/AgriciDaniel/claude-obsidian",
-   "language": "Python",
-   "description": "Self-organizing AI second brain for Obsidian + Claude Code. Drop any source and Claude reads, links, and files it into one connected knowledge graph of plain Markdown you own. AI note-taking, personal knowledge management (PKM), and an open-source Notion alternative. Based on Karpathy's LLM Wiki pattern.",
-   "keywords": [
-    "AI agent"
+    "Fintech"
    ],
    "trendshift_pos": 18,
-   "stars": 11839,
+   "stars": 100180,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A self-organizing AI second brain that integrates Claude Code with Obsidian for automated knowledge management.",
+   "one_liner": "A multi-agent LLM framework specifically designed for financial trading and market analysis.",
    "bullets": [
-    "Uses Claude Code to parse, link, and categorize unstructured data into a Markdown-based knowledge graph.",
-    "Enables automated personal knowledge management (PKM) for researchers and tech professionals.",
-    "Maintains data sovereignty by storing all information in local, plain-text Markdown files.",
-    "Transforms disparate notes and documents into a searchable, interconnected intelligence layer."
+    "Built on a multi-agent architecture where specialized LLM agents handle data analysis, strategy formulation, and risk management.",
+    "Integrates with financial data APIs to provide real-time market context for decision-making.",
+    "Designed for quantitative finance professionals to automate trading workflows using agentic reasoning.",
+    "Supports backtesting and simulation environments to validate agent performance before deployment."
    ]
   },
   {
-   "name": "VoltAgent/awesome-agent-skills",
-   "url": "https://github.com/VoltAgent/awesome-agent-skills",
-   "language": "—",
-   "description": "A curated collection of 1000+ agent skills from official dev teams and the community, compatible with Claude Code, Codex, Gemini CLI, Cursor, and more.",
+   "name": "tashfeenahmed/freellmapi",
+   "url": "https://github.com/tashfeenahmed/freellmapi",
+   "language": "TypeScript",
+   "description": "OpenAI-compatible proxy that stacks the free tiers of 28 LLM providers (~4B tokens/month) behind one /v1 endpoint — plus any custom OpenAI-compatible endpoint. Smart routing, automatic failover, encrypted keys. Personal experimentation only.",
    "keywords": [
-    "AI skills",
-    "Curated list"
+    "AI infrastructure",
+    "Proxy"
    ],
-   "trendshift_pos": 13,
-   "stars": 31833,
+   "trendshift_pos": 16,
+   "stars": 20226,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A massive, curated repository of 1000+ agent skills compatible with major CLI tools like Claude Code and Cursor.",
+   "one_liner": "An OpenAI-compatible proxy that aggregates free tiers from 28 LLM providers into a single unified endpoint.",
    "bullets": [
-    "Provides a standardized library of 'skills' that extend the capabilities of LLM-based agents.",
-    "Cross-compatible with popular agentic frameworks including Gemini CLI, Codex, and Claude Code.",
-    "Accelerates the development of specialized agents by providing pre-built, community-vetted logic.",
-    "Essential infrastructure for developers building modular, high-utility agentic systems."
+    "Implements smart routing and automatic failover across multiple LLM providers to ensure high availability.",
+    "Provides a standard /v1 API interface, making it a drop-in replacement for existing OpenAI-based applications.",
+    "Optimizes infrastructure costs by leveraging free-tier token allowances across a massive provider network.",
+    "Ideal for developers building high-volume AI applications who need to minimize latency and API expenses."
+   ],
+   "img": "tashfeenahmed_freellmapi_0.jpg",
+   "img_alt": "FreeLLMAPI dashboard — Models page with the monthly token budget",
+   "img2": "tashfeenahmed_freellmapi_1.jpg",
+   "img2_alt": "The free tier, stacked — ~7.4B tokens of free inference per month across 34 providers"
+  },
+  {
+   "name": "ApodexAI/FrontierAgent",
+   "url": "https://github.com/ApodexAI/FrontierAgent",
+   "language": "Python",
+   "description": "🧩 FrontierAgent, our agent framework, open-sourced alongside it — native command-line TUI, ReAct and Agent Team modes, one command on macOS and Linux, no preinstall, no hard Docker dependency.",
+   "keywords": [
+    "AI agent",
+    "AI workflow"
+   ],
+   "trendshift_pos": 19,
+   "stars": 546,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A lightweight, zero-dependency agent framework featuring a native TUI and support for ReAct and multi-agent team modes.",
+   "bullets": [
+    "Features a native command-line TUI for real-time interaction and monitoring of agentic workflows.",
+    "Supports both ReAct (Reasoning + Acting) and collaborative Agent Team modes for complex task execution.",
+    "Designed for portability with no hard Docker dependency and a 'one-command' installation process.",
+    "Focuses on developer productivity by streamlining the deployment of autonomous agents in local environments."
+   ]
+  },
+  {
+   "name": "htdt/godogen",
+   "url": "https://github.com/htdt/godogen",
+   "language": "Python",
+   "description": "Autonomous game development for Godot, Bevy, and Babylon.js with Claude Code and Codex",
+   "keywords": [
+    "AI coding assistant",
+    "AI skills",
+    "Game development"
+   ],
+   "trendshift_pos": 17,
+   "stars": 6041,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An autonomous development framework for game engines like Godot, Bevy, and Babylon.js using LLM-driven code generation.",
+   "bullets": [
+    "Leverages Claude Code and Codex to automate the generation of game logic and scene structures.",
+    "Provides a bridge between high-level natural language prompts and low-level engine-specific APIs.",
+    "Reduces boilerplate in game development by automating repetitive coding tasks across multiple engine architectures.",
+    "Useful for rapid prototyping and building complex game systems through agentic assistance."
+   ],
+   "img": "htdt_godogen_0.jpg",
+   "img_alt": "Watch the video"
+  },
+  {
+   "name": "multica-ai/andrej-karpathy-skills",
+   "url": "https://github.com/multica-ai/andrej-karpathy-skills",
+   "language": "—",
+   "description": "A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls.",
+   "keywords": [],
+   "trendshift_pos": 20,
+   "stars": 207158,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A curated CLAUDE.md configuration file optimized to improve LLM coding performance based on Andrej Karpathy's engineering insights.",
+   "bullets": [
+    "Systematizes best practices for LLM-assisted coding by codifying common pitfalls and effective patterns.",
+    "Acts as a 'system prompt' enhancement to force better reasoning and code structure from AI coding assistants.",
+    "Directly improves the quality of generated code, documentation, and architectural decisions in dev workflows.",
+    "Essential for software engineers looking to maximize the reliability and accuracy of their AI-driven development tools."
    ]
   }
  ]
