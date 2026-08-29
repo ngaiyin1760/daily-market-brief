@@ -1687,7 +1687,7 @@
     <div class="kicker">Outlook Autopilot</div>
     <h1>Email Rules</h1>
     <div class="generated">
-      Updated 2026-08-29 15:30 UTC
+      Updated 2026-08-29 15:38 UTC
       &middot; source of truth: <code style="background:rgba(246,241,228,.14);border-radius:4px;padding:1px 6px;">outlook-autopilot/rules/auto_mark_list.md</code>
     </div>
   </header>
@@ -1708,7 +1708,7 @@
       <span class="ap-pill ok">berkeley: ok</span>
       
     </p>
-    <p class="ap-sub" style="margin-bottom:8px;">Last sweep: 2026-08-29T15:08:05Z
+    <p class="ap-sub" style="margin-bottom:8px;">Last sweep: 2026-08-29T15:38:06Z
     </p>
     
     <a class="ap-refresh-btn" href="outlook-autopilot:refresh-tokens">&#10227; Refresh sign-ins</a>
@@ -1935,5 +1935,843 @@
   <p class="ap-foot">Reversal: mark an auto-marked email as unread and that sender is instantly un-learned. To refresh this page after rules change: <code>python scripts/sync_autopilot.py</code>, then commit.</p>
   
 </div>
+
+<script>
+(function () {
+  var base = ".";
+  // Reveal-on-scroll uses this to avoid hiding content when JS is unavailable.
+  document.documentElement.classList.add("js");
+
+  // ---------- Dark mode toggle (persisted in localStorage) ----------
+  var THEME_KEY = "dmb_theme";
+  function applyTheme(dark) {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+  }
+  function initTheme() {
+    var stored = null;
+    try { stored = localStorage.getItem(THEME_KEY); } catch (e) {}
+    // Respect the stored choice; default to the system preference.
+    var dark = stored === "dark" || (stored === null && window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches);
+    applyTheme(dark);
+    var btn = document.getElementById("theme-toggle");
+    if (btn) btn.setAttribute("aria-pressed", dark ? "true" : "false");
+  }
+  initTheme();   // apply before paint (no flash)
+  var themeBtn = document.getElementById("theme-toggle");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var dark = document.documentElement.getAttribute("data-theme") !== "dark";
+      applyTheme(dark);
+      try { localStorage.setItem(THEME_KEY, dark ? "dark" : "light"); } catch (e) {}
+      themeBtn.setAttribute("aria-pressed", dark ? "true" : "false");
+    });
+  }
+
+  // Cache-buster: every generated page embeds its own generation timestamp,
+  // so the data files never serve stale from the CDN's 10-minute cache.
+  var dataTS = encodeURIComponent("2026-08-29 23:40");
+  // Dashboard pages set current_date_js to the page date; the archive page
+  // leaves it null (no per-day read tracking there).
+  var currentDate = null;
+
+  // Write-through hooks for Firebase cloud sync. No-ops until the Firebase
+  // layer (bottom of this script) replaces them after sign-in.
+  var syncPush = { saved: function () {}, read: function () {} };
+  function onLocalMutation(kind) {
+    try { if (syncPush[kind]) syncPush[kind](); } catch (e) {
+      console.warn("Sync push failed:", e);
+    }
+  }
+
+  // ---------- Read status traffic lights (localStorage) ----------
+  // dmb_read: { "YYYY-MM-DD": { v: [viewed category ids], t: total categories } }
+  var READ_KEY = "dmb_read";
+  var READ_TITLES = { red: "Unread", yellow: "Partially read", green: "Read" };
+
+  function loadRead() {
+    try {
+      var m = JSON.parse(localStorage.getItem(READ_KEY));
+      return (m && typeof m === "object") ? m : {};
+    } catch (e) { return {}; }
+  }
+  function storeRead(map) {
+    try { localStorage.setItem(READ_KEY, JSON.stringify(map)); } catch (e) {}
+    onLocalMutation("read");
+  }
+
+  // Reading covers only news category sections — indicators are optional.
+  var newsSections = Array.prototype.slice.call(
+    document.querySelectorAll("section.desk[id]:not(#indicators)"));
+  var newsTotal = newsSections.length;
+
+  function readStatusFor(date) {
+    var rec = loadRead()[date];
+    if (!rec || !rec.v || !rec.v.length) return "red";
+    if (rec.v.length >= (rec.t || rec.v.length)) return "green";
+    return "yellow";
+  }
+
+  function updateDots() {
+    document.querySelectorAll(".read-dot").forEach(function (dot) {
+      var st = readStatusFor(dot.getAttribute("data-dot-date"));
+      dot.className = "read-dot dot-" + st;
+      dot.title = READ_TITLES[st];
+    });
+  }
+
+  function makeDot(date) {
+    var st = readStatusFor(date);
+    var dot = document.createElement("span");
+    dot.className = "read-dot dot-" + st;
+    dot.setAttribute("data-dot-date", date);
+    dot.title = READ_TITLES[st];
+    return dot;
+  }
+
+  function markViewed(id) {
+    var map = loadRead();
+    var rec = map[currentDate] || { v: [], t: newsTotal };
+    rec.t = newsTotal;
+    if (rec.v.indexOf(id) === -1) {
+      rec.v.push(id);
+      map[currentDate] = rec;
+      storeRead(map);
+      updateDots();  // live red -> yellow -> green on this page
+    }
+  }
+
+  if ("IntersectionObserver" in window && newsTotal) {
+    var readObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          markViewed(en.target.id);
+          readObserver.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    newsSections.forEach(function (s) { readObserver.observe(s); });
+  }
+
+  // Build the sidebar date list from manifest.json so that every page —
+  // including older day pages — automatically shows newly added days.
+  fetch(base + "/manifest.json?v=" + dataTS)
+    .then(function (r) { return r.json(); })
+    .then(function (m) {
+      var nav = document.getElementById("date-nav");
+      nav.innerHTML = "";
+      (m.dates || []).forEach(function (d, idx) {
+        var a = document.createElement("a");
+        a.appendChild(makeDot(d));
+        a.appendChild(document.createTextNode(d));
+        a.href = idx === 0 ? base + "/index.html" : base + "/days/" + d + ".html";
+        if (d === currentDate) a.className = "active";
+        nav.appendChild(a);
+      });
+      updateDots();
+    })
+    .catch(function () {
+      document.getElementById("date-nav").innerHTML =
+        '<a href="' + base + '/index.html">Latest</a>';
+    });
+
+  // ---------- Live market session badge (approximate hours, HKT) ----------
+  // DST handled roughly: US & UK use summer hours Apr-Oct. Sessions:
+  // Tokyo 08:00-14:00, Hong Kong 09:30-16:00, London 15:00-23:30 (BST) /
+  // 16:00-00:30 (GMT), New York 21:30-04:00 (EDT) / 22:30-05:00 (EST).
+  var sessionEl = document.getElementById("session-badge");
+  if (sessionEl) {
+    var nowUtc = new Date();
+    var utcDay = nowUtc.getUTCDay();
+    var hktMin = ((nowUtc.getUTCHours() + 8) % 24) * 60
+      + nowUtc.getUTCMinutes();
+    var month = nowUtc.getUTCMonth() + 1;
+    var usSummer = month >= 4 && month <= 10;
+    var ukSummer = month >= 4 && month <= 10;
+    function openIn(s, e) {
+      if (s <= e) return hktMin >= s && hktMin <= e;
+      return hktMin >= s || hktMin <= e;
+    }
+    var open = [];
+    if (utcDay !== 0 && utcDay !== 6) {
+      if (openIn(8 * 60, 14 * 60)) open.push("Tokyo");
+      if (openIn(570, 16 * 60)) open.push("Hong Kong");
+      if (openIn((ukSummer ? 15 : 16) * 60, (ukSummer ? 23 : 0) * 60 + 30)) {
+        open.push("London");
+      }
+      if (openIn((usSummer ? 21 : 22) * 60 + 30,
+                 (usSummer ? 4 : 5) * 60)) {
+        open.push("New York");
+      }
+    }
+    sessionEl.textContent = open.length
+      ? open.join(" · ") + " open" : "Markets closed";
+  }
+
+  // ---------- Importance filter (daily pages) ----------
+  var filterBar = document.getElementById("importance-filter");
+  if (filterBar) {
+    var filterRows = Array.prototype.slice.call(
+      document.querySelectorAll("tr.news-item"));
+    var filterSections = document.querySelectorAll("section.desk");
+    function applyFilter(min) {
+      filterRows.forEach(function (tr) {
+        var r = parseInt(tr.getAttribute("data-rating"), 10) || 0;
+        tr.style.display = r >= min ? "" : "none";
+      });
+      Array.prototype.forEach.call(filterSections, function (sec) {
+        var anyVisible = Array.prototype.some.call(
+          sec.querySelectorAll("tr.news-item"),
+          function (tr) { return tr.style.display !== "none"; });
+        sec.style.display = anyVisible ? "" : "none";
+      });
+    }
+    filterBar.querySelectorAll(".filter-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        filterBar.querySelectorAll(".filter-btn").forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle("active", on);
+          b.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        applyFilter(parseInt(btn.getAttribute("data-min"), 10) || 0);
+      });
+    });
+  }
+
+  // ---------- Market Snapshot toggle (collapsed by default) ----------
+  var heroToggle = document.getElementById("hero-toggle");
+  if (heroToggle) {
+    heroToggle.addEventListener("click", function () {
+      var hero = document.getElementById("snapshot");
+      var open = hero.classList.toggle("open");
+      heroToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
+  // ---------- Sidebar collapse/expand (desktop) ----------
+  var sidebarToggle = document.getElementById("sidebar-toggle");
+  if (sidebarToggle) {
+    var SIDEBAR_KEY = "dmb_sidebar_collapsed";
+    var reopenBtn = document.createElement("button");
+    reopenBtn.type = "button";
+    reopenBtn.className = "sidebar-reopen";
+    reopenBtn.setAttribute("aria-label", "Show sidebar");
+    reopenBtn.title = "Show sidebar";
+    reopenBtn.innerHTML =
+      '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">'
+      + '<path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" '
+      + 'stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    document.body.appendChild(reopenBtn);
+    function applySidebar(collapsed) {
+      document.documentElement.classList.toggle("sidebar-collapsed", collapsed);
+      sidebarToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
+      sidebarToggle.setAttribute("aria-label",
+        collapsed ? "Show sidebar" : "Collapse sidebar");
+      sidebarToggle.title = collapsed ? "Show sidebar" : "Collapse sidebar";
+      reopenBtn.style.display = collapsed ? "flex" : "none";
+    }
+    sidebarToggle.addEventListener("click", function () {
+      var collapsed = !document.documentElement.classList.contains("sidebar-collapsed");
+      applySidebar(collapsed);
+      try { localStorage.setItem(SIDEBAR_KEY, collapsed ? "1" : "0"); } catch (e) {}
+    });
+    reopenBtn.addEventListener("click", function () {
+      applySidebar(false);
+      try { localStorage.setItem(SIDEBAR_KEY, "0"); } catch (e) {}
+    });
+    // Restore the persisted state on page load (desktop only).
+    if (window.matchMedia("(min-width: 821px)").matches) {
+      var stored = null;
+      try { stored = localStorage.getItem(SIDEBAR_KEY); } catch (e) {}
+      if (stored === "1") applySidebar(true);
+    }
+  }
+
+  // ---------- Reading progress bar ----------
+  var readingBar = document.getElementById("reading-bar");
+  if (readingBar) {
+    function updateProgress() {
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - doc.clientHeight;
+      readingBar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+    }
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  // ---------- Sticky "Jump to section" dropdown (scrollspy) ----------
+  var secNav = document.getElementById("sec-nav");
+  if (secNav && "IntersectionObserver" in window) {
+    var secToggle = document.getElementById("sec-toggle");
+    var secCurrent = document.getElementById("sec-current");
+    var secMenu = document.getElementById("sec-menu");
+    var secLinks = Array.prototype.slice.call(
+      secMenu.querySelectorAll("a[data-target]"));
+    var spySections = secLinks.map(function (a) {
+      return document.getElementById(a.getAttribute("data-target"));
+    }).filter(Boolean);
+
+    function setActive(id) {
+      secLinks.forEach(function (a) {
+        var on = a.getAttribute("data-target") === id;
+        a.classList.toggle("active", on);
+        a.setAttribute("aria-current", on ? "true" : "false");
+      });
+      var cur = null;
+      for (var i = 0; i < secLinks.length; i++) {
+        if (secLinks[i].getAttribute("data-target") === id) { cur = secLinks[i]; break; }
+      }
+      if (cur && secCurrent) secCurrent.textContent = cur.textContent;
+    }
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) setActive(en.target.id);
+      });
+    }, { rootMargin: "-20% 0px -70% 0px", threshold: 0 });
+    spySections.forEach(function (s) { spy.observe(s); });
+
+    function closeMenu() {
+      secNav.classList.remove("open");
+      secToggle.setAttribute("aria-expanded", "false");
+    }
+    secToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = secNav.classList.toggle("open");
+      secToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    secLinks.forEach(function (a) {
+      a.addEventListener("click", closeMenu);
+    });
+    document.addEventListener("click", function (e) {
+      if (!secNav.contains(e.target)) closeMenu();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeMenu();
+    });
+  }
+
+  // ---------- Reveal-on-scroll ----------
+  if ("IntersectionObserver" in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add("revealed");
+          revealObs.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      revealObs.observe(el);
+    });
+  }
+
+  // ---------- Saved news (localStorage) ----------
+  var STORE_KEY = "dmb_saved";
+
+  function loadSaved() {
+    try {
+      var m = JSON.parse(localStorage.getItem(STORE_KEY));
+      return (m && typeof m === "object") ? m : {};
+    } catch (e) { return {}; }
+  }
+  function storeSaved(map) {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(map)); } catch (e) {}
+    setSavedRev(Date.now());  // local mutation wins sync conflicts (LWW)
+    onLocalMutation("saved");
+  }
+
+  // Revision counter for last-writer-wins sync of the saved map. Union-merge
+  // alone can never propagate deletions (a cleared/removed key is simply
+  // absent from the union), so the remote doc carries a savedRev timestamp;
+  // a newer remote revision is adopted wholesale instead of unioned.
+  var SAVED_REV_KEY = "dmb_saved_rev";
+  function getSavedRev() {
+    try { return parseInt(localStorage.getItem(SAVED_REV_KEY), 10) || 0; }
+    catch (e) { return 0; }
+  }
+  function setSavedRev(rev) {
+    try { localStorage.setItem(SAVED_REV_KEY, String(rev)); } catch (e) {}
+  }
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
+  var savedList = document.getElementById("saved-list");
+  var savedEmpty = document.getElementById("saved-empty");
+  var savedCount = document.getElementById("saved-count");
+  var savedClear = document.getElementById("saved-clear");
+
+  // Category order + accent colors for Archive grouping (from the brief's
+  // configured categories, so group order matches the daily brief).
+  var CAT_ORDER = [];
+  var CAT_COLORS = {};
+  
+
+  function markRowButtons() {
+    var map = loadSaved();
+    // Works for news rows and Analytics/Repo Radar cards: any .save-btn.
+    document.querySelectorAll(".save-btn").forEach(function (btn) {
+      var saved = !!map[savedAttrs(btn, "url")];
+      btn.classList.toggle("saved", saved);
+      btn.setAttribute("aria-pressed", saved ? "true" : "false");
+      btn.title = saved ? "Remove from saved" : "Save this story";
+    });
+  }
+
+  function renderSaved() {
+    if (!savedList) return;  // brief pages have no archive list (by design)
+    var map = loadSaved();
+    var urls = Object.keys(map);
+    if (savedCount) savedCount.textContent = urls.length;
+    if (savedEmpty) savedEmpty.style.display = urls.length ? "none" : "";
+    savedList.innerHTML = "";
+    if (!urls.length) return;
+
+    // Group by category, ordered like the daily brief's category order.
+    var EXTRA_CAT_COLORS = { "Analytics": "#7c3aed", "Repo Radar": "#0e7490" };
+    var groups = {};
+    urls.forEach(function (u) {
+      var it = map[u];
+      (groups[it.category || "Other"] = groups[it.category || "Other"] || []).push(it);
+    });
+    var names = Object.keys(groups).sort(function (a, b) {
+      var ia = CAT_ORDER.indexOf(a), ib = CAT_ORDER.indexOf(b);
+      return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+    });
+
+    names.forEach(function (name) {
+      // Within a category: newest brief date first, tie-break by save time.
+      var items = groups[name].slice().sort(function (a, b) {
+        var da = a.pageDate || "", db = b.pageDate || "";
+        if (da !== db) return da < db ? 1 : -1;
+        return (b.savedAt || 0) - (a.savedAt || 0);
+      });
+      var color = CAT_COLORS[name] || EXTRA_CAT_COLORS[name] || "#4338ca";
+      var g = document.createElement("div");
+      g.className = "saved-group";
+      var html = '<h4 style="color:' + color + ';border-bottom-color:' + color + '">'
+        + esc(name) + "</h4>";
+      items.forEach(function (it) {
+        var rating = Math.max(0, Math.min(5, parseInt(it.rating, 10) || 0));
+        // rating 0 (e.g. repos) shows no stars instead of an empty row.
+        var stars = rating > 0 ? "★".repeat(rating) + "☆".repeat(5 - rating) : "";
+        html += '<div class="saved-item" data-url="' + esc(it.url) + '">'
+          + '<div class="si-headline"><a href="' + esc(it.url) + '" target="_blank" rel="noopener">'
+          + esc(it.title) + "</a>"
+          + '<div class="si-meta">' + esc(it.source)
+          + (it.pageDate ? " · Brief of " + esc(it.pageDate) : "")
+          + (stars ? '<span class="si-stars">' + stars + "</span>" : "")
+          + "</div></div>"
+          + '<button type="button" class="si-remove" aria-label="Remove saved story" title="Remove">✕</button>'
+          + "</div>";
+      });
+      g.innerHTML = html;
+      savedList.appendChild(g);
+    });
+  }
+
+  // Save buttons: works for news rows AND Analytics/Repo Radar cards — the
+  // button carries its own data-save-* attributes (news rows still put them
+  // on the <tr>, so we read from the button or its closest row).
+  function savedAttrs(btn, key) {
+    if (btn.hasAttribute("data-save-" + key)) return btn.getAttribute("data-save-" + key);
+    var row = btn.closest("tr.news-item");
+    return row ? row.getAttribute("data-" + key) : null;
+  }
+
+  document.addEventListener("click", function (ev) {
+    var btn = ev.target.closest ? ev.target.closest(".save-btn") : null;
+    // Skip the archive's own remove buttons (they're inside #saved-list);
+    // every other .save-btn (news rows, Analytics, Repo Radar cards) saves.
+    if (!btn || btn.closest("#saved-list")) return;
+    var url = savedAttrs(btn, "url");
+    if (!url) return;
+    var map = loadSaved();
+    if (map[url]) {
+      delete map[url];
+    } else {
+      map[url] = {
+        title: savedAttrs(btn, "title") || "",
+        url: url,
+        source: savedAttrs(btn, "source") || "",
+        category: savedAttrs(btn, "category") || "",
+        rating: parseInt(savedAttrs(btn, "rating"), 10) || 0,
+        pageDate: savedAttrs(btn, "date") || "",
+        savedAt: Date.now()
+      };
+    }
+    storeSaved(map);
+    markRowButtons();
+    renderSaved();
+  });
+
+  // Quick-jump select on Analytics / Repo Radar: open the day and scroll to it.
+  document.querySelectorAll("select.day-jump").forEach(function (sel) {
+    sel.addEventListener("change", function () {
+      var el = document.getElementById("day-" + sel.value);
+      if (!el) return;
+      if (el.tagName === "DETAILS" && !el.open) el.open = true;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  // Per-item remove (✕), event-delegated from the list container.
+  // BUG FIX: the old handler called ev.target.closest() directly — on mobile
+  // browsers the click target can be the ✕ TEXT NODE inside the button, and
+  // text nodes have no .closest(), so the handler threw and did nothing.
+  // Normalize to an Element first, and delegate robustly via closest().
+  if (savedList) {
+    savedList.addEventListener("click", function (ev) {
+      var t = ev.target;
+      if (t && t.nodeType !== 1) t = t.parentElement;  // text node -> element
+      var rm = (t && t.closest) ? t.closest(".si-remove") : null;
+      if (!rm) return;
+      ev.preventDefault();
+      var itemEl = rm.closest(".saved-item");
+      var url = itemEl && itemEl.getAttribute("data-url");
+      if (!url) return;
+      var map = loadSaved();
+      delete map[url];
+      storeSaved(map);   // persists localStorage + Firestore write-through
+      markRowButtons();  // un-bookmark the news row if present on this page
+      renderSaved();
+    });
+  }
+
+  if (savedClear) {
+    savedClear.addEventListener("click", function () {
+      if (!Object.keys(loadSaved()).length) return;
+      if (confirm("Remove all saved news?")) {
+        storeSaved({});
+        markRowButtons();
+        renderSaved();
+      }
+    });
+  }
+
+  markRowButtons();
+  renderSaved();
+  // ---------- Firebase cloud sync (optional; degrades to localStorage-only) ----------
+  var FIREBASE_CONFIG = {
+    apiKey: "AIzaSyCAubF71-5rKvRZ3NoKkOBfpoKVCzW2iYY",
+    authDomain: "daily-market-brief-2d93c.firebaseapp.com",
+    projectId: "daily-market-brief-2d93c",
+    storageBucket: "daily-market-brief-2d93c.firebasestorage.app",
+    messagingSenderId: "813144681948",
+    appId: "1:813144681948:web:2a8f45be4e7019bb03b319"
+  };
+
+  // saved: union by URL key; on conflict keep the entry with the later savedAt.
+  function mergeSavedMaps(local, remote) {
+    var out = {}, k;
+    for (k in local) out[k] = local[k];
+    for (k in remote) {
+      if (!out[k] || (remote[k].savedAt || 0) > (out[k].savedAt || 0)) {
+        out[k] = remote[k];
+      }
+    }
+    return out;
+  }
+
+  // read: per date, union of viewed category ids; t = max of the two totals.
+  function mergeReadMaps(local, remote) {
+    var out = {}, k;
+    for (k in local) out[k] = local[k];
+    for (k in remote) {
+      var cur = out[k], inc = remote[k];
+      if (!cur) { out[k] = inc; continue; }
+      var viewed = (cur.v || []).slice();
+      (inc.v || []).forEach(function (id) {
+        if (viewed.indexOf(id) === -1) viewed.push(id);
+      });
+      out[k] = { v: viewed, t: Math.max(cur.t || 0, inc.t || 0) };
+    }
+    return out;
+  }
+
+  // BUG FIX: the saved map is keyed by raw URLs, but Firestore field names
+  // cannot contain "/" (or ~ * [ ]) — every write with URL keys was being
+  // rejected with INVALID_ARGUMENT (silently, caught by console.warn), which
+  // is why saved items never reached the cloud. Keys are URL-encoded for
+  // Firestore (dots also escaped, so merge can never misread them as field
+  // paths) and decoded back to plain URLs for localStorage. Data model is
+  // unchanged: users/{uid} still has a `saved` map, just with encoded keys.
+  function encodeSavedForRemote(map) {
+    var out = {};
+    Object.keys(map || {}).forEach(function (k) {
+      out[encodeURIComponent(k).replace(/\./g, "%2E")] = map[k];
+    });
+    return out;
+  }
+  function decodeSavedFromRemote(map) {
+    var out = {};
+    Object.keys(map || {}).forEach(function (k) {
+      try { out[decodeURIComponent(k)] = map[k]; } catch (e) {
+        console.error("Skipping undecodable saved key:", k, e);
+      }
+    });
+    return out;
+  }
+
+  // Transient sync status shown in the Archive header (observability: silent
+  // failures made the original bug invisible).
+  function syncStatus(msg, isErr) {
+    var el = document.getElementById("sync-status");
+    if (!el) return;
+    el.textContent = msg || "";
+    el.classList.toggle("sync-status-err", !!isErr);
+  }
+  function timeNow() {
+    var d = new Date();
+    return ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+  }
+
+  // Write merged state to localStorage directly (no push-back) and re-render.
+  function applySyncedState(savedMap, readMap) {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(savedMap)); } catch (e) {}
+    try { localStorage.setItem(READ_KEY, JSON.stringify(readMap)); } catch (e) {}
+    markRowButtons();
+    renderSaved();
+    updateDots();
+  }
+
+  function initFirebaseSync() {
+    var area = document.getElementById("sync-area");
+    if (typeof firebase === "undefined" || !firebase.initializeApp) {
+      // CDN blocked/offline: hide the sync UI, keep localStorage behavior.
+      if (area) area.style.display = "none";
+      return;
+    }
+    try {
+      if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
+      var auth = firebase.auth();
+      var db = firebase.firestore();
+      var provider = new firebase.auth.GoogleAuthProvider();
+      var syncUser = null;
+      var unsubscribeSnapshot = null;
+      var readWriteTimer = null;
+
+      function userDoc() { return db.collection("users").doc(syncUser.uid); }
+
+      function serverTs() {
+        return firebase.firestore.FieldValue.serverTimestamp();
+      }
+
+      function updateSyncUI(user) {
+        // Auth UI lives only on the archive page; brief pages sync silently.
+        var inBtn = document.getElementById("sync-signin");
+        var userEl = document.getElementById("sync-user");
+        var avatar = document.getElementById("sync-avatar");
+        var initial = document.getElementById("sync-initial");
+        if (!inBtn || !userEl) return;
+        if (user) {
+          inBtn.style.display = "none";
+          userEl.style.display = "flex";
+          if (user.photoURL) {
+            avatar.src = user.photoURL;
+            avatar.style.display = "";
+            initial.style.display = "none";
+          } else {
+            avatar.style.display = "none";
+            initial.style.display = "";
+            initial.textContent = (user.email || "U").charAt(0).toUpperCase();
+          }
+        } else {
+          inBtn.style.display = "";
+          userEl.style.display = "none";
+        }
+      }
+
+      // Push the saved map so that it REPLACES the remote `saved` field
+      // wholesale (update semantics) — merge writes can never delete keys,
+      // which is why removals/clear-all previously never reached the cloud.
+      function pushSaved() {
+        var payload = {
+          saved: encodeSavedForRemote(loadSaved()),
+          savedRev: getSavedRev(),
+          updatedAt: serverTs()
+        };
+        return userDoc().update(payload).catch(function (e) {
+          if (e && e.code === "not-found") {
+            payload.read = loadRead();
+            return userDoc().set(payload);
+          }
+          throw e;
+        });
+      }
+
+      // On sign-in: last-writer-wins by savedRev, then write the result back.
+      // Union-merge alone resurrects deletions (a removed key is simply absent
+      // from the union), so the newer revision is adopted wholesale instead.
+      function initialSync() {
+        userDoc().get().then(function (snap) {
+          var remote = snap.exists ? (snap.data() || {}) : {};
+          var remoteSaved = decodeSavedFromRemote(remote.saved);
+          var remoteRev = remote.savedRev || 0;
+          var localRev = getSavedRev();
+          var localSaved = loadSaved();
+          var mergedSaved;
+          if (remoteRev > localRev) {
+            // Remote newer: adopt it (deletions stick). A never-synced device
+            // (rev 0) may hold pre-sync local items — fold those in.
+            mergedSaved = (localRev === 0)
+              ? mergeSavedMaps(localSaved, remoteSaved) : remoteSaved;
+          } else if (localRev === 0 && remoteRev === 0) {
+            mergedSaved = mergeSavedMaps(localSaved, remoteSaved);  // first-ever sync: union
+          } else {
+            mergedSaved = localSaved;  // local newer: already reflects local deletions
+          }
+          var newRev = Date.now();
+          setSavedRev(newRev);
+          var mergedRead = mergeReadMaps(loadRead(), remote.read || {});
+          applySyncedState(mergedSaved, mergedRead);
+          return userDoc().update(
+            { saved: encodeSavedForRemote(mergedSaved), savedRev: newRev,
+              read: mergedRead, updatedAt: serverTs() })
+            .catch(function (e) {
+              if (e && e.code === "not-found") {
+                return userDoc().set(
+                  { saved: encodeSavedForRemote(mergedSaved), savedRev: newRev,
+                    read: mergedRead, updatedAt: serverTs() });
+              }
+              throw e;
+            });
+        }).then(function () {
+          syncStatus("Synced · " + timeNow(), false);
+        }).catch(function (e) {
+          console.error("Initial sync failed:", e && e.code, e);
+          syncStatus("Sync failed — check console/rules", true);
+        });
+      }
+
+      // Realtime laptop <-> phone updates; skip our own pending writes.
+      function subscribeRemote() {
+        if (unsubscribeSnapshot) unsubscribeSnapshot();
+        unsubscribeSnapshot = userDoc().onSnapshot(function (snap) {
+          if (snap.metadata.hasPendingWrites || !snap.exists) return;
+          var remote = snap.data() || {};
+          var remoteRev = remote.savedRev || 0;
+          var localRev = getSavedRev();
+          var localSaved = loadSaved();
+          var newSaved = localSaved;
+          var needsPush = false;
+          if (remoteRev > localRev) {
+            // Remote newer: adopt wholesale (deletions propagate). Fold in
+            // legacy local items only on a never-synced device, then push.
+            newSaved = decodeSavedFromRemote(remote.saved);
+            if (localRev === 0) {
+              var folded = mergeSavedMaps(localSaved, newSaved);
+              if (Object.keys(folded).length !== Object.keys(newSaved).length) {
+                newSaved = folded;
+                setSavedRev(Date.now());
+                needsPush = true;
+              } else {
+                setSavedRev(remoteRev);
+              }
+            } else {
+              setSavedRev(remoteRev);
+            }
+          }
+          // Read status has no deletions — union-merge is always safe.
+          var mergedRead = mergeReadMaps(loadRead(), remote.read || {});
+          if (JSON.stringify(newSaved) !== JSON.stringify(localSaved) ||
+              JSON.stringify(mergedRead) !== JSON.stringify(loadRead())) {
+            applySyncedState(newSaved, mergedRead);
+            syncStatus("Synced · " + timeNow(), false);
+          }
+          if (needsPush) pushSaved();
+        }, function (e) {
+          console.error("Sync listener error:", e && e.code, e);
+          syncStatus("Sync failed — check console/rules", true);
+        });
+      }
+
+      function writeSaved() {
+        if (!syncUser) return;
+        pushSaved()
+          .then(function () { syncStatus("Synced · " + timeNow(), false); })
+          .catch(function (e) {
+            console.error("Sync write (saved) failed:", e && e.code, e);
+            syncStatus("Sync failed — check console/rules", true);
+          });
+      }
+      function flushRead() {
+        if (!syncUser) return;
+        userDoc().set({ read: loadRead(), updatedAt: serverTs() },
+          { merge: true })
+          .then(function () { syncStatus("Synced · " + timeNow(), false); })
+          .catch(function (e) {
+            console.error("Sync write (read) failed:", e && e.code, e);
+            syncStatus("Sync failed — check console/rules", true);
+          });
+      }
+      function scheduleReadWrite() {
+        clearTimeout(readWriteTimer);
+        readWriteTimer = setTimeout(flushRead, 5000);  // debounce scroll progress
+      }
+
+      window.addEventListener("pagehide", function () {
+        clearTimeout(readWriteTimer);
+        flushRead();
+      });
+      document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "hidden") {
+          clearTimeout(readWriteTimer);
+          flushRead();
+        }
+      });
+
+      var signinBtn = document.getElementById("sync-signin");
+      var signoutBtn = document.getElementById("sync-signout");
+      if (signinBtn) signinBtn.addEventListener("click", function () {
+        auth.signInWithPopup(provider).catch(function (err) {
+          // Popup blocked/failed (common on mobile) -> redirect flow.
+          if (err && err.code === "auth/popup-closed-by-user") return;
+          console.warn("Popup sign-in failed, falling back to redirect:",
+            err && err.code);
+          auth.signInWithRedirect(provider)
+            .catch(function (e2) { console.warn("Redirect sign-in failed:", e2); });
+        });
+      });
+      if (signoutBtn) signoutBtn.addEventListener("click", function () {
+        auth.signOut().catch(function (e) { console.warn("Sign-out failed:", e); });
+      });
+      auth.getRedirectResult()
+        .catch(function (e) {
+          console.error("Redirect result error:", e && e.code, e);
+          syncStatus("Sign-in failed — check console", true);
+        });
+
+      auth.onAuthStateChanged(function (user) {
+        syncUser = user || null;
+        updateSyncUI(user);
+        if (user) {
+          syncPush.saved = writeSaved;
+          syncPush.read = scheduleReadWrite;
+          initialSync();
+          subscribeRemote();
+        } else {
+          syncPush.saved = function () {};
+          syncPush.read = function () {};
+          syncStatus("", false);
+          if (unsubscribeSnapshot) {
+            unsubscribeSnapshot();
+            unsubscribeSnapshot = null;
+          }
+        }
+      });
+    } catch (e) {
+      console.warn("Firebase sync disabled:", e);
+      if (area) area.style.display = "none";
+    }
+  }
+  // Deferred Firebase scripts execute before window.load, so firebase is
+  // available here if the CDN delivered it.
+  window.addEventListener("load", initFirebaseSync);
+})();
+</script>
 </body>
 </html>
