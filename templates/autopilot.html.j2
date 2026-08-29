@@ -75,6 +75,29 @@
     font-size: 13.5px;
   }
   .ap-learned-empty { color: var(--muted); font-style: italic; font-size: 14px; }
+  .ap-pill {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 3px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 2px 8px 2px 0;
+  }
+  .ap-pill.ok { background: rgba(13, 157, 108, .12); color: #0b7a53; border: 1px solid rgba(13,157,108,.35); }
+  .ap-pill.failed { background: rgba(200, 40, 40, .10); color: #b02a2a; border: 1px solid rgba(200,40,40,.35); }
+  .ap-pill.unknown { background: rgba(120, 110, 90, .12); color: var(--muted); border: 1px solid var(--rule); }
+  .ap-refresh-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 14.5px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  .ap-refresh-btn:hover { filter: brightness(1.1); color: #fff; }
   .ap-foot {
     font-size: 13px;
     color: var(--muted);
@@ -105,9 +128,35 @@
 
   {% if not autopilot_rules %}
   <div class="ap-card">
+    <h3>Token health &amp; sign-in</h3>
+    <p class="ap-sub">Google sign-ins expire roughly weekly — click below to refresh them (one browser sign-in per account, everything else is automatic).</p>
+    <a class="ap-refresh-btn" href="outlook-autopilot:refresh-tokens">&#10227; Refresh sign-ins</a>
+  </div>
+  <div class="ap-card">
     <p class="ap-learned-empty">No autopilot data yet. Run <code>scripts/sync_autopilot.py</code> in the daily-market-brief folder and commit <code>data/autopilot_rules.json</code>.</p>
   </div>
   {% else %}
+
+  <div class="ap-card">
+    <h3>Token health &amp; sign-in</h3>
+    <p class="ap-sub">Google sign-ins expire roughly weekly. One click below re-opens the sign-in for each Gmail account and updates everything automatically.</p>
+    {% set ts = autopilot_rules.token_status %}
+    {% if ts %}
+    <p style="margin:0 0 6px;">
+      {% for label, rec in ts.accounts.items() %}
+      <span class="ap-pill {{ rec.status if rec.status in ['ok','failed'] else 'unknown' }}">{{ label }}: {{ rec.status }}</span>
+      {% endfor %}
+    </p>
+    <p class="ap-sub" style="margin-bottom:8px;">Last sweep: {{ ts.finished_at }}
+      {%- set failed = ts.accounts.items() | selectattr('1.status', 'equalto', 'failed') | list -%}
+      {% if failed %} &middot; <strong style="color:#b02a2a;">{{ failed | map(attribute=0) | join(', ') }} needs re-sign-in — click the button below.</strong>{% endif %}
+    </p>
+    {% else %}
+    <p class="ap-sub" style="margin-bottom:8px;">No sweep data yet — the button below still works.</p>
+    {% endif %}
+    <a class="ap-refresh-btn" href="outlook-autopilot:refresh-tokens">&#10227; Refresh sign-ins</a>
+    <p class="ap-foot">Opens a window on this PC; a browser tab appears for each Google account (2 sign-ins total). Nothing else to do — new tokens are saved and uploaded for you.</p>
+  </div>
 
   <div class="ap-card">
     <h3>Auto-mark as read — exact senders <span class="ap-count">{{ autopilot_rules.auto_read_exact | length }}</span></h3>

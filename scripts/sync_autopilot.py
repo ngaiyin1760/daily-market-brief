@@ -17,6 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "autopilot_rules.json"
 DEFAULT_RULES = ROOT.parent / "outlook-autopilot" / "rules" / "auto_mark_list.md"
+DEFAULT_LAST_RUN = ROOT.parent / "outlook-autopilot" / "state" / "last_run.json"
 
 SECTIONS = {
     "exact sender addresses": "exact",
@@ -74,10 +75,36 @@ def parse_rules(path: Path) -> dict:
     }
 
 
+def read_token_status(path: Path):
+    """Read outlook-autopilot's state/last_run.json into a health summary.
+
+    Returns None when the file is missing/unreadable (page shows a hint then).
+    """
+    try:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    accounts = raw.get("accounts") or {}
+    return {
+        "finished_at": raw.get("finished_at") or raw.get("started_at") or "",
+        "accounts": {
+            label: {
+                "status": rec.get("status", "unknown"),
+                "error": rec.get("error", ""),
+                "unread": rec.get("unread", 0),
+                "marked": rec.get("marked", 0),
+            }
+            for label, rec in accounts.items()
+        },
+    }
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Sync Outlook Autopilot rules into this site")
     ap.add_argument("--rules", default=str(DEFAULT_RULES),
                     help="path to auto_mark_list.md")
+    ap.add_argument("--last-run", default=str(DEFAULT_LAST_RUN),
+                    help="path to outlook-autopilot state/last_run.json")
     args = ap.parse_args()
 
     rules_path = Path(args.rules)
@@ -86,6 +113,7 @@ def main() -> int:
         return 1
 
     data = parse_rules(rules_path)
+    data["token_status"] = read_token_status(Path(args.last_run))
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(json.dumps(data, indent=2), encoding="utf-8")
     print(f"Wrote {OUT.relative_to(ROOT)}")
@@ -93,6 +121,11 @@ def main() -> int:
     print(f"  patterns      : {len(data['auto_read_patterns'])}")
     print(f"  learned       : {len(data['learned'])}")
     print(f"  whitelist     : {len(data['whitelist'])}")
+    if data["token_status"]:
+        print(f"  token health  : " + ", ".join(
+            f"{k}={v['status']}" for k, v in data["token_status"]["accounts"].items()))
+    else:
+        print("  token health  : no last_run.json found")
     print("\nCommit and push to publish the update.")
     return 0
 
