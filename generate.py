@@ -2741,6 +2741,35 @@ def render_search_page(generated_at):
     log.info("Wrote %s", DOCS_DIR / "search.html")
 
 
+AUTOPILOT_DATA = ROOT / "data" / "autopilot_rules.json"
+
+
+def render_autopilot_page(generated_at):
+    """Render the Outlook Autopilot rules page (auto-read list + whitelist).
+
+    Data comes from `data/autopilot_rules.json`, refreshed by
+    `scripts/sync_autopilot.py` from the outlook-autopilot repo. If the file is
+    missing, the page renders an empty note instead of failing (non-fatal).
+    """
+    from jinja2 import Environment, FileSystemLoader, select_autoescape
+    env = Environment(
+        loader=FileSystemLoader(str(TEMPLATE_PATH.parent)),
+        autoescape=select_autoescape(["html", "j2"]),
+    )
+    rules = None
+    if AUTOPILOT_DATA.exists():
+        try:
+            rules = json.loads(AUTOPILOT_DATA.read_text(encoding="utf-8"))
+        except Exception:
+            log.warning("autopilot_rules.json unreadable; rendering empty page")
+            rules = None
+    html = env.get_template("autopilot.html.j2").render(
+        base=".", generated_at=generated_at, is_autopilot=True,
+        autopilot_rules=rules)
+    (DOCS_DIR / "autopilot.html").write_text(html, encoding="utf-8")
+    log.info("Wrote %s", DOCS_DIR / "autopilot.html")
+
+
 # ---------------------------------------------------------------------------
 
 def check_outputs(page_date, generated_at, news, groups):
@@ -2753,6 +2782,7 @@ def check_outputs(page_date, generated_at, news, groups):
         DOCS_DIR / "analytics.html",
         DOCS_DIR / "repo-radar.html",
         DOCS_DIR / "search.html",
+        DOCS_DIR / "autopilot.html",
         DATA_DIR / f"{page_date}.json",
         DATA_DIR / "indicators.json",
         DATA_DIR / "analytics.json",
@@ -2998,6 +3028,7 @@ def main():
     render_analytics_page(page_date, generated_at, analytics_blogs)
     render_repo_radar_page(page_date, generated_at, repos)
     render_search_page(generated_at)
+    render_autopilot_page(generated_at)
 
     problems = check_outputs(page_date, generated_at, news, groups)
     print_summary(page_date, generated_at, news, takeaways, groups, snapshot,

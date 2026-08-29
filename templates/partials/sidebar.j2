@@ -54,6 +54,14 @@
       </svg>
       <span>Archive</span>
     </a>
+    <a class="archive-link{% if is_autopilot | default(false) %} active{% endif %}"
+       href="{{ base }}/autopilot.html"{% if is_autopilot | default(false) %} aria-current="page"{% endif %}>
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm8 6.6L5.5 7.5v9h13v-9z"
+              fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      </svg>
+      <span>Autopilot</span>
+    </a>
   </nav>
   <nav id="date-nav"><a href="#" class="na">Loading…</a></nav>
 </aside>
