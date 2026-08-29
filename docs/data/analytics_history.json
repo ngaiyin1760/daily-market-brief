@@ -2,62 +2,8 @@
  "days": [
   {
    "date": "2026-08-29",
-   "generated_at": "2026-08-29 11:43 HKT",
+   "generated_at": "2026-08-29 23:32 HKT",
    "posts": [
-    {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/08/28/byd-h1-2026-earnings/",
-     "blog": "CNEVPOST",
-     "title": "BYD H1 profit falls 20.5% as overseas growth fails to offset China weakness",
-     "link": "https://cnevpost.com/2026/08/28/byd-h1-2026-earnings/",
-     "summary": "Overseas expansion lifted gross margin to 18.85%, but NEV weakness and foreign-exchange losses weighed on profit.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-08-28 11:19 UTC",
-     "_ts": 1787915985,
-     "preview": false,
-     "bullets": [
-      "BYD reported a 20.54% decline in first-half net profit to 12.33 billion yuan, driven by domestic NEV market weakness and foreign-exchange losses.",
-      "Despite a 7.13% drop in total revenue, the company's gross margin improved to 18.85%, supported by strong growth in overseas markets.",
-      "Overseas sales surged 67.8% year-on-year, now accounting for approximately 44% of total sales, helping to offset the 15.72% decline in total NEV volume.",
-      "The company continues to prioritize R&D, with first-half investment reaching 28.9 billion yuan, more than double its net profit for the same period."
-     ],
-     "rating": 5,
-     "read_time": 3
-    },
-    {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/08/29/faw-vw-opens-id-aura-t6-pre-sales/",
-     "blog": "CNEVPOST",
-     "title": "FAW-VW opens ID. AURA T6 pre-sales, betting on locally developed smart tech to win over Chinese buyers",
-     "link": "https://cnevpost.com/2026/08/29/faw-vw-opens-id-aura-t6-pre-sales/",
-     "summary": "The ID. AURA T6 starts at a pre-sales price of 135,900 yuan ($20,040) and offers a range of up to 660 km.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-08-29 03:22 UTC",
-     "_ts": 1787973779,
-     "preview": false,
-     "bullets": [
-      "FAW-Volkswagen has opened pre-sales for the ID. AURA T6, a mid-size SUV priced between 135,900 and 169,900 yuan.",
-      "The vehicle utilizes the CEA architecture co-developed with Xpeng, marking a strategic shift toward integrating local Chinese smart-driving technology.",
-      "High-end variants feature 192-channel LiDAR and a driver-assistance system powered by the Horizon Robotics Journey 6H chip, delivering 420 TOPS of computing power.",
-      "This launch represents Volkswagen's attempt to bridge the competitive gap with domestic Chinese EV brands by leveraging local supply chains for smart cockpit and autonomous driving features."
-     ],
-     "rating": 4,
-     "read_time": 3
-    },
-    {
-     "_key": "SemiEngineering|https://semiengineering.com/chip-industry-week-in-review-153/",
-     "blog": "SemiEngineering",
-     "title": "Chip Industry Week in Review",
-     "link": "https://semiengineering.com/chip-industry-week-in-review-153/",
-     "summary": "Hot Chips AI HW wave; HBM vs HBC; capacity buildout; Infineon's latest buy; advanced packaging enablers; foundry report; ASIC security threats; IC tariffs; executive changes; Nvidia, Synopsys earnings; dependence on Taiwan; wafer-scale 2D semiconductors.\nThe post Chip Industry Week in Review appeared first on Semiconductor Engineering.",
-     "published": "2026-08-28 07:01 UTC",
-     "_ts": 1787900497,
-     "preview": false,
-     "bullets": [
-      "Hot Chips 2026 revealed major advancements in AI silicon, including IBM/Arm's 2nm dual-architecture processor and Microsoft's 3nm Maia 200 AI accelerator.",
-      "Memory bottlenecks remain a primary industry focus, with Nvidia introducing NVHBM and Qualcomm proposing High Bandwidth Compute (HBC) as an alternative to traditional HBM-plus-interposer designs.",
-      "Apple has transitioned to 2nm process technology for its M6 and M5 Ultra chips, signaling a rapid industry shift toward sub-3nm nodes for high-performance AI workloads.",
-      "The industry is increasingly moving toward custom, non-commercial silicon, as evidenced by OpenAI's Jalapeño inference chip, which is being used to benchmark against established market rivals."
-     ],
-     "rating": 5,
-     "read_time": 12
-    },
     {
      "_key": "SemiEngineering|https://semiengineering.com/ferroelectric-tuning-reduces-optical-interconnect-stalls-in-llm-training-georgia-tech/",
      "blog": "SemiEngineering",
@@ -68,9 +14,28 @@
      "_ts": 1787938878,
      "preview": false,
      "bullets": [
-      "Georgia Tech researchers identified that thermal tuning in wafer-scale optical interconnects causes significant communication stalls during LLM mixture-of-experts (MoE) training.",
-      "The study proposes a ferroelectric-based mitigation strategy to address these thermal overheads.",
-      "Implementing this solution resulted in a 2.7x speedup for Mixtral 8x7B training, highlighting a critical bottleneck for large-scale AI infrastructure."
+      "Georgia Tech researchers identified that thermal tuning overhead in wafer-scale optical interconnects causes significant communication stalls during the training of Mixture-of-Experts (MoE) LLMs.",
+      "The study proposes a ferroelectric-based mitigation strategy to address these bottlenecks, which currently hinder the efficiency of large-scale AI training clusters.",
+      "Experimental results demonstrate a 2.7x speedup for the Mixtral 8x7B model when these specific tuning stalls are effectively eliminated.",
+      "This finding is highly relevant for data center infrastructure, as optical interconnects are increasingly vital for scaling high-performance computing and AI workloads."
+     ],
+     "rating": 5,
+     "read_time": 10
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/rowhammer-backdoor-injection-attack-during-inference-northeastern/",
+     "blog": "SemiEngineering",
+     "title": "Rowhammer Backdoor Injection Attack During Inference (Northeastern)",
+     "link": "https://semiengineering.com/rowhammer-backdoor-injection-attack-during-inference-northeastern/",
+     "summary": "Researchers from Northeastern University published a technical paper titled “ROBBIN: Rowhammer-Based Backdoor Injection during Inference.” Abstract excerpt: “This work presents ROBBIN, a hardware-aware Rowhammer-based backdoor injection attack that integrates the device-specific vulnerability into the backdoor construction process. ROBBIN first characterizes the bit-flip patterns of a target DRAM and uses this information to iteratively select DRAM... » read more\nThe post Rowhammer Backdoor Injection Attack During Inference (Northeastern) appeared first on Semiconductor Engineering.",
+     "published": "2026-08-29 07:01 UTC",
+     "_ts": 1787986909,
+     "preview": false,
+     "bullets": [
+      "Researchers at Northeastern University have developed ROBBIN, a novel hardware-aware attack that utilizes Rowhammer-induced bit-flips to inject backdoors into AI models during inference.",
+      "Unlike previous hardware-agnostic methods, ROBBIN characterizes specific DRAM bit-flip patterns to iteratively map model weights, ensuring the backdoor remains robust across different devices.",
+      "The attack is designed to maximize the Attack Success Rate (ASR) while maintaining the Target Accuracy (TA) of the model, posing a significant security risk for deployed AI systems.",
+      "This research highlights a critical vulnerability in the physical layer of DRAM, suggesting that hardware-level security must be integrated into the AI model deployment lifecycle."
      ],
      "rating": 4,
      "read_time": 10
@@ -85,12 +50,49 @@
      "_ts": 1787938454,
      "preview": false,
      "bullets": [
-      "Researchers at UM-Dearborn developed a physics-guided generative design framework to optimize liquid-cooling channel topology for high-power multi-chip packages.",
-      "Testing on a 2.7 kW package containing two GPUs and one CPU demonstrated a 33.6% reduction in maximum GPU temperature.",
-      "The design also achieved a 52.5% improvement in temperature uniformity and a 72.8% reduction in pressure drop, addressing key thermal management challenges in dense 3D integration."
+      "University of Michigan-Dearborn researchers introduced a physics-guided generative design framework to optimize liquid-cooling channel topologies for advanced 2.5D and 3D integrated packages.",
+      "Testing on a 2.7 kW multi-chip package containing two GPUs and one CPU showed a 33.6% reduction in maximum GPU temperature.",
+      "The design optimization also achieved a 52.5% improvement in temperature spread and a 72.8% reduction in pressure drop, significantly enhancing thermal management efficiency.",
+      "As AI chips continue to increase in power density, these generative design techniques provide a scalable path for cooling high-performance heterogeneous integrated circuits."
      ],
      "rating": 4,
      "read_time": 10
+    },
+    {
+     "_key": "CNEVPOST|https://cnevpost.com/2026/08/29/faw-vw-opens-id-aura-t6-pre-sales/",
+     "blog": "CNEVPOST",
+     "title": "FAW-VW opens ID. AURA T6 pre-sales, betting on locally developed smart tech to win over Chinese buyers",
+     "link": "https://cnevpost.com/2026/08/29/faw-vw-opens-id-aura-t6-pre-sales/",
+     "summary": "The ID. AURA T6 starts at a pre-sales price of 135,900 yuan ($20,040) and offers a range of up to 660 km.\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-08-29 03:22 UTC",
+     "_ts": 1787973779,
+     "preview": false,
+     "bullets": [
+      "FAW-Volkswagen has launched pre-sales for the ID. AURA T6, a mid-size SUV priced between 135,900 and 169,900 yuan, marking the debut of its new AURA lineup.",
+      "The vehicle is built on the CEA architecture, a joint development between Volkswagen and Xpeng, which utilizes a central computing and zonal control design to support advanced OTA updates and AI model deployment.",
+      "Volkswagen is aggressively integrating local Chinese technology, utilizing Horizon Robotics' Journey 6H chip for urban NOA capabilities and featuring LiDAR on higher-end variants for the first time in an all-electric VW SUV.",
+      "The T6 offers two battery configurations providing up to 660 km of CLTC range, signaling a strategic shift to compete directly with domestic Chinese smart EV brands through localized hardware and software partnerships."
+     ],
+     "rating": 4,
+     "read_time": 3
+    },
+    {
+     "_key": "Stratechery|https://stratechery.com/2026/autonomy-and-innovation/",
+     "blog": "Stratechery",
+     "title": "Autonomy and Innovation",
+     "link": "https://stratechery.com/2026/autonomy-and-innovation/",
+     "summary": "Incentives favor offense when it comes to agentic cybersecurity; it's the same dynamic that will limit incumbents and fuel startups in the long run.",
+     "published": "2026-08-24 10:00 UTC",
+     "_ts": 1787565600,
+     "preview": false,
+     "bullets": [
+      "The distinction between 'white hat' and 'black hat' hackers is defined by intent and incentives rather than technical capability, as both groups utilize the same fundamental skillsets to exploit or patch vulnerabilities.",
+      "In the context of AI, the proliferation of powerful, widely available models means that cybersecurity threats are no longer restricted to a single entity or nation-state.",
+      "Attempting to restrict access to advanced AI models is a flawed strategy because the best defense against AI-driven cyberattacks requires that defenders have equal or superior access to the same powerful models.",
+      "The author argues that government-led efforts to centralize AI control, such as the response to Anthropic's Fable release, are counterproductive and ignore the reality of a decentralized, global AI landscape."
+     ],
+     "rating": 4,
+     "read_time": 15
     }
    ]
   },
