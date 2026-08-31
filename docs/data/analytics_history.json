@@ -1,6 +1,98 @@
 {
  "days": [
   {
+   "date": "2026-08-31",
+   "generated_at": "2026-08-31 08:36 HKT",
+   "posts": [
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/m3d-6t-sram-with-beol-pass-gates-at-2nm-georgia-tech-synopsys/",
+     "blog": "SemiEngineering",
+     "title": "M3D 6T SRAM With BEOL Pass-Gates at 2nm (Georgia Tech, Synopsys)",
+     "link": "https://semiengineering.com/m3d-6t-sram-with-beol-pass-gates-at-2nm-georgia-tech-synopsys/",
+     "summary": "Researchers from Georgia Institute of Technology and Synopsys published a technical paper titled “A Process-Aware Hybrid Si/IGO Monolithic-3D 6T SRAM with BEOL Pass-Gates for the 2nm Node.” Abstract Excerpt: The paper proposes “a monolithic-3D (M3D) 6T SRAM at the 2nm node” that integrates BEOL IGO pass-gates with an all-silicon nanosheet latch, buried power rails, and... » read more\nThe post M3D 6T SRAM With BEOL Pass-Gates at 2nm (Georgia Tech, Synopsys) appeared first on Semiconductor Engineering.",
+     "published": "2026-08-30 07:04 UTC",
+     "_ts": 1788073474,
+     "preview": false,
+     "bullets": [
+      "A new monolithic-3D (M3D) 6T SRAM design for the 2nm node integrates back-end-of-line (BEOL) Indium Gallium Oxide (IGO) pass-gates with silicon nanosheet latches.",
+      "The design incorporates advanced manufacturing features including buried power rails and Ruthenium (Ru) interconnects to optimize performance.",
+      "The cell achieves a 25% reduction in footprint compared to standard silicon baselines and demonstrates a 42.2% improvement in write delay at the subarray level."
+     ],
+     "rating": 5,
+     "read_time": 10
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/hybrid-hbm-hbf-architecture-in-llm-inference-university-of-oxford/",
+     "blog": "SemiEngineering",
+     "title": "Hybrid HBM-HBF Architecture in LLM Inference (University of Oxford)",
+     "link": "https://semiengineering.com/hybrid-hbm-hbf-architecture-in-llm-inference-university-of-oxford/",
+     "summary": "Researchers at the University of Oxford published a technical paper titled “Hardware-Managed Heterogeneous High-Bandwidth Memory and Flash in LLM Inference Systems.” Abstract Excerpt: “ High-Bandwidth Flash (HBF) offers a denser alternative, providing 16x more capacity per stack at comparable bandwidth. In this work, we show that while replacing HBM with HBF can address the capacity... » read more\nThe post Hybrid HBM-HBF Architecture in LLM Inference (University of Oxford) appeared first on Semiconductor Engineering.",
+     "published": "2026-08-30 07:06 UTC",
+     "_ts": 1788073597,
+     "preview": false,
+     "bullets": [
+      "Researchers have proposed a Heterogeneous Memory Architecture (HMA) that combines High-Bandwidth Memory (HBM) with High-Bandwidth Flash (HBF) to address memory capacity constraints in LLM inference.",
+      "While HBF offers 16x the capacity of HBM per stack, its inherent long-tail latency can starve GPU schedulers if used naively.",
+      "The proposed architecture utilizes a prediction-based migration policy to keep high-latency HBF data off the GPU's critical path, maintaining performance while increasing memory density."
+     ],
+     "rating": 4,
+     "read_time": 10
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/cycle-level-simulator-for-distributed-gpus-for-ai-workloads-purdue/",
+     "blog": "SemiEngineering",
+     "title": "Cycle-Level Simulator for Distributed GPUs For AI Workloads (Purdue)",
+     "link": "https://semiengineering.com/cycle-level-simulator-for-distributed-gpus-for-ai-workloads-purdue/",
+     "summary": "Researchers from Purdue University published a technical paper titled “Architecting the Next Generation of Asynchronous, Distributed GPUs for the AI Era.” Abstract Excerpt: The paper presents a “cycle-level simulation framework” for modern GPU generations including Ampere, Hopper, and Blackwell. It also reports validation against physical silicon, including a “99% Pearson correlation coefficient” on H100 GPU... » read more\nThe post Cycle-Level Simulator for Distributed GPUs For AI Workloads (Purdue) appeared first on Semiconductor Engineering.",
+     "published": "2026-08-30 07:02 UTC",
+     "_ts": 1788073325,
+     "preview": false,
+     "bullets": [
+      "Purdue University has introduced a cycle-level simulation framework designed to model modern GPU architectures, including NVIDIA's Ampere, Hopper, and Blackwell generations.",
+      "The simulator provides high-fidelity performance modeling for distributed AI workloads, enabling architects to evaluate system-level bottlenecks.",
+      "Validation against physical hardware shows a 99% Pearson correlation coefficient with H100 GPU results, confirming the tool's reliability for future architecture research."
+     ],
+     "rating": 4,
+     "read_time": 10
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/intrinsic-polarization-superjunctions-boost-gan-on-silicon-power-devices-epfl/",
+     "blog": "SemiEngineering",
+     "title": "Intrinsic Polarization Superjunctions Boost GaN-On-Silicon Power Devices (EPFL)",
+     "link": "https://semiengineering.com/intrinsic-polarization-superjunctions-boost-gan-on-silicon-power-devices-epfl/",
+     "summary": "Researchers from École Polytechnique Fédérale de Lausanne (EPFL) published a technical paper titled “Intrinsic polarization superjunctions in III-nitride heterostructures for efficient power electronics.” Abstract Excerpt: “III-nitride semiconductors combine a wide bandgap with low sheet resistance and, thus, can be used for efficient power electronics. Their lateral architecture also enables monolithic integration on cost-effective silicon. However,... » read more\nThe post Intrinsic Polarization Superjunctions Boost GaN-On-Silicon Power Devices (EPFL) appeared first on Semiconductor Engineering.",
+     "published": "2026-08-30 07:03 UTC",
+     "_ts": 1788073408,
+     "preview": false,
+     "bullets": [
+      "EPFL researchers have developed intrinsic polarization superjunctions in III-nitride heterostructures to improve the efficiency of power electronics.",
+      "The technology addresses critical limitations in GaN-on-Silicon devices, specifically mitigating electric-field crowding and surface/buffer trapping effects.",
+      "This advancement enables better breakdown voltage and dynamic performance, facilitating the monolithic integration of high-efficiency power devices on cost-effective silicon substrates."
+     ],
+     "rating": 3,
+     "read_time": 10
+    },
+    {
+     "_key": "CNEVPOST|https://cnevpost.com/2026/08/30/byd-denza-launch-n8l-ev-sept-2026/",
+     "blog": "CNEVPOST",
+     "title": "BYD Denza to launch N8L EV in September, expanding 6-seat SUV lineup",
+     "link": "https://cnevpost.com/2026/08/30/byd-denza-launch-n8l-ev-sept-2026/",
+     "summary": "The existing N8L is offered only as a plug-in hybrid with flash charging; the EV version is expected to use BYD's latest flash charging technology.\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-08-30 14:00 UTC",
+     "_ts": 1788098419,
+     "preview": false,
+     "bullets": [
+      "Denza is expanding its N8L large 6-seat SUV lineup by launching an all-electric version in September, moving beyond the current plug-in hybrid (PHEV) configuration.",
+      "The new EV model will feature a 208-liter powered frunk designed for family utility, including a drainable compartment for outdoor gear.",
+      "While specific battery and range details remain undisclosed, the vehicle is expected to integrate BYD's latest 800-volt flash charging technology and second-generation Blade Battery.",
+      "The introduction of an EV variant aims to capture a larger share of the competitive Chinese family SUV market, building on the existing N8L platform which currently starts at 319,800 yuan for the flash-charging PHEV version."
+     ],
+     "rating": 3,
+     "read_time": 3
+    }
+   ]
+  },
+  {
    "date": "2026-08-30",
    "generated_at": "2026-08-30 08:18 HKT",
    "posts": [

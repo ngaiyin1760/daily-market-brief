@@ -1,45 +1,77 @@
 {
- "generated_at": "2026-08-30 08:18 HKT",
+ "generated_at": "2026-08-31 08:36 HKT",
  "blogs": [
   {
    "name": "SemiEngineering",
    "status": "ok",
    "posts": [
     {
-     "_key": "SemiEngineering|https://semiengineering.com/rowhammer-backdoor-injection-attack-during-inference-northeastern/",
+     "_key": "SemiEngineering|https://semiengineering.com/m3d-6t-sram-with-beol-pass-gates-at-2nm-georgia-tech-synopsys/",
      "blog": "SemiEngineering",
-     "title": "Rowhammer Backdoor Injection Attack During Inference (Northeastern)",
-     "link": "https://semiengineering.com/rowhammer-backdoor-injection-attack-during-inference-northeastern/",
-     "summary": "Researchers from Northeastern University published a technical paper titled “ROBBIN: Rowhammer-Based Backdoor Injection during Inference.” Abstract excerpt: “This work presents ROBBIN, a hardware-aware Rowhammer-based backdoor injection attack that integrates the device-specific vulnerability into the backdoor construction process. ROBBIN first characterizes the bit-flip patterns of a target DRAM and uses this information to iteratively select DRAM... » read more\nThe post Rowhammer Backdoor Injection Attack During Inference (Northeastern) appeared first on Semiconductor Engineering.",
-     "published": "2026-08-29 07:01 UTC",
-     "_ts": 1787986909,
+     "title": "M3D 6T SRAM With BEOL Pass-Gates at 2nm (Georgia Tech, Synopsys)",
+     "link": "https://semiengineering.com/m3d-6t-sram-with-beol-pass-gates-at-2nm-georgia-tech-synopsys/",
+     "summary": "Researchers from Georgia Institute of Technology and Synopsys published a technical paper titled “A Process-Aware Hybrid Si/IGO Monolithic-3D 6T SRAM with BEOL Pass-Gates for the 2nm Node.” Abstract Excerpt: The paper proposes “a monolithic-3D (M3D) 6T SRAM at the 2nm node” that integrates BEOL IGO pass-gates with an all-silicon nanosheet latch, buried power rails, and... » read more\nThe post M3D 6T SRAM With BEOL Pass-Gates at 2nm (Georgia Tech, Synopsys) appeared first on Semiconductor Engineering.",
+     "published": "2026-08-30 07:04 UTC",
+     "_ts": 1788073474,
      "preview": false,
      "bullets": [
-      "Northeastern University researchers introduced 'ROBBIN,' a hardware-aware attack that leverages Rowhammer-induced bit-flips to inject backdoors into AI models during inference.",
-      "Unlike previous methods that treat bit-flips as side effects, ROBBIN characterizes specific DRAM vulnerabilities to strategically map model weights to susceptible memory pages.",
-      "This approach creates highly robust backdoors that maintain high attack success rates (ASR) while preserving the target accuracy (TA) of the model across different hardware devices.",
-      "The research underscores a critical security vulnerability in AI deployment, as it demonstrates that hardware-level memory manipulation can compromise model integrity even after deployment."
+      "A new monolithic-3D (M3D) 6T SRAM design for the 2nm node integrates back-end-of-line (BEOL) Indium Gallium Oxide (IGO) pass-gates with silicon nanosheet latches.",
+      "The design incorporates advanced manufacturing features including buried power rails and Ruthenium (Ru) interconnects to optimize performance.",
+      "The cell achieves a 25% reduction in footprint compared to standard silicon baselines and demonstrates a 42.2% improvement in write delay at the subarray level."
      ],
      "rating": 5,
      "read_time": 10
     },
     {
-     "_key": "SemiEngineering|https://semiengineering.com/predicting-post-route-ppa-from-macro-and-standard-cell-placements-u-of-alberta/",
+     "_key": "SemiEngineering|https://semiengineering.com/hybrid-hbm-hbf-architecture-in-llm-inference-university-of-oxford/",
      "blog": "SemiEngineering",
-     "title": "Predicting Post-Route PPA from Macro and Standard-Cell Placements (U. of Alberta)",
-     "link": "https://semiengineering.com/predicting-post-route-ppa-from-macro-and-standard-cell-placements-u-of-alberta/",
-     "summary": "Researchers from University of Alberta published a technical paper titled “PPAPlace: Differentiable Cross-Stage Objectives for Chip Placement Optimization.” Abstract: “Macro placement significantly affects a chip’s post-route performance, power, and area (PPA). Most placement methods optimize half-perimeter wirelength (HPWL) as the primary objective. However, recent benchmarking shows a near-zero correlation between HPWL and post-route timing metrics... » read more\nThe post Predicting Post-Route PPA from Macro and Standard-Cell Placements (U. of Alberta) appeared first on Semiconductor Engineering.",
-     "published": "2026-08-29 17:00 UTC",
-     "_ts": 1788022822,
+     "title": "Hybrid HBM-HBF Architecture in LLM Inference (University of Oxford)",
+     "link": "https://semiengineering.com/hybrid-hbm-hbf-architecture-in-llm-inference-university-of-oxford/",
+     "summary": "Researchers at the University of Oxford published a technical paper titled “Hardware-Managed Heterogeneous High-Bandwidth Memory and Flash in LLM Inference Systems.” Abstract Excerpt: “ High-Bandwidth Flash (HBF) offers a denser alternative, providing 16x more capacity per stack at comparable bandwidth. In this work, we show that while replacing HBM with HBF can address the capacity... » read more\nThe post Hybrid HBM-HBF Architecture in LLM Inference (University of Oxford) appeared first on Semiconductor Engineering.",
+     "published": "2026-08-30 07:06 UTC",
+     "_ts": 1788073597,
      "preview": false,
      "bullets": [
-      "Researchers at the University of Alberta developed 'PPAPlace,' a differentiable surrogate model that predicts post-route timing metrics directly from macro and standard-cell placements.",
-      "The study highlights that traditional HPWL-based optimization correlates poorly with final timing, leading to PPA degradation in existing AI-driven placement tools.",
-      "By utilizing post-global-routing labels, the model achieved a 22% improvement in worst negative slack (WNS) and a 51% improvement in total negative slack (TNS) on benchmark circuits.",
-      "The PPAPlace framework integrates into existing analytical placers as a co-objective or a refinement step, offering a path to better silicon performance without requiring retraining for new circuits."
+      "Researchers have proposed a Heterogeneous Memory Architecture (HMA) that combines High-Bandwidth Memory (HBM) with High-Bandwidth Flash (HBF) to address memory capacity constraints in LLM inference.",
+      "While HBF offers 16x the capacity of HBM per stack, its inherent long-tail latency can starve GPU schedulers if used naively.",
+      "The proposed architecture utilizes a prediction-based migration policy to keep high-latency HBF data off the GPU's critical path, maintaining performance while increasing memory density."
      ],
      "rating": 4,
-     "read_time": 2
+     "read_time": 10
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/cycle-level-simulator-for-distributed-gpus-for-ai-workloads-purdue/",
+     "blog": "SemiEngineering",
+     "title": "Cycle-Level Simulator for Distributed GPUs For AI Workloads (Purdue)",
+     "link": "https://semiengineering.com/cycle-level-simulator-for-distributed-gpus-for-ai-workloads-purdue/",
+     "summary": "Researchers from Purdue University published a technical paper titled “Architecting the Next Generation of Asynchronous, Distributed GPUs for the AI Era.” Abstract Excerpt: The paper presents a “cycle-level simulation framework” for modern GPU generations including Ampere, Hopper, and Blackwell. It also reports validation against physical silicon, including a “99% Pearson correlation coefficient” on H100 GPU... » read more\nThe post Cycle-Level Simulator for Distributed GPUs For AI Workloads (Purdue) appeared first on Semiconductor Engineering.",
+     "published": "2026-08-30 07:02 UTC",
+     "_ts": 1788073325,
+     "preview": false,
+     "bullets": [
+      "Purdue University has introduced a cycle-level simulation framework designed to model modern GPU architectures, including NVIDIA's Ampere, Hopper, and Blackwell generations.",
+      "The simulator provides high-fidelity performance modeling for distributed AI workloads, enabling architects to evaluate system-level bottlenecks.",
+      "Validation against physical hardware shows a 99% Pearson correlation coefficient with H100 GPU results, confirming the tool's reliability for future architecture research."
+     ],
+     "rating": 4,
+     "read_time": 10
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/intrinsic-polarization-superjunctions-boost-gan-on-silicon-power-devices-epfl/",
+     "blog": "SemiEngineering",
+     "title": "Intrinsic Polarization Superjunctions Boost GaN-On-Silicon Power Devices (EPFL)",
+     "link": "https://semiengineering.com/intrinsic-polarization-superjunctions-boost-gan-on-silicon-power-devices-epfl/",
+     "summary": "Researchers from École Polytechnique Fédérale de Lausanne (EPFL) published a technical paper titled “Intrinsic polarization superjunctions in III-nitride heterostructures for efficient power electronics.” Abstract Excerpt: “III-nitride semiconductors combine a wide bandgap with low sheet resistance and, thus, can be used for efficient power electronics. Their lateral architecture also enables monolithic integration on cost-effective silicon. However,... » read more\nThe post Intrinsic Polarization Superjunctions Boost GaN-On-Silicon Power Devices (EPFL) appeared first on Semiconductor Engineering.",
+     "published": "2026-08-30 07:03 UTC",
+     "_ts": 1788073408,
+     "preview": false,
+     "bullets": [
+      "EPFL researchers have developed intrinsic polarization superjunctions in III-nitride heterostructures to improve the efficiency of power electronics.",
+      "The technology addresses critical limitations in GaN-on-Silicon devices, specifically mitigating electric-field crowding and surface/buffer trapping effects.",
+      "This advancement enables better breakdown voltage and dynamic performance, facilitating the monolithic integration of high-efficiency power devices on cost-effective silicon substrates."
+     ],
+     "rating": 3,
+     "read_time": 10
     }
    ]
   },
@@ -48,57 +80,22 @@
    "status": "ok",
    "posts": [
     {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/08/29/faw-vw-opens-id-aura-t6-pre-sales/",
+     "_key": "CNEVPOST|https://cnevpost.com/2026/08/30/byd-denza-launch-n8l-ev-sept-2026/",
      "blog": "CNEVPOST",
-     "title": "FAW-VW opens ID. AURA T6 pre-sales, betting on locally developed smart tech to win over Chinese buyers",
-     "link": "https://cnevpost.com/2026/08/29/faw-vw-opens-id-aura-t6-pre-sales/",
-     "summary": "The ID. AURA T6 starts at a pre-sales price of 135,900 yuan ($20,040) and offers a range of up to 660 km.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-08-29 03:22 UTC",
-     "_ts": 1787973779,
+     "title": "BYD Denza to launch N8L EV in September, expanding 6-seat SUV lineup",
+     "link": "https://cnevpost.com/2026/08/30/byd-denza-launch-n8l-ev-sept-2026/",
+     "summary": "The existing N8L is offered only as a plug-in hybrid with flash charging; the EV version is expected to use BYD's latest flash charging technology.\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-08-30 14:00 UTC",
+     "_ts": 1788098419,
      "preview": false,
      "bullets": [
-      "FAW-Volkswagen has launched pre-sales for the ID. AURA T6, a mid-size electric SUV priced between 135,900 and 169,900 yuan, marking the debut of the new AURA lineup.",
-      "The vehicle is built on the CEA architecture, a joint development between Volkswagen and Xpeng, which utilizes a central computing and zonal control design to support advanced OTA updates and AI model deployment.",
-      "The high-end variants feature 192-channel LiDAR and an intelligent driving system powered by Horizon Robotics' Journey 6H chip, delivering 420 TOPS of computing power for urban NOA capabilities.",
-      "This launch signifies a strategic shift for Volkswagen, as it increasingly integrates Chinese technology partners to compete with local smart EV brands in the mid-market segment."
+      "Denza is expanding its N8L large 6-seat SUV lineup by launching an all-electric version in September, moving beyond the current plug-in hybrid (PHEV) configuration.",
+      "The new EV model will feature a 208-liter powered frunk designed for family utility, including a drainable compartment for outdoor gear.",
+      "While specific battery and range details remain undisclosed, the vehicle is expected to integrate BYD's latest 800-volt flash charging technology and second-generation Blade Battery.",
+      "The introduction of an EV variant aims to capture a larger share of the competitive Chinese family SUV market, building on the existing N8L platform which currently starts at 319,800 yuan for the flash-charging PHEV version."
      ],
-     "rating": 4,
+     "rating": 3,
      "read_time": 3
-    },
-    {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/08/24/xpeng-q2-2026-earnings/",
-     "blog": "CNEVPOST",
-     "title": "Xpeng Q2 revenue rises 8% as net loss nearly triples",
-     "link": "https://cnevpost.com/2026/08/24/xpeng-q2-2026-earnings/",
-     "summary": "Xpeng's second-quarter revenue reached 19.74 billion yuan, while its gross margin rose to 20.7%.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-08-24 10:47 UTC",
-     "_ts": 1787568431,
-     "preview": false,
-     "bullets": [
-      "Xpeng reported a 179% year-on-year surge in net loss to 1.34 billion yuan, despite an 8% increase in quarterly revenue to 19.74 billion yuan.",
-      "Gross margin improved to 20.7%, bolstered significantly by technical R&D services provided to Volkswagen and increased parts sales.",
-      "Vehicle margin remained flat at 12.1% sequentially, as the company navigates a transition between vehicle product generations.",
-      "Rising R&D expenditures, up 32.1% year-on-year, highlight the company's aggressive investment in AI-related technologies and new model development."
-     ],
-     "rating": 4,
-     "read_time": 4
-    },
-    {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/08/25/wall-street-on-xpeng-robot-financing/",
-     "blog": "CNEVPOST",
-     "title": "Wall Street sees Xpeng robot financing as catalyst for value unlock",
-     "link": "https://cnevpost.com/2026/08/25/wall-street-on-xpeng-robot-financing/",
-     "summary": "Several Wall Street banks believe that external capital has established an independent valuation benchmark for Xpeng's robotics business.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-08-25 04:12 UTC",
-     "_ts": 1787631155,
-     "preview": false,
-     "bullets": [
-      "Xpeng's robotics unit, Dogotix, secured $900 million in financing, establishing an independent valuation of approximately $5 billion to $6.3 billion.",
-      "Wall Street analysts view the external funding as a positive catalyst that provides a clear valuation anchor, allowing investors to decouple the robotics business from Xpeng's core EV operations.",
-      "The participation of strategic investors like Alibaba and Tencent, alongside IDG Capital, is seen as a strong validation of Xpeng's integrated physical AI strategy."
-     ],
-     "rating": 4,
-     "read_time": 4
     }
    ]
   }
