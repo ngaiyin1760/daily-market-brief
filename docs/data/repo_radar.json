@@ -1,107 +1,109 @@
 {
- "generated_at": "2026-08-31 08:36 HKT",
+ "generated_at": "2026-09-01 09:17 HKT",
  "repos": [
   {
-   "name": "daytonaio/daytona",
-   "url": "https://github.com/daytonaio/daytona",
-   "language": "—",
-   "description": "Daytona is a Secure and Elastic Infrastructure for Running AI-Generated Code",
+   "name": "jingyaogong/minimind",
+   "url": "https://github.com/jingyaogong/minimind",
+   "language": "Python",
+   "description": "🧠 Train a 64M-parameter LLM from scratch in just 2h!",
    "keywords": [
-    "AI infrastructure"
+    "NLP"
    ],
-   "trendshift_pos": 18,
-   "stars": 71863,
+   "trendshift_pos": 9,
+   "stars": 56143,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A secure and elastic development environment infrastructure designed for running AI-generated code.",
+   "one_liner": "A highly efficient, educational framework for training a 64M-parameter LLM from scratch in under two hours.",
    "bullets": [
-    "Built on a containerized architecture that automates the provisioning of standardized dev environments.",
-    "Provides a centralized control plane to manage development infrastructure across local, cloud, and self-hosted environments.",
-    "Optimized for AI-driven workflows, ensuring that LLM-generated code is executed in isolated, secure, and reproducible sandboxes.",
-    "Enables teams to scale development resources elastically, reducing onboarding time and environment drift."
-   ]
+    "Built with PyTorch, focusing on lightweight architecture and optimized training loops.",
+    "Demonstrates the full lifecycle of LLM development, from tokenization to pre-training and fine-tuning.",
+    "Ideal for researchers and developers looking to understand the mechanics of transformer models without massive compute requirements.",
+    "Provides a practical baseline for experimenting with model distillation and parameter-efficient training."
+   ],
+   "img": "jingyaogong_minimind_0.jpg",
+   "img_alt": "logo",
+   "img2": "jingyaogong_minimind_1.jpg",
+   "img2_alt": "dataset"
   },
   {
-   "name": "irinabuht12-oss/google-meta-ads-ga4-mcp",
-   "url": "https://github.com/irinabuht12-oss/google-meta-ads-ga4-mcp",
-   "language": "—",
-   "description": "MCP server for Google Ads, Meta Ads & GA4 — works with ChatGPT, Claude, Cursor, n8n, Windsurf & more. 250+ tools for campaign management, analytics & optimization.",
-   "keywords": [
-    "MCP"
-   ],
-   "trendshift_pos": 23,
-   "stars": 1091,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An MCP server providing over 250 tools for managing and analyzing Google Ads, Meta Ads, and GA4 data.",
-   "bullets": [
-    "Implements the Model Context Protocol (MCP) to bridge LLMs like Claude and ChatGPT with marketing data APIs.",
-    "Supports complex campaign management, real-time analytics retrieval, and automated optimization tasks.",
-    "Integrates directly into AI-native IDEs like Cursor and Windsurf, or automation platforms like n8n.",
-    "Ideal for marketing quants and growth engineers looking to automate performance reporting and ad spend optimization."
-   ],
-   "img": "irinabuht12-oss_google-meta-ads-ga4-mcp_0.jpg",
-   "img_alt": "Google + Meta Ads in one MCP"
-  },
-  {
-   "name": "MetaMask-AI/metamask-desktop",
-   "url": "https://github.com/MetaMask-AI/metamask-desktop",
-   "language": "CSS",
-   "description": "🌐 🔌 The MetaMask desktop app enables browsing Ethereum blockchain enabled websites",
-   "keywords": [
-    "Fintech"
-   ],
-   "trendshift_pos": 10,
-   "stars": 1219,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A native desktop application for MetaMask, bringing Ethereum wallet functionality outside the browser environment.",
-   "bullets": [
-    "Built as a standalone desktop client to enhance security and performance for Web3 interactions.",
-    "Provides a dedicated interface for managing digital assets, NFTs, and decentralized application (dApp) connections.",
-    "Reduces reliance on browser-based extensions, offering a more robust environment for high-frequency DeFi users.",
-    "Facilitates seamless blockchain-enabled browsing and transaction signing across desktop operating systems."
-   ]
-  },
-  {
-   "name": "SegFault42/HeliosGen",
-   "url": "https://github.com/SegFault42/HeliosGen",
+   "name": "mosonlab/anneal",
+   "url": "https://github.com/mosonlab/anneal",
    "language": "TypeScript",
-   "description": "🏆 Self Hosted Gen AI platform. Free alternative to Higgsfield, OpenArt, Freepik....",
+   "description": "You write the specs. It clears the board: coding agent chains plan, review, implement, verify and merge unattended on your own machine, on the Codex and Claude subscriptions you already have.",
+   "keywords": [],
+   "trendshift_pos": 21,
+   "stars": 77,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An autonomous coding agent framework that orchestrates chains to plan, implement, and verify code changes locally.",
+   "bullets": [
+    "Utilizes existing Claude and Codex subscriptions to power agentic workflows.",
+    "Features a multi-step pipeline: planning, implementation, review, and automated verification.",
+    "Designed for local execution, ensuring code privacy and direct integration with local development environments.",
+    "Automates the full software development lifecycle (SDLC) for routine tasks and refactoring."
+   ]
+  },
+  {
+   "name": "Osmantic/ODS",
+   "url": "https://github.com/Osmantic/ODS",
+   "language": "Python",
+   "description": "Turn your PC, Mac, or Linux box into an AI server.  LLM inference, chat UI, voice, agents, workflows, RAG, and image generation.",
    "keywords": [
-    "AI image generation",
-    "AI video generation",
-    "AI workflow",
+    "AI agent",
+    "Local LLM",
+    "Chatbot",
     "Self-hosted"
    ],
-   "trendshift_pos": 24,
-   "stars": 1296,
+   "trendshift_pos": 22,
+   "stars": 5508,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A self-hosted generative AI platform serving as an open-source alternative to commercial image generation services.",
+   "one_liner": "A comprehensive local AI server platform that transforms standard hardware into a private hub for LLM inference and agentic workflows.",
    "bullets": [
-    "Utilizes a modular backend architecture capable of running various diffusion models locally or on private cloud infrastructure.",
-    "Provides a comprehensive UI for prompt engineering, model management, and high-quality asset generation.",
-    "Focuses on data privacy and cost-efficiency by eliminating per-generation fees associated with proprietary SaaS platforms.",
-    "Suitable for developers building custom AI-driven creative pipelines or internal enterprise design tools."
+    "Supports a full stack of AI capabilities including RAG, voice processing, and image generation.",
+    "Provides a unified chat UI and agent orchestration layer for local data processing.",
+    "Enables secure, offline deployment of LLMs, critical for enterprise data privacy and compliance.",
+    "Simplifies the infrastructure overhead of hosting multiple AI services on consumer-grade hardware."
    ]
   },
   {
-   "name": "daffainfo/vol-rs",
-   "url": "https://github.com/daffainfo/vol-rs",
-   "language": "Rust",
-   "description": "Volatility 3 ported to Rust. Same output, much faster.",
+   "name": "nestmotormanshow98/Universal-Trading-Bot",
+   "url": "https://github.com/nestmotormanshow98/Universal-Trading-Bot",
+   "language": "—",
+   "description": "Universal algorithmic trading bot and multi-broker execution framework. Automated trading bot for Pocket Option, Quotex, Polymarket, Robinhood, MT5, Forex, Delta Exchange, and Crypto markets. Features unified WebSocket/REST API connectors, cross-platform order routing, and low-latency strategy execution.",
    "keywords": [],
-   "trendshift_pos": 17,
-   "stars": 88,
+   "trendshift_pos": 2,
+   "stars": 1163,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A high-performance Rust port of the Volatility 3 memory forensics framework.",
+   "one_liner": "A multi-broker algorithmic trading framework supporting diverse asset classes from crypto to traditional forex.",
    "bullets": [
-    "Leverages Rust's memory safety and concurrency primitives to achieve significant speed improvements over the original Python implementation.",
-    "Maintains compatibility with existing Volatility 3 plugins and output formats for seamless integration into security workflows.",
-    "Designed for deep-dive memory analysis, incident response, and malware investigation.",
-    "Provides a critical tool for security researchers and forensic analysts dealing with large-scale memory dumps."
+    "Unified execution engine compatible with major platforms like Robinhood, MT5, and Polymarket.",
+    "Designed for automated strategy deployment across fragmented liquidity pools and exchanges.",
+    "Includes modular components for trade execution, risk management, and multi-broker connectivity.",
+    "Useful for quantitative traders needing a single interface to manage cross-platform trading strategies."
+   ]
+  },
+  {
+   "name": "zhaoxuya520/reverse-skill",
+   "url": "https://github.com/zhaoxuya520/reverse-skill",
+   "language": "PowerShell",
+   "description": "Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-demand toolchain bootstrapping + Self-evolving knowledge base  Supports Claude Code, Kiro, Cursor, Cline, and other AI coding clients 逆向/渗透/安全技能路由包 - AI 自动路由 + 按需自举工具链 + 自动进化经验库 | 支持 Claude Code / Kiro / Cursor / Cline 等代码 AI 客户端",
+   "keywords": [
+    "AI agent",
+    "AI skills",
+    "Pentesting"
+   ],
+   "trendshift_pos": 19,
+   "stars": 33167,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An AI-powered security research and penetration testing toolkit featuring automated toolchain bootstrapping.",
+   "bullets": [
+    "Integrates AI-driven routing to select the optimal security tool for specific reverse engineering tasks.",
+    "Maintains a self-evolving knowledge base to adapt to new vulnerabilities and security research patterns.",
+    "Supports integration with Claude Code for intelligent assistance during complex security audits.",
+    "Streamlines the setup and execution of security research environments through automated bootstrapping."
    ]
   }
  ]

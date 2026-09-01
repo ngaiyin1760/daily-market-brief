@@ -1,0 +1,628 @@
+{
+  "date": "2026-09-01",
+  "generated_at": "2026-09-01 09:17 HKT",
+  "snapshot": [
+    {
+      "text": "S&P -0.3%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "Nasdaq -0.1%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "HSI +0.1%",
+      "cls": "pos",
+      "m1": "up"
+    },
+    {
+      "text": "US10Y 4.76%",
+      "cls": "pos",
+      "m1": "up"
+    },
+    {
+      "text": "USD/HKD -0.0%",
+      "cls": "flat",
+      "m1": "flat"
+    },
+    {
+      "text": "HKD/CNY -0.1%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "JPY/HKD(¥100) -0.3%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "Gold +0.4%",
+      "cls": "pos",
+      "m1": "up"
+    },
+    {
+      "text": "BTC +1.2%",
+      "cls": "pos",
+      "m1": "up"
+    }
+  ],
+  "takeaways": [
+    "Systemic risks are mounting as AI-driven financial leverage and potential cyber vulnerabilities converge with rising geopolitical tensions in the Strait of Hormuz and escalating trade friction.",
+    "Sovereign debt concerns are intensifying, with French yields hitting 2008 highs, while China’s massive trade surplus in high-tech goods exacerbates global trade imbalances and protectionist pressures.",
+    "Nvidia is aggressively consolidating its market dominance by financing custom silicon ecosystems and data center infrastructure, even as supply chain fraud risks and regulatory scrutiny over AI security grow."
+  ],
+  "day_importance": 5,
+  "day_verdict": "Today is a read-carefully day due to escalating sovereign debt concerns in France, significant geopolitical instability involving the Hormuz crisis and G20 tensions, and major structural shifts in the AI/semiconductor landscape.",
+  "weekly": null,
+  "categories": [
+    {
+      "id": "global-macro",
+      "label": "Global Economy",
+      "items": [
+        {
+          "title": "Bank of England chief warns new AI models threaten global financial stability",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPSTRMZGtDQUtqY2t3NzFpS18yMk9NQ05FdjUyenBKNi1famRNZ3YzOFh5ajczamhSQWNoVDE4TnQ1ZGNXcGJIVmUyM1ExcHVYVldPN2FEb2JHUDFJMWtXbVlOTzhLZW1WdHljclhfRnNpUVdyM3J0Rkg4WnN2eDY2TWdrNDl6amPSAYwBQVVfeXFMUFpNdktJV2lxOU94WXlEWTVXRk1Ib0FJOFZaRnZEWE9NdzNpNHcydTRTMFR6VGFoWklfUnlaVHRwODdNbi1kVTh4cXl2NEZCdS1CanpyLVUtU0tudTltV3pDdk42al9OYmZ2U1dRTWtOemlHQzdEbzk4eGZuQXZKSUluSTE1Z2xTcjVPM1k?oc=5",
+          "source": "CNBC",
+          "published": "2026-08-31 10:18 UTC",
+          "bullets": [
+            "Bank of England Governor Andrew Bailey, acting as chair of the Financial Stability Board, warned that frontier AI models could fundamentally alter the economics of cyber risk, potentially undermining market confidence system-wide.",
+            "Bailey highlighted that high leverage in AI-related investments, combined with stretched valuations and concentrated dependencies on a few hyperscalers, creates a systemic vulnerability that could trigger a disorderly global market correction."
+          ],
+          "rating": 5,
+          "reason": "Systemic risk warning from a major central bank regulator.",
+          "read_time": 2,
+          "is_new": true
+        },
+        {
+          "title": "FTSE 100 Today: Index Rises to 10,824.26 as Hormuz Crisis, Oil and Inflation Dominate Markets",
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPVUllaDQwVjIwVTZpSjQ3dDN0X3k0X25fQWsxSWJNTWRoRF9GVzRrSlRQUGN6QUdzUHE1enJCRmVMY0pHeWxtTFVMQnExbzQ5STh5ekVHa29pN1R0OHgxcEMzNFBEbW1ubHhPT1JlTk80SThaNHNGd2xNTHJOYTJObnR0M1ZwTGVyOU5mYkd4UGpSTWJXTDF2X2hzVUlhYlFJbjBLYXR0c2RhNy1aQlphSXoxYUxra3RIRTBDYnJlQzNUM2xwMkc3N0NrRQ?oc=5",
+          "source": "BBN Times",
+          "published": "2026-08-31 16:53 UTC",
+          "bullets": [
+            "The FTSE 100 index reached 10,824.26, reflecting investor sensitivity to ongoing geopolitical tensions in the Strait of Hormuz and their subsequent impact on global oil prices.",
+            "Market participants are balancing these supply-side inflationary pressures against broader macroeconomic data, as energy costs remain a primary driver of volatility in equity indices."
+          ],
+          "rating": 4,
+          "reason": "Direct market impact from geopolitical and inflationary factors.",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Hosting G20 meeting, Bessent tries to rally allies on Iran as tariffs strain ties",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbjI4TG5zbWx2cGtVVndlUXh5Yl9zemJhaFlrbmNucDlTRWFPYlFPQXg3TWhWZkVvdmk2Zm54MF9HQWg3a05iUTljdmNLdGc5cWI1N283QUplZmFQUlZiN2wzQjRiLUFGZzhqMlE4RVZteFliTFROZVlnMHZRbzJpeldGWlh3TWxDOTlEWnNtOGRGd2Jqa0VUcUw3YmUyaEE2Z1Y4VDFJYmtUSk1GYUgxSUNvMl9YQdIBuwFBVV95cUxOWXBYSkxubnBYYkdhNnRKcGhLOWV6U01yVkNYRlBaMVMyU1o5UXJieWo5cnlCMVVLbmhHR3JaXzFzZWNoUjBtZWItMS1nY2p2RjkxV3pzc2xyNHBFOTlRSVlYTTl2Q1VvRkxrbDBTTGtvOWsybzF6dWZ4Um5PQXU4cmh0UEg5SlN6LTNvejVjODF4ek5tVG5LMmQ0MU5PSjRZenRYQXNUUmdCOU4zdmlOVGY0WjNyUi1LS280?oc=5",
+          "source": "PBS",
+          "published": "2026-08-31 15:04 UTC",
+          "bullets": [
+            "The G20 summit in North Carolina is currently characterized by diplomatic friction, as the U.S. attempts to build a coalition regarding Iran while simultaneously managing trade tensions caused by existing tariff policies.",
+            "These geopolitical and trade-related strains are complicating international economic cooperation, potentially impacting global trade flows and the efficacy of coordinated fiscal responses among member nations."
+          ],
+          "rating": 4,
+          "reason": "Geopolitical tensions impacting international economic policy coordination.",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "equity",
+      "label": "Equity Markets",
+      "items": [
+        {
+          "title": "Zoom Communications Inc. stock falls Monday, underperforms market - MarketWatch",
+          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNWVVlbGxhUHBOVEY0Q1UxOWFoc2JlVmpZbnpreFhaSzY1YkZPY3VOUXJod0x0THRjWW1LaWUxZFZ6YktKUTB1eXNCR2hnbm1ocnlwQTIzdkNDZlZUQzB3OUllelAxRVZ3dTBjOGNKeG04NW01WUZMX1JHUTFSS2Q2MnNneTBWenh2QXZCZlRLVVduUU9NWDhaMmt0cHR5N2N3Q0hRNlhtT0NzR0I2dlBDQ1ZvYXBvWEpBVHIyalk3czZkVlhGamFOYjVrbm4yaFRZV0Zkdi0yY3g?oc=5",
+          "source": "MarketWatch",
+          "published": "2026-08-31 21:32 UTC",
+          "bullets": [
+            "Zoom Communications Inc. stock falls Monday, underperforms market  MarketWatch"
+          ],
+          "rating": 3,
+          "reason": "Heuristic rating (no AI summary).",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "DraftKings Inc. Cl A stock falls Monday, underperforms market - MarketWatch",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQRmVZMmFqZGw0MWU1R0ZTUGxERkliWXlVYUNReXJtMlVuUm1wVkRlZkktSjJqY1lKakk5WGxkSzhIbjJaMjZaQkdTTEYwWVhYRjRNWGdrVWRwc0Zkc19xbnVjMW84SVBCdjNzTnpyazdfU1QzWmNuSXVXMVpLa1R4QjVQcUJ1TVNaeEJoaDJGdFo2WWM4cjV3SlNZVTBTSmhaTEhIR1NtTEhaS0s2VHVieHpGdUJlak1MZVE0dEpVNGdBV0g4dTNKYkpaZTZ3ZlhFSTRZ?oc=5",
+          "source": "MarketWatch",
+          "published": "2026-08-31 21:22 UTC",
+          "bullets": [
+            "DraftKings Inc. Cl A stock falls Monday, underperforms market  MarketWatch"
+          ],
+          "rating": 3,
+          "reason": "Heuristic rating (no AI summary).",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "fixed-income",
+      "label": "Fixed Income",
+      "items": [
+        {
+          "title": "Bessent pushes back on Druckenmiller critique of bond intervention",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOQnRZRTRSQ2dRYjU4bVlJdzEydzhrWUhrRzFCbWlJWVBWdXlpam1WTmRmcGg0Mk5FSmN0T3dyQUhFekZud3VXVHBoM1AxQzZPbWxOTXNlUXlLdTF1dzIyVkYtdkJCSHFmaVNVbktlRlpVbVJ4SGlBTlJVNUk3MlZhbDdn0gGHAUFVX3lxTFBja1k1TGQ3TlN6d091NkEyRGVUdEZ4QnRoYWxycUZ5VVdJNDFWcDV3cEZiR2thOWRMUGlObnlTLUgxNGlNczJKRUxlZl9DUTVaRWxxaFdkVnhXM1pNS0d3anRJRzFBZWZJcUFPOWFtTWtnNGFUbXNEZHVOTXppXzhSa0Vldms1cw?oc=5",
+          "source": "CNBC",
+          "published": "2026-08-31 17:14 UTC",
+          "bullets": [
+            "Treasury Secretary Scott Bessent defended the administration's expanded debt repurchase program, asserting that the U.S. bond market remains the best-performing globally despite recent volatility.",
+            "Bessent dismissed billionaire investor Stanley Druckenmiller's critique that liquidity-based interventions are a 'mistake,' emphasizing that the Treasury's mandate is to focus on long-term fundamentals rather than reacting to market-driven policy pressure."
+          ],
+          "rating": 4,
+          "reason": "Highlights a high-profile conflict between government policy and institutional investor sentiment regarding debt management.",
+          "read_time": 2,
+          "is_new": true
+        },
+        {
+          "title": "France is becoming the ‘poster child’ of sovereign debt problems as government borrowing costs hit near 2008 highs",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9PZG1yUzJyX1laRm42UlVsa3NmN1NBaXg0czlVb1hWNmhNb1RkQm85VGxXbng2d3pnTGRKU0RySVBYVnF2S0RCb3NrcnB1Y3VDYzJkOERJN05Hc081b2xoQlFzbThOR2pEaXV2SG1aWEx0TGhId2fSAXtBVV95cUxQUXJybjF3ejBrRnJNTGkzVEc5RWprTDQ3NVNYRGQyczFoYURTcFJnNENpMXFkRHdwT2p3eGd3YkY3WHVQODNSMTVLclpkYldka3VNckZaemMzWnpQYnM1YV9ZZmYwMGtQZXp6bXBCNDNqVnN1bjlJTmtoNjg?oc=5",
+          "source": "CNBC",
+          "published": "2026-08-31 05:00 UTC",
+          "bullets": [
+            "French government bond yields have surged to their highest levels since 2008, exceeding 4.1%, as political deadlock and fiscal instability threaten the nation's creditworthiness.",
+            "With a debt-to-GDP ratio projected to exceed 120% by 2027 and a persistent failure to meet EU deficit targets, France faces significant structural risks that are increasingly alarming to international bond investors."
+          ],
+          "rating": 5,
+          "reason": "Signals a major sovereign debt crisis in a G7 economy with significant implications for European bond market stability.",
+          "read_time": 6,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "china",
+      "label": "China Economy",
+      "items": [
+        {
+          "title": "Excess Savings Are Driving the New China Shock",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5DbnN1LXNSb2M5R0hSaFJWVk9NTnFtUjgzbUhrcWpvMEMwd29YNzdCUVJ3SXNhZlVrU2drSS1RLWpkWUNSV2FkNGpqUVFyUExTdUhSdHg2VVVmRml2MTYybG1qUDl0YmlMSVpXbzY5TkFaUXZJQ0Rr?oc=5",
+          "source": "Exclusive.kz",
+          "published": "2026-09-01 00:38 UTC",
+          "bullets": [
+            "China's trade surplus has surged past $1 trillion, representing nearly 1% of global GDP, as weak domestic demand forces firms to seek external markets for their excess savings.",
+            "Unlike the previous shock centered on low-tech goods, this iteration focuses on high-tech sectors like electric vehicles, solar panels, and batteries, creating significant trade friction with international partners."
+          ],
+          "rating": 5,
+          "reason": "Highlights structural shifts in global trade and potential for increased protectionist measures.",
+          "read_time": 4,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "hk",
+      "label": "Hong Kong Economy",
+      "items": [
+        {
+          "title": "Hong Kong government loses appeal over Fanling golf course housing plan",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQQlhQNUVzbm9qVklsRnZBS28zNWw3VFluaXFocjFYOGd6cXNFWjQ5REVHUW1qUTdZSTJqTEtlRjBFSFFyUk5CSFh0cEt3UHJ2Yk9tRWc0Z3pNOEM4UWwwLVRVcmpScEhja1lWSkYxclRlWU9NaHczNXR0OEFhX1UtSnBuLV9BLWJhRFJmY2pqelBWdGl3enUtTnp0RWd4LWRoMXdrcnAweXQ0NjU0NlFMaHRSTkpoQThhNFBDUWNkNHJQZjlCMjZyN3U1eE9rbS0yV2ZF0gHTAUFVX3lxTFBQVnp4bGYySU9tZGpUSEhaeTVleGFqbGw0SkZia19oemgxRmUyOENRZk1ITkJoczdJbXVLdFlJblk3Wmt4aDF3WWFXS0c3M0RtUzliWmdQZXJOM2U2OE1GUm55OFNpQXNpTkUzbDVTeXFyakNQMlVxcmUxVjh0c1Y1ZHBRVjZ2VEZMYlBVY1FtV2hNYzdHb21JOEJfTFRmVFdWMXRuUlpZTFJ6RUlHZ05RODlLU3pwSnhKazNNSlpuSUVmRHFTYy1USXJyQ1pvdG82ZG8?oc=5",
+          "source": "South China Morning Post",
+          "published": "2026-08-31 11:08 UTC",
+          "bullets": [
+            "The Court of Appeal ruled that the government's environmental impact assessment for the 9.5-hectare Fanling housing project was procedurally unfair, citing a failure to include critical ecological data for public inspection.",
+            "This legal defeat creates significant uncertainty for the 12,000-flat development project, likely forcing the government to restart public consultations and delaying the original 2029 completion target for this key housing supply initiative."
+          ],
+          "rating": 4,
+          "reason": "Significant regulatory and supply-side setback for government housing policy.",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Hang Lung stock drops as Hong Kong property names face rate hike pressure",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOM0pYOWdWT25NQzVFY1dKTTJ1QmxabWU3ekpCT0lCckRCaUlwdk8zcnJIaUhGeWJWMHJYa2wzbXRmWUItanZ5aG1OSnJNUEVvTkl3WDEyZWp3aWk2NW82LXZHUDhZN0tmZkVFdi1ZTm9uUnk5X2FLamlhQ1pFSkt1OVhBSG1WVi1INUFoZDdmMEZZbktRVFRBZ09CUXhIelVnQUM1WWNOenA0OURuUVBiR044OTVmQkJoeW1XWDhwNk5tVWZsRTRqOUhjblE?oc=5",
+          "source": "AD HOC NEWS",
+          "published": "2026-08-31 18:31 UTC",
+          "bullets": [
+            "Hong Kong property stocks, including Hang Lung, experienced a synchronized sell-off as market participants priced in a higher probability of a September interest rate hike, which threatens to increase borrowing costs for leveraged developers.",
+            "The sector is facing a dual headwind of rising interest rate expectations and softening local housing prices, leading investors to aggressively trim exposure to property-linked counters amid concerns over earnings resilience."
+          ],
+          "rating": 4,
+          "reason": "Broad market sentiment shift impacting the highly sensitive property sector.",
+          "read_time": 5,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "tech",
+      "label": "Global Technology",
+      "items": [
+        {
+          "title": "Nvidia’s $3.5B MediaTek bet reveals its plan for tackling Big Tech’s AI chip buildout",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNcjlMRWVYT1pXS1M1ZDJzeEt6TFJ6RjlINENGQ2JpcGZzaUxod0F5SFhTUWFoNFlRM1g3WG52YmVjWURUbE9WX2tqWk10TGdDNkN2QnA3WWYzdHJJaldsREVlTml6QnJWQXh6TW1UN3l1QmhPcUFMeXNsMnFnOWxVUFhfMEV4SHh5bi1lUnlpbHMtNlhGSnAyM0tqck5FYU1TSDU1N3V0Z2hFY3VFTWZCRXktcjZvczVk?oc=5",
+          "source": "TechCrunch",
+          "published": "2026-08-31 15:15 UTC",
+          "bullets": [
+            "Nvidia is investing $3.5 billion into MediaTek to facilitate the design of custom AI chips that integrate seamlessly with Nvidia’s existing data center infrastructure and NVLink Fusion ecosystem.",
+            "This strategic move allows Nvidia to maintain its dominance as the primary data center scaffolding provider, even as hyperscalers like Amazon and Google increasingly develop their own proprietary silicon to reduce dependency on Nvidia GPUs."
+          ],
+          "rating": 5,
+          "reason": "Strategic consolidation of the AI hardware ecosystem.",
+          "read_time": 3,
+          "is_new": true
+        },
+        {
+          "title": "Key Nvidia and Intel supplier raided over alleged China origin fraud — Unimicron faces probe over PCB origin washing, risk of 40% U.S. tariff penalty",
+          "url": "https://news.google.com/rss/articles/CBMirAJBVV95cUxPZTJXbWlVd05QMXYwcThtcFk4TDU2NVJ5a1NrWEUzaGNPNncxVkdsTVJTUGxyNl9UZUM1OEJlWDlJQmVZdUdKVWhsQjhuckNWNnhxTzFRaEt2SjhOY0t2SjB6amV0VEJ5elhOa25iR1lUa3c3QUdicmNOdEJ0V0xXREIzNjRKbkV5N0M4b2JnWFJNTUVzbTN4Q04tOUkzZGpIQ3RnZXlBTXRKQV95TE9Ydjdza1Z5NGJ2Q1pEaXhJUkFTWjFpclFtaHVQYmdtSWZHMEtIM0RpTXdPT3J4Mkx3Z2tjZDFQaXRTUkZUb0s4OERwTW5PMlFWanZ6ckk1V19sLWhUcnRBUGJRUVl5bUlyQXJKaVNRTllyT0FqZmViSVg4UGNxVGFBd3hReV8?oc=5",
+          "source": "Tom's Hardware",
+          "published": "2026-08-31 11:55 UTC",
+          "bullets": [
+            "Taiwanese authorities are investigating Unimicron, a critical supplier for Nvidia and Intel, over allegations of relabeling China-made PCBs as Taiwanese to circumvent trade restrictions.",
+            "If these components reached the U.S., American customers could face a mandatory 40% tariff penalty, creating significant supply chain and financial liability risks for major tech firms relying on these substrates."
+          ],
+          "rating": 4,
+          "reason": "Potential supply chain disruption and regulatory financial risk.",
+          "read_time": 3,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "Artificial Intelligence",
+      "items": [
+        {
+          "title": "Retail Investing Opens Up to AI Assistants",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQMzZZVGNpVFFEMG5tLVQ4V05FSFFKT2FHWmF0dTJjUmpTRm85N3R3ZFNaR3h1SmgtcWVoSV93NTZzeE9icnZlWUt4ZmowZ1JodWp2cC1pY0F0b2JGS0hzMXJwNTNpSnh2emFqTllvZHFzVUswSUVsYUp5WUlVUnpjbU8weUdZVWtaZWtzMmF1ZHZvXzczeVdwN3haeGVCQ3R2ZXc?oc=5",
+          "source": "PYMNTS.com",
+          "published": "2026-09-01 00:45 UTC",
+          "bullets": [
+            "Scalable Capital has become the first European bank to integrate third-party AI agents like ChatGPT and Claude directly into brokerage accounts, allowing users to analyze portfolios and execute trades via plain-language prompts.",
+            "The integration utilizes the Model Context Protocol to bridge AI agents with financial data, reflecting a broader industry trend toward 'agentic investing' also seen in U.S. firms like Robinhood, which now allow AI to manage dedicated sub-accounts."
+          ],
+          "rating": 4,
+          "reason": "Significant shift in retail brokerage business models and user interaction.",
+          "read_time": 3,
+          "is_new": true
+        },
+        {
+          "title": "House Intelligence Committee warns of 'Black Swan' AI risks",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPSldFa0VOb0pOQTkxckR0ZHBOSWJFalQ1NVIyaFdPVDM5SEQ3RXFxOEJjY0Y3cEU3QWcwMC1kTWRyak00THMxNXhuTGZ5THdvLVZuTFdTTXBDbjhFVWxibVhYdGNYQmF2S3p6bzA3TnBuR3ZEbVNlLXNwWEZpMFhQdWJR0gGHAUFVX3lxTE9BbzhvdWdiTFcxcXB0SDcxSVlDekRsZlcwUldyTEtoU09rc21aTk9iU3I3WXV2cW1wcXJmQ0s3LTR1VnEyWm9nU21GaFlvZEg1ZFgtZ1V3YUY3UjBDd0c4c3ZnaUVZNFYxeUdLZV9hZ1hBaEs0bUtPbjNHQnRMSnA3T3dzd29hRQ?oc=5",
+          "source": "CNBC",
+          "published": "2026-08-31 21:18 UTC",
+          "bullets": [
+            "The House Intelligence Committee has formally warned that frontier large language models could lower the barrier for rogue actors to develop weapons of mass destruction, necessitating urgent policy shifts in national security.",
+            "Lawmakers are pushing for accelerated adoption of secure AI within the intelligence community, signaling that future regulatory frameworks will likely impose stricter oversight on AI labs to mitigate catastrophic security risks."
+          ],
+          "rating": 5,
+          "reason": "High-level legislative warning likely to impact AI regulation and defense spending.",
+          "read_time": 2,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "semis",
+      "label": "Semiconductors",
+      "items": [
+        {
+          "title": "Nvidia invests $3.5B in MediaTek as part of expanded AI chip partnership",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPVWhJbXlUZ19sdXNsLTdoSGJYaGZPeXkxaG52QmlYUWVrS2QxOEZQa3B2R3NiSVJuSlFwNGNHR0JZb0NKUXdTTDROc2pmQ0FxQ2JoUFBUa0FEZ25lWlFFdjJhN08zanB1N2NYaGtYSWdmNVByajhORGhsTlpneHJuNjhRVEhJaTRsQ0xfNUtYNnVSSlV6dk9uUGRtYVdQby1RVmIxYzRoS1hUNkQ3?oc=5",
+          "source": "SiliconANGLE",
+          "published": "2026-08-31 20:18 UTC",
+          "bullets": [
+            "Nvidia has committed a $3.5 billion investment into MediaTek, signaling a strategic move to capture value in the custom AI chip market by leveraging MediaTek's design capabilities.",
+            "This partnership effectively allows Nvidia to collect a 'toll' on custom silicon development, expanding its influence beyond its own GPU product line into the broader heterogeneous computing ecosystem."
+          ],
+          "rating": 5,
+          "reason": "Major strategic expansion into custom silicon market",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Anthropic signs $35 billion cloud deal with Nvidia-backed Lambda, source says",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPSkZwYjlLQzYtTmVrNTNjeXU1QlVIa1l6X1N4MDdPTHlhVkE0UkZHRUZjanllWEN1d1lzR08yRFQyNDVaZ0hIY2hGWUh0Vi1qLU1kaG1fT1NraWJqTFAyVkdQbFhPMUVTaFo3RUJiZGQ1S3A0VGxVT0xZSTdWcWhSaFZ2TGl4TnRzdWlucGNnTHhuSW1YNXEzVU1ZUjFzdTI5MWlhX01hY3FLZml1eUI2bWdnSVptd21IMURKSzlJaw?oc=5",
+          "source": "Reuters",
+          "published": "2026-08-31 23:59 UTC",
+          "bullets": [
+            "Anthropic has secured a massive $35 billion cloud infrastructure agreement with Lambda, a GPU cloud provider that maintains significant financial backing from Nvidia.",
+            "The deal underscores the intense demand for specialized AI compute capacity and highlights Nvidia's strategy of fostering an ecosystem of cloud partners to support the scaling of large language models."
+          ],
+          "rating": 4,
+          "reason": "Significant capital commitment validating AI infrastructure demand",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "ev",
+      "label": "Electric Vehicles",
+      "items": [
+        {
+          "title": "BYD’s new luxury electric SUV has a range of over 1,000 km and huge screens",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOVnZWVzZ2b2JUOW9YdXNtdVZ4LUlIOHIwNjNnVmRhYjZ3U1BXTmwzRnEtZFFmZlR2ODRpVmx2TGlwcFRZdnBKV1ZDTFRjYXd6SXRXbGQ1UTFoZmVwck43ZWl5Wm5Nb180czItZThTNTJTel9XMC1tb0FfVXBEY1poZ2ppMDgyTTZ4?oc=5",
+          "source": "Electrek",
+          "published": "2026-08-31 17:17 UTC",
+          "bullets": [
+            "BYD is upgrading the Denza N8 with a 130.15 kWh battery pack and its proprietary Blade Battery 2.0 technology, achieving a competitive CLTC range of 1,003 km.",
+            "The vehicle features advanced Flash Charging capabilities, allowing for a 10% to 97% recharge in just nine minutes, significantly addressing consumer concerns regarding charging downtime for long-range EVs."
+          ],
+          "rating": 4,
+          "reason": "Demonstrates significant technological advancement in battery density and charging speed for a major EV manufacturer.",
+          "read_time": 3,
+          "is_new": true
+        },
+        {
+          "title": "China’s BEV Imports Collapse to 125 Units in July",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOQ1d4RnJyRDRZQUhKX2lZczBtWHVFNmwxeUhhVy11X0RORTE4WGFHWnJGaXJuZjZfY1V3N19KczJENTd2NlVNTnR2cV9DRnc2RzA5ZjNYZ08yU2h6b281cGlUbG9yYlNsaFFTZFh1SWVOSi1qb0t0cmZrajcxYnV6RXlBbjQ1SU9hYUFLMmVWNA?oc=5",
+          "source": "eletric-vehicles.com",
+          "published": "2026-08-31 14:08 UTC",
+          "bullets": [
+            "Imported battery-electric vehicle volumes in China have plummeted to just 125 units in July, representing a 94.3% decline compared to the 2023 peak and signaling a near-total market saturation by domestic brands.",
+            "The collapse of import demand for premium models like the Porsche Taycan and Tesla Model X underscores the rapid shift in Chinese consumer preference toward locally produced, cost-competitive new energy vehicles."
+          ],
+          "rating": 5,
+          "reason": "Highlights a critical structural shift in the world's largest EV market, signaling the end of import viability for foreign luxury EV makers.",
+          "read_time": 5,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "data-center",
+      "label": "Data Centers",
+      "items": [
+        {
+          "title": "SLB’s $4.1B Kelvion Deal Expands AI Data Center Push",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNSmx1NWExZ0xadkR5UFJIbzJhenJ2Q3FNc0FaZVRZclo1SkVaMXRoQlJtQ0liWTd3OUNyZVRlcjVIRHJWMnFDQVFXbG1wMkNVUzZqNDF4cVpJNWxqU2UwUnAxakJ2Zl9Kb09kSXNmWTdfWmdYLVIyS1dnRlM4enA4NnN4eUpLeG9tOFY3bS12bnhQTDZtOW5EOG9iMkc5UmJOVnpTUDFNNmhjZG8?oc=5",
+          "source": "Data Center Knowledge",
+          "published": "2026-08-31 21:11 UTC",
+          "bullets": [
+            "SLB is acquiring thermal management firm Kelvion for $4.1 billion to capitalize on the rapid growth of AI-driven data center cooling, targeting a revenue increase to $4.5-$5 billion by 2028.",
+            "The acquisition shifts SLB from a modular integrator to an OEM in the critical heat rejection segment, where rising rack densities above 100 kW necessitate advanced adiabatic and hybrid cooling technologies."
+          ],
+          "rating": 4,
+          "reason": "Significant M&A activity signaling a strategic pivot by a major industrial player into high-growth AI infrastructure.",
+          "read_time": 5,
+          "is_new": true
+        },
+        {
+          "title": "Nvidia Opens NVLink to Custom XPUs as AI Goes Heterogeneous",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPRjRtMXpZa1JWUVp6aWNhbFlDSUMtVXR5N2NldnFMajdUMzk2OUJybzlNWkZuemJUTm5GRHo2MTV3U0x6N2FOWnltX3BRTkRBb3lvWUwyS1pDcTRIOGVSOEloYzZ3dWtaMjQ0WGh3X2RQbmZPLXgyMmJJTGtKUTdPUjlpUXV5VmtremtxM3lFZVUtcnpETVUtNnYyRVktcE5CRU9YX21R?oc=5",
+          "source": "Data Center Knowledge",
+          "published": "2026-08-31 18:44 UTC",
+          "bullets": [
+            "Nvidia is expanding its NVLink Fusion platform to support custom AI accelerators (XPUs) from hyperscalers, effectively commoditizing the infrastructure layer while maintaining its role as the foundational connectivity provider.",
+            "The strategy includes a $3.5 billion convertible bond investment in MediaTek to facilitate custom chip design and packaging, allowing customers to integrate proprietary silicon into Nvidia's pre-validated MGX rack-scale ecosystem."
+          ],
+          "rating": 5,
+          "reason": "Major strategic shift in Nvidia's business model to maintain dominance in the face of rising custom silicon adoption by hyperscalers.",
+          "read_time": 5,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "space",
+      "label": "Space & Aerospace",
+      "items": [
+        {
+          "title": "SpaceX Logs NASA Launch Success, Jumps Into Gas Turbine Business",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNT09TS01oSzl0WW43TXAwaEo4aTJ4SFlsQlM3T0Z0ckZGamEwbEt0aGpjdkM1YWtfek9hRjlhMkF5YWhmT3N5cmtDTldQU01RSC1VREl5Q3BJMDZZdy1CRW50Mkp4Z3dKenE4bUE5dllWNW9QQzE2aVV1Y2hEaGpSQjI0LXlGVlQ1OG1uNzNKSVRWZzlGZ1FKblh2MjhSZVBQaVI3Y2kyUVBJS3gtUFFfTTFMSTU0b1A2NzJPa090MUZ3QzlHTkFNTw?oc=5",
+          "source": "Investor's Business Daily",
+          "published": "2026-08-31 20:35 UTC",
+          "bullets": [
+            "SpaceX is diversifying into in-house production of natural gas turbine components to mitigate supply chain bottlenecks, specifically targeting the surge in demand from Big Tech companies expanding AI infrastructure.",
+            "The company successfully executed the launch of the $4.3 billion Nancy Grace Roman Space Telescope, reinforcing its dominance in heavy-lift launch services despite recent market volatility in space-related equities."
+          ],
+          "rating": 4,
+          "reason": "Strategic diversification into energy infrastructure and continued dominance in high-value government launch contracts.",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Starbase, Louisiana will be integral to space exploration",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOa1E4Nm1yZ05TSEd1YmhEZm1WLUFjZTNHRWVKVWdPVGl6a1pIc0M4OGdfajNtSHhNZkt3ZFZrRlhDMU1EWk5lZmtwQ0tBX29mdG42cDJ6TzRCRGhndTNHMWJuX3JRbkJlRlhaeEVpVjlsSTVsNHZOWWladmNuczl0REZhMng3dlNzR0NNYThuR0Fpb2NUSnpSbHFR?oc=5",
+          "source": "Audacy",
+          "published": "2026-08-31 17:46 UTC",
+          "bullets": [
+            "SpaceX is planning a significant expansion into Louisiana, aiming to establish a high-frequency launch site capable of supporting up to 30 launches per day to accelerate its multiplanetary objectives.",
+            "The project benefits from a favorable regulatory environment and substantial state-level support, allowing for rapid infrastructure development that exceeds the operational capacity of the original Texas-based testing facility."
+          ],
+          "rating": 4,
+          "reason": "Significant capital expenditure and operational scaling plans that could fundamentally alter launch frequency and industry capacity.",
+          "read_time": 2,
+          "is_new": true
+        }
+      ]
+    }
+  ],
+  "indicator_groups": [
+    {
+      "name": "Equity Indices",
+      "items": [
+        {
+          "label": "S&P 500",
+          "kind": "price",
+          "last": 7686.1401,
+          "change": -0.33,
+          "change_bp": null
+        },
+        {
+          "label": "Nasdaq",
+          "kind": "price",
+          "last": 26370.8887,
+          "change": -0.12,
+          "change_bp": null
+        },
+        {
+          "label": "Dow Jones",
+          "kind": "price",
+          "last": 53185.8984,
+          "change": -0.7,
+          "change_bp": null
+        },
+        {
+          "label": "FTSE 100",
+          "kind": "price",
+          "last": 10824.2998,
+          "change": 0.29,
+          "change_bp": null
+        },
+        {
+          "label": "STOXX 600",
+          "kind": "price",
+          "last": 655.16,
+          "change": 0.51,
+          "change_bp": null
+        },
+        {
+          "label": "Nikkei 225",
+          "kind": "price",
+          "last": 66192.1172,
+          "change": -0.32,
+          "change_bp": null
+        },
+        {
+          "label": "Hang Seng",
+          "kind": "price",
+          "last": 25584.7891,
+          "change": 0.07,
+          "change_bp": null
+        },
+        {
+          "label": "CSI 300",
+          "kind": "price",
+          "last": 4529.1001,
+          "change": -3.6,
+          "change_bp": null
+        }
+      ]
+    },
+    {
+      "name": "Bond Yields",
+      "items": [
+        {
+          "label": "US 10Y",
+          "kind": "yield",
+          "last": 4.758,
+          "change": null,
+          "change_bp": 3.8
+        },
+        {
+          "label": "US 30Y",
+          "kind": "yield",
+          "last": 5.249,
+          "change": null,
+          "change_bp": 4.3
+        },
+        {
+          "label": "US 2Y",
+          "kind": "yield",
+          "last": 4.34,
+          "change": null,
+          "change_bp": 14.0
+        }
+      ]
+    },
+    {
+      "name": "FX",
+      "items": [
+        {
+          "label": "US Dollar Index",
+          "kind": "price",
+          "last": 99.442,
+          "change": -0.26,
+          "change_bp": null
+        },
+        {
+          "label": "EUR/USD",
+          "kind": "price",
+          "last": 1.1616,
+          "change": 0.23,
+          "change_bp": null
+        },
+        {
+          "label": "USD/JPY",
+          "kind": "price",
+          "last": 159.837,
+          "change": -0.18,
+          "change_bp": null
+        },
+        {
+          "label": "USD/CNY",
+          "kind": "price",
+          "last": 6.71,
+          "change": -0.24,
+          "change_bp": null
+        },
+        {
+          "label": "USD/HKD",
+          "kind": "price",
+          "last": 7.8387,
+          "change": -0.01,
+          "change_bp": null
+        },
+        {
+          "label": "HKD/CNY",
+          "kind": "price",
+          "last": 0.8573,
+          "change": -0.07,
+          "change_bp": null
+        },
+        {
+          "label": "JPY/HKD (¥100)",
+          "kind": "price",
+          "last": 4.88,
+          "change": -0.33,
+          "change_bp": null
+        }
+      ]
+    },
+    {
+      "name": "Commodities",
+      "items": [
+        {
+          "label": "Gold",
+          "kind": "price",
+          "last": 4496.8999,
+          "change": 0.42,
+          "change_bp": null
+        },
+        {
+          "label": "WTI Crude",
+          "kind": "price",
+          "last": 86.42,
+          "change": 3.62,
+          "change_bp": null
+        },
+        {
+          "label": "Brent",
+          "kind": "price",
+          "last": 88.72,
+          "change": -0.66,
+          "change_bp": null
+        },
+        {
+          "label": "Copper",
+          "kind": "price",
+          "last": 6.7365,
+          "change": 2.66,
+          "change_bp": null
+        }
+      ]
+    },
+    {
+      "name": "Volatility & Crypto",
+      "items": [
+        {
+          "label": "VIX",
+          "kind": "price",
+          "last": 14.92,
+          "change": 3.4,
+          "change_bp": null
+        },
+        {
+          "label": "Bitcoin",
+          "kind": "price",
+          "last": 78595.0781,
+          "change": 1.19,
+          "change_bp": null
+        }
+      ]
+    }
+  ]
+}
