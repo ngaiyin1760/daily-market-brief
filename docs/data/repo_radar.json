@@ -1,109 +1,103 @@
 {
- "generated_at": "2026-09-01 09:17 HKT",
+ "generated_at": "2026-09-02 08:11 HKT",
  "repos": [
   {
-   "name": "jingyaogong/minimind",
-   "url": "https://github.com/jingyaogong/minimind",
+   "name": "google-research/timesfm",
+   "url": "https://github.com/google-research/timesfm",
    "language": "Python",
-   "description": "🧠 Train a 64M-parameter LLM from scratch in just 2h!",
-   "keywords": [
-    "NLP"
-   ],
-   "trendshift_pos": 9,
-   "stars": 56143,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A highly efficient, educational framework for training a 64M-parameter LLM from scratch in under two hours.",
-   "bullets": [
-    "Built with PyTorch, focusing on lightweight architecture and optimized training loops.",
-    "Demonstrates the full lifecycle of LLM development, from tokenization to pre-training and fine-tuning.",
-    "Ideal for researchers and developers looking to understand the mechanics of transformer models without massive compute requirements.",
-    "Provides a practical baseline for experimenting with model distillation and parameter-efficient training."
-   ],
-   "img": "jingyaogong_minimind_0.jpg",
-   "img_alt": "logo",
-   "img2": "jingyaogong_minimind_1.jpg",
-   "img2_alt": "dataset"
-  },
-  {
-   "name": "mosonlab/anneal",
-   "url": "https://github.com/mosonlab/anneal",
-   "language": "TypeScript",
-   "description": "You write the specs. It clears the board: coding agent chains plan, review, implement, verify and merge unattended on your own machine, on the Codex and Claude subscriptions you already have.",
+   "description": "TimesFM (Time Series Foundation Model) is a pretrained time-series foundation model developed by Google Research for time-series forecasting.",
    "keywords": [],
-   "trendshift_pos": 21,
-   "stars": 77,
+   "trendshift_pos": 24,
+   "stars": 28796,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An autonomous coding agent framework that orchestrates chains to plan, implement, and verify code changes locally.",
+   "one_liner": "A pretrained time-series foundation model developed by Google Research for high-accuracy forecasting.",
    "bullets": [
-    "Utilizes existing Claude and Codex subscriptions to power agentic workflows.",
-    "Features a multi-step pipeline: planning, implementation, review, and automated verification.",
-    "Designed for local execution, ensuring code privacy and direct integration with local development environments.",
-    "Automates the full software development lifecycle (SDLC) for routine tasks and refactoring."
+    "Built on a decoder-only Transformer architecture optimized for time-series data.",
+    "Designed for zero-shot forecasting across diverse domains without task-specific fine-tuning.",
+    "Ideal for financial market trend analysis, demand forecasting, and anomaly detection.",
+    "Provides a scalable foundation for building custom quant and predictive analytics pipelines."
    ]
   },
   {
-   "name": "Osmantic/ODS",
-   "url": "https://github.com/Osmantic/ODS",
-   "language": "Python",
-   "description": "Turn your PC, Mac, or Linux box into an AI server.  LLM inference, chat UI, voice, agents, workflows, RAG, and image generation.",
-   "keywords": [
-    "AI agent",
-    "Local LLM",
-    "Chatbot",
-    "Self-hosted"
-   ],
-   "trendshift_pos": 22,
-   "stars": 5508,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A comprehensive local AI server platform that transforms standard hardware into a private hub for LLM inference and agentic workflows.",
-   "bullets": [
-    "Supports a full stack of AI capabilities including RAG, voice processing, and image generation.",
-    "Provides a unified chat UI and agent orchestration layer for local data processing.",
-    "Enables secure, offline deployment of LLMs, critical for enterprise data privacy and compliance.",
-    "Simplifies the infrastructure overhead of hosting multiple AI services on consumer-grade hardware."
-   ]
-  },
-  {
-   "name": "nestmotormanshow98/Universal-Trading-Bot",
-   "url": "https://github.com/nestmotormanshow98/Universal-Trading-Bot",
-   "language": "—",
-   "description": "Universal algorithmic trading bot and multi-broker execution framework. Automated trading bot for Pocket Option, Quotex, Polymarket, Robinhood, MT5, Forex, Delta Exchange, and Crypto markets. Features unified WebSocket/REST API connectors, cross-platform order routing, and low-latency strategy execution.",
+   "name": "arcboxlabs/arcbox",
+   "url": "https://github.com/arcboxlabs/arcbox",
+   "language": "Rust",
+   "description": "Run AI agents on real and isolated machines — own kernel, filesystem, and network — with <200ms boot. Local first, OCI compatible, pure Rust.",
    "keywords": [],
-   "trendshift_pos": 2,
-   "stars": 1163,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A multi-broker algorithmic trading framework supporting diverse asset classes from crypto to traditional forex.",
-   "bullets": [
-    "Unified execution engine compatible with major platforms like Robinhood, MT5, and Polymarket.",
-    "Designed for automated strategy deployment across fragmented liquidity pools and exchanges.",
-    "Includes modular components for trade execution, risk management, and multi-broker connectivity.",
-    "Useful for quantitative traders needing a single interface to manage cross-platform trading strategies."
-   ]
-  },
-  {
-   "name": "zhaoxuya520/reverse-skill",
-   "url": "https://github.com/zhaoxuya520/reverse-skill",
-   "language": "PowerShell",
-   "description": "Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-demand toolchain bootstrapping + Self-evolving knowledge base  Supports Claude Code, Kiro, Cursor, Cline, and other AI coding clients 逆向/渗透/安全技能路由包 - AI 自动路由 + 按需自举工具链 + 自动进化经验库 | 支持 Claude Code / Kiro / Cursor / Cline 等代码 AI 客户端",
-   "keywords": [
-    "AI agent",
-    "AI skills",
-    "Pentesting"
-   ],
    "trendshift_pos": 19,
-   "stars": 33167,
+   "stars": 1976,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An AI-powered security research and penetration testing toolkit featuring automated toolchain bootstrapping.",
+   "one_liner": "A high-performance, Rust-based sandbox for running AI agents in isolated, OCI-compatible environments.",
    "bullets": [
-    "Integrates AI-driven routing to select the optimal security tool for specific reverse engineering tasks.",
-    "Maintains a self-evolving knowledge base to adapt to new vulnerabilities and security research patterns.",
-    "Supports integration with Claude Code for intelligent assistance during complex security audits.",
-    "Streamlines the setup and execution of security research environments through automated bootstrapping."
+    "Features a custom kernel and filesystem with sub-200ms boot times for rapid agent execution.",
+    "Provides complete network and filesystem isolation to ensure secure agentic operations.",
+    "Enables developers to run untrusted AI code in a local-first, production-grade infrastructure.",
+    "Supports OCI-compatible images, making it easy to integrate into existing DevOps workflows."
+   ]
+  },
+  {
+   "name": "getagentseal/codeburn",
+   "url": "https://github.com/getagentseal/codeburn",
+   "language": "TypeScript",
+   "description": "Free, local tool to track AI coding token usage and cost across 37 tools and agents (Claude Code, Cursor, Codex, Gemini and more), by model, project, and task. npx codeburn",
+   "keywords": [
+    "AI coding assistant",
+    "Observability"
+   ],
+   "trendshift_pos": 17,
+   "stars": 10288,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A local CLI tool to track AI coding token usage and costs across 37+ different agents and IDEs.",
+   "bullets": [
+    "Supports granular cost tracking for Claude Code, Cursor, Gemini, and other major LLM tools.",
+    "Aggregates data by project, model, and task to provide actionable financial insights.",
+    "Operates locally to ensure privacy while maintaining visibility into AI development spend.",
+    "Essential for engineering managers and teams optimizing their AI-assisted development budget."
+   ]
+  },
+  {
+   "name": "pacifio/atlas",
+   "url": "https://github.com/pacifio/atlas",
+   "language": "Rust",
+   "description": "Source control for agents",
+   "keywords": [
+    "AI agent",
+    "AI workflow",
+    "AI coding assistant"
+   ],
+   "trendshift_pos": 3,
+   "stars": 2607,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A specialized source control system designed specifically for the needs of AI agents.",
+   "bullets": [
+    "Implements versioning logic tailored for agentic workflows rather than traditional human commits.",
+    "Focuses on state management and context tracking to improve agent reliability over long tasks.",
+    "Provides a structured interface for agents to read, write, and revert changes in a codebase.",
+    "Acts as a critical infrastructure layer for autonomous software engineering agents."
+   ]
+  },
+  {
+   "name": "LiquidGiraffe8/Metatrader-5-Plus-Edge",
+   "url": "https://github.com/LiquidGiraffe8/Metatrader-5-Plus-Edge",
+   "language": "—",
+   "description": "Automated MetaTrader 5 (MT5) algorithmic execution framework. Features open-source Python API integration, real-time technical analysis, and risk management tools.",
+   "keywords": [
+    "Fintech"
+   ],
+   "trendshift_pos": 7,
+   "stars": 1246,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An automated algorithmic execution framework for MetaTrader 5 with Python integration.",
+   "bullets": [
+    "Provides a robust Python API wrapper for MT5 to facilitate advanced algorithmic trading strategies.",
+    "Includes built-in modules for real-time technical analysis and automated risk management.",
+    "Streamlines the deployment of quantitative models into live financial market environments.",
+    "Designed for high-frequency execution and systematic trading automation."
    ]
   }
  ]

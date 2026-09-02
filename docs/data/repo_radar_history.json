@@ -1,6 +1,111 @@
 {
  "days": [
   {
+   "date": "2026-09-02",
+   "generated_at": "2026-09-02 08:11 HKT",
+   "repos": [
+    {
+     "name": "google-research/timesfm",
+     "url": "https://github.com/google-research/timesfm",
+     "language": "Python",
+     "description": "TimesFM (Time Series Foundation Model) is a pretrained time-series foundation model developed by Google Research for time-series forecasting.",
+     "keywords": [],
+     "trendshift_pos": 24,
+     "stars": 28796,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A pretrained time-series foundation model developed by Google Research for high-accuracy forecasting.",
+     "bullets": [
+      "Built on a decoder-only Transformer architecture optimized for time-series data.",
+      "Designed for zero-shot forecasting across diverse domains without task-specific fine-tuning.",
+      "Ideal for financial market trend analysis, demand forecasting, and anomaly detection.",
+      "Provides a scalable foundation for building custom quant and predictive analytics pipelines."
+     ]
+    },
+    {
+     "name": "arcboxlabs/arcbox",
+     "url": "https://github.com/arcboxlabs/arcbox",
+     "language": "Rust",
+     "description": "Run AI agents on real and isolated machines — own kernel, filesystem, and network — with <200ms boot. Local first, OCI compatible, pure Rust.",
+     "keywords": [],
+     "trendshift_pos": 19,
+     "stars": 1976,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A high-performance, Rust-based sandbox for running AI agents in isolated, OCI-compatible environments.",
+     "bullets": [
+      "Features a custom kernel and filesystem with sub-200ms boot times for rapid agent execution.",
+      "Provides complete network and filesystem isolation to ensure secure agentic operations.",
+      "Enables developers to run untrusted AI code in a local-first, production-grade infrastructure.",
+      "Supports OCI-compatible images, making it easy to integrate into existing DevOps workflows."
+     ]
+    },
+    {
+     "name": "getagentseal/codeburn",
+     "url": "https://github.com/getagentseal/codeburn",
+     "language": "TypeScript",
+     "description": "Free, local tool to track AI coding token usage and cost across 37 tools and agents (Claude Code, Cursor, Codex, Gemini and more), by model, project, and task. npx codeburn",
+     "keywords": [
+      "AI coding assistant",
+      "Observability"
+     ],
+     "trendshift_pos": 17,
+     "stars": 10288,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A local CLI tool to track AI coding token usage and costs across 37+ different agents and IDEs.",
+     "bullets": [
+      "Supports granular cost tracking for Claude Code, Cursor, Gemini, and other major LLM tools.",
+      "Aggregates data by project, model, and task to provide actionable financial insights.",
+      "Operates locally to ensure privacy while maintaining visibility into AI development spend.",
+      "Essential for engineering managers and teams optimizing their AI-assisted development budget."
+     ]
+    },
+    {
+     "name": "pacifio/atlas",
+     "url": "https://github.com/pacifio/atlas",
+     "language": "Rust",
+     "description": "Source control for agents",
+     "keywords": [
+      "AI agent",
+      "AI workflow",
+      "AI coding assistant"
+     ],
+     "trendshift_pos": 3,
+     "stars": 2607,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A specialized source control system designed specifically for the needs of AI agents.",
+     "bullets": [
+      "Implements versioning logic tailored for agentic workflows rather than traditional human commits.",
+      "Focuses on state management and context tracking to improve agent reliability over long tasks.",
+      "Provides a structured interface for agents to read, write, and revert changes in a codebase.",
+      "Acts as a critical infrastructure layer for autonomous software engineering agents."
+     ]
+    },
+    {
+     "name": "LiquidGiraffe8/Metatrader-5-Plus-Edge",
+     "url": "https://github.com/LiquidGiraffe8/Metatrader-5-Plus-Edge",
+     "language": "—",
+     "description": "Automated MetaTrader 5 (MT5) algorithmic execution framework. Features open-source Python API integration, real-time technical analysis, and risk management tools.",
+     "keywords": [
+      "Fintech"
+     ],
+     "trendshift_pos": 7,
+     "stars": 1246,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An automated algorithmic execution framework for MetaTrader 5 with Python integration.",
+     "bullets": [
+      "Provides a robust Python API wrapper for MT5 to facilitate advanced algorithmic trading strategies.",
+      "Includes built-in modules for real-time technical analysis and automated risk management.",
+      "Streamlines the deployment of quantitative models into live financial market environments.",
+      "Designed for high-frequency execution and systematic trading automation."
+     ]
+    }
+   ]
+  },
+  {
    "date": "2026-09-01",
    "generated_at": "2026-09-01 09:17 HKT",
    "repos": [
