@@ -1,6 +1,118 @@
 {
  "days": [
   {
+   "date": "2026-09-03",
+   "generated_at": "2026-09-03 08:13 HKT",
+   "repos": [
+    {
+     "name": "sgl-project/sglang",
+     "url": "https://github.com/sgl-project/sglang",
+     "language": "Python",
+     "description": "SGLang is a high-performance serving framework for large language models and multimodal models.",
+     "keywords": [
+      "AI infrastructure"
+     ],
+     "trendshift_pos": 20,
+     "stars": 33522,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A high-performance serving framework designed to optimize LLM and multimodal model inference.",
+     "bullets": [
+      "Built with a structured programming model that integrates prompt and control flow.",
+      "Features advanced memory management and kernel optimizations for high-throughput serving.",
+      "Supports complex agentic workflows by enabling efficient multi-step reasoning and generation.",
+      "Ideal for production-grade AI infrastructure requiring low latency and high concurrency."
+     ]
+    },
+    {
+     "name": "h4ckf0r0day/obscura",
+     "url": "https://github.com/h4ckf0r0day/obscura",
+     "language": "Rust",
+     "description": "The headless browser for AI agents and web scraping",
+     "keywords": [
+      "AI agent",
+      "Headless browser",
+      "Web scraping"
+     ],
+     "trendshift_pos": 13,
+     "stars": 24079,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A specialized headless browser engineered specifically for AI agents and web scraping tasks.",
+     "bullets": [
+      "Written in Rust for high performance and memory safety during browser automation.",
+      "Optimized to provide clean, structured DOM representations for LLM consumption.",
+      "Reduces overhead compared to traditional browsers like Playwright or Selenium.",
+      "Essential infrastructure for building autonomous web-browsing agents."
+     ]
+    },
+    {
+     "name": "firecrawl/pdf-inspector",
+     "url": "https://github.com/firecrawl/pdf-inspector",
+     "language": "Rust",
+     "description": "Fast Rust library for PDF inspection, classification, and text extraction. Intelligently detects scanned vs text-based PDFs to enable smart routing decisions.",
+     "keywords": [
+      "Document processing"
+     ],
+     "trendshift_pos": 17,
+     "stars": 18495,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A high-speed Rust library for intelligent PDF classification and data extraction.",
+     "bullets": [
+      "Uses Rust for rapid processing of complex document structures.",
+      "Distinguishes between scanned images and text-based PDFs to optimize downstream RAG pipelines.",
+      "Provides metadata and classification signals to route documents to appropriate extraction models.",
+      "Critical component for fintech document processing and automated financial reporting."
+     ]
+    },
+    {
+     "name": "deeplethe/utopia",
+     "url": "https://github.com/deeplethe/utopia",
+     "language": "Python",
+     "description": "Local-first, agent-assisted document-to-ontology workbench",
+     "keywords": [
+      "AI agent",
+      "MCP",
+      "Document processing",
+      "Self-hosted"
+     ],
+     "trendshift_pos": 4,
+     "stars": 2275,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A local-first, agent-assisted workbench for transforming unstructured documents into structured ontologies.",
+     "bullets": [
+      "Utilizes local LLM agents to extract entities and relationships from raw text.",
+      "Focuses on data privacy by maintaining a local-first architecture for sensitive document analysis.",
+      "Enables the creation of knowledge graphs from unstructured data sources.",
+      "Useful for quant researchers and analysts building proprietary knowledge bases."
+     ]
+    },
+    {
+     "name": "zvec-ai/zvec-grep",
+     "url": "https://github.com/zvec-ai/zvec-grep",
+     "language": "TypeScript",
+     "description": "Local-first search across your workspace, built for humans and AI agents.",
+     "keywords": [
+      "AI agent",
+      "Search"
+     ],
+     "trendshift_pos": 16,
+     "stars": 680,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A local-first search engine for codebases designed to bridge the gap between human developers and AI agents.",
+     "bullets": [
+      "TypeScript-based tool optimized for rapid indexing and retrieval across large repositories.",
+      "Provides context-aware search results that are easily consumable by LLM coding agents.",
+      "Enhances developer productivity by reducing time spent navigating complex codebases.",
+      "Serves as a foundational devtool for agentic coding workflows."
+     ]
+    }
+   ]
+  },
+  {
    "date": "2026-09-02",
    "generated_at": "2026-09-02 08:11 HKT",
    "repos": [

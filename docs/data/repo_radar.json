@@ -1,103 +1,110 @@
 {
- "generated_at": "2026-09-02 08:11 HKT",
+ "generated_at": "2026-09-03 08:13 HKT",
  "repos": [
   {
-   "name": "google-research/timesfm",
-   "url": "https://github.com/google-research/timesfm",
+   "name": "sgl-project/sglang",
+   "url": "https://github.com/sgl-project/sglang",
    "language": "Python",
-   "description": "TimesFM (Time Series Foundation Model) is a pretrained time-series foundation model developed by Google Research for time-series forecasting.",
-   "keywords": [],
-   "trendshift_pos": 24,
-   "stars": 28796,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A pretrained time-series foundation model developed by Google Research for high-accuracy forecasting.",
-   "bullets": [
-    "Built on a decoder-only Transformer architecture optimized for time-series data.",
-    "Designed for zero-shot forecasting across diverse domains without task-specific fine-tuning.",
-    "Ideal for financial market trend analysis, demand forecasting, and anomaly detection.",
-    "Provides a scalable foundation for building custom quant and predictive analytics pipelines."
-   ]
-  },
-  {
-   "name": "arcboxlabs/arcbox",
-   "url": "https://github.com/arcboxlabs/arcbox",
-   "language": "Rust",
-   "description": "Run AI agents on real and isolated machines — own kernel, filesystem, and network — with <200ms boot. Local first, OCI compatible, pure Rust.",
-   "keywords": [],
-   "trendshift_pos": 19,
-   "stars": 1976,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance, Rust-based sandbox for running AI agents in isolated, OCI-compatible environments.",
-   "bullets": [
-    "Features a custom kernel and filesystem with sub-200ms boot times for rapid agent execution.",
-    "Provides complete network and filesystem isolation to ensure secure agentic operations.",
-    "Enables developers to run untrusted AI code in a local-first, production-grade infrastructure.",
-    "Supports OCI-compatible images, making it easy to integrate into existing DevOps workflows."
-   ]
-  },
-  {
-   "name": "getagentseal/codeburn",
-   "url": "https://github.com/getagentseal/codeburn",
-   "language": "TypeScript",
-   "description": "Free, local tool to track AI coding token usage and cost across 37 tools and agents (Claude Code, Cursor, Codex, Gemini and more), by model, project, and task. npx codeburn",
+   "description": "SGLang is a high-performance serving framework for large language models and multimodal models.",
    "keywords": [
-    "AI coding assistant",
-    "Observability"
+    "AI infrastructure"
    ],
-   "trendshift_pos": 17,
-   "stars": 10288,
+   "trendshift_pos": 20,
+   "stars": 33522,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A local CLI tool to track AI coding token usage and costs across 37+ different agents and IDEs.",
+   "one_liner": "A high-performance serving framework designed to optimize LLM and multimodal model inference.",
    "bullets": [
-    "Supports granular cost tracking for Claude Code, Cursor, Gemini, and other major LLM tools.",
-    "Aggregates data by project, model, and task to provide actionable financial insights.",
-    "Operates locally to ensure privacy while maintaining visibility into AI development spend.",
-    "Essential for engineering managers and teams optimizing their AI-assisted development budget."
+    "Built with a structured programming model that integrates prompt and control flow.",
+    "Features advanced memory management and kernel optimizations for high-throughput serving.",
+    "Supports complex agentic workflows by enabling efficient multi-step reasoning and generation.",
+    "Ideal for production-grade AI infrastructure requiring low latency and high concurrency."
    ]
   },
   {
-   "name": "pacifio/atlas",
-   "url": "https://github.com/pacifio/atlas",
+   "name": "h4ckf0r0day/obscura",
+   "url": "https://github.com/h4ckf0r0day/obscura",
    "language": "Rust",
-   "description": "Source control for agents",
+   "description": "The headless browser for AI agents and web scraping",
    "keywords": [
     "AI agent",
-    "AI workflow",
-    "AI coding assistant"
+    "Headless browser",
+    "Web scraping"
    ],
-   "trendshift_pos": 3,
-   "stars": 2607,
+   "trendshift_pos": 13,
+   "stars": 24079,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A specialized source control system designed specifically for the needs of AI agents.",
+   "one_liner": "A specialized headless browser engineered specifically for AI agents and web scraping tasks.",
    "bullets": [
-    "Implements versioning logic tailored for agentic workflows rather than traditional human commits.",
-    "Focuses on state management and context tracking to improve agent reliability over long tasks.",
-    "Provides a structured interface for agents to read, write, and revert changes in a codebase.",
-    "Acts as a critical infrastructure layer for autonomous software engineering agents."
+    "Written in Rust for high performance and memory safety during browser automation.",
+    "Optimized to provide clean, structured DOM representations for LLM consumption.",
+    "Reduces overhead compared to traditional browsers like Playwright or Selenium.",
+    "Essential infrastructure for building autonomous web-browsing agents."
    ]
   },
   {
-   "name": "LiquidGiraffe8/Metatrader-5-Plus-Edge",
-   "url": "https://github.com/LiquidGiraffe8/Metatrader-5-Plus-Edge",
-   "language": "—",
-   "description": "Automated MetaTrader 5 (MT5) algorithmic execution framework. Features open-source Python API integration, real-time technical analysis, and risk management tools.",
+   "name": "firecrawl/pdf-inspector",
+   "url": "https://github.com/firecrawl/pdf-inspector",
+   "language": "Rust",
+   "description": "Fast Rust library for PDF inspection, classification, and text extraction. Intelligently detects scanned vs text-based PDFs to enable smart routing decisions.",
    "keywords": [
-    "Fintech"
+    "Document processing"
    ],
-   "trendshift_pos": 7,
-   "stars": 1246,
+   "trendshift_pos": 17,
+   "stars": 18495,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An automated algorithmic execution framework for MetaTrader 5 with Python integration.",
+   "one_liner": "A high-speed Rust library for intelligent PDF classification and data extraction.",
    "bullets": [
-    "Provides a robust Python API wrapper for MT5 to facilitate advanced algorithmic trading strategies.",
-    "Includes built-in modules for real-time technical analysis and automated risk management.",
-    "Streamlines the deployment of quantitative models into live financial market environments.",
-    "Designed for high-frequency execution and systematic trading automation."
+    "Uses Rust for rapid processing of complex document structures.",
+    "Distinguishes between scanned images and text-based PDFs to optimize downstream RAG pipelines.",
+    "Provides metadata and classification signals to route documents to appropriate extraction models.",
+    "Critical component for fintech document processing and automated financial reporting."
+   ]
+  },
+  {
+   "name": "deeplethe/utopia",
+   "url": "https://github.com/deeplethe/utopia",
+   "language": "Python",
+   "description": "Local-first, agent-assisted document-to-ontology workbench",
+   "keywords": [
+    "AI agent",
+    "MCP",
+    "Document processing",
+    "Self-hosted"
+   ],
+   "trendshift_pos": 4,
+   "stars": 2275,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A local-first, agent-assisted workbench for transforming unstructured documents into structured ontologies.",
+   "bullets": [
+    "Utilizes local LLM agents to extract entities and relationships from raw text.",
+    "Focuses on data privacy by maintaining a local-first architecture for sensitive document analysis.",
+    "Enables the creation of knowledge graphs from unstructured data sources.",
+    "Useful for quant researchers and analysts building proprietary knowledge bases."
+   ]
+  },
+  {
+   "name": "zvec-ai/zvec-grep",
+   "url": "https://github.com/zvec-ai/zvec-grep",
+   "language": "TypeScript",
+   "description": "Local-first search across your workspace, built for humans and AI agents.",
+   "keywords": [
+    "AI agent",
+    "Search"
+   ],
+   "trendshift_pos": 16,
+   "stars": 680,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A local-first search engine for codebases designed to bridge the gap between human developers and AI agents.",
+   "bullets": [
+    "TypeScript-based tool optimized for rapid indexing and retrieval across large repositories.",
+    "Provides context-aware search results that are easily consumable by LLM coding agents.",
+    "Enhances developer productivity by reducing time spent navigating complex codebases.",
+    "Serves as a foundational devtool for agentic coding workflows."
    ]
   }
  ]
