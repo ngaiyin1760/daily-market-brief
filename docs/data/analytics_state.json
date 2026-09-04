@@ -1,130 +1,6 @@
 {
  "backlog": [
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/27/voyah-swings-to-h1-2026-loss/",
-   "blog": "CNEVPOST",
-   "title": "Voyah swings to H1 loss as revenue growth fails to translate into profit",
-   "link": "https://cnevpost.com/2026/08/27/voyah-swings-to-h1-2026-loss/",
-   "summary": "Voyah posted a net loss of 389 million yuan in the first half, compared with a profit a year earlier, as prices of raw materials rose.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-27 06:54 UTC",
-   "_ts": 1787813677,
-   "preview": false,
-   "bullets": [
-    "Voyah reported a net loss of 389 million yuan for H1 2026, reversing a profit from the previous year despite a 42.4% increase in revenue.",
-    "Gross margin compressed to 17.7% from 21.4% due to rising raw material costs for lithium carbonate and memory chips.",
-    "While vehicle deliveries grew by 35.9%, the company is struggling to translate scale into profitability amid intense industry competition and cost pressures."
-   ],
-   "rating": 4,
-   "read_time": 3
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/full-fidelity-thermal-simulation-at-floorplanning-speed-for-2-5d-ai-accelerator-packages/",
-   "blog": "SemiEngineering",
-   "title": "Full-Fidelity Thermal Simulation at Floorplanning Speed for 2.5D AI Accelerator Packages",
-   "link": "https://semiengineering.com/full-fidelity-thermal-simulation-at-floorplanning-speed-for-2-5d-ai-accelerator-packages/",
-   "summary": "Manage power density, mitigate hotspot formation, and co-optimize die and package design under increasingly constrained thermal budgets.\nThe post Full-Fidelity Thermal Simulation at Floorplanning Speed for 2.5D AI Accelerator Packages appeared first on Semiconductor Engineering.",
-   "published": "2026-08-27 07:03 UTC",
-   "_ts": 1787814196,
-   "preview": true,
-   "bullets": [
-    "Managing thermal budgets in 2.5D AI packages requires full-fidelity thermal simulation to be integrated directly into the early floorplanning phase.",
-    "Mitigating hotspot formation is becoming a primary constraint for AI accelerator performance, necessitating co-optimization of die and package design.",
-    "Advanced thermal modeling allows designers to address power density issues before they become locked into the physical layout, reducing the need for costly late-stage re-spins.",
-    "As AI chips push the limits of power consumption, thermal management has evolved from a post-design check to a fundamental driver of architectural decisions."
-   ],
-   "rating": 4,
-   "read_time": 1
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/how-agentic-ai-turns-ic-engineers-into-architects/",
-   "blog": "SemiEngineering",
-   "title": "How Agentic AI Turns IC Engineers Into Architects",
-   "link": "https://semiengineering.com/how-agentic-ai-turns-ic-engineers-into-architects/",
-   "summary": "Engineers using agents suddenly inherit a set of traditionally managerial responsibilities.\nThe post How Agentic AI Turns IC Engineers Into Architects appeared first on Semiconductor Engineering.",
-   "published": "2026-08-27 07:06 UTC",
-   "_ts": 1787814391,
-   "preview": false,
-   "bullets": [
-    "The adoption of AI-native design workflows is forcing a shift in the IC engineer's role from manual implementation to high-level system orchestration.",
-    "Engineers using AI agents are effectively inheriting managerial responsibilities, such as defining specifications, reviewing outputs, and managing iterative design cycles.",
-    "Semiconductor design faces a steeper challenge than software engineering due to the scarcity of public, high-quality design data compared to open-source code repositories.",
-    "The transition to 'vibe coding' or natural-language-driven design requires engineers to develop new skills in system architecture and verification oversight."
-   ],
-   "rating": 4,
-   "read_time": 6
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/verified-until-it-isnt-why-datapath-verification-needs-a-new-playbook/",
-   "blog": "SemiEngineering",
-   "title": "Verified. Until It Isn’t: Why Datapath Verification Needs A New Playbook",
-   "link": "https://semiengineering.com/verified-until-it-isnt-why-datapath-verification-needs-a-new-playbook/",
-   "summary": "Discover bugs that neither constrained-random simulation nor model-heavy equivalence flows are structurally capable of finding.\nThe post Verified. Until It Isn’t: Why Datapath Verification Needs A New Playbook appeared first on Semiconductor Engineering.",
-   "published": "2026-08-27 07:07 UTC",
-   "_ts": 1787814467,
-   "preview": false,
-   "bullets": [
-    "Modern AI accelerators and RISC-V designs are increasingly susceptible to 'silent' bugs in status paths and floating-point logic that escape traditional simulation.",
-    "Standard C-to-RTL equivalence checking is hitting scalability limits due to the need for complex model abstractions in deeply pipelined, timing-optimized designs.",
-    "The industry requires independent, mathematically grounded verification checks to supplement existing simulation and equivalence flows, which are no longer sufficient as single points of failure.",
-    "Arithmetic correctness, including support for diverse formats like FP8 and BF16, has become a mission-critical requirement for AI training stability."
-   ],
-   "rating": 4,
-   "read_time": 22
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/how-cache-coherency-simplifies-ai-software/",
-   "blog": "SemiEngineering",
-   "title": "How Cache Coherency Simplifies AI Software",
-   "link": "https://semiengineering.com/how-cache-coherency-simplifies-ai-software/",
-   "summary": "Designing SoCs to reduce the software required to coordinate increasingly complex systems. \nThe post How Cache Coherency Simplifies AI Software appeared first on Semiconductor Engineering.",
-   "published": "2026-08-27 07:08 UTC",
-   "_ts": 1787814509,
-   "preview": false,
-   "bullets": [
-    "Hardware-managed cache coherency is becoming a standard architectural choice to reduce the software complexity involved in coordinating CPUs and AI accelerators.",
-    "Traditional methods of data management, such as explicit copying over PCIe, are failing to scale as AI systems integrate more tightly coupled chiplets and shared memory.",
-    "By shifting data coordination responsibility to the coherent interconnect, designers can improve system reliability and reduce the frequency of difficult-to-debug software errors.",
-    "This architectural shift reflects a broader trend of prioritizing hardware-level efficiency to simplify the increasingly complex software stacks required for AI workloads."
-   ],
-   "rating": 4,
-   "read_time": 3
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/agentic-ai-success-relies-on-excellent-human-scaffolding/",
-   "blog": "SemiEngineering",
-   "title": "Agentic AI Success Relies On Excellent Human Scaffolding",
-   "link": "https://semiengineering.com/agentic-ai-success-relies-on-excellent-human-scaffolding/",
-   "summary": "Before deploying agentic AI into a chip design, engineers must define the domain ontology and agentic harness. Fundamental engines are still crucial. \nThe post Agentic AI Success Relies On Excellent Human Scaffolding appeared first on Semiconductor Engineering.",
-   "published": "2026-08-27 07:11 UTC",
-   "_ts": 1787814679,
-   "preview": false,
-   "bullets": [
-    "The semiconductor industry is shifting from point-acceleration AI tools to the orchestration of multi-agent swarms capable of handling complex sub-flows.",
-    "Full-flow autonomous design remains an aspirational goal, with current production use cases focusing on specific pain points like RTL generation, debug, and coverage closure.",
-    "Successful deployment of agentic AI requires robust 'human scaffolding,' including well-defined domain ontologies and structured agentic harnesses.",
-    "The role of the design engineer is evolving toward managing and orchestrating these AI agents rather than performing manual, repetitive design tasks."
-   ],
-   "rating": 4,
-   "read_time": 14
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/27/china-launches-yearlong-auto-quality-campaign/",
-   "blog": "CNEVPOST",
-   "title": "China launches yearlong auto quality campaign focused on connected-car safety",
-   "link": "https://cnevpost.com/2026/08/27/china-launches-yearlong-auto-quality-campaign/",
-   "summary": "China will conduct nationwide inspections of intelligent connected vehicle safety, R&D and production capabilities, and product conformity.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-27 09:41 UTC",
-   "_ts": 1787823716,
-   "preview": false,
-   "bullets": [
-    "China has initiated a nationwide, year-long campaign to inspect intelligent connected vehicle safety, production conformity, and R&D capabilities.",
-    "The effort involves multiple government ministries, signaling an escalation in regulatory oversight of the rapidly evolving automotive sector.",
-    "Manufacturers found in violation of market-access requirements face potential public naming, suspension of product catalogs, or bans on filing new vehicle models."
-   ],
-   "rating": 4,
-   "read_time": 3
-  },
-  {
    "_key": "CNEVPOST|https://cnevpost.com/2026/08/28/toyota-to-begin-china-production-lexus-electric-suv-h2-2027/",
    "blog": "CNEVPOST",
    "title": "Toyota to begin China production of Lexus electric SUV in H2 2027 at 1,000 units a month, report says",
@@ -354,93 +230,77 @@
    "read_time": 7
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/27/chery-launches-fulwin-t7-electric-suv/",
-   "blog": "CNEVPOST",
-   "title": "Chery launches Fulwin T7 electric SUV with 600 km range from under $15,000",
-   "link": "https://cnevpost.com/2026/08/27/chery-launches-fulwin-t7-electric-suv/",
-   "summary": "The compact electric SUV has a limited-time price starting at 94,900 yuan ($14,000), targeting China's fiercely competitive budget market.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-27 02:59 UTC",
-   "_ts": 1787799571,
+   "_key": "SemiEngineering|https://semiengineering.com/blog-review-sept-2-3/",
+   "blog": "SemiEngineering",
+   "title": "Blog Review: Sept. 2",
+   "link": "https://semiengineering.com/blog-review-sept-2-3/",
+   "summary": "Shifting landscape of chip design; AI for 3D-IC; India boosts semiconductors; 6G roadmap.\nThe post Blog Review: Sept. 2 appeared first on Semiconductor Engineering.",
+   "published": "2026-09-02 07:01 UTC",
+   "_ts": 1788332499,
    "preview": false,
    "bullets": [
-    "Chery launched the Fulwin T7 compact electric SUV with a limited-time starting price of 94,900 yuan ($14,000) to compete in China's budget EV segment.",
-    "The vehicle features a 65.05-kWh lithium iron phosphate battery providing a 600-km CLTC range and supports 6.6 kW external power discharge.",
-    "The top-spec trim integrates the Qualcomm 8775 chip and the Falcon 500 driver-assistance system, utilizing 22 sensors for highway and parking automation.",
-    "The model is positioned to challenge high-volume competitors like the BYD Yuan Plus, emphasizing high-strength steel construction and advanced smart cockpit features."
+    "Shifting landscape of chip design; AI for 3D-IC; India boosts semiconductors; 6G roadmap.",
+    "Cadence’s Udaya Shankar explores the major shifts shaping the transformation of modern semiconductor design, from transistor architecture evolution and manufacturing complexity to chiplet-based design, UCIe...",
+    "In a podcast, Siemens’ Tova Levy chats with Sudarshan Deo about what AI can do in 3D-IC design today, such as narrowing design space exploration in chiplet partitioning and floor planning, identifying promising...",
+    "Synopsys’ Sudeep Shivalli highlights stronger government support, expanding startup activity, greater access to capital, and a growing focus on ownership as key trends boosting India’s semiconductor sector.",
+    "Keysight’s Jessy Cavazos looks ahead as progress continues on shaping a roadmap for 6G technologies, including the introduction of AI-native networking, integrated sensing and communication, and deeper integration of..."
    ],
-   "rating": 3,
+   "rating": 4,
    "read_time": 2
   },
   {
-   "_key": "SemiEngineering|https://semiengineering.com/streamlining-3d-ic-design-substrate-finalization-and-tapeout/",
-   "blog": "SemiEngineering",
-   "title": "Streamlining 3D-IC Design: Substrate, Finalization, And Tapeout",
-   "link": "https://semiengineering.com/streamlining-3d-ic-design-substrate-finalization-and-tapeout/",
-   "summary": "Effective substrate implementation is crucial for signal integrity, power delivery, and overall system reliability. \nThe post Streamlining 3D-IC Design: Substrate, Finalization, And Tapeout appeared first on Semiconductor Engineering.",
-   "published": "2026-08-27 07:04 UTC",
-   "_ts": 1787814289,
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/byd-mass-production-new-4d-radar-chip/",
+   "blog": "CNEVPOST",
+   "title": "BYD starts mass production of new 4D radar chip, deepening in-house push",
+   "link": "https://cnevpost.com/2026/09/02/byd-mass-production-new-4d-radar-chip/",
+   "summary": "The chip uses BYD's Xuanji A3 smart-driving chip as its computing hub and can support Level 2 through Level 4 driving systems.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-02 09:05 UTC",
+   "_ts": 1788339959,
    "preview": false,
    "bullets": [
-    "Effective substrate implementation is foundational for 3D-IC reliability, requiring tight integration between floorplanning, multiphysics analysis, and physical layout.",
-    "The industry is moving toward standardized formats like IEEE 3Dblox to replace fragmented PDK-based data delivery for complex 3D-IC assembly.",
-    "Correct-by-construction design methodologies are essential to manage the increased complexity of vertical integration and signal integrity in 3D-IC packages.",
-    "Streamlined workflows that forward-annotate design data from planning to layout are critical for reducing tapeout errors in multi-chiplet systems."
+    "BYD Semiconductor has commenced mass production of a 4D millimeter-wave radar chip, further strengthening the company's vertical integration in smart-driving hardware.",
+    "The chip is designed to integrate with BYD's in-house Xuanji A3 smart-driving chip, supporting autonomous driving capabilities from Level 2 through Level 4.",
+    "The new radar solution provides a detection range exceeding 400 meters and is built on a 28-nanometer process to meet stringent automotive-grade reliability standards.",
+    "This development addresses perception bottlenecks in complex urban environments, allowing BYD to reduce reliance on external suppliers for critical autonomous driving components."
    ],
-   "rating": 3,
-   "read_time": 9
+   "rating": 4,
+   "read_time": 2
   },
   {
-   "_key": "SemiEngineering|https://semiengineering.com/planning-your-ai-design-journey-start-with-what-youd-lose/",
-   "blog": "SemiEngineering",
-   "title": "Planning Your AI Design Journey: Start With What You’d Lose",
-   "link": "https://semiengineering.com/planning-your-ai-design-journey-start-with-what-youd-lose/",
-   "summary": "How to build capability without forcing a disruptive rebuild of workflows that already ship products. \nThe post Planning Your AI Design Journey: Start With What You’d Lose appeared first on Semiconductor Engineering.",
-   "published": "2026-08-27 07:09 UTC",
-   "_ts": 1787814571,
-   "preview": false,
-   "bullets": [
-    "Engineering leaders should frame AI adoption as an incremental capability build rather than a disruptive, all-or-nothing platform replacement.",
-    "Institutional knowledge in specialized fields like RF design is currently trapped in human experience; capturing this as executable scripts or Python-based flows is a prerequisite for AI integration.",
-    "The 'Capture, Orchestrate, and Accelerate' framework allows teams to modernize workflows without abandoning trusted tools that currently ship products.",
-    "Transforming expert workflows into reusable assets allows organizations to protect their design capability against the loss of senior engineering talent."
-   ],
-   "rating": 3,
-   "read_time": 5
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/from-spec-to-formal-properties/",
-   "blog": "SemiEngineering",
-   "title": "From Spec To Formal Properties",
-   "link": "https://semiengineering.com/from-spec-to-formal-properties/",
-   "summary": "Can LLMs turn a specification into a set of formal properties that can be used to verify an implementation? The answer is getting closer to being yes, but with caveats.\nThe post From Spec To Formal Properties appeared first on Semiconductor Engineering.",
-   "published": "2026-08-27 07:13 UTC",
-   "_ts": 1787814818,
-   "preview": false,
-   "bullets": [
-    "LLMs are showing promise in translating natural language specifications into formal SystemVerilog assertions, potentially reducing the industry's long-standing verification bottleneck.",
-    "The declarative nature of SystemVerilog Assertion (SVA) remains a steep learning curve, making automated generation a high-value target for EDA tool developers.",
-    "Knowledge graphs are emerging as a critical bridge, storing design entities and their relationships to provide structured data for AI-driven property synthesis.",
-    "While progress is significant, the industry still faces challenges in ensuring the accuracy and completeness of AI-generated properties compared to human-authored verification code."
-   ],
-   "rating": 3,
-   "read_time": 12
-  },
-  {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/27/1142953/electric-truck-slate-auto/",
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/09/02/1143283/the-download-ai-puzzles-alpha-centauri-mission/",
    "blog": "MIT Technology Review",
-   "title": "Is Slate Auto’s new electric truck the EV Americans need?",
-   "link": "https://www.technologyreview.com/2026/08/27/1142953/electric-truck-slate-auto/",
-   "summary": "EVs account for under 10% of total new-vehicle sales in the US, and the numbers are declining. From a climate perspective, that’s pretty dismal, especially because the transportation sector is the single biggest source of greenhouse-gas emissions in the country.  One thing that could help turn that around? Slate Auto’s new truck—a vehicle that seems…",
-   "published": "2026-08-27 10:00 UTC",
-   "_ts": 1787824800,
+   "title": "The Download: AI puzzles and a path to our nearest star system",
+   "link": "https://www.technologyreview.com/2026/09/02/1143283/the-download-ai-puzzles-alpha-centauri-mission/",
+   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. AI models flub these intelligence tests. Can you fare any better? Puzzles and games have always been central to AI development. The term “machine learning” was popularized in a 1959 article…",
+   "published": "2026-09-02 12:10 UTC",
+   "_ts": 1788351000,
    "preview": false,
    "bullets": [
-    "Slate Auto is targeting the US market with a minimalist electric pickup priced under $25,000, significantly lower than the current $50,000 average for new vehicles.",
-    "The vehicle utilizes a smaller 65 kWh lithium iron phosphate battery, resulting in a limited 205-mile range, a strategic departure from the industry's focus on high-range, high-cost models.",
-    "The company's strategy aims to address the failure of previous electrification efforts, such as the Ford F-150 Lightning, which struggled with price inflation and the loss of government tax incentives."
+    "OpenAI has reportedly restricted its next-generation model following an internal assessment that classified it as a 'critical' cyber risk.",
+    "AI performance on complex logic puzzles has improved dramatically, with success rates on tasks like NYT Connections rising from 18% in 2024 to near-perfect levels by early 2025.",
+    "The Fermi Explorer Mission plans to launch a spacecraft toward Alpha Centauri by 2029, utilizing a novel trajectory path discovered by a physics-focused AI system.",
+    "The mission highlights the growing role of AI in solving high-complexity, long-term logistical problems, even as the spacecraft faces an estimated 80,000-year transit time."
    ],
-   "rating": 3,
-   "read_time": 5
+   "rating": 4,
+   "read_time": 7
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/li-auto-launches-new-generation-mega/",
+   "blog": "CNEVPOST",
+   "title": "Li Auto launches new-generation Mega at lower price to revive flagship MPV",
+   "link": "https://cnevpost.com/2026/09/02/li-auto-launches-new-generation-mega/",
+   "summary": "The new-generation Li Mega comes only in the Home version, priced at 509,800 yuan ($75,160), 50,000 yuan less than the previous Home version.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-02 13:27 UTC",
+   "_ts": 1788355628,
+   "preview": false,
+   "bullets": [
+    "Li Auto has launched a new-generation Mega MPV at 509,800 yuan, a 50,000 yuan price reduction aimed at revitalizing sales of its flagship battery electric model.",
+    "The updated vehicle features significant hardware enhancements, including four LiDAR sensors, an 800-volt active anti-roll system, and rear-wheel steering for improved maneuverability.",
+    "The company plans to expand its addressable market by introducing a right-hand-drive version of the Mega by the end of 2026, targeting international regions like Hong Kong and Macau.",
+    "The powertrain maintains high performance with a 5C charging rate capable of adding 500 km of range in just 10 minutes."
+   ],
+   "rating": 4,
+   "read_time": 4
   },
   {
    "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/28/1142956/how-to-sign-up-for-a-virtual-power-plant-and-decide-whether-you-should/",
@@ -739,38 +599,127 @@
    "read_time": 3
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/08/27/nio-firefly-teases-new-special-edition-aug-28/",
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/geely-aug-2026-sales/",
    "blog": "CNEVPOST",
-   "title": "Nio Firefly teases new special-edition model for August 28",
-   "link": "https://cnevpost.com/2026/08/27/nio-firefly-teases-new-special-edition-aug-28/",
-   "summary": "The new model would be Firefly's sixth special edition, extending its strategy of using small-batch design variants to sustain market interest.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-08-27 07:36 UTC",
-   "_ts": 1787816217,
+   "title": "Geely's August sales rise 8% as record exports offset domestic slump",
+   "link": "https://cnevpost.com/2026/09/02/geely-aug-2026-sales/",
+   "summary": "Geely Auto exported 110,094 vehicles in August, up 205% year-on-year and accounting for 41% of total sales.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-02 02:25 UTC",
+   "_ts": 1788315935,
+   "preview": true,
+   "bullets": [
+    "Geely Auto reported an 8% year-on-year increase in August sales, successfully leveraging record exports to mitigate a slump in the domestic Chinese market.",
+    "Exports surged by 205% year-on-year, reaching 110,094 vehicles and accounting for 41% of the company's total monthly sales volume.",
+    "The data underscores the necessity of aggressive international expansion for major Chinese automakers as domestic competition continues to pressure local sales figures."
+   ],
+   "rating": 3,
+   "read_time": 1
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/im-motors-pre-sales-updated-ls6-sept-10/",
+   "blog": "CNEVPOST",
+   "title": "IM Motors to open pre-sales of updated LS6 SUV on September 10 with steer-by-wire chassis",
+   "link": "https://cnevpost.com/2026/09/02/im-motors-pre-sales-updated-ls6-sept-10/",
+   "summary": "IM Motors said the new-generation LS6 will bring \"aviation-grade safety\" to the SUV market priced around 200,000 yuan ($29,490).\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-02 03:59 UTC",
+   "_ts": 1788321551,
    "preview": false,
    "bullets": [
-    "Firefly is leveraging a recurring strategy of limited-edition model releases to sustain consumer interest and brand visibility.",
-    "The brand's delivery volume reached 5,771 units in July, reflecting a 143.9% year-on-year increase despite a month-over-month decline.",
-    "Recent integration with Nio's fifth-generation battery swap network is expected to improve the value proposition for Firefly's compact EV lineup."
+    "IM Motors will open pre-sales for the updated LS6 SUV on September 10, featuring a fully steer-by-wire chassis as a core differentiator.",
+    "The new model is positioned as a 'land-based A320' and is expected to be priced around 200,000 yuan, placing it in one of China's most competitive market segments.",
+    "The vehicle will come standard with the NEO powertrain architecture and the IM Claw AI agent, reflecting the brand's strategy to integrate aviation-derived safety and smart technology into mass-market SUVs."
    ],
-   "rating": 2,
+   "rating": 3,
    "read_time": 2
   },
   {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/08/27/1143037/startup-claims-its-found-a-drug-to-make-your-blood-young/",
-   "blog": "MIT Technology Review",
-   "title": "A startup claims it’s found a drug to make your blood young",
-   "link": "https://www.technologyreview.com/2026/08/27/1143037/startup-claims-its-found-a-drug-to-make-your-blood-young/",
-   "summary": "I knew I’d officially become a ‘longevity influencer’ this month when a company called Generation Lab reached out to offer me the chance to write about—and even receive—their new rejuvenation treatment, an injectable combination of two existing drugs which they call 1 Generation. This wasn’t just any antiaging treatment, either. A company fact sheet says that…",
-   "published": "2026-08-27 19:48 UTC",
-   "_ts": 1787860093,
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/chery-auto-aug-2026-sales/",
+   "blog": "CNEVPOST",
+   "title": "Chery Auto August sales rise 14% as exports account for over 70%",
+   "link": "https://cnevpost.com/2026/09/02/chery-auto-aug-2026-sales/",
+   "summary": "Chery Auto sold 262,990 vehicles in August, including 187,154 exports, which accounted for 71.2% of the total.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-02 06:21 UTC",
+   "_ts": 1788330071,
    "preview": false,
    "bullets": [
-    "Startup Generation Lab is marketing an injectable drug combination that claims to block the systemic spread of aging, though the company has not disclosed the specific compounds involved.",
-    "The treatment is based on the research of founder Irina Conboy, who previously studied parabiosis—the exchange of blood between young and old animals—to identify mechanisms for tissue rejuvenation.",
-    "The company is currently utilizing a private cohort of influencers and insiders to test the therapy, raising significant questions regarding clinical transparency and the validity of their anti-aging claims."
+    "Chery Auto reported August sales of 262,990 vehicles, a 13.97% year-on-year increase, driven heavily by its export business.",
+    "Overseas markets remain the primary growth engine for the company, accounting for 71.16% of total sales in August.",
+    "While the Chery brand continues to grow, the company faces internal divergence as iCar and Luxeed show triple-digit gains while Jetour and Exeed experience sales declines."
    ],
-   "rating": 2,
-   "read_time": 9
+   "rating": 3,
+   "read_time": 7
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/security-sign-off-is-coming-for-chips-but-standards-may-not-be-enough/",
+   "blog": "SemiEngineering",
+   "title": "Security Sign-Off Is Coming For Chips — But Standards May Not Be Enough",
+   "link": "https://semiengineering.com/security-sign-off-is-coming-for-chips-but-standards-may-not-be-enough/",
+   "summary": "As AI, post-quantum cryptography, chiplets, and custom silicon expand the attack surface, semiconductor security is shifting from isolated safeguards to full-stack verification.\nThe post Security Sign-Off Is Coming For Chips — But Standards May Not Be Enough appeared first on Semiconductor Engineering.",
+   "published": "2026-09-02 07:01 UTC",
+   "_ts": 1788332498,
+   "preview": false,
+   "bullets": [
+    "As AI, post-quantum cryptography, chiplets, and custom silicon expand the attack surface, semiconductor security is shifting from isolated safeguards to full-stack verification.",
+    "Key Takeaways:\nExperts At The Table: As AI-driven cryptanalysis, post-quantum migration, chiplets, and custom silicon reshape the threat landscape, the semiconductor industry is confronting how to define, verify, and...",
+    "Semiconductor Engineering sat down to discuss this topic Michal Siwinski, executive vice president, chief product and marketing officer, and general manager for security solutions at Arteris; Yathiendra Vunnam,...",
+    "This roundtable was held behind closed doors at the recent Design Automation Conference.",
+    "What follows are excerpts of that discussion."
+   ],
+   "rating": 3,
+   "read_time": 13
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/byd-launches-sealion-08-suv/",
+   "blog": "CNEVPOST",
+   "title": "BYD launches Sealion 08 SUV, bolstering Ocean lineup's flagship push",
+   "link": "https://cnevpost.com/2026/09/02/byd-launches-sealion-08-suv/",
+   "summary": "The Sealion 08 comes in BEV and plug-in hybrid versions, supports flash charging, and offers up to 900 km of CLTC range.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-02 09:58 UTC",
+   "_ts": 1788343118,
+   "preview": false,
+   "bullets": [
+    "BYD has launched the Sealion 08 SUV, a new flagship for its Ocean series available in both BEV and DM-i plug-in hybrid powertrains.",
+    "The vehicle features advanced technology including the second-generation Blade Battery with flash charging, allowing a 10% to 97% charge in nine minutes.",
+    "The SUV is equipped with the DiSus-A intelligent body control system and active rear-wheel steering, emphasizing high-end performance and handling features.",
+    "Pricing ranges from 229,900 to 279,900 yuan, positioning the model to compete in the mid-to-large SUV segment with both five and six-seat configurations."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "Stratechery|https://stratechery.com/2026/fable-5-1-enterprise-frontier-safeguards/",
+   "blog": "Stratechery",
+   "title": "Fable 5.1, Enterprise Frontier Safeguards",
+   "link": "https://stratechery.com/2026/fable-5-1-enterprise-frontier-safeguards/",
+   "summary": "Fable 5.1 is out, and the hated Fable data retention policy is not just being altered, but entirely removed in the meantime. Plus, why increased caching is a win-win.",
+   "published": "2026-09-02 10:00 UTC",
+   "_ts": 1788343200,
+   "preview": false,
+   "bullets": [
+    "Fable 5.1 introduces a significant policy shift by completely removing the previously controversial data retention requirements.",
+    "The update emphasizes the implementation of new enterprise-grade frontier safeguards to address security and compliance concerns.",
+    "The release highlights the strategic benefits of increased caching, framing it as a mutually beneficial optimization for both the provider and the end-user."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/09/02/1142879/facilitating-ai-integration-with-simplicity-at-scale/",
+   "blog": "MIT Technology Review",
+   "title": "Facilitating AI integration with simplicity at scale",
+   "link": "https://www.technologyreview.com/2026/09/02/1142879/facilitating-ai-integration-with-simplicity-at-scale/",
+   "summary": "As companies scale, the technology supporting operations can become a liability just as quickly as it becomes an asset. Disconnected systems, site-specific tools, spreadsheets, and manual workarounds can create data silos that make it harder to spot problems early, coordinate responses, and make decisions with confidence. For Jabil, a global manufacturing company with more than…",
+   "published": "2026-09-02 14:00 UTC",
+   "_ts": 1788357600,
+   "preview": false,
+   "bullets": [
+    "Jabil, a global manufacturer with over 100 sites, is prioritizing a 'simplify-first' strategy to establish a consistent data backbone before scaling AI initiatives.",
+    "The company emphasizes that innovation without process standardization creates technical debt and operational complexity rather than measurable business value.",
+    "Integration efforts focus on breaking down data silos across diverse regional workflows to enable real-time supply chain visibility and automated decision-making.",
+    "The strategy highlights that successful enterprise AI deployment is contingent upon seamless data flow, requiring significant governance and process maturity improvements."
+   ],
+   "rating": 3,
+   "read_time": 21
   },
   {
    "_key": "CNEVPOST|https://cnevpost.com/2026/08/28/nio-byd-xiaomi-provide-relief-xizang-mudslide/",
@@ -896,252 +845,18 @@
    "read_time": 6
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/li-auto-launches-new-generation-mega/",
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/gwm-aug-2026-sales/",
    "blog": "CNEVPOST",
-   "title": "Li Auto launches new-generation Mega at lower price to revive flagship MPV",
-   "link": "https://cnevpost.com/2026/09/02/li-auto-launches-new-generation-mega/",
-   "summary": "The new-generation Li Mega comes only in the Home version, priced at 509,800 yuan ($75,160), 50,000 yuan less than the previous Home version.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-09-02 13:27 UTC",
-   "_ts": 1788355628,
-   "preview": false,
-   "bullets": [
-    "Li Auto has launched a new-generation Mega MPV at 509,800 yuan, a 50,000 yuan price reduction aimed at revitalizing sales of its flagship battery electric model.",
-    "The updated vehicle features significant hardware enhancements, including four LiDAR sensors, an 800-volt active anti-roll system, and rear-wheel steering for improved maneuverability.",
-    "The company plans to expand its addressable market by introducing a right-hand-drive version of the Mega by the end of 2026, targeting international regions like Hong Kong and Macau.",
-    "The powertrain maintains high performance with a 5C charging rate capable of adding 500 km of range in just 10 minutes."
-   ],
-   "rating": 4,
-   "read_time": 4
-  },
-  {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/09/02/1143283/the-download-ai-puzzles-alpha-centauri-mission/",
-   "blog": "MIT Technology Review",
-   "title": "The Download: AI puzzles and a path to our nearest star system",
-   "link": "https://www.technologyreview.com/2026/09/02/1143283/the-download-ai-puzzles-alpha-centauri-mission/",
-   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. AI models flub these intelligence tests. Can you fare any better? Puzzles and games have always been central to AI development. The term “machine learning” was popularized in a 1959 article…",
-   "published": "2026-09-02 12:10 UTC",
-   "_ts": 1788351000,
-   "preview": false,
-   "bullets": [
-    "OpenAI has reportedly restricted its next-generation model following an internal assessment that classified it as a 'critical' cyber risk.",
-    "AI performance on complex logic puzzles has improved dramatically, with success rates on tasks like NYT Connections rising from 18% in 2024 to near-perfect levels by early 2025.",
-    "The Fermi Explorer Mission plans to launch a spacecraft toward Alpha Centauri by 2029, utilizing a novel trajectory path discovered by a physics-focused AI system.",
-    "The mission highlights the growing role of AI in solving high-complexity, long-term logistical problems, even as the spacecraft faces an estimated 80,000-year transit time."
-   ],
-   "rating": 4,
-   "read_time": 7
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/byd-mass-production-new-4d-radar-chip/",
-   "blog": "CNEVPOST",
-   "title": "BYD starts mass production of new 4D radar chip, deepening in-house push",
-   "link": "https://cnevpost.com/2026/09/02/byd-mass-production-new-4d-radar-chip/",
-   "summary": "The chip uses BYD's Xuanji A3 smart-driving chip as its computing hub and can support Level 2 through Level 4 driving systems.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-09-02 09:05 UTC",
-   "_ts": 1788339959,
-   "preview": false,
-   "bullets": [
-    "BYD Semiconductor has commenced mass production of a 4D millimeter-wave radar chip, further strengthening the company's vertical integration in smart-driving hardware.",
-    "The chip is designed to integrate with BYD's in-house Xuanji A3 smart-driving chip, supporting autonomous driving capabilities from Level 2 through Level 4.",
-    "The new radar solution provides a detection range exceeding 400 meters and is built on a 28-nanometer process to meet stringent automotive-grade reliability standards.",
-    "This development addresses perception bottlenecks in complex urban environments, allowing BYD to reduce reliance on external suppliers for critical autonomous driving components."
-   ],
-   "rating": 4,
-   "read_time": 2
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/blog-review-sept-2-3/",
-   "blog": "SemiEngineering",
-   "title": "Blog Review: Sept. 2",
-   "link": "https://semiengineering.com/blog-review-sept-2-3/",
-   "summary": "Shifting landscape of chip design; AI for 3D-IC; India boosts semiconductors; 6G roadmap.\nThe post Blog Review: Sept. 2 appeared first on Semiconductor Engineering.",
-   "published": "2026-09-02 07:01 UTC",
-   "_ts": 1788332499,
-   "preview": false,
-   "bullets": [
-    "Shifting landscape of chip design; AI for 3D-IC; India boosts semiconductors; 6G roadmap.",
-    "Cadence’s Udaya Shankar explores the major shifts shaping the transformation of modern semiconductor design, from transistor architecture evolution and manufacturing complexity to chiplet-based design, UCIe...",
-    "In a podcast, Siemens’ Tova Levy chats with Sudarshan Deo about what AI can do in 3D-IC design today, such as narrowing design space exploration in chiplet partitioning and floor planning, identifying promising...",
-    "Synopsys’ Sudeep Shivalli highlights stronger government support, expanding startup activity, greater access to capital, and a growing focus on ownership as key trends boosting India’s semiconductor sector.",
-    "Keysight’s Jessy Cavazos looks ahead as progress continues on shaping a roadmap for 6G technologies, including the introduction of AI-native networking, integrated sensing and communication, and deeper integration of..."
-   ],
-   "rating": 4,
-   "read_time": 2
-  },
-  {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/09/02/1142879/facilitating-ai-integration-with-simplicity-at-scale/",
-   "blog": "MIT Technology Review",
-   "title": "Facilitating AI integration with simplicity at scale",
-   "link": "https://www.technologyreview.com/2026/09/02/1142879/facilitating-ai-integration-with-simplicity-at-scale/",
-   "summary": "As companies scale, the technology supporting operations can become a liability just as quickly as it becomes an asset. Disconnected systems, site-specific tools, spreadsheets, and manual workarounds can create data silos that make it harder to spot problems early, coordinate responses, and make decisions with confidence. For Jabil, a global manufacturing company with more than…",
-   "published": "2026-09-02 14:00 UTC",
-   "_ts": 1788357600,
-   "preview": false,
-   "bullets": [
-    "Jabil, a global manufacturer with over 100 sites, is prioritizing a 'simplify-first' strategy to establish a consistent data backbone before scaling AI initiatives.",
-    "The company emphasizes that innovation without process standardization creates technical debt and operational complexity rather than measurable business value.",
-    "Integration efforts focus on breaking down data silos across diverse regional workflows to enable real-time supply chain visibility and automated decision-making.",
-    "The strategy highlights that successful enterprise AI deployment is contingent upon seamless data flow, requiring significant governance and process maturity improvements."
-   ],
-   "rating": 3,
-   "read_time": 21
-  },
-  {
-   "_key": "Stratechery|https://stratechery.com/2026/fable-5-1-enterprise-frontier-safeguards/",
-   "blog": "Stratechery",
-   "title": "Fable 5.1, Enterprise Frontier Safeguards",
-   "link": "https://stratechery.com/2026/fable-5-1-enterprise-frontier-safeguards/",
-   "summary": "Fable 5.1 is out, and the hated Fable data retention policy is not just being altered, but entirely removed in the meantime. Plus, why increased caching is a win-win.",
-   "published": "2026-09-02 10:00 UTC",
-   "_ts": 1788343200,
-   "preview": false,
-   "bullets": [
-    "Fable 5.1 introduces a significant policy shift by completely removing the previously controversial data retention requirements.",
-    "The update emphasizes the implementation of new enterprise-grade frontier safeguards to address security and compliance concerns.",
-    "The release highlights the strategic benefits of increased caching, framing it as a mutually beneficial optimization for both the provider and the end-user."
-   ],
-   "rating": 3,
-   "read_time": 3
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/byd-launches-sealion-08-suv/",
-   "blog": "CNEVPOST",
-   "title": "BYD launches Sealion 08 SUV, bolstering Ocean lineup's flagship push",
-   "link": "https://cnevpost.com/2026/09/02/byd-launches-sealion-08-suv/",
-   "summary": "The Sealion 08 comes in BEV and plug-in hybrid versions, supports flash charging, and offers up to 900 km of CLTC range.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-09-02 09:58 UTC",
-   "_ts": 1788343118,
-   "preview": false,
-   "bullets": [
-    "BYD has launched the Sealion 08 SUV, a new flagship for its Ocean series available in both BEV and DM-i plug-in hybrid powertrains.",
-    "The vehicle features advanced technology including the second-generation Blade Battery with flash charging, allowing a 10% to 97% charge in nine minutes.",
-    "The SUV is equipped with the DiSus-A intelligent body control system and active rear-wheel steering, emphasizing high-end performance and handling features.",
-    "Pricing ranges from 229,900 to 279,900 yuan, positioning the model to compete in the mid-to-large SUV segment with both five and six-seat configurations."
-   ],
-   "rating": 3,
-   "read_time": 3
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/security-sign-off-is-coming-for-chips-but-standards-may-not-be-enough/",
-   "blog": "SemiEngineering",
-   "title": "Security Sign-Off Is Coming For Chips — But Standards May Not Be Enough",
-   "link": "https://semiengineering.com/security-sign-off-is-coming-for-chips-but-standards-may-not-be-enough/",
-   "summary": "As AI, post-quantum cryptography, chiplets, and custom silicon expand the attack surface, semiconductor security is shifting from isolated safeguards to full-stack verification.\nThe post Security Sign-Off Is Coming For Chips — But Standards May Not Be Enough appeared first on Semiconductor Engineering.",
-   "published": "2026-09-02 07:01 UTC",
-   "_ts": 1788332498,
-   "preview": false,
-   "bullets": [
-    "As AI, post-quantum cryptography, chiplets, and custom silicon expand the attack surface, semiconductor security is shifting from isolated safeguards to full-stack verification.",
-    "Key Takeaways:\nExperts At The Table: As AI-driven cryptanalysis, post-quantum migration, chiplets, and custom silicon reshape the threat landscape, the semiconductor industry is confronting how to define, verify, and...",
-    "Semiconductor Engineering sat down to discuss this topic Michal Siwinski, executive vice president, chief product and marketing officer, and general manager for security solutions at Arteris; Yathiendra Vunnam,...",
-    "This roundtable was held behind closed doors at the recent Design Automation Conference.",
-    "What follows are excerpts of that discussion."
-   ],
-   "rating": 3,
-   "read_time": 13
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/chery-auto-aug-2026-sales/",
-   "blog": "CNEVPOST",
-   "title": "Chery Auto August sales rise 14% as exports account for over 70%",
-   "link": "https://cnevpost.com/2026/09/02/chery-auto-aug-2026-sales/",
-   "summary": "Chery Auto sold 262,990 vehicles in August, including 187,154 exports, which accounted for 71.2% of the total.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-09-02 06:21 UTC",
-   "_ts": 1788330071,
-   "preview": false,
-   "bullets": [
-    "Chery Auto reported August sales of 262,990 vehicles, a 13.97% year-on-year increase, driven heavily by its export business.",
-    "Overseas markets remain the primary growth engine for the company, accounting for 71.16% of total sales in August.",
-    "While the Chery brand continues to grow, the company faces internal divergence as iCar and Luxeed show triple-digit gains while Jetour and Exeed experience sales declines."
-   ],
-   "rating": 3,
-   "read_time": 7
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/im-motors-pre-sales-updated-ls6-sept-10/",
-   "blog": "CNEVPOST",
-   "title": "IM Motors to open pre-sales of updated LS6 SUV on September 10 with steer-by-wire chassis",
-   "link": "https://cnevpost.com/2026/09/02/im-motors-pre-sales-updated-ls6-sept-10/",
-   "summary": "IM Motors said the new-generation LS6 will bring \"aviation-grade safety\" to the SUV market priced around 200,000 yuan ($29,490).\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-09-02 03:59 UTC",
-   "_ts": 1788321551,
-   "preview": false,
-   "bullets": [
-    "IM Motors will open pre-sales for the updated LS6 SUV on September 10, featuring a fully steer-by-wire chassis as a core differentiator.",
-    "The new model is positioned as a 'land-based A320' and is expected to be priced around 200,000 yuan, placing it in one of China's most competitive market segments.",
-    "The vehicle will come standard with the NEO powertrain architecture and the IM Claw AI agent, reflecting the brand's strategy to integrate aviation-derived safety and smart technology into mass-market SUVs."
-   ],
-   "rating": 3,
-   "read_time": 2
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/geely-aug-2026-sales/",
-   "blog": "CNEVPOST",
-   "title": "Geely's August sales rise 8% as record exports offset domestic slump",
-   "link": "https://cnevpost.com/2026/09/02/geely-aug-2026-sales/",
-   "summary": "Geely Auto exported 110,094 vehicles in August, up 205% year-on-year and accounting for 41% of total sales.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-09-02 02:25 UTC",
-   "_ts": 1788315935,
+   "title": "GWM August sales fall 1.87%, overseas markets contribute over 55%",
+   "link": "https://cnevpost.com/2026/09/02/gwm-aug-2026-sales/",
+   "summary": "GWM's overseas sales rose 38.42% to a record 62,517 vehicles in August, while its sales in China contracted for a tenth consecutive month.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-02 03:14 UTC",
+   "_ts": 1788318891,
    "preview": true,
    "bullets": [
-    "Geely Auto reported an 8% year-on-year increase in August sales, successfully leveraging record exports to mitigate a slump in the domestic Chinese market.",
-    "Exports surged by 205% year-on-year, reaching 110,094 vehicles and accounting for 41% of the company's total monthly sales volume.",
-    "The data underscores the necessity of aggressive international expansion for major Chinese automakers as domestic competition continues to pressure local sales figures."
-   ],
-   "rating": 3,
-   "read_time": 1
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/nio-house-macau-opens-es9-deliveries/",
-   "blog": "CNEVPOST",
-   "title": "Nio opens first Nio House in Macau as ES9 deliveries begin",
-   "link": "https://cnevpost.com/2026/09/02/nio-house-macau-opens-es9-deliveries/",
-   "summary": "Nio's sales and service network in Macau now includes 1 Nio House, 1 Nio Space, and 2 battery swap stations.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-09-02 12:37 UTC",
-   "_ts": 1788352650,
-   "preview": false,
-   "bullets": [
-    "Nio has opened its first Nio House in Macau, signaling a shift toward a partner-led operating model in the region through collaboration with Guangdong Hongyue Automobile Group.",
-    "The expansion includes the commencement of ES9 SUV deliveries and the integration of a more comprehensive sales and after-sales service network.",
-    "Nio currently operates two battery swap stations in Macau, with a third facility already in the planning stages to support its growing local fleet."
-   ],
-   "rating": 2,
-   "read_time": 4
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/ebook-accelerate-silicon-design-for-physical-ai-part-1/",
-   "blog": "SemiEngineering",
-   "title": "EBook – Accelerate Silicon Design for Physical AI (Part 1)",
-   "link": "https://semiengineering.com/ebook-accelerate-silicon-design-for-physical-ai-part-1/",
-   "summary": "A complete path from AI model, to trusted silicon, to deployable system.\nThe post EBook – Accelerate Silicon Design for Physical AI (Part 1) appeared first on Semiconductor Engineering.",
-   "published": "2026-09-02 07:04 UTC",
-   "_ts": 1788332699,
-   "preview": false,
-   "bullets": [
-    "EBook – Accelerate Silicon Design for Physical AI (Part 1)\n                    \n                    \n    \n    \n                            \n\t\t\t\t\t\n\t\t\t\t\t\t\nA complete path from AI model, to trusted silicon, to...",
-    "Physical AI demands more than traditional edge silicon.",
-    "Devices must perceive, reason, and act in real time while protecting data and scaling across product lines.",
-    "This eBook shows how to move from concept to production while reducing the risk and complexity of a multi-vendor stack.",
-    "What You Will Learn:\nRealizing Physical AI spans architecture, IP selection, software enablement, verification, and high-yield silicon."
-   ],
-   "rating": 2,
-   "read_time": 2
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/security-in-the-era-of-quantum-computing/",
-   "blog": "SemiEngineering",
-   "title": "Security In The Era Of Quantum Computing",
-   "link": "https://semiengineering.com/security-in-the-era-of-quantum-computing/",
-   "summary": "Enable robust cryptographic mechanisms that remain resilient even against quantum-based computational attacks.\nThe post Security In The Era Of Quantum Computing appeared first on Semiconductor Engineering.",
-   "published": "2026-09-02 07:02 UTC",
-   "_ts": 1788332531,
-   "preview": false,
-   "bullets": [
-    "Enable robust cryptographic mechanisms that remain resilient even against quantum-based computational attacks.",
-    "Rapid advancements in quantum computing present both opportunities and significant threats to existing cryptographic systems.",
-    "While quantum technology offers transformative prospects in areas such as the simulation of financial services, chemical science, and artificial intelligence, it also endangers the security of traditional...",
-    "This applies in particular to algorithms using asymmetric methods that rely on the hardness of prime factorization and the discrete logarithm, such as systems based on RSA and elliptic curve cryptography (ECC).",
-    "Post-quantum cryptography (PQC) has emerged as a potential solution to this threat, focusing on the development of cryptographic algorithms that remain secured even in the presence of powerful quantum computers or..."
+    "Great Wall Motor (GWM) saw total sales fall by 1.87% in August, continuing a trend of domestic contraction that has lasted for ten consecutive months.",
+    "The company's international strategy remains a critical buffer, with overseas sales reaching a record 62,517 vehicles, a 38.42% year-on-year increase.",
+    "Overseas markets now account for over 55% of GWM's total sales volume, highlighting the company's heavy reliance on exports to offset domestic weakness."
    ],
    "rating": 2,
    "read_time": 1
@@ -1166,18 +881,347 @@
    "read_time": 6
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/gwm-aug-2026-sales/",
+   "_key": "SemiEngineering|https://semiengineering.com/security-in-the-era-of-quantum-computing/",
+   "blog": "SemiEngineering",
+   "title": "Security In The Era Of Quantum Computing",
+   "link": "https://semiengineering.com/security-in-the-era-of-quantum-computing/",
+   "summary": "Enable robust cryptographic mechanisms that remain resilient even against quantum-based computational attacks.\nThe post Security In The Era Of Quantum Computing appeared first on Semiconductor Engineering.",
+   "published": "2026-09-02 07:02 UTC",
+   "_ts": 1788332531,
+   "preview": false,
+   "bullets": [
+    "Enable robust cryptographic mechanisms that remain resilient even against quantum-based computational attacks.",
+    "Rapid advancements in quantum computing present both opportunities and significant threats to existing cryptographic systems.",
+    "While quantum technology offers transformative prospects in areas such as the simulation of financial services, chemical science, and artificial intelligence, it also endangers the security of traditional...",
+    "This applies in particular to algorithms using asymmetric methods that rely on the hardness of prime factorization and the discrete logarithm, such as systems based on RSA and elliptic curve cryptography (ECC).",
+    "Post-quantum cryptography (PQC) has emerged as a potential solution to this threat, focusing on the development of cryptographic algorithms that remain secured even in the presence of powerful quantum computers or..."
+   ],
+   "rating": 2,
+   "read_time": 1
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/ebook-accelerate-silicon-design-for-physical-ai-part-1/",
+   "blog": "SemiEngineering",
+   "title": "EBook – Accelerate Silicon Design for Physical AI (Part 1)",
+   "link": "https://semiengineering.com/ebook-accelerate-silicon-design-for-physical-ai-part-1/",
+   "summary": "A complete path from AI model, to trusted silicon, to deployable system.\nThe post EBook – Accelerate Silicon Design for Physical AI (Part 1) appeared first on Semiconductor Engineering.",
+   "published": "2026-09-02 07:04 UTC",
+   "_ts": 1788332699,
+   "preview": false,
+   "bullets": [
+    "EBook – Accelerate Silicon Design for Physical AI (Part 1)\n                    \n                    \n    \n    \n                            \n\t\t\t\t\t\n\t\t\t\t\t\t\nA complete path from AI model, to trusted silicon, to...",
+    "Physical AI demands more than traditional edge silicon.",
+    "Devices must perceive, reason, and act in real time while protecting data and scaling across product lines.",
+    "This eBook shows how to move from concept to production while reducing the risk and complexity of a multi-vendor stack.",
+    "What You Will Learn:\nRealizing Physical AI spans architecture, IP selection, software enablement, verification, and high-yield silicon."
+   ],
+   "rating": 2,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/02/nio-house-macau-opens-es9-deliveries/",
    "blog": "CNEVPOST",
-   "title": "GWM August sales fall 1.87%, overseas markets contribute over 55%",
-   "link": "https://cnevpost.com/2026/09/02/gwm-aug-2026-sales/",
-   "summary": "GWM's overseas sales rose 38.42% to a record 62,517 vehicles in August, while its sales in China contracted for a tenth consecutive month.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-09-02 03:14 UTC",
-   "_ts": 1788318891,
+   "title": "Nio opens first Nio House in Macau as ES9 deliveries begin",
+   "link": "https://cnevpost.com/2026/09/02/nio-house-macau-opens-es9-deliveries/",
+   "summary": "Nio's sales and service network in Macau now includes 1 Nio House, 1 Nio Space, and 2 battery swap stations.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-02 12:37 UTC",
+   "_ts": 1788352650,
+   "preview": false,
+   "bullets": [
+    "Nio has opened its first Nio House in Macau, signaling a shift toward a partner-led operating model in the region through collaboration with Guangdong Hongyue Automobile Group.",
+    "The expansion includes the commencement of ES9 SUV deliveries and the integration of a more comprehensive sales and after-sales service network.",
+    "Nio currently operates two battery swap stations in Macau, with a third facility already in the planning stages to support its growing local fleet."
+   ],
+   "rating": 2,
+   "read_time": 4
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/09/03/1143385/the-download-rethinking-child-safety-online-fossil-fuels-farming/",
+   "blog": "MIT Technology Review",
+   "title": "The Download: rethinking child safety and fossil-fueled farming",
+   "link": "https://www.technologyreview.com/2026/09/03/1143385/the-download-rethinking-child-safety-online-fossil-fuels-farming/",
+   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. Child-monitoring apps might need a reboot Digital harms have become the defining fear of American parents. In response, they’re increasingly turning to content-monitoring apps that scan their children’s texts, photos, emails,…",
+   "published": "2026-09-03 12:10 UTC",
+   "_ts": 1788437400,
+   "preview": false,
+   "bullets": [
+    "New York City has implemented a one-year moratorium on generative AI in elementary and middle schools, impacting approximately 600,000 students.",
+    "Taiwan has identified 166 cases of illegal operations and talent poaching linked to a Chinese network targeting its critical semiconductor sector.",
+    "Child-monitoring apps are facing scrutiny as researchers warn that while they can prevent harms, they often cause unnecessary anxiety and damage trust between parents and children.",
+    "Global fertilizer supply chains are under significant pressure due to natural gas price volatility and the closure of the Strait of Hormuz, threatening food security in developing nations."
+   ],
+   "rating": 4,
+   "read_time": 5
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/09/03/1143320/fertilizer-prices-fossil-fuels/",
+   "blog": "MIT Technology Review",
+   "title": "Agriculture relies on fossil fuels. It’s costing us.",
+   "link": "https://www.technologyreview.com/2026/09/03/1143320/fertilizer-prices-fossil-fuels/",
+   "summary": "If you’ve had to fill up your vehicle’s gas tank or buy a plane ticket lately, you’ve probably felt the effects of rising fossil-fuel prices. But farmers buying fertilizer for their crops are especially aware of just how far the ripple effects of the conflict in Iran have spread. Fertilizer prices have been on a…",
+   "published": "2026-09-03 10:00 UTC",
+   "_ts": 1788429600,
+   "preview": false,
+   "bullets": [
+    "Fertilizer production is deeply tied to fossil fuel markets, as natural gas serves as both an energy source and a primary chemical feedstock for ammonia.",
+    "The conflict in Iran has disrupted the Strait of Hormuz, a critical transit route for one-third of global seaborne fertilizer trade, exacerbating price volatility.",
+    "Urea prices reached $850 per metric ton in April, an 80% increase compared to pre-conflict levels, highlighting the vulnerability of agricultural inputs to geopolitical instability.",
+    "Fertilizer manufacturing accounts for approximately 2% of global greenhouse gas emissions, prompting increased interest in climate-friendly alternatives like genetically edited microbes."
+   ],
+   "rating": 4,
+   "read_time": 5
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/03/china-aug-2026-nev-retail-preliminary-cpca/",
+   "blog": "CNEVPOST",
+   "title": "China's August NEV retail sales fall 4% to 1.07 million, preliminary CPCA data shows",
+   "link": "https://cnevpost.com/2026/09/03/china-aug-2026-nev-retail-preliminary-cpca/",
+   "summary": "NEV retail penetration rose to a record 65.7%.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-03 09:23 UTC",
+   "_ts": 1788427431,
+   "preview": false,
+   "bullets": [
+    "China's NEV retail sales reached 1.069 million units in August, a 4% year-on-year decline, while overall passenger vehicle retail sales plummeted 19%.",
+    "NEV market penetration hit a record high of 65.7%, underscoring the rapid displacement of gasoline-powered vehicles in the Chinese market.",
+    "Despite the retail contraction, wholesale sales grew 16% year-on-year to 1.506 million units, suggesting a divergence between manufacturer output and consumer demand."
+   ],
+   "rating": 4,
+   "read_time": 4
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/protecting-mission-critical-data-beyond-the-soc-why-inline-memory-encryption-needs-integrity/",
+   "blog": "SemiEngineering",
+   "title": "Protecting Mission-Critical Data Beyond The SoC: Why Inline Memory Encryption Needs Integrity",
+   "link": "https://semiengineering.com/protecting-mission-critical-data-beyond-the-soc-why-inline-memory-encryption-needs-integrity/",
+   "summary": "Aerospace and government systems need confidentiality, authentication, and implementation resilience for off-chip memory.\nThe post Protecting Mission-Critical Data Beyond The SoC: Why Inline Memory Encryption Needs Integrity appeared first on Semiconductor Engineering.",
+   "published": "2026-09-03 07:07 UTC",
+   "_ts": 1788419267,
+   "preview": false,
+   "bullets": [
+    "Inline Memory Encryption (IME) is essential for protecting sensitive data as it moves between the SoC and off-chip memory, a critical attack surface.",
+    "Encryption alone is insufficient for mission-critical systems because it does not prevent attackers from altering data, which can lead to system-level manipulation.",
+    "Security architects must implement authentication alongside encryption to ensure data integrity, particularly for AI models where poisoned inputs can compromise inference results."
+   ],
+   "rating": 4,
+   "read_time": 5
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/building-trust-into-physical-ai-systems/",
+   "blog": "SemiEngineering",
+   "title": "Building Trust Into Physical AI Systems",
+   "link": "https://semiengineering.com/building-trust-into-physical-ai-systems/",
+   "summary": "Security and safety are inseparable in the physical world.\nThe post Building Trust Into Physical AI Systems appeared first on Semiconductor Engineering.",
+   "published": "2026-09-03 07:03 UTC",
+   "_ts": 1788419032,
+   "preview": false,
+   "bullets": [
+    "Physical AI systems, such as autonomous vehicles and industrial robots, require higher reliability standards because errors can lead to direct physical harm.",
+    "Security vulnerabilities in physical AI extend beyond software to include training data bias and sensor spoofing, which can degrade perception and decision-making.",
+    "Trust in physical AI must be built across the entire chain, from initial data ingestion and sensor input to the final physical actuation."
+   ],
+   "rating": 4,
+   "read_time": 4
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/humanoid-compute-security-more-complex-than-avs/",
+   "blog": "SemiEngineering",
+   "title": "Humanoid Compute, Security More Complex Than AVs",
+   "link": "https://semiengineering.com/humanoid-compute-security-more-complex-than-avs/",
+   "summary": "Robots and autonomous vehicles are both edge devices, but a humanoid has wheels as well as fingers. Close interaction with humans raises the stakes. \nThe post Humanoid Compute, Security More Complex Than AVs appeared first on Semiconductor Engineering.",
+   "published": "2026-09-03 07:03 UTC",
+   "_ts": 1788418987,
+   "preview": false,
+   "bullets": [
+    "The U.S. robotics market reached $11.4 billion in 2026, with humanoid development increasingly relying on AI-native architectures rather than retrofitted hardware.",
+    "Humanoid compute architectures are evolving into hybrid models, featuring a central AI unit for high-level planning and zonal microcontrollers for real-time, safety-critical actuation.",
+    "Safety in humanoid robotics requires a certified hardware-based 'safety companion' that operates independently of the AI model to ensure fault tolerance."
+   ],
+   "rating": 4,
+   "read_time": 14
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/what-can-go-wrong-in-800vdc-ai-data-centers/",
+   "blog": "SemiEngineering",
+   "title": "What Can Go Wrong In 800VDC AI Data Centers",
+   "link": "https://semiengineering.com/what-can-go-wrong-in-800vdc-ai-data-centers/",
+   "summary": "Sparks and fires caused by higher electrical currents can cause costly outages and put people in danger. Hot chips also cause problems. \nThe post What Can Go Wrong In 800VDC AI Data Centers appeared first on Semiconductor Engineering.",
+   "published": "2026-09-03 07:01 UTC",
+   "_ts": 1788418893,
+   "preview": false,
+   "bullets": [
+    "Data centers are transitioning to 800V DC power distribution to support high-density AI racks, which can reach 1 megawatt per rack.",
+    "Higher voltages improve efficiency and thermal performance through wide bandgap semiconductors like GaN, but they significantly increase the risk of dangerous power arcs during hot-swapping.",
+    "Reliability in 800V environments requires advanced isolation and protective hot-swap circuitry to prevent catastrophic equipment failure and ensure worker safety."
+   ],
+   "rating": 4,
+   "read_time": 17
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/03/audi-opens-aitc-rd-center-shanghai/",
+   "blog": "CNEVPOST",
+   "title": "Audi opens AUDI-dedicated R&D center in Shanghai to develop 4 new models",
+   "link": "https://cnevpost.com/2026/09/03/audi-opens-aitc-rd-center-shanghai/",
+   "summary": "The research center, known as AITC, will have a team of about 300 people to support the AUDI brand's product expansion.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-03 05:28 UTC",
+   "_ts": 1788413338,
+   "preview": false,
+   "bullets": [
+    "Audi and SAIC have launched the AUDI Innovation & Technology Center (AITC) in Shanghai, a joint venture focused on developing four new models for the Chinese market.",
+    "The center will employ approximately 300 staff to accelerate the development of smart EVs, AI-powered cockpits, and advanced driver-assistance systems.",
+    "The partnership aims to leverage the ADP 2.0 platform, with the first of the new models scheduled for a 2028 debut to expand the AUDI brand's local footprint."
+   ],
+   "rating": 4,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/03/xpeng-iron-shifts-to-semi-solid-batteries/",
+   "blog": "CNEVPOST",
+   "title": "Xpeng Iron reportedly shifts to semi-solid batteries as all-solid-state tech lags",
+   "link": "https://cnevpost.com/2026/09/03/xpeng-iron-shifts-to-semi-solid-batteries/",
+   "summary": "Xpeng Iron will use high-energy solid-liquid hybrid batteries, reflecting delays in the commercialization of all-solid-state technology.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-03 10:00 UTC",
+   "_ts": 1788429604,
+   "preview": false,
+   "bullets": [
+    "Xpeng has pivoted to high-energy semi-solid batteries for its Iron humanoid robot, abandoning its initial all-solid-state battery strategy due to commercialization delays.",
+    "The decision reflects broader industry challenges in scaling all-solid-state technology, including high costs, manufacturing consistency, and performance stability.",
+    "By selecting a semi-solid solution, Xpeng aims to mitigate supply chain risks and maintain its year-end mass production schedule for the robot."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/03/chery-targets-2027-vehicle-validation-solid-state-battery/",
+   "blog": "CNEVPOST",
+   "title": "Chery targets 2027 vehicle validation for 400 Wh/kg all-solid-state battery",
+   "link": "https://cnevpost.com/2026/09/03/chery-targets-2027-vehicle-validation-solid-state-battery/",
+   "summary": "Chery plans to install solid-liquid hybrid batteries in vehicles in the fourth quarter of 2026 and begin vehicle validation of all-solid-state batteries in 2027.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-03 07:37 UTC",
+   "_ts": 1788421040,
+   "preview": false,
+   "bullets": [
+    "Chery plans to begin vehicle validation for its all-solid-state batteries in 2027, targeting an energy density of 400 Wh/kg using sulfide-based electrolytes.",
+    "The company will introduce a transitional solid-liquid hybrid battery in Q4 2026, aligning with a broader industry trend of phased adoption for next-generation energy storage.",
+    "Chery's roadmap highlights the competitive pressure among Chinese automakers to reach the 2027 commercialization window for solid-state technology."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/intelligent-engineering-from-optimization-to-ai/",
+   "blog": "SemiEngineering",
+   "title": "Intelligent Engineering: From Optimization To AI",
+   "link": "https://semiengineering.com/intelligent-engineering-from-optimization-to-ai/",
+   "summary": "A methodology for transforming engineering decisions from educated guesses into data-driven choices.\nThe post Intelligent Engineering: From Optimization To AI appeared first on Semiconductor Engineering.",
+   "published": "2026-09-03 07:08 UTC",
+   "_ts": 1788419319,
+   "preview": false,
+   "bullets": [
+    "Modern electronic design is shifting from traditional simulation cycles to an intelligent methodology integrating optimization, automation, and AI.",
+    "Increasing system complexity—driven by high-speed interfaces like PCIe Gen3 and dense PCB layouts—has rendered experience-based design workflows insufficient.",
+    "Intelligent engineering allows teams to manage interconnected variables like signal integrity, thermal behavior, and manufacturing constraints at scale."
+   ],
+   "rating": 3,
+   "read_time": 8
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/how-many-design-experiments-does-a-machine-learning-predictor-actually-need/",
+   "blog": "SemiEngineering",
+   "title": "How Many Design Experiments Does A Machine Learning Predictor Actually Need?",
+   "link": "https://semiengineering.com/how-many-design-experiments-does-a-machine-learning-predictor-actually-need/",
+   "summary": "Required dataset size and achievable accuracy track how smooth the response is, not model size or number of design variables. \nThe post How Many Design Experiments Does A Machine Learning Predictor Actually Need? appeared first on Semiconductor Engineering.",
+   "published": "2026-09-03 07:02 UTC",
+   "_ts": 1788418950,
+   "preview": false,
+   "bullets": [
+    "The number of experiments required to train an ML predictor in CAE is determined by the smoothness of the response function rather than the number of design variables.",
+    "Discontinuous responses, such as integer counts of damaged battery cells, require significantly larger datasets to achieve predictive accuracy compared to smooth functions like mass.",
+    "Engineers should prioritize the nature of the physical response when planning simulation budgets, as model size does not correlate with the training data requirements."
+   ],
+   "rating": 3,
+   "read_time": 6
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/03/geely-galaxy-tt-sept-10-launch/",
+   "blog": "CNEVPOST",
+   "title": "Geely Galaxy TT set for September 10 launch with pre-sales price from $21,520",
+   "link": "https://cnevpost.com/2026/09/03/geely-galaxy-tt-sept-10-launch/",
+   "summary": "Pre-sale prices for 3 rear-wheel-drive variants range from 145,900 yuan ($21,520) to 169,900 yuan, taking aim at the Xiaomi SU7.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-03 03:57 UTC",
+   "_ts": 1788407868,
+   "preview": false,
+   "bullets": [
+    "Geely's Galaxy TT sedan is set for a September 10 launch, with pre-sale pricing starting at 145,900 yuan to compete directly with the Xiaomi SU7.",
+    "The vehicle features an 800-volt platform and 6C charging capability, allowing for a 400 km range increase in just 11 minutes.",
+    "Equipped with Horizon Robotics' J6M chip and LiDAR, the model emphasizes smart driving capabilities alongside its sporty, low-drag design."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/continuing-a-legacy-of-space-exploration-nasas-nancy-grace-roman-space-telescope/",
+   "blog": "SemiEngineering",
+   "title": "Continuing A Legacy Of Space Exploration: NASA’s Nancy Grace Roman Space Telescope",
+   "link": "https://semiengineering.com/continuing-a-legacy-of-space-exploration-nasas-nancy-grace-roman-space-telescope/",
+   "summary": "Rad hard components help investigate dark energy, dark matter, and planets beyond our solar system.\nThe post Continuing A Legacy Of Space Exploration: NASA’s Nancy Grace Roman Space Telescope appeared first on Semiconductor Engineering.",
+   "published": "2026-09-03 07:01 UTC",
+   "_ts": 1788418888,
+   "preview": false,
+   "bullets": [
+    "NASA’s Nancy Grace Roman Space Telescope will utilize radiation-hardened components to conduct deep-space surveys of dark matter and dark energy.",
+    "The mission will operate at the second Sun-Earth Lagrange point (L2), mirroring the orbital environment of the James Webb Space Telescope.",
+    "The telescope features a 300-megapixel near-infrared camera capable of capturing images with Hubble-level resolution across a field of view 100 times larger."
+   ],
+   "rating": 2,
+   "read_time": 3
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/03/freelander-8-limited-edition-sells-out/",
+   "blog": "CNEVPOST",
+   "title": "Chery-JLR's Freelander 8 limited edition sells out before September 3 launch",
+   "link": "https://cnevpost.com/2026/09/03/freelander-8-limited-edition-sells-out/",
+   "summary": "The limited edition is the most expensive Freelander 8 variant, with a pre-sales list price of 459,900 yuan ($67,820) and production limited to 1,000 units.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-03 06:50 UTC",
+   "_ts": 1788418232,
+   "preview": false,
+   "bullets": [
+    "The 1,000-unit limited edition of the Freelander 8 sold out prior to the official launch, priced at 449,900 yuan after incentives.",
+    "The vehicle is positioned as a high-tech luxury SUV, featuring the Qualcomm Snapdragon 8397 chip and a 46.3-inch far-field display system.",
+    "Strong initial interest, evidenced by over 10,000 pre-orders, highlights the brand's potential to capture market share in the premium EREV segment."
+   ],
+   "rating": 2,
+   "read_time": 3
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/03/zeekr-to-update-7x-suv-q4-2026/",
+   "blog": "CNEVPOST",
+   "title": "Zeekr to update 7X SUV in Q4 with 85-kWh option bridging battery gap",
+   "link": "https://cnevpost.com/2026/09/03/zeekr-to-update-7x-suv-q4-2026/",
+   "summary": "The 2027 Zeekr 7X will retain the current model's exterior styling, with the 85-kWh version filling the gap between the existing 75-kWh and 103-kWh battery options.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-03 03:14 UTC",
+   "_ts": 1788405247,
    "preview": true,
    "bullets": [
-    "Great Wall Motor (GWM) saw total sales fall by 1.87% in August, continuing a trend of domestic contraction that has lasted for ten consecutive months.",
-    "The company's international strategy remains a critical buffer, with overseas sales reaching a record 62,517 vehicles, a 38.42% year-on-year increase.",
-    "Overseas markets now account for over 55% of GWM's total sales volume, highlighting the company's heavy reliance on exports to offset domestic weakness."
+    "Zeekr will update its 7X SUV in Q4 2026, introducing an 85-kWh battery option to bridge the gap between existing 75-kWh and 103-kWh configurations.",
+    "The update maintains the current exterior styling, focusing on optimizing the product lineup to better meet diverse consumer range requirements.",
+    "This strategic adjustment aims to refine the 7X's market positioning within the competitive mid-size electric SUV segment."
+   ],
+   "rating": 2,
+   "read_time": 1
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/03/china-aug-nev-wholesale-cpca-estimate/",
+   "blog": "CNEVPOST",
+   "title": "China's August NEV wholesale sales seen rising 16% as retail demand remains weak",
+   "link": "https://cnevpost.com/2026/09/03/china-aug-nev-wholesale-cpca-estimate/",
+   "summary": "China's wholesale sales of passenger NEVs are expected to rise 16% year-on-year to 1.51 million units in August.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-03 02:08 UTC",
+   "_ts": 1788401286,
+   "preview": true,
+   "bullets": [
+    "Preliminary CPCA data indicates a 16% year-on-year increase in China's NEV wholesale sales for August, reaching 1.51 million units.",
+    "The growth in wholesale figures contrasts with weaker retail demand, suggesting manufacturers are continuing to build inventory despite cooling consumer interest.",
+    "This data point serves as a key indicator of production momentum within the Chinese EV sector despite broader market headwinds."
    ],
    "rating": 2,
    "read_time": 1
