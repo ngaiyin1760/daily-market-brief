@@ -1,114 +1,113 @@
 {
- "generated_at": "2026-09-05 08:02 HKT",
+ "generated_at": "2026-09-06 07:53 HKT",
  "repos": [
   {
-   "name": "anomalyco/opencode",
-   "url": "https://github.com/anomalyco/opencode",
-   "language": "TypeScript",
-   "description": "The open source coding agent.",
+   "name": "rtk-ai/rtk",
+   "url": "https://github.com/rtk-ai/rtk",
+   "language": "Rust",
+   "description": "CLI proxy that reduces LLM token consumption by 60-90% on common dev commands. Single Rust binary, zero dependencies",
    "keywords": [
-    "AI agent",
-    "AI coding assistant"
+    "AI infrastructure",
+    "Proxy"
    ],
-   "trendshift_pos": 15,
-   "stars": 204108,
+   "trendshift_pos": 23,
+   "stars": 78917,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An open-source coding agent designed to automate complex software development tasks.",
+   "one_liner": "A high-performance CLI proxy designed to drastically reduce LLM token consumption for developer workflows.",
    "bullets": [
-    "Built with a TypeScript-based architecture for high-performance agentic workflows.",
-    "Integrates directly into development environments to execute code, debug, and manage repositories.",
-    "Designed for developers looking to automate repetitive coding tasks and accelerate feature delivery.",
-    "Represents a significant step toward autonomous software engineering infrastructure."
-   ],
-   "img": "anomalyco_opencode_0.jpg",
-   "img_alt": "OpenCode Terminal UI"
+    "Built in Rust as a single binary with zero dependencies for maximum portability.",
+    "Acts as a transparent proxy to intercept and optimize LLM API calls.",
+    "Reduces token usage by 60-90% for common development tasks.",
+    "Ideal for infrastructure teams looking to optimize LLM operational costs."
+   ]
   },
   {
-   "name": "debpalash/VoiceStudio",
-   "url": "https://github.com/debpalash/VoiceStudio",
+   "name": "JerBouma/FinanceDatabase",
+   "url": "https://github.com/JerBouma/FinanceDatabase",
    "language": "Python",
-   "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
+   "description": "This is a database of 300.000+ symbols containing Equities, ETFs, Funds, Indices, Currencies, Cryptocurrencies and Money Markets.",
    "keywords": [
-    "AI voice",
-    "Text to speech",
-    "Audio processing",
-    "Self-hosted"
+    "Fintech"
    ],
-   "trendshift_pos": 3,
-   "stars": 17945,
+   "trendshift_pos": 24,
+   "stars": 8718,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A fully local, open-source alternative to ElevenLabs for voice synthesis and cloning.",
+   "one_liner": "A comprehensive, open-source database containing over 300,000 financial symbols across global markets.",
    "bullets": [
-    "Python-based engine supporting voice cloning, dubbing, and transcription in over 600 languages.",
-    "Operates entirely offline, ensuring data privacy and removing dependency on external cloud APIs.",
-    "Ideal for fintech firms requiring secure, localized voice authentication or automated customer service agents.",
-    "Includes specialized modules for audiobook creation and real-time voice design."
+    "Covers a wide spectrum of assets including Equities, ETFs, Funds, Indices, Currencies, and Cryptocurrencies.",
+    "Provides structured, standardized data for quantitative analysis and algorithmic trading backtesting.",
+    "Python-based interface allows for easy integration into data science and fintech pipelines.",
+    "Serves as a foundational infrastructure component for building financial research tools."
    ]
   },
   {
-   "name": "dramaclaw/dramaclaw",
-   "url": "https://github.com/dramaclaw/dramaclaw",
-   "language": "TypeScript",
-   "description": "A general-purpose AIGC video engine: script to finished film in one pipeline — dramas, ads, product videos, otome games, and more. | 通用 AIGC 视频引擎 —— 从剧本到成片一条流水线，漫剧、广告、电商、乙游皆可",
+   "name": "tigerless-labs/autoharness",
+   "url": "https://github.com/tigerless-labs/autoharness",
+   "language": "Python",
+   "description": "A self-learning skill layer for Claude Code — distills skills from your real sessions, updates them as you work, and prunes the ones that stop getting used. No daemon, no benchmark.",
    "keywords": [
-    "AI video generation",
-    "Workflow automation"
-   ],
-   "trendshift_pos": 25,
-   "stars": 5359,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A comprehensive AIGC video engine that automates the pipeline from script to finished film.",
-   "bullets": [
-    "TypeScript-based pipeline that orchestrates multiple AI models for video generation.",
-    "Automates complex creative workflows including scriptwriting, visual generation, and editing.",
-    "Applicable for high-velocity content creation in marketing, advertising, and digital media.",
-    "Provides a scalable infrastructure for generating high-quality video assets programmatically."
-   ]
-  },
-  {
-   "name": "JuliusBrussee/caveman",
-   "url": "https://github.com/JuliusBrussee/caveman",
-   "language": "Go",
-   "description": "🪨 why use many token when few token do trick — Claude Code skill that cuts 65% of tokens by talking like caveman",
-   "keywords": [
+    "AI coding assistant",
     "AI skills"
    ],
-   "trendshift_pos": 22,
-   "stars": 103564,
+   "trendshift_pos": 15,
+   "stars": 1856,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A Claude Code skill designed to optimize token usage by compressing natural language prompts.",
+   "one_liner": "A self-learning skill layer for Claude Code that distills and evolves agentic capabilities based on real-world sessions.",
    "bullets": [
-    "Go-based utility that reduces LLM token consumption by up to 65% through linguistic compression.",
-    "Functions as a specialized agent skill to improve cost-efficiency in high-frequency LLM interactions.",
-    "Directly addresses the cost-per-token bottleneck in enterprise-scale AI agent deployments.",
-    "Highly relevant for quant and fintech developers managing large-scale LLM infrastructure costs."
-   ],
-   "img": "JuliusBrussee_caveman_0.jpg",
-   "img_alt": "Star History Chart"
+    "Implements a dynamic skill-pruning mechanism to maintain agent efficiency.",
+    "Operates without external daemons or complex benchmarking, focusing on session-based learning.",
+    "Enhances agentic autonomy by adapting to the specific coding patterns of the user.",
+    "Represents the next generation of infrastructure for persistent, self-improving AI agents."
+   ]
   },
   {
-   "name": "Farama-Foundation/Gymnasium-Robotics",
-   "url": "https://github.com/Farama-Foundation/Gymnasium-Robotics",
-   "language": "Python",
-   "description": "A collection of robotics simulation environments for reinforcement learning",
+   "name": "Farama-Foundation/MAgent2",
+   "url": "https://github.com/Farama-Foundation/MAgent2",
+   "language": "C++",
+   "description": "An engine for high performance multi-agent environments with very large numbers of agents, along with a set of reference environments",
    "keywords": [
-    "Robotics"
+    "AI agent"
    ],
-   "trendshift_pos": 13,
-   "stars": 1949,
+   "trendshift_pos": 19,
+   "stars": 958,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A standardized collection of robotics simulation environments for reinforcement learning research.",
+   "one_liner": "A high-performance C++ engine designed for simulating environments with massive numbers of agents.",
    "bullets": [
-    "Python-based framework built on the Gymnasium API for consistent RL environment interaction.",
-    "Provides high-fidelity physics simulations essential for training autonomous agents in physical spaces.",
-    "Critical infrastructure for research in automated trading systems, robotics, and control theory.",
-    "Supports complex state-space modeling and multi-agent reinforcement learning experiments."
+    "Optimized for large-scale multi-agent reinforcement learning (MARL) research.",
+    "Provides a C++ core with Python bindings to balance performance and usability.",
+    "Includes reference environments for testing complex agentic communication and coordination.",
+    "Critical infrastructure for researchers building large-scale agentic systems."
    ]
+  },
+  {
+   "name": "EvoMap/AutoResearch",
+   "url": "https://github.com/EvoMap/AutoResearch",
+   "language": "Python",
+   "description": "AI/ML research agents from idea to paper-ready evidence. An EvoMap open-source project.",
+   "keywords": [
+    "AI agent",
+    "AI workflow",
+    "Workflow automation"
+   ],
+   "trendshift_pos": 8,
+   "stars": 867,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An agentic framework designed to automate the AI/ML research lifecycle from initial ideation to paper-ready evidence.",
+   "bullets": [
+    "Orchestrates multi-step research workflows including literature review, experimentation, and drafting.",
+    "Focuses on generating verifiable evidence to support research claims.",
+    "Leverages AI agents to bridge the gap between conceptual research and technical implementation.",
+    "Useful for quant researchers and AI engineers looking to accelerate the R&D process."
+   ],
+   "img": "EvoMap_AutoResearch_0.jpg",
+   "img_alt": "AutoResearch project monitor showing pipeline progress, reviews, and execution rounds",
+   "img2": "EvoMap_AutoResearch_1.jpg",
+   "img2_alt": "AutoResearch knowledge base board showing public knowledge directions and document summaries"
   }
  ]
 }
