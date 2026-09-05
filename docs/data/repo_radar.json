@@ -1,118 +1,114 @@
 {
- "generated_at": "2026-09-04 08:04 HKT",
+ "generated_at": "2026-09-05 08:02 HKT",
  "repos": [
   {
-   "name": "Deuz-AI/Deuz-SDK",
-   "url": "https://github.com/Deuz-AI/Deuz-SDK",
+   "name": "anomalyco/opencode",
+   "url": "https://github.com/anomalyco/opencode",
    "language": "TypeScript",
-   "description": "Zero-dependency TypeScript framework for production AI agents: durable execution, long-term memory, hybrid RAG, MCP tool calling, human-in-the-loop approval, planning and CodeAct sandboxes. One streaming API for Claude, GPT, Gemini, Grok, Mistral and DeepSeek — Node, Bun, Deno, serverless and edge.",
+   "description": "The open source coding agent.",
    "keywords": [
     "AI agent",
-    "AI workflow",
-    "AI infrastructure",
-    "AI memory",
-    "RAG",
-    "MCP"
+    "AI coding assistant"
    ],
-   "trendshift_pos": 16,
-   "stars": 1291,
+   "trendshift_pos": 15,
+   "stars": 204108,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A zero-dependency TypeScript framework designed for building production-grade, durable AI agents.",
+   "one_liner": "An open-source coding agent designed to automate complex software development tasks.",
    "bullets": [
-    "Built with TypeScript, featuring durable execution, long-term memory, and hybrid RAG capabilities.",
-    "Supports MCP tool calling, human-in-the-loop approval workflows, and CodeAct sandboxes.",
-    "Designed for enterprise-level agentic applications requiring reliability and complex planning.",
-    "Provides a unified stream for managing agent state and multi-step reasoning processes."
-   ]
+    "Built with a TypeScript-based architecture for high-performance agentic workflows.",
+    "Integrates directly into development environments to execute code, debug, and manage repositories.",
+    "Designed for developers looking to automate repetitive coding tasks and accelerate feature delivery.",
+    "Represents a significant step toward autonomous software engineering infrastructure."
+   ],
+   "img": "anomalyco_opencode_0.jpg",
+   "img_alt": "OpenCode Terminal UI"
   },
   {
-   "name": "sngyai/Sequoia-X",
-   "url": "https://github.com/sngyai/Sequoia-X",
+   "name": "debpalash/VoiceStudio",
+   "url": "https://github.com/debpalash/VoiceStudio",
    "language": "Python",
-   "description": "A股自动选股系统 — 多种技术形态自动扫描，收盘后自动运行并推送飞书",
+   "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
    "keywords": [
-    "Fintech"
+    "AI voice",
+    "Text to speech",
+    "Audio processing",
+    "Self-hosted"
    ],
-   "trendshift_pos": 22,
-   "stars": 6488,
+   "trendshift_pos": 3,
+   "stars": 17945,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An automated stock selection system for the A-share market with technical pattern scanning.",
+   "one_liner": "A fully local, open-source alternative to ElevenLabs for voice synthesis and cloning.",
    "bullets": [
-    "Python-based quantitative analysis engine that scans for specific technical chart patterns.",
-    "Automated execution pipeline that runs post-market to identify high-potential trading opportunities.",
-    "Integrated notification system that pushes alerts directly to Feishu for real-time monitoring.",
-    "Useful for quant traders and retail investors looking to automate technical screening workflows."
+    "Python-based engine supporting voice cloning, dubbing, and transcription in over 600 languages.",
+    "Operates entirely offline, ensuring data privacy and removing dependency on external cloud APIs.",
+    "Ideal for fintech firms requiring secure, localized voice authentication or automated customer service agents.",
+    "Includes specialized modules for audiobook creation and real-time voice design."
    ]
   },
   {
-   "name": "anthropics/commerce-agents",
-   "url": "https://github.com/anthropics/commerce-agents",
-   "language": "Python",
-   "description": "Reference blueprint for building shopping and merchant agents with Claude. Examples in retail, commerce, telecom, and entertainment included.",
-   "keywords": [
-    "AI agent",
-    "E-commerce",
-    "Programming examples"
-   ],
-   "trendshift_pos": 4,
-   "stars": 1539,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A reference blueprint for developing sophisticated shopping and merchant agents powered by Claude.",
-   "bullets": [
-    "Python-based architecture demonstrating agentic workflows for retail, telecom, and entertainment sectors.",
-    "Provides modular patterns for handling complex commerce-related user intents and multi-step transactions.",
-    "Serves as a production-ready template for integrating LLMs into customer-facing commerce infrastructure.",
-    "Focuses on reliable agent orchestration for high-stakes business environments."
-   ]
-  },
-  {
-   "name": "genspark-ai/genoffice",
-   "url": "https://github.com/genspark-ai/genoffice",
+   "name": "dramaclaw/dramaclaw",
+   "url": "https://github.com/dramaclaw/dramaclaw",
    "language": "TypeScript",
-   "description": "An AI-native office suite for macOS and Windows: word processor, spreadsheet, presentations, and PDF.",
+   "description": "A general-purpose AIGC video engine: script to finished film in one pipeline — dramas, ads, product videos, otome games, and more. | 通用 AIGC 视频引擎 —— 从剧本到成片一条流水线，漫剧、广告、电商、乙游皆可",
    "keywords": [
-    "Document processing"
+    "AI video generation",
+    "Workflow automation"
    ],
    "trendshift_pos": 25,
-   "stars": 4858,
+   "stars": 5359,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An AI-native office suite for macOS and Windows integrating word processing, spreadsheets, and presentations.",
+   "one_liner": "A comprehensive AIGC video engine that automates the pipeline from script to finished film.",
    "bullets": [
-    "TypeScript-based cross-platform application providing a unified AI-first document ecosystem.",
-    "Reimagines traditional office productivity tools by embedding LLM capabilities directly into the document lifecycle.",
-    "Supports advanced document generation, data analysis in spreadsheets, and automated presentation creation.",
-    "Targeted at professionals seeking to replace legacy office suites with modern, agent-assisted workflows."
-   ],
-   "img": "genspark-ai_genoffice_0.jpg",
-   "img_alt": "Meet GenOffice — the world's first full-featured open-source AI Office (video)"
+    "TypeScript-based pipeline that orchestrates multiple AI models for video generation.",
+    "Automates complex creative workflows including scriptwriting, visual generation, and editing.",
+    "Applicable for high-velocity content creation in marketing, advertising, and digital media.",
+    "Provides a scalable infrastructure for generating high-quality video assets programmatically."
+   ]
   },
   {
-   "name": "larashero3-dotcom/lieflat-charts",
-   "url": "https://github.com/larashero3-dotcom/lieflat-charts",
-   "language": "HTML",
-   "description": "面向 AI Agents 的单色数据可视化 Skill，将数据快速生成精致、可交互的 HTML 图表",
+   "name": "JuliusBrussee/caveman",
+   "url": "https://github.com/JuliusBrussee/caveman",
+   "language": "Go",
+   "description": "🪨 why use many token when few token do trick — Claude Code skill that cuts 65% of tokens by talking like caveman",
    "keywords": [
-    "Data visualization"
+    "AI skills"
    ],
-   "trendshift_pos": 13,
-   "stars": 4348,
+   "trendshift_pos": 22,
+   "stars": 103564,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A specialized data visualization skill designed for AI agents to generate clean, interactive HTML charts.",
+   "one_liner": "A Claude Code skill designed to optimize token usage by compressing natural language prompts.",
    "bullets": [
-    "Lightweight HTML/JS implementation focused on producing minimalist, high-quality data representations.",
-    "Optimized for AI agents to output structured, visual insights directly into chat interfaces.",
-    "Eliminates the need for complex charting libraries, providing a clean interface for financial or analytical data.",
-    "Ideal for agentic dashboards where rapid, readable data visualization is required for decision-making."
+    "Go-based utility that reduces LLM token consumption by up to 65% through linguistic compression.",
+    "Functions as a specialized agent skill to improve cost-efficiency in high-frequency LLM interactions.",
+    "Directly addresses the cost-per-token bottleneck in enterprise-scale AI agent deployments.",
+    "Highly relevant for quant and fintech developers managing large-scale LLM infrastructure costs."
    ],
-   "img": "larashero3-dotcom_lieflat-charts_0.jpg",
-   "img_alt": "Lieflat Charts：以统一的字体、留白、线条和动效建立自己的视觉语法的数据可视化 skill",
-   "img2": "larashero3-dotcom_lieflat-charts_1.jpg",
-   "img2_alt": "在 Moxt 中使用 Lieflat Charts"
+   "img": "JuliusBrussee_caveman_0.jpg",
+   "img_alt": "Star History Chart"
+  },
+  {
+   "name": "Farama-Foundation/Gymnasium-Robotics",
+   "url": "https://github.com/Farama-Foundation/Gymnasium-Robotics",
+   "language": "Python",
+   "description": "A collection of robotics simulation environments for reinforcement learning",
+   "keywords": [
+    "Robotics"
+   ],
+   "trendshift_pos": 13,
+   "stars": 1949,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A standardized collection of robotics simulation environments for reinforcement learning research.",
+   "bullets": [
+    "Python-based framework built on the Gymnasium API for consistent RL environment interaction.",
+    "Provides high-fidelity physics simulations essential for training autonomous agents in physical spaces.",
+    "Critical infrastructure for research in automated trading systems, robotics, and control theory.",
+    "Supports complex state-space modeling and multi-agent reinforcement learning experiments."
+   ]
   }
  ]
 }
