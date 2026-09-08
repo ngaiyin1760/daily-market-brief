@@ -1,109 +1,108 @@
 {
- "generated_at": "2026-09-08 22:41 HKT",
+ "generated_at": "2026-09-08 23:31 HKT",
  "repos": [
   {
-   "name": "redhat-et/ripwire",
-   "url": "https://github.com/redhat-et/ripwire",
-   "language": "C++",
-   "description": "The ripgrep of AI context: a zero-dependency C++23 CLI + MCP server giving coding agents a ranked, deterministic map of any repo, blast radius, tests-to-run and quality deltas. Signatures at 80% fewer bytes than bodies; ~5% of a grep-and-read pass's tokens.",
+   "name": "headroomlabs-ai/headroom",
+   "url": "https://github.com/headroomlabs-ai/headroom",
+   "language": "Python",
+   "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
    "keywords": [
     "AI agent",
-    "AI coding assistant",
-    "MCP",
-    "Search"
+    "AI infrastructure"
    ],
-   "trendshift_pos": 25,
-   "stars": 1666,
+   "trendshift_pos": 13,
+   "stars": 70625,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A high-performance C++23 CLI and MCP server providing a deterministic, ranked map of repository context for AI coding agents.",
+   "one_liner": "A specialized compression library and proxy designed to reduce token usage for LLMs and RAG pipelines.",
    "bullets": [
-    "Built with C++23 for zero-dependency, high-speed repository indexing.",
-    "Implements the Model Context Protocol (MCP) to serve as a standardized interface for LLMs.",
-    "Generates ranked maps of codebases, including blast radius analysis and quality deltas.",
-    "Optimizes agentic workflows by reducing context noise by up to 80%."
+    "Built as a Python library, proxy, and MCP server for seamless integration.",
+    "Optimizes data by compressing logs, code, and JSON structures before LLM ingestion.",
+    "Reduces token consumption by 20% for coding tasks and up to 95% for structured JSON data.",
+    "Ideal for cost-sensitive AI agents and high-volume RAG infrastructure."
    ]
   },
   {
-   "name": "lightpanda-io/browser",
-   "url": "https://github.com/lightpanda-io/browser",
-   "language": "Zig",
-   "description": "Lightpanda: the headless browser designed for AI and automation",
+   "name": "jo-inc/camofox-browser",
+   "url": "https://github.com/jo-inc/camofox-browser",
+   "language": "JavaScript",
+   "description": "Stealth headless browser for AI agents — bypass Cloudflare, bot detection, and anti-scraping. Drop-in Puppeteer/Playwright replacement.",
    "keywords": [
     "AI agent",
     "Headless browser"
    ],
-   "trendshift_pos": 23,
-   "stars": 35135,
+   "trendshift_pos": 9,
+   "stars": 10284,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A lightweight, headless browser engine written in Zig, specifically optimized for AI agents and automation tasks.",
+   "one_liner": "A stealth-focused headless browser designed to bypass sophisticated bot detection and anti-scraping measures.",
    "bullets": [
-    "Engineered in Zig for extreme performance and minimal memory footprint compared to Chromium-based alternatives.",
-    "Designed specifically for headless automation, scraping, and agentic web interaction.",
-    "Provides a stable, predictable environment for LLMs to navigate complex web interfaces.",
-    "Ideal for fintech data extraction and automated market research workflows."
+    "Drop-in replacement for Puppeteer and Playwright using JavaScript.",
+    "Engineered to evade Cloudflare and other common anti-bot security layers.",
+    "Enables reliable data collection for AI agents requiring real-time web access.",
+    "Critical infrastructure for automated research and market intelligence gathering."
    ]
   },
   {
-   "name": "mksglu/context-mode",
-   "url": "https://github.com/mksglu/context-mode",
+   "name": "vastsa/PI-Desktop",
+   "url": "https://github.com/vastsa/PI-Desktop",
    "language": "TypeScript",
-   "description": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and   enforces routing across 17 platforms via MCP + hooks.",
-   "keywords": [
-    "MCP"
-   ],
-   "trendshift_pos": 12,
-   "stars": 21246,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A sophisticated context window optimization framework for AI coding agents that utilizes MCP to manage session memory and tool output.",
-   "bullets": [
-    "Reduces LLM context consumption by up to 98% through intelligent tool output sandboxing.",
-    "Supports multi-platform routing across 17 different AI providers via MCP hooks.",
-    "Enforces persistent session memory to maintain state across long-running coding tasks.",
-    "Critical for complex financial modeling or large-scale codebase refactoring agents."
-   ]
-  },
-  {
-   "name": "heygen-com/hyperframes",
-   "url": "https://github.com/heygen-com/hyperframes",
-   "language": "TypeScript",
-   "description": "Write HTML. Render video. Built for agents.",
+   "description": "Local-first AI coding agent desktop: Electron + Rust host core + pi Agent Harness + user-installable plugins",
    "keywords": [
     "AI agent",
-    "AI video generation"
+    "AI coding assistant"
    ],
-   "trendshift_pos": 1,
-   "stars": 47439,
+   "trendshift_pos": 10,
+   "stars": 1117,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A framework for rendering high-fidelity video directly from HTML/CSS, purpose-built for agentic video generation.",
+   "one_liner": "A local-first, agentic coding environment built with an Electron frontend and a Rust-based core.",
    "bullets": [
-    "Uses TypeScript to bridge the gap between web-based UI design and video production.",
-    "Enables programmatic video generation, ideal for automated financial reporting or personalized client updates.",
-    "Designed for integration into agentic pipelines that require visual output.",
-    "Simplifies the creation of dynamic, data-driven video content without manual editing."
+    "Architecture combines Electron for UI and Rust for high-performance backend execution.",
+    "Features a modular plugin system for extensible AI agent capabilities.",
+    "Focuses on local-first data privacy for sensitive development workflows.",
+    "Provides a dedicated harness for managing agentic coding tasks on the desktop."
    ]
   },
   {
-   "name": "coldteadotai/pr-lens",
-   "url": "https://github.com/coldteadotai/pr-lens",
-   "language": "TypeScript",
-   "description": "PR Lens draws every PR as animated architecture and data-flow diagrams, inside the pull request itself. Use it as a GitHub App, GitHub Action, CLI, or a skill for your coding agent",
+   "name": "microsoft/tgrep",
+   "url": "https://github.com/microsoft/tgrep",
+   "language": "Rust",
+   "description": "Trigram-indexed grep with a client/server architecture for fast regex search in large codebases locally",
    "keywords": [
-    "AI coding assistant"
+    "Search"
    ],
-   "trendshift_pos": 18,
-   "stars": 834,
+   "trendshift_pos": 7,
+   "stars": 1756,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A tool that visualizes pull requests as animated architecture and data-flow diagrams to improve code review efficiency.",
+   "one_liner": "A high-performance, trigram-indexed grep tool utilizing a client/server architecture for rapid local codebase searching.",
    "bullets": [
-    "Available as a GitHub App, Action, CLI, or an integrated skill for AI coding agents.",
-    "Automatically generates visual representations of data flow and architectural changes.",
-    "Enhances developer productivity by providing immediate visual context for complex PRs.",
-    "Useful for auditing financial software changes where architectural integrity is paramount."
+    "Written in Rust for memory safety and maximum execution speed.",
+    "Uses trigram indexing to enable near-instant regex searches across massive codebases.",
+    "Client/server model allows for persistent indexing and low-latency query responses.",
+    "Essential devtool for developers navigating large-scale enterprise repositories."
+   ]
+  },
+  {
+   "name": "Tencent/teamai-cli",
+   "url": "https://github.com/Tencent/teamai-cli",
+   "language": "TypeScript",
+   "description": "The team harness for AI agents",
+   "keywords": [
+    "AI agent",
+    "AI coding assistant"
+   ],
+   "trendshift_pos": 6,
+   "stars": 2225,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A command-line interface designed to orchestrate and manage multi-agent AI workflows.",
+   "bullets": [
+    "TypeScript-based CLI tool for streamlined agent deployment and management.",
+    "Provides a structured harness for coordinating complex, multi-step agentic tasks.",
+    "Facilitates team-based collaboration on AI-driven development processes.",
+    "Useful for scaling agentic workflows in enterprise engineering environments."
    ]
   }
  ]
