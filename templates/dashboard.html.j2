@@ -107,7 +107,7 @@
         <li>
           <span class="cb-when">{{ r.date|e }}</span>
           <span class="cb-body">
-            <span class="cb-head">{{ r.bank|e }} — {{ r.headline|e }}</span>
+            <span class="cb-head">{{ r.headline|e }}</span>
             <span class="cb-outcome">{{ r.outcome|e }}</span>
             {% if r.expected %}<span class="cb-meta">({{ r.expected|e }})</span>{% endif %}
             {% if r.tone %}<span class="cb-tone">{{ r.tone|e }}</span>{% endif %}

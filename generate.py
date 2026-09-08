@@ -2589,36 +2589,48 @@ CB_RESULT_DAYS = 5     # results stay visible this long — a Thursday Fed call
 CB_RESULT_MAX = 3
 CB_TONE_LOOKBACK_DAYS = 4  # only this fresh a decision gets a tone attempt
 
-# Whitelisted major central banks, keyed by calendar currency. "needle" is
-# matched (case-insensitive) against the event title; "tokens" are word-
-# boundary matches used to spot the bank in the day's news headlines.
+# Whitelisted major central banks, keyed by calendar currency. Each bank has
+# one or more "needles": title substrings identifying its decision row(s), in
+# priority order (first matching row wins — ECB has a deposit-rate row plus a
+# main-refinancing row at the same meeting; the deposit rate is the one
+# headlines quote). "tokens" are word-boundary matches used to spot the bank
+# in the day's news headlines. The needle label becomes the gauge shown in
+# the headline (e.g. "BoE rate decision (Bank Rate)"); an empty label keeps
+# the plain headline (Fed numbers are rendered as an explicit target range,
+# China LPR rows are already 1Y/5Y-labelled).
 CB_BANKS = {
     "USD": {"id": "fed", "short": "Fed", "label": "Federal Reserve",
-            "needle": "interest rate decision",
+            "needles": [("interest rate decision", "")],
+            "range_top": True,   # calendar figure is the TOP of the 25bp band
             "tokens": ["fed", "fomc", "powell", "federal reserve"]},
     "EUR": {"id": "ecb", "short": "ECB", "label": "European Central Bank",
-            "needle": "interest rate decision",
+            "needles": [("deposit facility rate", "deposit rate"),
+                        ("interest rate decision", "main refinancing rate")],
             "tokens": ["ecb", "lagarde"]},
     "GBP": {"id": "boe", "short": "BoE", "label": "Bank of England",
-            "needle": "interest rate decision",
+            "needles": [("interest rate decision", "Bank Rate")],
             "tokens": ["bank of england", "boe", "bailey"]},
     "JPY": {"id": "boj", "short": "BoJ", "label": "Bank of Japan",
-            "needle": "interest rate decision",
+            "needles": [("interest rate decision", "policy rate")],
             "tokens": ["bank of japan", "boj", "ueda"]},
     "CHF": {"id": "snb", "short": "SNB", "label": "Swiss National Bank",
-            "needle": "interest rate decision",
+            "needles": [("interest rate decision", "policy rate")],
             "tokens": ["snb", "swiss national bank"]},
     "CAD": {"id": "boc", "short": "BoC", "label": "Bank of Canada",
-            "needle": "interest rate decision",
+            "needles": [("interest rate decision", "overnight rate")],
             "tokens": ["bank of canada", "boc", "macklem"]},
     "AUD": {"id": "rba", "short": "RBA", "label": "Reserve Bank of Australia",
-            "needle": "interest rate decision",
+            "needles": [("interest rate decision", "cash rate")],
             "tokens": ["rba", "reserve bank of australia"]},
     "CNY": {"id": "pboc", "short": "PBoC", "label": "People's Bank of China",
-            "needle": "loan prime rate",
+            "needles": [("loan prime rate", "")],
             "tokens": ["pboc", "people's bank of china", "lpr",
                        "loan prime rate"]},
 }
+
+# FOMC target ranges are 25bp wide; the calendar stores the top of the band,
+# so the displayed range is (figure − 0.25, figure).
+CB_FED_RANGE_WIDTH = 0.25
 CB_BANK_BY_ID = {spec["id"]: spec for spec in CB_BANKS.values()}
 
 
@@ -2641,34 +2653,55 @@ def _cb_num(value):
 
 
 def cb_row_info(row):
-    """Map one calendar row to (spec, event key, ts, secondary?) or None if
-    it is not one of the whitelisted decision rows."""
+    """Map one calendar row to a candidate or None if it is not one of the
+    whitelisted decision rows. For banks with several rows per meeting the
+    lowest priority number wins (see CB_BANKS)."""
     low = (row.get("title") or "").lower()
     spec = CB_BANKS.get(row.get("currency") or "")
-    if not spec or spec["needle"] not in low:
+    if not spec:
         return None
     if any(w in low for w in ("minutes", "press conference", " speech ",
                               "testimony", "presser")):
+        return None
+    gauge, priority = None, None
+    for i, (needle, label) in enumerate(spec["needles"]):
+        if needle in low:
+            priority, gauge = i, label
+            break
+    if priority is None:
         return None
     ts = row.get("date")
     if not ts:
         return None
     secondary = "5y" in low  # China LPR publishes 1Y + 5Y together
-    return {"spec": spec, "key": f"{spec['id']}-{ts[:10]}", "ts": ts,
-            "secondary": secondary}
+    return {"key": f"{spec['id']}-{ts[:10]}", "row": row, "ts": ts,
+            "gauge": gauge or "", "secondary": secondary,
+            "priority": priority}
 
 
-def _cb_action_text(actual, previous, label):
-    """One decision in plain words, from calendar numbers only."""
+def _fmt_rate(level, bank):
+    """Render one rate level for display. Fed figures are the top of the
+    25bp target band, so they read as an explicit range ('3.50–3.75%');
+    every other bank quotes a single rate ('2.25%')."""
+    if bank == "fed":
+        floor = round(level - CB_FED_RANGE_WIDTH, 2)
+        return f"{floor:.2f}–{level:.2f}%"
+    return f"{level:.2f}%"
+
+
+def _cb_action_text(actual, previous, label, bank):
+    """One decision in plain words, from calendar numbers only. Direction
+    first, with the previous level as a parenthetical: 'hiked 25bp to
+    3.75–4.00% (was 3.50–3.75%)'."""
     prefix = f"{label} " if label else ""
     if previous is None:
-        return f"{prefix}policy rate {actual:.2f}%"
+        return f"{prefix}policy rate now {_fmt_rate(actual, bank)}"
     bps = int(round((actual - previous) * 100))
     if bps == 0:
-        return f"{prefix}held at {actual:.2f}%"
+        return f"{prefix}held at {_fmt_rate(actual, bank)}"
     verb = "cut" if bps < 0 else "hiked"
-    return (f"{prefix}{verb} {abs(bps)}bp to {actual:.2f}% "
-            f"from {previous:.2f}%")
+    return (f"{prefix}{verb} {abs(bps)}bp to {_fmt_rate(actual, bank)} "
+            f"(was {_fmt_rate(previous, bank)})")
 
 
 def cb_outcome_text(event):
@@ -2676,17 +2709,20 @@ def cb_outcome_text(event):
     actual = event.get("actual")
     if actual is None:
         return None
-    if event.get("bank") == "pboc":
-        parts = [_cb_action_text(actual, event.get("previous"), "1Y")]
+    bank = event.get("bank")
+    if bank == "pboc":
+        parts = [_cb_action_text(actual, event.get("previous"), "1Y", bank)]
         if event.get("actual5y") is not None:
             parts.append(_cb_action_text(event["actual5y"],
-                                         event.get("previous5y"), "5Y"))
+                                         event.get("previous5y"), "5Y", bank))
         return " · ".join(parts)
-    return _cb_action_text(actual, event.get("previous"), None)
+    return _cb_action_text(actual, event.get("previous"), None, bank)
 
 
 def merge_cb_events(store, rows):
     """Upsert whitelisted decision rows into the store by bank-date id.
+    Where a meeting has several calendar rows (ECB deposit vs refinancing),
+    the highest-priority row supplies the numbers; the chosen gauge is kept.
     Updates forecast/previous; the first time an actual arrives the outcome
     line is computed. Returns the events that still need an AI tone line."""
     events = store.setdefault("events", [])
@@ -2694,20 +2730,30 @@ def merge_cb_events(store, rows):
     for ev in events:
         if isinstance(ev, dict) and ev.get("id"):
             by_id[ev["id"]] = ev
+    # One row per meeting: the lowest priority index wins, whatever the feed
+    # order (ECB: deposit rate before main refinancing rate).
+    chosen = {}
     for row in rows:
         info = cb_row_info(row)
         if not info:
             continue
-        ev = by_id.get(info["key"])
+        if info["key"] not in chosen or info["priority"] < \
+                chosen[info["key"]]["priority"]:
+            chosen[info["key"]] = info
+    for key, info in sorted(chosen.items()):
+        row = info["row"]
+        ev = by_id.get(key)
         if ev is None:
-            ev = {"id": info["key"], "bank": info["spec"]["id"],
-                  "ts": info["ts"], "forecast": None, "previous": None,
+            ev = {"id": key, "bank": key.split("-", 1)[0],
+                  "ts": info["ts"], "gauge": info["gauge"],
+                  "forecast": None, "previous": None,
                   "actual": None, "forecast5y": None, "previous5y": None,
                   "actual5y": None, "outcome": None, "tone": None,
                   "tone_source": None, "link": None, "link_title": None,
                   "verdict_at": None}
-            by_id[info["key"]] = ev
+            by_id[key] = ev
             events.append(ev)
+        ev["gauge"] = info["gauge"]
         if info["secondary"]:
             for k, field in (("forecast", "forecast5y"),
                              ("previous", "previous5y"),
@@ -2816,23 +2862,43 @@ def cb_time_label(dt_hk, today):
 
 
 def cb_event_headline(event):
-    """Short human title for an event, e.g. 'Fed rate decision'."""
+    """Short human title for an event, e.g. 'Fed rate decision' or
+    'ECB rate decision (deposit rate)'."""
     spec = CB_BANK_BY_ID.get(event.get("bank"))
     if not spec:
         return (event.get("title") or "Central bank decision")
     if spec["id"] == "pboc":
         return "China LPR decision"
-    return f"{spec['short']} rate decision"
+    gauge = event.get("gauge")
+    head = f"{spec['short']} rate decision"
+    return f"{head} ({gauge})" if gauge else head
 
 
 def cb_expect_text(event):
-    """Preview line from the calendar: 'consensus 3.75% · prior 3.75%'."""
-    bits = []
-    if event.get("forecast") is not None:
-        bits.append(f"consensus {event['forecast']:.2f}%")
-    if event.get("previous") is not None:
-        bits.append(f"prior {event['previous']:.2f}%")
-    return " · ".join(bits)
+    """Preview line from the calendar, direction first:
+    'Consensus hike 25bp (2.25% → 2.50%)' / 'Consensus: hold at 3.50–3.75%' /
+    'Current rate 2.25%'."""
+    f, p = event.get("forecast"), event.get("previous")
+    bank = event.get("bank")
+    if f is None:
+        return f"Current rate {_fmt_rate(p, bank)}" if p is not None else None
+    if p is None:
+        return f"Consensus {_fmt_rate(f, bank)}"
+    bp = int(round((f - p) * 100))
+    if bp == 0:
+        return f"Consensus: hold at {_fmt_rate(p, bank)}"
+    verb = "hike" if bp > 0 else "cut"
+    return (f"Consensus {verb} {abs(bp)}bp "
+            f"({_fmt_rate(p, bank)} → {_fmt_rate(f, bank)})")
+
+
+def cb_expected_text(event):
+    """Result-context line: consensus vs what actually happened. Only shown
+    when they differ — an 'as expected' outcome needs no extra words."""
+    f, a = event.get("forecast"), event.get("actual")
+    if f is None or a is None or abs(f - a) < 0.005:
+        return None
+    return f"market expected {_fmt_rate(f, event.get('bank'))}"
 
 
 def grounded_stories(bank_id, news):
@@ -2958,8 +3024,7 @@ def build_cb_watch(store, page_date, now_hk):
             "headline": cb_event_headline(ev),
             "date": hk.strftime("%b %d") + f" {hk.strftime('%H:%M')} HKT",
             "outcome": ev.get("outcome") or "Decided",
-            "expected": (f"expected {ev['forecast']:.2f}%"
-                         if ev.get("forecast") is not None else None),
+            "expected": cb_expected_text(ev),
             "tone": ev.get("tone"),
             "link": ev.get("link"),
             "link_title": ev.get("link_title"),
