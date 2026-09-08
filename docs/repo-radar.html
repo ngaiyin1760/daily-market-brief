@@ -1504,6 +1504,103 @@
     background: linear-gradient(90deg, var(--accent-2), var(--accent));
     border-radius: 2px;
   }
+
+  /* ---------- Central Bank Watch ---------- */
+  .cb-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    align-items: center;
+    background: linear-gradient(135deg, #fef9e7 0%, #f1ecfd 100%);
+    border: 1px solid #ead9a8;
+    border-left: 5px solid var(--gold);
+    border-radius: 8px;
+    padding: 9px 16px;
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+  [data-theme="dark"] .cb-strip {
+    background: linear-gradient(135deg, #241f33 0%, #1d2a2a 100%);
+    border-color: var(--rule-dark);
+  }
+  .cb-item { display: inline-flex; align-items: center; gap: 9px; }
+  .cb-item + .cb-item { padding-left: 12px; border-left: 1px dashed var(--rule-dark); }
+  .cb-next {
+    background: var(--gold);
+    color: #221f1a;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .cb-text strong { color: var(--ink); }
+  [data-theme="dark"] .cb-text { color: var(--ink-soft); }
+
+  .cb-watch {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-left: 5px solid var(--accent-2);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+  }
+  .cb-watch h2 {
+    font-family: var(--serif);
+    font-size: 21px;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  .cb-col + .cb-col { margin-top: 8px; }
+  .cb-sub {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 6px 0 2px;
+  }
+  .cb-list { list-style: none; margin: 0; padding: 0; }
+  .cb-list li {
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    gap: 2px 14px;
+    padding: 8px 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .cb-list li:first-child { border-top: none; }
+  .cb-when {
+    grid-column: 1;
+    color: var(--accent-2);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .cb-body { grid-column: 2; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .cb-head { font-weight: 600; color: var(--ink); font-size: 15px; line-height: 1.4; }
+  .cb-expect, .cb-meta { color: var(--muted); font-size: 13px; }
+  .cb-outcome { font-weight: 600; color: var(--ink); font-size: 14.5px; line-height: 1.4; }
+  .cb-tone { color: var(--ink-soft); font-size: 13.5px; line-height: 1.45; }
+  .cb-link {
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+  .cb-link:hover { text-decoration: underline; }
+  [data-theme="dark"] .cb-watch { background: var(--card); border-color: var(--rule); }
+  [data-theme="dark"] .cb-watch h2 { color: var(--ink); }
+  [data-theme="dark"] .cb-head, [data-theme="dark"] .cb-outcome { color: var(--ink); }
+  @media (max-width: 620px) {
+    .cb-strip { font-size: 14px; }
+    .cb-when { font-size: 12px; }
+  }
 </style>
 </head>
 <body>
@@ -1581,7 +1678,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Repo Radar</h1>
-    <div class="generated">5 trending GitHub repos · finance/tech weighted · never repeated across days · updated 2026-09-08 08:23 HKT</div>
+    <div class="generated">5 trending GitHub repos · finance/tech weighted · never repeated across days · updated 2026-09-08 22:41 HKT</div>
   </header>
 
   
@@ -1606,24 +1703,24 @@
           
           <article class="repo-card">
             <div class="rc-head">
-              <span class="chip">Python</span>
-              <span class="chip stars">5252★</span>
+              <span class="chip">C++</span>
+              <span class="chip stars">1666★</span>
             </div>
-            <h3><a href="https://github.com/The-Swarm-Corporation/AutoHedge" target="_blank" rel="noopener">The-Swarm-Corporation/AutoHedge</a></h3>
-            <p class="rc-oneliner">An autonomous hedge fund framework utilizing swarm intelligence and AI agents for market analysis and trade execution.</p>
+            <h3><a href="https://github.com/redhat-et/ripwire" target="_blank" rel="noopener">redhat-et/ripwire</a></h3>
+            <p class="rc-oneliner">A high-performance C++23 CLI and MCP server providing a deterministic, ranked map of repository context for AI coding agents.</p>
             
             
             
             <ul class="rc-bullets">
-              <li>Built in Python leveraging multi-agent swarm architectures.</li><li>Integrates automated risk management and real-time market analysis modules.</li><li>Designed for rapid deployment of algorithmic trading strategies.</li><li>Focuses on autonomous decision-making for financial market operations.</li>
+              <li>Built with C++23 for zero-dependency, high-speed repository indexing.</li><li>Implements the Model Context Protocol (MCP) to serve as a standardized interface for LLMs.</li><li>Generates ranked maps of codebases, including blast radius analysis and quality deltas.</li><li>Optimizes agentic workflows by reducing context noise by up to 80%.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/The-Swarm-Corporation/AutoHedge" target="_blank" rel="noopener">https://github.com/The-Swarm-Corporation/AutoHedge</a></div>
+              <div class="bc-url"><a href="https://github.com/redhat-et/ripwire" target="_blank" rel="noopener">https://github.com/redhat-et/ripwire</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/The-Swarm-Corporation/AutoHedge"
-                      data-save-title="The-Swarm-Corporation/AutoHedge"
-                      data-save-source="Python"
+                      data-save-url="https://github.com/redhat-et/ripwire"
+                      data-save-title="redhat-et/ripwire"
+                      data-save-source="C++"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
                       data-save-date="2026-09-08">
@@ -1637,24 +1734,24 @@
           
           <article class="repo-card">
             <div class="rc-head">
-              <span class="chip">Python</span>
-              <span class="chip stars">70088★</span>
+              <span class="chip">Zig</span>
+              <span class="chip stars">35135★</span>
             </div>
-            <h3><a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">headroomlabs-ai/headroom</a></h3>
-            <p class="rc-oneliner">A token-optimization middleware that compresses logs, files, and RAG chunks for LLM efficiency.</p>
+            <h3><a href="https://github.com/lightpanda-io/browser" target="_blank" rel="noopener">lightpanda-io/browser</a></h3>
+            <p class="rc-oneliner">A lightweight, headless browser engine written in Zig, specifically optimized for AI agents and automation tasks.</p>
             
             
             
             <ul class="rc-bullets">
-              <li>Python-based library, proxy, and MCP server architecture.</li><li>Reduces token consumption by 20-95% for coding and JSON data.</li><li>Maintains LLM output quality while significantly lowering inference costs.</li><li>Essential infrastructure for scaling agentic workflows and RAG pipelines.</li>
+              <li>Engineered in Zig for extreme performance and minimal memory footprint compared to Chromium-based alternatives.</li><li>Designed specifically for headless automation, scraping, and agentic web interaction.</li><li>Provides a stable, predictable environment for LLMs to navigate complex web interfaces.</li><li>Ideal for fintech data extraction and automated market research workflows.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/headroomlabs-ai/headroom" target="_blank" rel="noopener">https://github.com/headroomlabs-ai/headroom</a></div>
+              <div class="bc-url"><a href="https://github.com/lightpanda-io/browser" target="_blank" rel="noopener">https://github.com/lightpanda-io/browser</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/headroomlabs-ai/headroom"
-                      data-save-title="headroomlabs-ai/headroom"
-                      data-save-source="Python"
+                      data-save-url="https://github.com/lightpanda-io/browser"
+                      data-save-title="lightpanda-io/browser"
+                      data-save-source="Zig"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
                       data-save-date="2026-09-08">
@@ -1668,24 +1765,24 @@
           
           <article class="repo-card">
             <div class="rc-head">
-              <span class="chip">Python</span>
-              <span class="chip stars">81849★</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip stars">21246★</span>
             </div>
-            <h3><a href="https://github.com/bytedance/deer-flow" target="_blank" rel="noopener">bytedance/deer-flow</a></h3>
-            <p class="rc-oneliner">A comprehensive open-source harness for long-horizon AI agents capable of complex research and coding tasks.</p>
+            <h3><a href="https://github.com/mksglu/context-mode" target="_blank" rel="noopener">mksglu/context-mode</a></h3>
+            <p class="rc-oneliner">A sophisticated context window optimization framework for AI coding agents that utilizes MCP to manage session memory and tool output.</p>
             
             
             
             <ul class="rc-bullets">
-              <li>Features a sophisticated stack including sandboxes, persistent memory, and subagent management.</li><li>Utilizes a message gateway to coordinate multi-level agentic workflows.</li><li>Designed for complex, multi-step automation tasks requiring long-term planning.</li><li>Provides a robust framework for building autonomous research and development agents.</li>
+              <li>Reduces LLM context consumption by up to 98% through intelligent tool output sandboxing.</li><li>Supports multi-platform routing across 17 different AI providers via MCP hooks.</li><li>Enforces persistent session memory to maintain state across long-running coding tasks.</li><li>Critical for complex financial modeling or large-scale codebase refactoring agents.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/bytedance/deer-flow" target="_blank" rel="noopener">https://github.com/bytedance/deer-flow</a></div>
+              <div class="bc-url"><a href="https://github.com/mksglu/context-mode" target="_blank" rel="noopener">https://github.com/mksglu/context-mode</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/bytedance/deer-flow"
-                      data-save-title="bytedance/deer-flow"
-                      data-save-source="Python"
+                      data-save-url="https://github.com/mksglu/context-mode"
+                      data-save-title="mksglu/context-mode"
+                      data-save-source="TypeScript"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
                       data-save-date="2026-09-08">
@@ -1699,24 +1796,24 @@
           
           <article class="repo-card">
             <div class="rc-head">
-              <span class="chip">JavaScript</span>
-              <span class="chip stars">9687★</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip stars">47439★</span>
             </div>
-            <h3><a href="https://github.com/jo-inc/camofox-browser" target="_blank" rel="noopener">jo-inc/camofox-browser</a></h3>
-            <p class="rc-oneliner">A stealth-focused headless browser designed to bypass bot detection and anti-scraping measures for AI agents.</p>
+            <h3><a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">heygen-com/hyperframes</a></h3>
+            <p class="rc-oneliner">A framework for rendering high-fidelity video directly from HTML/CSS, purpose-built for agentic video generation.</p>
             
             
             
             <ul class="rc-bullets">
-              <li>JavaScript-based drop-in replacement for Puppeteer and Playwright.</li><li>Implements advanced fingerprinting evasion to bypass Cloudflare and similar protections.</li><li>Optimized for reliable data extraction and web interaction in agentic environments.</li><li>Critical infrastructure for agents requiring consistent access to protected web data.</li>
+              <li>Uses TypeScript to bridge the gap between web-based UI design and video production.</li><li>Enables programmatic video generation, ideal for automated financial reporting or personalized client updates.</li><li>Designed for integration into agentic pipelines that require visual output.</li><li>Simplifies the creation of dynamic, data-driven video content without manual editing.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/jo-inc/camofox-browser" target="_blank" rel="noopener">https://github.com/jo-inc/camofox-browser</a></div>
+              <div class="bc-url"><a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">https://github.com/heygen-com/hyperframes</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/jo-inc/camofox-browser"
-                      data-save-title="jo-inc/camofox-browser"
-                      data-save-source="JavaScript"
+                      data-save-url="https://github.com/heygen-com/hyperframes"
+                      data-save-title="heygen-com/hyperframes"
+                      data-save-source="TypeScript"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
                       data-save-date="2026-09-08">
@@ -1730,24 +1827,24 @@
           
           <article class="repo-card">
             <div class="rc-head">
-              <span class="chip">Rust</span>
-              <span class="chip stars">1087★</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip stars">834★</span>
             </div>
-            <h3><a href="https://github.com/microsoft/tgrep" target="_blank" rel="noopener">microsoft/tgrep</a></h3>
-            <p class="rc-oneliner">A high-performance, trigram-indexed grep tool with client/server architecture for local codebase searching.</p>
+            <h3><a href="https://github.com/coldteadotai/pr-lens" target="_blank" rel="noopener">coldteadotai/pr-lens</a></h3>
+            <p class="rc-oneliner">A tool that visualizes pull requests as animated architecture and data-flow diagrams to improve code review efficiency.</p>
             
             
             
             <ul class="rc-bullets">
-              <li>Written in Rust for memory safety and high-speed execution.</li><li>Utilizes a client/server model to enable rapid regex searches across massive local codebases.</li><li>Implements trigram indexing to drastically reduce search latency compared to standard grep.</li><li>Ideal for developers managing large-scale repositories and complex code navigation.</li>
+              <li>Available as a GitHub App, Action, CLI, or an integrated skill for AI coding agents.</li><li>Automatically generates visual representations of data flow and architectural changes.</li><li>Enhances developer productivity by providing immediate visual context for complex PRs.</li><li>Useful for auditing financial software changes where architectural integrity is paramount.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/microsoft/tgrep" target="_blank" rel="noopener">https://github.com/microsoft/tgrep</a></div>
+              <div class="bc-url"><a href="https://github.com/coldteadotai/pr-lens" target="_blank" rel="noopener">https://github.com/coldteadotai/pr-lens</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/microsoft/tgrep"
-                      data-save-title="microsoft/tgrep"
-                      data-save-source="Rust"
+                      data-save-url="https://github.com/coldteadotai/pr-lens"
+                      data-save-title="coldteadotai/pr-lens"
+                      data-save-source="TypeScript"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
                       data-save-date="2026-09-08">
@@ -5941,7 +6038,7 @@
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-09-08 08:23 HKT");
+  var dataTS = encodeURIComponent("2026-09-08 22:41 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;

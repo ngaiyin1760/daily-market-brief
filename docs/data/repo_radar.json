@@ -1,108 +1,109 @@
 {
- "generated_at": "2026-09-08 08:23 HKT",
+ "generated_at": "2026-09-08 22:41 HKT",
  "repos": [
   {
-   "name": "The-Swarm-Corporation/AutoHedge",
-   "url": "https://github.com/The-Swarm-Corporation/AutoHedge",
-   "language": "Python",
-   "description": "Build your autonomous hedge fund in minutes. AutoHedge harnesses the power of swarm intelligence and AI agents to automate market analysis, risk management, and trade execution.",
+   "name": "redhat-et/ripwire",
+   "url": "https://github.com/redhat-et/ripwire",
+   "language": "C++",
+   "description": "The ripgrep of AI context: a zero-dependency C++23 CLI + MCP server giving coding agents a ranked, deterministic map of any repo, blast radius, tests-to-run and quality deltas. Signatures at 80% fewer bytes than bodies; ~5% of a grep-and-read pass's tokens.",
    "keywords": [
     "AI agent",
-    "Fintech"
+    "AI coding assistant",
+    "MCP",
+    "Search"
    ],
-   "trendshift_pos": 13,
-   "stars": 5252,
+   "trendshift_pos": 25,
+   "stars": 1666,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An autonomous hedge fund framework utilizing swarm intelligence and AI agents for market analysis and trade execution.",
+   "one_liner": "A high-performance C++23 CLI and MCP server providing a deterministic, ranked map of repository context for AI coding agents.",
    "bullets": [
-    "Built in Python leveraging multi-agent swarm architectures.",
-    "Integrates automated risk management and real-time market analysis modules.",
-    "Designed for rapid deployment of algorithmic trading strategies.",
-    "Focuses on autonomous decision-making for financial market operations."
+    "Built with C++23 for zero-dependency, high-speed repository indexing.",
+    "Implements the Model Context Protocol (MCP) to serve as a standardized interface for LLMs.",
+    "Generates ranked maps of codebases, including blast radius analysis and quality deltas.",
+    "Optimizes agentic workflows by reducing context noise by up to 80%."
    ]
   },
   {
-   "name": "headroomlabs-ai/headroom",
-   "url": "https://github.com/headroomlabs-ai/headroom",
-   "language": "Python",
-   "description": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
-   "keywords": [
-    "AI agent",
-    "AI infrastructure"
-   ],
-   "trendshift_pos": 11,
-   "stars": 70088,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A token-optimization middleware that compresses logs, files, and RAG chunks for LLM efficiency.",
-   "bullets": [
-    "Python-based library, proxy, and MCP server architecture.",
-    "Reduces token consumption by 20-95% for coding and JSON data.",
-    "Maintains LLM output quality while significantly lowering inference costs.",
-    "Essential infrastructure for scaling agentic workflows and RAG pipelines."
-   ]
-  },
-  {
-   "name": "bytedance/deer-flow",
-   "url": "https://github.com/bytedance/deer-flow",
-   "language": "Python",
-   "description": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.",
-   "keywords": [
-    "AI agent",
-    "AI workflow"
-   ],
-   "trendshift_pos": 22,
-   "stars": 81849,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A comprehensive open-source harness for long-horizon AI agents capable of complex research and coding tasks.",
-   "bullets": [
-    "Features a sophisticated stack including sandboxes, persistent memory, and subagent management.",
-    "Utilizes a message gateway to coordinate multi-level agentic workflows.",
-    "Designed for complex, multi-step automation tasks requiring long-term planning.",
-    "Provides a robust framework for building autonomous research and development agents."
-   ]
-  },
-  {
-   "name": "jo-inc/camofox-browser",
-   "url": "https://github.com/jo-inc/camofox-browser",
-   "language": "JavaScript",
-   "description": "Stealth headless browser for AI agents — bypass Cloudflare, bot detection, and anti-scraping. Drop-in Puppeteer/Playwright replacement.",
+   "name": "lightpanda-io/browser",
+   "url": "https://github.com/lightpanda-io/browser",
+   "language": "Zig",
+   "description": "Lightpanda: the headless browser designed for AI and automation",
    "keywords": [
     "AI agent",
     "Headless browser"
    ],
    "trendshift_pos": 23,
-   "stars": 9687,
+   "stars": 35135,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A stealth-focused headless browser designed to bypass bot detection and anti-scraping measures for AI agents.",
+   "one_liner": "A lightweight, headless browser engine written in Zig, specifically optimized for AI agents and automation tasks.",
    "bullets": [
-    "JavaScript-based drop-in replacement for Puppeteer and Playwright.",
-    "Implements advanced fingerprinting evasion to bypass Cloudflare and similar protections.",
-    "Optimized for reliable data extraction and web interaction in agentic environments.",
-    "Critical infrastructure for agents requiring consistent access to protected web data."
+    "Engineered in Zig for extreme performance and minimal memory footprint compared to Chromium-based alternatives.",
+    "Designed specifically for headless automation, scraping, and agentic web interaction.",
+    "Provides a stable, predictable environment for LLMs to navigate complex web interfaces.",
+    "Ideal for fintech data extraction and automated market research workflows."
    ]
   },
   {
-   "name": "microsoft/tgrep",
-   "url": "https://github.com/microsoft/tgrep",
-   "language": "Rust",
-   "description": "Trigram-indexed grep with a client/server architecture for fast regex search in large codebases locally",
+   "name": "mksglu/context-mode",
+   "url": "https://github.com/mksglu/context-mode",
+   "language": "TypeScript",
+   "description": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and   enforces routing across 17 platforms via MCP + hooks.",
    "keywords": [
-    "Search"
+    "MCP"
    ],
-   "trendshift_pos": 3,
-   "stars": 1087,
+   "trendshift_pos": 12,
+   "stars": 21246,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A high-performance, trigram-indexed grep tool with client/server architecture for local codebase searching.",
+   "one_liner": "A sophisticated context window optimization framework for AI coding agents that utilizes MCP to manage session memory and tool output.",
    "bullets": [
-    "Written in Rust for memory safety and high-speed execution.",
-    "Utilizes a client/server model to enable rapid regex searches across massive local codebases.",
-    "Implements trigram indexing to drastically reduce search latency compared to standard grep.",
-    "Ideal for developers managing large-scale repositories and complex code navigation."
+    "Reduces LLM context consumption by up to 98% through intelligent tool output sandboxing.",
+    "Supports multi-platform routing across 17 different AI providers via MCP hooks.",
+    "Enforces persistent session memory to maintain state across long-running coding tasks.",
+    "Critical for complex financial modeling or large-scale codebase refactoring agents."
+   ]
+  },
+  {
+   "name": "heygen-com/hyperframes",
+   "url": "https://github.com/heygen-com/hyperframes",
+   "language": "TypeScript",
+   "description": "Write HTML. Render video. Built for agents.",
+   "keywords": [
+    "AI agent",
+    "AI video generation"
+   ],
+   "trendshift_pos": 1,
+   "stars": 47439,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A framework for rendering high-fidelity video directly from HTML/CSS, purpose-built for agentic video generation.",
+   "bullets": [
+    "Uses TypeScript to bridge the gap between web-based UI design and video production.",
+    "Enables programmatic video generation, ideal for automated financial reporting or personalized client updates.",
+    "Designed for integration into agentic pipelines that require visual output.",
+    "Simplifies the creation of dynamic, data-driven video content without manual editing."
+   ]
+  },
+  {
+   "name": "coldteadotai/pr-lens",
+   "url": "https://github.com/coldteadotai/pr-lens",
+   "language": "TypeScript",
+   "description": "PR Lens draws every PR as animated architecture and data-flow diagrams, inside the pull request itself. Use it as a GitHub App, GitHub Action, CLI, or a skill for your coding agent",
+   "keywords": [
+    "AI coding assistant"
+   ],
+   "trendshift_pos": 18,
+   "stars": 834,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A tool that visualizes pull requests as animated architecture and data-flow diagrams to improve code review efficiency.",
+   "bullets": [
+    "Available as a GitHub App, Action, CLI, or an integrated skill for AI coding agents.",
+    "Automatically generates visual representations of data flow and architectural changes.",
+    "Enhances developer productivity by providing immediate visual context for complex PRs.",
+    "Useful for auditing financial software changes where architectural integrity is paramount."
    ]
   }
  ]

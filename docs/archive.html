@@ -1504,6 +1504,103 @@
     background: linear-gradient(90deg, var(--accent-2), var(--accent));
     border-radius: 2px;
   }
+
+  /* ---------- Central Bank Watch ---------- */
+  .cb-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    align-items: center;
+    background: linear-gradient(135deg, #fef9e7 0%, #f1ecfd 100%);
+    border: 1px solid #ead9a8;
+    border-left: 5px solid var(--gold);
+    border-radius: 8px;
+    padding: 9px 16px;
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+  [data-theme="dark"] .cb-strip {
+    background: linear-gradient(135deg, #241f33 0%, #1d2a2a 100%);
+    border-color: var(--rule-dark);
+  }
+  .cb-item { display: inline-flex; align-items: center; gap: 9px; }
+  .cb-item + .cb-item { padding-left: 12px; border-left: 1px dashed var(--rule-dark); }
+  .cb-next {
+    background: var(--gold);
+    color: #221f1a;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .cb-text strong { color: var(--ink); }
+  [data-theme="dark"] .cb-text { color: var(--ink-soft); }
+
+  .cb-watch {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-left: 5px solid var(--accent-2);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+  }
+  .cb-watch h2 {
+    font-family: var(--serif);
+    font-size: 21px;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  .cb-col + .cb-col { margin-top: 8px; }
+  .cb-sub {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 6px 0 2px;
+  }
+  .cb-list { list-style: none; margin: 0; padding: 0; }
+  .cb-list li {
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    gap: 2px 14px;
+    padding: 8px 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .cb-list li:first-child { border-top: none; }
+  .cb-when {
+    grid-column: 1;
+    color: var(--accent-2);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .cb-body { grid-column: 2; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .cb-head { font-weight: 600; color: var(--ink); font-size: 15px; line-height: 1.4; }
+  .cb-expect, .cb-meta { color: var(--muted); font-size: 13px; }
+  .cb-outcome { font-weight: 600; color: var(--ink); font-size: 14.5px; line-height: 1.4; }
+  .cb-tone { color: var(--ink-soft); font-size: 13.5px; line-height: 1.45; }
+  .cb-link {
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+  .cb-link:hover { text-decoration: underline; }
+  [data-theme="dark"] .cb-watch { background: var(--card); border-color: var(--rule); }
+  [data-theme="dark"] .cb-watch h2 { color: var(--ink); }
+  [data-theme="dark"] .cb-head, [data-theme="dark"] .cb-outcome { color: var(--ink); }
+  @media (max-width: 620px) {
+    .cb-strip { font-size: 14px; }
+    .cb-when { font-size: 12px; }
+  }
 </style>
 </head>
 <body>
@@ -1655,7 +1752,7 @@
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-09-08 08:23 HKT");
+  var dataTS = encodeURIComponent("2026-09-08 22:41 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;

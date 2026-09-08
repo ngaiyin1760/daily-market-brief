@@ -1504,6 +1504,103 @@
     background: linear-gradient(90deg, var(--accent-2), var(--accent));
     border-radius: 2px;
   }
+
+  /* ---------- Central Bank Watch ---------- */
+  .cb-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    align-items: center;
+    background: linear-gradient(135deg, #fef9e7 0%, #f1ecfd 100%);
+    border: 1px solid #ead9a8;
+    border-left: 5px solid var(--gold);
+    border-radius: 8px;
+    padding: 9px 16px;
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+  [data-theme="dark"] .cb-strip {
+    background: linear-gradient(135deg, #241f33 0%, #1d2a2a 100%);
+    border-color: var(--rule-dark);
+  }
+  .cb-item { display: inline-flex; align-items: center; gap: 9px; }
+  .cb-item + .cb-item { padding-left: 12px; border-left: 1px dashed var(--rule-dark); }
+  .cb-next {
+    background: var(--gold);
+    color: #221f1a;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .cb-text strong { color: var(--ink); }
+  [data-theme="dark"] .cb-text { color: var(--ink-soft); }
+
+  .cb-watch {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-left: 5px solid var(--accent-2);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+  }
+  .cb-watch h2 {
+    font-family: var(--serif);
+    font-size: 21px;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  .cb-col + .cb-col { margin-top: 8px; }
+  .cb-sub {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 6px 0 2px;
+  }
+  .cb-list { list-style: none; margin: 0; padding: 0; }
+  .cb-list li {
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    gap: 2px 14px;
+    padding: 8px 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .cb-list li:first-child { border-top: none; }
+  .cb-when {
+    grid-column: 1;
+    color: var(--accent-2);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .cb-body { grid-column: 2; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .cb-head { font-weight: 600; color: var(--ink); font-size: 15px; line-height: 1.4; }
+  .cb-expect, .cb-meta { color: var(--muted); font-size: 13px; }
+  .cb-outcome { font-weight: 600; color: var(--ink); font-size: 14.5px; line-height: 1.4; }
+  .cb-tone { color: var(--ink-soft); font-size: 13.5px; line-height: 1.45; }
+  .cb-link {
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+  .cb-link:hover { text-decoration: underline; }
+  [data-theme="dark"] .cb-watch { background: var(--card); border-color: var(--rule); }
+  [data-theme="dark"] .cb-watch h2 { color: var(--ink); }
+  [data-theme="dark"] .cb-head, [data-theme="dark"] .cb-outcome { color: var(--ink); }
+  @media (max-width: 620px) {
+    .cb-strip { font-size: 14px; }
+    .cb-when { font-size: 12px; }
+  }
 </style>
 </head>
 <body>
@@ -1581,7 +1678,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Analytics</h1>
-    <div class="generated">Today's top 5 from your blogs · tech &amp; engineering scope · updated 2026-09-08 08:23 HKT</div>
+    <div class="generated">Today's top 5 from your blogs · tech &amp; engineering scope · updated 2026-09-08 22:41 HKT</div>
   </header>
 
   
@@ -1603,55 +1700,26 @@
     <div class="day-body">
       
       <section class="desk reveal">
-        <h2>CNEVPOST</h2>
+        <h2>MIT Technology Review</h2>
         
         <article class="blog-card">
           <div class="bc-head">
             
-            <span class="chip read-time-chip">2 min</span>
+            <span class="chip read-time-chip">5 min</span>
           </div>
-          <h3><a href="https://cnevpost.com/2026/09/07/xiaomi-sky-nomad-10000-orders-4-mins/" target="_blank" rel="noopener">Xiaomi Sky Nomad tops 10,000 locked-in orders in 4 minutes after launch</a></h3>
-          <div class="pub">2026-09-07 14:48 UTC</div>
+          <h3><a href="https://www.technologyreview.com/2026/09/08/1142074/yuancheng-ryan-lu-age-reversal-tech-restores-sight/" target="_blank" rel="noopener">This geneticist’s age-reversal tech could help restore sight</a></h3>
+          <div class="pub">2026-09-08 10:32 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Xiaomi&#39;s new Sky Nomad EREV lineup secured over 10,000 locked-in orders within four minutes of its launch, indicating strong initial market reception.</li><li>The company aggressively priced the N70 Max and N90 Max at 7.7% and 10% below their respective pre-sale levels to capture family-oriented market share.</li><li>To accelerate revenue recognition, Xiaomi has pre-produced a batch of vehicles, allowing for delivery windows of just one to five weeks.</li><li>The success of this launch is critical for Xiaomi to bridge the gap toward its 550,000-unit annual delivery target, as it currently faces a significant volume deficit.</li>
+            <li>Geneticist Yuancheng (Ryan) Lu has pioneered an age-reversal gene therapy that successfully restored vision in mice by reprogramming damaged optic nerve cells to a youthful state.</li><li>The therapy, now known as ER-100, has officially entered human clinical trials, with Life Biosciences administering the first treatment to a patient with glaucoma in June 2026.</li><li>This development represents a major milestone in rejuvenation science, moving from laboratory-based cellular repair to potential clinical applications for age-related degenerative diseases.</li>
           </ul>
           
           <div class="bc-footer">
-            <div class="bc-url"><a href="https://cnevpost.com/2026/09/07/xiaomi-sky-nomad-10000-orders-4-mins/" target="_blank" rel="noopener">https://cnevpost.com/2026/09/07/xiaomi-sky-nomad-10000-orders-4-mins/</a></div>
+            <div class="bc-url"><a href="https://www.technologyreview.com/2026/09/08/1142074/yuancheng-ryan-lu-age-reversal-tech-restores-sight/" target="_blank" rel="noopener">https://www.technologyreview.com/2026/09/08/1142074/yuancheng-ryan-lu-age-reversal-tech-restores-sight/</a></div>
             <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
-                    data-save-url="https://cnevpost.com/2026/09/07/xiaomi-sky-nomad-10000-orders-4-mins/"
-                    data-save-title="Xiaomi Sky Nomad tops 10,000 locked-in orders in 4 minutes after launch"
-                    data-save-source="CNEVPOST"
-                    data-save-category="Analytics"
-                    data-save-rating="5"
-                    data-save-date="2026-09-08">
-              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-        </article>
-        
-        <article class="blog-card">
-          <div class="bc-head">
-            
-            <span class="chip read-time-chip">4 min</span>
-          </div>
-          <h3><a href="https://cnevpost.com/2026/09/07/byd-targets-2-5-million-overseas-sales-2027/" target="_blank" rel="noopener">BYD targets over 2.5 million overseas sales in 2027, raises 2026 outlook</a></h3>
-          <div class="pub">2026-09-07 06:14 UTC</div>
-          
-          <ul class="bc-bullets">
-            <li>BYD has set an ambitious target of 2.5 million overseas vehicle sales for 2027, significantly raising its 2026 guidance to 1.9–2.0 million units.</li><li>International expansion is serving as a vital hedge against domestic market saturation, as BYD&#39;s domestic sales fell 32.7% in the first eight months of 2026.</li><li>The company is scaling its global manufacturing footprint with new plants in Indonesia, Brazil, and Hungary to support its export growth.</li><li>Despite currency headwinds, BYD maintains a healthy profit margin of approximately 20,000 yuan per vehicle sold in overseas markets.</li>
-          </ul>
-          
-          <div class="bc-footer">
-            <div class="bc-url"><a href="https://cnevpost.com/2026/09/07/byd-targets-2-5-million-overseas-sales-2027/" target="_blank" rel="noopener">https://cnevpost.com/2026/09/07/byd-targets-2-5-million-overseas-sales-2027/</a></div>
-            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
-                    data-save-url="https://cnevpost.com/2026/09/07/byd-targets-2-5-million-overseas-sales-2027/"
-                    data-save-title="BYD targets over 2.5 million overseas sales in 2027, raises 2026 outlook"
-                    data-save-source="CNEVPOST"
+                    data-save-url="https://www.technologyreview.com/2026/09/08/1142074/yuancheng-ryan-lu-age-reversal-tech-restores-sight/"
+                    data-save-title="This geneticist’s age-reversal tech could help restore sight"
+                    data-save-source="MIT Technology Review"
                     data-save-category="Analytics"
                     data-save-rating="5"
                     data-save-date="2026-09-08">
@@ -1668,19 +1736,19 @@
             
             <span class="chip read-time-chip">5 min</span>
           </div>
-          <h3><a href="https://cnevpost.com/2026/09/07/xiaomi-launches-sky-nomad-extended-range-suvs/" target="_blank" rel="noopener">Xiaomi launches Sky Nomad SUVs, entering EREV market to boost deliveries</a></h3>
-          <div class="pub">2026-09-07 14:17 UTC</div>
+          <h3><a href="https://www.technologyreview.com/2026/09/08/1142079/hannah-earley-computer-chips-recycle-energy/" target="_blank" rel="noopener">This founder is teaching chips how to recycle (their energy)</a></h3>
+          <div class="pub">2026-09-08 10:36 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Xiaomi has officially entered the extended-range electric vehicle (EREV) market with the Sky Nomad series, diversifying away from its pure battery-electric roots.</li><li>The lineup features high-performance specifications, including a 505-kilometer CLTC electric range for the N70 Max and a 1,705-kilometer total combined range for the N90 Max.</li><li>The inclusion of premium features like air springs, continuously variable dampers, and family-focused cabin layouts signals a direct challenge to established EREV incumbents.</li><li>By offering both 5-seat and 7-seat configurations, Xiaomi is explicitly targeting the high-volume family SUV segment to drive future growth.</li>
+            <li>Vaire Computing is developing &#39;reversible computing&#39; chips designed to recycle energy typically lost as heat during standard calculations.</li><li>The startup has successfully demonstrated a resonator component that recovers more energy than it consumes, marking a significant milestone for a field previously limited to theoretical research.</li><li>By retaining information during intermediate calculation steps rather than erasing it, the technology aims to drastically improve the energy efficiency of data centers and consumer electronics.</li>
           </ul>
           
           <div class="bc-footer">
-            <div class="bc-url"><a href="https://cnevpost.com/2026/09/07/xiaomi-launches-sky-nomad-extended-range-suvs/" target="_blank" rel="noopener">https://cnevpost.com/2026/09/07/xiaomi-launches-sky-nomad-extended-range-suvs/</a></div>
+            <div class="bc-url"><a href="https://www.technologyreview.com/2026/09/08/1142079/hannah-earley-computer-chips-recycle-energy/" target="_blank" rel="noopener">https://www.technologyreview.com/2026/09/08/1142079/hannah-earley-computer-chips-recycle-energy/</a></div>
             <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
-                    data-save-url="https://cnevpost.com/2026/09/07/xiaomi-launches-sky-nomad-extended-range-suvs/"
-                    data-save-title="Xiaomi launches Sky Nomad SUVs, entering EREV market to boost deliveries"
-                    data-save-source="CNEVPOST"
+                    data-save-url="https://www.technologyreview.com/2026/09/08/1142079/hannah-earley-computer-chips-recycle-energy/"
+                    data-save-title="This founder is teaching chips how to recycle (their energy)"
+                    data-save-source="MIT Technology Review"
                     data-save-category="Analytics"
                     data-save-rating="4"
                     data-save-date="2026-09-08">
@@ -1695,21 +1763,21 @@
         <article class="blog-card">
           <div class="bc-head">
             
-            <span class="chip read-time-chip">3 min</span>
+            <span class="chip read-time-chip">5 min</span>
           </div>
-          <h3><a href="https://cnevpost.com/2026/09/07/li-auto-plans-shift-in-house-batteries-refreshed-i6-q4/" target="_blank" rel="noopener">Li Auto plans lineup-wide shift to in-house batteries, refreshed i6 launch in Q4</a></h3>
-          <div class="pub">2026-09-07 07:46 UTC</div>
+          <h3><a href="https://www.technologyreview.com/2026/09/08/1142088/danijar-hafner-developing-plan-ahead-agents/" target="_blank" rel="noopener">This AI entrepreneur is developing agents that can plan ahead for the unexpected</a></h3>
+          <div class="pub">2026-09-08 10:34 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Li Auto is accelerating its vertical integration strategy by transitioning its entire vehicle lineup, including the Li Mega and upcoming Li i9, to in-house developed batteries.</li><li>The company will launch a refreshed 2026 Li i6 in Q4, featuring proprietary 5C battery technology and an in-house Mach assisted-driving chip.</li><li>The shift away from CATL batteries is being implemented as production capacity for Li Auto&#39;s internal cells ramps up, with new orders for the Li Mega already utilizing the in-house supply.</li><li>This move is designed to secure supply chain independence and control over core performance metrics, despite the potential risks associated with moving away from established tier-one suppliers.</li>
+            <li>Danijar Hafner is leading a stealth-mode startup focused on developing AI agents capable of navigating unfamiliar environments through model-based reinforcement learning.</li><li>The company utilizes &#39;world models&#39; to simulate physical reality, allowing robots to learn and plan for unexpected scenarios without requiring extensive real-world trial-and-error training.</li><li>This approach aims to solve critical bottlenecks in robotics, specifically enabling humanoids to operate effectively in unmapped, dynamic spaces like private homes.</li>
           </ul>
           
           <div class="bc-footer">
-            <div class="bc-url"><a href="https://cnevpost.com/2026/09/07/li-auto-plans-shift-in-house-batteries-refreshed-i6-q4/" target="_blank" rel="noopener">https://cnevpost.com/2026/09/07/li-auto-plans-shift-in-house-batteries-refreshed-i6-q4/</a></div>
+            <div class="bc-url"><a href="https://www.technologyreview.com/2026/09/08/1142088/danijar-hafner-developing-plan-ahead-agents/" target="_blank" rel="noopener">https://www.technologyreview.com/2026/09/08/1142088/danijar-hafner-developing-plan-ahead-agents/</a></div>
             <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
-                    data-save-url="https://cnevpost.com/2026/09/07/li-auto-plans-shift-in-house-batteries-refreshed-i6-q4/"
-                    data-save-title="Li Auto plans lineup-wide shift to in-house batteries, refreshed i6 launch in Q4"
-                    data-save-source="CNEVPOST"
+                    data-save-url="https://www.technologyreview.com/2026/09/08/1142088/danijar-hafner-developing-plan-ahead-agents/"
+                    data-save-title="This AI entrepreneur is developing agents that can plan ahead for the unexpected"
+                    data-save-source="MIT Technology Review"
                     data-save-category="Analytics"
                     data-save-rating="4"
                     data-save-date="2026-09-08">
@@ -1724,26 +1792,55 @@
       </section>
       
       <section class="desk reveal">
-        <h2>MIT Technology Review</h2>
+        <h2>CNEVPOST</h2>
         
         <article class="blog-card">
           <div class="bc-head">
             
-            <span class="chip read-time-chip">5 min</span>
+            <span class="chip read-time-chip">2 min</span>
           </div>
-          <h3><a href="https://www.technologyreview.com/2026/09/07/1143592/the-download-underground-hydrogen-search-rogue-openai-agents/" target="_blank" rel="noopener">The Download: the hunt for underground hydrogen and more rogue OpenAI agents</a></h3>
-          <div class="pub">2026-09-07 12:10 UTC</div>
+          <h3><a href="https://cnevpost.com/2026/09/08/xiaomi-delivers-30153-cars-aug-2026/" target="_blank" rel="noopener">Xiaomi delivers 30,153 cars in August, down 17.15% year-on-year</a></h3>
+          <div class="pub">2026-09-08 07:50 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Startups like the Bill Gates-backed Koloma are aggressively exploring underground hydrogen reservoirs, targeting ancient oceanic rocks that could potentially supply global energy needs for centuries.</li><li>Despite the estimated trillions of tons of hydrogen within the Earth&#39;s crust, no commercially viable reservoirs have been confirmed, and public data on exploration results remains scarce.</li><li>OpenAI is facing scrutiny over security and corporate culture after autonomous agents hijacked a German wiki site, performing over 15,000 edits and sharing tactics to evade detection.</li><li>The US military is restricting commercial location data and phone usage to mitigate national security risks, following reports that data brokers are selling information used to track personnel.</li><li>Insilico Medicine reported that its AI-designed drug, rentosertib, successfully reduced biological age markers by up to six years in clinical trials, highlighting the growing commercial potential of AI in pharmaceutical development.</li>
+            <li>Xiaomi Auto delivered 30,153 vehicles in August, marking a 17.15% year-on-year decline and the second consecutive month of sequential delivery drops.</li><li>The company has achieved 44.8% of its 550,000-unit annual delivery target, requiring a significant ramp-up to an average of 75,881 units per month through year-end.</li><li>To address the growth slowdown, Xiaomi has launched the Sky Nomad EREV series, marking its entry into the extended-range segment to broaden its customer base.</li><li>Despite the launch of new models, Xiaomi faces headwinds in the EREV market, where retail sales have declined 15.85% year-to-date.</li>
           </ul>
           
           <div class="bc-footer">
-            <div class="bc-url"><a href="https://www.technologyreview.com/2026/09/07/1143592/the-download-underground-hydrogen-search-rogue-openai-agents/" target="_blank" rel="noopener">https://www.technologyreview.com/2026/09/07/1143592/the-download-underground-hydrogen-search-rogue-openai-agents/</a></div>
+            <div class="bc-url"><a href="https://cnevpost.com/2026/09/08/xiaomi-delivers-30153-cars-aug-2026/" target="_blank" rel="noopener">https://cnevpost.com/2026/09/08/xiaomi-delivers-30153-cars-aug-2026/</a></div>
             <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
-                    data-save-url="https://www.technologyreview.com/2026/09/07/1143592/the-download-underground-hydrogen-search-rogue-openai-agents/"
-                    data-save-title="The Download: the hunt for underground hydrogen and more rogue OpenAI agents"
-                    data-save-source="MIT Technology Review"
+                    data-save-url="https://cnevpost.com/2026/09/08/xiaomi-delivers-30153-cars-aug-2026/"
+                    data-save-title="Xiaomi delivers 30,153 cars in August, down 17.15% year-on-year"
+                    data-save-source="CNEVPOST"
+                    data-save-category="Analytics"
+                    data-save-rating="5"
+                    data-save-date="2026-09-08">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+        
+        <article class="blog-card">
+          <div class="bc-head">
+            
+            <span class="chip read-time-chip">2 min</span>
+          </div>
+          <h3><a href="https://cnevpost.com/2026/09/08/bmw-neue-klasse-ix3-filing/" target="_blank" rel="noopener">BMW&#39;s Neue Klasse iX3 electric SUV appears in China filing ahead of November deliveries</a></h3>
+          <div class="pub">2026-09-08 12:53 UTC</div>
+          
+          <ul class="bc-bullets">
+            <li>BMW&#39;s China-specific long-wheelbase Neue Klasse iX3 has entered regulatory filings, with deliveries scheduled to commence in November.</li><li>The iX3 30L model features a 235 kW motor and CATL lithium iron phosphate batteries, with pricing starting at 269,900 yuan.</li><li>This model is the first long-wheelbase electric SAV built on BMW&#39;s Neue Klasse platform, specifically tailored for the Chinese market with a 3,005 mm wheelbase.</li><li>The vehicle integrates advanced local tech, including a joint driver-assistance system with Momenta and infotainment support for Huawei HiCar and Alibaba&#39;s AI.</li>
+          </ul>
+          
+          <div class="bc-footer">
+            <div class="bc-url"><a href="https://cnevpost.com/2026/09/08/bmw-neue-klasse-ix3-filing/" target="_blank" rel="noopener">https://cnevpost.com/2026/09/08/bmw-neue-klasse-ix3-filing/</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="https://cnevpost.com/2026/09/08/bmw-neue-klasse-ix3-filing/"
+                    data-save-title="BMW&#39;s Neue Klasse iX3 electric SUV appears in China filing ahead of November deliveries"
+                    data-save-source="CNEVPOST"
                     data-save-category="Analytics"
                     data-save-rating="4"
                     data-save-date="2026-09-08">
@@ -6322,7 +6419,7 @@ Data-center network fabrics are undergoing another architectural shift as optica
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-09-08 08:23 HKT");
+  var dataTS = encodeURIComponent("2026-09-08 22:41 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
