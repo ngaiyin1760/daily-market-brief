@@ -14,7 +14,12 @@ Daily pages are all about the news: a snapshot ticker of the day's key moves
 (with 1-month trend arrows), a **Day importance banner** (1–5★ telling you at a
 glance how hard to read today, with a one-line verdict), the takeaways, and —
 on Fridays — **"The Week in 5"** (the 5 things that mattered this week), then
-the stories with color-coded importance chips and an importance filter. All
+the stories with color-coded importance chips and an importance filter. A
+**Central Bank Watch** strip ("NEXT · Fed rate decision — Tomorrow 02:00 HKT")
+plus a watch box flag major central-bank decisions (Fed, ECB, BoE, BoJ, PBoC,
+SNB, BoC, RBA) up to a week ahead, and report each decision's numeric outcome
+(actual vs consensus vs prior) for ~5 days after — even when the day's news
+misses it. All
 indicator charts and figures live on a separate **Markets** tab — up to 10
 years of daily history per instrument, per-chart zoom buttons (1M / 3M / 1Y /
 5Y / 10Y), YTD/1M/1Y performance chips, and per-group "as of" freshness
@@ -120,6 +125,15 @@ the model (default `gemini-3.1-flash-lite`).
   `data/indicators.json`).
 - Indicator fetch failures (e.g. yfinance rate-limiting) are non-fatal and
   render as `n/a`.
+- **Central Bank Watch**: pulls the public TradingView economic calendar (no
+  API key; browser-like headers required) around today, whitelists the rate
+  decisions of the 8 major central banks (China's 1Y + 5Y Loan Prime Rate rows
+  are merged into one entry), and keeps a cumulative
+  `docs/data/cb_watch.json` so outcomes are recorded and the AI tone line is
+  generated once per decision — reruns stay idempotent. Tone lines are only
+  written when the day's own news headlines mention the bank (grounded, never
+  invented). A calendar failure keeps the last committed store; the page just
+  runs short (non-fatal).
 
 ## Cross-device sync (optional)
 

@@ -2553,12 +2553,428 @@ def attach_repo_images(repos, page_date):
 
 
 # ---------------------------------------------------------------------------
+# Central Bank Watch: heads-up on upcoming decisions + key results
+# ---------------------------------------------------------------------------
+# Built from the public TradingView economic calendar (no API key). One
+# scheduled "decision" per whitelisted central bank is watched; for China the
+# 1Y and 5Y Loan Prime Rate rows are merged into a single entry. Numeric
+# outcomes (actual/forecast/previous) come straight from the calendar so a
+# decision is reported even when the day's news categories miss it. A tone
+# line is only ever written by AI when today's own news stories mention the
+# bank, so it is grounded in real coverage — never invented. All of it is
+# non-fatal: a calendar failure keeps the last committed store and the page
+# just runs short (same rule as indicators/analytics).
+
+CB_WATCH_PATH = DATA_DIR / "cb_watch.json"
+
+CB_CALENDAR_URL = "https://economic-calendar.tradingview.com/events"
+# The endpoint 403s without browser-like headers (observed from HK IPs); the
+# Origin/Referer pair makes it behave like a real widget request.
+CB_CALENDAR_HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                   "AppleWebKit/537.36 (KHTML, like Gecko) "
+                   "Chrome/126.0 Safari/537.36"),
+    "Origin": "https://www.tradingview.com",
+    "Referer": "https://www.tradingview.com/",
+}
+
+CB_PAST_DAYS = 14      # look back for actuals of decisions since the last briefs
+CB_FUTURE_DAYS = 35    # look ahead for scheduled decisions
+CB_ALERT_HOURS = 48    # events inside this window go in the top alert strip
+CB_ALERT_MAX = 2       # strip shows at most this many imminent events
+CB_UPCOMING_DAYS = 7   # watch-box horizon for upcoming decisions
+CB_UPCOMING_MAX = 4
+CB_RESULT_DAYS = 5     # results stay visible this long — a Thursday Fed call
+                       # must still be on the Monday brief
+CB_RESULT_MAX = 3
+CB_TONE_LOOKBACK_DAYS = 4  # only this fresh a decision gets a tone attempt
+
+# Whitelisted major central banks, keyed by calendar currency. "needle" is
+# matched (case-insensitive) against the event title; "tokens" are word-
+# boundary matches used to spot the bank in the day's news headlines.
+CB_BANKS = {
+    "USD": {"id": "fed", "short": "Fed", "label": "Federal Reserve",
+            "needle": "interest rate decision",
+            "tokens": ["fed", "fomc", "powell", "federal reserve"]},
+    "EUR": {"id": "ecb", "short": "ECB", "label": "European Central Bank",
+            "needle": "interest rate decision",
+            "tokens": ["ecb", "lagarde"]},
+    "GBP": {"id": "boe", "short": "BoE", "label": "Bank of England",
+            "needle": "interest rate decision",
+            "tokens": ["bank of england", "boe", "bailey"]},
+    "JPY": {"id": "boj", "short": "BoJ", "label": "Bank of Japan",
+            "needle": "interest rate decision",
+            "tokens": ["bank of japan", "boj", "ueda"]},
+    "CHF": {"id": "snb", "short": "SNB", "label": "Swiss National Bank",
+            "needle": "interest rate decision",
+            "tokens": ["snb", "swiss national bank"]},
+    "CAD": {"id": "boc", "short": "BoC", "label": "Bank of Canada",
+            "needle": "interest rate decision",
+            "tokens": ["bank of canada", "boc", "macklem"]},
+    "AUD": {"id": "rba", "short": "RBA", "label": "Reserve Bank of Australia",
+            "needle": "interest rate decision",
+            "tokens": ["rba", "reserve bank of australia"]},
+    "CNY": {"id": "pboc", "short": "PBoC", "label": "People's Bank of China",
+            "needle": "loan prime rate",
+            "tokens": ["pboc", "people's bank of china", "lpr",
+                       "loan prime rate"]},
+}
+CB_BANK_BY_ID = {spec["id"]: spec for spec in CB_BANKS.values()}
+
+
+def _cb_num(value):
+    """Calendar cells come as numbers or strings ('3.75', 'None', '%') —
+    tolerate both; return float or None."""
+    if value is None:
+        return None
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, (int, float)):
+        return float(value)
+    s = str(value).strip().replace("%", "").replace(",", "")
+    if not s or s.lower() in ("none", "null", "-"):
+        return None
+    try:
+        return float(s)
+    except ValueError:
+        return None
+
+
+def cb_row_info(row):
+    """Map one calendar row to (spec, event key, ts, secondary?) or None if
+    it is not one of the whitelisted decision rows."""
+    low = (row.get("title") or "").lower()
+    spec = CB_BANKS.get(row.get("currency") or "")
+    if not spec or spec["needle"] not in low:
+        return None
+    if any(w in low for w in ("minutes", "press conference", " speech ",
+                              "testimony", "presser")):
+        return None
+    ts = row.get("date")
+    if not ts:
+        return None
+    secondary = "5y" in low  # China LPR publishes 1Y + 5Y together
+    return {"spec": spec, "key": f"{spec['id']}-{ts[:10]}", "ts": ts,
+            "secondary": secondary}
+
+
+def _cb_action_text(actual, previous, label):
+    """One decision in plain words, from calendar numbers only."""
+    prefix = f"{label} " if label else ""
+    if previous is None:
+        return f"{prefix}policy rate {actual:.2f}%"
+    bps = int(round((actual - previous) * 100))
+    if bps == 0:
+        return f"{prefix}held at {actual:.2f}%"
+    verb = "cut" if bps < 0 else "hiked"
+    return (f"{prefix}{verb} {abs(bps)}bp to {actual:.2f}% "
+            f"from {previous:.2f}%")
+
+
+def cb_outcome_text(event):
+    """Plain-language result line for a store event (1Y + 5Y for China)."""
+    actual = event.get("actual")
+    if actual is None:
+        return None
+    if event.get("bank") == "pboc":
+        parts = [_cb_action_text(actual, event.get("previous"), "1Y")]
+        if event.get("actual5y") is not None:
+            parts.append(_cb_action_text(event["actual5y"],
+                                         event.get("previous5y"), "5Y"))
+        return " · ".join(parts)
+    return _cb_action_text(actual, event.get("previous"), None)
+
+
+def merge_cb_events(store, rows):
+    """Upsert whitelisted decision rows into the store by bank-date id.
+    Updates forecast/previous; the first time an actual arrives the outcome
+    line is computed. Returns the events that still need an AI tone line."""
+    events = store.setdefault("events", [])
+    by_id = {}
+    for ev in events:
+        if isinstance(ev, dict) and ev.get("id"):
+            by_id[ev["id"]] = ev
+    for row in rows:
+        info = cb_row_info(row)
+        if not info:
+            continue
+        ev = by_id.get(info["key"])
+        if ev is None:
+            ev = {"id": info["key"], "bank": info["spec"]["id"],
+                  "ts": info["ts"], "forecast": None, "previous": None,
+                  "actual": None, "forecast5y": None, "previous5y": None,
+                  "actual5y": None, "outcome": None, "tone": None,
+                  "tone_source": None, "link": None, "link_title": None,
+                  "verdict_at": None}
+            by_id[info["key"]] = ev
+            events.append(ev)
+        if info["secondary"]:
+            for k, field in (("forecast", "forecast5y"),
+                             ("previous", "previous5y"),
+                             ("actual", "actual5y")):
+                val = _cb_num(row.get(k))
+                if val is not None:
+                    ev[field] = val
+        else:
+            for k in ("forecast", "previous", "actual"):
+                val = _cb_num(row.get(k))
+                if val is not None:
+                    ev[k] = val
+            ev["ts"] = info["ts"]
+    # Outcome lines are cheap and purely numeric — recompute for every
+    # decided event so late/revision actuals (e.g. 5Y LPR landing a day
+    # later) stay correct.
+    for ev in events:
+        if ev.get("actual") is not None:
+            ev["outcome"] = cb_outcome_text(ev)
+    return [ev for ev in events
+            if ev.get("actual") is not None and not ev.get("verdict_at")]
+
+
+def fetch_cb_events():
+    """Pull the calendar window around today. Raises on any failure; the
+    caller keeps the last committed store untouched."""
+    now = datetime.now(timezone.utc)
+    params = {
+        "from": (now - timedelta(days=CB_PAST_DAYS)).strftime("%Y-%m-%d"),
+        "to": (now + timedelta(days=CB_FUTURE_DAYS)).strftime("%Y-%m-%d"),
+    }
+    resp = requests.get(CB_CALENDAR_URL, params=params,
+                        headers=CB_CALENDAR_HEADERS, timeout=HTTP_TIMEOUT)
+    resp.raise_for_status()
+    payload = resp.json()
+    if not isinstance(payload, dict) or not isinstance(payload.get("result"),
+                                                       list):
+        raise ValueError(f"unexpected calendar payload: {str(payload)[:120]}")
+    return payload["result"]
+
+
+def load_cb_store():
+    """docs/data/cb_watch.json -> {updated, events}. Missing/corrupt ->
+    a fresh empty store (same tolerance as analytics backlog). Entries are
+    deduped by id so legacy double-writes can never double-render."""
+    try:
+        data = json.loads(CB_WATCH_PATH.read_text(encoding="utf-8"))
+        events, seen = [], set()
+        for ev in data.get("events", []):
+            if not isinstance(ev, dict):
+                continue
+            ev_id = ev.get("id")
+            if ev_id and ev_id in seen:
+                continue
+            if ev_id:
+                seen.add(ev_id)
+            events.append(ev)
+        return {"updated": data.get("updated"), "events": events}
+    except Exception:
+        return {"updated": None, "events": []}
+
+
+def save_cb_store(store, generated_at):
+    """Persist the watch store. Non-fatal on write failure (one run lost)."""
+    try:
+        store["updated"] = generated_at
+        CB_WATCH_PATH.write_text(
+            json.dumps(store, indent=1, ensure_ascii=False),
+            encoding="utf-8")
+    except OSError as exc:
+        log.warning("Could not write cb_watch store: %s", exc)
+
+
+def prune_cb_store(store, now_utc):
+    """Keep the store small: drop decided events older than a month and
+    scheduled events that never materialised within the past lookback."""
+    events = store.setdefault("events", [])
+    kept = []
+    for ev in events:
+        try:
+            ts = datetime.fromisoformat(ev["ts"].replace("Z", "+00:00"))
+        except Exception:
+            continue
+        age = (now_utc - ts).total_seconds()
+        if ev.get("actual") is not None:
+            if age <= 30 * 86400:
+                kept.append(ev)
+        else:
+            if age > -CB_FUTURE_DAYS * 86400 - 86400:
+                kept.append(ev)
+    store["events"] = kept
+
+
+def cb_time_label(dt_hk, today):
+    """Relative HKT label for an event on/after today: 'Today 02:00 HKT',
+    'Tomorrow 02:00 HKT', or 'Thu 02:00 HKT · in 3d'."""
+    delta = (dt_hk.date() - today).days
+    hm = dt_hk.strftime("%H:%M")
+    if delta == 0:
+        return f"Today {hm} HKT"
+    if delta == 1:
+        return f"Tomorrow {hm} HKT"
+    if 2 <= delta <= 7:
+        return f"{dt_hk.strftime('%a')} {hm} HKT · in {delta}d"
+    return dt_hk.strftime("%a %d %b %H:%M HKT")
+
+
+def cb_event_headline(event):
+    """Short human title for an event, e.g. 'Fed rate decision'."""
+    spec = CB_BANK_BY_ID.get(event.get("bank"))
+    if not spec:
+        return (event.get("title") or "Central bank decision")
+    if spec["id"] == "pboc":
+        return "China LPR decision"
+    return f"{spec['short']} rate decision"
+
+
+def cb_expect_text(event):
+    """Preview line from the calendar: 'consensus 3.75% · prior 3.75%'."""
+    bits = []
+    if event.get("forecast") is not None:
+        bits.append(f"consensus {event['forecast']:.2f}%")
+    if event.get("previous") is not None:
+        bits.append(f"prior {event['previous']:.2f}%")
+    return " · ".join(bits)
+
+
+def grounded_stories(bank_id, news):
+    """Today's own news items whose headline mentions the bank (word-
+    boundary match on the bank's tokens) — the only grounding the AI tone
+    line is allowed to use. At most two."""
+    spec = CB_BANK_BY_ID.get(bank_id)
+    if not spec:
+        return []
+    pattern = re.compile(r"\b(?:" + "|".join(re.escape(t)
+                                             for t in spec["tokens"]) + r")\b",
+                         re.IGNORECASE)
+    hits = []
+    for group in news:
+        for item in group.get("items", []):
+            if pattern.search(item.get("title") or ""):
+                hits.append(item)
+                if len(hits) >= 2:
+                    return hits
+    return hits
+
+
+def cb_tone_line(spec, event, stories):
+    """One grounded Gemini call -> a single tone/guidance line about the
+    decision, derived ONLY from the headline coverage + calendar numbers.
+    Raises on failure; returns None when coverage says nothing."""
+    story_lines = []
+    for s in stories[:2]:
+        bullets = (s.get("bullets") or [])
+        story_lines.append(f"- {s.get('title') or ''}"
+                           + (f" — {bullets[0]}" if bullets else ""))
+    f = event.get("forecast")
+    forecast = f"{f:.2f}" if f is not None else "n/a"
+    prompt = (
+        f"Central bank decision digest. Bank: {spec['label']}. Policy rate "
+        f"(%, economic calendar): actual {event['actual']:.2f}, previous "
+        f"{event['previous']:.2f}, consensus forecast {forecast}. Headlines "
+        f"published right after the decision:\n"
+        + "\n".join(story_lines)
+        + "\n\nWrite the statement tone / guidance for an investor in ONE "
+          "line of at most 18 words, using only what those headlines "
+          'support. Respond as JSON {"tone": "..."}. If the headlines do '
+          'not describe tone or guidance, set "tone" to an empty string.'
+    )
+    data = gemini_json(prompt, temperature=0.2)
+    tone = (data.get("tone") or "").strip()
+    return tone or None
+
+
+def refresh_cb_store(store, news, generated_at, now_utc):
+    """Fetch the calendar, merge, and try AI tone lines for decisions that
+    just landed (fresh enough, covered by today's stories)."""
+    merge_cb_events(store, fetch_cb_events())
+    if not GEMINI_API_KEY:
+        return
+    for ev in store.get("events", []):
+        if ev.get("actual") is None or ev.get("verdict_at"):
+            continue
+        try:
+            ts = datetime.fromisoformat(ev["ts"].replace("Z", "+00:00"))
+        except Exception:
+            continue
+        if (now_utc - ts).total_seconds() > CB_TONE_LOOKBACK_DAYS * 86400:
+            continue
+        spec = CB_BANK_BY_ID.get(ev.get("bank"))
+        stories = grounded_stories(ev.get("bank"), news) if spec else []
+        if not stories:
+            continue
+        try:
+            tone = cb_tone_line(spec, ev, stories)
+        except Exception as exc:
+            log.warning("Central Bank Watch tone failed for %s: %s",
+                        ev.get("id"), exc)
+            tone = None
+        ev["link"] = stories[0].get("url")
+        ev["link_title"] = stories[0].get("title")
+        ev["tone_source"] = [s.get("title") for s in stories]
+        if tone:
+            ev["tone"] = tone
+            ev["verdict_at"] = generated_at
+
+
+def build_cb_watch(store, page_date, now_hk):
+    """Turn the store into the three display lists for the template:
+    (alert strip, upcoming list, recent results). Strings are pre-formatted
+    here so the template stays dumb."""
+    today = datetime.strptime(page_date, "%Y-%m-%d").date()
+    now_utc = now_hk.astimezone(timezone.utc)
+    alert_cand, upcoming_cand, result_cand = [], [], []
+    for ev in store.get("events", []):
+        try:
+            dt = datetime.fromisoformat(ev["ts"].replace("Z", "+00:00"))
+        except Exception:
+            continue
+        spec = CB_BANK_BY_ID.get(ev.get("bank"))
+        if not spec:
+            continue
+        hk = dt.astimezone(HK_TZ)
+        secs = (dt - now_utc).total_seconds()
+        if 0 < secs <= CB_ALERT_HOURS * 3600:
+            alert_cand.append((ev, hk))
+        if 0 < secs <= CB_UPCOMING_DAYS * 86400:
+            upcoming_cand.append((ev, hk))
+        if ev.get("actual") is not None and -CB_RESULT_DAYS * 86400 \
+                <= secs <= 0:
+            result_cand.append((ev, hk))
+    alert_cand.sort(key=lambda p: p[1])
+    upcoming_cand.sort(key=lambda p: p[1])
+    result_cand.sort(key=lambda p: p[1], reverse=True)
+
+    alert = [{"when": cb_time_label(hk, today),
+              "headline": cb_event_headline(ev)}
+             for ev, hk in alert_cand[:CB_ALERT_MAX]]
+    upcoming = [{"when": cb_time_label(hk, today),
+                 "headline": cb_event_headline(ev),
+                 "expect": cb_expect_text(ev) or None}
+                for ev, hk in upcoming_cand[:CB_UPCOMING_MAX]]
+    results = []
+    for ev, hk in result_cand[:CB_RESULT_MAX]:
+        spec = CB_BANK_BY_ID.get(ev.get("bank"))
+        results.append({
+            "bank": spec["short"] if spec else ev.get("bank"),
+            "headline": cb_event_headline(ev),
+            "date": hk.strftime("%b %d") + f" {hk.strftime('%H:%M')} HKT",
+            "outcome": ev.get("outcome") or "Decided",
+            "expected": (f"expected {ev['forecast']:.2f}%"
+                         if ev.get("forecast") is not None else None),
+            "tone": ev.get("tone"),
+            "link": ev.get("link"),
+            "link_title": ev.get("link_title"),
+        })
+    return alert, upcoming, results
+
+
+# ---------------------------------------------------------------------------
 # Rendering
 # ---------------------------------------------------------------------------
 
 def render_pages(template, page_date, generated_at, snapshot, takeaways,
                  news, groups, hero=None, new_count=0, day_importance=None,
-                 day_verdict=None, weekly=None, weekly_obj=None):
+                 day_verdict=None, weekly=None, weekly_obj=None,
+                 cb_alert=None, cb_upcoming=None, cb_results=None):
     from jinja2 import Environment, FileSystemLoader, select_autoescape
 
     env = Environment(
@@ -2579,6 +2995,9 @@ def render_pages(template, page_date, generated_at, snapshot, takeaways,
         "day_importance": day_importance,
         "day_verdict": day_verdict,
         "weekly": weekly_obj,
+        "cb_alert": cb_alert or [],
+        "cb_upcoming": cb_upcoming or [],
+        "cb_results": cb_results or [],
     }
 
     DOCS_DIR.mkdir(exist_ok=True)
@@ -2639,6 +3058,9 @@ def render_pages(template, page_date, generated_at, snapshot, takeaways,
         "day_importance": day_importance,
         "day_verdict": day_verdict,
         "weekly": weekly_obj,
+        "cb_alert": cb_alert or [],
+        "cb_upcoming": cb_upcoming or [],
+        "cb_results": cb_results or [],
         "categories": news,
         "indicator_groups": indicator_summary(groups),
     }
@@ -2875,11 +3297,18 @@ def check_outputs(page_date, generated_at, news, groups):
             problems.append("search index items not a list")
     except Exception as exc:
         problems.append(f"search index unreadable: {exc}")
+    try:
+        cb = json.loads(CB_WATCH_PATH.read_text(encoding="utf-8"))
+        if not isinstance(cb.get("events"), list):
+            problems.append("cb_watch.json events not a list")
+    except Exception as exc:
+        problems.append(f"cb watch json unreadable: {exc}")
     return problems
 
 
 def print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
-                  problems, analytics_blogs=None, repos=None):
+                  problems, analytics_blogs=None, repos=None,
+                  cb_alert=None, cb_upcoming=None, cb_results=None):
     """Console + GitHub Actions step-summary report of the run."""
     ind_ok = sum(1 for gr in groups for it in gr["items"]
                  if it["last"] is not None)
@@ -2898,6 +3327,8 @@ def print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
         f"- **Analytics:** {analytics_posts} new post(s) "
         f"from {len(analytics_blogs or [])} blog(s)",
         f"- **Repo Radar:** {len(repos or [])} repo(s)",
+        f"- **Central Bank Watch:** {len(cb_alert or [])} alert · "
+        f"{len(cb_upcoming or [])} upcoming · {len(cb_results or [])} result(s)",
         f"- **Check:** {'FAILED' if problems else 'PASS'}",
     ]
     if problems:
@@ -3021,10 +3452,30 @@ def main():
     except Exception:
         log.exception("Search index build failed; continuing")
 
+    # ---- Central Bank Watch — non-fatal ----------------------------------
+    cb_alert, cb_upcoming, cb_results = [], [], []
+    try:
+        cb_store = load_cb_store()
+        try:
+            refresh_cb_store(cb_store, news, generated_at,
+                             now_hk.astimezone(timezone.utc))
+        except Exception as exc:
+            log.warning("Central Bank Watch calendar refresh failed; using "
+                        "the last committed store (%s)", exc)
+        prune_cb_store(cb_store, now_hk.astimezone(timezone.utc))
+        cb_alert, cb_upcoming, cb_results = build_cb_watch(cb_store,
+                                                           page_date, now_hk)
+        save_cb_store(cb_store, generated_at)
+        log.info("Central Bank Watch: %d alert · %d upcoming · %d results",
+                 len(cb_alert), len(cb_upcoming), len(cb_results))
+    except Exception:
+        log.exception("Central Bank Watch failed; continuing without it")
+
     render_pages("dashboard.html.j2", page_date, generated_at, snapshot,
                  takeaways, news, groups, hero=hero, new_count=new_count,
                  day_importance=day_importance, day_verdict=day_verdict,
-                 weekly_obj=weekly)
+                 weekly_obj=weekly, cb_alert=cb_alert,
+                 cb_upcoming=cb_upcoming, cb_results=cb_results)
     render_analytics_page(page_date, generated_at, analytics_blogs)
     render_repo_radar_page(page_date, generated_at, repos)
     render_search_page(generated_at)
@@ -3032,7 +3483,8 @@ def main():
 
     problems = check_outputs(page_date, generated_at, news, groups)
     print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
-                  problems, analytics_blogs, repos)
+                  problems, analytics_blogs, repos, cb_alert=cb_alert,
+                  cb_upcoming=cb_upcoming, cb_results=cb_results)
     if problems:
         for p in problems:
             log.error("CHECK FAIL: %s", p)

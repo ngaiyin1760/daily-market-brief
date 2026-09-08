@@ -36,6 +36,17 @@
   </div>
   {% endif %}
 
+  {% if cb_alert %}
+  <div class="cb-strip reveal" id="cb-alert" role="note" aria-label="Upcoming central bank decision">
+    {% for a in cb_alert %}
+    <span class="cb-item">
+      <span class="cb-next">NEXT</span>
+      <span class="cb-text"><strong>{{ a.headline|e }}</strong> — {{ a.when|e }}</span>
+    </span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
   {% if hero %}
   <section class="hero reveal" id="snapshot">
     <button type="button" class="hero-toggle" id="hero-toggle" aria-expanded="false" aria-controls="snapshot-grid">
@@ -66,6 +77,47 @@
       <span class="imp-stars">{{ "★" * day_importance }}{{ "☆" * (5 - day_importance) }}</span>
     </div>
     <p class="imp-verdict">{{ day_verdict|e }}</p>
+  </section>
+  {% endif %}
+
+  {% if cb_upcoming or cb_results %}
+  <section class="cb-watch reveal" id="cb-watch">
+    <h2>Central Bank Watch</h2>
+    {% if cb_upcoming %}
+    <div class="cb-col">
+      <div class="cb-sub">Upcoming decisions</div>
+      <ul class="cb-list">
+        {% for u in cb_upcoming %}
+        <li>
+          <span class="cb-when">{{ u.when|e }}</span>
+          <span class="cb-body">
+            <span class="cb-head">{{ u.headline|e }}</span>
+            {% if u.expect %}<span class="cb-expect">{{ u.expect|e }}</span>{% endif %}
+          </span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% if cb_results %}
+    <div class="cb-col">
+      <div class="cb-sub">Recent decisions</div>
+      <ul class="cb-list">
+        {% for r in cb_results %}
+        <li>
+          <span class="cb-when">{{ r.date|e }}</span>
+          <span class="cb-body">
+            <span class="cb-head">{{ r.bank|e }} — {{ r.headline|e }}</span>
+            <span class="cb-outcome">{{ r.outcome|e }}</span>
+            {% if r.expected %}<span class="cb-meta">({{ r.expected|e }})</span>{% endif %}
+            {% if r.tone %}<span class="cb-tone">{{ r.tone|e }}</span>{% endif %}
+            {% if r.link %}<a class="cb-link" href="{{ r.link|e }}" target="_blank" rel="noopener">{{ (r.link_title or 'source story')|e }}</a>{% endif %}
+          </span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
   </section>
   {% endif %}
 
@@ -101,6 +153,7 @@
     <div class="sec-menu" id="sec-menu" role="menu">
       <a href="#snapshot" data-target="snapshot" role="menuitem">Snapshot</a>
       <a href="#takeaways" data-target="takeaways" role="menuitem">Takeaways</a>
+      {% if cb_upcoming or cb_results %}<a href="#cb-watch" data-target="cb-watch" role="menuitem">Central Bank Watch</a>{% endif %}
       {% for cat in categories %}<a href="#{{ cat.id|e }}" data-target="{{ cat.id|e }}" role="menuitem">{{ cat.label|e }}</a>{% endfor %}
     </div>
   </nav>
