@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Economic Calendar — Daily Market Brief</title>
+{% include "partials/head.j2" %}
+</head>
+<body>
+<div class="reading-bar" id="reading-bar" aria-hidden="true"></div>
+{% set is_calendar = true %}
+{% include "partials/sidebar.j2" %}
+
+<div class="content">
+  <header class="masthead">
+    <div class="kicker">Daily Market Brief</div>
+    <h1>Economic Calendar</h1>
+    <div class="generated">Medium &amp; high importance events · times in HKT · updated {{ generated_at|e }}</div>
+  </header>
+
+  <div class="econ-toolbar">
+    <div class="econ-monthnav">
+      <button type="button" class="econ-nav-btn" id="econ-prev" aria-label="Previous month">‹</button>
+      <span class="econ-month-label" id="econ-month-label">{{ current_month|e }}</span>
+      <button type="button" class="econ-nav-btn" id="econ-next" aria-label="Next month">›</button>
+      <button type="button" class="econ-today-btn" id="econ-today">Today</button>
+    </div>
+    <div class="econ-filters" id="econ-filters" role="group" aria-label="Filter events by importance">
+      <button type="button" class="filter-btn active" data-imp="all" aria-pressed="true">All</button>
+      <button type="button" class="filter-btn" data-imp="1" aria-pressed="false">High</button>
+      <button type="button" class="filter-btn" data-imp="0" aria-pressed="false">Medium</button>
+    </div>
+  </div>
+
+  <div class="econ-layout">
+    <section class="econ-grid-wrap" aria-label="Month calendar">
+      <div class="econ-weekdays">
+        <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span>
+        <span>Fri</span><span>Sat</span><span>Sun</span>
+      </div>
+      <div class="econ-grid" id="econ-grid"></div>
+      <p class="econ-status" id="econ-status">Loading calendar…</p>
+    </section>
+
+    <aside class="econ-day" id="econ-day" aria-label="Selected day events">
+      <div class="econ-day-head" id="econ-day-head">Today</div>
+      <div class="econ-day-list" id="econ-day-list"></div>
+    </aside>
+  </div>
+
+  <noscript>
+    <div class="econ-noscript">
+      <p class="empty-note">JavaScript is off — showing this month's events as a plain list.</p>
+      {% for g in noscript_groups %}
+      <div class="econ-ns-day">
+        <div class="econ-ns-date">{{ g.label|e }}</div>
+        <ul class="econ-ns-list">
+          {% for e in g.events %}
+          <li>
+            <span class="econ-time">{{ e.time|e }}</span>
+            <span class="chip">{{ e.currency|e }}{% if e.country %} · {{ e.country|e }}{% endif %}</span>
+            <span class="econ-ns-title">{{ e.title|e }}</span>
+            <span class="econ-vals">
+              {% for v in e.vals %}<span class="econ-val">{{ v[0]|e }} {{ v[1]|e }}</span>{% endfor %}
+            </span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% else %}
+      <p class="empty-note">No medium or high importance events stored for this month yet.</p>
+      {% endfor %}
+    </div>
+  </noscript>
+
+  <footer class="colophon">
+    Daily Market Brief — generated automatically from public news feeds and market data. For information only; not investment advice.
+  </footer>
+</div>
+
+{% include "partials/core.js.j2" %}
+<script>
+(function () {
+  var base = {{ base|tojson }};
+  var GENERATED_AT = {{ generated_at|tojson }};
+  var TODAY = {{ page_date|tojson }};
+  var MONTHS = {{ months|tojson }};
+  var START_MONTH = {{ current_month|tojson }};
+
+  var MONTH_NAMES = ["January", "February", "March", "April", "May", "June",
+                     "July", "August", "September", "October", "November",
+                     "December"];
+  var hkDay = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Hong_Kong", year: "numeric", month: "2-digit", day: "2-digit"
+  });
+  var hkTime = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Hong_Kong", hour: "2-digit", minute: "2-digit", hour12: false
+  });
+
+  var state = { month: START_MONTH, day: TODAY, filter: "all" };
+  var cache = {};          // month -> promise of events (or null)
+
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+
+  function shiftMonth(monthKey, delta) {
+    var y = parseInt(monthKey.slice(0, 4), 10);
+    var m = parseInt(monthKey.slice(5, 7), 10) - 1 + delta;
+    var yy = y + Math.floor(m / 12);
+    var mm = ((m % 12) + 12) % 12;
+    return yy + "-" + pad(mm + 1);
+  }
+
+  function monthOf(dateKey) { return dateKey.slice(0, 7); }
+
+  function defaultDay(monthKey) {
+    return monthOf(TODAY) === monthKey ? TODAY : monthKey + "-01";
+  }
+
+  function fetchMonth(monthKey) {
+    if (cache[monthKey]) return cache[monthKey];
+    var url = base + "/data/econ/" + monthKey + ".json?v=" +
+              encodeURIComponent(GENERATED_AT);
+    cache[monthKey] = fetch(url).then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    }).then(function (data) {
+      return (data && data.events) || [];
+    }).catch(function (e) {
+      console.error("Calendar month load failed:", monthKey, e);
+      cache[monthKey] = null;
+      return null;
+    });
+    return cache[monthKey];
+  }
+
+  function loadView(monthKey) {
+    // Three files merged: an event's HKT day can fall in an adjacent UTC month.
+    return Promise.all([
+      fetchMonth(shiftMonth(monthKey, -1)),
+      fetchMonth(monthKey),
+      fetchMonth(shiftMonth(monthKey, 1))
+    ]).then(function (parts) {
+      if (parts[1] === null && parts[0] === null && parts[2] === null) {
+        return null;   // nothing available at all
+      }
+      return [].concat(parts[0] || [], parts[1] || [], parts[2] || []);
+    });
+  }
+
+  function eventDayKey(ev) {
+    var d = new Date(ev.ts);
+    return isNaN(d.getTime()) ? null : hkDay.format(d);
+  }
+
+  function filterMatch(ev) {
+    if (state.filter === "all") return true;
+    return String(ev.importance) === state.filter;
+  }
+
+  function eventsForMonth(events, monthKey) {
+    var byDay = {};
+    events.forEach(function (ev) {
+      var day = eventDayKey(ev);
+      if (!day || monthOf(day) !== monthKey || !filterMatch(ev)) return;
+      (byDay[day] = byDay[day] || []).push(ev);
+    });
+    Object.keys(byDay).forEach(function (day) {
+      byDay[day].sort(function (a, b) { return (a.ts || "") < (b.ts || "") ? -1 : 1; });
+    });
+    return byDay;
+  }
+
+  function buildGrid(byDay, monthKey) {
+    var grid = document.getElementById("econ-grid");
+    grid.innerHTML = "";
+    var y = parseInt(monthKey.slice(0, 4), 10);
+    var m = parseInt(monthKey.slice(5, 7), 10);
+    var firstDow = (new Date(Date.UTC(y, m - 1, 1)).getUTCDay() + 6) % 7; // Mon=0
+    var days = new Date(Date.UTC(y, m, 0)).getUTCDate();
+    var cells = [];
+    for (var i = 0; i < firstDow; i++) cells.push(null);
+    for (var d = 1; d <= days; d++) cells.push(d);
+    while (cells.length % 7 !== 0) cells.push(null);
+
+    cells.forEach(function (day) {
+      var cell = document.createElement(day ? "button" : "div");
+      if (!day) { cell.className = "econ-cell econ-cell-empty"; grid.appendChild(cell); return; }
+      var dateKey = monthKey + "-" + pad(day);
+      var dayEvents = byDay[dateKey] || [];
+      cell.type = "button";
+      cell.className = "econ-cell";
+      cell.dataset.date = dateKey;
+      if (dateKey === TODAY) cell.classList.add("today");
+      if (dateKey === state.day) cell.classList.add("selected");
+      if (dayEvents.length) cell.classList.add("has-events");
+      var high = dayEvents.filter(function (e) { return e.importance === 1; }).length;
+      var med = dayEvents.length - high;
+      cell.setAttribute("aria-label",
+        dateKey + ": " + dayEvents.length + " event(s)");
+      var num = document.createElement("span");
+      num.className = "econ-daynum";
+      num.textContent = day;
+      cell.appendChild(num);
+      if (dayEvents.length) {
+        var dots = document.createElement("span");
+        dots.className = "econ-dots";
+        for (var h = 0; h < Math.min(high, 3); h++) {
+          var dh = document.createElement("i"); dh.className = "dot high"; dots.appendChild(dh);
+        }
+        for (var md = 0; md < Math.min(med, Math.max(0, 3 - high)); md++) {
+          var dm = document.createElement("i"); dm.className = "dot med"; dots.appendChild(dm);
+        }
+        cell.appendChild(dots);
+        var count = document.createElement("span");
+        count.className = "econ-count";
+        count.textContent = dayEvents.length;
+        cell.appendChild(count);
+      }
+      cell.addEventListener("click", function () {
+        state.day = dateKey;
+        render(monthKey, byDay);
+      });
+      grid.appendChild(cell);
+    });
+  }
+
+  function renderDayPanel(byDay) {
+    var head = document.getElementById("econ-day-head");
+    var list = document.getElementById("econ-day-list");
+    var events = byDay[state.day] || [];
+    var label = state.day;
+    try {
+      label = new Date(state.day + "T12:00:00Z").toLocaleDateString("en-GB", {
+        timeZone: "UTC", weekday: "short", day: "numeric", month: "short"
+      });
+    } catch (e) {}
+    head.textContent = label + (state.day === TODAY ? " · Today" : "");
+    list.innerHTML = "";
+    if (!events.length) {
+      var note = document.createElement("p");
+      note.className = "empty-note";
+      note.textContent = "No medium or high importance events this day.";
+      list.appendChild(note);
+      return;
+    }
+    var ul = document.createElement("ul");
+    ul.className = "econ-events";
+    events.forEach(function (ev) {
+      var li = document.createElement("li");
+      li.className = "econ-event imp-" + (ev.importance === 1 ? "high" : "med");
+      var time = "";
+      try { time = hkTime.format(new Date(ev.ts)); } catch (e) {}
+      var top = document.createElement("div");
+      top.className = "econ-event-top";
+      var t = document.createElement("span");
+      t.className = "econ-time";
+      t.textContent = time;
+      top.appendChild(t);
+      var chip = document.createElement("span");
+      chip.className = "chip";
+      chip.textContent = (ev.currency || "") +
+        (ev.country ? " · " + ev.country : "");
+      top.appendChild(chip);
+      li.appendChild(top);
+      var title = document.createElement("div");
+      title.className = "econ-event-title";
+      title.textContent = ev.title || "";
+      li.appendChild(title);
+      var vals = [["Act", ev.actual], ["Est", ev.forecast], ["Prev", ev.previous]]
+        .filter(function (p) { return p[1] !== null && p[1] !== undefined; });
+      if (vals.length) {
+        var valWrap = document.createElement("div");
+        valWrap.className = "econ-vals";
+        vals.forEach(function (p) {
+          var s = document.createElement("span");
+          s.className = "econ-val" + (p[0] === "Act" ? " act" : "");
+          s.textContent = p[0] + " " + p[1];
+          valWrap.appendChild(s);
+        });
+        li.appendChild(valWrap);
+      }
+      ul.appendChild(li);
+    });
+    list.appendChild(ul);
+  }
+
+  function render(monthKey, byDay) {
+    if (!byDay) {
+      var status = document.getElementById("econ-status");
+      status.textContent = "Loading " + monthKey + "…";
+      loadView(monthKey).then(function (events) {
+        if (events === null) {
+          status.textContent = "Calendar data unavailable — check back after the next daily run.";
+          document.getElementById("econ-grid").innerHTML = "";
+          return;
+        }
+        var built = eventsForMonth(events, monthKey);
+        var total = Object.keys(built).reduce(function (n, k) { return n + built[k].length; }, 0);
+        status.textContent = total
+          ? total + " event(s) this month"
+          : "No medium or high importance events this month.";
+        render(monthKey, built);
+      });
+      return;
+    }
+    var y = parseInt(monthKey.slice(0, 4), 10);
+    var m = parseInt(monthKey.slice(5, 7), 10);
+    document.getElementById("econ-month-label").textContent =
+      MONTH_NAMES[m - 1] + " " + y;
+    document.getElementById("econ-prev").disabled =
+      MONTHS.indexOf(shiftMonth(monthKey, -1)) === -1;
+    document.getElementById("econ-next").disabled =
+      MONTHS.indexOf(shiftMonth(monthKey, 1)) === -1;
+    buildGrid(byDay, monthKey);
+    renderDayPanel(byDay);
+  }
+
+  document.getElementById("econ-prev").addEventListener("click", function () {
+    var prev = shiftMonth(state.month, -1);
+    if (MONTHS.indexOf(prev) === -1) return;
+    state.month = prev;
+    state.day = defaultDay(prev);
+    render(state.month);
+  });
+  document.getElementById("econ-next").addEventListener("click", function () {
+    var next = shiftMonth(state.month, 1);
+    if (MONTHS.indexOf(next) === -1) return;
+    state.month = next;
+    state.day = defaultDay(next);
+    render(state.month);
+  });
+  document.getElementById("econ-today").addEventListener("click", function () {
+    state.month = monthOf(TODAY);
+    state.day = TODAY;
+    render(state.month);
+  });
+  var filters = document.getElementById("econ-filters");
+  filters.addEventListener("click", function (e) {
+    var btn = e.target.closest(".filter-btn");
+    if (!btn) return;
+    state.filter = btn.dataset.imp;
+    Array.prototype.forEach.call(filters.querySelectorAll(".filter-btn"), function (b) {
+      var on = b === btn;
+      b.classList.toggle("active", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    render(state.month);
+  });
+
+  if (MONTHS.length === 0) {
+    document.getElementById("econ-status").textContent =
+      "No calendar data stored yet — check back after the next daily run.";
+  } else {
+    if (MONTHS.indexOf(state.month) === -1) state.month = MONTHS[MONTHS.length - 1];
+    state.day = defaultDay(state.month);
+    render(state.month);
+  }
+})();
+</script>
+</body>
+</html>

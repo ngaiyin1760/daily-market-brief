@@ -39,6 +39,15 @@ Two more always-visible tabs sit under **Markets**:
   Every day's shown posts are also appended to a cumulative history
   (`docs/data/analytics_history.json` — newest first, one entry per date) so
   nothing is lost for later use (analysis, RAG, etc.).
+- **Calendar** — an interactive **Economic Calendar**: every medium- and
+  high-importance event (rate decisions, CPI, NFP, GDP, PMIs, central-bank
+  meetings) in a **±12-month** window, times in HKT. Month grid with
+  importance dots, click a day to see its events with actual/forecast/previous
+  values, importance filter (All / High / Medium) and a Today button. Data is
+  stored one JSON file per month (`docs/data/econ/YYYY-MM.json`, listed by
+  `docs/data/econ_index.json`) and lazily loaded per month, so the page stays
+  fast on mobile. Low-importance noise (holidays, speeches, regional prints)
+  is excluded.
 - **Repo Radar** — three interesting/trendy GitHub repos picked daily
   (finance/tech weighted, open to anything), each with an AI summary of what
   it is / tech structure / purpose / use cases plus repo URL, language, stars,
@@ -134,6 +143,14 @@ the model (default `gemini-3.1-flash-lite`).
   written when the day's own news headlines mention the bank (grounded, never
   invented). A calendar failure keeps the last committed store; the page just
   runs short (non-fatal).
+- **Economic Calendar**: the same public TradingView calendar feed, filtered to
+  medium- and high-importance rows and stored as `docs/data/econ/YYYY-MM.json`
+  (indexed by `docs/data/econ_index.json`) across a ±12-month window — note
+  the feed only publishes ahead about a month, so far-future months fill in as
+  their schedules appear. Each run
+  refreshes the current month ±1 and seeds any missing month (capped per run);
+  a month file is rewritten only when its events change. Non-fatal: on failure
+  the existing files stay and the page renders from disk.
 
 ## Cross-device sync (optional)
 

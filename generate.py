@@ -3033,6 +3033,270 @@ def build_cb_watch(store, page_date, now_hk):
 
 
 # ---------------------------------------------------------------------------
+# Economic Calendar tab: medium/high events in per-month files
+# ---------------------------------------------------------------------------
+# Same public TradingView calendar feed as Central Bank Watch, but here we
+# keep the medium (0) and high (1) importance rows and store them one JSON
+# file per month so the calendar page can lazily load just the month on
+# screen. The feed caps at 2,000 rows per request, so each month is fetched in
+# 15-day chunks. A month file is rewritten only when its content actually
+# changes — a normal daily run touches just the refreshed months, keeping git
+# history quiet. Non-fatal throughout: on any failure the existing files stay
+# and the page renders from disk.
+
+ECON_DIR = DATA_DIR / "econ"
+ECON_INDEX_PATH = DATA_DIR / "econ_index.json"
+
+ECON_MONTHS_BACK = 12        # stored history, in months
+ECON_MONTHS_FORWARD = 12     # stored future, in months (25-month window)
+ECON_CHUNK_DAYS = 15         # feed caps at 2000 rows; ~900 rows per 15 days
+ECON_MIN_IMPORTANCE = 0      # 1 = high, 0 = medium, -1 = low (dropped)
+ECON_REFRESH_BACK = 1        # months before the current one refetched daily
+ECON_REFRESH_FORWARD = 1     # months after the current one refetched daily
+ECON_MAX_MONTHS_PER_RUN = 30  # bounds the first-run seed (~50 requests)
+ECON_FETCH_PAUSE = 0.4       # seconds between months — keeps the feed happy
+
+
+def econ_month_range(page_date):
+    """The stored window: page month −12 … +12, oldest first."""
+    y, m = int(page_date[:4]), int(page_date[5:7])
+    months = []
+    for delta in range(-ECON_MONTHS_BACK, ECON_MONTHS_FORWARD + 1):
+        yy = y + (m - 1 + delta) // 12
+        mm = (m - 1 + delta) % 12 + 1
+        months.append(f"{yy:04d}-{mm:02d}")
+    return months
+
+
+def fetch_econ_chunk(start, end):
+    """One calendar request (YYYY-MM-DD … YYYY-MM-DD). Retries transient
+    throttling (429/403/5xx) so a burst of month requests doesn't leave
+    holes. An ok-but-empty payload ({"status":"ok"} with no "result" key)
+    means "no events in range" and yields []."""
+    last = None
+    for attempt in range(4):
+        try:
+            resp = requests.get(CB_CALENDAR_URL, params={"from": start,
+                                                         "to": end},
+                                headers=CB_CALENDAR_HEADERS,
+                                timeout=HTTP_TIMEOUT)
+            if resp.status_code in (403, 429) or resp.status_code >= 500:
+                last = f"HTTP {resp.status_code}"
+                if attempt < 3:
+                    wait = 5 * (attempt + 1)
+                    log.warning("Economic calendar throttled (%s) for %s; "
+                                "retry in %ds", last, start, wait)
+                    time.sleep(wait)
+                    continue
+                resp.raise_for_status()
+            resp.raise_for_status()
+            payload = resp.json()
+            if not isinstance(payload, dict):
+                raise ValueError("unexpected calendar payload type")
+            result = payload.get("result")
+            if result is None and payload.get("status") == "ok":
+                return []          # valid empty range
+            if not isinstance(result, list):
+                raise ValueError(f"unexpected calendar payload: "
+                                 f"{str(payload)[:120]}")
+            return result
+        except requests.exceptions.RequestException as exc:
+            last = exc
+            if attempt < 3:
+                wait = 5 * (attempt + 1)
+                log.warning("Economic calendar request error for %s (%s); "
+                            "retry in %ds", start, exc.__class__.__name__, wait)
+                time.sleep(wait)
+                continue
+            raise
+    raise RuntimeError(f"calendar request failed for {start}: {last}")
+
+
+def fetch_econ_month(month):
+    """All medium/high events of one YYYY-MM month, trimmed and sorted."""
+    y, m = int(month[:4]), int(month[5:7])
+    last_day = calendar.monthrange(y, m)[1]
+    rows = []
+    for day in range(1, last_day + 1, ECON_CHUNK_DAYS):
+        end = min(day + ECON_CHUNK_DAYS - 1, last_day)
+        rows += fetch_econ_chunk(f"{month}-{day:02d}", f"{month}-{end:02d}")
+    events = []
+    for r in rows:
+        try:
+            imp = int(r.get("importance"))
+        except (TypeError, ValueError):
+            continue
+        if imp < ECON_MIN_IMPORTANCE:
+            continue
+        events.append({
+            "ts": r.get("date"),
+            "title": r.get("title") or "",
+            "country": r.get("country") or "",
+            "currency": r.get("currency") or "",
+            "importance": imp,
+            "actual": _cb_num(r.get("actual")),
+            "forecast": _cb_num(r.get("forecast")),
+            "previous": _cb_num(r.get("previous")),
+            "category": r.get("category") or "",
+        })
+    events.sort(key=lambda e: e.get("ts") or "")
+    return events
+
+
+def read_econ_month(month):
+    """Stored events for a month, or None when the file is missing/unreadable."""
+    path = ECON_DIR / f"{month}.json"
+    if not path.exists():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return [e for e in data.get("events", []) if isinstance(e, dict)]
+    except Exception as exc:
+        log.warning("Economic calendar: unreadable %s (%s)", path.name, exc)
+        return None
+
+
+def write_econ_month(month, events, generated_at):
+    """Write a month file, but only when its events actually changed.
+    Returns True when the file was (re)written."""
+    existing = read_econ_month(month)
+    if existing == events:
+        return False
+    ECON_DIR.mkdir(parents=True, exist_ok=True)
+    (ECON_DIR / f"{month}.json").write_text(
+        json.dumps({"month": month, "updated": generated_at, "events": events},
+                   indent=1, ensure_ascii=False),
+        encoding="utf-8")
+    return True
+
+
+def write_econ_index(months, generated_at):
+    ECON_INDEX_PATH.write_text(
+        json.dumps({"updated": generated_at, "months": months}, indent=1),
+        encoding="utf-8")
+
+
+def read_econ_index():
+    try:
+        data = json.loads(ECON_INDEX_PATH.read_text(encoding="utf-8"))
+        return [m for m in data.get("months", []) if isinstance(m, str)]
+    except Exception:
+        return []
+
+
+def update_econ_calendar(page_date, generated_at):
+    """Refresh the near months, seed any missing month in the window, then
+    rewrite the index. Returns {"months", "changed", "events", "current"}."""
+    window = econ_month_range(page_date)
+    y, m = int(page_date[:4]), int(page_date[5:7])
+
+    def shift(delta):
+        yy = y + (m - 1 + delta) // 12
+        mm = (m - 1 + delta) % 12 + 1
+        return f"{yy:04d}-{mm:02d}"
+
+    refresh = [shift(d) for d in range(-ECON_REFRESH_BACK,
+                                       ECON_REFRESH_FORWARD + 1)]
+    missing = [mm for mm in window if not (ECON_DIR / f"{mm}.json").exists()]
+    ordered = []
+    for mm in refresh + missing:
+        if mm in window and mm not in ordered:
+            ordered.append(mm)
+    ordered = ordered[:ECON_MAX_MONTHS_PER_RUN]
+
+    changed = fetched = 0
+    for mm in ordered:
+        try:
+            events = fetch_econ_month(mm)
+        except Exception as exc:
+            log.warning("Economic calendar: %s fetch failed (%s)", mm, exc)
+            continue
+        fetched += len(events)
+        if write_econ_month(mm, events, generated_at):
+            changed += 1
+        time.sleep(ECON_FETCH_PAUSE)
+
+    available = [mm for mm in window if (ECON_DIR / f"{mm}.json").exists()]
+    write_econ_index(available, generated_at)
+    return {"months": len(available), "changed": changed, "events": fetched,
+            "current": shift(0)}
+
+
+def _econ_time_hkt(ts):
+    try:
+        dt = datetime.fromisoformat((ts or "").replace("Z", "+00:00"))
+    except Exception:
+        return None
+    return dt.astimezone(HK_TZ)
+
+
+def _econ_values(event):
+    """Value chips for one event, unit-free on purpose: the calendar mixes
+    percent prints, indices and job counts, and the event title carries the
+    unit. Only fields that exist are returned."""
+    chips = []
+    for key, label in (("actual", "Act"), ("forecast", "Est"),
+                       ("previous", "Prev")):
+        val = event.get(key)
+        if val is not None:
+            chips.append([label, f"{val:g}"])
+    return chips
+
+
+def econ_hkt_day_groups(events):
+    """Server-side grouping by HKT date — used for the no-JS fallback."""
+    groups = {}
+    for ev in events:
+        dt = _econ_time_hkt(ev.get("ts"))
+        if dt is None:
+            continue
+        key = dt.strftime("%Y-%m-%d")
+        group = groups.setdefault(key, {"date": key,
+                                        "label": dt.strftime("%a, %b %d"),
+                                        "events": []})
+        group["events"].append({
+            "time": dt.strftime("%H:%M"),
+            "title": ev.get("title") or "",
+            "country": ev.get("country") or "",
+            "currency": ev.get("currency") or "",
+            "importance": ev.get("importance"),
+            "vals": _econ_values(ev),
+        })
+    return [groups[k] for k in sorted(groups)]
+
+
+def render_econ_page(generated_at, page_date):
+    """Render the interactive Economic Calendar page (data fetched by JS;
+    the current month is also rendered server-side for no-JS/crawlers)."""
+    from jinja2 import Environment, FileSystemLoader, select_autoescape
+
+    months = read_econ_index()
+    current = page_date[:7]
+    groups = econ_hkt_day_groups(load_econ_current(months, current))
+    env = Environment(
+        loader=FileSystemLoader(str(TEMPLATE_PATH.parent)),
+        autoescape=select_autoescape(["html", "j2"]),
+    )
+    html = env.get_template("calendar.html.j2").render(
+        base=".", generated_at=generated_at, page_date=page_date,
+        months=months, current_month=current, noscript_groups=groups,
+        is_calendar=True)
+    (DOCS_DIR / "calendar.html").write_text(html, encoding="utf-8")
+    log.info("Wrote %s", DOCS_DIR / "calendar.html")
+
+
+def load_econ_current(months, current):
+    """Current month's events if available, else the newest month we have —
+    so the page always opens with something meaningful."""
+    if current in months:
+        return read_econ_month(current) or []
+    for mm in reversed(months):
+        if mm <= current:
+            return read_econ_month(mm) or []
+    return []
+
+
+# ---------------------------------------------------------------------------
 # Rendering
 # ---------------------------------------------------------------------------
 
@@ -3268,6 +3532,7 @@ def check_outputs(page_date, generated_at, news, groups):
         DOCS_DIR / "archive.html",
         DOCS_DIR / "analytics.html",
         DOCS_DIR / "repo-radar.html",
+        DOCS_DIR / "calendar.html",
         DOCS_DIR / "search.html",
         DOCS_DIR / "autopilot.html",
         DATA_DIR / f"{page_date}.json",
@@ -3368,12 +3633,29 @@ def check_outputs(page_date, generated_at, news, groups):
             problems.append("cb_watch.json events not a list")
     except Exception as exc:
         problems.append(f"cb watch json unreadable: {exc}")
+    try:
+        econ = json.loads(ECON_INDEX_PATH.read_text(encoding="utf-8"))
+        months = econ.get("months")
+        if not isinstance(months, list) or not months:
+            problems.append("econ_index.json months missing/empty")
+        else:
+            cur = page_date[:7]
+            month_file = ECON_DIR / f"{cur}.json"
+            if not month_file.exists():
+                problems.append(f"econ month file missing for {cur}")
+            else:
+                data = json.loads(month_file.read_text(encoding="utf-8"))
+                if not isinstance(data.get("events"), list):
+                    problems.append(f"econ {cur} events not a list")
+    except Exception as exc:
+        problems.append(f"econ calendar json unreadable: {exc}")
     return problems
 
 
 def print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
                   problems, analytics_blogs=None, repos=None,
-                  cb_alert=None, cb_upcoming=None, cb_results=None):
+                  cb_alert=None, cb_upcoming=None, cb_results=None,
+                  econ_stats=None):
     """Console + GitHub Actions step-summary report of the run."""
     ind_ok = sum(1 for gr in groups for it in gr["items"]
                  if it["last"] is not None)
@@ -3394,6 +3676,9 @@ def print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
         f"- **Repo Radar:** {len(repos or [])} repo(s)",
         f"- **Central Bank Watch:** {len(cb_alert or [])} alert · "
         f"{len(cb_upcoming or [])} upcoming · {len(cb_results or [])} result(s)",
+        f"- **Economic Calendar:** {(econ_stats or {}).get('months', 0)} month "
+        f"file(s) · {(econ_stats or {}).get('changed', 0)} refreshed · "
+        f"{(econ_stats or {}).get('events', 0)} events",
         f"- **Check:** {'FAILED' if problems else 'PASS'}",
     ]
     if problems:
@@ -3536,6 +3821,20 @@ def main():
     except Exception:
         log.exception("Central Bank Watch failed; continuing without it")
 
+    # ---- Economic Calendar tab — non-fatal -------------------------------
+    econ_stats = {"months": 0, "changed": 0, "events": 0, "current": ""}
+    try:
+        econ_stats = update_econ_calendar(page_date, generated_at)
+        log.info("Economic Calendar: %d month file(s) (%d refreshed, %d events)",
+                 econ_stats["months"], econ_stats["changed"],
+                 econ_stats["events"])
+    except Exception:
+        log.exception("Economic Calendar update failed; rendering existing data")
+    try:
+        render_econ_page(generated_at, page_date)
+    except Exception:
+        log.exception("Economic Calendar page render failed; continuing")
+
     render_pages("dashboard.html.j2", page_date, generated_at, snapshot,
                  takeaways, news, groups, hero=hero, new_count=new_count,
                  day_importance=day_importance, day_verdict=day_verdict,
@@ -3549,7 +3848,8 @@ def main():
     problems = check_outputs(page_date, generated_at, news, groups)
     print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
                   problems, analytics_blogs, repos, cb_alert=cb_alert,
-                  cb_upcoming=cb_upcoming, cb_results=cb_results)
+                  cb_upcoming=cb_upcoming, cb_results=cb_results,
+                  econ_stats=econ_stats)
     if problems:
         for p in problems:
             log.error("CHECK FAIL: %s", p)

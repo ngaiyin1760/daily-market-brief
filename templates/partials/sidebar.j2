@@ -32,6 +32,13 @@
       </svg>
       <span>Analytics</span>
     </a>
+    <a class="archive-link{% if is_calendar | default(false) %} active{% endif %}"
+       href="{{ base }}/calendar.html"{% if is_calendar | default(false) %} aria-current="page"{% endif %}>
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M7 2v3M17 2v3M3.5 8.5h17M5 4.5h14a1.5 1.5 0 0 1 1.5 1.5v13A1.5 1.5 0 0 1 19 20.5H5A1.5 1.5 0 0 1 3.5 19V6A1.5 1.5 0 0 1 5 4.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <span>Calendar</span>
+    </a>
     <a class="archive-link{% if is_repo_radar | default(false) %} active{% endif %}"
        href="{{ base }}/repo-radar.html"{% if is_repo_radar | default(false) %} aria-current="page"{% endif %}>
       <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
