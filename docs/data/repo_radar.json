@@ -1,111 +1,116 @@
 {
- "generated_at": "2026-09-09 08:12 HKT",
+ "generated_at": "2026-09-10 08:12 HKT",
  "repos": [
   {
-   "name": "The-Swarm-Corporation/AutoHedge",
-   "url": "https://github.com/The-Swarm-Corporation/AutoHedge",
-   "language": "Python",
-   "description": "Build your autonomous hedge fund in minutes. AutoHedge harnesses the power of swarm intelligence and AI agents to automate market analysis, risk management, and trade execution.",
+   "name": "alsk1992/CloddsBot",
+   "url": "https://github.com/alsk1992/CloddsBot",
+   "language": "TypeScript",
+   "description": "Open Source AI trading agent that operates autonomously across 1000+ markets - Polymarket, Kalshi, Binance, Hyperliquid, Solana DEXs, 5 EVM chains. Scans    for edge, executes instantly, manages risk while you sleep. Agent commerce protocol for machine-to-machine payments. Self-hosted. Built on Claude.",
    "keywords": [
     "AI agent",
+    "Workflow automation",
+    "Fintech",
+    "Crypto trading",
+    "Self-hosted"
+   ],
+   "trendshift_pos": 25,
+   "stars": 1242,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An autonomous AI trading agent capable of executing strategies across 1000+ decentralized and centralized markets.",
+   "bullets": [
+    "Built with TypeScript for high-concurrency market interaction.",
+    "Integrates with Polymarket, Kalshi, Binance, Hyperliquid, and multiple EVM/Solana chains.",
+    "Features automated edge detection, instant execution, and cross-platform risk management.",
+    "Designed for high-frequency autonomous trading across diverse asset classes."
+   ]
+  },
+  {
+   "name": "griddaimyorun/Metatraider-Traiding-Bot",
+   "url": "https://github.com/griddaimyorun/Metatraider-Traiding-Bot",
+   "language": "—",
+   "description": "Production-ready MetaTrader 5 (MT5) algorithmic trading bot framework. Features automated execution, real-time market data integration via Python API, risk management, and backtesting infrastructure for systematic strategies.",
+   "keywords": [
     "Fintech"
    ],
-   "trendshift_pos": 23,
-   "stars": 5693,
+   "trendshift_pos": 9,
+   "stars": 1311,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An autonomous hedge fund framework utilizing swarm intelligence and AI agents for market analysis and trade execution.",
+   "one_liner": "A production-ready algorithmic trading framework specifically designed for MetaTrader 5 integration.",
    "bullets": [
-    "Built with Python, leveraging multi-agent orchestration for financial decision-making.",
-    "Automates the full lifecycle of trading including risk management, market sentiment analysis, and order execution.",
-    "Designed for quantitative finance professionals to deploy autonomous trading strategies rapidly.",
-    "Utilizes swarm intelligence to aggregate diverse AI agent insights for improved alpha generation."
+    "Utilizes a Python-based API for seamless communication with MT5 terminals.",
+    "Includes built-in modules for real-time market data ingestion and automated order execution.",
+    "Provides robust infrastructure for backtesting strategies against historical data.",
+    "Implements programmatic risk management controls for institutional-grade trading workflows."
    ]
   },
   {
-   "name": "mksglu/context-mode",
-   "url": "https://github.com/mksglu/context-mode",
-   "language": "TypeScript",
-   "description": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and   enforces routing across 17 platforms via MCP + hooks.",
-   "keywords": [
-    "MCP"
-   ],
-   "trendshift_pos": 18,
-   "stars": 21376,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A context window optimization tool for AI coding agents that reduces noise and manages session memory.",
-   "bullets": [
-    "Implements advanced sandboxing to reduce tool output noise by up to 98%.",
-    "Provides persistent session memory management for long-running agentic workflows.",
-    "Supports cross-platform routing across 17 different AI platforms via MCP and custom hooks.",
-    "Essential infrastructure for developers building complex, multi-step AI coding agents."
-   ]
-  },
-  {
-   "name": "microsoft/markitdown",
-   "url": "https://github.com/microsoft/markitdown",
-   "language": "Python",
-   "description": "Python tool for converting files and office documents to Markdown.",
-   "keywords": [
-    "Document processing"
-   ],
-   "trendshift_pos": 3,
-   "stars": 181663,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A versatile Python utility designed to convert various file formats and office documents into Markdown.",
-   "bullets": [
-    "Python-based engine capable of parsing complex document structures into clean Markdown.",
-    "Supports a wide range of file formats, making it a critical preprocessing step for RAG pipelines.",
-    "Enables developers to ingest legacy office documents into LLM context windows efficiently.",
-    "Reduces data cleaning overhead for AI-driven document analysis and knowledge management systems."
-   ]
-  },
-  {
-   "name": "heygen-com/hyperframes",
-   "url": "https://github.com/heygen-com/hyperframes",
-   "language": "TypeScript",
-   "description": "Write HTML. Render video. Built for agents.",
+   "name": "obra/superpowers",
+   "url": "https://github.com/obra/superpowers",
+   "language": "Shell",
+   "description": "An agentic skills framework & software development methodology that works.",
    "keywords": [
     "AI agent",
-    "AI video generation"
+    "AI coding assistant",
+    "AI skills"
    ],
-   "trendshift_pos": 2,
-   "stars": 47741,
+   "trendshift_pos": 14,
+   "stars": 284016,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A TypeScript framework designed to render HTML as high-quality video, specifically optimized for AI agents.",
+   "one_liner": "A comprehensive agentic skills framework and methodology for building reliable software development agents.",
    "bullets": [
-    "TypeScript-based rendering engine that bridges the gap between web UI and video output.",
-    "Enables programmatic video generation, ideal for automated reporting or dynamic content creation.",
-    "Built specifically to allow AI agents to generate visual media assets without manual editing.",
-    "Useful for fintech firms needing to generate personalized market update videos or automated client reports."
+    "Provides a structured methodology for defining and executing complex agentic tasks.",
+    "Focuses on software development lifecycle automation through modular skill sets.",
+    "Designed to improve the reliability and output quality of LLM-based coding agents.",
+    "Acts as a foundational infrastructure layer for building autonomous engineering teams."
    ]
   },
   {
-   "name": "hoochanlon/fq-book",
-   "url": "https://github.com/hoochanlon/fq-book",
-   "language": "Shell",
-   "description": "📖《这本书能让你连接互联网》 详细阐述代理、隧道、VPN运作过程，并对GFW策略如：地址端口封锁、服务器缓存投毒、数字验证攻击、SSL连接阻断做相关的原理说明",
+   "name": "rohitg00/ai-engineering-from-scratch",
+   "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
+   "language": "Python",
+   "description": "Learn it. Build it. Ship it for others.",
    "keywords": [
-    "Proxy"
+    "AI agent",
+    "Programming examples"
    ],
-   "trendshift_pos": 10,
-   "stars": 5441,
+   "trendshift_pos": 17,
+   "stars": 53676,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A comprehensive technical guide detailing the mechanics of proxies, tunnels, VPNs, and network censorship countermeasures.",
+   "one_liner": "A hands-on curriculum and repository for mastering the end-to-end lifecycle of AI engineering.",
    "bullets": [
-    "Provides deep technical analysis of network protocols, including SSL/TLS and tunneling mechanisms.",
-    "Documents specific strategies for bypassing network restrictions, such as server cache poisoning and port blocking.",
-    "Serves as a critical reference for infrastructure engineers working on secure, resilient network communications.",
-    "Offers a transparent look at the low-level network infrastructure often encountered in global financial operations."
+    "Covers the full stack from model selection and fine-tuning to production deployment.",
+    "Emphasizes practical 'build and ship' workflows for AI-native applications.",
+    "Provides a structured path for developers to transition into AI/LLM infrastructure roles.",
+    "Includes modular codebases for building scalable AI-driven software products."
+   ]
+  },
+  {
+   "name": "larashero3-dotcom/lieflat-gongwen",
+   "url": "https://github.com/larashero3-dotcom/lieflat-gongwen",
+   "language": "Python",
+   "description": "通过102万字语料提炼的公文写作 skill，把公文写作风格变成可测量、可验收的量化数据",
+   "keywords": [
+    "AI skills"
    ],
-   "img": "hoochanlon_fq-book_0.jpg",
-   "img_alt": "hoochanlon/fq-book",
-   "img2": "hoochanlon_fq-book_1.jpg",
-   "img2_alt": "hoochanlon/fq-book"
+   "trendshift_pos": 20,
+   "stars": 547,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A quantitative approach to professional writing that transforms stylistic nuances into measurable, verifiable data.",
+   "bullets": [
+    "Uses a massive corpus of 1.02 million words to derive stylistic patterns.",
+    "Applies data-driven techniques to standardize and optimize complex document generation.",
+    "Enables the transformation of subjective writing styles into quantifiable, testable metrics.",
+    "Useful for fintech/legal professionals requiring high-precision, compliant documentation."
+   ],
+   "img": "larashero3-dotcom_lieflat-gongwen_0.jpg",
+   "img_alt": "公文写作 skill：通过 102 万字语料提炼，把公文写作风格变成可测量、可验收的量化数据",
+   "img2": "larashero3-dotcom_lieflat-gongwen_1.jpg",
+   "img2_alt": "Made on Moxt · moxt.ai"
   }
  ]
 }
