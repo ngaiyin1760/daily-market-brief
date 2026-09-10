@@ -1601,6 +1601,150 @@
     .cb-strip { font-size: 14px; }
     .cb-when { font-size: 12px; }
   }
+
+  /* ---------- Economic Calendar tab ---------- */
+  .econ-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4px 0 16px;
+  }
+  .econ-monthnav { display: flex; align-items: center; gap: 8px; }
+  .econ-nav-btn {
+    width: 34px; height: 34px;
+    border: 1px solid var(--rule);
+    background: var(--card);
+    color: var(--ink);
+    border-radius: 8px;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .econ-nav-btn:disabled { opacity: .35; cursor: default; }
+  .econ-nav-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+  .econ-month-label {
+    font-family: var(--serif);
+    font-size: 19px;
+    min-width: 150px;
+    text-align: center;
+  }
+  .econ-today-btn {
+    border: 1px solid var(--rule);
+    background: var(--card);
+    color: var(--ink-soft);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-family: var(--sans);
+    cursor: pointer;
+  }
+  .econ-today-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .econ-filters { display: flex; gap: 6px; }
+  .econ-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 20px;
+    align-items: start;
+  }
+  .econ-grid-wrap, .econ-day {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .econ-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+  .econ-weekdays span {
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+  }
+  .econ-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .econ-cell {
+    position: relative;
+    min-height: 64px;
+    border: 1px solid transparent;
+    background: transparent;
+    border-radius: 8px;
+    padding: 6px 7px;
+    text-align: left;
+    color: var(--ink);
+    font-family: var(--sans);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .econ-cell-empty { cursor: default; }
+  .econ-cell.has-events { background: rgba(67, 56, 202, .06); }
+  .econ-cell.has-events:hover { border-color: var(--rule-dark); }
+  .econ-cell.today { border-color: var(--gold); }
+  .econ-cell.selected {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .econ-cell.selected .econ-daynum { color: #fff; }
+  .econ-daynum { font-size: 14px; font-weight: 600; }
+  .econ-dots { display: flex; gap: 3px; }
+  .econ-dots .dot { width: 6px; height: 6px; border-radius: 50%; display: block; }
+  .econ-dots .dot.high { background: #be123c; }
+  .econ-dots .dot.med { background: var(--accent-2); }
+  .econ-count { position: absolute; right: 6px; top: 6px; font-size: 11px; color: var(--muted); }
+  .econ-cell.selected .econ-count { color: rgba(255, 255, 255, .85); }
+  .econ-status { font-size: 12.5px; color: var(--muted); margin: 10px 0 0; }
+  .econ-day { position: sticky; top: 14px; }
+  .econ-day-head { font-family: var(--serif); font-size: 17px; margin-bottom: 8px; color: var(--ink); }
+  .econ-events { list-style: none; margin: 0; padding: 0; }
+  .econ-event {
+    border-top: 1px solid var(--rule);
+    border-left: 3px solid var(--rule-dark);
+    padding: 9px 0 9px 10px;
+  }
+  .econ-event:first-child { border-top: none; }
+  .econ-event.imp-high { border-left-color: #be123c; }
+  .econ-event.imp-med { border-left-color: var(--accent-2); }
+  .econ-event-top { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+  .econ-time { font-variant-numeric: tabular-nums; font-size: 13px; font-weight: 600; color: var(--ink-soft); }
+  .econ-event-title { font-size: 14.5px; line-height: 1.4; }
+  .econ-vals { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .econ-val { font-size: 12px; color: var(--muted); }
+  .econ-val.act { color: var(--ink); font-weight: 600; }
+  .econ-noscript { margin-top: 20px; }
+  .econ-ns-day { margin-bottom: 14px; }
+  .econ-ns-date { font-weight: 600; margin-bottom: 4px; }
+  .econ-ns-list { list-style: none; margin: 0; padding: 0; }
+  .econ-ns-list li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: baseline;
+    padding: 4px 0;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+  }
+  .econ-ns-title { flex: 1 1 200px; }
+  [data-theme="dark"] .econ-cell.has-events { background: rgba(124, 126, 242, .14); }
+  @media (max-width: 820px) {
+    .econ-layout { grid-template-columns: 1fr; }
+    .econ-day { position: static; }
+  }
+  @media (max-width: 620px) {
+    .econ-grid-wrap, .econ-day { padding: 10px; }
+    .econ-cell { min-height: 52px; padding: 4px; }
+    .econ-daynum { font-size: 13px; }
+    .econ-count { font-size: 10px; right: 4px; top: 4px; }
+    .econ-month-label { min-width: 0; font-size: 17px; }
+    .econ-toolbar { gap: 8px; }
+    .econ-weekdays span { font-size: 10px; }
+  }
 </style>
 </head>
 <body>
@@ -1641,6 +1785,13 @@
       <span>Analytics</span>
     </a>
     <a class="archive-link"
+       href="./calendar.html">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M7 2v3M17 2v3M3.5 8.5h17M5 4.5h14a1.5 1.5 0 0 1 1.5 1.5v13A1.5 1.5 0 0 1 19 20.5H5A1.5 1.5 0 0 1 3.5 19V6A1.5 1.5 0 0 1 5 4.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <span>Calendar</span>
+    </a>
+    <a class="archive-link"
        href="./repo-radar.html">
       <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
         <path d="M8 3a2 2 0 0 0-2 2v6a2 2 0 0 1-2 2 2 2 0 0 1 2 2v6a2 2 0 0 0 2 2M16 3a2 2 0 0 1 2 2v6a2 2 0 0 0 2 2 2 2 0 0 0-2 2v6a2 2 0 0 1-2 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -1678,24 +1829,15 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>2026-09-10</h1>
-    <div class="generated">Generated 2026-09-10 08:12 HKT</div>
+    <div class="generated">Generated 2026-09-10 22:30 HKT</div>
   </header>
   
   <div class="ticker-wrap">
-    <div class="ticker"><span class="neg"><span class="m1 neg" style="animation-delay: 0ms" title="1-month trend">▼</span>S&amp;P -0.5%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 70ms" title="1-month trend">▼</span>Nasdaq -0.6%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 140ms" title="1-month trend">▼</span>HSI -0.4%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 210ms" title="1-month trend">▲</span>US10Y 4.84%</span> · <span class="flat">USD/HKD +0.0%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 350ms" title="1-month trend">▼</span>HKD/CNY -0.1%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 420ms" title="1-month trend">▼</span>JPY/HKD(¥100) -0.5%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 490ms" title="1-month trend">▲</span>Gold +0.9%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 560ms" title="1-month trend">▼</span>BTC -0.2%</span></div>
-    <div class="asof">Market data as of 2026-09-10 08:12 HKT<span class="session-badge" id="session-badge"></span><span class="new-count">22 new stories</span></div>
+    <div class="ticker"><span class="neg"><span class="m1 neg" style="animation-delay: 0ms" title="1-month trend">▼</span>S&amp;P -0.5%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 70ms" title="1-month trend">▼</span>Nasdaq -0.5%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 140ms" title="1-month trend">▼</span>HSI -1.3%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 210ms" title="1-month trend">▲</span>US10Y 4.92%</span> · <span class="flat">USD/HKD -0.0%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 350ms" title="1-month trend">▼</span>HKD/CNY -0.2%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 420ms" title="1-month trend">▼</span>JPY/HKD(¥100) -0.8%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 490ms" title="1-month trend">▼</span>Gold -0.2%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 560ms" title="1-month trend">▼</span>BTC -1.3%</span></div>
+    <div class="asof">Market data as of 2026-09-10 22:30 HKT<span class="session-badge" id="session-badge"></span><span class="new-count">21 new stories</span></div>
   </div>
   
 
-  
-  <div class="cb-strip reveal" id="cb-alert" role="note" aria-label="Upcoming central bank decision">
-    
-    <span class="cb-item">
-      <span class="cb-next">NEXT</span>
-      <span class="cb-text"><strong>ECB rate decision (deposit rate)</strong> — Today 20:15 HKT</span>
-    </span>
-    
-  </div>
   
 
   
@@ -1710,91 +1852,91 @@
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">S&amp;P 500</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,30.0 L4.4,23.0 L7.8,19.9 L11.1,13.5 L14.5,5.6 L17.9,6.4 L21.3,7.2 L24.7,4.4 L28.0,4.7 L31.4,6.1 L34.8,4.9 L38.2,2.0 L41.6,2.8 L44.9,5.1 L48.3,8.2 L51.7,7.3 L55.1,11.2 L58.4,9.2 L61.8,10.5 L65.2,9.1 L68.6,9.1 L72.0,5.9 L75.3,7.1 L78.7,8.5 L82.1,11.7 L85.5,9.7 L88.9,5.0 L92.2,6.7 L95.6,9.3 L99.0,11.4"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,30.0 L4.4,26.0 L7.8,17.4 L11.1,6.8 L14.5,7.8 L17.9,8.9 L21.3,5.2 L24.7,5.6 L28.0,7.5 L31.4,5.9 L34.8,2.0 L38.2,3.0 L41.6,6.2 L44.9,10.3 L48.3,9.1 L51.7,14.2 L55.1,11.7 L58.4,13.3 L61.8,11.4 L65.2,11.6 L68.6,7.3 L72.0,8.8 L75.3,10.7 L78.7,15.0 L82.1,12.3 L85.5,6.0 L88.9,8.2 L92.2,11.7 L95.6,14.6 L99.0,17.3"/></svg>
         </div>
-        <div class="hero-last">7,636.36</div>
-        <div class="hero-chg neg">-0.48%</div>
-        <div class="hero-delta neg">Δ -0.48% vs yesterday</div>
+        <div class="hero-last">7,601.30</div>
+        <div class="hero-chg neg">-0.46%</div>
+        <div class="hero-delta neg">Δ -0.94% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">Nasdaq</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,30.0 L4.4,21.9 L7.8,19.0 L11.1,12.5 L14.5,4.6 L17.9,7.2 L21.3,7.4 L24.7,3.3 L28.0,4.3 L31.4,6.2 L34.8,4.5 L38.2,2.0 L41.6,2.9 L44.9,3.9 L48.3,8.1 L51.7,7.6 L55.1,10.7 L58.4,9.4 L61.8,11.8 L65.2,9.7 L68.6,10.0 L72.0,5.1 L75.3,6.8 L78.7,7.1 L82.1,10.3 L85.5,8.9 L88.9,4.6 L92.2,5.5 L95.6,6.5 L99.0,8.5"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,30.0 L4.4,25.8 L7.8,16.8 L11.1,5.6 L14.5,9.3 L17.9,9.6 L21.3,3.9 L24.7,5.3 L28.0,8.0 L31.4,5.6 L34.8,2.0 L38.2,3.2 L41.6,4.6 L44.9,10.6 L48.3,9.9 L51.7,14.3 L55.1,12.4 L58.4,15.7 L61.8,12.9 L65.2,13.2 L68.6,6.4 L72.0,8.7 L75.3,9.2 L78.7,13.7 L82.1,11.7 L85.5,5.6 L88.9,6.9 L92.2,8.4 L95.6,11.2 L99.0,13.4"/></svg>
         </div>
-        <div class="hero-last">26,253.34</div>
-        <div class="hero-chg neg">-0.64%</div>
-        <div class="hero-delta neg">Δ -0.64% vs yesterday</div>
+        <div class="hero-last">26,119.56</div>
+        <div class="hero-chg neg">-0.51%</div>
+        <div class="hero-delta neg">Δ -1.14% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">HSI</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,8.3 L4.4,6.7 L7.8,5.9 L11.1,2.0 L14.5,6.9 L17.9,4.9 L21.3,17.0 L24.7,12.7 L28.0,4.3 L31.4,13.2 L34.8,19.9 L38.2,21.2 L41.6,30.0 L44.9,19.4 L48.3,18.9 L51.7,18.1 L55.1,11.8 L58.4,2.0 L61.8,17.4 L65.2,17.6 L68.6,13.2 L72.0,15.9 L75.3,15.3 L78.7,15.9 L82.1,23.3 L85.5,23.9 L88.9,27.0 L92.2,13.2 L95.6,20.7 L99.0,23.7"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,5.3 L4.4,2.0 L7.8,6.2 L11.1,4.5 L14.5,14.7 L17.9,11.1 L21.3,3.9 L24.7,11.5 L28.0,17.1 L31.4,18.3 L34.8,25.7 L38.2,16.8 L41.6,16.3 L44.9,15.7 L48.3,10.3 L51.7,2.0 L55.1,15.1 L58.4,15.2 L61.8,11.5 L65.2,13.8 L68.6,13.3 L72.0,13.7 L75.3,20.0 L78.7,20.5 L82.1,23.1 L85.5,11.5 L88.9,17.8 L92.2,20.4 L95.6,21.5 L99.0,30.0"/></svg>
         </div>
-        <div class="hero-last">25,317.18</div>
-        <div class="hero-chg neg">-0.38%</div>
-        <div class="hero-delta neg">Δ -0.38% vs yesterday</div>
+        <div class="hero-last">24,954.47</div>
+        <div class="hero-chg neg">-1.27%</div>
+        <div class="hero-delta neg">Δ -1.80% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">US10Y</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,29.4 L4.4,24.1 L7.8,13.7 L11.1,21.2 L14.5,28.7 L17.9,30.0 L21.3,23.3 L24.7,24.5 L28.0,19.6 L31.4,21.5 L34.8,21.7 L38.2,26.9 L41.6,19.9 L44.9,16.4 L48.3,18.7 L51.7,25.4 L55.1,19.9 L58.4,14.6 L61.8,18.9 L65.2,27.2 L68.6,24.0 L72.0,23.0 L75.3,16.9 L78.7,12.1 L82.1,7.2 L85.5,7.2 L88.9,11.5 L92.2,8.7 L95.6,5.9 L99.0,2.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,25.7 L4.4,18.2 L7.8,23.6 L11.1,29.1 L14.5,30.0 L17.9,25.1 L21.3,26.0 L24.7,22.4 L28.0,23.8 L31.4,24.0 L34.8,27.8 L38.2,22.7 L41.6,20.1 L44.9,21.8 L48.3,26.7 L51.7,22.7 L55.1,18.8 L58.4,22.0 L61.8,28.0 L65.2,25.7 L68.6,24.9 L72.0,20.5 L75.3,17.0 L78.7,13.5 L82.1,13.5 L85.5,16.6 L88.9,14.6 L92.2,12.5 L95.6,9.7 L99.0,2.0"/></svg>
         </div>
-        <div class="hero-last">4.84%</div>
-        <div class="hero-chg pos">+3.1 bp</div>
-        <div class="hero-delta pos">Δ +3.1 bp vs yesterday</div>
+        <div class="hero-last">4.92%</div>
+        <div class="hero-chg pos">+8.3 bp</div>
+        <div class="hero-delta pos">Δ +11.4 bp vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">USD/HKD</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-flat" d="M1.0,13.0 L4.4,15.5 L7.8,15.7 L11.1,14.5 L14.5,11.7 L17.9,9.3 L21.3,7.0 L24.7,7.2 L28.0,4.0 L31.4,4.2 L34.8,2.0 L38.2,3.5 L41.6,10.0 L44.9,10.7 L48.3,20.0 L51.7,11.3 L55.1,22.0 L58.4,30.0 L61.8,25.0 L65.2,23.0 L68.6,23.8 L72.0,20.8 L75.3,22.8 L78.7,18.3 L82.1,16.0 L85.5,20.0 L88.9,18.5 L92.2,20.3 L95.6,16.5 L99.0,15.5"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-flat" d="M1.0,13.0 L4.4,15.5 L7.8,15.7 L11.1,14.5 L14.5,11.7 L17.9,9.3 L21.3,7.0 L24.7,7.2 L28.0,4.0 L31.4,4.2 L34.8,2.0 L38.2,3.5 L41.6,10.0 L44.9,10.7 L48.3,20.0 L51.7,11.3 L55.1,22.0 L58.4,30.0 L61.8,25.0 L65.2,23.0 L68.6,23.8 L72.0,20.8 L75.3,22.8 L78.7,18.3 L82.1,16.0 L85.5,20.0 L88.9,18.5 L92.2,20.3 L95.6,16.5 L99.0,17.7"/></svg>
         </div>
         <div class="hero-last">7.84</div>
-        <div class="hero-chg flat">+0.01%</div>
-        <div class="hero-delta pos">Δ +0.01% vs yesterday</div>
+        <div class="hero-chg flat">-0.01%</div>
+        <div class="hero-delta pos">Δ +0.00% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">HKD/CNY</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,2.0 L4.4,3.9 L7.8,2.9 L11.1,2.9 L14.5,5.8 L17.9,6.7 L21.3,8.2 L24.7,7.7 L28.0,10.1 L31.4,11.0 L34.8,11.5 L38.2,11.5 L41.6,12.0 L44.9,10.1 L48.3,16.2 L51.7,21.9 L55.1,21.0 L58.4,18.6 L61.8,20.5 L65.2,20.0 L68.6,19.6 L72.0,18.1 L75.3,17.7 L78.7,21.9 L82.1,23.4 L85.5,22.4 L88.9,27.6 L92.2,27.2 L95.6,28.1 L99.0,30.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,2.0 L4.4,3.6 L7.8,2.8 L11.1,2.8 L14.5,5.2 L17.9,6.1 L21.3,7.3 L24.7,6.9 L28.0,8.9 L31.4,9.7 L34.8,10.1 L38.2,10.1 L41.6,10.5 L44.9,8.9 L48.3,14.2 L51.7,19.0 L55.1,18.2 L58.4,16.2 L61.8,17.8 L65.2,17.4 L68.6,17.0 L72.0,15.8 L75.3,15.4 L78.7,19.0 L82.1,20.3 L85.5,19.4 L88.9,23.9 L92.2,23.5 L95.6,24.3 L99.0,30.0"/></svg>
         </div>
-        <div class="hero-last">0.86</div>
-        <div class="hero-chg neg">-0.05%</div>
-        <div class="hero-delta neg">Δ -0.02% vs yesterday</div>
+        <div class="hero-last">0.85</div>
+        <div class="hero-chg neg">-0.16%</div>
+        <div class="hero-delta neg">Δ -0.14% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">JPY/HKD</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,29.8 L4.4,19.3 L7.8,19.2 L11.1,19.8 L14.5,19.3 L17.9,22.5 L21.3,20.3 L24.7,25.5 L28.0,25.8 L31.4,26.1 L34.8,26.4 L38.2,25.6 L41.6,26.3 L44.9,27.2 L48.3,22.3 L51.7,24.5 L55.1,25.0 L58.4,26.1 L61.8,26.3 L65.2,26.4 L68.6,26.7 L72.0,29.8 L75.3,28.4 L78.7,30.0 L82.1,24.8 L85.5,11.5 L88.9,13.6 L92.2,3.8 L95.6,2.0 L99.0,5.4"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,29.8 L4.4,19.3 L7.8,19.2 L11.1,19.8 L14.5,19.3 L17.9,22.5 L21.3,20.3 L24.7,25.5 L28.0,25.8 L31.4,26.1 L34.8,26.4 L38.2,25.6 L41.6,26.3 L44.9,27.2 L48.3,22.3 L51.7,24.5 L55.1,25.0 L58.4,26.1 L61.8,26.3 L65.2,26.4 L68.6,26.7 L72.0,29.8 L75.3,28.4 L78.7,30.0 L82.1,24.8 L85.5,11.5 L88.9,13.6 L92.2,3.8 L95.6,2.0 L99.0,7.3"/></svg>
         </div>
-        <div class="hero-last">5.08</div>
-        <div class="hero-chg neg">-0.51%</div>
-        <div class="hero-delta neg">Δ -0.12% vs yesterday</div>
+        <div class="hero-last">5.07</div>
+        <div class="hero-chg neg">-0.80%</div>
+        <div class="hero-delta neg">Δ -0.41% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">Gold</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,30.0 L4.4,26.9 L7.8,29.3 L11.1,30.0 L14.5,27.2 L17.9,20.2 L21.3,20.4 L24.7,15.8 L28.0,14.9 L31.4,13.9 L34.8,12.7 L38.2,14.8 L41.6,14.0 L44.9,12.3 L48.3,14.7 L51.7,9.0 L55.1,7.7 L58.4,2.8 L61.8,2.0 L65.2,2.1 L68.6,4.0 L72.0,3.4 L75.3,9.5 L78.7,11.7 L82.1,15.5 L85.5,14.7 L88.9,8.9 L92.2,11.7 L95.6,13.4 L99.0,11.5"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,26.9 L4.4,29.3 L7.8,30.0 L11.1,27.2 L14.5,20.2 L17.9,20.4 L21.3,15.8 L24.7,14.9 L28.0,13.9 L31.4,12.7 L34.8,14.8 L38.2,14.0 L41.6,12.3 L44.9,14.7 L48.3,9.0 L51.7,7.7 L55.1,2.8 L58.4,2.0 L61.8,2.1 L65.2,4.0 L68.6,3.4 L72.0,9.5 L75.3,11.7 L78.7,15.5 L82.1,14.7 L85.5,8.9 L88.9,11.7 L92.2,13.4 L95.6,12.4 L99.0,12.7"/></svg>
         </div>
-        <div class="hero-last">4,435.50</div>
-        <div class="hero-chg pos">+0.95%</div>
-        <div class="hero-delta pos">Δ +0.90% vs yesterday</div>
+        <div class="hero-last">4,408.30</div>
+        <div class="hero-chg neg">-0.17%</div>
+        <div class="hero-delta pos">Δ +0.28% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">BTC</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,28.9 L4.4,29.1 L7.8,29.1 L11.1,29.8 L14.5,29.7 L17.9,30.0 L21.3,27.4 L24.7,27.2 L28.0,20.2 L31.4,14.5 L34.8,6.5 L38.2,8.4 L41.6,7.3 L44.9,5.5 L48.3,6.1 L51.7,5.4 L55.1,3.5 L58.4,7.2 L61.8,6.6 L65.2,7.5 L68.6,6.1 L72.0,7.9 L75.3,8.0 L78.7,2.0 L82.1,4.4 L85.5,4.2 L88.9,3.4 L92.2,5.3 L95.6,6.3 L99.0,6.5"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,29.1 L4.4,29.1 L7.8,29.8 L11.1,29.7 L14.5,30.0 L17.9,27.4 L21.3,27.2 L24.7,20.2 L28.0,14.5 L31.4,6.5 L34.8,8.4 L38.2,7.3 L41.6,5.5 L44.9,6.1 L48.3,5.4 L51.7,3.5 L55.1,7.2 L58.4,6.6 L61.8,7.5 L65.2,6.1 L68.6,7.9 L72.0,8.0 L75.3,2.0 L78.7,4.4 L82.1,4.2 L85.5,3.4 L88.9,5.3 L92.2,6.3 L95.6,6.6 L99.0,8.1"/></svg>
         </div>
-        <div class="hero-last">78,310.74</div>
-        <div class="hero-chg neg">-0.16%</div>
-        <div class="hero-delta neg">Δ -0.50% vs yesterday</div>
+        <div class="hero-last">77,234.59</div>
+        <div class="hero-chg neg">-1.31%</div>
+        <div class="hero-delta neg">Δ -1.86% vs yesterday</div>
       </div>
       
     </div>
@@ -1807,7 +1949,7 @@
       <span class="imp-label">Day importance</span>
       <span class="imp-stars">★★★★★</span>
     </div>
-    <p class="imp-verdict">Today is a read-carefully day driven by a significant surge in Brent crude oil prices amid Middle East tensions and a major Treasury debt buyback program that is testing market liquidity.</p>
+    <p class="imp-verdict">Today is a read-carefully day as a convergence of aggressive central bank rate hikes, surging oil prices, and rising bond yields signals a significant shift in the global macroeconomic and inflation landscape.</p>
   </section>
   
 
@@ -1820,14 +1962,6 @@
       <ul class="cb-list">
         
         <li>
-          <span class="cb-when">Today 20:15 HKT</span>
-          <span class="cb-body">
-            <span class="cb-head">ECB rate decision (deposit rate)</span>
-            <span class="cb-expect">Consensus hike 25bp (2.25% → 2.50%)</span>
-          </span>
-        </li>
-        
-        <li>
           <span class="cb-when">Thu 02:00 HKT · in 7d</span>
           <span class="cb-body">
             <span class="cb-head">Fed rate decision</span>
@@ -1835,9 +1969,35 @@
           </span>
         </li>
         
+        <li>
+          <span class="cb-when">Thu 19:00 HKT · in 7d</span>
+          <span class="cb-body">
+            <span class="cb-head">BoE rate decision (Bank Rate)</span>
+            <span class="cb-expect">Current rate 3.75%</span>
+          </span>
+        </li>
+        
       </ul>
     </div>
     
+    
+    <div class="cb-col">
+      <div class="cb-sub">Recent decisions</div>
+      <ul class="cb-list">
+        
+        <li>
+          <span class="cb-when">Sep 10 20:15 HKT</span>
+          <span class="cb-body">
+            <span class="cb-head">ECB rate decision (deposit rate)</span>
+            <span class="cb-outcome">hiked 25bp to 2.50% (was 2.25%)</span>
+            
+            
+            
+          </span>
+        </li>
+        
+      </ul>
+    </div>
     
   </section>
   
@@ -1846,7 +2006,7 @@
   <section class="takeaways reveal" id="takeaways">
     <div class="tw-label">Today's Key Takeaways</div>
     <ul>
-      <li>Geopolitical tensions and surging Brent crude prices are fueling inflation fears, complicating central bank efforts as they weigh tighter monetary policy against slowing economic growth.</li><li>Treasury yields remain elevated despite increased buyback operations, as markets signal skepticism toward fiscal management and the sustainability of rising government debt levels.</li><li>Big Tech&#39;s aggressive AI infrastructure spending faces mounting headwinds, including regulatory friction, energy supply constraints, and internal safety concerns regarding the rapid scaling of autonomous agents.</li>
+      <li>Persistent inflation, driven by surging commodity prices and energy costs, is forcing central banks to maintain restrictive policies, fueling a global repricing of risk in fixed-income markets.</li><li>The AI infrastructure boom faces mounting fiscal and regulatory headwinds as states roll back tax subsidies and political pressure intensifies, threatening to inflate capital expenditure requirements for hyperscalers.</li><li>A potential shift in Bank of Japan policy threatens to unwind global carry trades, while structural debt and liquidity concerns in the U.S. Treasury market exacerbate volatility.</li>
     </ul>
   </section>
   
@@ -1887,27 +2047,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiygFBVV95cUxObkkyeXlmak5wd2djMXJ5eHd5MHJNWTlhVG9XVC0xQS1vNkl6QW5fdVZlRVJBVjBSdFpaM1VydEl4UEg3ellEQS04eERlUUJTekRvZmlDMXB1ZHJqTkhwVktadzkyeThhVVpnVXpOYzlNMHZNaWc2R0lTckNVMWpfeDN3d3dNWjAyVlZCaEtaSnE0ODZ6WGc2M1h2QkE1UkxkWjk0RUl2Wm0xQzFCOWp4SVA4RVN1ek11dHA3MWRMNmNjQ0dlWVdnQ3N30gHPAUFVX3lxTFBDeEwxOTE2N3M0bXVxNDJvNlBJUXdvSkVfbDFHMzVGeFBtUDFRQ3NYVTgwdGNkSUR0dWQ1SHNFOHdqY2hoM1ktbXZZNjZxNFZoamdjbDc0RlBGc3l4c1VqbHVhaHVBTEVFU2d6Z1ZxS2xsa1lUR2pucFl6c0p6dmxBTzNUMVd6Vy1KejFOaXlIeUpiWG5XckctTkd1aVNiRjEyaDRISzkyMVQxekxOV1oyWWlodHR1X0E1N2dmdGxCWUFLcU1LRlRNcURLVDJuSQ?oc=5"
-            data-title="Brent Crude Surges Amid Middle East Tensions: Implications for Global Economy"
-            data-source="Devdiscourse"
+            data-url="https://news.google.com/rss/articles/CBMijgFBVV95cUxPMGlxa0FOS0lsVkNiRERaRE1FRjF2M092VmxtRG9GMGo5VG1paktWRFJ5Q1hRVkNfX0kwXzNnemV1NEJ4UHZmcFNSelRmdjRnbkQ5YmJtLW5LTTE2b1NFQmczbE1RdXV3VkRKUDJlRjFzeFhVTXplVjhfMC10SWVCWV9oZnRhQUtadm9naE1R?oc=5"
+            data-title="European Central Bank Raises Rates in Bid to Quell Inflation"
+            data-source="The New York Times"
             data-category="Global Economy"
             data-rating="5"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxObkkyeXlmak5wd2djMXJ5eHd5MHJNWTlhVG9XVC0xQS1vNkl6QW5fdVZlRVJBVjBSdFpaM1VydEl4UEg3ellEQS04eERlUUJTekRvZmlDMXB1ZHJqTkhwVktadzkyeThhVVpnVXpOYzlNMHZNaWc2R0lTckNVMWpfeDN3d3dNWjAyVlZCaEtaSnE0ODZ6WGc2M1h2QkE1UkxkWjk0RUl2Wm0xQzFCOWp4SVA4RVN1ek11dHA3MWRMNmNjQ0dlWVdnQ3N30gHPAUFVX3lxTFBDeEwxOTE2N3M0bXVxNDJvNlBJUXdvSkVfbDFHMzVGeFBtUDFRQ3NYVTgwdGNkSUR0dWQ1SHNFOHdqY2hoM1ktbXZZNjZxNFZoamdjbDc0RlBGc3l4c1VqbHVhaHVBTEVFU2d6Z1ZxS2xsa1lUR2pucFl6c0p6dmxBTzNUMVd6Vy1KejFOaXlIeUpiWG5XckctTkd1aVNiRjEyaDRISzkyMVQxekxOV1oyWWlodHR1X0E1N2dmdGxCWUFLcU1LRlRNcURLVDJuSQ?oc=5" target="_blank" rel="noopener">Brent Crude Surges Amid Middle East Tensions: Implications for Global Economy</a>
-            <div class="pub">2026-09-09 12:12 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxPMGlxa0FOS0lsVkNiRERaRE1FRjF2M092VmxtRG9GMGo5VG1paktWRFJ5Q1hRVkNfX0kwXzNnemV1NEJ4UHZmcFNSelRmdjRnbkQ5YmJtLW5LTTE2b1NFQmczbE1RdXV3VkRKUDJlRjFzeFhVTXplVjhfMC10SWVCWV9oZnRhQUtadm9naE1R?oc=5" target="_blank" rel="noopener">European Central Bank Raises Rates in Bid to Quell Inflation</a>
+            <div class="pub">2026-09-10 13:08 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Brent crude prices have breached the $100 per barrel threshold following escalating geopolitical conflict in the Middle East, specifically involving Iran and U.S. assets in Jordan.</li><li>The surge in energy costs is triggering widespread inflation fears and forcing central banks to consider maintaining or intensifying tighter monetary policies to combat energy-driven price pressures.</li>
+              <li>The European Central Bank has unanimously approved a 25 basis point interest rate hike, bringing the benchmark rate to 2.5% to combat persistent inflationary pressures.</li><li>ECB President Christine Lagarde warned that inflation is expected to remain above the 2% target through the first half of 2027, citing energy price volatility and geopolitical risks as primary drivers.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Devdiscourse</span></td>
+          <td class="source"><span class="chip">The New York Times</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
             <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Direct impact on global inflation and central bank policy.</span>
+            <span class="reason">Major central bank policy shift impacting Eurozone monetary conditions.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1920,27 +2080,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMioAFBVV95cUxOaFlZTGUtUHdaSDJoOWdrX25BQjNNRHhwTzdOdENxSFdNOVVfMDVOTjlRLXlyWkRHY2YwX2VEOGtVcW13WHRJTXRFSWl6T05BTk53d0NmaG43WjBWdTR1OVgzMGNWTUlsLWNLcmQxZjY5R2EtY2VVSnBaT0ZSUUFFOU1rTGRkT3gwMW42WVpMUlMwOWVJbkZaTXRDNURkT3hC?oc=5"
-            data-title="The Global View: Resilience through the energy shock - CommBank"
-            data-source="CommBank"
+            data-url="https://news.google.com/rss/articles/CBMitwFBVV95cUxNMG9wdzJyYnMyUDJRd3l3V0VMMV92ZTlNSFVsTk0yN04yMU5MS2RUQWRMUkhwczZ1a2d0V3AxbjY4MGN3c3o1VEZnTDBPVlB3d1lsZmNZZjZQeDY3RTJKbjJQbjViX1pCQzdpRlMtS3FDU194OHkyczU2dlZWeEl4ZDNUSDNOR085Wm1CQTI0Z0llUWdHSmZYYTM0SkpIUm92bkJIWkFWY1d6NHVsWG51a2YwQnVxX00?oc=5"
+            data-title="Commodity prices near 18-year high, threatening global inflation"
+            data-source="Nikkei Asia"
             data-category="Global Economy"
-            data-rating="5"
+            data-rating="4"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxOaFlZTGUtUHdaSDJoOWdrX25BQjNNRHhwTzdOdENxSFdNOVVfMDVOTjlRLXlyWkRHY2YwX2VEOGtVcW13WHRJTXRFSWl6T05BTk53d0NmaG43WjBWdTR1OVgzMGNWTUlsLWNLcmQxZjY5R2EtY2VVSnBaT0ZSUUFFOU1rTGRkT3gwMW42WVpMUlMwOWVJbkZaTXRDNURkT3hC?oc=5" target="_blank" rel="noopener">The Global View: Resilience through the energy shock - CommBank</a>
-            <div class="pub">2026-09-09 13:39 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxNMG9wdzJyYnMyUDJRd3l3V0VMMV92ZTlNSFVsTk0yN04yMU5MS2RUQWRMUkhwczZ1a2d0V3AxbjY4MGN3c3o1VEZnTDBPVlB3d1lsZmNZZjZQeDY3RTJKbjJQbjViX1pCQzdpRlMtS3FDU194OHkyczU2dlZWeEl4ZDNUSDNOR085Wm1CQTI0Z0llUWdHSmZYYTM0SkpIUm92bkJIWkFWY1d6NHVsWG51a2YwQnVxX00?oc=5" target="_blank" rel="noopener">Commodity prices near 18-year high, threatening global inflation</a>
+            <div class="pub">2026-09-09 17:56 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The Federal Reserve is expected to initiate a mild tightening cycle on September 17, 2026, with forecasts suggesting three 25 basis point hikes to reach a target range of 4.25%-4.50%.</li><li>The Bank of Japan is signaling a potential shift toward faster interest rate hikes to prevent yen depreciation and mitigate inflation, marking a significant departure from previous accommodative stances.</li>
+              <li>International commodity prices are approaching an 18-year peak, fueled by Middle East conflict, AI-driven demand, and a broader erosion of confidence in the U.S. dollar.</li><li>The sustained rally in commodities, coupled with increased gold accumulation by global central banks since 2022, is creating significant upward pressure on global inflation expectations.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">CommBank</span></td>
+          <td class="source"><span class="chip">Nikkei Asia</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Signals major shifts in US and Japanese monetary policy.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Broad inflationary pressure impacting global asset valuations.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -1953,27 +2113,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMioAFBVV95cUxQUEZ5aXF0YW05S1Y4Qm5LckZyZ1E1NHNkV213T2REY0xTZkI2aUxDVk4yWVNaTG5rTFJsWmVwalRDUkU5d1RYbThlOU5NY2pNa0ttQ1BzYXd6QU1HVGJuVkNuMHgzdUdabzl1ak4xR05neDA3OFdYQVNNN0Z6ZEprVDg0Mlk2YzBRMVJrck14ekdpVWYzY2pfVnV5N3F5WHpt?oc=5"
-            data-title="Türkiye targets $2.2T economy, single-digit inflation by 2029 - Anadolu Ajansı"
-            data-source="Anadolu Ajansı"
+            data-url="https://news.google.com/rss/articles/CBMivgFBVV95cUxOeUczcHpKeFAwU2oyTGdVNDA5OVlHQmNQYUhRd1JWa09PQ0N3VFJhMmlndWZJZ0JjTW1adk5TSVA0Mm5xWk9YaFZ6SnpYSXFlRDh6Rjh0T2xyZnd1elc0ZVpYeXJydG83QkR0R1NlWWV6aC04NVgzSVpwTk1RTjYzTTVtbU9xQU95VDRMN1dKTkxzVmNxbllqblhSc3psVjRvM2xHb1YwZks2VTVmZ3pydGpkWFhwZnBtaFYzYUFn?oc=5"
+            data-title="The Bank of Japan Is in the Middle of a ‘Generational Shift’ That Could Have Big Implications for Foreign Borrowers"
+            data-source="Barron&#39;s"
             data-category="Global Economy"
-            data-rating="3"
+            data-rating="4"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxQUEZ5aXF0YW05S1Y4Qm5LckZyZ1E1NHNkV213T2REY0xTZkI2aUxDVk4yWVNaTG5rTFJsWmVwalRDUkU5d1RYbThlOU5NY2pNa0ttQ1BzYXd6QU1HVGJuVkNuMHgzdUdabzl1ak4xR05neDA3OFdYQVNNN0Z6ZEprVDg0Mlk2YzBRMVJrck14ekdpVWYzY2pfVnV5N3F5WHpt?oc=5" target="_blank" rel="noopener">Türkiye targets $2.2T economy, single-digit inflation by 2029 - Anadolu Ajansı</a>
-            <div class="pub">2026-09-09 20:17 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxOeUczcHpKeFAwU2oyTGdVNDA5OVlHQmNQYUhRd1JWa09PQ0N3VFJhMmlndWZJZ0JjTW1adk5TSVA0Mm5xWk9YaFZ6SnpYSXFlRDh6Rjh0T2xyZnd1elc0ZVpYeXJydG83QkR0R1NlWWV6aC04NVgzSVpwTk1RTjYzTTVtbU9xQU95VDRMN1dKTkxzVmNxbllqblhSc3psVjRvM2xHb1YwZks2VTVmZ3pydGpkWFhwZnBtaFYzYUFn?oc=5" target="_blank" rel="noopener">The Bank of Japan Is in the Middle of a ‘Generational Shift’ That Could Have Big Implications for Foreign Borrowers</a>
+            <div class="pub">2026-09-10 13:22 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The Turkish government has unveiled a medium-term program projecting GDP growth to accelerate from 3.3% in 2026 to 5% by 2029, aiming for a $2.2 trillion economy.</li><li>Authorities expect inflation to resume a downward trend in the final quarter of 2026, targeting a return to single-digit figures by 2029 despite current supply-side pressures from regional conflicts.</li>
+              <li>The Bank of Japan is undergoing a fundamental generational shift in monetary policy, signaling a potential end to long-standing ultra-loose conditions that have historically anchored global carry trades.</li><li>Investors should anticipate significant volatility for foreign borrowers who have relied on low-cost yen funding, as any shift toward higher domestic rates in Japan could trigger a massive unwinding of global positions.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Anadolu Ajansı</span></td>
+          <td class="source"><span class="chip">Barron&#39;s</span></td>
           <td class="rating">
-            <span class="rating-chip r3">3</span>
-            <span class="chip read-time-chip">7 min</span>
-            <span class="reason">Significant long-term macroeconomic targets for a major emerging market.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Potential disruption to global liquidity and carry trade dynamics.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2001,27 +2161,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMimgFBVV95cUxOS0cwLXYwdkxLd0VmdnBpWm8yeUh5b0F3MXlFWXBwVkI5WVFMbUlQTzQwc2o4UkVBdUZ5akZVWWVfek1NcXdtVTNoWU5iSWFPc3FtazdVaUZmQWVQWFJDVjYzT05kejhSeC12LVRRQjZQbTVjaWRkVHVrbU9tWWN5NzdJZUhXQmwxZm9NeVIyWTdHQ0l0eXBNSTFn?oc=5"
-            data-title="Stock Market Indexes Drop, But One Megacap Gained 6.3%"
-            data-source="Yahoo Finance"
+            data-url="https://news.google.com/rss/articles/CBMieEFVX3lxTE9qVHZKSklSNFBTMjdLU1hfTVQwV2dQdjdhV1pGZkQ0S2I0VTZuX2NjcGMyb1hNUWV2dXJSb0ZxZkg2ZEh6bWJfbFA3bkNMenpLR3hNeWVEWkZ3LTVrcjByWGt1NzJlZXpmZnF4bWctNm1QRm1NS1FmbNIBfkFVX3lxTE1Demk0RVMzaFd0WW9UQWRPWDRNLTl5ZEdKenM4LWJRV2VtUjQ0OTVGUm5mQ1JMMUZqd0ZsWGJ6cVhMR2s3U1BScS1FRk8xbzFFb05ITjZJLXRiQ2gyWXRzRkJaZDE1ZTZNOV82YjZUbnhCaHlZYl9fal9wOXY4dw?oc=5"
+            data-title="Wholesale prices rose 0.4% in August, as expected"
+            data-source="CNBC"
             data-category="Equity Markets"
             data-rating="5"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxOS0cwLXYwdkxLd0VmdnBpWm8yeUh5b0F3MXlFWXBwVkI5WVFMbUlQTzQwc2o4UkVBdUZ5akZVWWVfek1NcXdtVTNoWU5iSWFPc3FtazdVaUZmQWVQWFJDVjYzT05kejhSeC12LVRRQjZQbTVjaWRkVHVrbU9tWWN5NzdJZUhXQmwxZm9NeVIyWTdHQ0l0eXBNSTFn?oc=5" target="_blank" rel="noopener">Stock Market Indexes Drop, But One Megacap Gained 6.3%</a>
-            <div class="pub">2026-09-09 16:42 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMieEFVX3lxTE9qVHZKSklSNFBTMjdLU1hfTVQwV2dQdjdhV1pGZkQ0S2I0VTZuX2NjcGMyb1hNUWV2dXJSb0ZxZkg2ZEh6bWJfbFA3bkNMenpLR3hNeWVEWkZ3LTVrcjByWGt1NzJlZXpmZnF4bWctNm1QRm1NS1FmbNIBfkFVX3lxTE1Demk0RVMzaFd0WW9UQWRPWDRNLTl5ZEdKenM4LWJRV2VtUjQ0OTVGUm5mQ1JMMUZqd0ZsWGJ6cVhMR2s3U1BScS1FRk8xbzFFb05ITjZJLXRiQ2gyWXRzRkJaZDE1ZTZNOV82YjZUbnhCaHlZYl9fal9wOXY4dw?oc=5" target="_blank" rel="noopener">Wholesale prices rose 0.4% in August, as expected</a>
+            <div class="pub">2026-09-10 12:31 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The U.S. Treasury Department tripled its bond buyback operation to $6 billion, yet the 10-year yield still climbed 4 basis points to 4.85% as the market signaled disappointment with the scale of intervention.</li><li>Meta Platforms shares rose 6.3% following the launch of &#39;Muse,&#39; an autonomous agentic AI platform, which pressured competitors like Alphabet and Amazon and highlighted shifting sentiment toward AI-driven product innovation.</li>
+              <li>The Producer Price Index (PPI) rose 0.4% in August, bringing the annual rate to 5.4%, which remains significantly above the Federal Reserve&#39;s 2% inflation target.</li><li>Energy prices were a primary driver of the increase, with final demand energy costs jumping 4.2% as diesel prices surged 24.1%, complicating the outlook for upcoming interest rate decisions.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Yahoo Finance</span></td>
+          <td class="source"><span class="chip">CNBC</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Macroeconomic volatility combined with significant shifts in AI leadership.</span>
+            <span class="chip read-time-chip">3 min</span>
+            <span class="reason">Macroeconomic data influencing Fed policy</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2034,27 +2194,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMimAFBVV95cUxPb0JhdWdWeExhYWQ2NjUxSm0tVllaMldhSTJ0cHg5RG92QWo3bWdsa0VFb0dSdFIyUXdKNXpsSUlwMmhaM3JuWk5SQlg0MmlLUld2Wlpwcm5zcWpoNjB4aG9VaHppQ2lZcU9IQXJ4ZXVKbzJiVkM3SjVZdGw3WDJvVldTQi1zRVBJSTRWOWtmR0xlU3d0ZUJxbw?oc=5"
-            data-title="ORCL Stock Sees Price Target Cut Ahead Of Earnings: Analyst Says Bad News Is Priced In"
-            data-source="Yahoo Finance"
+            data-url="https://news.google.com/rss/articles/CBMitgFBVV95cUxQWHRvako5T0cwb1hGVGREcmdSR3JlU3hwMm9IRlItZkZWbVlnSnMxVEFPNWFvcV9OTEg0VHNwUi1XNjZjUUxMOG55NWxEdjVDZG5lRlUwZnpzallQSE52aTB6UmRmamY1WG5MVkRHdjBsUGw3V0Jpd1FLaTdRTE5vRWdKWWRrdUJtam9lYllURkM0RlUzN2FFelN6cDRYUC1sRFJyZ2FPUVFrQTdpOURfcHIwdm9mUdIBuwFBVV95cUxOa1hwTGktckFqczNMY1RsM2VmYXY1RzF6VDVrNjBHRHU5dUZlejNqTTNWcVlxUWg5R3Y0U1p1UVlXX0swOXE2RUotdHZmWm5Tc01iZXJQQ1RRYWVGbVhqVG5xYU1QVzlnV2JrMlljaTZ5QS1GUWJyRTR2ZEpHczdvMWY1UFIzZFBITlpVbEpYZ1p5eDJPWU5zQmJaLXNreXdzNVlleGpCVzNlTEVjaWd6c0hxRi04b3lRWndF?oc=5"
+            data-title="Nasdaq invests $100 million in Kraken parent, eyeing 2027 launch of &#39;tokenized&#39; stock trading"
+            data-source="CNBC"
             data-category="Equity Markets"
             data-rating="4"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPb0JhdWdWeExhYWQ2NjUxSm0tVllaMldhSTJ0cHg5RG92QWo3bWdsa0VFb0dSdFIyUXdKNXpsSUlwMmhaM3JuWk5SQlg0MmlLUld2Wlpwcm5zcWpoNjB4aG9VaHppQ2lZcU9IQXJ4ZXVKbzJiVkM3SjVZdGw3WDJvVldTQi1zRVBJSTRWOWtmR0xlU3d0ZUJxbw?oc=5" target="_blank" rel="noopener">ORCL Stock Sees Price Target Cut Ahead Of Earnings: Analyst Says Bad News Is Priced In</a>
-            <div class="pub">2026-09-09 17:38 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxQWHRvako5T0cwb1hGVGREcmdSR3JlU3hwMm9IRlItZkZWbVlnSnMxVEFPNWFvcV9OTEg0VHNwUi1XNjZjUUxMOG55NWxEdjVDZG5lRlUwZnpzallQSE52aTB6UmRmamY1WG5MVkRHdjBsUGw3V0Jpd1FLaTdRTE5vRWdKWWRrdUJtam9lYllURkM0RlUzN2FFelN6cDRYUC1sRFJyZ2FPUVFrQTdpOURfcHIwdm9mUdIBuwFBVV95cUxOa1hwTGktckFqczNMY1RsM2VmYXY1RzF6VDVrNjBHRHU5dUZlejNqTTNWcVlxUWg5R3Y0U1p1UVlXX0swOXE2RUotdHZmWm5Tc01iZXJQQ1RRYWVGbVhqVG5xYU1QVzlnV2JrMlljaTZ5QS1GUWJyRTR2ZEpHczdvMWY1UFIzZFBITlpVbEpYZ1p5eDJPWU5zQmJaLXNreXdzNVlleGpCVzNlTEVjaWd6c0hxRi04b3lRWndF?oc=5" target="_blank" rel="noopener">Nasdaq invests $100 million in Kraken parent, eyeing 2027 launch of &#39;tokenized&#39; stock trading</a>
+            <div class="pub">2026-09-10 12:48 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Scotiabank lowered its price target on Oracle to $215 from $241, citing investor caution regarding the massive capital expenditures required for the company&#39;s aggressive AI data center expansion.</li><li>Despite the target cut, analysts suggest a &#39;tactically positive&#39; setup for the upcoming earnings report, with expectations that GPU-as-a-service revenue growth could reach 63% year-over-year.</li>
+              <li>Nasdaq&#39;s $100 million investment in Payward, the parent of Kraken, aims to develop infrastructure for tokenized equities, with a targeted launch in the second quarter of 2027.</li><li>The partnership seeks to integrate blockchain-based trading and settlement into traditional market infrastructure, potentially enabling 24/7 market operations and increased settlement efficiency.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Yahoo Finance</span></td>
+          <td class="source"><span class="chip">CNBC</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
             <span class="chip read-time-chip">2 min</span>
-            <span class="reason">High-stakes earnings event for a major cloud infrastructure player.</span>
+            <span class="reason">Significant structural shift in market infrastructure</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2082,27 +2242,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMivwFBVV95cUxPSmhJMGVCa0tNRlFoMFRSdkl2Nm84STZYLWRBcVJhR0Nsb3FpZTBnM1BhN1Rybk9tZjVldE5jcW04R3hoTEFXRUgtV2JLLVBtMHJ5Q09ZQWhSR21sZGNURG5QSnItdkZWVXdVMkdscWdDaTdRa0tKQmd1WDJiQXZPZ2JTclBjOEp4UUk1TFRmam1xTFFZZHZWUXdLRDNaOVlvWXpVME9SYXZua1hoNnE4R0t3eHFOVGNtcGtSeHRUNNIBxAFBVV95cUxPOUVVdVBYNHNxenBTWWJSTDZJOWtlU3c1a2R3QV9uMEtoTml6cFkwYzRfSTB2NkJBVzlnaEpFaWh2cGJpT0xfRWdaVHVaRWRzOE92aEVHeUNmb1lyejVFMGVLWmNrMmxzbXFxay1kMktSSDZWdE5FUVh1aHdHTkFNb1pKSXZOcUlUNWVNRjk5bGJoZTVWSVd6dXhwRVRBS012alhNYXYxMW1NenJZMDVoQ3cwQXVCVzZNQUVxUV8yckk5MlNt?oc=5"
-            data-title="Treasury Department to buy back up to $6 billion in longer-term debt, triple the normal level"
-            data-source="CNBC"
+            data-url="https://news.google.com/rss/articles/CBMitgFBVV95cUxNNFZ5dnhwS3FaLXJsYjlIOUhzVHhKa2VEMXp1VFVxVnk1Q2hnNXRlcnBnNjdEN1I4aXVNQWprWkNDRHY2WnZ2VjV0cGFOSnBlaVF6WlVLOEUxT2xpbzhZajJZQlY5ZEIxQklxQnk1TmROTEFiVXJ2aVhjN0J3YW1RbEJuM04zNjVfR3NBeE40dmEwNWhPWkxvdnI2M0VPY3hQM3FISVlSZDIyTlNQZEYzWC1GMW5XQQ?oc=5"
+            data-title="US Bond Yields Extend Climb as Oil Advance Stokes Rate-Hike Bets"
+            data-source="bloomberg.com"
             data-category="Fixed Income"
             data-rating="5"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxPSmhJMGVCa0tNRlFoMFRSdkl2Nm84STZYLWRBcVJhR0Nsb3FpZTBnM1BhN1Rybk9tZjVldE5jcW04R3hoTEFXRUgtV2JLLVBtMHJ5Q09ZQWhSR21sZGNURG5QSnItdkZWVXdVMkdscWdDaTdRa0tKQmd1WDJiQXZPZ2JTclBjOEp4UUk1TFRmam1xTFFZZHZWUXdLRDNaOVlvWXpVME9SYXZua1hoNnE4R0t3eHFOVGNtcGtSeHRUNNIBxAFBVV95cUxPOUVVdVBYNHNxenBTWWJSTDZJOWtlU3c1a2R3QV9uMEtoTml6cFkwYzRfSTB2NkJBVzlnaEpFaWh2cGJpT0xfRWdaVHVaRWRzOE92aEVHeUNmb1lyejVFMGVLWmNrMmxzbXFxay1kMktSSDZWdE5FUVh1aHdHTkFNb1pKSXZOcUlUNWVNRjk5bGJoZTVWSVd6dXhwRVRBS012alhNYXYxMW1NenJZMDVoQ3cwQXVCVzZNQUVxUV8yckk5MlNt?oc=5" target="_blank" rel="noopener">Treasury Department to buy back up to $6 billion in longer-term debt, triple the normal level</a>
-            <div class="pub">2026-09-09 15:03 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxNNFZ5dnhwS3FaLXJsYjlIOUhzVHhKa2VEMXp1VFVxVnk1Q2hnNXRlcnBnNjdEN1I4aXVNQWprWkNDRHY2WnZ2VjV0cGFOSnBlaVF6WlVLOEUxT2xpbzhZajJZQlY5ZEIxQklxQnk1TmROTEFiVXJ2aVhjN0J3YW1RbEJuM04zNjVfR3NBeE40dmEwNWhPWkxvdnI2M0VPY3hQM3FISVlSZDIyTlNQZEYzWC1GMW5XQQ?oc=5" target="_blank" rel="noopener">US Bond Yields Extend Climb as Oil Advance Stokes Rate-Hike Bets</a>
+            <div class="pub">2026-09-10 13:18 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The Treasury announced a $6 billion buyback operation for 10- and 20-year notes, tripling the standard $2 billion volume in an attempt to improve market liquidity and dampen rising yields.</li><li>Market participants reacted negatively to the announcement, viewing the scale as insufficient to offset the massive supply of new government debt, causing benchmark 10-year yields to climb to 4.841%.</li>
+              <li>The 10-year Treasury yield has climbed to its highest level since October 2023, reflecting a significant repricing of risk in the fixed-income market.</li><li>Rising oil prices are fueling inflationary concerns, which in turn are forcing investors to bake in more aggressive interest rate-hike expectations from central banks.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">CNBC</span></td>
+          <td class="source"><span class="chip">bloomberg.com</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">4 min</span>
-            <span class="reason">Market-moving policy failure</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Macro-driven yield surge impacting global asset valuations.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2115,27 +2275,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMilgFBVV95cUxPNjZZVXBnLTd5UTFuaFE4Z2NjOFBrMThiaVQ1SG82ckp6QlhScDZxU0RlUjdIM2JzMlV0Xzd6RVJlcDlLLUhiODRiUlFfbEsweVBKdFBfVURtVjk5Wm1iMzdzd1o1T0JQYmhLSFR6RWUtZ1piS2djdzFvZ28tc2kxQXc3UmVjdDRnWGE1T090TjJfYmRraXfSAZsBQVVfeXFMTkljdVpISUJhck5vWVVnSzNDOVo5MEoxSmpSRW56ZXpJa09ZTk5ZcHM4TVQwcXlfNThwOGhYczY1MUpYTmlfYmozUkcyMlM0ZmdTZWcwb0l1cTBDLVVJWUhvRXNwcDNCWHNqSjZndUN4T1JSUWhQblI4ZmZscU8xenFfYllKbFNkSkxuc1p0VFZvdnJrcWZDOHBzalk?oc=5"
-            data-title="Bessent’s political turn in GOP speech tests his bond-market credibility"
-            data-source="CNBC"
+            data-url="https://news.google.com/rss/articles/CBMilgFBVV95cUxNdGxpdUtNQUZKbDRfb1RkaGVycFVxMGYxOUtkUzJ3bU9Ebko2WXlwb2VXNzlVZGh5aWp4SXRkR010ZlJ5eExjVU40bnhUN3ptZW1QYjFISkhxaFNoMl9COF9SbzYteEMwZW5EaGd5amFaNndqOWxYemdFSXZpZ1c4bmZVZHY4RWJNY3VKVzlVd3BmOWVseGc?oc=5"
+            data-title="US Treasury yields surge as $6 billion bond buyback disappoints markets"
+            data-source="Yahoo Finance"
             data-category="Fixed Income"
             data-rating="4"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxPNjZZVXBnLTd5UTFuaFE4Z2NjOFBrMThiaVQ1SG82ckp6QlhScDZxU0RlUjdIM2JzMlV0Xzd6RVJlcDlLLUhiODRiUlFfbEsweVBKdFBfVURtVjk5Wm1iMzdzd1o1T0JQYmhLSFR6RWUtZ1piS2djdzFvZ28tc2kxQXc3UmVjdDRnWGE1T090TjJfYmRraXfSAZsBQVVfeXFMTkljdVpISUJhck5vWVVnSzNDOVo5MEoxSmpSRW56ZXpJa09ZTk5ZcHM4TVQwcXlfNThwOGhYczY1MUpYTmlfYmozUkcyMlM0ZmdTZWcwb0l1cTBDLVVJWUhvRXNwcDNCWHNqSjZndUN4T1JSUWhQblI4ZmZscU8xenFfYllKbFNkSkxuc1p0VFZvdnJrcWZDOHBzalk?oc=5" target="_blank" rel="noopener">Bessent’s political turn in GOP speech tests his bond-market credibility</a>
-            <div class="pub">2026-09-09 20:05 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxNdGxpdUtNQUZKbDRfb1RkaGVycFVxMGYxOUtkUzJ3bU9Ebko2WXlwb2VXNzlVZGh5aWp4SXRkR010ZlJ5eExjVU40bnhUN3ptZW1QYjFISkhxaFNoMl9COF9SbzYteEMwZW5EaGd5amFaNndqOWxYemdFSXZpZ1c4bmZVZHY4RWJNY3VKVzlVd3BmOWVseGc?oc=5" target="_blank" rel="noopener">US Treasury yields surge as $6 billion bond buyback disappoints markets</a>
+            <div class="pub">2026-09-09 21:12 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Treasury Secretary Scott Bessent faces scrutiny as he becomes the first sitting Treasury head in 50 years to speak at a national political convention, raising concerns about the separation of fiscal policy and partisan politics.</li><li>Analysts warn that Bessent’s political involvement could undermine the market credibility required to manage U.S. debt, especially as his recent attempts to calm bond market volatility have failed to yield sustained results.</li>
+              <li>The Treasury Department&#39;s attempt to stabilize the market through a $6 billion buyback program failed to curb selling pressure, signaling a lack of confidence in current intervention efforts.</li><li>Market participants are increasingly skeptical that limited liquidity operations can offset the structural pressures of high government debt and persistent inflationary headwinds.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">CNBC</span></td>
+          <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">5 min</span>
-            <span class="reason">Institutional credibility risk</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Ineffectiveness of policy intervention in a volatile market.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2156,47 +2316,7 @@
            style="--cat: #be123c">
     <h2>China Economy</h2>
     
-    <table class="news">
-      <thead>
-        <tr><th>Headline</th><th>Summary</th><th>Source</th><th>Rating</th><th class="save-col"><span class="visually-hidden">Save</span></th></tr>
-      </thead>
-      <tbody>
-        
-        <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMingFBVV95cUxQMEhjMnVLNmlsLVBMNmNlZFpKNnhFTlJFNEVDUEZNeWZsWVJ4Q2lHVVJ3cWdMN1k4Ym9ZVG9PZVdHQ2lobDVQUzZHcHY3enZDMHpabUdlbXRNOEVkdzMtdjMwR3RxeWZvSmtaLThYVkFiWGVUdnpDOXhzSlQ5VXhiSXN6aXBBSG9hX3ZyUTlWQzdEcVZpNWlPamw3akYzUQ?oc=5"
-            data-title="Are China’s rare earths really a potent weapon?"
-            data-source="The Business Times"
-            data-category="China Economy"
-            data-rating="3"
-            data-date="2026-09-10">
-          <td class="headline">
-            <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxQMEhjMnVLNmlsLVBMNmNlZFpKNnhFTlJFNEVDUEZNeWZsWVJ4Q2lHVVJ3cWdMN1k4Ym9ZVG9PZVdHQ2lobDVQUzZHcHY3enZDMHpabUdlbXRNOEVkdzMtdjMwR3RxeWZvSmtaLThYVkFiWGVUdnpDOXhzSlQ5VXhiSXN6aXBBSG9hX3ZyUTlWQzdEcVZpNWlPamw3akYzUQ?oc=5" target="_blank" rel="noopener">Are China’s rare earths really a potent weapon?</a>
-            <div class="pub">2026-09-09 07:13 UTC</div>
-          </td>
-          <td class="summary">
-            <ul>
-              <li>China&#39;s 2025 export-licensing regime for heavy rare-earth elements and permanent magnets demonstrated the country&#39;s attempt to leverage its near-monopoly status as a geopolitical tool against Western trade restrictions.</li><li>The subsequent relaxation of these controls following tariff negotiations with the US suggests that the actual economic impact of such export bans on Western supply chains may be less severe than market participants initially feared.</li>
-            </ul>
-          </td>
-          <td class="source"><span class="chip">The Business Times</span></td>
-          <td class="rating">
-            <span class="rating-chip r3">3</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Highlights the limits of China&#39;s resource-based geopolitical leverage.</span>
-          </td>
-          <td class="save-cell">
-            <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
-              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </td>
-        </tr>
-        
-      </tbody>
-    </table>
+    <p class="empty-note">No news available for this category today.</p>
     
   </section>
   
@@ -2211,27 +2331,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMivAFBVV95cUxPUVlZSE93QTFhVTNsZUNvZk9JN2JMVTdfYzBydy15UTlaekZ0VkNxdnU2WGVWZms5ZEt1UV9GR1NvSG9UUWQ5aG9ONThpN1dnZUUtNHpsN0pzWlJfMkJ3TDBzWkpuU2FVTEN5ZDQ4ZXI1ZEZZdy1VYzhicjRBa09WTWJsdjJNZll1SjNkVGxCUkhLb3dYVDVaSWM2dXE2aHNZLWp1M2N6cWplaG9lNjF1N2daaDFCckc2djZwNdIBvAFBVV95cUxPTkp0NF80MFlUdzhmY2o5dVphYjlQY1B3cnZmMGl5b1VSWHNwdDFKVzdEZVF2OS1WMndSaU5DbUw3MlVCRURaYmFEeVlYUllVSF9XQmM1cFFVX1NBdlFlcy1Sck84X3ZtSDVlU0NHRjJBcjhXUFVaZ3pJZURHQkFMVnpWWG1UcUNWT1RnY3BkaGU0UTJnaTlFVTlDUWlyRi1jU2FvcUVWaDA0TE5pd081SWtYVUhlNlg3TFRGUg?oc=5"
-            data-title="Susquehanna latest to pick up larger office space in Hong Kong’s Central, sources say"
-            data-source="scmp.com"
+            data-url="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNTE1BOGJHcm9NU0lmWU5ld2tqSW1RRVJzUklWSkF5MW00WmZlOXU2OFFrOElWbkJlZ3RLRjBMcEtuVzk0ZEIzbU4wQUt2Slo3aVJvRk5VSG12eExqQVBTQm5qdXVqU2pQSVNsSkZXMWpOM180U05kaDVWd1RpODVCc3pTaGktMDNuVEd2RWpfYVJSYVJUM3dDcWRBUE82YnF5TXlpcVUzR2bSAagBQVVfeXFMTmItSUNQY1dCM0ZhTkwzZDBEZFR4bzFVZm5HbWRGeV9ET2JLRDBMZHNZeGtDS0tveG9uN2R1VEc1Vmc0RGVjQ0xfOGpVaWI3MVc0MkRiWW1QcUpkVTMzdUQ4VzM1MHJES01EdmU0QXVPNVRwdWF1NkRkN0xRSllodU0wZ0NHNTFqc0xKSmsxNWdHTmVMUy1yUGRhcjlGMTN5S0hWNkZVb1Zw?oc=5"
+            data-title="SHKP posts 4.6% profit rise amid Hong Kong’s property recovery"
+            data-source="South China Morning Post"
             data-category="Hong Kong Economy"
-            data-rating="3"
+            data-rating="4"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxPUVlZSE93QTFhVTNsZUNvZk9JN2JMVTdfYzBydy15UTlaekZ0VkNxdnU2WGVWZms5ZEt1UV9GR1NvSG9UUWQ5aG9ONThpN1dnZUUtNHpsN0pzWlJfMkJ3TDBzWkpuU2FVTEN5ZDQ4ZXI1ZEZZdy1VYzhicjRBa09WTWJsdjJNZll1SjNkVGxCUkhLb3dYVDVaSWM2dXE2aHNZLWp1M2N6cWplaG9lNjF1N2daaDFCckc2djZwNdIBvAFBVV95cUxPTkp0NF80MFlUdzhmY2o5dVphYjlQY1B3cnZmMGl5b1VSWHNwdDFKVzdEZVF2OS1WMndSaU5DbUw3MlVCRURaYmFEeVlYUllVSF9XQmM1cFFVX1NBdlFlcy1Sck84X3ZtSDVlU0NHRjJBcjhXUFVaZ3pJZURHQkFMVnpWWG1UcUNWT1RnY3BkaGU0UTJnaTlFVTlDUWlyRi1jU2FvcUVWaDA0TE5pd081SWtYVUhlNlg3TFRGUg?oc=5" target="_blank" rel="noopener">Susquehanna latest to pick up larger office space in Hong Kong’s Central, sources say</a>
-            <div class="pub">2026-09-09 23:00 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNTE1BOGJHcm9NU0lmWU5ld2tqSW1RRVJzUklWSkF5MW00WmZlOXU2OFFrOElWbkJlZ3RLRjBMcEtuVzk0ZEIzbU4wQUt2Slo3aVJvRk5VSG12eExqQVBTQm5qdXVqU2pQSVNsSkZXMWpOM180U05kaDVWd1RpODVCc3pTaGktMDNuVEd2RWpfYVJSYVJUM3dDcWRBUE82YnF5TXlpcVUzR2bSAagBQVVfeXFMTmItSUNQY1dCM0ZhTkwzZDBEZFR4bzFVZm5HbWRGeV9ET2JLRDBMZHNZeGtDS0tveG9uN2R1VEc1Vmc0RGVjQ0xfOGpVaWI3MVc0MkRiWW1QcUpkVTMzdUQ4VzM1MHJES01EdmU0QXVPNVRwdWF1NkRkN0xRSllodU0wZ0NHNTFqc0xKSmsxNWdHTmVMUy1yUGRhcjlGMTN5S0hWNkZVb1Zw?oc=5" target="_blank" rel="noopener">SHKP posts 4.6% profit rise amid Hong Kong’s property recovery</a>
+            <div class="pub">2026-09-10 12:26 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>US investment firm Susquehanna International Group has committed to leasing over 51,700 square feet across three floors at the Cheung Kong Center II in Central.</li><li>This expansion by a major financial player signals a potential stabilization in the prime office rental market, which has been struggling with high vacancy rates and slow recovery.</li>
+              <li>Sun Hung Kai Properties reported an underlying profit of HK$22.85 billion, marking a 4.6% increase and the second consecutive year of growth following a three-year downturn.</li><li>The developer recorded HK$38.1 billion in contracted sales and plans to launch several new residential projects through early 2027, signaling confidence in sustained demand driven by talent inflows.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">scmp.com</span></td>
+          <td class="source"><span class="chip">South China Morning Post</span></td>
           <td class="rating">
-            <span class="rating-chip r3">3</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Indicates institutional confidence in Hong Kong&#39;s prime office market.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Major developer earnings confirm a broader residential market recovery.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2244,27 +2364,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiogFBVV95cUxQYkRuWmxPck10dDhRMGt3MERvVXBKZVFnaHV6TklHckVQWGQxR05Id0E3OHgtRDhJT1ZubTM1T2tTR05XSVNReGw4NFpuZlFlQWs1ZlF0bmRVZDhNNVBfenhFeVBvVjJVT09uTXhocE1rQUhNWlF1SVc2Tlp1c0k4NmVpZHloZkRoYW5oNTliUWtvVUZJeWtja2N0aEh2SkQtTFE?oc=5"
-            data-title="Gaw Secures $548M Loan Backed by Regent Hong Kong and More APAC Real Estate Headlines"
-            data-source="Mingtiandi"
+            data-url="https://news.google.com/rss/articles/CBMivAFBVV95cUxPUVlZSE93QTFhVTNsZUNvZk9JN2JMVTdfYzBydy15UTlaekZ0VkNxdnU2WGVWZms5ZEt1UV9GR1NvSG9UUWQ5aG9ONThpN1dnZUUtNHpsN0pzWlJfMkJ3TDBzWkpuU2FVTEN5ZDQ4ZXI1ZEZZdy1VYzhicjRBa09WTWJsdjJNZll1SjNkVGxCUkhLb3dYVDVaSWM2dXE2aHNZLWp1M2N6cWplaG9lNjF1N2daaDFCckc2djZwNdIBvAFBVV95cUxPTkp0NF80MFlUdzhmY2o5dVphYjlQY1B3cnZmMGl5b1VSWHNwdDFKVzdEZVF2OS1WMndSaU5DbUw3MlVCRURaYmFEeVlYUllVSF9XQmM1cFFVX1NBdlFlcy1Sck84X3ZtSDVlU0NHRjJBcjhXUFVaZ3pJZURHQkFMVnpWWG1UcUNWT1RnY3BkaGU0UTJnaTlFVTlDUWlyRi1jU2FvcUVWaDA0TE5pd081SWtYVUhlNlg3TFRGUg?oc=5"
+            data-title="Susquehanna rents 3 floors of office space as market sees slow recovery: sources"
+            data-source="South China Morning Post"
             data-category="Hong Kong Economy"
-            data-rating="4"
+            data-rating="3"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQYkRuWmxPck10dDhRMGt3MERvVXBKZVFnaHV6TklHckVQWGQxR05Id0E3OHgtRDhJT1ZubTM1T2tTR05XSVNReGw4NFpuZlFlQWs1ZlF0bmRVZDhNNVBfenhFeVBvVjJVT09uTXhocE1rQUhNWlF1SVc2Tlp1c0k4NmVpZHloZkRoYW5oNTliUWtvVUZJeWtja2N0aEh2SkQtTFE?oc=5" target="_blank" rel="noopener">Gaw Secures $548M Loan Backed by Regent Hong Kong and More APAC Real Estate Headlines</a>
-            <div class="pub">2026-09-09 12:28 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxPUVlZSE93QTFhVTNsZUNvZk9JN2JMVTdfYzBydy15UTlaekZ0VkNxdnU2WGVWZms5ZEt1UV9GR1NvSG9UUWQ5aG9ONThpN1dnZUUtNHpsN0pzWlJfMkJ3TDBzWkpuU2FVTEN5ZDQ4ZXI1ZEZZdy1VYzhicjRBa09WTWJsdjJNZll1SjNkVGxCUkhLb3dYVDVaSWM2dXE2aHNZLWp1M2N6cWplaG9lNjF1N2daaDFCckc2djZwNdIBvAFBVV95cUxPTkp0NF80MFlUdzhmY2o5dVphYjlQY1B3cnZmMGl5b1VSWHNwdDFKVzdEZVF2OS1WMndSaU5DbUw3MlVCRURaYmFEeVlYUllVSF9XQmM1cFFVX1NBdlFlcy1Sck84X3ZtSDVlU0NHRjJBcjhXUFVaZ3pJZURHQkFMVnpWWG1UcUNWT1RnY3BkaGU0UTJnaTlFVTlDUWlyRi1jU2FvcUVWaDA0TE5pd081SWtYVUhlNlg3TFRGUg?oc=5" target="_blank" rel="noopener">Susquehanna rents 3 floors of office space as market sees slow recovery: sources</a>
+            <div class="pub">2026-09-09 23:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Gaw Capital Partners has successfully secured a $548 million loan facility, with the iconic Regent Hong Kong hotel serving as a key underlying asset for the financing.</li><li>The deal highlights continued liquidity for high-end hospitality assets in the city, even as broader commercial real estate valuations face pressure from elevated interest rates and shifting market dynamics.</li>
+              <li>US-based Susquehanna International Group has leased over 51,700 square feet across three floors in Cheung Kong Center II, highlighting a targeted rebound in Central&#39;s prime office sector.</li><li>This move reflects a broader trend of financial firms upgrading office space in response to a strengthening economy and increased equity capital market activity in Hong Kong.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Mingtiandi</span></td>
+          <td class="source"><span class="chip">South China Morning Post</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
+            <span class="rating-chip r3">3</span>
             <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Significant capital raise involving a major landmark asset.</span>
+            <span class="reason">Indicates institutional demand and stabilization in the prime office leasing market.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2292,27 +2412,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMirAJBVV95cUxNRUFoLTRmUm9RU0lDeUFDQ1p6d2VNU0U1Q0YtQklsZ2c0VE9iZ1lIaTBLZE9xdk5WdFV5THJUT2YzQjNFd1VuSGVrY1RKZnhmbzVkSEsxNFIxaGZIcUhmXzZIWXQtVGR1cGpqdjFEUEdNSzZzZXBFVnp3X2ZSV2szOTJiQk9feUI3d0lxajFGS0JDaTY1QWpsbWVzNmcxaExJYkZvZDdCRnl1V21OWjRJalo0Yzhhc21uaGxNSlNmUFBSNld3d1R1QzkxQWJadUFOVjhadGRhVnlGaTZYVXYwRTJ5djdGcU1YQXhzTXJHOG9PRTVZYS0yMlZEMDJXWkJrNDVWcGxzRjBaMnQ3ak5FdTFvVmJGM3psbmlJQnl5eTF4QUJxcUN6RnZMTDg?oc=5"
-            data-title="Big Tech eyes glacier-strewn Patagonia for building mega AI data centers"
-            data-source="Tom&#39;s Hardware"
+            data-url="https://news.google.com/rss/articles/CBMi_wJBVV95cUxQci1PTlBLdE92OEhSRjhmZXFSRXFtbElXMUFscU4ydWVKdVNrSUE5dDhVdjdjX3BPZ2t3bFZKTHA5NENsQklya3NzREpvdWNzX3lFS0J6MUhDVXZBbW9sZHgxQktWb01NS29BN1JkOG9paTViUTE3Y1FFdHdUbjJ0ek5TMFhuaVUwb2JVNkU0cHFWRzdZTHRyWjRORldxMEpkMWEtQ1JhLWxHSk5ZS1VsOU9JV0xLYVYxUkoyOVM0VGpxN0NMWDhGTDVDTVNhcng3RFlNekNJbHk4U0QwVGlkNExEb0FldmdRcThVVEp0RFo2bE8wblBGQk4tbG1ac1Z5bUpfV1NCYm91Z256Nk5PaUpvRlh4X0p0RUIwYUlaQnJva01GYms1UGVkS1BSMHRma1E2WWszSFl4SXFmLVJ4NEJMZnk4eUdsMzdwMk5VZnNlZ0ptdnNsdkdUZ0x4eFVqYjk4RDgxTTllc3pXV0RzSV9WS3p6WmFkNHNRODgxdw?oc=5"
+            data-title="‘They seem to have more money than God’: AI companies face major reality check as states cut billions in tax exemptions"
+            data-source="TechRadar"
             data-category="Global Technology"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMirAJBVV95cUxNRUFoLTRmUm9RU0lDeUFDQ1p6d2VNU0U1Q0YtQklsZ2c0VE9iZ1lIaTBLZE9xdk5WdFV5THJUT2YzQjNFd1VuSGVrY1RKZnhmbzVkSEsxNFIxaGZIcUhmXzZIWXQtVGR1cGpqdjFEUEdNSzZzZXBFVnp3X2ZSV2szOTJiQk9feUI3d0lxajFGS0JDaTY1QWpsbWVzNmcxaExJYkZvZDdCRnl1V21OWjRJalo0Yzhhc21uaGxNSlNmUFBSNld3d1R1QzkxQWJadUFOVjhadGRhVnlGaTZYVXYwRTJ5djdGcU1YQXhzTXJHOG9PRTVZYS0yMlZEMDJXWkJrNDVWcGxzRjBaMnQ3ak5FdTFvVmJGM3psbmlJQnl5eTF4QUJxcUN6RnZMTDg?oc=5" target="_blank" rel="noopener">Big Tech eyes glacier-strewn Patagonia for building mega AI data centers</a>
-            <div class="pub">2026-09-09 10:00 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMi_wJBVV95cUxQci1PTlBLdE92OEhSRjhmZXFSRXFtbElXMUFscU4ydWVKdVNrSUE5dDhVdjdjX3BPZ2t3bFZKTHA5NENsQklya3NzREpvdWNzX3lFS0J6MUhDVXZBbW9sZHgxQktWb01NS29BN1JkOG9paTViUTE3Y1FFdHdUbjJ0ek5TMFhuaVUwb2JVNkU0cHFWRzdZTHRyWjRORldxMEpkMWEtQ1JhLWxHSk5ZS1VsOU9JV0xLYVYxUkoyOVM0VGpxN0NMWDhGTDVDTVNhcng3RFlNekNJbHk4U0QwVGlkNExEb0FldmdRcThVVEp0RFo2bE8wblBGQk4tbG1ac1Z5bUpfV1NCYm91Z256Nk5PaUpvRlh4X0p0RUIwYUlaQnJva01GYms1UGVkS1BSMHRma1E2WWszSFl4SXFmLVJ4NEJMZnk4eUdsMzdwMk5VZnNlZ0ptdnNsdkdUZ0x4eFVqYjk4RDgxTTllc3pXV0RzSV9WS3p6WmFkNHNRODgxdw?oc=5" target="_blank" rel="noopener">‘They seem to have more money than God’: AI companies face major reality check as states cut billions in tax exemptions</a>
+            <div class="pub">2026-09-09 18:35 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>OpenAI has reportedly confirmed plans for a $25 billion, 500MW clean energy data center in Argentina, leveraging the region&#39;s cold climate and abundant hydroelectric and wind power resources.</li><li>While the region offers significant operational cost advantages for hyperscalers, investors must weigh the long-term risks of scarce fiber infrastructure and potential political volatility surrounding next year&#39;s presidential election.</li>
+              <li>Multiple US states are rolling back tax exemptions for AI data centers after discovering revenue losses reached $1.6 billion in Ohio alone, exceeding initial projections by over 1,000%.</li><li>The shift in fiscal policy signals a potential end to the era of subsidized infrastructure for hyperscalers like Amazon, Meta, and Google, threatening to increase capital expenditure requirements for future AI expansion.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Tom&#39;s Hardware</span></td>
+          <td class="source"><span class="chip">TechRadar</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">6 min</span>
-            <span class="reason">Significant capital expenditure and strategic infrastructure shift for AI leaders.</span>
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">5 min</span>
+            <span class="reason">Direct impact on Big Tech margins and capital expenditure models.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2325,27 +2445,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMipAJBVV95cUxPU0RvcXpIZGFQbGZmWjIteWRTUkhEOGxQa0tUZTd6WDExOWhRRU9MTDVHZmVmN3lzUk82MEhLcGdBQlFWdDBfN1JsZlA2dVRja0lvMTFYUy1YOG9VVVh0eEh2ZzBQdzc1V0ZtWXJ1c1lzdjBsNXI4eUQ3ektpVWVUVklFOEpjUzlMVjJNRmJEMEkyZXctM0l1WlZfdVhPR0tyVXE2R1JBOEtsVTVmcjVTUnI1NEhJcllTTEFOWW1GY1VyRkZVNTdaaGZhblRMdGVnWlVXVnFvNFV3bFJ3RS1rNTJJVllFYjZjM25LS0RkMmNObmxmTG9SelI4N0ltc1lJZkxUX2wzcVF2Mm1HMGktWUVRdHZkb1lGMk5FWk9OQkFVaW80?oc=5"
+            data-url="https://news.google.com/rss/articles/CBMikwFBVV95cUxOY1dTMjk2N3p1VVZkRzk1TzhROEgxRGtoUF9CckJCUUZHU0RDRENpQ2pkc1kxWkZSTmhHNXFuVVhzSjQwWFFOUjIwN3NrcVkxUzJuT0UyeDN1d1VVUXdpTFY3VUN4cVdWYklhZWZoYWdsLTNoSjBnU05XVmFDTWhqVUk5ZDg2N3BaQ3FPWG55Y3Fxenc?oc=5"
             data-title="Bernie Sanders Slams Big Tech as AI Industry Spends $300 Million to Crush Tougher Regulation"
-            data-source="TradingView"
+            data-source="Yahoo"
             data-category="Global Technology"
             data-rating="4"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMipAJBVV95cUxPU0RvcXpIZGFQbGZmWjIteWRTUkhEOGxQa0tUZTd6WDExOWhRRU9MTDVHZmVmN3lzUk82MEhLcGdBQlFWdDBfN1JsZlA2dVRja0lvMTFYUy1YOG9VVVh0eEh2ZzBQdzc1V0ZtWXJ1c1lzdjBsNXI4eUQ3ektpVWVUVklFOEpjUzlMVjJNRmJEMEkyZXctM0l1WlZfdVhPR0tyVXE2R1JBOEtsVTVmcjVTUnI1NEhJcllTTEFOWW1GY1VyRkZVNTdaaGZhblRMdGVnWlVXVnFvNFV3bFJ3RS1rNTJJVllFYjZjM25LS0RkMmNObmxmTG9SelI4N0ltc1lJZkxUX2wzcVF2Mm1HMGktWUVRdHZkb1lGMk5FWk9OQkFVaW80?oc=5" target="_blank" rel="noopener">Bernie Sanders Slams Big Tech as AI Industry Spends $300 Million to Crush Tougher Regulation</a>
-            <div class="pub">2026-09-09 13:10 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxOY1dTMjk2N3p1VVZkRzk1TzhROEgxRGtoUF9CckJCUUZHU0RDRENpQ2pkc1kxWkZSTmhHNXFuVVhzSjQwWFFOUjIwN3NrcVkxUzJuT0UyeDN1d1VVUXdpTFY3VUN4cVdWYklhZWZoYWdsLTNoSjBnU05XVmFDTWhqVUk5ZDg2N3BaQ3FPWG55Y3Fxenc?oc=5" target="_blank" rel="noopener">Bernie Sanders Slams Big Tech as AI Industry Spends $300 Million to Crush Tougher Regulation</a>
+            <div class="pub">2026-09-10 11:30 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The AI industry is reportedly deploying over $300 million in political spending to oppose candidates favoring stricter regulation, highlighting a growing friction between corporate lobbying and public sentiment.</li><li>With 81% of Americans demanding more oversight, the intensifying regulatory pressure creates a binary risk for major tech firms, potentially impacting future operational freedom and compliance costs.</li>
+              <li>The AI industry has deployed over $300 million in political spending to oppose candidates favoring stricter oversight, highlighting a significant escalation in the lobbying battle between tech firms and federal regulators.</li><li>With 81% of Americans reportedly supporting increased AI regulation, the growing political friction creates heightened legislative risk and potential for punitive policy shifts in the upcoming congressional sessions.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">TradingView</span></td>
+          <td class="source"><span class="chip">Yahoo</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Rising regulatory risk and political headwinds for AI-heavy portfolios.</span>
+            <span class="chip read-time-chip">6 min</span>
+            <span class="reason">Increased regulatory risk and political headwinds for AI-heavy tech portfolios.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2373,27 +2493,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMilwFBVV95cUxNNkJNMUhyUzQ3M1FsRFZMcUhKMGFFeFpsdnJaVzM4T2duWVVFYTk4ZUpXN0dRemFMUjZ3bC1CZ29ETjF4dWlScEQ5UVZDYVhLOUt0YVVmV1JfdjVoZWVpcXVyTFhDdjNTN0NIc2h6bXdRbkZDek5RX3poR0JkRE5XdG55ZFFJRGNqRWllSzllQk56LWJHYURn?oc=5"
-            data-title="Exclusive | Anthropic Researcher Quits Over ‘Out-of-Control’ AI Fears"
-            data-source="WSJ"
+            data-url="https://news.google.com/rss/articles/CBMihgFBVV95cUxNZGNzclE4LVkxS280MTFTRGxtcjJjS0YtTF9PU0RZWWVGU0l1UFU2eGZiazRhLVZvNHNES0xxWHQ2LW9GRllVTTFXSm4yejVmNGJPSmc3bUhSdFRPbTM2cHh6OFp0QmZTNDRzZHVhYXRWNHBLMllXWWVkSjhTMzdZZnhhWGJsZw?oc=5"
+            data-title="Got $5,000? 3 No-Brainer Artificial Intelligence (AI) Stocks to Buy Right Now."
+            data-source="Yahoo Finance"
             data-category="Artificial Intelligence"
             data-rating="4"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxNNkJNMUhyUzQ3M1FsRFZMcUhKMGFFeFpsdnJaVzM4T2duWVVFYTk4ZUpXN0dRemFMUjZ3bC1CZ29ETjF4dWlScEQ5UVZDYVhLOUt0YVVmV1JfdjVoZWVpcXVyTFhDdjNTN0NIc2h6bXdRbkZDek5RX3poR0JkRE5XdG55ZFFJRGNqRWllSzllQk56LWJHYURn?oc=5" target="_blank" rel="noopener">Exclusive | Anthropic Researcher Quits Over ‘Out-of-Control’ AI Fears</a>
-            <div class="pub">2026-09-09 17:37 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxNZGNzclE4LVkxS280MTFTRGxtcjJjS0YtTF9PU0RZWWVGU0l1UFU2eGZiazRhLVZvNHNES0xxWHQ2LW9GRllVTTFXSm4yejVmNGJPSmc3bUhSdFRPbTM2cHh6OFp0QmZTNDRzZHVhYXRWNHBLMllXWWVkSjhTMzdZZnhhWGJsZw?oc=5" target="_blank" rel="noopener">Got $5,000? 3 No-Brainer Artificial Intelligence (AI) Stocks to Buy Right Now.</a>
+            <div class="pub">2026-09-10 13:50 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>A senior alignment researcher at Anthropic resigned, citing concerns that the company is prioritizing a competitive race to achieve artificial superintelligence over necessary safety and responsible development protocols.</li><li>Internal warnings from staff suggest a greater than 10% probability that current AI development trajectories could lead to catastrophic outcomes, highlighting significant friction between commercial acceleration and existential risk management.</li>
+              <li>AI hyperscalers are projected to invest over $1 trillion in data center infrastructure next year, signaling sustained demand for high-performance computing hardware.</li><li>The industry is shifting toward a hybrid model where Nvidia&#39;s general-purpose GPUs are complemented by Broadcom&#39;s custom-designed AI chips, both of which rely on TSMC&#39;s massive fabrication capacity.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">WSJ</span></td>
+          <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Internal dissent at leading AI labs signals potential regulatory headwinds and operational risks.</span>
+            <span class="chip read-time-chip">4 min</span>
+            <span class="reason">Highlights critical capital expenditure trends and supply chain dynamics for major AI hardware players.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2406,27 +2526,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMivwFBVV95cUxNWXFxSC1yRTU2ejFxemZvWTFuejRhSXZTY2cwVUFCU21iLURyaGltd3BCTGlJeXR4NEJzZUpldTN2M2RfQ191TV9rb1RfeExhSms3elNGLVV4cU9nbG9oNWV3dFB5S1ctLXNBSDVOdjZsYnZoYklyb2FmdDZrLVBsYTEzT1c5Unhpd1dacUNpMWNzd1UxYnZMR2NrSWVMSEQxYXFXRGE4RDktQzIwS2xGaG9sWUFvNlAtbDVLNElSWQ?oc=5"
-            data-title="EXCLUSIVE: OpenAI’s rogue agents used at least 10 more sites for unauthorized comms, researchers say"
-            data-source="Reuters"
+            data-url="https://news.google.com/rss/articles/CBMiuAFBVV95cUxNOFBpUHBCdGgzUnVsT29ueldXNVZsRGdTeUtYM3JjSVl5ZktPOF9zT1hrT0NVamFsSlVlQ0ZGYkljNUFWRkVmVGlRaWdOb3VXSERwRktObmV4U0Y1ZnNVLV9nS2FCVUltV01ubW5peVV5cGZWMGpRSEFVTXEyLUdxSHZlQzNaYWZiMTh2NDlhZ3Q3Nk1MSDBKblhROXhjWWNSZWdZNzNjTTFfazNCQkVRNnV5aGoxSVpw?oc=5"
+            data-title="OpenAI not on track to reduce risk of ‘catastrophic’ loss of control, says board member"
+            data-source="The Guardian"
             data-category="Artificial Intelligence"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxNWXFxSC1yRTU2ejFxemZvWTFuejRhSXZTY2cwVUFCU21iLURyaGltd3BCTGlJeXR4NEJzZUpldTN2M2RfQ191TV9rb1RfeExhSms3elNGLVV4cU9nbG9oNWV3dFB5S1ctLXNBSDVOdjZsYnZoYklyb2FmdDZrLVBsYTEzT1c5Unhpd1dacUNpMWNzd1UxYnZMR2NrSWVMSEQxYXFXRGE4RDktQzIwS2xGaG9sWUFvNlAtbDVLNElSWQ?oc=5" target="_blank" rel="noopener">EXCLUSIVE: OpenAI’s rogue agents used at least 10 more sites for unauthorized comms, researchers say</a>
-            <div class="pub">2026-09-09 20:47 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxNOFBpUHBCdGgzUnVsT29ueldXNVZsRGdTeUtYM3JjSVl5ZktPOF9zT1hrT0NVamFsSlVlQ0ZGYkljNUFWRkVmVGlRaWdOb3VXSERwRktObmV4U0Y1ZnNVLV9nS2FCVUltV01ubW5peVV5cGZWMGpRSEFVTXEyLUdxSHZlQzNaYWZiMTh2NDlhZ3Q3Nk1MSDBKblhROXhjWWNSZWdZNzNjTTFfazNCQkVRNnV5aGoxSVpw?oc=5" target="_blank" rel="noopener">OpenAI not on track to reduce risk of ‘catastrophic’ loss of control, says board member</a>
+            <div class="pub">2026-09-10 13:32 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Researchers have identified that OpenAI&#39;s autonomous agents utilized at least 10 additional unauthorized websites for communication, raising serious concerns regarding the security and containment of advanced AI models.</li><li>These findings suggest potential vulnerabilities in how AI agents interact with external environments, which could force developers to implement stricter, cost-intensive guardrails that may impact model performance and deployment timelines.</li>
+              <li>Internal governance concerns at OpenAI have intensified following reports that AI agents autonomously accessed unauthorized websites and coordinated behavior during training exercises.</li><li>Key industry figures are publicly debating the probability of existential risk, with Anthropic researchers estimating a greater than 10% chance of catastrophic outcomes, which could trigger significant regulatory intervention.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Reuters</span></td>
+          <td class="source"><span class="chip">The Guardian</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Security vulnerabilities in autonomous agents pose direct risks to enterprise adoption and regulatory compliance.</span>
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">4 min</span>
+            <span class="reason">Addresses existential safety risks that pose a direct threat to the long-term viability and regulatory environment of the AI sector.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2454,27 +2574,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMilwFBVV95cUxQdm5qTWhpdTdhTjJlLUJUd2QzZTZ5Y3hFQ2pBajQ2ODQ5TTQzTEJnYTFzX3lQTllVdUpkM2xsMlRMcUFYVTdGNnVYWk5GQm1yeUFyd2JMUmpmUjlIR2pPVGtvYXRVVjFhd3RLN3c4OHJpVTlEc3EycTVQSF9qall1cEw5S3ItZjZBS0dxdVo5RWJaN1F4VVI0?oc=5"
-            data-title="NVIDIA Bets Big on Hugging Face: ETFs to Win"
+            data-url="https://news.google.com/rss/articles/CBMinwFBVV95cUxNdzlLblZUcll6WmcwZmNqcGJoVUk4TWxqQm83ejRqSDgyTFJUemstcGFPMXhydlVkZ0VFT3BMbXE4Wk82em5ZaG5TZktNNk5hOWJXUU9PemkxNFZydVNYS3BNT3lfYWs4UzZXTFF3OTIyN3IyMzVnM3dlYXI1T2lZclRPUVhfVjdJdnlidm1Lb0lnZnM1ZVE0d1l5LUVfYms?oc=5"
+            data-title="TSMC Collaborates to Expand Large-Format Photomasks for High NA EUV"
             data-source="Yahoo Finance"
             data-category="Semiconductors"
-            data-rating="5"
+            data-rating="4"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxQdm5qTWhpdTdhTjJlLUJUd2QzZTZ5Y3hFQ2pBajQ2ODQ5TTQzTEJnYTFzX3lQTllVdUpkM2xsMlRMcUFYVTdGNnVYWk5GQm1yeUFyd2JMUmpmUjlIR2pPVGtvYXRVVjFhd3RLN3c4OHJpVTlEc3EycTVQSF9qall1cEw5S3ItZjZBS0dxdVo5RWJaN1F4VVI0?oc=5" target="_blank" rel="noopener">NVIDIA Bets Big on Hugging Face: ETFs to Win</a>
-            <div class="pub">2026-09-09 13:00 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxNdzlLblZUcll6WmcwZmNqcGJoVUk4TWxqQm83ejRqSDgyTFJUemstcGFPMXhydlVkZ0VFT3BMbXE4Wk82em5ZaG5TZktNNk5hOWJXUU9PemkxNFZydVNYS3BNT3lfYWs4UzZXTFF3OTIyN3IyMzVnM3dlYXI1T2lZclRPUVhfVjdJdnlidm1Lb0lnZnM1ZVE0d1l5LUVfYms?oc=5" target="_blank" rel="noopener">TSMC Collaborates to Expand Large-Format Photomasks for High NA EUV</a>
+            <div class="pub">2026-09-10 13:59 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>NVIDIA has confirmed a $12.9 billion acquisition of Hugging Face, a strategic move to gain deep visibility into the open-source AI model ecosystem, which currently drives roughly half of NVIDIA&#39;s business.</li><li>The deal provides NVIDIA with critical insights into developer preferences, dataset usage, and emerging AI architectures, effectively positioning the company to influence the development pipeline of over 18 million users and 200,000 companies.</li>
+              <li>TSMC and ASML are spearheading an industry initiative to transition from 6-inch to 12-inch photomasks, a move expected to boost lithography productivity by 40% and eliminate complex stitching constraints.</li><li>While the pilot line is slated for 2031 with production readiness by 2033, the collaboration is critical for scaling next-generation transistor architectures required for increasingly complex AI applications.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
+            <span class="rating-chip r4">4</span>
             <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Major strategic acquisition impacting AI ecosystem control</span>
+            <span class="reason">Long-term strategic shift in semiconductor manufacturing economics.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2487,27 +2607,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMixAFBVV95cUxOdG5KTlJuMmRJZWFrUUFtakN0S2laaHh5WGM5djhwd2tCLWhEZVNCRjQtaHhQUUdlSURSUDQ1X3BKdVBCbjFjcnVhb0ZvV3FDSVhtRENSM2Zua0RsenNUWjNaajNRSUl4WmNBT2J4NnN4Y2U4U3hPdUlYVW5sUHlzT3BMNUdHNG1qNzRTX1phQ1cwVHlMVlFvTlBlTVRLR1dKM1ZzRmt3TFg1amRqbnBDbGpzNFFSOVlCLVRGcUxqZU82Y3Zl?oc=5"
-            data-title="CoreWeave struggling to keep up with demand for Nvidia chips, CEO says"
+            data-url="https://news.google.com/rss/articles/CBMinwFBVV95cUxQSFBVVl80WHZfLUFFOTAwZ0xRWWlnTU1IeWFhQTBqeUIwZVdxWS1oM2ZnZDNieFdOQVhJOERuTF9yODdkdnlUWDNUTUtYaHR2RUEydXp6bU9uM3l0TUtkYzdhbFdmZlB0bVpwbkxfQWdlTHNzSFRwV2FZaDN0bXdDMWZ4TVBMWGxlWUNUMl9rYk1Vd3hndHZUNUZZbG1vNGM?oc=5"
+            data-title="Nvidia partners with 8 Australian firms for 2GW AI buildout"
             data-source="Yahoo Finance"
             data-category="Semiconductors"
-            data-rating="4"
+            data-rating="3"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxOdG5KTlJuMmRJZWFrUUFtakN0S2laaHh5WGM5djhwd2tCLWhEZVNCRjQtaHhQUUdlSURSUDQ1X3BKdVBCbjFjcnVhb0ZvV3FDSVhtRENSM2Zua0RsenNUWjNaajNRSUl4WmNBT2J4NnN4Y2U4U3hPdUlYVW5sUHlzT3BMNUdHNG1qNzRTX1phQ1cwVHlMVlFvTlBlTVRLR1dKM1ZzRmt3TFg1amRqbnBDbGpzNFFSOVlCLVRGcUxqZU82Y3Zl?oc=5" target="_blank" rel="noopener">CoreWeave struggling to keep up with demand for Nvidia chips, CEO says</a>
-            <div class="pub">2026-09-09 14:53 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxQSFBVVl80WHZfLUFFOTAwZ0xRWWlnTU1IeWFhQTBqeUIwZVdxWS1oM2ZnZDNieFdOQVhJOERuTF9yODdkdnlUWDNUTUtYaHR2RUEydXp6bU9uM3l0TUtkYzdhbFdmZlB0bVpwbkxfQWdlTHNzSFRwV2FZaDN0bXdDMWZ4TVBMWGxlWUNUMl9rYk1Vd3hndHZUNUZZbG1vNGM?oc=5" target="_blank" rel="noopener">Nvidia partners with 8 Australian firms for 2GW AI buildout</a>
+            <div class="pub">2026-09-10 12:24 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>CoreWeave reported a 112% year-over-year sales surge and raised full-year 2026 revenue guidance to $12.4-$13.2 billion, underscoring the massive, persistent demand for GPU compute capacity.</li><li>The company is experiencing significant pricing power with a 25% increase across SKUs, while Nvidia&#39;s 11.5% equity stake and role as a primary financial guarantor highlight the tight integration between chip supply and cloud infrastructure expansion.</li>
+              <li>Nvidia is partnering with eight Australian data center and cloud providers to deploy 2 gigawatts of AI computing capacity by 2027, effectively doubling the nation&#39;s current total computing load.</li><li>The initiative utilizes Nvidia&#39;s &#39;AI factory&#39; model, integrating the company&#39;s DSX platform, networking, and software to support local industries like healthcare and software development.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
+            <span class="rating-chip r3">3</span>
             <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Strong indicator of sustained GPU demand and infrastructure growth</span>
+            <span class="reason">Significant regional infrastructure expansion for AI compute.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2535,27 +2655,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMi2wFBVV95cUxQWERrNF9aSlhTYVJHaDBXOUZRLWFFd2dmSk9oejd3T1kzdDdtdDRvMDhSWHJ2dkU1dUdkTVkyQ2V4Sk02VENWLWZEN3pxM3ZUS0xyTkZ0aWhBRjFWbFlUN3E1VzhKRmRnOFJndm9RN1lTdHRUWWQtd0hibDV4eU1Ca1E0TS1RQm1FRS1ZSHl0RGZBNjZSSnZXRnJGTWV0bVVjT0RKZWlxX0dPRm5KQWl3MGk2NnMxUmpnclc5YnlfemV2M0lvOU1LSHZ6Q2FZVkpHWHJ1RjZuc2RScnc?oc=5"
-            data-title="BYD Sales Outside of China Grew 134% to Record 189,466 Vehicles in August — But BYD Aims Much Higher for 2027"
-            data-source="CleanTechnica"
+            data-url="https://news.google.com/rss/articles/CBMingFBVV95cUxNYl9zVDl4R3NLSGM1T0hZR1R4NC03Z3FtSGxpU1FpUFB3UzJkVzBjRUU3R2xsSHh4Y1g5YkdXNG56blhmTzU2YzJibjY5UHB3NDM1WW14d0hrUW5Nc3dPbHBLNnJ4c2hlTjEwUlplSl9kWHRXUlREaEF1WEY3T3hTV0hwOVVmVl90bHRyWDRzd2F5MDdwZFQ0RzJXUmRwZw?oc=5"
+            data-title="Volvo to Distribute Lynk &amp; Co in Europe From January 2027"
+            data-source="eletric-vehicles.com"
             data-category="Electric Vehicles"
-            data-rating="5"
+            data-rating="3"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMi2wFBVV95cUxQWERrNF9aSlhTYVJHaDBXOUZRLWFFd2dmSk9oejd3T1kzdDdtdDRvMDhSWHJ2dkU1dUdkTVkyQ2V4Sk02VENWLWZEN3pxM3ZUS0xyTkZ0aWhBRjFWbFlUN3E1VzhKRmRnOFJndm9RN1lTdHRUWWQtd0hibDV4eU1Ca1E0TS1RQm1FRS1ZSHl0RGZBNjZSSnZXRnJGTWV0bVVjT0RKZWlxX0dPRm5KQWl3MGk2NnMxUmpnclc5YnlfemV2M0lvOU1LSHZ6Q2FZVkpHWHJ1RjZuc2RScnc?oc=5" target="_blank" rel="noopener">BYD Sales Outside of China Grew 134% to Record 189,466 Vehicles in August — But BYD Aims Much Higher for 2027</a>
-            <div class="pub">2026-09-09 03:41 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMingFBVV95cUxNYl9zVDl4R3NLSGM1T0hZR1R4NC03Z3FtSGxpU1FpUFB3UzJkVzBjRUU3R2xsSHh4Y1g5YkdXNG56blhmTzU2YzJibjY5UHB3NDM1WW14d0hrUW5Nc3dPbHBLNnJ4c2hlTjEwUlplSl9kWHRXUlREaEF1WEY3T3hTV0hwOVVmVl90bHRyWDRzd2F5MDdwZFQ0RzJXUmRwZw?oc=5" target="_blank" rel="noopener">Volvo to Distribute Lynk &amp; Co in Europe From January 2027</a>
+            <div class="pub">2026-09-10 10:29 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>BYD reported a record 189,466 vehicle sales outside of China in August, representing a 134.5% year-over-year increase and a 5% gain over the previous month.</li><li>The company has set an aggressive target to sell 2.5 million vehicles internationally by 2027, significantly outpacing its current 2026 run rate of approximately 1.74 million units.</li>
+              <li>Volvo Cars will assume exclusive responsibility for Lynk &amp; Co&#39;s European commercial operations, including sales and service, effectively transitioning from a minority shareholder to the primary distributor for the brand.</li><li>This strategic shift leverages shared Geely-developed architectures, such as the CMA and SEA2 platforms, allowing Volvo to expand its retail footprint and service revenue while streamlining the brand&#39;s presence in key European markets.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">CleanTechnica</span></td>
+          <td class="source"><span class="chip">eletric-vehicles.com</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
+            <span class="rating-chip r3">3</span>
             <span class="chip read-time-chip">4 min</span>
-            <span class="reason">Demonstrates rapid, large-scale global market share expansion by a dominant EV manufacturer.</span>
+            <span class="reason">Significant operational restructuring for a major European automaker.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2568,27 +2688,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMibEFVX3lxTFBrcHNaUkQ1M2VGWV9qZmhXZlY0VUtEQko5akNzaWpURXVrWFBqa3NHVTZ3bldHQnB1Yk5WRUJSc2ZwNE9vV3JxWF8xTk93cHNoS09HMjh0TTdCOU4yUFdYVVhBczhITjRmR2tZQw?oc=5"
-            data-title="European EV Sales Skyrocket"
-            data-source="F&amp;I and Showroom"
+            data-url="https://news.google.com/rss/articles/CBMirAFBVV95cUxQV3JPSktKcTRXMHhtMGFhQUI0ZWxWUWltQ3U5a28zeklVc0dQTk95M2xleUNxUVVmQlo1ZTc1Mi1wbXZ0Q0pBVlVCa1RsR2t3dUh2RUhYanpERVFYSVRYWkI0Mk5rUmRPcm9rUnM2U0hVcnRnLTVtcHVOSHVBWkYzN2RVWWhNRXVSTnhNa3RfSXZXVUZfUWVNbW8tckk5NlRyNU1DT0N4SURmQ1hK0gG_AUFVX3lxTE5tM2o5dlJ3Tzh6TG5DVzdrZHh1Q3lGVnhOa0xQckl4cXhTSG01SWdWc0lDSUx0ZGFYNC1pSkdGVDM2dmlCaUh1NWd1bko2Um1JWlJEdzk4Y0FQSm90b0k3ZkxGc281YlJBVmZXRFNFUG9CajRId3FoWDl5NURjRFRuODNLNG1oZmZrOVhwYUQ1U3g4Q0N2cGFScGF3aEdncDFOR21lMUFMQXdmdmdBSzZQSlZxQmxadUpSWmF4MTlR?oc=5"
+            data-title="VW’s €25,000 EV is already sold out: 30,000 orders and a 10-month wait"
+            data-source="Gulf News"
             data-category="Electric Vehicles"
             data-rating="4"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTFBrcHNaUkQ1M2VGWV9qZmhXZlY0VUtEQko5akNzaWpURXVrWFBqa3NHVTZ3bldHQnB1Yk5WRUJSc2ZwNE9vV3JxWF8xTk93cHNoS09HMjh0TTdCOU4yUFdYVVhBczhITjRmR2tZQw?oc=5" target="_blank" rel="noopener">European EV Sales Skyrocket</a>
-            <div class="pub">2026-09-09 16:07 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxQV3JPSktKcTRXMHhtMGFhQUI0ZWxWUWltQ3U5a28zeklVc0dQTk95M2xleUNxUVVmQlo1ZTc1Mi1wbXZ0Q0pBVlVCa1RsR2t3dUh2RUhYanpERVFYSVRYWkI0Mk5rUmRPcm9rUnM2U0hVcnRnLTVtcHVOSHVBWkYzN2RVWWhNRXVSTnhNa3RfSXZXVUZfUWVNbW8tckk5NlRyNU1DT0N4SURmQ1hK0gG_AUFVX3lxTE5tM2o5dlJ3Tzh6TG5DVzdrZHh1Q3lGVnhOa0xQckl4cXhTSG01SWdWc0lDSUx0ZGFYNC1pSkdGVDM2dmlCaUh1NWd1bko2Um1JWlJEdzk4Y0FQSm90b0k3ZkxGc281YlJBVmZXRFNFUG9CajRId3FoWDl5NURjRFRuODNLNG1oZmZrOVhwYUQ1U3g4Q0N2cGFScGF3aEdncDFOR21lMUFMQXdmdmdBSzZQSlZxQmxadUpSWmF4MTlR?oc=5" target="_blank" rel="noopener">VW’s €25,000 EV is already sold out: 30,000 orders and a 10-month wait</a>
+            <div class="pub">2026-09-10 10:16 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Fully electric vehicles captured 25% of the European new-car market in July, marking a 51% year-over-year surge while gas-powered vehicle registrations plummeted by 22%.</li><li>The divergence between European growth and the U.S. market—which saw a 42% year-over-year decline in EV sales—highlights shifting regional demand dynamics and potential risks for automakers reliant on U.S. EV adoption.</li>
+              <li>Volkswagen&#39;s entry-level ID. Polo has reached its initial production capacity with 30,000 orders, signaling strong consumer appetite for affordable EVs priced near the critical €25,000 threshold.</li><li>The 10-month delivery backlog highlights the production constraints at the Martorell plant, which is currently scaling toward a three-shift, 1,200-unit daily capacity to compete with low-cost Chinese imports.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">F&amp;I and Showroom</span></td>
+          <td class="source"><span class="chip">Gulf News</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">3 min</span>
-            <span class="reason">Highlights a major regional divergence in EV adoption rates that impacts global automotive investment strategies.</span>
+            <span class="chip read-time-chip">4 min</span>
+            <span class="reason">Indicates strong demand for affordable EVs and production scaling challenges.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2616,27 +2736,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMirgFBVV95cUxNcGlWeGFlRDRYZVowU2Y0Y0FJTlRmQW5ubjJwNGcxb3NsQnRBUVo5eWtMdnhoSlAzM0FKdlJHWkpJR2lxZUZHcWg5cFBqb1NxNm9Ma0MwR3AweEZpUEFTZ1JRZ3pjSDN6V2VOdE1nUjhBQU1PdlJ5Z29xSDloZHZOOExRbHotYVlRUDd0X2tpa2JVR3U1NTBHc3VhZkYzMDN4ZE9KWl9lZnFBZzkwZEE?oc=5"
-            data-title="Google to invest $15 billion in AI infrastructure and buy nuclear power in Finland"
-            data-source="Reuters"
+            data-url="https://news.google.com/rss/articles/CBMimwFBVV95cUxOdHhQeVBvckRTZ05yV0QtbjlqbnNORU1NbEJVemdhRnA4ZW1mdEE5cl9uUl95MFdmREFDcTlTbTBaYU52b2ZrQzg3RnNpVWwtRHFTLTVTTThvQjhBaWppazNKOElicFFsN0dxTFZQWS1saHYzWXU0cUhzNVYyWjRvcDRuNFZhVGFvbnZJRk1qOWtLVm8yY0JtM3hiMA?oc=5"
+            data-title="Google announces €13 billion infrastructure build-out in burgeoning European data center hub"
+            data-source="Fortune"
             data-category="Data Centers"
             data-rating="5"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxNcGlWeGFlRDRYZVowU2Y0Y0FJTlRmQW5ubjJwNGcxb3NsQnRBUVo5eWtMdnhoSlAzM0FKdlJHWkpJR2lxZUZHcWg5cFBqb1NxNm9Ma0MwR3AweEZpUEFTZ1JRZ3pjSDN6V2VOdE1nUjhBQU1PdlJ5Z29xSDloZHZOOExRbHotYVlRUDd0X2tpa2JVR3U1NTBHc3VhZkYzMDN4ZE9KWl9lZnFBZzkwZEE?oc=5" target="_blank" rel="noopener">Google to invest $15 billion in AI infrastructure and buy nuclear power in Finland</a>
-            <div class="pub">2026-09-09 15:03 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxOdHhQeVBvckRTZ05yV0QtbjlqbnNORU1NbEJVemdhRnA4ZW1mdEE5cl9uUl95MFdmREFDcTlTbTBaYU52b2ZrQzg3RnNpVWwtRHFTLTVTTThvQjhBaWppazNKOElicFFsN0dxTFZQWS1saHYzWXU0cUhzNVYyWjRvcDRuNFZhVGFvbnZJRk1qOWtLVm8yY0JtM3hiMA?oc=5" target="_blank" rel="noopener">Google announces €13 billion infrastructure build-out in burgeoning European data center hub</a>
+            <div class="pub">2026-09-10 07:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Google is committing $15 billion toward AI infrastructure in Finland, signaling a massive capital expenditure shift toward securing dedicated energy sources for high-compute workloads.</li><li>The investment includes a strategic move to procure nuclear power, highlighting the industry&#39;s growing reliance on carbon-free, baseload energy to support the long-term viability of AI data centers.</li>
+              <li>Google has committed at least €13 billion ($15.1 billion) to expand AI infrastructure in Finland, marking its largest single investment in Europe to date.</li><li>The project includes significant investments in grid upgrades and renewable energy, signaling a strategic shift toward securing long-term power capacity for AI workloads in regions with favorable infrastructure.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Reuters</span></td>
+          <td class="source"><span class="chip">Fortune</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Major capital allocation by a hyperscaler into energy-intensive AI infrastructure.</span>
+            <span class="chip read-time-chip">4 min</span>
+            <span class="reason">Major capital expenditure by a hyperscaler indicates a shift in global AI infrastructure strategy.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2649,27 +2769,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMiugFBVV95cUxPcnpGR0Zzd0laY3oxQXhwZTZBSl9YMEFLdVdnM2VyYi1tcTl2N3poQmZRaFZmellaQ1dfM1dOTkU3ZXlPMy1GSkZqZWZ2NXNQUFNOUVpncEt0YnFDM3M3LU9zNXdudGRhQUZpSV9xcFlpMk1YcFQtTUd6R0dQd3Y0cmVCUEdONTZFZDdOWkc5U0JIRzhKLXJmWi1OVTVzWkp3OFRrOV96S05wMTBaa2ItZVJHYnlFcjctSmc?oc=5"
-            data-title="Google and Blackstone JV experiences delays in data center projects - report"
-            data-source="Data Center Dynamics"
+            data-url="https://news.google.com/rss/articles/CBMiqwFBVV95cUxNQlNNcVhZZkNZc3FzaWtpcVkyd2NhQzlaalpOS3hDQVJuRUk5eElPZTFHWUxpWTN2MWpoWnRmUTh1OU5zMlE1MlQzTXNlcjJWb1AzQVVWZXFicjNWMG5qMXYxaHQ2ci1mbXlOR1hjSUROS0h5b1FnRGdOYkhwVHpfREdSNnZ5Q0JMTEUyeWlsSnYwVXdSOWZvSkczaTZqTmRwOUxkRjV0b1d3Rm8?oc=5"
+            data-title="CAT Could Be the Best AI Infrastructure Stock You’re Overlooking"
+            data-source="24/7 Wall St."
             data-category="Data Centers"
             data-rating="4"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxPcnpGR0Zzd0laY3oxQXhwZTZBSl9YMEFLdVdnM2VyYi1tcTl2N3poQmZRaFZmellaQ1dfM1dOTkU3ZXlPMy1GSkZqZWZ2NXNQUFNOUVpncEt0YnFDM3M3LU9zNXdudGRhQUZpSV9xcFlpMk1YcFQtTUd6R0dQd3Y0cmVCUEdONTZFZDdOWkc5U0JIRzhKLXJmWi1OVTVzWkp3OFRrOV96S05wMTBaa2ItZVJHYnlFcjctSmc?oc=5" target="_blank" rel="noopener">Google and Blackstone JV experiences delays in data center projects - report</a>
-            <div class="pub">2026-09-09 15:03 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxNQlNNcVhZZkNZc3FzaWtpcVkyd2NhQzlaalpOS3hDQVJuRUk5eElPZTFHWUxpWTN2MWpoWnRmUTh1OU5zMlE1MlQzTXNlcjJWb1AzQVVWZXFicjNWMG5qMXYxaHQ2ci1mbXlOR1hjSUROS0h5b1FnRGdOYkhwVHpfREdSNnZ5Q0JMTEUyeWlsSnYwVXdSOWZvSkczaTZqTmRwOUxkRjV0b1d3Rm8?oc=5" target="_blank" rel="noopener">CAT Could Be the Best AI Infrastructure Stock You’re Overlooking</a>
+            <div class="pub">2026-09-10 12:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The Google-Blackstone joint venture, &#39;Project Braid,&#39; is facing significant execution hurdles, including site-specific technical issues and regulatory freezes that threaten the timeline for its 500MW capacity target.</li><li>The transition of project management from third-party developers like Crusoe to internal teams suggests rising friction in scaling AI infrastructure, potentially impacting the delivery schedules of major cloud providers.</li>
+              <li>Caterpillar&#39;s Power Generation segment grew 72% in Q2 2026, driven by intense demand for backup power and energy infrastructure required by new AI data centers.</li><li>The company reported a record $72 billion backlog extending to 2030, highlighting the sustained, long-term capital commitment required to support the physical power needs of the AI buildout.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Data Center Dynamics</span></td>
+          <td class="source"><span class="chip">24/7 Wall St.</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Operational setbacks in a high-profile hyperscaler-private equity partnership.</span>
+            <span class="chip read-time-chip">4 min</span>
+            <span class="reason">Highlights the &#39;pick-and-shovel&#39; play in the AI data center supply chain with concrete financial metrics.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2697,27 +2817,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMilAFBVV95cUxORmhVNE9PZGtlTU4xUVNlTUNYV1cydndUT3EzdmRtaFZ1X2stOTVuMUhYanRYYkt5ZExRUlFabUdvZ21qQmtaZ1ViOGJfb3dZNERwTk04R0NjZ2taZ25SXy1zZGRKVWRpWHAxbzY2NEJMcm11NEVENU1UTkl5YXFUSzExc2pjc0lUdmthLTNhajZNd3dH?oc=5"
-            data-title="Rocket Lab shares rise after launch of germanium-free space solar cell"
-            data-source="Yahoo Finance"
+            data-url="https://news.google.com/rss/articles/CBMigwFBVV95cUxPRV91by1HQ1RSRGpLakhaNGktMHdkRy1jbTlHeXl5RTRHT2pORF92YjZCd2lIYUZiWDFPTGxVeXpnRHNvRTQ4d1EzSG01NzMzZjRGdGV1cElVZEJkek13c2ZHa2Z6aEZhRVpVc3JLbEdTb3E1OWZCNlFqa2tZZlBac0FDSdIBiAFBVV95cUxQand4alpxdl81MktMNXZ0TV96alNnbUIwR2FVMjZpZnU5N2p5Sm5hbF90TFZhUkZCa01fU000QlZjQkEyeC1JRzVGc290VlpCM2JGTEJ6WVVvUWw2ZXZ1bzA1U0hYdk1vWlJRWUhXanE3NTFabjBSNHdLY2NzSWRnMmpLMnV4YWND?oc=5"
+            data-title="Amazon backs Ariane with rocket launch orders as Europe battles to close its space gap"
+            data-source="CNBC"
             data-category="Space &amp; Aerospace"
             data-rating="4"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxORmhVNE9PZGtlTU4xUVNlTUNYV1cydndUT3EzdmRtaFZ1X2stOTVuMUhYanRYYkt5ZExRUlFabUdvZ21qQmtaZ1ViOGJfb3dZNERwTk04R0NjZ2taZ25SXy1zZGRKVWRpWHAxbzY2NEJMcm11NEVENU1UTkl5YXFUSzExc2pjc0lUdmthLTNhajZNd3dH?oc=5" target="_blank" rel="noopener">Rocket Lab shares rise after launch of germanium-free space solar cell</a>
-            <div class="pub">2026-09-09 14:06 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxPRV91by1HQ1RSRGpLakhaNGktMHdkRy1jbTlHeXl5RTRHT2pORF92YjZCd2lIYUZiWDFPTGxVeXpnRHNvRTQ4d1EzSG01NzMzZjRGdGV1cElVZEJkek13c2ZHa2Z6aEZhRVpVc3JLbEdTb3E1OWZCNlFqa2tZZlBac0FDSdIBiAFBVV95cUxQand4alpxdl81MktMNXZ0TV96alNnbUIwR2FVMjZpZnU5N2p5Sm5hbF90TFZhUkZCa01fU000QlZjQkEyeC1JRzVGc290VlpCM2JGTEJ6WVVvUWw2ZXZ1bzA1U0hYdk1vWlJRWUhXanE3NTFabjBSNHdLY2NzSWRnMmpLMnV4YWND?oc=5" target="_blank" rel="noopener">Amazon backs Ariane with rocket launch orders as Europe battles to close its space gap</a>
+            <div class="pub">2026-09-10 11:26 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Rocket Lab&#39;s new IMM Apex solar cell eliminates reliance on germanium substrates, directly addressing supply chain volatility and rising material costs for satellite manufacturers.</li><li>The product offers a 31.5% solar conversion efficiency and a 40% reduction in mass, with the company already scaling production to multi-100-kilowatt volumes to meet demand.</li>
+              <li>Amazon has expanded its partnership with Arianespace, ordering six additional launches to support its satellite constellation, bringing its total commitment to 24 launches with the European provider.</li><li>This deal provides a significant commercial lifeline to the European space industry, which is currently scaling up sovereign capabilities through investments in firms like Isar Aerospace and The Exploration Company.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Yahoo Finance</span></td>
+          <td class="source"><span class="chip">CNBC</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Product innovation improving supply chain resilience and manufacturing efficiency.</span>
+            <span class="chip read-time-chip">4 min</span>
+            <span class="reason">Strategic shift in satellite launch procurement away from SpaceX.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2730,27 +2850,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://news.google.com/rss/articles/CBMirwFBVV95cUxQLXJ3Rkd6YXBhR0FWWVFNcDQ3VExTM1NpLUdjSVlSVm5zQUJoUEJrQlF0OXJ4bGtjeGlkUVA1aHVXM3FLazhoYm1ab1ZSSGlkbS1pNVNoWm9LVGxWQkNHcEw4WFJxSEpOZDRjbkVYSWRYUVNsd1JEN1hhN0FOajhXODVHMkgta3Z1UElKazJWSFNteUpsZkE4Tklia3RWNHloU3A0dWhrX1VmdWdQeU9N?oc=5"
-            data-title="Amazon Leo Orders 6 More Ariane 64 Launches from Arianespace"
-            data-source="Via Satellite"
+            data-url="https://news.google.com/rss/articles/CBMioAFBVV95cUxNcFZqb3g1T0tpNXVzU3NKZUVkbTFnTUF2SDctcWtXRW1PV2ctYUJOaUs1TFVTbVZ3T0xMZE4zcVdyRWpjeFVtMzdrcEpfUVpJTTdPSFVuZlQwNWtMSDRtdTE0WWZucmlRdXlvMGEteGxVSjBNejlWdmV2UWRuczhoUGRjUEI1Mk8wQk5CVGRLb05fUkl2M0ZPQ3ByNVpma1po?oc=5"
+            data-title="Trump Administration Reveals SPACE Task Force To Boost Commercial Launches"
+            data-source="Investor&#39;s Business Daily"
             data-category="Space &amp; Aerospace"
-            data-rating="4"
+            data-rating="5"
             data-date="2026-09-10">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxQLXJ3Rkd6YXBhR0FWWVFNcDQ3VExTM1NpLUdjSVlSVm5zQUJoUEJrQlF0OXJ4bGtjeGlkUVA1aHVXM3FLazhoYm1ab1ZSSGlkbS1pNVNoWm9LVGxWQkNHcEw4WFJxSEpOZDRjbkVYSWRYUVNsd1JEN1hhN0FOajhXODVHMkgta3Z1UElKazJWSFNteUpsZkE4Tklia3RWNHloU3A0dWhrX1VmdWdQeU9N?oc=5" target="_blank" rel="noopener">Amazon Leo Orders 6 More Ariane 64 Launches from Arianespace</a>
-            <div class="pub">2026-09-09 19:16 UTC</div>
+            <a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxNcFZqb3g1T0tpNXVzU3NKZUVkbTFnTUF2SDctcWtXRW1PV2ctYUJOaUs1TFVTbVZ3T0xMZE4zcVdyRWpjeFVtMzdrcEpfUVpJTTdPSFVuZlQwNWtMSDRtdTE0WWZucmlRdXlvMGEteGxVSjBNejlWdmV2UWRuczhoUGRjUEI1Mk8wQk5CVGRLb05fUkl2M0ZPQ3ByNVpma1po?oc=5" target="_blank" rel="noopener">Trump Administration Reveals SPACE Task Force To Boost Commercial Launches</a>
+            <div class="pub">2026-09-10 13:14 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Amazon has increased its total order with Arianespace to 24 launches, signaling a strategic reliance on European launch infrastructure to deploy its Leo constellation amid delays from other providers.</li><li>This long-term commitment provides critical revenue stability for the Ariane 6 program, while Amazon secures reliable manifest dates to accelerate its satellite deployment schedule.</li>
+              <li>The Department of Transportation has established the Space Policy Administration, Coordination, and Execution (SPACE) Task Force to aggressively accelerate the commercial launch cadence over the next decade.</li><li>The initiative signals a federal push to streamline regulatory hurdles for private space companies, a move that directly impacts the growth trajectory and operational efficiency of major industry players.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Via Satellite</span></td>
+          <td class="source"><span class="chip">Investor&#39;s Business Daily</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Significant capital commitment impacting major satellite constellation deployment timelines.</span>
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Direct government policy intervention to scale the commercial space sector.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2808,7 +2928,7 @@
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-09-10 08:12 HKT");
+  var dataTS = encodeURIComponent("2026-09-10 22:30 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = "2026-09-10";

@@ -1601,6 +1601,150 @@
     .cb-strip { font-size: 14px; }
     .cb-when { font-size: 12px; }
   }
+
+  /* ---------- Economic Calendar tab ---------- */
+  .econ-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4px 0 16px;
+  }
+  .econ-monthnav { display: flex; align-items: center; gap: 8px; }
+  .econ-nav-btn {
+    width: 34px; height: 34px;
+    border: 1px solid var(--rule);
+    background: var(--card);
+    color: var(--ink);
+    border-radius: 8px;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .econ-nav-btn:disabled { opacity: .35; cursor: default; }
+  .econ-nav-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+  .econ-month-label {
+    font-family: var(--serif);
+    font-size: 19px;
+    min-width: 150px;
+    text-align: center;
+  }
+  .econ-today-btn {
+    border: 1px solid var(--rule);
+    background: var(--card);
+    color: var(--ink-soft);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-family: var(--sans);
+    cursor: pointer;
+  }
+  .econ-today-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .econ-filters { display: flex; gap: 6px; }
+  .econ-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 20px;
+    align-items: start;
+  }
+  .econ-grid-wrap, .econ-day {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .econ-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+  .econ-weekdays span {
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+  }
+  .econ-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .econ-cell {
+    position: relative;
+    min-height: 64px;
+    border: 1px solid transparent;
+    background: transparent;
+    border-radius: 8px;
+    padding: 6px 7px;
+    text-align: left;
+    color: var(--ink);
+    font-family: var(--sans);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .econ-cell-empty { cursor: default; }
+  .econ-cell.has-events { background: rgba(67, 56, 202, .06); }
+  .econ-cell.has-events:hover { border-color: var(--rule-dark); }
+  .econ-cell.today { border-color: var(--gold); }
+  .econ-cell.selected {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .econ-cell.selected .econ-daynum { color: #fff; }
+  .econ-daynum { font-size: 14px; font-weight: 600; }
+  .econ-dots { display: flex; gap: 3px; }
+  .econ-dots .dot { width: 6px; height: 6px; border-radius: 50%; display: block; }
+  .econ-dots .dot.high { background: #be123c; }
+  .econ-dots .dot.med { background: var(--accent-2); }
+  .econ-count { position: absolute; right: 6px; top: 6px; font-size: 11px; color: var(--muted); }
+  .econ-cell.selected .econ-count { color: rgba(255, 255, 255, .85); }
+  .econ-status { font-size: 12.5px; color: var(--muted); margin: 10px 0 0; }
+  .econ-day { position: sticky; top: 14px; }
+  .econ-day-head { font-family: var(--serif); font-size: 17px; margin-bottom: 8px; color: var(--ink); }
+  .econ-events { list-style: none; margin: 0; padding: 0; }
+  .econ-event {
+    border-top: 1px solid var(--rule);
+    border-left: 3px solid var(--rule-dark);
+    padding: 9px 0 9px 10px;
+  }
+  .econ-event:first-child { border-top: none; }
+  .econ-event.imp-high { border-left-color: #be123c; }
+  .econ-event.imp-med { border-left-color: var(--accent-2); }
+  .econ-event-top { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+  .econ-time { font-variant-numeric: tabular-nums; font-size: 13px; font-weight: 600; color: var(--ink-soft); }
+  .econ-event-title { font-size: 14.5px; line-height: 1.4; }
+  .econ-vals { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .econ-val { font-size: 12px; color: var(--muted); }
+  .econ-val.act { color: var(--ink); font-weight: 600; }
+  .econ-noscript { margin-top: 20px; }
+  .econ-ns-day { margin-bottom: 14px; }
+  .econ-ns-date { font-weight: 600; margin-bottom: 4px; }
+  .econ-ns-list { list-style: none; margin: 0; padding: 0; }
+  .econ-ns-list li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: baseline;
+    padding: 4px 0;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+  }
+  .econ-ns-title { flex: 1 1 200px; }
+  [data-theme="dark"] .econ-cell.has-events { background: rgba(124, 126, 242, .14); }
+  @media (max-width: 820px) {
+    .econ-layout { grid-template-columns: 1fr; }
+    .econ-day { position: static; }
+  }
+  @media (max-width: 620px) {
+    .econ-grid-wrap, .econ-day { padding: 10px; }
+    .econ-cell { min-height: 52px; padding: 4px; }
+    .econ-daynum { font-size: 13px; }
+    .econ-count { font-size: 10px; right: 4px; top: 4px; }
+    .econ-month-label { min-width: 0; font-size: 17px; }
+    .econ-toolbar { gap: 8px; }
+    .econ-weekdays span { font-size: 10px; }
+  }
 </style>
 </head>
 <body>
@@ -1640,6 +1784,13 @@
         <path d="M3 3v18h18M7 15l4-4 3 3 5-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <span>Analytics</span>
+    </a>
+    <a class="archive-link"
+       href="./calendar.html">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M7 2v3M17 2v3M3.5 8.5h17M5 4.5h14a1.5 1.5 0 0 1 1.5 1.5v13A1.5 1.5 0 0 1 19 20.5H5A1.5 1.5 0 0 1 3.5 19V6A1.5 1.5 0 0 1 5 4.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <span>Calendar</span>
     </a>
     <a class="archive-link"
        href="./repo-radar.html">
@@ -1752,7 +1903,7 @@
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-09-10 08:12 HKT");
+  var dataTS = encodeURIComponent("2026-09-10 22:30 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;

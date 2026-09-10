@@ -1601,6 +1601,150 @@
     .cb-strip { font-size: 14px; }
     .cb-when { font-size: 12px; }
   }
+
+  /* ---------- Economic Calendar tab ---------- */
+  .econ-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4px 0 16px;
+  }
+  .econ-monthnav { display: flex; align-items: center; gap: 8px; }
+  .econ-nav-btn {
+    width: 34px; height: 34px;
+    border: 1px solid var(--rule);
+    background: var(--card);
+    color: var(--ink);
+    border-radius: 8px;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .econ-nav-btn:disabled { opacity: .35; cursor: default; }
+  .econ-nav-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+  .econ-month-label {
+    font-family: var(--serif);
+    font-size: 19px;
+    min-width: 150px;
+    text-align: center;
+  }
+  .econ-today-btn {
+    border: 1px solid var(--rule);
+    background: var(--card);
+    color: var(--ink-soft);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-family: var(--sans);
+    cursor: pointer;
+  }
+  .econ-today-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .econ-filters { display: flex; gap: 6px; }
+  .econ-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 20px;
+    align-items: start;
+  }
+  .econ-grid-wrap, .econ-day {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .econ-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+  .econ-weekdays span {
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+  }
+  .econ-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .econ-cell {
+    position: relative;
+    min-height: 64px;
+    border: 1px solid transparent;
+    background: transparent;
+    border-radius: 8px;
+    padding: 6px 7px;
+    text-align: left;
+    color: var(--ink);
+    font-family: var(--sans);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .econ-cell-empty { cursor: default; }
+  .econ-cell.has-events { background: rgba(67, 56, 202, .06); }
+  .econ-cell.has-events:hover { border-color: var(--rule-dark); }
+  .econ-cell.today { border-color: var(--gold); }
+  .econ-cell.selected {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .econ-cell.selected .econ-daynum { color: #fff; }
+  .econ-daynum { font-size: 14px; font-weight: 600; }
+  .econ-dots { display: flex; gap: 3px; }
+  .econ-dots .dot { width: 6px; height: 6px; border-radius: 50%; display: block; }
+  .econ-dots .dot.high { background: #be123c; }
+  .econ-dots .dot.med { background: var(--accent-2); }
+  .econ-count { position: absolute; right: 6px; top: 6px; font-size: 11px; color: var(--muted); }
+  .econ-cell.selected .econ-count { color: rgba(255, 255, 255, .85); }
+  .econ-status { font-size: 12.5px; color: var(--muted); margin: 10px 0 0; }
+  .econ-day { position: sticky; top: 14px; }
+  .econ-day-head { font-family: var(--serif); font-size: 17px; margin-bottom: 8px; color: var(--ink); }
+  .econ-events { list-style: none; margin: 0; padding: 0; }
+  .econ-event {
+    border-top: 1px solid var(--rule);
+    border-left: 3px solid var(--rule-dark);
+    padding: 9px 0 9px 10px;
+  }
+  .econ-event:first-child { border-top: none; }
+  .econ-event.imp-high { border-left-color: #be123c; }
+  .econ-event.imp-med { border-left-color: var(--accent-2); }
+  .econ-event-top { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+  .econ-time { font-variant-numeric: tabular-nums; font-size: 13px; font-weight: 600; color: var(--ink-soft); }
+  .econ-event-title { font-size: 14.5px; line-height: 1.4; }
+  .econ-vals { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .econ-val { font-size: 12px; color: var(--muted); }
+  .econ-val.act { color: var(--ink); font-weight: 600; }
+  .econ-noscript { margin-top: 20px; }
+  .econ-ns-day { margin-bottom: 14px; }
+  .econ-ns-date { font-weight: 600; margin-bottom: 4px; }
+  .econ-ns-list { list-style: none; margin: 0; padding: 0; }
+  .econ-ns-list li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: baseline;
+    padding: 4px 0;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+  }
+  .econ-ns-title { flex: 1 1 200px; }
+  [data-theme="dark"] .econ-cell.has-events { background: rgba(124, 126, 242, .14); }
+  @media (max-width: 820px) {
+    .econ-layout { grid-template-columns: 1fr; }
+    .econ-day { position: static; }
+  }
+  @media (max-width: 620px) {
+    .econ-grid-wrap, .econ-day { padding: 10px; }
+    .econ-cell { min-height: 52px; padding: 4px; }
+    .econ-daynum { font-size: 13px; }
+    .econ-count { font-size: 10px; right: 4px; top: 4px; }
+    .econ-month-label { min-width: 0; font-size: 17px; }
+    .econ-toolbar { gap: 8px; }
+    .econ-weekdays span { font-size: 10px; }
+  }
 </style>
 </head>
 <body>
@@ -1640,6 +1784,13 @@
       </svg>
       <span>Analytics</span>
     </a>
+    <a class="archive-link"
+       href="./calendar.html">
+      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+        <path d="M7 2v3M17 2v3M3.5 8.5h17M5 4.5h14a1.5 1.5 0 0 1 1.5 1.5v13A1.5 1.5 0 0 1 19 20.5H5A1.5 1.5 0 0 1 3.5 19V6A1.5 1.5 0 0 1 5 4.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <span>Calendar</span>
+    </a>
     <a class="archive-link active"
        href="./repo-radar.html" aria-current="page">
       <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
@@ -1678,7 +1829,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Repo Radar</h1>
-    <div class="generated">5 trending GitHub repos · finance/tech weighted · never repeated across days · updated 2026-09-10 08:12 HKT</div>
+    <div class="generated">5 trending GitHub repos · finance/tech weighted · never repeated across days · updated 2026-09-10 22:30 HKT</div>
   </header>
 
   
@@ -1703,23 +1854,54 @@
           
           <article class="repo-card">
             <div class="rc-head">
-              <span class="chip">TypeScript</span>
-              <span class="chip stars">1242★</span>
+              <span class="chip">Python</span>
+              <span class="chip stars">1379★</span>
             </div>
-            <h3><a href="https://github.com/alsk1992/CloddsBot" target="_blank" rel="noopener">alsk1992/CloddsBot</a></h3>
-            <p class="rc-oneliner">An autonomous AI trading agent capable of executing strategies across 1000+ decentralized and centralized markets.</p>
+            <h3><a href="https://github.com/google/artemis" target="_blank" rel="noopener">google/artemis</a></h3>
+            <p class="rc-oneliner">An AI-driven framework for automating end-to-end Android workflows via natural language instructions.</p>
             
             
             
             <ul class="rc-bullets">
-              <li>Built with TypeScript for high-concurrency market interaction.</li><li>Integrates with Polymarket, Kalshi, Binance, Hyperliquid, and multiple EVM/Solana chains.</li><li>Features automated edge detection, instant execution, and cross-platform risk management.</li><li>Designed for high-frequency autonomous trading across diverse asset classes.</li>
+              <li>Built on Python with deep integration for Android UI automation and log analysis.</li><li>Translates high-level natural language intent into precise, reliable device interactions.</li><li>Ideal for automated QA testing, regression suites, and complex mobile workflow orchestration.</li><li>Captures granular logs to facilitate debugging and performance analysis of mobile applications.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/alsk1992/CloddsBot" target="_blank" rel="noopener">https://github.com/alsk1992/CloddsBot</a></div>
+              <div class="bc-url"><a href="https://github.com/google/artemis" target="_blank" rel="noopener">https://github.com/google/artemis</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/alsk1992/CloddsBot"
-                      data-save-title="alsk1992/CloddsBot"
+                      data-save-url="https://github.com/google/artemis"
+                      data-save-title="google/artemis"
+                      data-save-source="Python"
+                      data-save-category="Repo Radar"
+                      data-save-rating="0"
+                      data-save-date="2026-09-10">
+                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+          
+          <article class="repo-card">
+            <div class="rc-head">
+              <span class="chip">TypeScript</span>
+              <span class="chip stars">466★</span>
+            </div>
+            <h3><a href="https://github.com/teng-lin/weread-omni" target="_blank" rel="noopener">teng-lin/weread-omni</a></h3>
+            <p class="rc-oneliner">A comprehensive agentic interface for the WeRead ecosystem, enabling advanced book management and AI-assisted reading.</p>
+            
+            
+            
+            <ul class="rc-bullets">
+              <li>TypeScript-based agentic architecture providing over 40 distinct operations.</li><li>Extends official platform capabilities with public account integration and external book imports.</li><li>Features write-access to highlights and shelf management, streamlining knowledge capture.</li><li>Useful for power users and researchers looking to integrate reading workflows into broader AI-driven knowledge management systems.</li>
+            </ul>
+            
+            <div class="bc-footer">
+              <div class="bc-url"><a href="https://github.com/teng-lin/weread-omni" target="_blank" rel="noopener">https://github.com/teng-lin/weread-omni</a></div>
+              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
+                      data-save-url="https://github.com/teng-lin/weread-omni"
+                      data-save-title="teng-lin/weread-omni"
                       data-save-source="TypeScript"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
@@ -1735,22 +1917,22 @@
           <article class="repo-card">
             <div class="rc-head">
               <span class="chip">—</span>
-              <span class="chip stars">1311★</span>
+              <span class="chip stars">18503★</span>
             </div>
-            <h3><a href="https://github.com/griddaimyorun/Metatraider-Traiding-Bot" target="_blank" rel="noopener">griddaimyorun/Metatraider-Traiding-Bot</a></h3>
-            <p class="rc-oneliner">A production-ready algorithmic trading framework specifically designed for MetaTrader 5 integration.</p>
+            <h3><a href="https://github.com/liquidslr/system-design-notes" target="_blank" rel="noopener">liquidslr/system-design-notes</a></h3>
+            <p class="rc-oneliner">A curated, high-density repository of system design principles and architectural patterns.</p>
             
             
             
             <ul class="rc-bullets">
-              <li>Utilizes a Python-based API for seamless communication with MT5 terminals.</li><li>Includes built-in modules for real-time market data ingestion and automated order execution.</li><li>Provides robust infrastructure for backtesting strategies against historical data.</li><li>Implements programmatic risk management controls for institutional-grade trading workflows.</li>
+              <li>Structured documentation covering distributed systems, scalability, and high-availability infrastructure.</li><li>Serves as a critical reference for engineers designing robust, fault-tolerant backend systems.</li><li>Provides deep dives into load balancing, database sharding, and caching strategies.</li><li>Essential resource for technical interviews and architectural decision-making in fintech and high-scale environments.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/griddaimyorun/Metatraider-Traiding-Bot" target="_blank" rel="noopener">https://github.com/griddaimyorun/Metatraider-Traiding-Bot</a></div>
+              <div class="bc-url"><a href="https://github.com/liquidslr/system-design-notes" target="_blank" rel="noopener">https://github.com/liquidslr/system-design-notes</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/griddaimyorun/Metatraider-Traiding-Bot"
-                      data-save-title="griddaimyorun/Metatraider-Traiding-Bot"
+                      data-save-url="https://github.com/liquidslr/system-design-notes"
+                      data-save-title="liquidslr/system-design-notes"
                       data-save-source="—"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
@@ -1765,24 +1947,24 @@
           
           <article class="repo-card">
             <div class="rc-head">
-              <span class="chip">Shell</span>
-              <span class="chip stars">284016★</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip stars">30679★</span>
             </div>
-            <h3><a href="https://github.com/obra/superpowers" target="_blank" rel="noopener">obra/superpowers</a></h3>
-            <p class="rc-oneliner">A comprehensive agentic skills framework and methodology for building reliable software development agents.</p>
-            
-            
+            <h3><a href="https://github.com/freestylefly/awesome-gpt-image-2" target="_blank" rel="noopener">freestylefly/awesome-gpt-image-2</a></h3>
+            <p class="rc-oneliner">An industrial-grade prompt engineering engine and template library for advanced AI image generation.</p>
+            <img class="repo-img" src="./data/repo-radar-img/2026-09-10/freestylefly_awesome-gpt-image-2_0.jpg" alt="Urban Metabolism Atlas" loading="lazy">
+            <img class="repo-img" src="./data/repo-radar-img/2026-09-10/freestylefly_awesome-gpt-image-2_1.jpg" alt="Ailln AI" loading="lazy">
             
             <ul class="rc-bullets">
-              <li>Provides a structured methodology for defining and executing complex agentic tasks.</li><li>Focuses on software development lifecycle automation through modular skill sets.</li><li>Designed to improve the reliability and output quality of LLM-based coding agents.</li><li>Acts as a foundational infrastructure layer for building autonomous engineering teams.</li>
+              <li>Implements a &#39;Prompt as Code&#39; methodology to standardize and version control AI generation workflows.</li><li>Contains 530+ reverse-engineered case studies and 20+ industrial-grade templates.</li><li>Focuses on modular skill extraction to improve consistency and quality in generative AI outputs.</li><li>Highly applicable for creative agencies and tech teams building automated visual content pipelines.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/obra/superpowers" target="_blank" rel="noopener">https://github.com/obra/superpowers</a></div>
+              <div class="bc-url"><a href="https://github.com/freestylefly/awesome-gpt-image-2" target="_blank" rel="noopener">https://github.com/freestylefly/awesome-gpt-image-2</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/obra/superpowers"
-                      data-save-title="obra/superpowers"
-                      data-save-source="Shell"
+                      data-save-url="https://github.com/freestylefly/awesome-gpt-image-2"
+                      data-save-title="freestylefly/awesome-gpt-image-2"
+                      data-save-source="JavaScript"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
                       data-save-date="2026-09-10">
@@ -1797,53 +1979,22 @@
           <article class="repo-card">
             <div class="rc-head">
               <span class="chip">Python</span>
-              <span class="chip stars">53676★</span>
+              <span class="chip stars">11559★</span>
             </div>
-            <h3><a href="https://github.com/rohitg00/ai-engineering-from-scratch" target="_blank" rel="noopener">rohitg00/ai-engineering-from-scratch</a></h3>
-            <p class="rc-oneliner">A hands-on curriculum and repository for mastering the end-to-end lifecycle of AI engineering.</p>
-            
-            
+            <h3><a href="https://github.com/k2-fsa/OmniVoice" target="_blank" rel="noopener">k2-fsa/OmniVoice</a></h3>
+            <p class="rc-oneliner">A high-quality, multi-language voice cloning and text-to-speech engine.</p>
+            <img class="repo-img" src="./data/repo-radar-img/2026-09-10/k2-fsa_OmniVoice_0.jpg" alt="wechat" loading="lazy">
+            <img class="repo-img" src="./data/repo-radar-img/2026-09-10/k2-fsa_OmniVoice_1.jpg" alt="wechat" loading="lazy">
             
             <ul class="rc-bullets">
-              <li>Covers the full stack from model selection and fine-tuning to production deployment.</li><li>Emphasizes practical &#39;build and ship&#39; workflows for AI-native applications.</li><li>Provides a structured path for developers to transition into AI/LLM infrastructure roles.</li><li>Includes modular codebases for building scalable AI-driven software products.</li>
+              <li>Supports 600+ languages using advanced neural TTS architectures.</li><li>Provides high-fidelity voice cloning capabilities suitable for personalized AI agents.</li><li>Optimized for low-latency performance in real-time communication and interactive applications.</li><li>Useful for building localized fintech customer support bots or personalized AI-agent interfaces.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/rohitg00/ai-engineering-from-scratch" target="_blank" rel="noopener">https://github.com/rohitg00/ai-engineering-from-scratch</a></div>
+              <div class="bc-url"><a href="https://github.com/k2-fsa/OmniVoice" target="_blank" rel="noopener">https://github.com/k2-fsa/OmniVoice</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/rohitg00/ai-engineering-from-scratch"
-                      data-save-title="rohitg00/ai-engineering-from-scratch"
-                      data-save-source="Python"
-                      data-save-category="Repo Radar"
-                      data-save-rating="0"
-                      data-save-date="2026-09-10">
-                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </div>
-          </article>
-          
-          <article class="repo-card">
-            <div class="rc-head">
-              <span class="chip">Python</span>
-              <span class="chip stars">547★</span>
-            </div>
-            <h3><a href="https://github.com/larashero3-dotcom/lieflat-gongwen" target="_blank" rel="noopener">larashero3-dotcom/lieflat-gongwen</a></h3>
-            <p class="rc-oneliner">A quantitative approach to professional writing that transforms stylistic nuances into measurable, verifiable data.</p>
-            <img class="repo-img" src="./data/repo-radar-img/2026-09-10/larashero3-dotcom_lieflat-gongwen_0.jpg" alt="公文写作 skill：通过 102 万字语料提炼，把公文写作风格变成可测量、可验收的量化数据" loading="lazy">
-            <img class="repo-img" src="./data/repo-radar-img/2026-09-10/larashero3-dotcom_lieflat-gongwen_1.jpg" alt="Made on Moxt · moxt.ai" loading="lazy">
-            
-            <ul class="rc-bullets">
-              <li>Uses a massive corpus of 1.02 million words to derive stylistic patterns.</li><li>Applies data-driven techniques to standardize and optimize complex document generation.</li><li>Enables the transformation of subjective writing styles into quantifiable, testable metrics.</li><li>Useful for fintech/legal professionals requiring high-precision, compliant documentation.</li>
-            </ul>
-            
-            <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/larashero3-dotcom/lieflat-gongwen" target="_blank" rel="noopener">https://github.com/larashero3-dotcom/lieflat-gongwen</a></div>
-              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/larashero3-dotcom/lieflat-gongwen"
-                      data-save-title="larashero3-dotcom/lieflat-gongwen"
+                      data-save-url="https://github.com/k2-fsa/OmniVoice"
+                      data-save-title="k2-fsa/OmniVoice"
                       data-save-source="Python"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
@@ -6380,7 +6531,7 @@
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-09-10 08:12 HKT");
+  var dataTS = encodeURIComponent("2026-09-10 22:30 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
