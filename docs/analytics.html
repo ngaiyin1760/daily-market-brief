@@ -36,6 +36,8 @@
     --gold: #c9a227;
     --green: #0d9d6c;
     --red: #d13438;
+    --econ-high: #1d4ed8;       /* calendar: deep blue = high importance */
+    --econ-med: #38bdf8;        /* calendar: light sky blue = medium */
     --serif: 'Playfair Display', Garamond, Cambria, Georgia, serif;
     --sans: 'Source Sans 3', 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   }
@@ -54,6 +56,8 @@
     --gold: #e0b84e;
     --green: #34d399;
     --red: #f87171;
+    --econ-high: #60a5fa;       /* lighter blues for contrast on dark */
+    --econ-med: #7dd3fc;
   }
   [data-theme="dark"] body { background: var(--paper); color: var(--ink); }
   [data-theme="dark"] .desk {
@@ -1695,8 +1699,9 @@
   .econ-daynum { font-size: 14px; font-weight: 600; }
   .econ-dots { display: flex; gap: 3px; }
   .econ-dots .dot { width: 6px; height: 6px; border-radius: 50%; display: block; }
-  .econ-dots .dot.high { background: #be123c; }
-  .econ-dots .dot.med { background: var(--accent-2); }
+  .econ-dots .dot.high { background: var(--econ-high); }
+  .econ-dots .dot.med { background: var(--econ-med); }
+  .econ-cell.selected .dot { box-shadow: 0 0 0 1px rgba(255, 255, 255, .85); }
   .econ-count { position: absolute; right: 6px; top: 6px; font-size: 11px; color: var(--muted); }
   .econ-cell.selected .econ-count { color: rgba(255, 255, 255, .85); }
   .econ-status { font-size: 12.5px; color: var(--muted); margin: 10px 0 0; }
@@ -1709,8 +1714,8 @@
     padding: 9px 0 9px 10px;
   }
   .econ-event:first-child { border-top: none; }
-  .econ-event.imp-high { border-left-color: #be123c; }
-  .econ-event.imp-med { border-left-color: var(--accent-2); }
+  .econ-event.imp-high { border-left-color: var(--econ-high); }
+  .econ-event.imp-med { border-left-color: var(--econ-med); }
   .econ-event-top { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
   .econ-time { font-variant-numeric: tabular-nums; font-size: 13px; font-weight: 600; color: var(--ink-soft); }
   .econ-event-title { font-size: 14.5px; line-height: 1.4; }
@@ -1829,7 +1834,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Analytics</h1>
-    <div class="generated">Today's top 5 from your blogs · tech &amp; engineering scope · updated 2026-09-10 22:30 HKT</div>
+    <div class="generated">Today's top 5 from your blogs · tech &amp; engineering scope · updated 2026-09-10 22:41 HKT</div>
   </header>
 
   
@@ -1846,9 +1851,72 @@
       <svg class="day-chevron" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span class="day-date">2026-09-10</span>
       <span class="day-tag">Today</span>
-      <span class="day-meta">5 post(s) · 4 blog(s)</span>
+      <span class="day-meta">5 post(s) · 3 blog(s)</span>
     </summary>
     <div class="day-body">
+      
+      <section class="desk reveal">
+        <h2>CNEVPOST</h2>
+        
+        <article class="blog-card">
+          <div class="bc-head">
+            
+            <span class="chip read-time-chip">3 min</span>
+          </div>
+          <h3><a href="https://cnevpost.com/2026/09/10/li-auto-kicks-off-european-push-names-overseas-i6-li-6/" target="_blank" rel="noopener">Li Auto kicks off European push with golf partnership, names overseas i6 Li 6</a></h3>
+          <div class="pub">2026-09-10 12:58 UTC</div>
+          
+          <ul class="bc-bullets">
+            <li>Li Auto has officially initiated its European market entry, utilizing the 2026 Solheim Cup in the Netherlands as a platform to showcase its Li i6 electric SUV.</li><li>The company confirmed that the Li i6 will be rebranded as the &#39;Li 6&#39; for international markets, with a formal debut scheduled for the Paris Motor Show in October.</li><li>Li Auto&#39;s European strategy prioritizes battery electric vehicles (BEVs), distinguishing it from the company&#39;s focus on extended-range electric vehicles (EREVs) in the Middle East and Central Asia.</li><li>While specific European pricing and distribution channels remain undisclosed, the company plans to commence sales of the Li 6 in the region during the fourth quarter of 2026.</li>
+          </ul>
+          
+          <div class="bc-footer">
+            <div class="bc-url"><a href="https://cnevpost.com/2026/09/10/li-auto-kicks-off-european-push-names-overseas-i6-li-6/" target="_blank" rel="noopener">https://cnevpost.com/2026/09/10/li-auto-kicks-off-european-push-names-overseas-i6-li-6/</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="https://cnevpost.com/2026/09/10/li-auto-kicks-off-european-push-names-overseas-i6-li-6/"
+                    data-save-title="Li Auto kicks off European push with golf partnership, names overseas i6 Li 6"
+                    data-save-source="CNEVPOST"
+                    data-save-category="Analytics"
+                    data-save-rating="5"
+                    data-save-date="2026-09-10">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+        
+        <article class="blog-card">
+          <div class="bc-head">
+            
+            <span class="chip read-time-chip">3 min</span>
+          </div>
+          <h3><a href="https://cnevpost.com/2026/09/10/geely-launches-galaxy-tt-sedan/" target="_blank" rel="noopener">Geely launches Galaxy TT sedan with lower starting price, longer range</a></h3>
+          <div class="pub">2026-09-10 14:36 UTC</div>
+          
+          <ul class="bc-bullets">
+            <li>Geely launched the Galaxy TT electric sedan with a competitive starting price of 129,900 yuan, marking an 11% reduction from its pre-sale pricing.</li><li>The vehicle lineup features an 800-volt high-voltage architecture and CATL&#39;s Shenxing LFP batteries, enabling 6C fast charging across all variants.</li><li>Performance specifications include a 0-100 km/h acceleration time of 3.8 seconds for the dual-motor Ultra variant and a maximum CLTC range of 725 km for the flagship rear-wheel-drive model.</li><li>The sedan incorporates advanced hardware, including LiDAR-based driver assistance systems on most trims and a sophisticated suspension setup designed to enhance sporty handling.</li>
+          </ul>
+          
+          <div class="bc-footer">
+            <div class="bc-url"><a href="https://cnevpost.com/2026/09/10/geely-launches-galaxy-tt-sedan/" target="_blank" rel="noopener">https://cnevpost.com/2026/09/10/geely-launches-galaxy-tt-sedan/</a></div>
+            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
+                    data-save-url="https://cnevpost.com/2026/09/10/geely-launches-galaxy-tt-sedan/"
+                    data-save-title="Geely launches Galaxy TT sedan with lower starting price, longer range"
+                    data-save-source="CNEVPOST"
+                    data-save-category="Analytics"
+                    data-save-rating="4"
+                    data-save-date="2026-09-10">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+        
+      </section>
       
       <section class="desk reveal">
         <h2>MIT Technology Review</h2>
@@ -1862,7 +1930,7 @@
           <div class="pub">2026-09-10 11:00 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Data center power failures in Virginia, such as the 3-gigawatt load drop in July 2026, demonstrate that grid instability is increasingly an architectural issue rather than a supply shortage.</li><li>AI data centers exhibit volatile power consumption, with the ability to swing 70% of their load in milliseconds, creating a demand profile the current grid architecture was not designed to handle.</li><li>Legacy power stacks, including undersized UPS systems and inefficient bypass modes, are failing to manage the rapid, high-scale transients inherent in modern AI training operations.</li>
+            <li>Recent grid failures in Ashburn, Virginia, demonstrate that data center power issues are increasingly architectural rather than just supply-side constraints.</li><li>AI data centers create extreme volatility by swinging up to 70% of their load in milliseconds, a behavior pattern the legacy power grid was never designed to accommodate.</li><li>Standard data center power stacks are failing because current UPS systems are designed for short-term backup rather than absorbing high-frequency, gigawatt-scale load fluctuations.</li><li>The industry&#39;s reliance on &#39;eco-mode&#39; bypass configurations leaves compute infrastructure vulnerable to grid transients and prevents effective filtering of the massive load swings generated by AI training.</li>
           </ul>
           
           <div class="bc-footer">
@@ -1871,40 +1939,6 @@
                     data-save-url="https://www.technologyreview.com/2026/09/10/1141649/powering-ai-is-an-architecture-problem/"
                     data-save-title="Powering AI is an architecture problem"
                     data-save-source="MIT Technology Review"
-                    data-save-category="Analytics"
-                    data-save-rating="5"
-                    data-save-date="2026-09-10">
-              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-        </article>
-        
-      </section>
-      
-      <section class="desk reveal">
-        <h2>American Affairs</h2>
-        
-        <article class="blog-card">
-          <div class="bc-head">
-            
-            <span class="chip read-time-chip">16 min</span>
-          </div>
-          <h3><a href="https://americanaffairsjournal.org/2026/09/how-ukrainian-drones-are-exploiting-soviet-era-geography/" target="_blank" rel="noopener">How Ukrainian Drones Are Exploiting Soviet-Era Geography</a></h3>
-          <div class="pub">2026-09-10 09:01 UTC</div>
-          
-          <ul class="bc-bullets">
-            <li>Ukraine has successfully targeted Russia&#39;s largest oil refineries and logistics hubs, such as Wildberries, at distances exceeding 2,000 kilometers, effectively neutralizing the strategic depth once provided by Soviet geography.</li><li>The conflict has transformed into a laboratory for AI-assisted drone warfare, where mass swarms and autonomous terminal guidance are rendering centralized, twentieth-century industrial infrastructure highly vulnerable.</li><li>Soviet-era economic planning, which prioritized concentrated production and centralized transport, has become a liability in an era where long-range, low-cost drone strikes can disrupt entire national supply chains.</li><li>The shift in warfare dynamics suggests that geographic remoteness is no longer a viable security strategy for critical infrastructure, forcing a re-evaluation of industrial distribution and defense.</li>
-          </ul>
-          
-          <div class="bc-footer">
-            <div class="bc-url"><a href="https://americanaffairsjournal.org/2026/09/how-ukrainian-drones-are-exploiting-soviet-era-geography/" target="_blank" rel="noopener">https://americanaffairsjournal.org/2026/09/how-ukrainian-drones-are-exploiting-soviet-era-geography/</a></div>
-            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
-                    data-save-url="https://americanaffairsjournal.org/2026/09/how-ukrainian-drones-are-exploiting-soviet-era-geography/"
-                    data-save-title="How Ukrainian Drones Are Exploiting Soviet-Era Geography"
-                    data-save-source="American Affairs"
                     data-save-category="Analytics"
                     data-save-rating="5"
                     data-save-date="2026-09-10">
@@ -1930,7 +1964,7 @@
           <div class="pub">2026-09-10 07:13 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Manufacturing at sub-2nm nodes is forcing the merger of previously discrete process steps as shrinking dimensions eliminate traditional safety margins.</li><li>Extreme fragility at the angstrom scale means standard wafer probing can damage oxide layers or hybrid bonds, leading manufacturers to adopt sacrificial pads or pre-test wafer bonding.</li><li>Increased thermal density and structural stress in chiplet-based architectures are driving a shift toward redundant server clusters to mitigate inevitable manufacturing faults.</li>
+            <li>Manufacturing at sub-2nm nodes is forcing the integration of previously discrete process steps as shrinking dimensions eliminate the margin for error.</li><li>Extreme structural fragility at the angstrom scale means traditional wafer probing can damage oxide layers or hybrid bonds, leading manufacturers to adopt sacrificial pads and pre-test bonding strategies.</li><li>The shift toward chiplet-based architectures to overcome reticle size limits introduces new challenges in thermal density and structural stress that complicate traditional manufacturing workflows.</li><li>Large-scale AI data centers are shifting their strategy toward system-level redundancy to mitigate the inevitable manufacturing defects inherent in these highly complex, multi-die configurations.</li>
           </ul>
           
           <div class="bc-footer">
@@ -1959,7 +1993,7 @@
           <div class="pub">2026-09-10 07:12 UTC</div>
           
           <ul class="bc-bullets">
-            <li>Silent Data Errors (SDEs) are increasingly common in large-scale data centers, with failure rates as high as 1 in 1,000 servers, creating an untenable maintenance burden.</li><li>The industry is shifting from traditional commercial reliability standards to automotive-grade quality requirements of sub-1 defective parts per million (DPPM) to combat SDEs.</li><li>SDE-related failures can cause multi-billion dollar disruptions, forcing data center operators to implement more rigorous manufacturing screening and fleet-level monitoring.</li>
+            <li>Silent Data Errors (SDEs) are becoming a critical threat to AI infrastructure, with failure rates that scale to an incident every four days in a fleet of 10 million devices even at low FIT levels.</li><li>The industry is pivoting from traditional commercial reliability standards of 100-300 DPPM toward automotive-grade requirements of sub-1 DPPM to address the risks posed by advanced node chiplets.</li><li>SDEs represent a significant financial risk, as subtle manufacturing defects can trigger data corruption or service outages that result in billions of dollars in potential losses for data center operators.</li><li>Engineers are increasingly relying on enhanced Design-for-Test (DFT) and fleet-wide monitoring to detect stealth defects that escape initial manufacturing screens and manifest only under high-utilization workloads.</li>
           </ul>
           
           <div class="bc-footer">
@@ -1970,40 +2004,6 @@
                     data-save-source="SemiEngineering"
                     data-save-category="Analytics"
                     data-save-rating="5"
-                    data-save-date="2026-09-10">
-              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-        </article>
-        
-      </section>
-      
-      <section class="desk reveal">
-        <h2>CNEVPOST</h2>
-        
-        <article class="blog-card">
-          <div class="bc-head">
-            
-            <span class="chip read-time-chip">3 min</span>
-          </div>
-          <h3><a href="https://cnevpost.com/2026/09/10/li-auto-kicks-off-european-push-names-overseas-i6-li-6/" target="_blank" rel="noopener">Li Auto kicks off European push with golf partnership, names overseas i6 Li 6</a></h3>
-          <div class="pub">2026-09-10 12:58 UTC</div>
-          
-          <ul class="bc-bullets">
-            <li>Li Auto is initiating its European market entry by partnering with the 2026 Solheim Cup, where it is providing a fleet of 20 Li i6 SUVs for VIP transport.</li><li>The company confirmed that the Li i6 will be rebranded as the &#39;Li 6&#39; for international markets, with a formal debut scheduled for the Paris Motor Show in October.</li><li>Li Auto plans to prioritize battery electric vehicles (BEVs) for the European market, while maintaining a focus on extended-range models for the Middle East and Central Asia.</li><li>While the company has signaled a Q4 launch for European sales, specific pricing, distribution channels, and initial target countries remain undisclosed.</li>
-          </ul>
-          
-          <div class="bc-footer">
-            <div class="bc-url"><a href="https://cnevpost.com/2026/09/10/li-auto-kicks-off-european-push-names-overseas-i6-li-6/" target="_blank" rel="noopener">https://cnevpost.com/2026/09/10/li-auto-kicks-off-european-push-names-overseas-i6-li-6/</a></div>
-            <button type="button" class="save-btn" aria-label="Save this post" title="Save this post"
-                    data-save-url="https://cnevpost.com/2026/09/10/li-auto-kicks-off-european-push-names-overseas-i6-li-6/"
-                    data-save-title="Li Auto kicks off European push with golf partnership, names overseas i6 Li 6"
-                    data-save-source="CNEVPOST"
-                    data-save-category="Analytics"
-                    data-save-rating="4"
                     data-save-date="2026-09-10">
               <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
                 <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
@@ -6914,7 +6914,7 @@ Data-center network fabrics are undergoing another architectural shift as optica
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-09-10 22:30 HKT");
+  var dataTS = encodeURIComponent("2026-09-10 22:41 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;

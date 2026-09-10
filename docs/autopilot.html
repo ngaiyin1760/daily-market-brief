@@ -36,6 +36,8 @@
     --gold: #c9a227;
     --green: #0d9d6c;
     --red: #d13438;
+    --econ-high: #1d4ed8;       /* calendar: deep blue = high importance */
+    --econ-med: #38bdf8;        /* calendar: light sky blue = medium */
     --serif: 'Playfair Display', Garamond, Cambria, Georgia, serif;
     --sans: 'Source Sans 3', 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   }
@@ -54,6 +56,8 @@
     --gold: #e0b84e;
     --green: #34d399;
     --red: #f87171;
+    --econ-high: #60a5fa;       /* lighter blues for contrast on dark */
+    --econ-med: #7dd3fc;
   }
   [data-theme="dark"] body { background: var(--paper); color: var(--ink); }
   [data-theme="dark"] .desk {
@@ -1695,8 +1699,9 @@
   .econ-daynum { font-size: 14px; font-weight: 600; }
   .econ-dots { display: flex; gap: 3px; }
   .econ-dots .dot { width: 6px; height: 6px; border-radius: 50%; display: block; }
-  .econ-dots .dot.high { background: #be123c; }
-  .econ-dots .dot.med { background: var(--accent-2); }
+  .econ-dots .dot.high { background: var(--econ-high); }
+  .econ-dots .dot.med { background: var(--econ-med); }
+  .econ-cell.selected .dot { box-shadow: 0 0 0 1px rgba(255, 255, 255, .85); }
   .econ-count { position: absolute; right: 6px; top: 6px; font-size: 11px; color: var(--muted); }
   .econ-cell.selected .econ-count { color: rgba(255, 255, 255, .85); }
   .econ-status { font-size: 12.5px; color: var(--muted); margin: 10px 0 0; }
@@ -1709,8 +1714,8 @@
     padding: 9px 0 9px 10px;
   }
   .econ-event:first-child { border-top: none; }
-  .econ-event.imp-high { border-left-color: #be123c; }
-  .econ-event.imp-med { border-left-color: var(--accent-2); }
+  .econ-event.imp-high { border-left-color: var(--econ-high); }
+  .econ-event.imp-med { border-left-color: var(--econ-med); }
   .econ-event-top { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
   .econ-time { font-variant-numeric: tabular-nums; font-size: 13px; font-weight: 600; color: var(--ink-soft); }
   .econ-event-title { font-size: 14.5px; line-height: 1.4; }
@@ -1951,7 +1956,7 @@
     <div class="kicker">Outlook Autopilot</div>
     <h1>Email Rules</h1>
     <div class="generated">
-      Updated 2026-09-10 14:08 UTC
+      Updated 2026-09-10 14:38 UTC
       &middot; source of truth: <code style="background:rgba(246,241,228,.14);border-radius:4px;padding:1px 6px;">outlook-autopilot/rules/auto_mark_list.md</code>
     </div>
   </header>
@@ -1972,7 +1977,7 @@
       <span class="ap-pill ok">berkeley: ok</span>
       
     </p>
-    <p class="ap-sub" style="margin-bottom:8px;">Last sweep: 2026-09-10T14:08:11Z
+    <p class="ap-sub" style="margin-bottom:8px;">Last sweep: 2026-09-10T14:38:11Z
     </p>
     
     <a class="ap-refresh-btn" href="outlook-autopilot:refresh-tokens">&#10227; Refresh sign-ins</a>
@@ -2244,7 +2249,7 @@
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-09-10 22:30 HKT");
+  var dataTS = encodeURIComponent("2026-09-10 22:41 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;

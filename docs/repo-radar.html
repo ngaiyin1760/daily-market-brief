@@ -36,6 +36,8 @@
     --gold: #c9a227;
     --green: #0d9d6c;
     --red: #d13438;
+    --econ-high: #1d4ed8;       /* calendar: deep blue = high importance */
+    --econ-med: #38bdf8;        /* calendar: light sky blue = medium */
     --serif: 'Playfair Display', Garamond, Cambria, Georgia, serif;
     --sans: 'Source Sans 3', 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif;
   }
@@ -54,6 +56,8 @@
     --gold: #e0b84e;
     --green: #34d399;
     --red: #f87171;
+    --econ-high: #60a5fa;       /* lighter blues for contrast on dark */
+    --econ-med: #7dd3fc;
   }
   [data-theme="dark"] body { background: var(--paper); color: var(--ink); }
   [data-theme="dark"] .desk {
@@ -1695,8 +1699,9 @@
   .econ-daynum { font-size: 14px; font-weight: 600; }
   .econ-dots { display: flex; gap: 3px; }
   .econ-dots .dot { width: 6px; height: 6px; border-radius: 50%; display: block; }
-  .econ-dots .dot.high { background: #be123c; }
-  .econ-dots .dot.med { background: var(--accent-2); }
+  .econ-dots .dot.high { background: var(--econ-high); }
+  .econ-dots .dot.med { background: var(--econ-med); }
+  .econ-cell.selected .dot { box-shadow: 0 0 0 1px rgba(255, 255, 255, .85); }
   .econ-count { position: absolute; right: 6px; top: 6px; font-size: 11px; color: var(--muted); }
   .econ-cell.selected .econ-count { color: rgba(255, 255, 255, .85); }
   .econ-status { font-size: 12.5px; color: var(--muted); margin: 10px 0 0; }
@@ -1709,8 +1714,8 @@
     padding: 9px 0 9px 10px;
   }
   .econ-event:first-child { border-top: none; }
-  .econ-event.imp-high { border-left-color: #be123c; }
-  .econ-event.imp-med { border-left-color: var(--accent-2); }
+  .econ-event.imp-high { border-left-color: var(--econ-high); }
+  .econ-event.imp-med { border-left-color: var(--econ-med); }
   .econ-event-top { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
   .econ-time { font-variant-numeric: tabular-nums; font-size: 13px; font-weight: 600; color: var(--ink-soft); }
   .econ-event-title { font-size: 14.5px; line-height: 1.4; }
@@ -1829,7 +1834,7 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Repo Radar</h1>
-    <div class="generated">5 trending GitHub repos · finance/tech weighted · never repeated across days · updated 2026-09-10 22:30 HKT</div>
+    <div class="generated">5 trending GitHub repos · finance/tech weighted · never repeated across days · updated 2026-09-10 22:41 HKT</div>
   </header>
 
   
@@ -1855,22 +1860,84 @@
           <article class="repo-card">
             <div class="rc-head">
               <span class="chip">Python</span>
-              <span class="chip stars">1379★</span>
+              <span class="chip stars">54068★</span>
             </div>
-            <h3><a href="https://github.com/google/artemis" target="_blank" rel="noopener">google/artemis</a></h3>
-            <p class="rc-oneliner">An AI-driven framework for automating end-to-end Android workflows via natural language instructions.</p>
+            <h3><a href="https://github.com/rohitg00/ai-engineering-from-scratch" target="_blank" rel="noopener">rohitg00/ai-engineering-from-scratch</a></h3>
+            <p class="rc-oneliner">A comprehensive, hands-on curriculum designed to teach the fundamentals of building and deploying production-grade AI applications.</p>
             
             
             
             <ul class="rc-bullets">
-              <li>Built on Python with deep integration for Android UI automation and log analysis.</li><li>Translates high-level natural language intent into precise, reliable device interactions.</li><li>Ideal for automated QA testing, regression suites, and complex mobile workflow orchestration.</li><li>Captures granular logs to facilitate debugging and performance analysis of mobile applications.</li>
+              <li>Curriculum-based repository covering LLM architecture, RAG pipelines, and agentic workflows.</li><li>Focuses on the end-to-end lifecycle of AI products from initial design to deployment.</li><li>Provides practical code examples for building scalable AI infrastructure.</li><li>Ideal for developers transitioning into AI engineering roles.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/google/artemis" target="_blank" rel="noopener">https://github.com/google/artemis</a></div>
+              <div class="bc-url"><a href="https://github.com/rohitg00/ai-engineering-from-scratch" target="_blank" rel="noopener">https://github.com/rohitg00/ai-engineering-from-scratch</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/google/artemis"
-                      data-save-title="google/artemis"
+                      data-save-url="https://github.com/rohitg00/ai-engineering-from-scratch"
+                      data-save-title="rohitg00/ai-engineering-from-scratch"
+                      data-save-source="Python"
+                      data-save-category="Repo Radar"
+                      data-save-rating="0"
+                      data-save-date="2026-09-10">
+                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+          
+          <article class="repo-card">
+            <div class="rc-head">
+              <span class="chip">Python</span>
+              <span class="chip stars">37050★</span>
+            </div>
+            <h3><a href="https://github.com/ayghri/i-have-adhd" target="_blank" rel="noopener">ayghri/i-have-adhd</a></h3>
+            <p class="rc-oneliner">A specialized tool designed to optimize LLM output formatting for improved cognitive accessibility and information retrieval.</p>
+            
+            
+            
+            <ul class="rc-bullets">
+              <li>Python-based utility that intercepts and reformats agentic responses.</li><li>Implements structured summarization and visual hierarchy to prevent information overload.</li><li>Enhances productivity for developers working with complex, long-context AI agents.</li><li>Focuses on reducing cognitive friction in high-velocity technical workflows.</li>
+            </ul>
+            
+            <div class="bc-footer">
+              <div class="bc-url"><a href="https://github.com/ayghri/i-have-adhd" target="_blank" rel="noopener">https://github.com/ayghri/i-have-adhd</a></div>
+              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
+                      data-save-url="https://github.com/ayghri/i-have-adhd"
+                      data-save-title="ayghri/i-have-adhd"
+                      data-save-source="Python"
+                      data-save-category="Repo Radar"
+                      data-save-rating="0"
+                      data-save-date="2026-09-10">
+                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+          
+          <article class="repo-card">
+            <div class="rc-head">
+              <span class="chip">Python</span>
+              <span class="chip stars">695★</span>
+            </div>
+            <h3><a href="https://github.com/Edge0-AI/Edge0" target="_blank" rel="noopener">Edge0-AI/Edge0</a></h3>
+            <p class="rc-oneliner">A framework for deploying lightweight, agentic AI workflows at the edge to minimize latency and improve data privacy.</p>
+            
+            
+            
+            <ul class="rc-bullets">
+              <li>Built for low-latency inference environments using Python-based agentic patterns.</li><li>Designed to bridge the gap between cloud-based LLMs and local edge infrastructure.</li><li>Supports decentralized task execution for real-time decision-making systems.</li><li>Relevant for fintech applications requiring high-speed, localized data processing.</li>
+            </ul>
+            
+            <div class="bc-footer">
+              <div class="bc-url"><a href="https://github.com/Edge0-AI/Edge0" target="_blank" rel="noopener">https://github.com/Edge0-AI/Edge0</a></div>
+              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
+                      data-save-url="https://github.com/Edge0-AI/Edge0"
+                      data-save-title="Edge0-AI/Edge0"
                       data-save-source="Python"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
@@ -1886,22 +1953,22 @@
           <article class="repo-card">
             <div class="rc-head">
               <span class="chip">TypeScript</span>
-              <span class="chip stars">466★</span>
+              <span class="chip stars">743★</span>
             </div>
-            <h3><a href="https://github.com/teng-lin/weread-omni" target="_blank" rel="noopener">teng-lin/weread-omni</a></h3>
-            <p class="rc-oneliner">A comprehensive agentic interface for the WeRead ecosystem, enabling advanced book management and AI-assisted reading.</p>
+            <h3><a href="https://github.com/realchendahuang/feedsieve" target="_blank" rel="noopener">realchendahuang/feedsieve</a></h3>
+            <p class="rc-oneliner">A high-precision, automated filtering tool for X (Twitter) that uses heuristic analysis to clean social feeds of spam and low-quality content.</p>
             
             
             
             <ul class="rc-bullets">
-              <li>TypeScript-based agentic architecture providing over 40 distinct operations.</li><li>Extends official platform capabilities with public account integration and external book imports.</li><li>Features write-access to highlights and shelf management, streamlining knowledge capture.</li><li>Useful for power users and researchers looking to integrate reading workflows into broader AI-driven knowledge management systems.</li>
+              <li>TypeScript-based Chrome extension with cross-platform synchronization.</li><li>Utilizes high-confidence classification algorithms to identify and block bot accounts.</li><li>Provides a cleaner information environment for financial analysts and researchers.</li><li>Features one-click native blocking and automated feed management.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/teng-lin/weread-omni" target="_blank" rel="noopener">https://github.com/teng-lin/weread-omni</a></div>
+              <div class="bc-url"><a href="https://github.com/realchendahuang/feedsieve" target="_blank" rel="noopener">https://github.com/realchendahuang/feedsieve</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/teng-lin/weread-omni"
-                      data-save-title="teng-lin/weread-omni"
+                      data-save-url="https://github.com/realchendahuang/feedsieve"
+                      data-save-title="realchendahuang/feedsieve"
                       data-save-source="TypeScript"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
@@ -1916,86 +1983,24 @@
           
           <article class="repo-card">
             <div class="rc-head">
-              <span class="chip">—</span>
-              <span class="chip stars">18503★</span>
-            </div>
-            <h3><a href="https://github.com/liquidslr/system-design-notes" target="_blank" rel="noopener">liquidslr/system-design-notes</a></h3>
-            <p class="rc-oneliner">A curated, high-density repository of system design principles and architectural patterns.</p>
-            
-            
-            
-            <ul class="rc-bullets">
-              <li>Structured documentation covering distributed systems, scalability, and high-availability infrastructure.</li><li>Serves as a critical reference for engineers designing robust, fault-tolerant backend systems.</li><li>Provides deep dives into load balancing, database sharding, and caching strategies.</li><li>Essential resource for technical interviews and architectural decision-making in fintech and high-scale environments.</li>
-            </ul>
-            
-            <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/liquidslr/system-design-notes" target="_blank" rel="noopener">https://github.com/liquidslr/system-design-notes</a></div>
-              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/liquidslr/system-design-notes"
-                      data-save-title="liquidslr/system-design-notes"
-                      data-save-source="—"
-                      data-save-category="Repo Radar"
-                      data-save-rating="0"
-                      data-save-date="2026-09-10">
-                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </div>
-          </article>
-          
-          <article class="repo-card">
-            <div class="rc-head">
               <span class="chip">JavaScript</span>
-              <span class="chip stars">30679★</span>
+              <span class="chip stars">22729★</span>
             </div>
-            <h3><a href="https://github.com/freestylefly/awesome-gpt-image-2" target="_blank" rel="noopener">freestylefly/awesome-gpt-image-2</a></h3>
-            <p class="rc-oneliner">An industrial-grade prompt engineering engine and template library for advanced AI image generation.</p>
-            <img class="repo-img" src="./data/repo-radar-img/2026-09-10/freestylefly_awesome-gpt-image-2_0.jpg" alt="Urban Metabolism Atlas" loading="lazy">
-            <img class="repo-img" src="./data/repo-radar-img/2026-09-10/freestylefly_awesome-gpt-image-2_1.jpg" alt="Ailln AI" loading="lazy">
+            <h3><a href="https://github.com/bilawalsidhu/gods-eye-view" target="_blank" rel="noopener">bilawalsidhu/gods-eye-view</a></h3>
+            <p class="rc-oneliner">A high-level observability and monitoring tool designed to provide a comprehensive, real-time overview of complex system states.</p>
+            <img class="repo-img" src="./data/repo-radar-img/2026-09-10/bilawalsidhu_gods-eye-view_0.jpg" alt="YouTube video about the God&#39;s Eye View open source release" loading="lazy">
+            <img class="repo-img" src="./data/repo-radar-img/2026-09-10/bilawalsidhu_gods-eye-view_1.jpg" alt="Moving from a full airport overhead down to close taxiway inspection with 3D flight models" loading="lazy">
             
             <ul class="rc-bullets">
-              <li>Implements a &#39;Prompt as Code&#39; methodology to standardize and version control AI generation workflows.</li><li>Contains 530+ reverse-engineered case studies and 20+ industrial-grade templates.</li><li>Focuses on modular skill extraction to improve consistency and quality in generative AI outputs.</li><li>Highly applicable for creative agencies and tech teams building automated visual content pipelines.</li>
+              <li>JavaScript-based architecture for visualizing distributed system telemetry.</li><li>Provides a centralized dashboard for monitoring infrastructure health and performance metrics.</li><li>Useful for DevOps and SRE teams managing high-frequency trading or fintech backends.</li><li>Focuses on transparency and rapid incident detection in large-scale environments.</li>
             </ul>
             
             <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/freestylefly/awesome-gpt-image-2" target="_blank" rel="noopener">https://github.com/freestylefly/awesome-gpt-image-2</a></div>
+              <div class="bc-url"><a href="https://github.com/bilawalsidhu/gods-eye-view" target="_blank" rel="noopener">https://github.com/bilawalsidhu/gods-eye-view</a></div>
               <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/freestylefly/awesome-gpt-image-2"
-                      data-save-title="freestylefly/awesome-gpt-image-2"
+                      data-save-url="https://github.com/bilawalsidhu/gods-eye-view"
+                      data-save-title="bilawalsidhu/gods-eye-view"
                       data-save-source="JavaScript"
-                      data-save-category="Repo Radar"
-                      data-save-rating="0"
-                      data-save-date="2026-09-10">
-                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </div>
-          </article>
-          
-          <article class="repo-card">
-            <div class="rc-head">
-              <span class="chip">Python</span>
-              <span class="chip stars">11559★</span>
-            </div>
-            <h3><a href="https://github.com/k2-fsa/OmniVoice" target="_blank" rel="noopener">k2-fsa/OmniVoice</a></h3>
-            <p class="rc-oneliner">A high-quality, multi-language voice cloning and text-to-speech engine.</p>
-            <img class="repo-img" src="./data/repo-radar-img/2026-09-10/k2-fsa_OmniVoice_0.jpg" alt="wechat" loading="lazy">
-            <img class="repo-img" src="./data/repo-radar-img/2026-09-10/k2-fsa_OmniVoice_1.jpg" alt="wechat" loading="lazy">
-            
-            <ul class="rc-bullets">
-              <li>Supports 600+ languages using advanced neural TTS architectures.</li><li>Provides high-fidelity voice cloning capabilities suitable for personalized AI agents.</li><li>Optimized for low-latency performance in real-time communication and interactive applications.</li><li>Useful for building localized fintech customer support bots or personalized AI-agent interfaces.</li>
-            </ul>
-            
-            <div class="bc-footer">
-              <div class="bc-url"><a href="https://github.com/k2-fsa/OmniVoice" target="_blank" rel="noopener">https://github.com/k2-fsa/OmniVoice</a></div>
-              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="https://github.com/k2-fsa/OmniVoice"
-                      data-save-title="k2-fsa/OmniVoice"
-                      data-save-source="Python"
                       data-save-category="Repo Radar"
                       data-save-rating="0"
                       data-save-date="2026-09-10">
@@ -6531,7 +6536,7 @@
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-09-10 22:30 HKT");
+  var dataTS = encodeURIComponent("2026-09-10 22:41 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
