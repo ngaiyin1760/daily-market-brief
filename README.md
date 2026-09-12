@@ -3,9 +3,9 @@
 A self-contained static dashboard that gives you a daily snapshot of markets and
 news: key indicators (equity indices, bond yields, FX, commodities, VIX, BTC)
 plus the top stories — with bullet summaries and 1–5 importance ratings —
-across 13 finance categories (global macro, equities, fixed income, China,
-Hong Kong, tech, AI — split into Global AI, China AI and AI Research — semis,
-EVs, data centers, space & aerospace).
+across 13 finance categories — tech desks first (Global Technology, Global AI,
+China AI, AI Research, semis, EVs, data centers, space & aerospace), then macro
+desks (global macro, equities, fixed income, China, Hong Kong).
 Top 3 for Global Economy, top 2 for each other category, deduplicated across
 categories so each story appears exactly once. Only stories published within
 the past 24 hours are ever shown — a category runs short rather than showing

@@ -158,16 +158,6 @@ def gemini_json(prompt, temperature=0.2):
 # ---------------------------------------------------------------------------
 
 CATEGORIES = [
-    {"id": "global-macro", "label": "Global Economy",
-     "query": "global economy OR central bank OR inflation", "top_n": 3},
-    {"id": "equity", "label": "Equity Markets",
-     "query": "stock market OR equities OR earnings", "top_n": 2},
-    {"id": "fixed-income", "label": "Fixed Income",
-     "query": "bond yields OR treasuries OR credit markets", "top_n": 2},
-    {"id": "china", "label": "China Economy",
-     "query": "China economy OR PBoC OR China GDP", "top_n": 2},
-    {"id": "hk", "label": "Hong Kong Economy",
-     "query": "Hong Kong economy OR HKEX OR Hong Kong property", "top_n": 2},
     {"id": "tech", "label": "Global Technology",
      "query": "big tech OR technology industry", "top_n": 2},
     {"id": "ai", "label": "Global AI",
@@ -187,6 +177,16 @@ CATEGORIES = [
      "query": "data centers OR hyperscale OR AI infrastructure", "top_n": 2},
     {"id": "space", "label": "Space & Aerospace",
      "query": "space industry OR SpaceX OR satellite OR rocket launch", "top_n": 2},
+    {"id": "global-macro", "label": "Global Economy",
+     "query": "global economy OR central bank OR inflation", "top_n": 3},
+    {"id": "equity", "label": "Equity Markets",
+     "query": "stock market OR equities OR earnings", "top_n": 2},
+    {"id": "fixed-income", "label": "Fixed Income",
+     "query": "bond yields OR treasuries OR credit markets", "top_n": 2},
+    {"id": "china", "label": "China Economy",
+     "query": "China economy OR PBoC OR China GDP", "top_n": 2},
+    {"id": "hk", "label": "Hong Kong Economy",
+     "query": "Hong Kong economy OR HKEX OR Hong Kong property", "top_n": 2},
 ]
 
 DEFAULT_TOP_N = 2
