@@ -170,8 +170,15 @@ CATEGORIES = [
      "query": "Hong Kong economy OR HKEX OR Hong Kong property", "top_n": 2},
     {"id": "tech", "label": "Global Technology",
      "query": "big tech OR technology industry", "top_n": 2},
-    {"id": "ai", "label": "Artificial Intelligence",
+    {"id": "ai", "label": "Global AI",
      "query": "artificial intelligence OR OpenAI OR LLM", "top_n": 2},
+    {"id": "china-ai", "label": "China AI",
+     "query": "China AI OR DeepSeek OR Alibaba AI OR Baidu AI OR Huawei AI", "top_n": 2},
+    # "when:" is a Google News recency operator. The research beat has no
+    # wire-service coverage, so without it the 24h window is nearly empty.
+    {"id": "ai-research", "label": "AI Research",
+     "query": "AI research breakthrough OR machine learning research OR "
+              "AI research paper OR AI study when:2d", "top_n": 2},
     {"id": "semis", "label": "Semiconductors",
      "query": "semiconductors OR TSMC OR NVIDIA OR chips", "top_n": 2},
     {"id": "ev", "label": "Electric Vehicles",
