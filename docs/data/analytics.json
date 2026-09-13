@@ -1,101 +1,109 @@
 {
- "generated_at": "2026-09-12 16:11 HKT",
+ "generated_at": "2026-09-13 07:59 HKT",
  "blogs": [
-  {
-   "name": "SemiEngineering",
-   "status": "ok",
-   "posts": [
-    {
-     "_key": "SemiEngineering|https://semiengineering.com/molybdenum-quasi-phase-only-masks-improve-euv-imaging-nycu-tsmc/",
-     "blog": "SemiEngineering",
-     "title": "Molybdenum Quasi Phase-Only Masks Improve EUV Imaging (NYCU, TSMC)",
-     "link": "https://semiengineering.com/molybdenum-quasi-phase-only-masks-improve-euv-imaging-nycu-tsmc/",
-     "summary": "Researchers at National Yang Ming Chiao Tung University and TSMC published a technical paper titled “High contrast EUV imaging enabled by topological quasi phase-only masks.” Abstract Excerpt: “Here, we propose a paradigm shift in EUV PSM technology by introducing molybdenum (Mo)-based quasi phase-only masks (quasi-POMs) with high reflectivity and minimal absorption. Through rigorous electromagnetic simulations,... » read more\nThe post Molybdenum Quasi Phase-Only Masks Improve EUV Imaging (NYCU, TSMC) appeared first on Semiconductor Engineering.",
-     "published": "2026-09-11 21:28 UTC",
-     "_ts": 1789162124,
-     "preview": false,
-     "bullets": [
-      "A collaboration between NYCU and TSMC has demonstrated that molybdenum-based quasi phase-only masks (quasi-POMs) significantly outperform conventional tantalum-based absorbers in EUV lithography.",
-      "The new mask technology delivers a 35% improvement in image contrast and a fivefold increase in the common focus window.",
-      "The implementation enables 12.5-nm half-pitch resolution for 0.33 NA EUV systems, while simultaneously reducing peak telecentricity error by 92%."
-     ],
-     "rating": 5,
-     "read_time": 10
-    },
-    {
-     "_key": "SemiEngineering|https://semiengineering.com/heterogeneous-memory-chiplets-accelerate-multi-request-llm-inference-nus/",
-     "blog": "SemiEngineering",
-     "title": "Heterogeneous Memory Chiplets Accelerate Multi-Request LLM Inference (NUS)",
-     "link": "https://semiengineering.com/heterogeneous-memory-chiplets-accelerate-multi-request-llm-inference-nus/",
-     "summary": "Researchers at the National University of Singapore published a technical paper titled “CHIPSMORE: Compute-in-Interconnect and -Memory Chiplets for Multi-Mode Multi-Request LLM Inference Acceleration.” Abstract Excerpt: “This paper presents CHIPSMORE, a multi-mode and multi-request LLM inference accelerator that integrates compute-in-interconnect and CIM to support both base-mode and low-rank adaptation (LoRA) inference under diverse workloads. CHIPSMORE employs... » read more\nThe post Heterogeneous Memory Chiplets Accelerate Multi-Request LLM Inference (NUS) appeared first on Semiconductor Engineering.",
-     "published": "2026-09-11 21:56 UTC",
-     "_ts": 1789163761,
-     "preview": false,
-     "bullets": [
-      "Researchers at the National University of Singapore developed CHIPSMORE, a multi-mode accelerator designed to handle diverse LLM inference workloads.",
-      "The architecture utilizes a heterogeneous mix of RRAM-based analog compute-in-memory and SRAM-based digital compute-in-memory.",
-      "A programmable Inter-PE computational network (IPCN) enables the system to support both base-mode and low-rank adaptation (LoRA) inference efficiently."
-     ],
-     "rating": 4,
-     "read_time": 10
-    },
-    {
-     "_key": "SemiEngineering|https://semiengineering.com/reducing-hbm-ecc-controller-overhead-for-ai-inference-rpi-ibm/",
-     "blog": "SemiEngineering",
-     "title": "Reducing HBM ECC Controller Overhead For AI Inference (RPI, IBM)",
-     "link": "https://semiengineering.com/reducing-hbm-ecc-controller-overhead-for-ai-inference-rpi-ibm/",
-     "summary": "Researchers at Rensselaer Polytechnic Institute and IBM T.J. Watson Research Center published a technical paper titled “REACH: Controller-Managed Long-Span ECC for HBM AI Inference.” Abstract Excerpt: “High-Bandwidth Memory (HBM) cost motivates stronger controller protection that can support a wider range of device error rates.High-Bandwidth Memory (HBM) cost motivates stronger controller protection that can support a... » read more\nThe post Reducing HBM ECC Controller Overhead For AI Inference (RPI, IBM) appeared first on Semiconductor Engineering.",
-     "published": "2026-09-11 21:43 UTC",
-     "_ts": 1789162998,
-     "preview": false,
-     "bullets": [
-      "RPI and IBM researchers introduced REACH, a controller microarchitecture designed to reduce the overhead of error-correcting codes (ECC) in High-Bandwidth Memory.",
-      "The design leverages the read-dominated nature of LLM inference to aggregate spans for error correction while minimizing parity-update traffic during sparse writes.",
-      "By using inner codes for common errors and reserving long outer codes for known-erasure repair, the system maintains high reliability without the performance penalties of traditional long-span ECC."
-     ],
-     "rating": 4,
-     "read_time": 10
-    },
-    {
-     "_key": "SemiEngineering|https://semiengineering.com/characterizing-charge-components-in-tmd-based-mos-structures-imec-ku-leuven-asm/",
-     "blog": "SemiEngineering",
-     "title": "Characterizing Charge Components In TMD-based MOS Structures (imec, KU Leuven, ASM)",
-     "link": "https://semiengineering.com/characterizing-charge-components-in-tmd-based-mos-structures-imec-ku-leuven-asm/",
-     "summary": "Researchers at imec, KU Leuven, and ASM published a technical paper titled “Dissecting the transition metal dichalcogenides-based metal-oxide-semiconductor structures charge components.” Abstract Excerpt: “Different variable charges such as interface traps, oxide border traps, and mobile carriers can contribute to the total capacitance in metal oxide semiconductor (MOS) field-effect devices. This study aims to quantify these... » read more\nThe post Characterizing Charge Components In TMD-based MOS Structures (imec, KU Leuven, ASM) appeared first on Semiconductor Engineering.",
-     "published": "2026-09-11 21:06 UTC",
-     "_ts": 1789160801,
-     "preview": false,
-     "bullets": [
-      "Researchers from imec, KU Leuven, and ASM have developed a methodology to quantify charge components in transition metal dichalcogenide (TMD)-based MOS devices.",
-      "The study utilizes multi-frequency and multi-temperature capacitance-voltage scans to isolate the effects of interface traps, oxide border traps, and mobile carriers.",
-      "This characterization is critical for advancing the reliability and performance of next-generation 2D material-based field-effect transistors."
-     ],
-     "rating": 3,
-     "read_time": 10
-    }
-   ]
-  },
   {
    "name": "CNEVPOST",
    "status": "ok",
    "posts": [
     {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/09/07/global-ev-battery-market-share-jan-jul-2026/",
+     "_key": "CNEVPOST|https://cnevpost.com/2026/09/08/tesla-china-retail-sales-aug-2026/",
      "blog": "CNEVPOST",
-     "title": "Global EV battery market share in January-July 2026: CATL 39.9%, BYD 14.7%",
-     "link": "https://cnevpost.com/2026/09/07/global-ev-battery-market-share-jan-jul-2026/",
-     "summary": "The 7 Chinese companies in the top 10 held a combined 72.8% share of the global EV battery market.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-09-07 06:56 UTC",
-     "_ts": 1788764182,
+     "title": "Tesla's China retail sales fall 12.4% in August, marking third straight decline",
+     "link": "https://cnevpost.com/2026/09/08/tesla-china-retail-sales-aug-2026/",
+     "summary": "Tesla's China retail sales totaled 50,047 vehicles in August, with sales for the first 8 months down 12.44%.\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-09-08 06:29 UTC",
+     "_ts": 1788848966,
      "preview": false,
      "bullets": [
-      "CATL and BYD continue to dominate the global EV battery market with a combined 54.6% share, though CATL's market share grew to 39.9% while BYD's share declined.",
-      "Chinese battery manufacturers maintain a strong lead, with seven of the top ten global suppliers being Chinese firms, collectively holding 72.8% of the market.",
-      "South Korean suppliers like LG Energy Solution and SK On are experiencing growth stagnation, with SK On being the only top-ten firm to report a year-on-year decline in installations.",
-      "The market saw a 20.4% year-on-year increase in total global battery usage, reaching 725.2 GWh for the first seven months of 2026."
+      "Tesla's China retail sales fell 12.43% year-on-year to 50,047 units in August, marking the third consecutive month of decline.",
+      "The Shanghai factory's export volume continues to outpace domestic retail sales, with cumulative exports up 114.7% year-to-date.",
+      "Tesla's share of the Chinese BEV market has compressed to 7.17%, down from 8.33% a year ago, reflecting increased competition from domestic manufacturers.",
+      "The company has implemented new cash incentives for the third quarter to stimulate domestic demand amid persistent retail sales pressure."
      ],
      "rating": 4,
      "read_time": 3
+    },
+    {
+     "_key": "CNEVPOST|https://cnevpost.com/2026/09/08/china-aug-2026-nev-retail/",
+     "blog": "CNEVPOST",
+     "title": "China's August NEV retail sales fall 10%, but penetration hits record 65.2%",
+     "link": "https://cnevpost.com/2026/09/08/china-aug-2026-nev-retail/",
+     "summary": "China's NEV retail sales fell 10.1% year-on-year to 1.005 million in August, marking the eighth consecutive month of decline.\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-09-08 07:29 UTC",
+     "_ts": 1788852594,
+     "preview": false,
+     "bullets": [
+      "China's NEV retail sales fell 10.1% year-on-year to 1.005 million units in August, marking the eighth consecutive month of decline.",
+      "Despite the retail sales drop, NEV market penetration reached a record 65.2% as gasoline car sales experienced a sharper contraction.",
+      "NEV exports remain a critical growth driver, surging 154.7% year-on-year and accounting for 58.4% of total passenger car exports.",
+      "BYD maintains market dominance with 233,943 retail sales, followed by Geely and Leapmotor, while Tesla ranked sixth."
+     ],
+     "rating": 4,
+     "read_time": 3
+    },
+    {
+     "_key": "CNEVPOST|https://cnevpost.com/2026/09/12/vw-anhui-refreshes-id-unyx-08-suv/",
+     "blog": "CNEVPOST",
+     "title": "VW Anhui refreshes ID. UNYX 08 SUV with lower prices just 5 months after launch",
+     "link": "https://cnevpost.com/2026/09/12/vw-anhui-refreshes-id-unyx-08-suv/",
+     "summary": "The updated ID. UNYX 08 starts at a limited-time price of 189,900 yuan ($28,030), 17.4% below its starting price at its April launch.\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-09-12 11:52 UTC",
+     "_ts": 1789213944,
+     "preview": false,
+     "bullets": [
+      "Volkswagen Anhui has aggressively cut the starting price of the ID. UNYX 08 by 17.4% to 189,900 yuan, just five months after its initial market launch.",
+      "The price adjustment follows sluggish sales performance, with CPCA data reporting only 133 units sold in July and 379 units in August.",
+      "The vehicle leverages Xpeng's advanced technology stack, featuring dual Turing AI chips for 1,500 TOPS of computing power and the VLA 2.0 driver-assistance system.",
+      "Despite the price reduction, the technical specifications remain robust, utilizing an 800-volt platform and CATL LFP batteries capable of 10% to 80% charging in approximately 20 minutes."
+     ],
+     "rating": 3,
+     "read_time": 3
+    }
+   ]
+  },
+  {
+   "name": "SemiEngineering",
+   "status": "ok",
+   "posts": [
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/smart-outlier-detection/",
+     "blog": "SemiEngineering",
+     "title": "Smart Outlier Detection",
+     "link": "https://semiengineering.com/smart-outlier-detection/",
+     "summary": "Just because a chip is deemed good doesn't mean it will work as expected.\nThe post Smart Outlier Detection appeared first on Semiconductor Engineering.",
+     "published": "2026-09-08 07:15 UTC",
+     "_ts": 1788851748,
+     "preview": false,
+     "bullets": [
+      "Leading-edge multi-die assemblies require a shift from rigid pass/fail testing to context-aware outlier detection to prevent field failures.",
+      "Machine learning models are being deployed to assess die usefulness based on real-world workload behavior rather than static specifications.",
+      "Effective outlier detection can significantly optimize power, performance, and area (PPA) while reducing the scrap rates associated with overly conservative testing."
+     ],
+     "rating": 4,
+     "read_time": 10
+    }
+   ]
+  },
+  {
+   "name": "MIT Technology Review",
+   "status": "ok",
+   "posts": [
+    {
+     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/09/08/1142094/laureen-meroueh-makes-cheaper-cleaner-steel/",
+     "blog": "MIT Technology Review",
+     "title": "This founder is making cheaper, cleaner steel",
+     "link": "https://www.technologyreview.com/2026/09/08/1142094/laureen-meroueh-makes-cheaper-cleaner-steel/",
+     "summary": "The steel industry isn’t exactly known for innovation. Very little has changed about purifying iron ore since the process was invented and commercialized in the 1850s. The majority of steelmakers melt solid iron ore at dizzyingly high temperatures inside blast furnaces, where the material reacts with gases to trigger chemical reactions that remove oxygen. It…",
+     "published": "2026-09-08 10:33 UTC",
+     "_ts": 1788863580,
+     "preview": false,
+     "bullets": [
+      "Hertha Metals has developed a single-step furnace process that replaces coal with natural gas to refine iron ore into liquid steel.",
+      "The technology claims to reduce carbon emissions by at least 50% while simultaneously cutting production costs by 25% compared to traditional blast furnace methods.",
+      "Given that steel production accounts for roughly 7% of global carbon emissions, this innovation offers a scalable path to decarbonization that aligns with the industry's tight profit margins."
+     ],
+     "rating": 4,
+     "read_time": 5
     }
    ]
   }
