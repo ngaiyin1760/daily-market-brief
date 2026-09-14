@@ -1,116 +1,105 @@
 {
- "generated_at": "2026-09-13 07:59 HKT",
+ "generated_at": "2026-09-14 08:09 HKT",
  "repos": [
   {
-   "name": "JustVugg/colibri",
-   "url": "https://github.com/JustVugg/colibri",
-   "language": "C",
-   "description": "Run GLM-5.2 (744B MoE) on a 25GB-RAM consumer machine — pure C, zero deps, experts streamed from disk. Tiny engine, immense model. 🐦",
-   "keywords": [
-    "Local LLM"
-   ],
-   "trendshift_pos": 7,
-   "stars": 28585,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance C-based inference engine designed to run massive 744B MoE models on consumer hardware.",
-   "bullets": [
-    "Written in pure C with zero dependencies for maximum portability and minimal overhead.",
-    "Utilizes disk-streaming for model experts to bypass RAM limitations on consumer machines.",
-    "Enables local deployment of frontier-scale LLMs for privacy-sensitive financial analysis.",
-    "Optimized for high-throughput inference on constrained infrastructure."
-   ]
-  },
-  {
-   "name": "unclecode/crawl4ai",
-   "url": "https://github.com/unclecode/crawl4ai",
-   "language": "Python",
-   "description": "🚀🤖 Crawl4AI: Open-source LLM Friendly Web Crawler & Scraper. Don't be shy, join here: https://discord.gg/jP8KfhDhyN",
-   "keywords": [
-    "Headless browser",
-    "Web scraping"
-   ],
-   "trendshift_pos": 21,
-   "stars": 82593,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An LLM-friendly web crawler and scraper designed to convert complex web content into structured data for AI agents.",
-   "bullets": [
-    "Built in Python with native support for LLM-ready data extraction and cleaning.",
-    "Handles dynamic JavaScript-heavy content to ensure data integrity for automated research.",
-    "Essential infrastructure for building RAG pipelines and financial market data scrapers.",
-    "Provides clean, token-efficient output to reduce costs in agentic workflows."
-   ]
-  },
-  {
-   "name": "vxcontrol/pentagi",
-   "url": "https://github.com/vxcontrol/pentagi",
-   "language": "Go",
-   "description": "Fully autonomous AI Agents system capable of performing complex penetration testing tasks",
+   "name": "langwatch/langwatch",
+   "url": "https://github.com/langwatch/langwatch",
+   "language": "TypeScript",
+   "description": "The platform for LLM evaluations and AI agent testing",
    "keywords": [
     "AI agent",
-    "Pentesting",
     "Self-hosted"
+   ],
+   "trendshift_pos": 2,
+   "stars": 4769,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An observability and evaluation platform specifically designed for LLM applications and AI agents.",
+   "bullets": [
+    "Built with TypeScript for high-performance integration into modern web stacks.",
+    "Provides automated evaluation pipelines to measure LLM output quality and consistency.",
+    "Enables developers to track agentic workflows and debug complex prompt chains.",
+    "Ideal for fintech teams needing audit trails for automated financial advice or data extraction."
+   ]
+  },
+  {
+   "name": "feder-cr/AIHawk",
+   "url": "https://github.com/feder-cr/AIHawk",
+   "language": "Python",
+   "description": "Open-source AI browser agent for web automation, undetected by anti-bot systems: a web browsing agent on a stealth Firefox that is not flagged as a bot, not blocked, and does not trigger captchas. Plain-English tasks, computer-use agent, browser MCP for Claude Code and Gemini CLI.",
+   "keywords": [
+    "AI agent",
+    "Workflow automation"
+   ],
+   "trendshift_pos": 20,
+   "stars": 30739,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An autonomous AI browser agent designed for stealthy web automation and data scraping.",
+   "bullets": [
+    "Utilizes a hardened, stealth-configured Firefox instance to bypass anti-bot detection.",
+    "Automates complex web interactions without triggering CAPTCHAs or security blocks.",
+    "Useful for market research, automated price monitoring, and gathering real-time financial data.",
+    "Python-based architecture allows for easy integration into existing data pipelines."
+   ]
+  },
+  {
+   "name": "alphaXiv/OpenResearch",
+   "url": "https://github.com/alphaXiv/OpenResearch",
+   "language": "Rust",
+   "description": "Run parallel research agents with any model",
+   "keywords": [
+    "AI agent"
    ],
    "trendshift_pos": 18,
-   "stars": 23436,
+   "stars": 2045,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A fully autonomous AI agent system engineered to perform complex penetration testing and security assessments.",
+   "one_liner": "A framework for orchestrating parallel research agents to synthesize information using any LLM.",
    "bullets": [
-    "Developed in Go, providing high-concurrency performance for security scanning tasks.",
-    "Automates the discovery and exploitation lifecycle without human intervention.",
-    "Critical for DevSecOps teams to continuously validate infrastructure security posture.",
-    "Reduces the time-to-remediation for vulnerabilities in enterprise environments."
+    "Written in Rust for high-concurrency and memory-safe agent orchestration.",
+    "Supports multi-agent collaboration to perform deep-dive research on complex topics.",
+    "Modular design allows swapping between different LLM backends for specific research tasks.",
+    "Perfect for quant researchers automating the synthesis of financial reports and academic papers."
    ]
   },
   {
-   "name": "melgarafael/DeskcommCRM",
-   "url": "https://github.com/melgarafael/DeskcommCRM",
-   "language": "TypeScript",
-   "description": "Open-source AI sales OS — self-hosted CRM with native AI agents + WhatsApp (WAHA). Open alternative to Kommo, Octadesk & Intercom for any business that sells by chat. MCP-ready, multi-tenant, LGPD.",
+   "name": "ruvnet/RuView",
+   "url": "https://github.com/ruvnet/RuView",
+   "language": "Rust",
+   "description": "π RuView turns commodity WiFi signals into real-time spatial intelligence, vital sign monitoring, and presence detection — all without a single pixel of video.",
+   "keywords": [],
+   "trendshift_pos": 24,
+   "stars": 93476,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A spatial intelligence engine that converts WiFi signals into real-time presence and vital sign data.",
+   "bullets": [
+    "Leverages Rust for low-latency signal processing and spatial computation.",
+    "Provides non-intrusive monitoring without the privacy concerns of traditional video cameras.",
+    "Extracts high-fidelity environmental data from commodity WiFi hardware.",
+    "Applicable in smart office infrastructure for occupancy-based energy management and security."
+   ]
+  },
+  {
+   "name": "666ghj/MiroFish",
+   "url": "https://github.com/666ghj/MiroFish",
+   "language": "Python",
+   "description": "A Simple and Universal Swarm Intelligence Engine, Predicting Anything. 简洁通用的群体智能引擎，预测万物",
    "keywords": [
-    "AI agent",
-    "RAG",
-    "MCP",
-    "Self-hosted"
+    "AI agent"
    ],
    "trendshift_pos": 17,
-   "stars": 1795,
+   "stars": 72648,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An open-source, self-hosted AI sales OS featuring native agents and multi-channel chat integration.",
+   "one_liner": "A universal swarm intelligence engine designed for predictive modeling and complex system analysis.",
    "bullets": [
-    "TypeScript-based stack with native support for WhatsApp automation via WAHA.",
-    "Includes MCP-ready architecture for seamless integration with external AI tools.",
-    "Designed for businesses requiring data sovereignty and LGPD compliance in sales operations.",
-    "Automates lead qualification and customer communication through agentic workflows."
+    "Python-based engine implementing decentralized swarm intelligence algorithms.",
+    "Focuses on predictive analytics for dynamic, multi-variable environments.",
+    "Designed to handle large-scale data inputs for pattern recognition and forecasting.",
+    "Relevant for algorithmic trading strategies that require adaptive, swarm-based market prediction."
    ]
-  },
-  {
-   "name": "alibaba/open-code-review",
-   "url": "https://github.com/alibaba/open-code-review",
-   "language": "Go",
-   "description": "Fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.",
-   "keywords": [
-    "AI agent",
-    "AI coding assistant"
-   ],
-   "trendshift_pos": 23,
-   "stars": 22717,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A hybrid code review platform combining deterministic pipelines with LLM agents for enterprise-scale software quality.",
-   "bullets": [
-    "Go-based architecture optimized for high-velocity development environments.",
-    "Integrates LLM agents to provide precise, line-level feedback on complex codebases.",
-    "Supports deterministic rule-based checking alongside intelligent semantic analysis.",
-    "Scalable infrastructure designed to enforce coding standards across large engineering teams."
-   ],
-   "img": "alibaba_open-code-review_0.jpg",
-   "img_alt": "Highlights",
-   "img2": "alibaba_open-code-review_1.jpg",
-   "img2_alt": "Benchmark"
   }
  ]
 }
