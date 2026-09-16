@@ -1,112 +1,111 @@
 {
- "generated_at": "2026-09-15 08:36 HKT",
+ "generated_at": "2026-09-16 08:17 HKT",
  "repos": [
   {
-   "name": "cloudflare/security-audit-skill",
-   "url": "https://github.com/cloudflare/security-audit-skill",
-   "language": "JavaScript",
-   "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
+   "name": "bojieli/ai-agent-book",
+   "url": "https://github.com/bojieli/ai-agent-book",
+   "language": "Python",
+   "description": "《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码",
    "keywords": [
     "AI agent",
-    "AI skills",
-    "Pentesting"
+    "Programming examples"
    ],
-   "trendshift_pos": 6,
-   "stars": 3943,
+   "trendshift_pos": 25,
+   "stars": 47605,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A specialized coding-agent skill designed to perform multi-phase security audits with machine-readable findings.",
+   "one_liner": "A comprehensive open-source textbook detailing the design principles and engineering practices of AI agents.",
    "bullets": [
-    "Built as a modular skill set for AI coding agents to standardize security analysis.",
-    "Implements a multi-phase audit workflow that ensures consistent, independently verifiable results.",
-    "Focuses on automating vulnerability detection and compliance checks in software supply chains.",
-    "Ideal for DevSecOps teams looking to integrate automated, high-fidelity security auditing into CI/CD pipelines."
+    "Covers agentic architecture, planning, memory, and tool-use patterns.",
+    "Provides a structured engineering framework for building reliable autonomous systems.",
+    "Includes full text, PDF, and modular code examples for practical implementation.",
+    "Essential for developers building complex agentic workflows in enterprise environments."
    ]
   },
   {
-   "name": "trailhq/Graft",
-   "url": "https://github.com/trailhq/Graft",
-   "language": "TypeScript",
-   "description": "Turn docs into a structured context graph that AI agents read from before working and contribute learnings back to.",
+   "name": "Tencent/WeKnora",
+   "url": "https://github.com/Tencent/WeKnora",
+   "language": "Go",
+   "description": "Open-source LLM knowledge platform: turn raw documents into a queryable RAG, an autonomous reasoning agent, and a self-maintaining Wiki.",
    "keywords": [
-    "AI agent",
+    "RAG",
     "Document processing"
    ],
-   "trendshift_pos": 24,
-   "stars": 7782,
+   "trendshift_pos": 12,
+   "stars": 24150,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A knowledge management platform that transforms unstructured documentation into structured context graphs for AI agents.",
+   "one_liner": "An open-source LLM knowledge platform designed to transform raw documents into autonomous RAG and reasoning agents.",
    "bullets": [
-    "Uses graph-based data structures to map relationships between technical documentation and project context.",
-    "Provides a persistent memory layer for AI agents, allowing them to retrieve accurate information and contribute new learnings.",
-    "Reduces hallucination in agentic workflows by grounding AI responses in verified project-specific data.",
-    "Essential infrastructure for enterprises scaling agentic automation across complex codebases."
+    "Built with Go for high-performance document processing and knowledge retrieval.",
+    "Integrates RAG pipelines with autonomous reasoning capabilities for self-maintaining wikis.",
+    "Automates the conversion of unstructured data into queryable, structured knowledge bases.",
+    "Ideal for enterprise knowledge management and automated research workflows."
+   ],
+   "img": "Tencent_WeKnora_0.jpg",
+   "img_alt": "weknora-architecture.png"
+  },
+  {
+   "name": "bojieli/ai-infra-book",
+   "url": "https://github.com/bojieli/ai-infra-book",
+   "language": "Python",
+   "description": "《深入理解 AI Infra：量化分析与系统设计》（李博杰 著）开源书稿：从硬件约束和模型架构出发，量化推导 LLM 推理与训练系统设计。含全书正文、PDF、配套计算工具与实验",
+   "keywords": [
+    "AI infrastructure"
+   ],
+   "trendshift_pos": 8,
+   "stars": 3442,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A deep-dive technical book on AI infrastructure, focusing on quantitative analysis and system design for LLM training and inference.",
+   "bullets": [
+    "Analyzes hardware constraints and model architectures to optimize compute performance.",
+    "Provides quantitative derivations for scaling LLM training and inference systems.",
+    "Includes配套 (companion) calculation tools and experimental benchmarks.",
+    "Critical resource for infrastructure engineers optimizing large-scale AI deployments."
    ]
   },
   {
-   "name": "TencentCloud/Octop",
-   "url": "https://github.com/TencentCloud/Octop",
-   "language": "Python",
-   "description": "A smarter, self-hosted AI assistant — multi-user, multi-agent.",
+   "name": "shadcn-ui/lint",
+   "url": "https://github.com/shadcn-ui/lint",
+   "language": "TypeScript",
+   "description": "An agent-first linter for Tailwind design systems. Write design system rules that agents can verify.",
    "keywords": [
-    "AI agent",
-    "Self-hosted"
+    "AI agent"
    ],
-   "trendshift_pos": 3,
-   "stars": 1938,
+   "trendshift_pos": 11,
+   "stars": 1724,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A self-hosted, multi-user AI assistant framework designed for collaborative multi-agent orchestration.",
+   "one_liner": "An agent-first linter for Tailwind design systems that enables automated verification of UI/UX rules.",
    "bullets": [
-    "Python-based architecture supporting complex multi-agent interactions and task delegation.",
-    "Designed for self-hosting, ensuring data privacy and control over sensitive internal workflows.",
-    "Enables multi-user collaboration, making it suitable for team-based AI-assisted development or operations.",
-    "Provides a scalable foundation for deploying custom agentic workflows within private infrastructure."
+    "Uses an agentic approach to enforce design system consistency across large codebases.",
+    "Allows developers to define custom design rules that AI agents can programmatically verify.",
+    "Reduces manual code review overhead for frontend infrastructure and design teams.",
+    "Integrates directly into modern TypeScript/Tailwind development workflows."
    ]
   },
   {
-   "name": "roboflow/supervision",
-   "url": "https://github.com/roboflow/supervision",
-   "language": "Python",
-   "description": "We write your reusable computer vision tools. 💜",
-   "keywords": [
-    "Computer vision"
-   ],
-   "trendshift_pos": 20,
-   "stars": 50038,
+   "name": "ever-co/ever-gauzy",
+   "url": "https://github.com/ever-co/ever-gauzy",
+   "language": "TypeScript",
+   "description": "Ever® Gauzy™ - Open Business Management Platform (ERP/CRM/HRM/ATS/PM) - https://gauzy.co",
+   "keywords": [],
+   "trendshift_pos": 19,
+   "stars": 6629,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A comprehensive library of reusable computer vision tools designed to simplify the development of AI-powered visual monitoring systems.",
+   "one_liner": "A comprehensive open-source business management platform covering ERP, CRM, HRM, and project management.",
    "bullets": [
-    "Provides high-level abstractions for object detection, tracking, and classification tasks.",
-    "Integrates seamlessly with popular vision models to accelerate the deployment of real-time monitoring solutions.",
-    "Highly relevant for industrial automation, logistics, and security applications requiring visual intelligence.",
-    "Reduces boilerplate code for developers building custom computer vision pipelines."
-   ]
-  },
-  {
-   "name": "SnailSploit/Claude-Red",
-   "url": "https://github.com/SnailSploit/Claude-Red",
-   "language": "Python",
-   "description": "claude-red is a curated library of offensive security skills designed for the Claude skills system. Each skill is a structured SKILL.md file that primes Claude with expert-level methodology for a specific attack surface — from SQLi to shellcode, EDR evasion to exploit development.",
-   "keywords": [
-    "AI skills",
-    "Pentesting"
+    "Modular TypeScript architecture supporting complex enterprise business logic.",
+    "Centralizes core business operations including finance, human resources, and client management.",
+    "Provides a unified infrastructure for SMEs to manage end-to-end business workflows.",
+    "Highly extensible for fintech or operational integrations requiring custom business logic."
    ],
-   "trendshift_pos": 23,
-   "stars": 4721,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A curated library of offensive security skills designed to prime AI agents with expert-level methodology.",
-   "bullets": [
-    "Structured as a collection of SKILL.md files that define expert-level security testing protocols.",
-    "Enables AI agents to execute complex, methodology-driven security assessments autonomously.",
-    "Focuses on offensive security research and red teaming automation for modern software environments.",
-    "Provides a framework for security professionals to codify and scale their expertise through agentic systems."
-   ],
-   "img": "SnailSploit_Claude-Red_0.jpg",
-   "img_alt": "claude-red banner"
+   "img": "ever-co_ever-gauzy_0.jpg",
+   "img_alt": "overview",
+   "img2": "ever-co_ever-gauzy_1.jpg",
+   "img2_alt": "timer"
   }
  ]
 }
