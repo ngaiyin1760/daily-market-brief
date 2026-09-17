@@ -1,111 +1,109 @@
 {
- "generated_at": "2026-09-16 08:17 HKT",
+ "generated_at": "2026-09-17 08:29 HKT",
  "repos": [
   {
-   "name": "bojieli/ai-agent-book",
-   "url": "https://github.com/bojieli/ai-agent-book",
-   "language": "Python",
-   "description": "《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码",
-   "keywords": [
-    "AI agent",
-    "Programming examples"
-   ],
-   "trendshift_pos": 25,
-   "stars": 47605,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A comprehensive open-source textbook detailing the design principles and engineering practices of AI agents.",
-   "bullets": [
-    "Covers agentic architecture, planning, memory, and tool-use patterns.",
-    "Provides a structured engineering framework for building reliable autonomous systems.",
-    "Includes full text, PDF, and modular code examples for practical implementation.",
-    "Essential for developers building complex agentic workflows in enterprise environments."
-   ]
-  },
-  {
-   "name": "Tencent/WeKnora",
-   "url": "https://github.com/Tencent/WeKnora",
-   "language": "Go",
-   "description": "Open-source LLM knowledge platform: turn raw documents into a queryable RAG, an autonomous reasoning agent, and a self-maintaining Wiki.",
-   "keywords": [
-    "RAG",
-    "Document processing"
-   ],
-   "trendshift_pos": 12,
-   "stars": 24150,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An open-source LLM knowledge platform designed to transform raw documents into autonomous RAG and reasoning agents.",
-   "bullets": [
-    "Built with Go for high-performance document processing and knowledge retrieval.",
-    "Integrates RAG pipelines with autonomous reasoning capabilities for self-maintaining wikis.",
-    "Automates the conversion of unstructured data into queryable, structured knowledge bases.",
-    "Ideal for enterprise knowledge management and automated research workflows."
-   ],
-   "img": "Tencent_WeKnora_0.jpg",
-   "img_alt": "weknora-architecture.png"
-  },
-  {
-   "name": "bojieli/ai-infra-book",
-   "url": "https://github.com/bojieli/ai-infra-book",
-   "language": "Python",
-   "description": "《深入理解 AI Infra：量化分析与系统设计》（李博杰 著）开源书稿：从硬件约束和模型架构出发，量化推导 LLM 推理与训练系统设计。含全书正文、PDF、配套计算工具与实验",
-   "keywords": [
-    "AI infrastructure"
-   ],
-   "trendshift_pos": 8,
-   "stars": 3442,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A deep-dive technical book on AI infrastructure, focusing on quantitative analysis and system design for LLM training and inference.",
-   "bullets": [
-    "Analyzes hardware constraints and model architectures to optimize compute performance.",
-    "Provides quantitative derivations for scaling LLM training and inference systems.",
-    "Includes配套 (companion) calculation tools and experimental benchmarks.",
-    "Critical resource for infrastructure engineers optimizing large-scale AI deployments."
-   ]
-  },
-  {
-   "name": "shadcn-ui/lint",
-   "url": "https://github.com/shadcn-ui/lint",
+   "name": "supabase/supabase",
+   "url": "https://github.com/supabase/supabase",
    "language": "TypeScript",
-   "description": "An agent-first linter for Tailwind design systems. Write design system rules that agents can verify.",
+   "description": "The Postgres development platform. Supabase gives you a dedicated Postgres database to build your web, mobile, and AI applications.",
+   "keywords": [
+    "Authentication"
+   ],
+   "trendshift_pos": 15,
+   "stars": 109714,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An open-source Firebase alternative that provides a full backend-as-a-service built on top of PostgreSQL.",
+   "bullets": [
+    "Tech Stack: PostgreSQL, Go, GoTrue, PostgREST, and Realtime engine.",
+    "Purpose: Simplifies backend development by providing instant APIs, authentication, and database management.",
+    "Use Cases: Rapid prototyping for fintech apps, managing user data for AI agents, and building scalable web/mobile backends."
+   ],
+   "img": "supabase_supabase_0.jpg",
+   "img_alt": "Supabase Dashboard"
+  },
+  {
+   "name": "Tencent/BrowserSkill",
+   "url": "https://github.com/Tencent/BrowserSkill",
+   "language": "Rust",
+   "description": "Let AI agents use your real, logged-in browser without interrupting your work. CLI + extension for browser automation across any shell-capable AI agent.",
    "keywords": [
     "AI agent"
    ],
-   "trendshift_pos": 11,
-   "stars": 1724,
+   "trendshift_pos": 7,
+   "stars": 3023,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An agent-first linter for Tailwind design systems that enables automated verification of UI/UX rules.",
+   "one_liner": "A browser automation framework that enables AI agents to interact with real, logged-in web sessions.",
    "bullets": [
-    "Uses an agentic approach to enforce design system consistency across large codebases.",
-    "Allows developers to define custom design rules that AI agents can programmatically verify.",
-    "Reduces manual code review overhead for frontend infrastructure and design teams.",
-    "Integrates directly into modern TypeScript/Tailwind development workflows."
+    "Tech Stack: Rust-based CLI and browser extension architecture.",
+    "Purpose: Bridges the gap between LLM reasoning and complex web interfaces by allowing agents to perform authenticated actions.",
+    "Use Cases: Automating financial data extraction from banking portals, managing SaaS workflows, and agentic web navigation."
    ]
   },
   {
-   "name": "ever-co/ever-gauzy",
-   "url": "https://github.com/ever-co/ever-gauzy",
-   "language": "TypeScript",
-   "description": "Ever® Gauzy™ - Open Business Management Platform (ERP/CRM/HRM/ATS/PM) - https://gauzy.co",
-   "keywords": [],
+   "name": "addyosmani/agent-skills",
+   "url": "https://github.com/addyosmani/agent-skills",
+   "language": "JavaScript",
+   "description": "Production-grade engineering skills for AI coding agents.",
+   "keywords": [
+    "AI agent",
+    "AI coding assistant",
+    "AI skills"
+   ],
    "trendshift_pos": 19,
-   "stars": 6629,
+   "stars": 95444,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A comprehensive open-source business management platform covering ERP, CRM, HRM, and project management.",
+   "one_liner": "A collection of production-grade engineering skills and patterns designed to enhance AI coding agents.",
    "bullets": [
-    "Modular TypeScript architecture supporting complex enterprise business logic.",
-    "Centralizes core business operations including finance, human resources, and client management.",
-    "Provides a unified infrastructure for SMEs to manage end-to-end business workflows.",
-    "Highly extensible for fintech or operational integrations requiring custom business logic."
+    "Tech Stack: JavaScript/TypeScript-based modular skill definitions.",
+    "Purpose: Provides standardized, reliable tool-use capabilities for LLMs to perform complex software engineering tasks.",
+    "Use Cases: Improving the reliability of autonomous coding agents, automating code refactoring, and building robust devtools."
    ],
-   "img": "ever-co_ever-gauzy_0.jpg",
-   "img_alt": "overview",
-   "img2": "ever-co_ever-gauzy_1.jpg",
-   "img2_alt": "timer"
+   "img": "addyosmani_agent-skills_0.jpg",
+   "img_alt": "Addy's Agent Skills"
+  },
+  {
+   "name": "jmiao24/Paper2Agent",
+   "url": "https://github.com/jmiao24/Paper2Agent",
+   "language": "Jupyter Notebook",
+   "description": "Paper2Agent is a multi-agent AI system that automatically transforms research papers into interactive AI agents.",
+   "keywords": [
+    "AI agent",
+    "AI workflow",
+    "MCP"
+   ],
+   "trendshift_pos": 6,
+   "stars": 2535,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A multi-agent system that automatically converts academic research papers into functional, interactive AI agents.",
+   "bullets": [
+    "Tech Stack: Python, Jupyter Notebooks, and LLM orchestration frameworks.",
+    "Purpose: Accelerates the transition from theoretical research to practical, agentic implementation.",
+    "Use Cases: Rapidly deploying specialized financial analysis agents based on new quant research or academic papers."
+   ]
+  },
+  {
+   "name": "nats-io/nats-server",
+   "url": "https://github.com/nats-io/nats-server",
+   "language": "Go",
+   "description": "High-Performance server for NATS.io, the cloud and edge native messaging system.",
+   "keywords": [
+    "Cloud native",
+    "Data streaming"
+   ],
+   "trendshift_pos": 20,
+   "stars": 20776,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A high-performance, cloud-native messaging system designed for secure communication across distributed infrastructure.",
+   "bullets": [
+    "Tech Stack: Written in Go, utilizing a lightweight, high-throughput pub/sub messaging protocol.",
+    "Purpose: Provides the backbone for low-latency communication between microservices and edge devices.",
+    "Use Cases: Building high-frequency trading backends, real-time data streaming for fintech, and orchestrating distributed AI agent networks."
+   ]
   }
  ]
 }
