@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-16 23:38 UTC",
+  "updated": "2026-09-17 14:50 UTC",
   "auto_read_exact": [
     {
       "address": "ben@hey.zocomputer.com",
@@ -151,18 +151,18 @@
     "updates@go.calbears.com"
   ],
   "token_status": {
-    "finished_at": "2026-09-16T23:38:09Z",
+    "finished_at": "2026-09-17T14:50:51Z",
     "accounts": {
       "personal": {
-        "status": "ok",
-        "error": "",
-        "unread": 1,
+        "status": "failed",
+        "error": "HTTPSConnectionPool(host='login.microsoftonline.com', port=443): Max retries exceeded with url: /common/oauth2/v2.0/token (Caused by NameResolutionError(\"HTTPSConnection(host='login.microsoftonline.co",
+        "unread": 0,
         "marked": 0
       },
       "gmail": {
         "status": "ok",
         "error": "",
-        "unread": 1,
+        "unread": 2,
         "marked": 0
       },
       "berkeley": {
