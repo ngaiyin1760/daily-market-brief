@@ -1,108 +1,109 @@
 {
- "generated_at": "2026-09-18 08:15 HKT",
+ "generated_at": "2026-09-19 08:18 HKT",
  "repos": [
   {
-   "name": "Human-Agent-Society/reef",
-   "url": "https://github.com/Human-Agent-Society/reef",
-   "language": "Python",
-   "description": "Continual learning infra for self-improving agents",
+   "name": "browserbase/stagehand",
+   "url": "https://github.com/browserbase/stagehand",
+   "language": "TypeScript",
+   "description": "The SDK for browser agents. Interact, search, extract, and fetch any site reliably across the web",
+   "keywords": [
+    "AI agent",
+    "Headless browser"
+   ],
+   "trendshift_pos": 24,
+   "stars": 24389,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A specialized SDK designed to build reliable, production-grade browser agents.",
+   "bullets": [
+    "Built on TypeScript with deep integration for Playwright and LLM-based automation.",
+    "Provides robust primitives for web interaction, data extraction, and site navigation.",
+    "Ideal for building autonomous research agents, automated testing suites, and web-scraping pipelines.",
+    "Focuses on reliability and error handling for complex, dynamic web environments."
+   ]
+  },
+  {
+   "name": "supermemoryai/supermemory",
+   "url": "https://github.com/supermemoryai/supermemory",
+   "language": "TypeScript",
+   "description": "Memory and context engine + app that is extremely fast, scalable, and can be run fully locally. The Memory API for the AI era.",
+   "keywords": [
+    "AI agent",
+    "AI memory",
+    "RAG"
+   ],
+   "trendshift_pos": 22,
+   "stars": 30271,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A scalable, local-first memory and context engine designed to serve as the long-term storage layer for AI agents.",
+   "bullets": [
+    "Uses a high-performance TypeScript stack with local vector database capabilities.",
+    "Acts as a centralized Memory API to provide persistent context to LLMs and agentic workflows.",
+    "Enables privacy-focused data management by allowing full local execution.",
+    "Useful for building personalized AI assistants that require deep historical context and knowledge retrieval."
+   ]
+  },
+  {
+   "name": "trycua/cua",
+   "url": "https://github.com/trycua/cua",
+   "language": "HTML",
+   "description": "Scale computer-use 2.0 with open-source drivers, cross-OS fleets, and benchmarks for training, evaluation, and data generation.",
    "keywords": [
     "AI agent",
     "AI infrastructure"
    ],
-   "trendshift_pos": 11,
-   "stars": 3162,
+   "trendshift_pos": 3,
+   "stars": 23404,
    "fork": false,
    "parent_name": "",
-   "one_liner": "Infrastructure for continual learning and self-improvement in autonomous AI agents.",
+   "one_liner": "An open-source infrastructure platform for scaling computer-use agents across cross-OS fleets.",
    "bullets": [
-    "Built on a modular Python architecture designed for long-term agent memory and state persistence.",
-    "Focuses on the 'continual learning' paradigm, allowing agents to adapt to new data without catastrophic forgetting.",
-    "Ideal for developers building complex, long-running agentic workflows that require iterative improvement.",
-    "Provides the underlying infra to bridge the gap between static LLM inference and dynamic, evolving agent behavior."
+    "Provides standardized drivers and benchmarks for training and evaluating agentic computer-use models.",
+    "Supports fleet management for distributed agent deployment across diverse operating systems.",
+    "Facilitates large-scale data generation for fine-tuning models on GUI-based tasks.",
+    "Essential infrastructure for enterprises looking to deploy autonomous agents in production environments."
    ]
   },
   {
-   "name": "Fission-AI/OpenSpec",
-   "url": "https://github.com/Fission-AI/OpenSpec",
-   "language": "TypeScript",
-   "description": "Spec-driven development (SDD) for AI coding assistants.",
-   "keywords": [
-    "AI workflow",
-    "AI coding assistant"
-   ],
-   "trendshift_pos": 23,
-   "stars": 68920,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A framework for spec-driven development (SDD) to improve the reliability of AI coding assistants.",
-   "bullets": [
-    "Uses a structured specification language to define requirements, reducing hallucinations in AI-generated code.",
-    "Integrates directly into the development lifecycle to ensure AI outputs adhere to strict architectural constraints.",
-    "Essential for enterprise-grade software engineering where code quality and security compliance are non-negotiable.",
-    "Acts as a middleware layer between LLMs and the codebase to enforce deterministic coding standards."
-   ]
-  },
-  {
-   "name": "ArcReel/ArcReel",
-   "url": "https://github.com/ArcReel/ArcReel",
+   "name": "scadastrangelove/awesome-ai-security-tools",
+   "url": "https://github.com/scadastrangelove/awesome-ai-security-tools",
    "language": "Python",
-   "description": "AI Agent 驱动的开源可自部署视频工作台：将小说与剧本转为角色、场景、道具资产、分镜、视频和剪映草稿，支持跨镜头一致性、多供应商与费用追踪 | Self-hosted AI video workspace for stories, storyboards and short-form video production",
+   "description": "A curated list of public-source, research, and commercial tools for AI security and AI-assisted cybersecurity — autotriage, agent security, AI/ML supply chain, pentest agents, AI SAST, LLM-driven fuzzing, threat intelligence, SOC/SIEM triage, reverse engineering, LLM red-teaming, and more.",
    "keywords": [
-    "AI agent",
-    "AI image generation",
-    "AI video generation",
-    "AI workflow",
-    "Workflow automation"
+    "Pentesting",
+    "Curated list"
    ],
-   "trendshift_pos": 21,
-   "stars": 4914,
+   "trendshift_pos": 6,
+   "stars": 1162,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An AI-agent-driven, self-hosted video production workspace with integrated cost tracking.",
+   "one_liner": "A comprehensive repository of tools dedicated to AI security, LLM-driven fuzzing, and AI supply chain protection.",
    "bullets": [
-    "Python-based backend orchestrating multi-agent workflows for asset generation, storyboarding, and video editing.",
-    "Features built-in cost tracking, making it highly relevant for fintech-conscious teams managing AI compute budgets.",
-    "Supports cross-shot consistency and multi-vendor model integration for professional-grade short-form content.",
-    "Enables automated conversion of scripts into finished video assets, streamlining the creative production pipeline."
+    "Curated collection of Python-based security frameworks, pentest agents, and AI SAST tools.",
+    "Covers critical domains including AI/ML supply chain integrity and agentic security posture.",
+    "Provides a centralized resource for security professionals to audit and harden AI-integrated systems.",
+    "Supports automated triage and vulnerability detection in LLM-powered applications."
    ]
   },
   {
-   "name": "bendlang/bend",
-   "url": "https://github.com/bendlang/bend",
-   "language": "Rust",
-   "description": "A massively parallel, high-level programming language",
-   "keywords": [],
-   "trendshift_pos": 20,
-   "stars": 20321,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A massively parallel, high-level programming language designed for high-performance computing.",
-   "bullets": [
-    "Compiles to HVM (Higher-Order Virtual Machine), enabling massive parallelism without manual thread management.",
-    "Offers a high-level syntax similar to Python while delivering performance comparable to low-level languages.",
-    "Highly applicable for quant finance and data-heavy workloads that require rapid execution of complex algorithms.",
-    "Provides a unique approach to hardware utilization, allowing developers to scale compute-intensive tasks effortlessly."
-   ]
-  },
-  {
-   "name": "NationalSecurityAgency/ghidra",
-   "url": "https://github.com/NationalSecurityAgency/ghidra",
-   "language": "Java",
-   "description": "Ghidra is a software reverse engineering (SRE) framework",
+   "name": "autonomous-ai/openharness",
+   "url": "https://github.com/autonomous-ai/openharness",
+   "language": "TypeScript",
+   "description": "One device to harness all AI agents — Claude Code, Codex, Cursor, OpenCode, and more — across computers and servers.",
    "keywords": [
-    "Static analysis"
+    "AI agent"
    ],
-   "trendshift_pos": 15,
-   "stars": 78466,
+   "trendshift_pos": 14,
+   "stars": 251,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A comprehensive software reverse engineering (SRE) framework for analyzing binary code.",
+   "one_liner": "A unified interface and orchestration layer for managing multiple AI agents across local and remote infrastructure.",
    "bullets": [
-    "Java-based suite featuring a powerful disassembler, decompiler, and graph analysis tools.",
-    "Industry-standard tool for security research, malware analysis, and auditing proprietary financial software.",
-    "Provides deep visibility into compiled binaries, essential for identifying vulnerabilities in closed-source fintech infrastructure.",
-    "Includes a collaborative server component for multi-user analysis of large-scale software projects."
+    "TypeScript-based orchestration layer designed to bridge disparate agent ecosystems like Claude Code and Cursor.",
+    "Simplifies the management and deployment of agentic workflows across servers and workstations.",
+    "Provides a standardized harness for monitoring and controlling agent behavior in complex environments.",
+    "Useful for developers managing multi-agent systems that require centralized control and observability."
    ]
   }
  ]
