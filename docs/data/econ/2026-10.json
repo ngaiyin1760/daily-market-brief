@@ -1,6 +1,6 @@
 {
  "month": "2026-10",
- "updated": "2026-09-19 08:18 HKT",
+ "updated": "2026-09-20 08:08 HKT",
  "events": [
   {
    "ts": "2026-10-01T00:00:00.000Z",
@@ -1500,35 +1500,13 @@
   },
   {
    "ts": "2026-10-19T02:00:00.000Z",
-   "title": "Fixed Asset Investment (YTD) YoY",
+   "title": "GDP Growth Rate QoQ",
    "country": "CN",
    "currency": "CNY",
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": -7.2,
-   "category": "mny"
-  },
-  {
-   "ts": "2026-10-19T02:00:00.000Z",
-   "title": "Retail Sales YoY",
-   "country": "CN",
-   "currency": "CNY",
-   "importance": 1,
-   "actual": null,
-   "forecast": null,
-   "previous": 0.4,
-   "category": "cnsm"
-  },
-  {
-   "ts": "2026-10-19T02:00:00.000Z",
-   "title": "GDP Growth Rate YoY",
-   "country": "CN",
-   "currency": "CNY",
-   "importance": 1,
-   "actual": null,
-   "forecast": null,
-   "previous": 4.3,
+   "previous": 0.9,
    "category": "gdp"
   },
   {
@@ -1544,25 +1522,36 @@
   },
   {
    "ts": "2026-10-19T02:00:00.000Z",
-   "title": "GDP Growth Rate QoQ",
+   "title": "GDP Growth Rate YoY",
+   "country": "CN",
+   "currency": "CNY",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": 4.3,
+   "category": "gdp"
+  },
+  {
+   "ts": "2026-10-19T02:00:00.000Z",
+   "title": "Retail Sales YoY",
+   "country": "CN",
+   "currency": "CNY",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": 0.4,
+   "category": "cnsm"
+  },
+  {
+   "ts": "2026-10-19T02:00:00.000Z",
+   "title": "Fixed Asset Investment (YTD) YoY",
    "country": "CN",
    "currency": "CNY",
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": 0.9,
-   "category": "gdp"
-  },
-  {
-   "ts": "2026-10-19T04:00:00.000Z",
-   "title": "Inflation Rate MoM",
-   "country": "MY",
-   "currency": "MYR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "prce"
+   "previous": -7.2,
+   "category": "mny"
   },
   {
    "ts": "2026-10-19T04:00:00.000Z",
@@ -1572,7 +1561,18 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 1.9,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-10-19T04:00:00.000Z",
+   "title": "Inflation Rate MoM",
+   "country": "MY",
+   "currency": "MYR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 0.3,
    "category": "prce"
   },
   {
@@ -1583,7 +1583,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": -5.3,
    "category": "trd"
   },
   {
@@ -1599,13 +1599,13 @@
   },
   {
    "ts": "2026-10-19T12:30:00.000Z",
-   "title": "Inflation Rate YoY",
+   "title": "Core Inflation Rate YoY",
    "country": "CA",
    "currency": "CAD",
-   "importance": 1,
+   "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": 3.0,
+   "previous": 2.4,
    "category": "prce"
   },
   {
@@ -1621,13 +1621,13 @@
   },
   {
    "ts": "2026-10-19T12:30:00.000Z",
-   "title": "Core Inflation Rate YoY",
+   "title": "Inflation Rate YoY",
    "country": "CA",
    "currency": "CAD",
-   "importance": 0,
+   "importance": 1,
    "actual": null,
    "forecast": null,
-   "previous": 2.4,
+   "previous": 3.0,
    "category": "prce"
   },
   {
@@ -1638,7 +1638,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 32.0,
    "category": "hse"
   },
   {
@@ -1786,17 +1786,6 @@
   },
   {
    "ts": "2026-10-20T12:30:00.000Z",
-   "title": "Housing Starts",
-   "country": "US",
-   "currency": "USD",
-   "importance": 1,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "hse"
-  },
-  {
-   "ts": "2026-10-20T12:30:00.000Z",
    "title": "Building Permits MoM Prel",
    "country": "US",
    "currency": "USD",
@@ -1808,7 +1797,7 @@
   },
   {
    "ts": "2026-10-20T12:30:00.000Z",
-   "title": "Building Permits Prel",
+   "title": "Housing Starts",
    "country": "US",
    "currency": "USD",
    "importance": 1,
@@ -1823,6 +1812,17 @@
    "country": "US",
    "currency": "USD",
    "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "hse"
+  },
+  {
+   "ts": "2026-10-20T12:30:00.000Z",
+   "title": "Building Permits Prel",
+   "country": "US",
+   "currency": "USD",
+   "importance": 1,
    "actual": null,
    "forecast": null,
    "previous": null,
@@ -1863,10 +1863,10 @@
   },
   {
    "ts": "2026-10-20T23:50:00.000Z",
-   "title": "Exports YoY",
+   "title": "Balance of Trade",
    "country": "JP",
    "currency": "JPY",
-   "importance": 0,
+   "importance": 1,
    "actual": null,
    "forecast": null,
    "previous": null,
@@ -1874,10 +1874,10 @@
   },
   {
    "ts": "2026-10-20T23:50:00.000Z",
-   "title": "Balance of Trade",
+   "title": "Exports YoY",
    "country": "JP",
    "currency": "JPY",
-   "importance": 1,
+   "importance": 0,
    "actual": null,
    "forecast": null,
    "previous": null,
@@ -1984,7 +1984,7 @@
   },
   {
    "ts": "2026-10-21T14:30:00.000Z",
-   "title": "EIA Gasoline Stocks Change",
+   "title": "EIA Crude Oil Stocks Change",
    "country": "US",
    "currency": "USD",
    "importance": 0,
@@ -1995,7 +1995,7 @@
   },
   {
    "ts": "2026-10-21T14:30:00.000Z",
-   "title": "EIA Crude Oil Stocks Change",
+   "title": "EIA Gasoline Stocks Change",
    "country": "US",
    "currency": "USD",
    "importance": 0,

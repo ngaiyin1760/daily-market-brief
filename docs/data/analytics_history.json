@@ -1,6 +1,97 @@
 {
  "days": [
   {
+   "date": "2026-09-20",
+   "generated_at": "2026-09-20 08:08 HKT",
+   "posts": [
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/chiplet-co-design-framework-reduces-energy-and-design-costs-for-ai-accelerators-university-of-michigan/",
+     "blog": "SemiEngineering",
+     "title": "Chiplet Co-Design Framework Reduces Energy and Design Costs for AI Accelerators (University of Michigan)",
+     "link": "https://semiengineering.com/chiplet-co-design-framework-reduces-energy-and-design-costs-for-ai-accelerators-university-of-michigan/",
+     "summary": "Researchers at the University of Michigan published a technical paper titled “Fengshui: Demystifying Chiplet Ecosystem and Bespoke Neural Network Accelerator Codesign.” Abstract Excerpt: “This paper introduces Fengshui, a chiplet ecosystem and accelerator co-design framework that jointly optimizes chiplet pool composition and bespoke application-specific integrated circuit (BASIC) design.” Find the technical paper here. September 2026. Jin,... » read more\nThe post Chiplet Co-Design Framework Reduces Energy and Design Costs for AI Accelerators (University of Michigan) appeared first on Semiconductor Engineering.",
+     "published": "2026-09-19 18:44 UTC",
+     "_ts": 1789843482,
+     "preview": false,
+     "bullets": [
+      "The University of Michigan introduced 'Fengshui,' a co-design framework that optimizes chiplet pool composition alongside bespoke neural network accelerator design.",
+      "The framework targets the reduction of energy consumption and overall design costs, which are critical factors for scaling AI hardware.",
+      "By jointly optimizing the chiplet ecosystem and ASIC architecture, the tool provides a systematic approach to managing the complexity of modern heterogeneous AI accelerators."
+     ],
+     "rating": 5,
+     "read_time": 10
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/predicting-thermal-conductivity-in-advanced-beol-interconnect-stacks-peking-university/",
+     "blog": "SemiEngineering",
+     "title": "Predicting Thermal Conductivity in Advanced BEOL Interconnect Stacks (Peking University)",
+     "link": "https://semiengineering.com/predicting-thermal-conductivity-in-advanced-beol-interconnect-stacks-peking-university/",
+     "summary": "Researchers at Peking University published a technical paper titled “Predictive Structure to Thermal Conductivity Modeling Framework for BEOL Interconnect Stacks in Advanced Technology Nodes Enabled by Extensive Layer Resolved Thermal Measurements.” Abstract Excerpt: “The increasing structural complexity of BEOL interconnect stacks in advanced integrated circuits demands a structure-aware thermal conductivity (κ) modeling framework. However, generalizable... » read more\nThe post Predicting Thermal Conductivity in Advanced BEOL Interconnect Stacks (Peking University) appeared first on Semiconductor Engineering.",
+     "published": "2026-09-19 20:05 UTC",
+     "_ts": 1789848304,
+     "preview": false,
+     "bullets": [
+      "Researchers at Peking University developed a structure-aware thermal conductivity modeling framework for BEOL interconnect stacks in advanced technology nodes.",
+      "The framework utilizes time-domain thermoreflectance measurements with 100 nm depth resolution to derive empirical relationships between interconnect structure and thermal conductivity.",
+      "By incorporating effective medium theory, the model enables predictive thermal analysis of spatial variations within 3D ICs, addressing a critical gap in current design tools."
+     ],
+     "rating": 4,
+     "read_time": 1
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/agentic-ai-automates-design-rule-repair-while-preserving-layout-equivalence/",
+     "blog": "SemiEngineering",
+     "title": "Agentic AI Automates Design-Rule Repair While Preserving Layout Equivalence (Purdue University)",
+     "link": "https://semiengineering.com/agentic-ai-automates-design-rule-repair-while-preserving-layout-equivalence/",
+     "summary": "Researchers at Purdue University published a technical paper titled “DRC-Aid: Design-Rule Correction via Agentic Framework utilizing Inference-Time Large Language Models.” Abstract Excerpt: “We present DRC-Aid, a closed-loop agentic framework that automates local DRC repair by formulating it as verification-in-the-loop search. To constrain the combinatorial geometric repair space, a deterministic Rule Engine converts physical verification tool-reported... » read more\nThe post Agentic AI Automates Design-Rule Repair While Preserving Layout Equivalence (Purdue University) appeared first on Semiconductor Engineering.",
+     "published": "2026-09-19 20:01 UTC",
+     "_ts": 1789848100,
+     "preview": false,
+     "bullets": [
+      "Purdue University researchers introduced 'DRC-Aid,' an agentic framework that automates the repair of design rule check (DRC) violations.",
+      "The system uses a deterministic rule engine to convert physical verification errors into a bounded set of geometric edits, constraining the search space for AI agents.",
+      "This approach aims to reduce manual design effort by automating local repairs while ensuring the final layout maintains strict equivalence to the original design."
+     ],
+     "rating": 4,
+     "read_time": 10
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/ai-in-chip-design-from-code-generation-to-eda-orchestration-university-of-edinburgh/",
+     "blog": "SemiEngineering",
+     "title": "AI in Chip Design: From Code Generation to EDA Orchestration (University of Edinburgh)",
+     "link": "https://semiengineering.com/ai-in-chip-design-from-code-generation-to-eda-orchestration-university-of-edinburgh/",
+     "summary": "Researchers at the University of Edinburgh published a technical perspective titled “LLMs in Digital EDA: A perspective on shifting roles from Generation to Orchestration.” Abstract Excerpt: “In this Perspective, we instead define three hierarchical roles that reveal how capability accumulates: a Generator that produces design artifacts in a single pass, an Agent that refines outputs... » read more\nThe post AI in Chip Design: From Code Generation to EDA Orchestration (University of Edinburgh) appeared first on Semiconductor Engineering.",
+     "published": "2026-09-19 18:30 UTC",
+     "_ts": 1789842622,
+     "preview": false,
+     "bullets": [
+      "Researchers at the University of Edinburgh propose a shift in AI-driven EDA from simple code generation to hierarchical orchestration across design stages.",
+      "The study identifies a 'syntax trap' where current LLMs prioritize plausible code over physically correct hardware, leading to fragmented design context.",
+      "The paper advocates for standardized, physics-aware orchestrators that can coordinate decisions across the entire EDA flow to improve industrial scalability."
+     ],
+     "rating": 4,
+     "read_time": 10
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/reinforcement-learning-cuts-routing-violations-in-dense-chip-layouts-nyu/",
+     "blog": "SemiEngineering",
+     "title": "Reinforcement Learning Cuts Routing Violations in Dense Chip Layouts  (NYU)",
+     "link": "https://semiengineering.com/reinforcement-learning-cuts-routing-violations-in-dense-chip-layouts-nyu/",
+     "summary": "Researchers at New York University published a technical paper titled “Routing Dense Layouts with History-Aware Offline Reinforcement Learning using LSTM.” Abstract Excerpt: “Detailed routing remains a dominant runtime bottleneck in physical design due to increasing complexity of design rules. Modern routers can struggle to resolve persistent violations under dense operating conditions. While recent work leverages... » read more\nThe post Reinforcement Learning Cuts Routing Violations in Dense Chip Layouts  (NYU) appeared first on Semiconductor Engineering.",
+     "published": "2026-09-19 18:54 UTC",
+     "_ts": 1789844069,
+     "preview": false,
+     "bullets": [
+      "NYU researchers developed a history-aware offline reinforcement learning policy to address routing bottlenecks in high-density chip layouts.",
+      "The model predicts iterative cost weights for routers, improving convergence in dense regimes where traditional methods struggle to resolve persistent violations.",
+      "By leveraging existing router features, the approach enhances the physical design process without requiring significant changes to the underlying routing infrastructure."
+     ],
+     "rating": 3,
+     "read_time": 10
+    }
+   ]
+  },
+  {
    "date": "2026-09-19",
    "generated_at": "2026-09-19 08:18 HKT",
    "posts": [
