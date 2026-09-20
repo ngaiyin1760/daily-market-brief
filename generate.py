@@ -164,8 +164,9 @@ CATEGORIES = [
      "query": "artificial intelligence OR OpenAI OR LLM", "top_n": 2},
     {"id": "china-ai", "label": "China AI",
      "query": "China AI OR DeepSeek OR Alibaba AI OR Baidu AI OR Huawei AI", "top_n": 2},
-    # "when:" is a Google News recency operator. The research beat has no
-    # wire-service coverage, so without it the 24h window is nearly empty.
+    # "when:" is a Google News recency operator; every query gets one by
+    # default (see DEFAULT_QUERY_WINDOW). The research beat publishes more
+    # slowly than a wire desk, so it overrides the window to 2 days.
     {"id": "ai-research", "label": "AI Research",
      "query": "AI research breakthrough OR machine learning research OR "
               "AI research paper OR AI study when:2d", "top_n": 2},
@@ -184,12 +185,24 @@ CATEGORIES = [
     {"id": "fixed-income", "label": "Fixed Income",
      "query": "bond yields OR treasuries OR credit markets", "top_n": 2},
     {"id": "china", "label": "China Economy",
-     "query": "China economy OR PBoC OR China GDP", "top_n": 2},
+     # "China economy" alone is an evergreen phrase — explainers, monitors,
+     # magazine essays — so fresh wire coverage of the desk's actual beats
+     # (growth, stimulus, property, exports) never made the relevance cut.
+     "query": "China economy OR PBoC OR China GDP OR China stimulus OR "
+              "China property OR China exports", "top_n": 2},
     {"id": "hk", "label": "Hong Kong Economy",
      "query": "Hong Kong economy OR HKEX OR Hong Kong property", "top_n": 2},
 ]
 
 DEFAULT_TOP_N = 2
+
+# Google News RSS sorts by RELEVANCE, not recency, so an unfiltered query
+# returns evergreen analysis — KPMG economic monitors, Foreign Affairs
+# essays, months-old columns — that the 24h cutoff then drops, leaving the
+# desk with nothing to show. Every query therefore carries a `when:` recency
+# operator (a category can override it in its own query string); the operator
+# applies to the whole query even when appended after the last OR clause.
+DEFAULT_QUERY_WINDOW = "1d"
 
 
 def normalize_title(title):
@@ -898,12 +911,18 @@ def attach_article_texts(category, items):
 
 def fetch_category_news(category):
     """Fetch up to 25 RSS items for a category, sorted by recency.
-    The 24h cutoff and source-quality ranking happen later in
-    prepare_candidates; a wider pool gives trusted outlets more chances
-    to be represented."""
+    The query always carries a recency operator (DEFAULT_QUERY_WINDOW unless
+    the category's own query sets its own): without one Google News ranks by
+    relevance across all time and the feed fills with evergreen analysis that
+    the 24h cutoff then discards. The 24h cutoff and source-quality ranking
+    happen later in prepare_candidates; a wider pool gives trusted outlets
+    more chances to be represented."""
+    query = category["query"]
+    if "when:" not in query:
+        query = f"{query} when:{DEFAULT_QUERY_WINDOW}"
     url = (
         "https://news.google.com/rss/search?q="
-        + urllib.parse.quote(category["query"])
+        + urllib.parse.quote(query)
         + "&hl=en-US&gl=US&ceid=US:en"
     )
     log.info("Fetching RSS: %s", category["label"])

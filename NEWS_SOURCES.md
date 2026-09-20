@@ -15,6 +15,13 @@ the ranking lives in `generate.py` (`TIER_1_SOURCES`, `TIER_2_SOURCES`,
 So a Tier 1 story published 23 hours ago beats a Tier 2 story published
 minutes ago. Only within the same tier does timeliness decide.
 
+The feed is fetched with a Google News recency operator (`when:1d` by
+default — `DEFAULT_QUERY_WINDOW` in `generate.py`; `ai-research` overrides
+it to `when:2d`). Google News ranks by relevance across all time, so a query
+without one returns evergreen analysis — economic monitors, magazine essays,
+months-old columns — that the 24h cutoff then discards, leaving the category
+empty.
+
 Two hard constraints still apply before ranking:
 
 - **24-hour freshness cutoff** — anything older than 24h is dropped
