@@ -966,6 +966,40 @@
    "read_time": 2
   },
   {
+   "_key": "SemiEngineering|https://semiengineering.com/unified-chiplet-network-scales-neuromorphic-computing-systems-heidelberg-university/",
+   "blog": "SemiEngineering",
+   "title": "Unified Chiplet Network Scales Neuromorphic Computing Systems (Heidelberg University)",
+   "link": "https://semiengineering.com/unified-chiplet-network-scales-neuromorphic-computing-systems-heidelberg-university/",
+   "summary": "Researchers at Heidelberg University published a technical paper titled “A Unified Interconnection Network for Chiplet-Based Scaling of the BrainScaleS Neuromorphic System.” Abstract Excerpt: “To overcome the challenges of scaling analog designs, chiplet-based designs offer a promising approach with cost and flexibility advantages over monolithic scaling. Implementing a chiplet-based BSS-2* architecture requires an interconnection network that... » read more\nThe post Unified Chiplet Network Scales Neuromorphic Computing Systems (Heidelberg University) appeared first on Semiconductor Engineering.",
+   "published": "2026-09-19 18:23 UTC",
+   "_ts": 1789842236,
+   "preview": false,
+   "bullets": [
+    "Heidelberg University researchers developed a routing chiplet for the BrainScaleS-2 neuromorphic architecture to enable scalable 2D mesh topologies.",
+    "The interconnection network is designed to handle two distinct traffic classes: error-tolerant spike data and error-intolerant configuration data.",
+    "This chiplet-based approach offers a cost-effective and flexible alternative to monolithic scaling for large-scale analog neuromorphic computing systems."
+   ],
+   "rating": 3,
+   "read_time": 10
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/open-benchmark-evaluates-ai-thermal-models-for-2-5d-and-3d-ics-uts-tu-munich-shanghaitech/",
+   "blog": "SemiEngineering",
+   "title": "Open Benchmark Evaluates AI Thermal Models for 2.5D and 3D ICs (UTS, TU Munich, ShanghaiTech)",
+   "link": "https://semiengineering.com/open-benchmark-evaluates-ai-thermal-models-for-2-5d-and-3d-ics-uts-tu-munich-shanghaitech/",
+   "summary": "Researchers at the University of Technology Sydney, ShanghaiTech University, and Technical University of Munich published a technical paper titled “IC-ThermBench: An Open, Progressive Benchmark for Generalizable 2.5D/3D-IC Thermal Learning.” Abstract Excerpt: “We introduce IC-ThermBench, an open and progressive benchmark that combines established 3D-IC steady-state, transient, and industrial package tasks with a new 50,000-sample 2.5D chiplet... » read more\nThe post Open Benchmark Evaluates AI Thermal Models for 2.5D and 3D ICs (UTS, TU Munich, ShanghaiTech) appeared first on Semiconductor Engineering.",
+   "published": "2026-09-19 18:37 UTC",
+   "_ts": 1789843065,
+   "preview": false,
+   "bullets": [
+    "A collaborative research team released 'IC-ThermBench,' an open benchmark designed to evaluate AI-driven thermal modeling for 2.5D and 3D ICs.",
+    "The benchmark includes 50,000 samples specifically targeting 2.5D chiplet configurations to test model generalizability and cross-package transferability.",
+    "This initiative provides a standardized platform for researchers to compare steady-state and transient thermal models, facilitating more reliable thermal management in advanced packaging."
+   ],
+   "rating": 3,
+   "read_time": 10
+  },
+  {
    "_key": "SemiEngineering|https://semiengineering.com/one-processor-one-toolchain/",
    "blog": "SemiEngineering",
    "title": "One Processor, One Toolchain",
@@ -1071,38 +1105,123 @@
    "read_time": 2
   },
   {
-   "_key": "SemiEngineering|https://semiengineering.com/open-benchmark-evaluates-ai-thermal-models-for-2-5d-and-3d-ics-uts-tu-munich-shanghaitech/",
+   "_key": "SemiEngineering|https://semiengineering.com/agentic-ai-automates-design-rule-repair-while-preserving-layout-equivalence/",
    "blog": "SemiEngineering",
-   "title": "Open Benchmark Evaluates AI Thermal Models for 2.5D and 3D ICs (UTS, TU Munich, ShanghaiTech)",
-   "link": "https://semiengineering.com/open-benchmark-evaluates-ai-thermal-models-for-2-5d-and-3d-ics-uts-tu-munich-shanghaitech/",
-   "summary": "Researchers at the University of Technology Sydney, ShanghaiTech University, and Technical University of Munich published a technical paper titled “IC-ThermBench: An Open, Progressive Benchmark for Generalizable 2.5D/3D-IC Thermal Learning.” Abstract Excerpt: “We introduce IC-ThermBench, an open and progressive benchmark that combines established 3D-IC steady-state, transient, and industrial package tasks with a new 50,000-sample 2.5D chiplet... » read more\nThe post Open Benchmark Evaluates AI Thermal Models for 2.5D and 3D ICs (UTS, TU Munich, ShanghaiTech) appeared first on Semiconductor Engineering.",
-   "published": "2026-09-19 18:37 UTC",
-   "_ts": 1789843065,
+   "title": "Agentic AI Automates Design-Rule Repair While Preserving Layout Equivalence (Purdue University)",
+   "link": "https://semiengineering.com/agentic-ai-automates-design-rule-repair-while-preserving-layout-equivalence/",
+   "summary": "Researchers at Purdue University published a technical paper titled “DRC-Aid: Design-Rule Correction via Agentic Framework utilizing Inference-Time Large Language Models.” Abstract Excerpt: “We present DRC-Aid, a closed-loop agentic framework that automates local DRC repair by formulating it as verification-in-the-loop search. To constrain the combinatorial geometric repair space, a deterministic Rule Engine converts physical verification tool-reported... » read more\nThe post Agentic AI Automates Design-Rule Repair While Preserving Layout Equivalence (Purdue University) appeared first on Semiconductor Engineering.",
+   "published": "2026-09-19 20:01 UTC",
+   "_ts": 1789848100,
    "preview": false,
    "bullets": [
-    "A collaborative research team released 'IC-ThermBench,' an open benchmark designed to evaluate AI-driven thermal modeling for 2.5D and 3D ICs.",
-    "The benchmark includes 50,000 samples specifically targeting 2.5D chiplet configurations to test model generalizability and cross-package transferability.",
-    "This initiative provides a standardized platform for researchers to compare steady-state and transient thermal models, facilitating more reliable thermal management in advanced packaging."
+    "The DRC-Aid framework automates local design-rule correction by utilizing inference-time large language models in a closed-loop verification process.",
+    "To manage the complexity of geometric repairs, the system employs a deterministic rule engine that translates physical verification violations into a constrained set of valid edits.",
+    "This approach aims to reduce manual intervention in physical design by automating the repair process while maintaining strict layout equivalence."
+   ],
+   "rating": 4,
+   "read_time": 10
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/chiplet-co-design-framework-reduces-energy-and-design-costs-for-ai-accelerators-university-of-michigan/",
+   "blog": "SemiEngineering",
+   "title": "Chiplet Co-Design Framework Reduces Energy and Design Costs for AI Accelerators (University of Michigan)",
+   "link": "https://semiengineering.com/chiplet-co-design-framework-reduces-energy-and-design-costs-for-ai-accelerators-university-of-michigan/",
+   "summary": "Researchers at the University of Michigan published a technical paper titled “Fengshui: Demystifying Chiplet Ecosystem and Bespoke Neural Network Accelerator Codesign.” Abstract Excerpt: “This paper introduces Fengshui, a chiplet ecosystem and accelerator co-design framework that jointly optimizes chiplet pool composition and bespoke application-specific integrated circuit (BASIC) design.” Find the technical paper here. September 2026. Jin,... » read more\nThe post Chiplet Co-Design Framework Reduces Energy and Design Costs for AI Accelerators (University of Michigan) appeared first on Semiconductor Engineering.",
+   "published": "2026-09-19 18:44 UTC",
+   "_ts": 1789843482,
+   "preview": false,
+   "bullets": [
+    "The University of Michigan's 'Fengshui' framework enables joint optimization of chiplet pool composition and bespoke ASIC design for AI accelerators.",
+    "The co-design approach targets reductions in both energy consumption and overall design costs by aligning hardware architecture with specific neural network requirements.",
+    "This framework addresses the growing need for efficient chiplet ecosystem management as AI hardware demands increasingly specialized, modular designs."
+   ],
+   "rating": 4,
+   "read_time": 10
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/20/chery-weighs-bringing-omoda-jaecoo-to-china/",
+   "blog": "CNEVPOST",
+   "title": "Chery weighs bringing Omoda and Jaecoo to China to boost domestic sales, report says",
+   "link": "https://cnevpost.com/2026/09/20/chery-weighs-bringing-omoda-jaecoo-to-china/",
+   "summary": "The 2 overseas brands would target China's premium market, with marketing teams being assembled.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-20 13:08 UTC",
+   "_ts": 1789909734,
+   "preview": false,
+   "bullets": [
+    "Chery is considering introducing its international-focused Omoda and Jaecoo brands to the domestic Chinese market to offset a 38.48% decline in domestic sales during the first eight months of the year.",
+    "The company is actively recruiting talent from luxury automakers like BMW and Mercedes-Benz to position these brands within China's premium segment.",
+    "While domestic performance has struggled, Chery's export business remains robust, with overseas shipments rising 68.16% year-to-date and accounting for over 70% of total group sales in August."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/20/luxeed-adds-smaller-battery-version-rx/",
+   "blog": "CNEVPOST",
+   "title": "Huawei-backed Luxeed adds smaller-battery version of RX, lowering entry pre-sales price",
+   "link": "https://cnevpost.com/2026/09/20/luxeed-adds-smaller-battery-version-rx/",
+   "summary": "Luxeed adds a new 81-kWh entry-level version of the RX SUV, with the starting pre-sales price cut by 10% from before.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-20 07:18 UTC",
+   "_ts": 1789888700,
+   "preview": false,
+   "bullets": [
+    "Luxeed has introduced an 81-kWh battery variant of its RX coupe SUV, lowering the entry-level pre-sales price to 269,800 yuan, a 10% reduction from the original 100-kWh model.",
+    "Management noted that 70% of pre-orders come from multi-car households, justifying the smaller battery as sufficient for daily commuting needs.",
+    "The price adjustment positions the Luxeed RX more aggressively against competitors like the Xiaomi YU7, while maintaining high-end features like Huawei's Tuling platform and L3-ready architecture."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/20/nio-3rd-gen-es8-150000-deliveries/",
+   "blog": "CNEVPOST",
+   "title": "Nio's third-gen ES8 hits 150,000 deliveries on first anniversary of launch",
+   "link": "https://cnevpost.com/2026/09/20/nio-3rd-gen-es8-150000-deliveries/",
+   "summary": "The latest 10,000 units took 30 days, matching the pace of the previous 10,000.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-20 05:37 UTC",
+   "_ts": 1789882672,
+   "preview": false,
+   "bullets": [
+    "Nio's third-generation ES8 reached 150,000 cumulative deliveries exactly one year after its launch, maintaining a steady pace of 10,000 units per month.",
+    "The model currently leads the Chinese large SUV market and the 400,000 yuan price segment, accounting for over 62% of the Nio brand's total deliveries in the first eight months of 2026.",
+    "The ES8's sustained performance underscores its role as the primary volume driver for Nio's premium portfolio, despite broader market competition."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/reinforcement-learning-cuts-routing-violations-in-dense-chip-layouts-nyu/",
+   "blog": "SemiEngineering",
+   "title": "Reinforcement Learning Cuts Routing Violations in Dense Chip Layouts  (NYU)",
+   "link": "https://semiengineering.com/reinforcement-learning-cuts-routing-violations-in-dense-chip-layouts-nyu/",
+   "summary": "Researchers at New York University published a technical paper titled “Routing Dense Layouts with History-Aware Offline Reinforcement Learning using LSTM.” Abstract Excerpt: “Detailed routing remains a dominant runtime bottleneck in physical design due to increasing complexity of design rules. Modern routers can struggle to resolve persistent violations under dense operating conditions. While recent work leverages... » read more\nThe post Reinforcement Learning Cuts Routing Violations in Dense Chip Layouts  (NYU) appeared first on Semiconductor Engineering.",
+   "published": "2026-09-19 18:54 UTC",
+   "_ts": 1789844069,
+   "preview": false,
+   "bullets": [
+    "NYU researchers introduced a history-aware offline reinforcement learning policy to address routing bottlenecks in high-density chip designs.",
+    "The method uses LSTM-based models to predict iterative cost weights, improving convergence in scenarios where traditional routers struggle with persistent violations.",
+    "By leveraging existing router features, the approach enhances the ability to resolve complex routing constraints in dense physical layouts."
    ],
    "rating": 3,
    "read_time": 10
   },
   {
-   "_key": "SemiEngineering|https://semiengineering.com/unified-chiplet-network-scales-neuromorphic-computing-systems-heidelberg-university/",
-   "blog": "SemiEngineering",
-   "title": "Unified Chiplet Network Scales Neuromorphic Computing Systems (Heidelberg University)",
-   "link": "https://semiengineering.com/unified-chiplet-network-scales-neuromorphic-computing-systems-heidelberg-university/",
-   "summary": "Researchers at Heidelberg University published a technical paper titled “A Unified Interconnection Network for Chiplet-Based Scaling of the BrainScaleS Neuromorphic System.” Abstract Excerpt: “To overcome the challenges of scaling analog designs, chiplet-based designs offer a promising approach with cost and flexibility advantages over monolithic scaling. Implementing a chiplet-based BSS-2* architecture requires an interconnection network that... » read more\nThe post Unified Chiplet Network Scales Neuromorphic Computing Systems (Heidelberg University) appeared first on Semiconductor Engineering.",
-   "published": "2026-09-19 18:23 UTC",
-   "_ts": 1789842236,
+   "_key": "CNEVPOST|https://cnevpost.com/2026/09/20/dongfeng-trial-produce-humanoid-robots-year-end/",
+   "blog": "CNEVPOST",
+   "title": "Dongfeng to trial-produce humanoid robots by year-end, targets human-level capability by end of 2027",
+   "link": "https://cnevpost.com/2026/09/20/dongfeng-trial-produce-humanoid-robots-year-end/",
+   "summary": "Dongfeng's humanoid robot will enter factories in October to handle sorting and quality inspection, with small-batch trial production to begin at the end of the year.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-09-20 08:42 UTC",
+   "_ts": 1789893750,
    "preview": false,
    "bullets": [
-    "Heidelberg University researchers developed a routing chiplet for the BrainScaleS-2 neuromorphic architecture to enable scalable 2D mesh topologies.",
-    "The interconnection network is designed to handle two distinct traffic classes: error-tolerant spike data and error-intolerant configuration data.",
-    "This chiplet-based approach offers a cost-effective and flexible alternative to monolithic scaling for large-scale analog neuromorphic computing systems."
+    "Dongfeng Motor plans to initiate small-batch trial production of its humanoid robot, 'Xiaodong,' by the end of 2026, with factory deployment for sorting and quality inspection beginning in October.",
+    "The company aims to achieve human-level operational capability for its robots by the end of 2027, leveraging shared technology from its automotive large models.",
+    "Dongfeng intends to commercialize its in-house developed robot dog for dealership customer guidance ahead of the humanoid platform, signaling a broader push into embodied intelligence."
    ],
-   "rating": 3,
-   "read_time": 10
+   "rating": 2,
+   "read_time": 3
   }
  ]
 }
