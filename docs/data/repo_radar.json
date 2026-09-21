@@ -1,108 +1,113 @@
 {
- "generated_at": "2026-09-21 00:39 HKT",
+ "generated_at": "2026-09-21 08:14 HKT",
  "repos": [
   {
-   "name": "mizorewww/laya-mlx",
-   "url": "https://github.com/mizorewww/laya-mlx",
+   "name": "google/ax",
+   "url": "https://github.com/google/ax",
+   "language": "Go",
+   "description": "Google's open agentic orchestrator",
+   "keywords": [
+    "AI agent",
+    "AI workflow"
+   ],
+   "trendshift_pos": 6,
+   "stars": 2999,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "Google's open-source framework for building and orchestrating agentic workflows.",
+   "bullets": [
+    "Built on Go for high-performance, concurrent execution of agentic tasks.",
+    "Provides a structured orchestration layer to manage complex multi-step agent reasoning.",
+    "Designed for enterprise-grade reliability in automated decision-making pipelines.",
+    "Enables developers to build scalable AI agents that interact with external tools and APIs."
+   ]
+  },
+  {
+   "name": "browser-use/jev-ultrafast",
+   "url": "https://github.com/browser-use/jev-ultrafast",
    "language": "Python",
-   "description": "Native MLX runtime for Laya typed decision models — 7–14 ms short decisions on M3 Max. No text generation, PyTorch, or cloud API.",
+   "description": "i. am. speed.",
+   "keywords": [
+    "AI agent",
+    "Headless browser"
+   ],
+   "trendshift_pos": 2,
+   "stars": 11809,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A high-performance implementation of browser-based agentic automation.",
+   "bullets": [
+    "Optimized Python architecture focused on minimizing latency in browser-based agent interactions.",
+    "Leverages advanced automation primitives to execute complex web navigation tasks rapidly.",
+    "Ideal for high-frequency data scraping, automated testing, and web-based workflow execution.",
+    "Serves as a critical infrastructure component for agents requiring real-time web access."
+   ]
+  },
+  {
+   "name": "bespokelabsai/nimble",
+   "url": "https://github.com/bespokelabsai/nimble",
+   "language": "Python",
+   "description": "Local typed decisions, contrastive data curation, and model evaluation.",
+   "keywords": [
+    "Synthetic data"
+   ],
+   "trendshift_pos": 9,
+   "stars": 1095,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A framework for local data curation, model evaluation, and typed decision-making.",
+   "bullets": [
+    "Utilizes contrastive data curation techniques to improve model alignment and performance.",
+    "Implements typed decision structures to ensure deterministic outputs in AI workflows.",
+    "Focuses on local-first evaluation, reducing dependency on external model APIs.",
+    "Useful for teams building specialized, high-accuracy models for domain-specific tasks."
+   ],
+   "img": "bespokelabsai_nimble_0.jpg",
+   "img_alt": "Watch the contrastive data curation video: changing the signer from Mira to Noah flips the answer from true to false."
+  },
+  {
+   "name": "vercel-labs/json-render",
+   "url": "https://github.com/vercel-labs/json-render",
+   "language": "TypeScript",
+   "description": "The Generative UI framework",
+   "keywords": [
+    "UI components"
+   ],
+   "trendshift_pos": 22,
+   "stars": 17288,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A framework for building Generative UI components directly from LLM outputs.",
+   "bullets": [
+    "TypeScript-based library that maps structured JSON responses to interactive React components.",
+    "Bridges the gap between raw LLM text generation and rich, functional user interfaces.",
+    "Enables the creation of dynamic fintech dashboards or data visualization tools driven by AI.",
+    "Reduces boilerplate code required to render complex, agent-generated data structures."
+   ]
+  },
+  {
+   "name": "jaredpalmer/kev",
+   "url": "https://github.com/jaredpalmer/kev",
+   "language": "Python",
+   "description": "tiny Jev-like model built on top of Qwen2.5-0.5B you can train and run on your MacBook",
    "keywords": [
     "Local LLM"
    ],
-   "trendshift_pos": 5,
-   "stars": 1125,
+   "trendshift_pos": 19,
+   "stars": 1017,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A native MLX runtime for Laya typed decision models optimized for Apple Silicon.",
+   "one_liner": "A lightweight, Jev-inspired model architecture optimized for local training on consumer hardware.",
    "bullets": [
-    "Built on Apple's MLX framework for high-performance local inference.",
-    "Achieves 7–14 ms latency on M3 Max hardware for decision-making tasks.",
-    "Eliminates dependencies on PyTorch, cloud APIs, or heavy text generation stacks.",
-    "Ideal for low-latency agentic decision loops in local environments."
+    "Built on the Qwen2.5-0.5B foundation, specifically tuned for efficient local execution.",
+    "Provides a streamlined pipeline for training and running agentic models on a MacBook.",
+    "Lowers the barrier to entry for developing private, edge-based AI agents.",
+    "Well-suited for developers prototyping local-first LLM applications without cloud costs."
    ],
-   "img": "mizorewww_laya-mlx_0.jpg",
-   "img_alt": "Laya MLX playing Snake — actual decisions, original speed"
-  },
-  {
-   "name": "FailproofAI/failproofai",
-   "url": "https://github.com/FailproofAI/failproofai",
-   "language": "TypeScript",
-   "description": "Runtime failure resolution for coding agents. Hooks into Claude Code and Codex. Catches loops, dangerous actions, and secret leaks before they become incidents. Zero latency. Runs locally.",
-   "keywords": [
-    "AI agent",
-    "AI coding assistant"
-   ],
-   "trendshift_pos": 6,
-   "stars": 4462,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A runtime safety and failure resolution layer for coding agents.",
-   "bullets": [
-    "TypeScript-based middleware that hooks into Claude Code and Codex.",
-    "Provides real-time monitoring to catch infinite loops, dangerous system calls, and secret leaks.",
-    "Operates locally with zero-latency overhead to prevent production incidents.",
-    "Essential infrastructure for deploying autonomous agents in sensitive development workflows."
-   ]
-  },
-  {
-   "name": "context-labs/whip",
-   "url": "https://github.com/context-labs/whip",
-   "language": "Go",
-   "description": "A fast coding-agent harness in Go. Tool-use loop, bubbletea TUI, provider-routable models with live catalog discovery, MCP support, background subagents. One binary, no runtime, built for open-source models.",
-   "keywords": [
-    "AI agent",
-    "AI coding assistant",
-    "MCP"
-   ],
-   "trendshift_pos": 20,
-   "stars": 778,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance Go-based harness for coding agents featuring MCP support.",
-   "bullets": [
-    "Written in Go as a single binary with no complex runtime requirements.",
-    "Features a Bubbletea-based TUI for managing agent tool-use loops and subagents.",
-    "Includes provider-routable model support and live catalog discovery.",
-    "Designed for developers building robust, modular agentic infrastructure."
-   ]
-  },
-  {
-   "name": "docling-project/docling",
-   "url": "https://github.com/docling-project/docling",
-   "language": "Python",
-   "description": "Get your documents ready for gen AI",
-   "keywords": [
-    "Document processing"
-   ],
-   "trendshift_pos": 16,
-   "stars": 67396,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A comprehensive toolkit for parsing and converting diverse document formats into AI-ready structures.",
-   "bullets": [
-    "Supports high-quality conversion of PDF, DOCX, HTML, and images into Markdown or JSON.",
-    "Optimized for RAG (Retrieval-Augmented Generation) pipelines by preserving document semantics.",
-    "Includes advanced table structure recognition and OCR capabilities.",
-    "Critical infrastructure for fintech and legal firms processing unstructured financial documents."
-   ]
-  },
-  {
-   "name": "tamaratran/fast-jev-compaction",
-   "url": "https://github.com/tamaratran/fast-jev-compaction",
-   "language": "TypeScript",
-   "description": "Claude Code plugin that replaces the compaction summary with Jev decisions: every tool call and result is scored in one fast request, stale ones are dropped or truncated, everything kept stays verbatim.",
-   "keywords": [],
-   "trendshift_pos": 25,
-   "stars": 4886,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A Claude Code plugin that optimizes context windows using Jev-based typed decision scoring.",
-   "bullets": [
-    "Replaces standard compaction summaries with high-speed, scored decision logs.",
-    "Uses typed decision models to prune stale tool calls and results dynamically.",
-    "Reduces token consumption while maintaining verbatim context for critical agent actions.",
-    "Improves agent reliability and cost-efficiency in long-running coding sessions."
-   ]
+   "img": "jaredpalmer_kev_0.jpg",
+   "img_alt": "Kev playground",
+   "img2": "jaredpalmer_kev_1.jpg",
+   "img2_alt": "Kev chess"
   }
  ]
 }
