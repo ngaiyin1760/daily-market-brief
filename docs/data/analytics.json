@@ -1,47 +1,66 @@
 {
- "generated_at": "2026-09-21 08:14 HKT",
+ "generated_at": "2026-09-22 08:48 HKT",
  "blogs": [
   {
    "name": "SemiEngineering",
    "status": "ok",
    "posts": [
     {
-     "_key": "SemiEngineering|https://semiengineering.com/enabling-efficient-edge-ai-inferencing-through-ecosystem-collaboration/",
+     "_key": "SemiEngineering|https://semiengineering.com/concurrent-hbm-and-host-memory-access-improves-llm-inference-throughput-georgia-tech-nvidia-stanford/",
      "blog": "SemiEngineering",
-     "title": "Enabling Efficient Edge AI Inferencing Through Ecosystem Collaboration",
-     "link": "https://semiengineering.com/enabling-efficient-edge-ai-inferencing-through-ecosystem-collaboration/",
-     "summary": "A scalable LPDDR-based memory platform optimized for edge AI inferencing.\nThe post Enabling Efficient Edge AI Inferencing Through Ecosystem Collaboration appeared first on Semiconductor Engineering.",
-     "published": "2026-09-16 07:02 UTC",
-     "_ts": 1789542163,
+     "title": "Concurrent HBM And Host Memory Access Improves LLM Inference Throughput (Georgia Tech, Nvidia, Stanford)",
+     "link": "https://semiengineering.com/concurrent-hbm-and-host-memory-access-improves-llm-inference-throughput-georgia-tech-nvidia-stanford/",
+     "summary": "Researchers at Georgia Tech, Nvidia Research, and Stanford University published a technical paper titled “BOOST: Concurrent Access to Host Memory and HBM to Accelerate LLM Inference.” Abstract Excerpt: “This paper presents BOOST, the first runtime system that provides concurrent and proportional access to both GPU memory tiers, extracting the combined bandwidth of host memory and... » read more\nThe post Concurrent HBM And Host Memory Access Improves LLM Inference Throughput (Georgia Tech, Nvidia, Stanford) appeared first on Semiconductor Engineering.",
+     "published": "2026-09-21 23:13 UTC",
+     "_ts": 1790032417,
      "preview": false,
      "bullets": [
-      "Home >\n                                                                    Low Power-High Performance >\n                                                                Enabling Efficient Edge AI Inferencing Through...",
-      "September 16th, 2026 - \n\t\t\t\t\t\t\t\tBy: Rambus\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\nAs AI inference moves beyond hyperscale data centers into edge environments such as robotics, drones, industrial automation, and intelligent...",
-      "This white paper explores how DEEPX, Rambus, and Samsung Foundry collaborated to create a scalable LPDDR-based memory platform optimized for edge AI inferencing.",
-      "By aligning AI processor architecture, memory interface IP, and advanced foundry technology early in the design cycle, the companies reduced integration risk, accelerated development, and enabled a platform that...",
-      "The paper demonstrates how memory subsystem design has become a critical differentiator for edge AI performance and illustrates why ecosystem-level collaboration is emerging as a key driver of innovation for future..."
+      "The new BOOST runtime system enables concurrent access to both HBM and host memory, effectively expanding the available memory bandwidth for LLM inference without requiring kernel modifications.",
+      "By utilizing wave-aware page allocation and modulo-based placement, the system optimizes data management for both static model weights and dynamic KV pairs.",
+      "Evaluations on Grace Hopper systems show a 31% increase in throughput for high-demand serving scenarios, significantly outperforming traditional prefetching techniques."
      ],
-     "rating": 5,
-     "read_time": 10
+     "rating": 4,
+     "read_time": 1
+    }
+   ]
+  },
+  {
+   "name": "MIT Technology Review",
+   "status": "ok",
+   "posts": [
+    {
+     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/09/21/1144834/the-download-investigating-deaths-at-the-us-borders-virtual-wall/",
+     "blog": "MIT Technology Review",
+     "title": "The Download: investigating deaths at the US border’s “virtual wall”",
+     "link": "https://www.technologyreview.com/2026/09/21/1144834/the-download-investigating-deaths-at-the-us-borders-virtual-wall/",
+     "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. The US spent billions on border surveillance. Why can’t it catch people before they die? When José Morales Bernal crossed the border into the US in April 2024, the day before…",
+     "published": "2026-09-21 12:20 UTC",
+     "_ts": 1789993200,
+     "preview": false,
+     "bullets": [
+      "An investigation mapping nearly 4,000 migrant death locations against 600 surveillance towers reveals that many fatalities occur within the active field of view of government monitoring systems.",
+      "Despite billions in existing investment, the US government plans to allocate an additional $1 billion to triple the size of the 'virtual wall' by 2034.",
+      "The report identifies systemic operational failures, including broken hardware, algorithmic detection errors, and a lack of agent response to alerts, which undermine the efficacy of the surveillance network."
+     ],
+     "rating": 4,
+     "read_time": 6
     },
     {
-     "_key": "SemiEngineering|https://semiengineering.com/enhancing-ai-inference-efficiency-with-cadence-lpddr-memory-ip-solutions/",
-     "blog": "SemiEngineering",
-     "title": "Enhancing AI Inference Efficiency with Cadence LPDDR Memory IP Solutions",
-     "link": "https://semiengineering.com/enhancing-ai-inference-efficiency-with-cadence-lpddr-memory-ip-solutions/",
-     "summary": "Next-gen LPDDR6 and LPDDR5x memory controller and PHY IP is purpose-built to solve the memory wall at every tier of the AI inference hierarchy, and enables cloud, edge, and physical AI inference infrastructure.\nThe post Enhancing AI Inference Efficiency with Cadence LPDDR Memory IP Solutions appeared first on Semiconductor Engineering.",
-     "published": "2026-09-16 07:03 UTC",
-     "_ts": 1789542213,
+     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/09/21/1144166/border-towers-surveillance-investigation/",
+     "blog": "MIT Technology Review",
+     "title": "The US spent billions on border surveillance. Why can’t it catch people before they die?",
+     "link": "https://www.technologyreview.com/2026/09/21/1144166/border-towers-surveillance-investigation/",
+     "summary": "When José Morales Bernal crossed the border into the United States on April 8, 2024, the day before his 32nd birthday, it should have triggered a chain of technological alerts and human responses.  As he walked through the desert in southern New Mexico that morning, he was within range of three surveillance towers. Newly installed…",
+     "published": "2026-09-21 12:00 UTC",
+     "_ts": 1789992000,
      "preview": false,
      "bullets": [
-      "Home >\n                                                                    Low Power-High Performance >\n                                                                Enhancing AI Inference Efficiency with Cadence...",
-      "September 16th, 2026 - \n\t\t\t\t\t\t\t\tBy: Cadence\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\nWhile the early years of the artificial intelligence (AI) boom were dominated by massive capex on model training, the focus is now on large-scale...",
-      "Today, AI inference is becoming the dominant workload in modern computing, demanding new memory solutions to handle data movement.",
-      "The semiconductor industry has officially entered the “Inference Supercycle.”\nRead more here.",
-      "- Heterogeneous Memory Chiplets Accelerate Multi-Request LLM Inference (NUS) September 11, 2026 by Technical Paper Link\n- Reducing HBM ECC Controller Overhead For AI Inference (RPI, IBM) September 11, 2026 by..."
+      "AI-enabled surveillance towers are designed to automate detection and alert agents via smartphone, yet the investigation found instances where individuals died within 360 feet of active towers without intervention.",
+      "The reliance on automated systems has not effectively reduced the human cost of border crossings, as technical alerts often fail to trigger timely human responses from Border Patrol.",
+      "The findings suggest a critical disconnect between the deployment of high-tech defense hardware and the operational procedures required to provide medical or humanitarian assistance to those in distress."
      ],
-     "rating": 5,
-     "read_time": 10
+     "rating": 4,
+     "read_time": 50
     }
    ]
   },
@@ -50,55 +69,47 @@
    "status": "ok",
    "posts": [
     {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/09/20/vw-launches-id-aura-t6-china/",
+     "_key": "CNEVPOST|https://cnevpost.com/2026/09/21/li-auto-chip-unit-pursue-first-funding-round/",
      "blog": "CNEVPOST",
-     "title": "VW launches its first LiDAR-equipped electric SUV in China",
-     "link": "https://cnevpost.com/2026/09/20/vw-launches-id-aura-t6-china/",
-     "summary": "FAW-Volkswagen has launched the ID. AURA T6 electric SUV in China, starting at 129,900 yuan ($19,240) and offering a CLTC range of up to 660 km.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-09-20 12:35 UTC",
-     "_ts": 1789907743,
+     "title": "Li Auto chip unit said to pursue first funding round at $2.2 billion pre-money valuation",
+     "link": "https://cnevpost.com/2026/09/21/li-auto-chip-unit-pursue-first-funding-round/",
+     "summary": "Li Auto plans to raise several billion yuan for its chip business at a pre-money valuation of about 15 billion yuan ($2.22 billion).\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-09-21 12:03 UTC",
+     "_ts": 1789992192,
      "preview": false,
      "bullets": [
-      "FAW-Volkswagen launched the ID. AURA T6 electric SUV in China with a starting price of 129,900 yuan, marking a 4.4% reduction from its pre-sales level.",
-      "The vehicle features the CEA electronic architecture developed in partnership with Xpeng and utilizes Horizon Robotics' Journey 6H chip for advanced driver-assistance capabilities.",
-      "This model represents Volkswagen's first all-electric SUV in China to integrate LiDAR, signaling a strategic shift toward deeper collaboration with local Chinese technology firms to maintain market competitiveness."
+      "- Li Auto plans to raise several billion yuan for its chip business at a pre-money valuation of about 15 billion yuan ($2.22 billion).",
+      "- Nio's chip unit Shenji completed its first funding round in February at a post-money valuation of about 8.27 billion yuan.",
+      "Li Auto's (NASDAQ: LI) chip subsidiary is moving ahead with its first round of external financing at a pre-money valuation of about 15 billion yuan ($2.22 billion), local media outlet LatePost reported on Monday.",
+      "The Chinese electric vehicle (EV) maker plans to raise several billion yuan for the business, according to the report.",
+      "It marks the latest step in Li Auto's push to run its semiconductor business independently after setting up a chip company entity in July."
      ],
      "rating": 4,
-     "read_time": 3
-    },
+     "read_time": 5
+    }
+   ]
+  },
+  {
+   "name": "Stratechery",
+   "status": "ok",
+   "posts": [
     {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/09/20/epicland-x9-launch-sept-24-2026/",
-     "blog": "CNEVPOST",
-     "title": "Epicland X9 to launch on September 24 as first model from Dongfeng-Huawei brand",
-     "link": "https://cnevpost.com/2026/09/20/epicland-x9-launch-sept-24-2026/",
-     "summary": "The Epicland X9 SUV measures 5,301 mm in length and starts at 299,800 yuan ($44,400) in pre-sales.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-09-20 04:01 UTC",
-     "_ts": 1789876904,
+     "_key": "Stratechery|https://stratechery.com/2026/frontier-overhangs/",
+     "blog": "Stratechery",
+     "title": "Frontier Overhangs",
+     "link": "https://stratechery.com/2026/frontier-overhangs/",
+     "summary": "Pacing the frontier may be sincere, but it would also be strategically useful for the frontier labs to have time to reduce overhangs caused by model advancement.",
+     "published": "2026-09-21 10:00 UTC",
+     "_ts": 1789984800,
      "preview": false,
      "bullets": [
-      "The Epicland X9, the inaugural model from the Dongfeng-Huawei joint brand, is set to launch on September 24 following strong pre-order momentum of over 20,000 units within 24 hours.",
-      "The large 3-row SUV is positioned as a direct competitor to the Aito M9 and Li Auto's Li L9, featuring Huawei's Qiankun ADS 5 assisted-driving system and HarmonySpace 6 cockpit.",
-      "The launch highlights the rapid expansion of Huawei's automotive ecosystem, with the company simultaneously supporting multiple brand partnerships including the upcoming Aistaland GX7."
+      "The author critiques the 'pacing the frontier' philosophy, arguing that safety-focused rhetoric from AI labs often masks strategic business interests that benefit the incumbents.",
+      "Frontier labs face significant 'capability overhangs' caused by the rapid pace of model improvement, which creates operational and infrastructure challenges that slowing down would mitigate.",
+      "The shift toward an agentic paradigm, initiated by the release of Opus 4.5 in late 2025, has created massive demand for compute, validating the need for the current infrastructure build-out.",
+      "By framing development pauses as safety measures, leading AI companies can effectively manage competitive pressures and internal resource constraints while maintaining a moral high ground."
      ],
      "rating": 4,
-     "read_time": 2
-    },
-    {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/09/20/toyota-plans-china-made-erevs-2027/",
-     "blog": "CNEVPOST",
-     "title": "Toyota plans China-made extended-range EVs in 2027 to broaden lineup, report says",
-     "link": "https://cnevpost.com/2026/09/20/toyota-plans-china-made-erevs-2027/",
-     "summary": "Toyota plans to begin EREV production in China in April 2027 and raise output to about 400,000 units in 2028, Nikkei Asia reported.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-09-20 03:04 UTC",
-     "_ts": 1789873452,
-     "preview": false,
-     "bullets": [
-      "Toyota reportedly plans to enter the Chinese extended-range electric vehicle (EREV) market in April 2027, with production targets reaching 400,000 units by 2028.",
-      "The strategic pivot aims to leverage Toyota's existing hybrid expertise to bypass the intense price competition currently plaguing the pure battery electric vehicle (BEV) segment in China.",
-      "Despite the expansion, the EREV segment faces headwinds, with recent data showing a 15.85% year-on-year decline in retail sales for the first eight months of the year."
-     ],
-     "rating": 3,
-     "read_time": 2
+     "read_time": 18
     }
    ]
   }

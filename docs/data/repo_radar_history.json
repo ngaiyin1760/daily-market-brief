@@ -1,6 +1,121 @@
 {
  "days": [
   {
+   "date": "2026-09-22",
+   "generated_at": "2026-09-22 08:48 HKT",
+   "repos": [
+    {
+     "name": "mizorewww/laya-mlx",
+     "url": "https://github.com/mizorewww/laya-mlx",
+     "language": "Python",
+     "description": "Native MLX runtime for Laya typed decision models — 7–14 ms short decisions on M3 Max. No text generation, PyTorch, or cloud API.",
+     "keywords": [
+      "Local LLM"
+     ],
+     "trendshift_pos": 5,
+     "stars": 3848,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A high-performance, native MLX runtime for typed decision models optimized for Apple Silicon.",
+     "bullets": [
+      "Built on Apple's MLX framework for hardware-accelerated inference on M3 Max chips.",
+      "Focuses on sub-15ms decision-making latency without the overhead of PyTorch or cloud APIs.",
+      "Designed for edge-based agentic decision loops rather than generative text tasks.",
+      "Ideal for low-latency quant trading signals or real-time local automation."
+     ],
+     "img": "mizorewww_laya-mlx_0.jpg",
+     "img_alt": "Laya MLX playing Snake — actual decisions, original speed"
+    },
+    {
+     "name": "Asymptote-Labs/agent-beacon",
+     "url": "https://github.com/Asymptote-Labs/agent-beacon",
+     "language": "Go",
+     "description": "Agent Beacon is the world's first open-source telemetry layer for AI agents wherever they run: locally, in CI, in the browser, or in the cloud.",
+     "keywords": [
+      "AI agent",
+      "Observability"
+     ],
+     "trendshift_pos": 16,
+     "stars": 849,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An open-source, universal telemetry layer designed to monitor and trace AI agents across distributed environments.",
+     "bullets": [
+      "Written in Go for high-performance, low-overhead observability.",
+      "Provides standardized logging and tracing for agents running in CI, browsers, or cloud infrastructure.",
+      "Enables developers to debug agentic reasoning chains and tool-use patterns in production.",
+      "Critical infrastructure for enterprise-grade AI agent deployment and compliance."
+     ]
+    },
+    {
+     "name": "qiz029/dscode",
+     "url": "https://github.com/qiz029/dscode",
+     "language": "JavaScript",
+     "description": "A DeepSeek coding agent harness: persistent shell, Ultra subagents, auto approval, Chrome MCP and session telemetry",
+     "keywords": [
+      "AI agent",
+      "AI coding assistant"
+     ],
+     "trendshift_pos": 1,
+     "stars": 297,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A comprehensive coding agent harness featuring persistent shell access and Chrome MCP integration.",
+     "bullets": [
+      "Utilizes DeepSeek models with a persistent shell environment for autonomous software development.",
+      "Includes Ultra subagents and automated approval workflows to manage complex coding tasks.",
+      "Integrates Chrome MCP for web-based research and session telemetry for auditability.",
+      "Serves as a robust framework for building autonomous dev-agents that require browser interaction."
+     ],
+     "img": "qiz029_dscode_0.jpg",
+     "img_alt": "Watch the 90-second DSCODE demo"
+    },
+    {
+     "name": "lordx64/phantom-kv",
+     "url": "https://github.com/lordx64/phantom-kv",
+     "language": "Python",
+     "description": "Refusal removal as a loadable KV-cache graft — zero weight modification, no refusal-direction projection, fully reversible.",
+     "keywords": [],
+     "trendshift_pos": 11,
+     "stars": 18,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A non-destructive method for removing model refusals via loadable KV-cache grafting.",
+     "bullets": [
+      "Implements refusal removal without modifying model weights or requiring fine-tuning.",
+      "Uses a graft-based approach on the KV-cache, making the process fully reversible.",
+      "Avoids refusal-direction projection, preserving the model's original reasoning capabilities.",
+      "Highly relevant for researchers and developers needing to bypass restrictive safety filters in local LLMs."
+     ],
+     "img": "lordx64_phantom-kv_0.jpg",
+     "img_alt": "phantom-kv",
+     "img2": "lordx64_phantom-kv_1.jpg",
+     "img2_alt": "Pill hot-swap demo: base refuses, black pill answers, none restores"
+    },
+    {
+     "name": "zai-org/ZCode",
+     "url": "https://github.com/zai-org/ZCode",
+     "language": "TypeScript",
+     "description": "Z.ai's coding agent harness. Powerful, intelligent, extensible.",
+     "keywords": [
+      "AI agent",
+      "AI coding assistant"
+     ],
+     "trendshift_pos": 24,
+     "stars": 5597,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A powerful and extensible coding agent harness designed for intelligent software engineering workflows.",
+     "bullets": [
+      "Built with TypeScript for high-performance integration within modern web-based dev environments.",
+      "Provides a structured harness for managing agentic coding tasks and multi-step logic.",
+      "Focuses on extensibility, allowing developers to plug in custom tools and specialized logic.",
+      "Targeted at professional developers looking to automate complex refactoring or feature implementation."
+     ]
+    }
+   ]
+  },
+  {
    "date": "2026-09-21",
    "generated_at": "2026-09-21 08:14 HKT",
    "repos": [

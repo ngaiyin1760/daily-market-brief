@@ -1,6 +1,100 @@
 {
  "days": [
   {
+   "date": "2026-09-22",
+   "generated_at": "2026-09-22 08:48 HKT",
+   "posts": [
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/concurrent-hbm-and-host-memory-access-improves-llm-inference-throughput-georgia-tech-nvidia-stanford/",
+     "blog": "SemiEngineering",
+     "title": "Concurrent HBM And Host Memory Access Improves LLM Inference Throughput (Georgia Tech, Nvidia, Stanford)",
+     "link": "https://semiengineering.com/concurrent-hbm-and-host-memory-access-improves-llm-inference-throughput-georgia-tech-nvidia-stanford/",
+     "summary": "Researchers at Georgia Tech, Nvidia Research, and Stanford University published a technical paper titled “BOOST: Concurrent Access to Host Memory and HBM to Accelerate LLM Inference.” Abstract Excerpt: “This paper presents BOOST, the first runtime system that provides concurrent and proportional access to both GPU memory tiers, extracting the combined bandwidth of host memory and... » read more\nThe post Concurrent HBM And Host Memory Access Improves LLM Inference Throughput (Georgia Tech, Nvidia, Stanford) appeared first on Semiconductor Engineering.",
+     "published": "2026-09-21 23:13 UTC",
+     "_ts": 1790032417,
+     "preview": false,
+     "bullets": [
+      "The new BOOST runtime system enables concurrent access to both HBM and host memory, effectively expanding the available memory bandwidth for LLM inference without requiring kernel modifications.",
+      "By utilizing wave-aware page allocation and modulo-based placement, the system optimizes data management for both static model weights and dynamic KV pairs.",
+      "Evaluations on Grace Hopper systems show a 31% increase in throughput for high-demand serving scenarios, significantly outperforming traditional prefetching techniques."
+     ],
+     "rating": 4,
+     "read_time": 1
+    },
+    {
+     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/09/21/1144834/the-download-investigating-deaths-at-the-us-borders-virtual-wall/",
+     "blog": "MIT Technology Review",
+     "title": "The Download: investigating deaths at the US border’s “virtual wall”",
+     "link": "https://www.technologyreview.com/2026/09/21/1144834/the-download-investigating-deaths-at-the-us-borders-virtual-wall/",
+     "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. The US spent billions on border surveillance. Why can’t it catch people before they die? When José Morales Bernal crossed the border into the US in April 2024, the day before…",
+     "published": "2026-09-21 12:20 UTC",
+     "_ts": 1789993200,
+     "preview": false,
+     "bullets": [
+      "An investigation mapping nearly 4,000 migrant death locations against 600 surveillance towers reveals that many fatalities occur within the active field of view of government monitoring systems.",
+      "Despite billions in existing investment, the US government plans to allocate an additional $1 billion to triple the size of the 'virtual wall' by 2034.",
+      "The report identifies systemic operational failures, including broken hardware, algorithmic detection errors, and a lack of agent response to alerts, which undermine the efficacy of the surveillance network."
+     ],
+     "rating": 4,
+     "read_time": 6
+    },
+    {
+     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/09/21/1144166/border-towers-surveillance-investigation/",
+     "blog": "MIT Technology Review",
+     "title": "The US spent billions on border surveillance. Why can’t it catch people before they die?",
+     "link": "https://www.technologyreview.com/2026/09/21/1144166/border-towers-surveillance-investigation/",
+     "summary": "When José Morales Bernal crossed the border into the United States on April 8, 2024, the day before his 32nd birthday, it should have triggered a chain of technological alerts and human responses.  As he walked through the desert in southern New Mexico that morning, he was within range of three surveillance towers. Newly installed…",
+     "published": "2026-09-21 12:00 UTC",
+     "_ts": 1789992000,
+     "preview": false,
+     "bullets": [
+      "AI-enabled surveillance towers are designed to automate detection and alert agents via smartphone, yet the investigation found instances where individuals died within 360 feet of active towers without intervention.",
+      "The reliance on automated systems has not effectively reduced the human cost of border crossings, as technical alerts often fail to trigger timely human responses from Border Patrol.",
+      "The findings suggest a critical disconnect between the deployment of high-tech defense hardware and the operational procedures required to provide medical or humanitarian assistance to those in distress."
+     ],
+     "rating": 4,
+     "read_time": 50
+    },
+    {
+     "_key": "CNEVPOST|https://cnevpost.com/2026/09/21/li-auto-chip-unit-pursue-first-funding-round/",
+     "blog": "CNEVPOST",
+     "title": "Li Auto chip unit said to pursue first funding round at $2.2 billion pre-money valuation",
+     "link": "https://cnevpost.com/2026/09/21/li-auto-chip-unit-pursue-first-funding-round/",
+     "summary": "Li Auto plans to raise several billion yuan for its chip business at a pre-money valuation of about 15 billion yuan ($2.22 billion).\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-09-21 12:03 UTC",
+     "_ts": 1789992192,
+     "preview": false,
+     "bullets": [
+      "- Li Auto plans to raise several billion yuan for its chip business at a pre-money valuation of about 15 billion yuan ($2.22 billion).",
+      "- Nio's chip unit Shenji completed its first funding round in February at a post-money valuation of about 8.27 billion yuan.",
+      "Li Auto's (NASDAQ: LI) chip subsidiary is moving ahead with its first round of external financing at a pre-money valuation of about 15 billion yuan ($2.22 billion), local media outlet LatePost reported on Monday.",
+      "The Chinese electric vehicle (EV) maker plans to raise several billion yuan for the business, according to the report.",
+      "It marks the latest step in Li Auto's push to run its semiconductor business independently after setting up a chip company entity in July."
+     ],
+     "rating": 4,
+     "read_time": 5
+    },
+    {
+     "_key": "Stratechery|https://stratechery.com/2026/frontier-overhangs/",
+     "blog": "Stratechery",
+     "title": "Frontier Overhangs",
+     "link": "https://stratechery.com/2026/frontier-overhangs/",
+     "summary": "Pacing the frontier may be sincere, but it would also be strategically useful for the frontier labs to have time to reduce overhangs caused by model advancement.",
+     "published": "2026-09-21 10:00 UTC",
+     "_ts": 1789984800,
+     "preview": false,
+     "bullets": [
+      "The author critiques the 'pacing the frontier' philosophy, arguing that safety-focused rhetoric from AI labs often masks strategic business interests that benefit the incumbents.",
+      "Frontier labs face significant 'capability overhangs' caused by the rapid pace of model improvement, which creates operational and infrastructure challenges that slowing down would mitigate.",
+      "The shift toward an agentic paradigm, initiated by the release of Opus 4.5 in late 2025, has created massive demand for compute, validating the need for the current infrastructure build-out.",
+      "By framing development pauses as safety measures, leading AI companies can effectively manage competitive pressures and internal resource constraints while maintaining a moral high ground."
+     ],
+     "rating": 4,
+     "read_time": 18
+    }
+   ]
+  },
+  {
    "date": "2026-09-21",
    "generated_at": "2026-09-21 08:14 HKT",
    "posts": [
