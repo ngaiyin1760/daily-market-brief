@@ -1,26 +1,66 @@
 {
- "generated_at": "2026-09-22 08:48 HKT",
+ "generated_at": "2026-09-23 08:30 HKT",
  "blogs": [
   {
    "name": "SemiEngineering",
    "status": "ok",
    "posts": [
     {
-     "_key": "SemiEngineering|https://semiengineering.com/concurrent-hbm-and-host-memory-access-improves-llm-inference-throughput-georgia-tech-nvidia-stanford/",
+     "_key": "SemiEngineering|https://semiengineering.com/wafer-scale-sub-5nm-channel-monolayer-mos2-transistors-cmu-uf-mit-et-al/",
      "blog": "SemiEngineering",
-     "title": "Concurrent HBM And Host Memory Access Improves LLM Inference Throughput (Georgia Tech, Nvidia, Stanford)",
-     "link": "https://semiengineering.com/concurrent-hbm-and-host-memory-access-improves-llm-inference-throughput-georgia-tech-nvidia-stanford/",
-     "summary": "Researchers at Georgia Tech, Nvidia Research, and Stanford University published a technical paper titled “BOOST: Concurrent Access to Host Memory and HBM to Accelerate LLM Inference.” Abstract Excerpt: “This paper presents BOOST, the first runtime system that provides concurrent and proportional access to both GPU memory tiers, extracting the combined bandwidth of host memory and... » read more\nThe post Concurrent HBM And Host Memory Access Improves LLM Inference Throughput (Georgia Tech, Nvidia, Stanford) appeared first on Semiconductor Engineering.",
-     "published": "2026-09-21 23:13 UTC",
-     "_ts": 1790032417,
+     "title": "Wafer-Scale Sub-5nm Channel Monolayer MoS2 Transistors (CMU, UF, MIT et al.)",
+     "link": "https://semiengineering.com/wafer-scale-sub-5nm-channel-monolayer-mos2-transistors-cmu-uf-mit-et-al/",
+     "summary": "Researchers at Carnegie Mellon University, University of Florida, MIT, Texas A&M University et al. published a technical paper titled “Wafer-scale 2D MoS₂ transistors with sub-5 nm channel length and subthreshold performance beyond the silicon limit.” Abstract Excerpt “Here, we report monolayer MoS₂ transistors with physical channel lengths below 5 nm, achieving a subthreshold swing of 88 mV/dec... » read more\nThe post Wafer-Scale Sub-5nm Channel Monolayer MoS2 Transistors (CMU, UF, MIT et al.) appeared first on Semiconductor Engineering.",
+     "published": "2026-09-22 17:51 UTC",
+     "_ts": 1790099502,
      "preview": false,
      "bullets": [
-      "The new BOOST runtime system enables concurrent access to both HBM and host memory, effectively expanding the available memory bandwidth for LLM inference without requiring kernel modifications.",
-      "By utilizing wave-aware page allocation and modulo-based placement, the system optimizes data management for both static model weights and dynamic KV pairs.",
-      "Evaluations on Grace Hopper systems show a 31% increase in throughput for high-demand serving scenarios, significantly outperforming traditional prefetching techniques."
+      "Home\n                        \n       \t\t\t\n\t\t\t\t\t\nTECHNICAL PAPERS\n\t\t\n\t\t\t\t\t\t\t\tSeptember 22nd, 2026 - \n\t\t\t\t\t\t\t\tBy: Technical Paper Link\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\nResearchers at Carnegie Mellon University, University of...",
+      "published a technical paper titled “Wafer-scale 2D MoS₂ transistors with sub-5 nm channel length and subthreshold performance beyond the silicon limit.”\nAbstract Excerpt\n“Here, we report monolayer MoS₂ transistors...",
+      "These results surpass both the theoretical subthreshold limit of silicon and state-of-the-art emerging semiconductors-based transistors at comparable dimensions.",
+      "To ensure high throughput, we develop a photolithography based, complementary metal oxide semiconductor (CMOS) compatible process and demonstrate 4-inch wafer-scale integration.”\nFind the technical paper here.",
+      "“Wafer-scale 2D MoS₂ transistors with sub-5 nm channel length and subthreshold performance beyond the silicon limit.” Nature Communications (September 2026)."
      ],
-     "rating": 4,
-     "read_time": 1
+     "rating": 5,
+     "read_time": 9
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/designing-multi-kw-power-delivery-for-advanced-3d-chiplet-systems/",
+     "blog": "SemiEngineering",
+     "title": "Designing Multi-kW Power Delivery In 3D Heterogeneously Integrated Systems (U. of Minnesota)",
+     "link": "https://semiengineering.com/designing-multi-kw-power-delivery-for-advanced-3d-chiplet-systems/",
+     "summary": "Researchers at the University of Minnesota published a technical paper titled “Toward Multi-kW Power Delivery Methodologies for Advanced 3D Heterogeneous Integration.” Abstract Excerpt: “Computationally powerful systems require significant power for computation: reliable and robust power delivery is a major challenge in light of high power densities and pin count bottlenecks. This paper overviews approaches to... » read more\nThe post Designing Multi-kW Power Delivery In 3D Heterogeneously Integrated Systems (U. of Minnesota) appeared first on Semiconductor Engineering.",
+     "published": "2026-09-22 17:09 UTC",
+     "_ts": 1790096981,
+     "preview": false,
+     "bullets": [
+      "Home\n                        \n       \t\t\t\n\t\t\t\t\t\nTECHNICAL PAPERS\n\t\t\n\t\t\t\t\t\t\t\tSeptember 22nd, 2026 - \n\t\t\t\t\t\t\t\tBy: Technical Paper Link\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\nResearchers at the University of Minnesota published a...",
+      "This paper overviews approaches to building design methodologies that overcome this problem, through the design of multistage distributed power delivery systems, optimized for performance and reliability, and built...",
+      "Yue, Peiyi, Hangyu Zhang, Ratul Das, Ramesh Harjani, and Sachin S.",
+      "“Toward Multi-kW Power Delivery Methodologies for Advanced 3D Heterogeneous Integration.” arXiv preprint arXiv:2609.24904 (September 2026).",
+      "https://arxiv.org/abs/2609.24904\n- Wafer-Scale Sub-5nm Channel Monolayer MoS2 Transistors (CMU, UF, MIT et al.) September 22, 2026 by Technical Paper Link\n- Designing Multi-kW Power Delivery In 3D Heterogeneously..."
+     ],
+     "rating": 5,
+     "read_time": 9
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/high-intensity-rowhammer-attack-on-gpus-leveraging-non-uniform-hammering-u-of-toronto/",
+     "blog": "SemiEngineering",
+     "title": "High-Intensity Rowhammer Attack On GPUs Leveraging Non-uniform Hammering (U. of Toronto)",
+     "link": "https://semiengineering.com/high-intensity-rowhammer-attack-on-gpus-leveraging-non-uniform-hammering-u-of-toronto/",
+     "summary": "Researchers at the University of Toronto published a technical paper titled “GPUThor: Amplifying Rowhammer Attacks via Non-Uniform Patterns to Exploit ECC-Protected GPUs.” Abstract Excerpt “We present GPUThor, a high-intensity Rowhammer attack on NVIDIA GPUs leveraging non-uniform hammering. GPUThor reverse engineers GPU memory-access coalescing behavior to enable non-uniform hammering patterns on GPUs, that activate aggressor rows... » read more\nThe post High-Intensity Rowhammer Attack On GPUs Leveraging Non-uniform Hammering (U. of Toronto) appeared first on Semiconductor Engineering.",
+     "published": "2026-09-22 16:30 UTC",
+     "_ts": 1790094625,
+     "preview": false,
+     "bullets": [
+      "Home\n                        \n       \t\t\t\n\t\t\t\t\t\nTECHNICAL PAPERS\n\t\t\n\t\t\t\t\t\t\t\tSeptember 22nd, 2026 - \n\t\t\t\t\t\t\t\tBy: Technical Paper Link\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\nResearchers at the University of Toronto published a...",
+      "GPUThor reverse engineers GPU memory-access coalescing behavior to enable non-uniform hammering patterns on GPUs, that activate aggressor rows more intensely than decoy rows.",
+      "Additionally, by identifying refresh instances when in-DRAM mitigations are applied, it constructs longer attack patterns that escape mitigation across refresh intervals, further increasing hammering intensity.",
+      "”\nFind the technical paper here.",
+      "Lin, Chris S., Joyce Qu, Aditya Rajeev, and Gururaj Saileshwar."
+     ],
+     "rating": 5,
+     "read_time": 9
     }
    ]
   },
@@ -29,38 +69,22 @@
    "status": "ok",
    "posts": [
     {
-     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/09/21/1144834/the-download-investigating-deaths-at-the-us-borders-virtual-wall/",
+     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/09/22/1144910/the-download-dont-believe-ai-hype/",
      "blog": "MIT Technology Review",
-     "title": "The Download: investigating deaths at the US border’s “virtual wall”",
-     "link": "https://www.technologyreview.com/2026/09/21/1144834/the-download-investigating-deaths-at-the-us-borders-virtual-wall/",
-     "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. The US spent billions on border surveillance. Why can’t it catch people before they die? When José Morales Bernal crossed the border into the US in April 2024, the day before…",
-     "published": "2026-09-21 12:20 UTC",
-     "_ts": 1789993200,
+     "title": "The Download: why AI’s latest breakthroughs and fears may be more hype than reality",
+     "link": "https://www.technologyreview.com/2026/09/22/1144910/the-download-dont-believe-ai-hype/",
+     "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. Don’t be fooled by this summer of AI hype  —Timnit Gebru, executive director of the Distributed AI Research Institute (DAIR), and Emily M. Bender, professor of linguistics at the University of…",
+     "published": "2026-09-22 12:10 UTC",
+     "_ts": 1790079000,
      "preview": false,
      "bullets": [
-      "An investigation mapping nearly 4,000 migrant death locations against 600 surveillance towers reveals that many fatalities occur within the active field of view of government monitoring systems.",
-      "Despite billions in existing investment, the US government plans to allocate an additional $1 billion to triple the size of the 'virtual wall' by 2034.",
-      "The report identifies systemic operational failures, including broken hardware, algorithmic detection errors, and a lack of agent response to alerts, which undermine the efficacy of the surveillance network."
+      "AMD has officially joined the $1 trillion market cap club, driven by a 180% surge in share price fueled by massive demand for AI-specific hardware.",
+      "Regulatory pressure is mounting as 22 nations push for a global AI oversight body, while Texas and California implement new restrictions on data center power and water consumption.",
+      "Meta's AI agent 'Muse' has reached the top of the US App Store, though it faces significant security risks, including a zero-day vulnerability and exclusion from Amazon's platform.",
+      "Experts warn that the current AI landscape is heavily influenced by commercial incentives to overstate capabilities, potentially misdirecting both public perception and policy decisions."
      ],
-     "rating": 4,
-     "read_time": 6
-    },
-    {
-     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/09/21/1144166/border-towers-surveillance-investigation/",
-     "blog": "MIT Technology Review",
-     "title": "The US spent billions on border surveillance. Why can’t it catch people before they die?",
-     "link": "https://www.technologyreview.com/2026/09/21/1144166/border-towers-surveillance-investigation/",
-     "summary": "When José Morales Bernal crossed the border into the United States on April 8, 2024, the day before his 32nd birthday, it should have triggered a chain of technological alerts and human responses.  As he walked through the desert in southern New Mexico that morning, he was within range of three surveillance towers. Newly installed…",
-     "published": "2026-09-21 12:00 UTC",
-     "_ts": 1789992000,
-     "preview": false,
-     "bullets": [
-      "AI-enabled surveillance towers are designed to automate detection and alert agents via smartphone, yet the investigation found instances where individuals died within 360 feet of active towers without intervention.",
-      "The reliance on automated systems has not effectively reduced the human cost of border crossings, as technical alerts often fail to trigger timely human responses from Border Patrol.",
-      "The findings suggest a critical disconnect between the deployment of high-tech defense hardware and the operational procedures required to provide medical or humanitarian assistance to those in distress."
-     ],
-     "rating": 4,
-     "read_time": 50
+     "rating": 5,
+     "read_time": 5
     }
    ]
   },
@@ -69,47 +93,21 @@
    "status": "ok",
    "posts": [
     {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/09/21/li-auto-chip-unit-pursue-first-funding-round/",
+     "_key": "CNEVPOST|https://cnevpost.com/2026/09/22/catl-begins-trial-cell-production-hungary-plant/",
      "blog": "CNEVPOST",
-     "title": "Li Auto chip unit said to pursue first funding round at $2.2 billion pre-money valuation",
-     "link": "https://cnevpost.com/2026/09/21/li-auto-chip-unit-pursue-first-funding-round/",
-     "summary": "Li Auto plans to raise several billion yuan for its chip business at a pre-money valuation of about 15 billion yuan ($2.22 billion).\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-09-21 12:03 UTC",
-     "_ts": 1789992192,
+     "title": "CATL begins trial cell production at planned 100 GWh Hungary plant",
+     "link": "https://cnevpost.com/2026/09/22/catl-begins-trial-cell-production-hungary-plant/",
+     "summary": "The Hungarian plant will become CATL's largest production base outside China once all facilities are ready.\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-09-22 09:28 UTC",
+     "_ts": 1790069303,
      "preview": false,
      "bullets": [
-      "- Li Auto plans to raise several billion yuan for its chip business at a pre-money valuation of about 15 billion yuan ($2.22 billion).",
-      "- Nio's chip unit Shenji completed its first funding round in February at a post-money valuation of about 8.27 billion yuan.",
-      "Li Auto's (NASDAQ: LI) chip subsidiary is moving ahead with its first round of external financing at a pre-money valuation of about 15 billion yuan ($2.22 billion), local media outlet LatePost reported on Monday.",
-      "The Chinese electric vehicle (EV) maker plans to raise several billion yuan for the business, according to the report.",
-      "It marks the latest step in Li Auto's push to run its semiconductor business independently after setting up a chip company entity in July."
+      "CATL has commenced trial battery cell production at its Debrecen plant in Hungary, utilizing its first two production lines to validate manufacturing processes.",
+      "Once fully operational, the facility is designed for a 100 GWh capacity, positioning it as CATL's largest production base outside of China.",
+      "The successful start of trial operations follows the receipt of all necessary environmental and occupancy permits, marking a critical step in localizing supply for European automakers."
      ],
-     "rating": 4,
-     "read_time": 5
-    }
-   ]
-  },
-  {
-   "name": "Stratechery",
-   "status": "ok",
-   "posts": [
-    {
-     "_key": "Stratechery|https://stratechery.com/2026/frontier-overhangs/",
-     "blog": "Stratechery",
-     "title": "Frontier Overhangs",
-     "link": "https://stratechery.com/2026/frontier-overhangs/",
-     "summary": "Pacing the frontier may be sincere, but it would also be strategically useful for the frontier labs to have time to reduce overhangs caused by model advancement.",
-     "published": "2026-09-21 10:00 UTC",
-     "_ts": 1789984800,
-     "preview": false,
-     "bullets": [
-      "The author critiques the 'pacing the frontier' philosophy, arguing that safety-focused rhetoric from AI labs often masks strategic business interests that benefit the incumbents.",
-      "Frontier labs face significant 'capability overhangs' caused by the rapid pace of model improvement, which creates operational and infrastructure challenges that slowing down would mitigate.",
-      "The shift toward an agentic paradigm, initiated by the release of Opus 4.5 in late 2025, has created massive demand for compute, validating the need for the current infrastructure build-out.",
-      "By framing development pauses as safety measures, leading AI companies can effectively manage competitive pressures and internal resource constraints while maintaining a moral high ground."
-     ],
-     "rating": 4,
-     "read_time": 18
+     "rating": 5,
+     "read_time": 2
     }
    ]
   }

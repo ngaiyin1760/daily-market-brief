@@ -1,114 +1,120 @@
 {
- "generated_at": "2026-09-22 08:48 HKT",
+ "generated_at": "2026-09-23 08:30 HKT",
  "repos": [
   {
-   "name": "mizorewww/laya-mlx",
-   "url": "https://github.com/mizorewww/laya-mlx",
-   "language": "Python",
-   "description": "Native MLX runtime for Laya typed decision models — 7–14 ms short decisions on M3 Max. No text generation, PyTorch, or cloud API.",
+   "name": "firecrawl/firecrawl",
+   "url": "https://github.com/firecrawl/firecrawl",
+   "language": "TypeScript",
+   "description": "The web data API to search, scrape, and interact at scale. 🔥",
    "keywords": [
-    "Local LLM"
+    "AI workflow",
+    "Web scraping"
    ],
-   "trendshift_pos": 5,
-   "stars": 3848,
+   "trendshift_pos": 7,
+   "stars": 183425,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A high-performance, native MLX runtime for typed decision models optimized for Apple Silicon.",
+   "one_liner": "A robust web scraping API designed to convert entire websites into LLM-ready markdown data at scale.",
    "bullets": [
-    "Built on Apple's MLX framework for hardware-accelerated inference on M3 Max chips.",
-    "Focuses on sub-15ms decision-making latency without the overhead of PyTorch or cloud APIs.",
-    "Designed for edge-based agentic decision loops rather than generative text tasks.",
-    "Ideal for low-latency quant trading signals or real-time local automation."
+    "Built with TypeScript and Node.js, utilizing a distributed architecture for scalable crawling.",
+    "Provides a unified API to extract clean, structured data from complex web pages for RAG pipelines.",
+    "Essential for fintech and quant researchers needing real-time market data or news aggregation.",
+    "Supports advanced features like crawl maps, custom scraping instructions, and proxy rotation."
    ],
-   "img": "mizorewww_laya-mlx_0.jpg",
-   "img_alt": "Laya MLX playing Snake — actual decisions, original speed"
+   "img": "firecrawl_firecrawl_0.jpg",
+   "img_alt": "Open Source vs Cloud"
   },
   {
-   "name": "Asymptote-Labs/agent-beacon",
-   "url": "https://github.com/Asymptote-Labs/agent-beacon",
-   "language": "Go",
-   "description": "Agent Beacon is the world's first open-source telemetry layer for AI agents wherever they run: locally, in CI, in the browser, or in the cloud.",
+   "name": "dream-num/univer",
+   "url": "https://github.com/dream-num/univer",
+   "language": "TypeScript",
+   "description": "The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.",
    "keywords": [
-    "AI agent",
-    "Observability"
+    "UI components"
    ],
-   "trendshift_pos": 16,
-   "stars": 849,
+   "trendshift_pos": 6,
+   "stars": 15386,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An open-source, universal telemetry layer designed to monitor and trace AI agents across distributed environments.",
+   "one_liner": "A comprehensive, open-source office suite designed as a programmable runtime for AI agents.",
    "bullets": [
-    "Written in Go for high-performance, low-overhead observability.",
-    "Provides standardized logging and tracing for agents running in CI, browsers, or cloud infrastructure.",
-    "Enables developers to debug agentic reasoning chains and tool-use patterns in production.",
-    "Critical infrastructure for enterprise-grade AI agent deployment and compliance."
+    "TypeScript-based modular architecture supporting spreadsheets, docs, slides, and relational tables.",
+    "Designed to act as a headless or UI-integrated 'Office Harness' for agentic workflows.",
+    "Enables AI agents to perform complex data analysis, financial modeling, and document generation.",
+    "Provides a unified data model that allows agents to manipulate multiple document types programmatically."
    ]
   },
   {
-   "name": "qiz029/dscode",
-   "url": "https://github.com/qiz029/dscode",
-   "language": "JavaScript",
-   "description": "A DeepSeek coding agent harness: persistent shell, Ultra subagents, auto approval, Chrome MCP and session telemetry",
+   "name": "graykode/abtop",
+   "url": "https://github.com/graykode/abtop",
+   "language": "Rust",
+   "description": "Like htop, but for AI coding agents. Monitor Claude    Code & Codex CLI sessions, tokens, context window,    rate limits, and ports in real-time.",
+   "keywords": [
+    "AI agent"
+   ],
+   "trendshift_pos": 22,
+   "stars": 3583,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A real-time monitoring tool for AI coding agents, functioning like htop for agentic sessions.",
+   "bullets": [
+    "Written in Rust for high performance and low-overhead system monitoring.",
+    "Tracks critical metrics including token usage, context window consumption, and rate limits.",
+    "Provides visibility into active coding agent sessions (Claude Code, Codex) to optimize costs and performance.",
+    "Essential infrastructure for developers managing large-scale agentic deployments."
+   ],
+   "img": "graykode_abtop_0.jpg",
+   "img_alt": "demo",
+   "img2": "graykode_abtop_1.jpg",
+   "img2_alt": "btop"
+  },
+  {
+   "name": "HarnessRouter/harnessrouter",
+   "url": "https://github.com/HarnessRouter/harnessrouter",
+   "language": "Python",
+   "description": "HarnessRouter Community Edition: the self-hosted, Apache-2.0 edition of the unified interface for agent harnesses. Run Codex, Claude Code, Hermes, and more through one API, with sessions, streaming, files, cancellation, and failure handling. Implements the Unified Harness Protocol (UHP), an open standard. Your keys, your infrastructure.",
    "keywords": [
     "AI agent",
-    "AI coding assistant"
+    "Self-hosted"
+   ],
+   "trendshift_pos": 11,
+   "stars": 2276,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A self-hosted, unified interface and API gateway for managing various AI coding agent harnesses.",
+   "bullets": [
+    "Python-based community edition providing a standardized API for disparate agent tools.",
+    "Supports session management, streaming, and unified logging across multiple agent frameworks.",
+    "Enables enterprise-grade control and observability over agentic coding workflows.",
+    "Facilitates easier integration of diverse agents into existing CI/CD and development infrastructure."
+   ],
+   "img": "HarnessRouter_harnessrouter_0.jpg",
+   "img_alt": "HarnessRouter Community Edition sign-in screen",
+   "img2": "HarnessRouter_harnessrouter_1.jpg",
+   "img2_alt": "Adding a model provider in HarnessRouter"
+  },
+  {
+   "name": "ai-evals-course/evals-skills",
+   "url": "https://github.com/ai-evals-course/evals-skills",
+   "language": "—",
+   "description": "Skills for building LLM evals. Starts with interactive error discovery: build a review app, sample diverse traces, and organize human annotations into failure modes.",
+   "keywords": [
+    "AI agent",
+    "AI skills"
    ],
    "trendshift_pos": 1,
-   "stars": 297,
+   "stars": 864,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A comprehensive coding agent harness featuring persistent shell access and Chrome MCP integration.",
+   "one_liner": "A practical curriculum and toolkit for building robust evaluation pipelines for LLM applications.",
    "bullets": [
-    "Utilizes DeepSeek models with a persistent shell environment for autonomous software development.",
-    "Includes Ultra subagents and automated approval workflows to manage complex coding tasks.",
-    "Integrates Chrome MCP for web-based research and session telemetry for auditability.",
-    "Serves as a robust framework for building autonomous dev-agents that require browser interaction."
+    "Focuses on interactive error discovery, trace sampling, and human-in-the-loop annotation.",
+    "Provides a structured methodology for identifying failure modes in complex agentic systems.",
+    "Essential for fintech and high-stakes AI applications where accuracy and reliability are paramount.",
+    "Includes templates for building review apps to systematically validate agent outputs."
    ],
-   "img": "qiz029_dscode_0.jpg",
-   "img_alt": "Watch the 90-second DSCODE demo"
-  },
-  {
-   "name": "lordx64/phantom-kv",
-   "url": "https://github.com/lordx64/phantom-kv",
-   "language": "Python",
-   "description": "Refusal removal as a loadable KV-cache graft — zero weight modification, no refusal-direction projection, fully reversible.",
-   "keywords": [],
-   "trendshift_pos": 11,
-   "stars": 18,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A non-destructive method for removing model refusals via loadable KV-cache grafting.",
-   "bullets": [
-    "Implements refusal removal without modifying model weights or requiring fine-tuning.",
-    "Uses a graft-based approach on the KV-cache, making the process fully reversible.",
-    "Avoids refusal-direction projection, preserving the model's original reasoning capabilities.",
-    "Highly relevant for researchers and developers needing to bypass restrictive safety filters in local LLMs."
-   ],
-   "img": "lordx64_phantom-kv_0.jpg",
-   "img_alt": "phantom-kv",
-   "img2": "lordx64_phantom-kv_1.jpg",
-   "img2_alt": "Pill hot-swap demo: base refuses, black pill answers, none restores"
-  },
-  {
-   "name": "zai-org/ZCode",
-   "url": "https://github.com/zai-org/ZCode",
-   "language": "TypeScript",
-   "description": "Z.ai's coding agent harness. Powerful, intelligent, extensible.",
-   "keywords": [
-    "AI agent",
-    "AI coding assistant"
-   ],
-   "trendshift_pos": 24,
-   "stars": 5597,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A powerful and extensible coding agent harness designed for intelligent software engineering workflows.",
-   "bullets": [
-    "Built with TypeScript for high-performance integration within modern web-based dev environments.",
-    "Provides a structured harness for managing agentic coding tasks and multi-step logic.",
-    "Focuses on extensibility, allowing developers to plug in custom tools and specialized logic.",
-    "Targeted at professional developers looking to automate complex refactoring or feature implementation."
-   ]
+   "img": "ai-evals-course_evals-skills_0.jpg",
+   "img_alt": "Error Discovery Skill Workflow"
   }
  ]
 }
