@@ -1,120 +1,118 @@
 {
- "generated_at": "2026-09-23 08:30 HKT",
+ "generated_at": "2026-09-24 08:29 HKT",
  "repos": [
   {
-   "name": "firecrawl/firecrawl",
-   "url": "https://github.com/firecrawl/firecrawl",
-   "language": "TypeScript",
-   "description": "The web data API to search, scrape, and interact at scale. 🔥",
+   "name": "TNT-Likely/PanWatch",
+   "url": "https://github.com/TNT-Likely/PanWatch",
+   "language": "Python",
+   "description": "盯盘侠 PanWatch · 自托管 AI 盯盘助手，集成 TradingAgents 多 Agent 投资决策 | A股/港股/美股实时监控、持仓管理、智能分析、全渠道推送",
    "keywords": [
-    "AI workflow",
-    "Web scraping"
+    "AI agent",
+    "Fintech"
    ],
-   "trendshift_pos": 7,
-   "stars": 183425,
+   "trendshift_pos": 22,
+   "stars": 1491,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A robust web scraping API designed to convert entire websites into LLM-ready markdown data at scale.",
+   "one_liner": "A self-hosted AI-driven market monitoring assistant for real-time stock analysis and trading decisions.",
    "bullets": [
-    "Built with TypeScript and Node.js, utilizing a distributed architecture for scalable crawling.",
-    "Provides a unified API to extract clean, structured data from complex web pages for RAG pipelines.",
-    "Essential for fintech and quant researchers needing real-time market data or news aggregation.",
-    "Supports advanced features like crawl maps, custom scraping instructions, and proxy rotation."
+    "Built with Python, integrating multi-agent frameworks for investment decision-making.",
+    "Supports real-time monitoring of A-share, Hong Kong, and US stock markets.",
+    "Features include automated position management, intelligent market analysis, and multi-channel push notifications.",
+    "Designed for traders seeking an automated, self-hosted infrastructure for portfolio oversight."
    ],
-   "img": "firecrawl_firecrawl_0.jpg",
-   "img_alt": "Open Source vs Cloud"
+   "img": "TNT-Likely_PanWatch_0.jpg",
+   "img_alt": "持仓管理",
+   "img2": "TNT-Likely_PanWatch_1.jpg",
+   "img2_alt": "机会页 AI 评分"
   },
   {
-   "name": "dream-num/univer",
-   "url": "https://github.com/dream-num/univer",
-   "language": "TypeScript",
-   "description": "The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.",
+   "name": "HKUDS/CLI-Anything",
+   "url": "https://github.com/HKUDS/CLI-Anything",
+   "language": "Python",
+   "description": "\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/",
    "keywords": [
-    "UI components"
+    "AI agent",
+    "Workflow automation"
    ],
-   "trendshift_pos": 6,
-   "stars": 15386,
+   "trendshift_pos": 4,
+   "stars": 49921,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A comprehensive, open-source office suite designed as a programmable runtime for AI agents.",
+   "one_liner": "A framework designed to make all software agent-native by bridging CLI tools with AI agents.",
    "bullets": [
-    "TypeScript-based modular architecture supporting spreadsheets, docs, slides, and relational tables.",
-    "Designed to act as a headless or UI-integrated 'Office Harness' for agentic workflows.",
-    "Enables AI agents to perform complex data analysis, financial modeling, and document generation.",
-    "Provides a unified data model that allows agents to manipulate multiple document types programmatically."
+    "Acts as a universal interface layer to expose command-line functionality to LLM agents.",
+    "Focuses on infrastructure-level integration to allow agents to interact with complex software environments.",
+    "Provides a standardized hub for agentic workflows, reducing the friction of tool-use in automation.",
+    "Highly relevant for developers building agentic systems that require deep system-level control."
    ]
   },
   {
-   "name": "graykode/abtop",
-   "url": "https://github.com/graykode/abtop",
-   "language": "Rust",
-   "description": "Like htop, but for AI coding agents. Monitor Claude    Code & Codex CLI sessions, tokens, context window,    rate limits, and ports in real-time.",
+   "name": "video-db/call.md",
+   "url": "https://github.com/video-db/call.md",
+   "language": "TypeScript",
+   "description": "Turn meetings into live agent loops. Record, transcribe, and analyze meetings with real-time AI intelligence — before, during, and after calls.",
    "keywords": [
-    "AI agent"
-   ],
-   "trendshift_pos": 22,
-   "stars": 3583,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A real-time monitoring tool for AI coding agents, functioning like htop for agentic sessions.",
-   "bullets": [
-    "Written in Rust for high performance and low-overhead system monitoring.",
-    "Tracks critical metrics including token usage, context window consumption, and rate limits.",
-    "Provides visibility into active coding agent sessions (Claude Code, Codex) to optimize costs and performance.",
-    "Essential infrastructure for developers managing large-scale agentic deployments."
-   ],
-   "img": "graykode_abtop_0.jpg",
-   "img_alt": "demo",
-   "img2": "graykode_abtop_1.jpg",
-   "img2_alt": "btop"
-  },
-  {
-   "name": "HarnessRouter/harnessrouter",
-   "url": "https://github.com/HarnessRouter/harnessrouter",
-   "language": "Python",
-   "description": "HarnessRouter Community Edition: the self-hosted, Apache-2.0 edition of the unified interface for agent harnesses. Run Codex, Claude Code, Hermes, and more through one API, with sessions, streaming, files, cancellation, and failure handling. Implements the Unified Harness Protocol (UHP), an open standard. Your keys, your infrastructure.",
-   "keywords": [
+    "NLP",
     "AI agent",
-    "Self-hosted"
-   ],
-   "trendshift_pos": 11,
-   "stars": 2276,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A self-hosted, unified interface and API gateway for managing various AI coding agent harnesses.",
-   "bullets": [
-    "Python-based community edition providing a standardized API for disparate agent tools.",
-    "Supports session management, streaming, and unified logging across multiple agent frameworks.",
-    "Enables enterprise-grade control and observability over agentic coding workflows.",
-    "Facilitates easier integration of diverse agents into existing CI/CD and development infrastructure."
-   ],
-   "img": "HarnessRouter_harnessrouter_0.jpg",
-   "img_alt": "HarnessRouter Community Edition sign-in screen",
-   "img2": "HarnessRouter_harnessrouter_1.jpg",
-   "img2_alt": "Adding a model provider in HarnessRouter"
-  },
-  {
-   "name": "ai-evals-course/evals-skills",
-   "url": "https://github.com/ai-evals-course/evals-skills",
-   "language": "—",
-   "description": "Skills for building LLM evals. Starts with interactive error discovery: build a review app, sample diverse traces, and organize human annotations into failure modes.",
-   "keywords": [
-    "AI agent",
-    "AI skills"
+    "Audio processing"
    ],
    "trendshift_pos": 1,
-   "stars": 864,
+   "stars": 1208,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A practical curriculum and toolkit for building robust evaluation pipelines for LLM applications.",
+   "one_liner": "An agentic platform that transforms meetings into live, actionable loops using real-time AI intelligence.",
    "bullets": [
-    "Focuses on interactive error discovery, trace sampling, and human-in-the-loop annotation.",
-    "Provides a structured methodology for identifying failure modes in complex agentic systems.",
-    "Essential for fintech and high-stakes AI applications where accuracy and reliability are paramount.",
-    "Includes templates for building review apps to systematically validate agent outputs."
+    "Utilizes TypeScript for a responsive, real-time processing architecture.",
+    "Provides end-to-end meeting intelligence: transcription, analysis, and agentic feedback before, during, and after calls.",
+    "Enables live agent loops that can trigger actions based on meeting context.",
+    "Ideal for professional workflows requiring automated documentation and real-time decision support."
+   ]
+  },
+  {
+   "name": "mvschwarz/openrig",
+   "url": "https://github.com/mvschwarz/openrig",
+   "language": "TypeScript",
+   "description": "Multi-agent harness that runs Claude Code and  Codex together as one system",
+   "keywords": [
+    "AI agent",
+    "AI coding assistant"
    ],
-   "img": "ai-evals-course_evals-skills_0.jpg",
-   "img_alt": "Error Discovery Skill Workflow"
+   "trendshift_pos": 21,
+   "stars": 216,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A multi-agent harness that orchestrates Claude Code and Codex to function as a unified development system.",
+   "bullets": [
+    "TypeScript-based orchestration layer for managing multiple LLM-based coding agents.",
+    "Enables collaborative agentic workflows by running different models as a single cohesive system.",
+    "Focuses on developer productivity by streamlining the interaction between specialized coding agents.",
+    "Useful for engineering teams building complex, multi-agent software development pipelines."
+   ],
+   "img": "mvschwarz_openrig_0.jpg",
+   "img_alt": "OpenRig TUI topology graph showing seven agent seats grouped into product, development, and QA pods"
+  },
+  {
+   "name": "superdesigndev/treg",
+   "url": "https://github.com/superdesigndev/treg",
+   "language": "Python",
+   "description": "Shared Skill & Secret vault for your team and agents, without leaking keys. Join community here: https://discord.gg/6mQYYfFMAn",
+   "keywords": [
+    "Proxy"
+   ],
+   "trendshift_pos": 12,
+   "stars": 2711,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A secure, shared vault for team and agent secrets, designed to prevent credential leakage.",
+   "bullets": [
+    "Python-based security infrastructure for managing shared skills and sensitive credentials.",
+    "Provides a centralized, secure environment for agents to access necessary keys without exposing them in code.",
+    "Addresses a critical security gap in agentic infrastructure by isolating secret management.",
+    "Essential for enterprise-grade agent deployments where security and compliance are paramount."
+   ],
+   "img": "superdesigndev_treg_0.jpg",
+   "img_alt": "treg — the tool catalog for your agent"
   }
  ]
 }

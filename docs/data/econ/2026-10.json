@@ -1,6 +1,6 @@
 {
  "month": "2026-10",
- "updated": "2026-09-23 08:30 HKT",
+ "updated": "2026-09-24 08:29 HKT",
  "events": [
   {
    "ts": "2026-10-01T00:00:00.000Z",
@@ -1643,7 +1643,7 @@
   },
   {
    "ts": "2026-10-19T14:30:00.000Z",
-   "title": "BoC Business Outlook Survey",
+   "title": "BoC Survey of Consumer Expectations",
    "country": "CA",
    "currency": "CAD",
    "importance": 0,
@@ -1654,7 +1654,7 @@
   },
   {
    "ts": "2026-10-19T14:30:00.000Z",
-   "title": "BoC Survey of Consumer Expectations",
+   "title": "BoC Business Outlook Survey",
    "country": "CA",
    "currency": "CAD",
    "importance": 0,
@@ -1935,7 +1935,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 5.75,
    "category": "mny"
   },
   {
@@ -1946,7 +1946,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 0.0,
    "category": "prce"
   },
   {
@@ -1957,7 +1957,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 4.4,
    "category": "prce"
   },
   {
@@ -2127,7 +2127,7 @@
   },
   {
    "ts": "2026-10-22T22:00:00.000Z",
-   "title": "S&P Global Manufacturing PMI Flash",
+   "title": "S&P Global Services PMI Flash",
    "country": "AU",
    "currency": "AUD",
    "importance": 0,
@@ -2138,7 +2138,7 @@
   },
   {
    "ts": "2026-10-22T22:00:00.000Z",
-   "title": "S&P Global Services PMI Flash",
+   "title": "S&P Global Manufacturing PMI Flash",
    "country": "AU",
    "currency": "AUD",
    "importance": 0,
@@ -2248,17 +2248,6 @@
   },
   {
    "ts": "2026-10-23T06:00:00.000Z",
-   "title": "Retail Sales MoM",
-   "country": "GB",
-   "currency": "GBP",
-   "importance": 1,
-   "actual": null,
-   "forecast": null,
-   "previous": 0.5,
-   "category": "cnsm"
-  },
-  {
-   "ts": "2026-10-23T06:00:00.000Z",
    "title": "Retail Sales YoY",
    "country": "GB",
    "currency": "GBP",
@@ -2269,66 +2258,55 @@
    "category": "cnsm"
   },
   {
-   "ts": "2026-10-23T07:15:00.000Z",
-   "title": "S&P Global Composite PMI Flash",
-   "country": "FR",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": ""
-  },
-  {
-   "ts": "2026-10-23T07:15:00.000Z",
-   "title": "S&P Global Manufacturing PMI Flash",
-   "country": "FR",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": ""
-  },
-  {
-   "ts": "2026-10-23T07:15:00.000Z",
-   "title": "S&P Global Services PMI Flash",
-   "country": "FR",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": ""
-  },
-  {
-   "ts": "2026-10-23T07:30:00.000Z",
-   "title": "S&P Global Composite PMI Flash",
-   "country": "DE",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": ""
-  },
-  {
-   "ts": "2026-10-23T07:30:00.000Z",
-   "title": "S&P Global Services PMI Flash",
-   "country": "DE",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": ""
-  },
-  {
-   "ts": "2026-10-23T07:30:00.000Z",
-   "title": "S&P Global Manufacturing PMI Flash",
-   "country": "DE",
-   "currency": "EUR",
+   "ts": "2026-10-23T06:00:00.000Z",
+   "title": "Retail Sales MoM",
+   "country": "GB",
+   "currency": "GBP",
    "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": 0.5,
+   "category": "cnsm"
+  },
+  {
+   "ts": "2026-10-23T07:15:00.000Z",
+   "title": "S&P Global Manufacturing PMI Flash",
+   "country": "FR",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
+  },
+  {
+   "ts": "2026-10-23T07:15:00.000Z",
+   "title": "S&P Global Composite PMI Flash",
+   "country": "FR",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
+  },
+  {
+   "ts": "2026-10-23T07:15:00.000Z",
+   "title": "S&P Global Services PMI Flash",
+   "country": "FR",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
+  },
+  {
+   "ts": "2026-10-23T07:30:00.000Z",
+   "title": "S&P Global Services PMI Flash",
+   "country": "DE",
+   "currency": "EUR",
+   "importance": 0,
    "actual": null,
    "forecast": null,
    "previous": null,
@@ -2342,8 +2320,41 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 5.8,
    "category": "lbr"
+  },
+  {
+   "ts": "2026-10-23T07:30:00.000Z",
+   "title": "S&P Global Manufacturing PMI Flash",
+   "country": "DE",
+   "currency": "EUR",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
+  },
+  {
+   "ts": "2026-10-23T07:30:00.000Z",
+   "title": "S&P Global Composite PMI Flash",
+   "country": "DE",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
+  },
+  {
+   "ts": "2026-10-23T08:00:00.000Z",
+   "title": "S&P Global Services PMI Flash",
+   "country": "EU",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
   },
   {
    "ts": "2026-10-23T08:00:00.000Z",
@@ -2368,19 +2379,8 @@
    "category": ""
   },
   {
-   "ts": "2026-10-23T08:00:00.000Z",
-   "title": "S&P Global Services PMI Flash",
-   "country": "EU",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": ""
-  },
-  {
    "ts": "2026-10-23T08:30:00.000Z",
-   "title": "S&P Global Services PMI Flash",
+   "title": "S&P Global Manufacturing PMI Flash",
    "country": "GB",
    "currency": "GBP",
    "importance": 1,
@@ -2391,7 +2391,7 @@
   },
   {
    "ts": "2026-10-23T08:30:00.000Z",
-   "title": "S&P Global Manufacturing PMI Flash",
+   "title": "S&P Global Services PMI Flash",
    "country": "GB",
    "currency": "GBP",
    "importance": 1,
@@ -2424,7 +2424,7 @@
   },
   {
    "ts": "2026-10-23T12:30:00.000Z",
-   "title": "Retail Sales MoM Prel",
+   "title": "Retail Sales Ex Autos MoM",
    "country": "CA",
    "currency": "CAD",
    "importance": 0,
@@ -2435,7 +2435,7 @@
   },
   {
    "ts": "2026-10-23T12:30:00.000Z",
-   "title": "Retail Sales MoM Final",
+   "title": "Retail Sales MoM Prel",
    "country": "CA",
    "currency": "CAD",
    "importance": 0,
@@ -2457,7 +2457,7 @@
   },
   {
    "ts": "2026-10-23T12:30:00.000Z",
-   "title": "Retail Sales Ex Autos MoM",
+   "title": "Retail Sales MoM Final",
    "country": "CA",
    "currency": "CAD",
    "importance": 0,
@@ -2465,6 +2465,17 @@
    "forecast": null,
    "previous": null,
    "category": "cnsm"
+  },
+  {
+   "ts": "2026-10-23T13:45:00.000Z",
+   "title": "S&P Global Services PMI Flash",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
   },
   {
    "ts": "2026-10-23T13:45:00.000Z",
@@ -2480,17 +2491,6 @@
   {
    "ts": "2026-10-23T13:45:00.000Z",
    "title": "S&P Global Manufacturing PMI Flash",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": ""
-  },
-  {
-   "ts": "2026-10-23T13:45:00.000Z",
-   "title": "S&P Global Services PMI Flash",
    "country": "US",
    "currency": "USD",
    "importance": 0,
