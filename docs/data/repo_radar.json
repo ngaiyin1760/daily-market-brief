@@ -1,118 +1,107 @@
 {
- "generated_at": "2026-09-24 08:29 HKT",
+ "generated_at": "2026-09-25 08:32 HKT",
  "repos": [
   {
-   "name": "TNT-Likely/PanWatch",
-   "url": "https://github.com/TNT-Likely/PanWatch",
+   "name": "NVIDIA/Model-Optimizer",
+   "url": "https://github.com/NVIDIA/Model-Optimizer",
    "language": "Python",
-   "description": "盯盘侠 PanWatch · 自托管 AI 盯盘助手，集成 TradingAgents 多 Agent 投资决策 | A股/港股/美股实时监控、持仓管理、智能分析、全渠道推送",
+   "description": "A unified library of SOTA model optimization techniques like quantization, distillation, pruning, neural architecture search, speculative decoding, etc. It compresses deep learning models for downstream deployment frameworks like TensorRT-LLM, TensorRT, vLLM, etc. to optimize inference speed.",
    "keywords": [
-    "AI agent",
-    "Fintech"
+    "AI infrastructure"
    ],
-   "trendshift_pos": 22,
-   "stars": 1491,
+   "trendshift_pos": 14,
+   "stars": 4074,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A self-hosted AI-driven market monitoring assistant for real-time stock analysis and trading decisions.",
+   "one_liner": "A unified library providing state-of-the-art model optimization techniques for deep learning deployment.",
    "bullets": [
-    "Built with Python, integrating multi-agent frameworks for investment decision-making.",
-    "Supports real-time monitoring of A-share, Hong Kong, and US stock markets.",
-    "Features include automated position management, intelligent market analysis, and multi-channel push notifications.",
-    "Designed for traders seeking an automated, self-hosted infrastructure for portfolio oversight."
+    "Built on Python with deep integration into NVIDIA's hardware acceleration stack.",
+    "Implements advanced techniques including quantization, pruning, distillation, and speculative decoding.",
+    "Essential for quant and fintech firms deploying high-frequency inference models on edge or cloud hardware.",
+    "Reduces model latency and memory footprint while maintaining high precision for production environments."
    ],
-   "img": "TNT-Likely_PanWatch_0.jpg",
-   "img_alt": "持仓管理",
-   "img2": "TNT-Likely_PanWatch_1.jpg",
-   "img2_alt": "机会页 AI 评分"
+   "img": "NVIDIA_Model-Optimizer_0.jpg",
+   "img_alt": "Banner image"
   },
   {
-   "name": "HKUDS/CLI-Anything",
-   "url": "https://github.com/HKUDS/CLI-Anything",
+   "name": "strands-agents/harness-sdk",
+   "url": "https://github.com/strands-agents/harness-sdk",
    "language": "Python",
-   "description": "\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/",
+   "description": "Build an agent harness and control it end-to-end. Open-source SDK for production AI agents in Python & TypeScript - any model, any cloud.",
    "keywords": [
     "AI agent",
-    "Workflow automation"
+    "MCP"
    ],
-   "trendshift_pos": 4,
-   "stars": 49921,
+   "trendshift_pos": 17,
+   "stars": 8255,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A framework designed to make all software agent-native by bridging CLI tools with AI agents.",
+   "one_liner": "An open-source SDK for building, controlling, and managing production-grade AI agents.",
    "bullets": [
-    "Acts as a universal interface layer to expose command-line functionality to LLM agents.",
-    "Focuses on infrastructure-level integration to allow agents to interact with complex software environments.",
-    "Provides a standardized hub for agentic workflows, reducing the friction of tool-use in automation.",
-    "Highly relevant for developers building agentic systems that require deep system-level control."
+    "Multi-language support (Python and TypeScript) for flexible agent orchestration.",
+    "Provides a standardized harness to control agent workflows across any cloud or model provider.",
+    "Designed for enterprise-grade reliability, observability, and end-to-end agent lifecycle management.",
+    "Ideal for building autonomous financial research agents or complex defi transaction automation."
    ]
   },
   {
-   "name": "video-db/call.md",
-   "url": "https://github.com/video-db/call.md",
-   "language": "TypeScript",
-   "description": "Turn meetings into live agent loops. Record, transcribe, and analyze meetings with real-time AI intelligence — before, during, and after calls.",
+   "name": "lemony-ai/cascadeflow",
+   "url": "https://github.com/lemony-ai/cascadeflow",
+   "language": "Python",
+   "description": "Cascading runtime for AI agents. Optimize cost, latency, quality, and policy decisions inside the agent loop.",
    "keywords": [
-    "NLP",
     "AI agent",
-    "Audio processing"
+    "AI infrastructure"
    ],
+   "trendshift_pos": 20,
+   "stars": 3948,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A cascading runtime engine designed to optimize AI agent performance, cost, and policy compliance.",
+   "bullets": [
+    "Python-based runtime that intercepts and optimizes the agent execution loop.",
+    "Dynamically manages trade-offs between latency, inference cost, and output quality.",
+    "Enforces strict policy decisions within the agentic workflow to ensure governance.",
+    "Highly applicable for fintech applications where cost-per-query and regulatory compliance are critical."
+   ]
+  },
+  {
+   "name": "trailofbits/coop",
+   "url": "https://github.com/trailofbits/coop",
+   "language": "Rust",
+   "description": "Isolated VM environment for running Claude Code and Codex",
+   "keywords": [],
    "trendshift_pos": 1,
-   "stars": 1208,
+   "stars": 311,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An agentic platform that transforms meetings into live, actionable loops using real-time AI intelligence.",
+   "one_liner": "An isolated virtual machine environment specifically designed for running AI coding agents like Claude Code.",
    "bullets": [
-    "Utilizes TypeScript for a responsive, real-time processing architecture.",
-    "Provides end-to-end meeting intelligence: transcription, analysis, and agentic feedback before, during, and after calls.",
-    "Enables live agent loops that can trigger actions based on meeting context.",
-    "Ideal for professional workflows requiring automated documentation and real-time decision support."
+    "Written in Rust to ensure high-performance, secure sandboxing for untrusted AI-generated code.",
+    "Provides a hardened environment to prevent AI agents from accessing sensitive host system resources.",
+    "Critical infrastructure for developers integrating AI agents into secure software development lifecycles.",
+    "Mitigates security risks associated with autonomous agents executing arbitrary shell commands."
    ]
   },
   {
-   "name": "mvschwarz/openrig",
-   "url": "https://github.com/mvschwarz/openrig",
-   "language": "TypeScript",
-   "description": "Multi-agent harness that runs Claude Code and  Codex together as one system",
+   "name": "eternity4719/HowToLiveBetter",
+   "url": "https://github.com/eternity4719/HowToLiveBetter",
+   "language": "HTML",
+   "description": "354 条循证建议，覆盖长寿防病、急救、省钱理财、法律红线、失业与工伤、医保社保、恋爱婚育、出国与技能。每条写明成本、收益、证据等级和原始出处，只引期刊论文与官方文件。",
    "keywords": [
-    "AI agent",
-    "AI coding assistant"
+    "Curated list"
    ],
-   "trendshift_pos": 21,
-   "stars": 216,
+   "trendshift_pos": 25,
+   "stars": 14163,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A multi-agent harness that orchestrates Claude Code and Codex to function as a unified development system.",
+   "one_liner": "A comprehensive, evidence-based repository covering financial planning, legal rights, and life management.",
    "bullets": [
-    "TypeScript-based orchestration layer for managing multiple LLM-based coding agents.",
-    "Enables collaborative agentic workflows by running different models as a single cohesive system.",
-    "Focuses on developer productivity by streamlining the interaction between specialized coding agents.",
-    "Useful for engineering teams building complex, multi-agent software development pipelines."
-   ],
-   "img": "mvschwarz_openrig_0.jpg",
-   "img_alt": "OpenRig TUI topology graph showing seven agent seats grouped into product, development, and QA pods"
-  },
-  {
-   "name": "superdesigndev/treg",
-   "url": "https://github.com/superdesigndev/treg",
-   "language": "Python",
-   "description": "Shared Skill & Secret vault for your team and agents, without leaking keys. Join community here: https://discord.gg/6mQYYfFMAn",
-   "keywords": [
-    "Proxy"
-   ],
-   "trendshift_pos": 12,
-   "stars": 2711,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A secure, shared vault for team and agent secrets, designed to prevent credential leakage.",
-   "bullets": [
-    "Python-based security infrastructure for managing shared skills and sensitive credentials.",
-    "Provides a centralized, secure environment for agents to access necessary keys without exposing them in code.",
-    "Addresses a critical security gap in agentic infrastructure by isolating secret management.",
-    "Essential for enterprise-grade agent deployments where security and compliance are paramount."
-   ],
-   "img": "superdesigndev_treg_0.jpg",
-   "img_alt": "treg — the tool catalog for your agent"
+    "Structured as a curated knowledge base of 354 actionable, peer-reviewed life and financial recommendations.",
+    "Focuses on high-utility topics including social insurance, labor law, and personal finance optimization.",
+    "Each entry is backed by academic journals or official government documentation for high reliability.",
+    "Serves as a practical reference tool for professionals managing personal risk and long-term financial health."
+   ]
   }
  ]
 }

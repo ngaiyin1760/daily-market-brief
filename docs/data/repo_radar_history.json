@@ -1,6 +1,114 @@
 {
  "days": [
   {
+   "date": "2026-09-25",
+   "generated_at": "2026-09-25 08:32 HKT",
+   "repos": [
+    {
+     "name": "NVIDIA/Model-Optimizer",
+     "url": "https://github.com/NVIDIA/Model-Optimizer",
+     "language": "Python",
+     "description": "A unified library of SOTA model optimization techniques like quantization, distillation, pruning, neural architecture search, speculative decoding, etc. It compresses deep learning models for downstream deployment frameworks like TensorRT-LLM, TensorRT, vLLM, etc. to optimize inference speed.",
+     "keywords": [
+      "AI infrastructure"
+     ],
+     "trendshift_pos": 14,
+     "stars": 4074,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A unified library providing state-of-the-art model optimization techniques for deep learning deployment.",
+     "bullets": [
+      "Built on Python with deep integration into NVIDIA's hardware acceleration stack.",
+      "Implements advanced techniques including quantization, pruning, distillation, and speculative decoding.",
+      "Essential for quant and fintech firms deploying high-frequency inference models on edge or cloud hardware.",
+      "Reduces model latency and memory footprint while maintaining high precision for production environments."
+     ],
+     "img": "NVIDIA_Model-Optimizer_0.jpg",
+     "img_alt": "Banner image"
+    },
+    {
+     "name": "strands-agents/harness-sdk",
+     "url": "https://github.com/strands-agents/harness-sdk",
+     "language": "Python",
+     "description": "Build an agent harness and control it end-to-end. Open-source SDK for production AI agents in Python & TypeScript - any model, any cloud.",
+     "keywords": [
+      "AI agent",
+      "MCP"
+     ],
+     "trendshift_pos": 17,
+     "stars": 8255,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An open-source SDK for building, controlling, and managing production-grade AI agents.",
+     "bullets": [
+      "Multi-language support (Python and TypeScript) for flexible agent orchestration.",
+      "Provides a standardized harness to control agent workflows across any cloud or model provider.",
+      "Designed for enterprise-grade reliability, observability, and end-to-end agent lifecycle management.",
+      "Ideal for building autonomous financial research agents or complex defi transaction automation."
+     ]
+    },
+    {
+     "name": "lemony-ai/cascadeflow",
+     "url": "https://github.com/lemony-ai/cascadeflow",
+     "language": "Python",
+     "description": "Cascading runtime for AI agents. Optimize cost, latency, quality, and policy decisions inside the agent loop.",
+     "keywords": [
+      "AI agent",
+      "AI infrastructure"
+     ],
+     "trendshift_pos": 20,
+     "stars": 3948,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A cascading runtime engine designed to optimize AI agent performance, cost, and policy compliance.",
+     "bullets": [
+      "Python-based runtime that intercepts and optimizes the agent execution loop.",
+      "Dynamically manages trade-offs between latency, inference cost, and output quality.",
+      "Enforces strict policy decisions within the agentic workflow to ensure governance.",
+      "Highly applicable for fintech applications where cost-per-query and regulatory compliance are critical."
+     ]
+    },
+    {
+     "name": "trailofbits/coop",
+     "url": "https://github.com/trailofbits/coop",
+     "language": "Rust",
+     "description": "Isolated VM environment for running Claude Code and Codex",
+     "keywords": [],
+     "trendshift_pos": 1,
+     "stars": 311,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An isolated virtual machine environment specifically designed for running AI coding agents like Claude Code.",
+     "bullets": [
+      "Written in Rust to ensure high-performance, secure sandboxing for untrusted AI-generated code.",
+      "Provides a hardened environment to prevent AI agents from accessing sensitive host system resources.",
+      "Critical infrastructure for developers integrating AI agents into secure software development lifecycles.",
+      "Mitigates security risks associated with autonomous agents executing arbitrary shell commands."
+     ]
+    },
+    {
+     "name": "eternity4719/HowToLiveBetter",
+     "url": "https://github.com/eternity4719/HowToLiveBetter",
+     "language": "HTML",
+     "description": "354 条循证建议，覆盖长寿防病、急救、省钱理财、法律红线、失业与工伤、医保社保、恋爱婚育、出国与技能。每条写明成本、收益、证据等级和原始出处，只引期刊论文与官方文件。",
+     "keywords": [
+      "Curated list"
+     ],
+     "trendshift_pos": 25,
+     "stars": 14163,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A comprehensive, evidence-based repository covering financial planning, legal rights, and life management.",
+     "bullets": [
+      "Structured as a curated knowledge base of 354 actionable, peer-reviewed life and financial recommendations.",
+      "Focuses on high-utility topics including social insurance, labor law, and personal finance optimization.",
+      "Each entry is backed by academic journals or official government documentation for high reliability.",
+      "Serves as a practical reference tool for professionals managing personal risk and long-term financial health."
+     ]
+    }
+   ]
+  },
+  {
    "date": "2026-09-24",
    "generated_at": "2026-09-24 08:29 HKT",
    "repos": [
