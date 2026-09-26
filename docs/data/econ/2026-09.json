@@ -1,6 +1,6 @@
 {
  "month": "2026-09",
- "updated": "2026-09-25 08:32 HKT",
+ "updated": "2026-09-26 08:37 HKT",
  "events": [
   {
    "ts": "2026-09-01T00:00:00.000Z",
@@ -1973,17 +1973,6 @@
   },
   {
    "ts": "2026-09-16T06:00:00.000Z",
-   "title": "Inflation Rate MoM",
-   "country": "GB",
-   "currency": "GBP",
-   "importance": 0,
-   "actual": 0.5,
-   "forecast": 0.5,
-   "previous": 0.3,
-   "category": "prce"
-  },
-  {
-   "ts": "2026-09-16T06:00:00.000Z",
    "title": "Inflation Rate YoY",
    "country": "GB",
    "currency": "GBP",
@@ -2002,6 +1991,17 @@
    "actual": 2.6,
    "forecast": 2.6,
    "previous": 2.6,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-09-16T06:00:00.000Z",
+   "title": "Inflation Rate MoM",
+   "country": "GB",
+   "currency": "GBP",
+   "importance": 0,
+   "actual": 0.5,
+   "forecast": 0.5,
+   "previous": 0.3,
    "category": "prce"
   },
   {
@@ -2039,6 +2039,17 @@
   },
   {
    "ts": "2026-09-16T12:30:00.000Z",
+   "title": "Retail Sales Control Group MoM",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": 1.4,
+   "forecast": 0.4,
+   "previous": -0.4,
+   "category": "cnsm"
+  },
+  {
+   "ts": "2026-09-16T12:30:00.000Z",
    "title": "Import Prices MoM",
    "country": "US",
    "currency": "USD",
@@ -2068,17 +2079,6 @@
    "actual": 1.4,
    "forecast": 0.5,
    "previous": -0.2,
-   "category": "cnsm"
-  },
-  {
-   "ts": "2026-09-16T12:30:00.000Z",
-   "title": "Retail Sales Control Group MoM",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": 1.4,
-   "forecast": 0.4,
-   "previous": -0.4,
    "category": "cnsm"
   },
   {
@@ -2204,17 +2204,6 @@
   },
   {
    "ts": "2026-09-16T22:45:00.000Z",
-   "title": "GDP Growth Rate QoQ",
-   "country": "NZ",
-   "currency": "NZD",
-   "importance": 0,
-   "actual": 0.2,
-   "forecast": 0.1,
-   "previous": 0.9,
-   "category": "gdp"
-  },
-  {
-   "ts": "2026-09-16T22:45:00.000Z",
    "title": "GDP Growth Rate YoY",
    "country": "NZ",
    "currency": "NZD",
@@ -2222,6 +2211,17 @@
    "actual": 2.6,
    "forecast": 2.3,
    "previous": 1.7,
+   "category": "gdp"
+  },
+  {
+   "ts": "2026-09-16T22:45:00.000Z",
+   "title": "GDP Growth Rate QoQ",
+   "country": "NZ",
+   "currency": "NZD",
+   "importance": 0,
+   "actual": 0.2,
+   "forecast": 0.1,
+   "previous": 0.9,
    "category": "gdp"
   },
   {
@@ -2259,6 +2259,17 @@
   },
   {
    "ts": "2026-09-17T11:00:00.000Z",
+   "title": "BoE Interest Rate Decision",
+   "country": "GB",
+   "currency": "GBP",
+   "importance": 1,
+   "actual": 3.75,
+   "forecast": 3.75,
+   "previous": 3.75,
+   "category": "mny"
+  },
+  {
+   "ts": "2026-09-17T11:00:00.000Z",
    "title": "BoE MPC Vote Cut",
    "country": "GB",
    "currency": "GBP",
@@ -2270,13 +2281,13 @@
   },
   {
    "ts": "2026-09-17T11:00:00.000Z",
-   "title": "BoE Interest Rate Decision",
+   "title": "BoE MPC Vote Hike",
    "country": "GB",
    "currency": "GBP",
-   "importance": 1,
-   "actual": 3.75,
-   "forecast": 3.75,
-   "previous": 3.75,
+   "importance": 0,
+   "actual": 3.0,
+   "forecast": 3.0,
+   "previous": 3.0,
    "category": "mny"
   },
   {
@@ -2302,17 +2313,6 @@
    "category": "mny"
   },
   {
-   "ts": "2026-09-17T11:00:00.000Z",
-   "title": "BoE MPC Vote Hike",
-   "country": "GB",
-   "currency": "GBP",
-   "importance": 0,
-   "actual": 3.0,
-   "forecast": 3.0,
-   "previous": 3.0,
-   "category": "mny"
-  },
-  {
    "ts": "2026-09-17T12:30:00.000Z",
    "title": "Building Permits Prel",
    "country": "US",
@@ -2325,35 +2325,13 @@
   },
   {
    "ts": "2026-09-17T12:30:00.000Z",
-   "title": "Philadelphia Fed Manufacturing Index",
+   "title": "Housing Starts",
    "country": "US",
    "currency": "USD",
-   "importance": 0,
-   "actual": 37.8,
-   "forecast": 30.5,
-   "previous": 47.4,
-   "category": "bsnss"
-  },
-  {
-   "ts": "2026-09-17T12:30:00.000Z",
-   "title": "Initial Jobless Claims",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": 196.0,
-   "forecast": 208.0,
-   "previous": 206.0,
-   "category": "lbr"
-  },
-  {
-   "ts": "2026-09-17T12:30:00.000Z",
-   "title": "Building Permits MoM Prel",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": -2.7,
-   "forecast": null,
-   "previous": 4.3,
+   "importance": 1,
+   "actual": 1.275,
+   "forecast": 1.31,
+   "previous": 1.309,
    "category": "hse"
   },
   {
@@ -2369,14 +2347,36 @@
   },
   {
    "ts": "2026-09-17T12:30:00.000Z",
-   "title": "Housing Starts",
+   "title": "Building Permits MoM Prel",
    "country": "US",
    "currency": "USD",
-   "importance": 1,
-   "actual": 1.275,
-   "forecast": 1.31,
-   "previous": 1.309,
+   "importance": 0,
+   "actual": -2.7,
+   "forecast": null,
+   "previous": 4.3,
    "category": "hse"
+  },
+  {
+   "ts": "2026-09-17T12:30:00.000Z",
+   "title": "Initial Jobless Claims",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": 196.0,
+   "forecast": 208.0,
+   "previous": 206.0,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-09-17T12:30:00.000Z",
+   "title": "Philadelphia Fed Manufacturing Index",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": 37.8,
+   "forecast": 30.5,
+   "previous": 47.4,
+   "category": "bsnss"
   },
   {
    "ts": "2026-09-17T14:00:00.000Z",
@@ -2413,17 +2413,6 @@
   },
   {
    "ts": "2026-09-17T23:30:00.000Z",
-   "title": "Inflation Rate YoY",
-   "country": "JP",
-   "currency": "JPY",
-   "importance": 1,
-   "actual": 1.9,
-   "forecast": null,
-   "previous": 1.9,
-   "category": "prce"
-  },
-  {
-   "ts": "2026-09-17T23:30:00.000Z",
    "title": "Core Inflation Rate YoY",
    "country": "JP",
    "currency": "JPY",
@@ -2431,6 +2420,17 @@
    "actual": 1.7,
    "forecast": 1.8,
    "previous": 1.8,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-09-17T23:30:00.000Z",
+   "title": "Inflation Rate YoY",
+   "country": "JP",
+   "currency": "JPY",
+   "importance": 1,
+   "actual": 1.9,
+   "forecast": null,
+   "previous": 1.9,
    "category": "prce"
   },
   {
@@ -2446,6 +2446,17 @@
   },
   {
    "ts": "2026-09-18T04:00:00.000Z",
+   "title": "Inflation Rate YoY",
+   "country": "MY",
+   "currency": "MYR",
+   "importance": 0,
+   "actual": 1.9,
+   "forecast": 1.8,
+   "previous": 1.8,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-09-18T04:00:00.000Z",
    "title": "Inflation Rate MoM",
    "country": "MY",
    "currency": "MYR",
@@ -2456,14 +2467,14 @@
    "category": "prce"
   },
   {
-   "ts": "2026-09-18T04:00:00.000Z",
-   "title": "Inflation Rate YoY",
-   "country": "MY",
-   "currency": "MYR",
+   "ts": "2026-09-18T06:00:00.000Z",
+   "title": "PPI YoY",
+   "country": "DE",
+   "currency": "EUR",
    "importance": 0,
-   "actual": 1.9,
-   "forecast": 1.8,
-   "previous": 1.8,
+   "actual": 4.6,
+   "forecast": 4.1,
+   "previous": 3.0,
    "category": "prce"
   },
   {
@@ -2487,17 +2498,6 @@
    "forecast": -0.2,
    "previous": -0.5,
    "category": "cnsm"
-  },
-  {
-   "ts": "2026-09-18T06:00:00.000Z",
-   "title": "PPI YoY",
-   "country": "DE",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": 4.6,
-   "forecast": 4.1,
-   "previous": 3.0,
-   "category": "prce"
   },
   {
    "ts": "2026-09-18T09:00:00.000Z",
@@ -2798,17 +2798,6 @@
   },
   {
    "ts": "2026-09-22T21:00:00.000Z",
-   "title": "Consumer Confidence",
-   "country": "KR",
-   "currency": "KRW",
-   "importance": 0,
-   "actual": 106.6,
-   "forecast": null,
-   "previous": 104.5,
-   "category": "cnsm"
-  },
-  {
-   "ts": "2026-09-22T21:00:00.000Z",
    "title": "API Crude Oil Stock Change",
    "country": "US",
    "currency": "USD",
@@ -2817,6 +2806,17 @@
    "forecast": -0.5,
    "previous": 7.14,
    "category": "enrg"
+  },
+  {
+   "ts": "2026-09-22T21:00:00.000Z",
+   "title": "Consumer Confidence",
+   "country": "KR",
+   "currency": "KRW",
+   "importance": 0,
+   "actual": 106.6,
+   "forecast": null,
+   "previous": 104.5,
+   "category": "cnsm"
   },
   {
    "ts": "2026-09-22T23:00:00.000Z",
@@ -2864,17 +2864,6 @@
   },
   {
    "ts": "2026-09-23T05:00:00.000Z",
-   "title": "HSBC Services PMI Flash",
-   "country": "IN",
-   "currency": "INR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": ""
-  },
-  {
-   "ts": "2026-09-23T05:00:00.000Z",
    "title": "HSBC Manufacturing PMI Flash",
    "country": "IN",
    "currency": "INR",
@@ -2885,13 +2874,24 @@
    "category": ""
   },
   {
+   "ts": "2026-09-23T05:00:00.000Z",
+   "title": "HSBC Services PMI Flash",
+   "country": "IN",
+   "currency": "INR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
+  },
+  {
    "ts": "2026-09-23T07:15:00.000Z",
-   "title": "S&P Global Composite PMI Flash",
+   "title": "S&P Global Manufacturing PMI Flash",
    "country": "FR",
    "currency": "EUR",
    "importance": 0,
    "actual": null,
-   "forecast": 48.7,
+   "forecast": 50.9,
    "previous": null,
    "category": ""
   },
@@ -2908,12 +2908,12 @@
   },
   {
    "ts": "2026-09-23T07:15:00.000Z",
-   "title": "S&P Global Manufacturing PMI Flash",
+   "title": "S&P Global Composite PMI Flash",
    "country": "FR",
    "currency": "EUR",
    "importance": 0,
    "actual": null,
-   "forecast": 50.9,
+   "forecast": 48.7,
    "previous": null,
    "category": ""
   },
@@ -2927,17 +2927,6 @@
    "forecast": 5.75,
    "previous": 5.75,
    "category": "mny"
-  },
-  {
-   "ts": "2026-09-23T07:30:00.000Z",
-   "title": "Unemployment Rate",
-   "country": "PL",
-   "currency": "PLN",
-   "importance": 0,
-   "actual": 5.8,
-   "forecast": 5.9,
-   "previous": 5.8,
-   "category": "lbr"
   },
   {
    "ts": "2026-09-23T07:30:00.000Z",
@@ -2973,6 +2962,28 @@
    "category": ""
   },
   {
+   "ts": "2026-09-23T07:30:00.000Z",
+   "title": "Unemployment Rate",
+   "country": "PL",
+   "currency": "PLN",
+   "importance": 0,
+   "actual": 5.8,
+   "forecast": 5.9,
+   "previous": 5.8,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-09-23T08:00:00.000Z",
+   "title": "Inflation Rate MoM",
+   "country": "ZA",
+   "currency": "ZAR",
+   "importance": 0,
+   "actual": 0.0,
+   "forecast": null,
+   "previous": 0.2,
+   "category": "prce"
+  },
+  {
    "ts": "2026-09-23T08:00:00.000Z",
    "title": "S&P Global Manufacturing PMI Flash",
    "country": "EU",
@@ -2996,28 +3007,6 @@
   },
   {
    "ts": "2026-09-23T08:00:00.000Z",
-   "title": "Inflation Rate YoY",
-   "country": "ZA",
-   "currency": "ZAR",
-   "importance": 0,
-   "actual": 4.4,
-   "forecast": 4.5,
-   "previous": 4.3,
-   "category": "prce"
-  },
-  {
-   "ts": "2026-09-23T08:00:00.000Z",
-   "title": "Inflation Rate MoM",
-   "country": "ZA",
-   "currency": "ZAR",
-   "importance": 0,
-   "actual": 0.0,
-   "forecast": null,
-   "previous": 0.2,
-   "category": "prce"
-  },
-  {
-   "ts": "2026-09-23T08:00:00.000Z",
    "title": "S&P Global Services PMI Flash",
    "country": "EU",
    "currency": "EUR",
@@ -3026,6 +3015,17 @@
    "forecast": 51.5,
    "previous": null,
    "category": ""
+  },
+  {
+   "ts": "2026-09-23T08:00:00.000Z",
+   "title": "Inflation Rate YoY",
+   "country": "ZA",
+   "currency": "ZAR",
+   "importance": 0,
+   "actual": 4.4,
+   "forecast": 4.5,
+   "previous": 4.3,
+   "category": "prce"
   },
   {
    "ts": "2026-09-23T08:30:00.000Z",
@@ -3062,17 +3062,6 @@
   },
   {
    "ts": "2026-09-23T13:45:00.000Z",
-   "title": "S&P Global Services PMI Flash",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": null,
-   "forecast": 56.0,
-   "previous": null,
-   "category": ""
-  },
-  {
-   "ts": "2026-09-23T13:45:00.000Z",
    "title": "S&P Global Composite PMI Flash",
    "country": "US",
    "currency": "USD",
@@ -3090,6 +3079,17 @@
    "importance": 0,
    "actual": null,
    "forecast": 53.6,
+   "previous": null,
+   "category": ""
+  },
+  {
+   "ts": "2026-09-23T13:45:00.000Z",
+   "title": "S&P Global Services PMI Flash",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": 56.0,
    "previous": null,
    "category": ""
   },
@@ -3150,36 +3150,25 @@
   },
   {
    "ts": "2026-09-24T00:30:00.000Z",
-   "title": "S&P Global Services PMI Flash",
-   "country": "JP",
-   "currency": "JPY",
-   "importance": 0,
-   "actual": 51.6,
-   "forecast": null,
-   "previous": 52.5,
-   "category": ""
-  },
-  {
-   "ts": "2026-09-24T00:30:00.000Z",
    "title": "S&P Global Manufacturing PMI Flash",
    "country": "JP",
    "currency": "JPY",
    "importance": 0,
-   "actual": 54.1,
+   "actual": null,
    "forecast": 55.0,
-   "previous": 54.9,
+   "previous": null,
    "category": ""
   },
   {
-   "ts": "2026-09-24T01:30:00.000Z",
-   "title": "Employment Change",
-   "country": "AU",
-   "currency": "AUD",
+   "ts": "2026-09-24T00:30:00.000Z",
+   "title": "S&P Global Services PMI Flash",
+   "country": "JP",
+   "currency": "JPY",
    "importance": 0,
-   "actual": 39.5,
-   "forecast": 20.0,
-   "previous": -15.9,
-   "category": "lbr"
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
   },
   {
    "ts": "2026-09-24T01:30:00.000Z",
@@ -3190,6 +3179,17 @@
    "actual": 4.6,
    "forecast": 4.5,
    "previous": 4.5,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-09-24T01:30:00.000Z",
+   "title": "Employment Change",
+   "country": "AU",
+   "currency": "AUD",
+   "importance": 0,
+   "actual": 39.5,
+   "forecast": 20.0,
+   "previous": -15.9,
    "category": "lbr"
   },
   {
@@ -3337,6 +3337,39 @@
   },
   {
    "ts": "2026-09-24T12:30:00.000Z",
+   "title": "Retail Sales MoM Final",
+   "country": "CA",
+   "currency": "CAD",
+   "importance": 0,
+   "actual": -0.7,
+   "forecast": -0.8,
+   "previous": 0.6,
+   "category": "cnsm"
+  },
+  {
+   "ts": "2026-09-24T12:30:00.000Z",
+   "title": "Current Account",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": -246.0,
+   "forecast": -255.0,
+   "previous": -212.6,
+   "category": "trd"
+  },
+  {
+   "ts": "2026-09-24T12:30:00.000Z",
+   "title": "Initial Jobless Claims",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": 197.0,
+   "forecast": 201.0,
+   "previous": 198.0,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-09-24T12:30:00.000Z",
    "title": "Retail Sales MoM Prel",
    "country": "CA",
    "currency": "CAD",
@@ -3355,39 +3388,6 @@
    "actual": -0.7,
    "forecast": -0.5,
    "previous": 0.5,
-   "category": "cnsm"
-  },
-  {
-   "ts": "2026-09-24T12:30:00.000Z",
-   "title": "Initial Jobless Claims",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": 197.0,
-   "forecast": 201.0,
-   "previous": 198.0,
-   "category": "lbr"
-  },
-  {
-   "ts": "2026-09-24T12:30:00.000Z",
-   "title": "Current Account",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": -246.0,
-   "forecast": -255.0,
-   "previous": -212.6,
-   "category": "trd"
-  },
-  {
-   "ts": "2026-09-24T12:30:00.000Z",
-   "title": "Retail Sales MoM Final",
-   "country": "CA",
-   "currency": "CAD",
-   "importance": 0,
-   "actual": -0.7,
-   "forecast": -0.8,
-   "previous": 0.6,
    "category": "cnsm"
   },
   {
@@ -3473,9 +3473,9 @@
    "country": "DE",
    "currency": "EUR",
    "importance": 1,
-   "actual": null,
+   "actual": -30.6,
    "forecast": -27.4,
-   "previous": -26.6,
+   "previous": -26.8,
    "category": "cnsm"
   },
   {
@@ -3491,24 +3491,24 @@
   },
   {
    "ts": "2026-09-25T12:30:00.000Z",
-   "title": "Durable Goods Orders Ex Transp MoM",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": null,
-   "forecast": 0.6,
-   "previous": 0.4,
-   "category": "bsnss"
-  },
-  {
-   "ts": "2026-09-25T12:30:00.000Z",
    "title": "Durable Goods Orders MoM",
    "country": "US",
    "currency": "USD",
    "importance": 1,
-   "actual": null,
+   "actual": 0.0,
    "forecast": -0.4,
-   "previous": 1.1,
+   "previous": 0.9,
+   "category": "bsnss"
+  },
+  {
+   "ts": "2026-09-25T12:30:00.000Z",
+   "title": "Durable Goods Orders Ex Transp MoM",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": 0.3,
+   "forecast": 0.6,
+   "previous": 0.7,
    "category": "bsnss"
   },
   {
@@ -3528,7 +3528,7 @@
    "country": "US",
    "currency": "USD",
    "importance": 0,
-   "actual": null,
+   "actual": 48.1,
    "forecast": 47.6,
    "previous": 51.7,
    "category": "cnsm"
@@ -3573,7 +3573,7 @@
    "currency": "INR",
    "importance": 0,
    "actual": null,
-   "forecast": null,
+   "forecast": 6.0,
    "previous": 6.7,
    "category": "bsnss"
   },
@@ -3611,6 +3611,17 @@
    "category": "bsnss"
   },
   {
+   "ts": "2026-09-28T17:30:00.000Z",
+   "title": "Fed Barkin Speech",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "mny"
+  },
+  {
    "ts": "2026-09-28T21:00:00.000Z",
    "title": "Business Confidence",
    "country": "KR",
@@ -3628,7 +3639,7 @@
    "currency": "AUD",
    "importance": 1,
    "actual": null,
-   "forecast": null,
+   "forecast": 4.6,
    "previous": 4.35,
    "category": "mny"
   },
@@ -3645,25 +3656,25 @@
   },
   {
    "ts": "2026-09-29T07:00:00.000Z",
-   "title": "Inflation Rate YoY Prel",
-   "country": "ES",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 4.3,
-   "category": "prce"
-  },
-  {
-   "ts": "2026-09-29T07:00:00.000Z",
    "title": "KOF Leading Indicators",
    "country": "CH",
    "currency": "CHF",
    "importance": 0,
    "actual": null,
-   "forecast": null,
+   "forecast": 105.8,
    "previous": 106.7,
    "category": "bsnss"
+  },
+  {
+   "ts": "2026-09-29T07:00:00.000Z",
+   "title": "Inflation Rate YoY Prel",
+   "country": "ES",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": 4.7,
+   "previous": 4.3,
+   "category": "prce"
   },
   {
    "ts": "2026-09-29T07:00:00.000Z",
@@ -3683,7 +3694,7 @@
    "currency": "GBP",
    "importance": 0,
    "actual": null,
-   "forecast": null,
+   "forecast": 58.0,
    "previous": 56.05,
    "category": "hse"
   },
@@ -3716,20 +3727,9 @@
    "currency": "EUR",
    "importance": 0,
    "actual": null,
-   "forecast": null,
+   "forecast": 99.0,
    "previous": 98.4,
    "category": "cnsm"
-  },
-  {
-   "ts": "2026-09-29T10:00:00.000Z",
-   "title": "Business Confidence",
-   "country": "ES",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": -3.9,
-   "category": "bsnss"
   },
   {
    "ts": "2026-09-29T10:00:00.000Z",
@@ -3741,6 +3741,17 @@
    "forecast": null,
    "previous": 21.5,
    "category": "lbr"
+  },
+  {
+   "ts": "2026-09-29T10:00:00.000Z",
+   "title": "Business Confidence",
+   "country": "ES",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": -3.9,
+   "category": "bsnss"
   },
   {
    "ts": "2026-09-29T12:00:00.000Z",
@@ -3782,7 +3793,7 @@
    "currency": "USD",
    "importance": 0,
    "actual": null,
-   "forecast": null,
+   "forecast": 2.2,
    "previous": 2.1,
    "category": "hse"
   },
@@ -3793,7 +3804,7 @@
    "currency": "USD",
    "importance": 1,
    "actual": null,
-   "forecast": null,
+   "forecast": 7.23,
    "previous": 7.271,
    "category": "lbr"
   },
@@ -3804,7 +3815,7 @@
    "currency": "USD",
    "importance": 0,
    "actual": null,
-   "forecast": null,
+   "forecast": 90.0,
    "previous": 89.4,
    "category": "gov"
   },
@@ -3854,25 +3865,25 @@
   },
   {
    "ts": "2026-09-29T23:50:00.000Z",
-   "title": "Industrial Production MoM Prel",
-   "country": "JP",
-   "currency": "JPY",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": -0.2,
-   "category": "bsnss"
-  },
-  {
-   "ts": "2026-09-29T23:50:00.000Z",
    "title": "Retail Sales YoY",
    "country": "JP",
    "currency": "JPY",
    "importance": 0,
    "actual": null,
-   "forecast": null,
+   "forecast": 3.3,
    "previous": 4.0,
    "category": "cnsm"
+  },
+  {
+   "ts": "2026-09-29T23:50:00.000Z",
+   "title": "Industrial Production MoM Prel",
+   "country": "JP",
+   "currency": "JPY",
+   "importance": 0,
+   "actual": null,
+   "forecast": 1.7,
+   "previous": -0.2,
+   "category": "bsnss"
   },
   {
    "ts": "2026-09-30T00:00:00.000Z",
