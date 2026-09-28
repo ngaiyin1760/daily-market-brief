@@ -1,113 +1,112 @@
 {
- "generated_at": "2026-09-27 08:33 HKT",
+ "generated_at": "2026-09-28 08:43 HKT",
  "repos": [
   {
-   "name": "macro-inc/macro",
-   "url": "https://github.com/macro-inc/macro",
-   "language": "Rust",
-   "description": "Macro is a unified workspace for teams: email, chat, docs, tasks, agents, calls, and CRM — @-linked together with shared AI memory.",
+   "name": "Gaurav-Gosain/tuios",
+   "url": "https://github.com/Gaurav-Gosain/tuios",
+   "language": "Go",
+   "description": "A terminal window manager that knows what your agents are doing. Tiling panes, workspaces, sessions that survive restarts, and one Inbox for every coding agent.",
    "keywords": [
-    "AI memory",
     "Self-hosted"
    ],
-   "trendshift_pos": 9,
-   "stars": 4418,
+   "trendshift_pos": 13,
+   "stars": 3934,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A unified workspace for teams integrating communication, task management, and CRM with shared AI memory.",
+   "one_liner": "A terminal window manager designed specifically to orchestrate and monitor multiple coding agents.",
    "bullets": [
-    "Built with Rust for high-performance backend operations.",
-    "Integrates email, chat, docs, and tasks into a single interface.",
-    "Features shared AI memory to provide context across team workflows.",
-    "Designed to replace fragmented toolchains with an agent-centric workspace."
+    "Built in Go with a focus on high-performance terminal session management.",
+    "Features tiling panes, persistent workspaces, and session recovery across restarts.",
+    "Provides a centralized 'Inbox' to aggregate outputs and status updates from various AI coding agents.",
+    "Optimizes developer workflow by unifying fragmented agent interactions into a single interface."
+   ],
+   "img": "Gaurav-Gosain_tuios_0.jpg",
+   "img_alt": "TUIOS"
+  },
+  {
+   "name": "dzhng/jevgrep",
+   "url": "https://github.com/dzhng/jevgrep",
+   "language": "TypeScript",
+   "description": "Find code by asking what it does. A CLI for coding agents that uses Jev to discover relevant files and source context.",
+   "keywords": [],
+   "trendshift_pos": 8,
+   "stars": 763,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A CLI tool that enables coding agents to perform semantic code discovery and context retrieval.",
+   "bullets": [
+    "TypeScript-based CLI designed to bridge the gap between LLM reasoning and local file system navigation.",
+    "Uses the Jev engine to index and search codebases based on functional intent rather than just keyword matching.",
+    "Acts as a critical retrieval-augmented generation (RAG) component for autonomous coding agents.",
+    "Reduces token waste by providing agents with only the most relevant source context for a specific task."
+   ],
+   "img": "dzhng_jevgrep_0.jpg",
+   "img_alt": "jevgrep — Same intelligence. About 30% lower cost.",
+   "img2": "dzhng_jevgrep_1.jpg",
+   "img2_alt": "Jevgrep workflow: about 30% lower coding-agent cost, with 8 of 10 tasks solved both with and without Jevgrep."
+  },
+  {
+   "name": "oblien/openship",
+   "url": "https://github.com/oblien/openship",
+   "language": "TypeScript",
+   "description": "Self-hosted deployment platform",
+   "keywords": [
+    "Self-hosted"
+   ],
+   "trendshift_pos": 6,
+   "stars": 12881,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A self-hosted deployment platform designed to simplify infrastructure management for modern applications.",
+   "bullets": [
+    "Full-stack deployment solution built with TypeScript for high extensibility.",
+    "Provides a self-hosted alternative to managed PaaS providers, offering full control over infrastructure.",
+    "Streamlines CI/CD pipelines and environment management for developers and small teams.",
+    "Ideal for hosting internal tools, microservices, or staging environments with minimal overhead."
    ]
   },
   {
-   "name": "ashhart/TensorFold",
-   "url": "https://github.com/ashhart/TensorFold",
-   "language": "Python",
-   "description": "Run MoE LLMs via MLX that your Mac should not normally be able to run",
+   "name": "aipoch/open-science",
+   "url": "https://github.com/aipoch/open-science",
+   "language": "TypeScript",
+   "description": "An open-source, model-agnostic AI workbench for scientific discovery.",
    "keywords": [
-    "Local LLM"
-   ],
-   "trendshift_pos": 10,
-   "stars": 214,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A tool to run Mixture-of-Experts (MoE) LLMs on Apple Silicon using the MLX framework.",
-   "bullets": [
-    "Leverages Apple's MLX framework for optimized local inference.",
-    "Enables execution of large MoE models on hardware with limited VRAM.",
-    "Targeted at developers needing local LLM capabilities for private data processing.",
-    "Optimizes memory usage through efficient tensor folding techniques."
-   ],
-   "img": "ashhart_TensorFold_0.jpg",
-   "img_alt": "TensorFold mesh and measured decode speeds for Qwen3.8 27B, Nemotron 3.5, and Qwen3.8 Flash Next",
-   "img2": "ashhart_TensorFold_1.jpg",
-   "img2_alt": "TensorFold CUDA Engine: exact decoding on DGX Spark, on Mac with Metal and on NVIDIA GPUs with CUDA"
-  },
-  {
-   "name": "feder-cr/jev",
-   "url": "https://github.com/feder-cr/jev",
-   "language": "Python",
-   "description": "Resume_Builder_AIHawk is a powerful Python tool that allows you to automatically customize your resume based on a job URL, ensuring it perfectly aligns with the job requirements and skills. With an interactive command-line interface, this tool makes it easy to navigate through options and select from various pre-defined styles",
-   "keywords": [
-    "Resume building"
+    "AI agent",
+    "Self-hosted"
    ],
    "trendshift_pos": 1,
-   "stars": 878,
+   "stars": 5153,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An AI-powered Python tool that automatically customizes resumes based on specific job URLs.",
+   "one_liner": "An open-source, model-agnostic AI workbench tailored for scientific discovery and research workflows.",
    "bullets": [
-    "Uses Python-based automation to parse job descriptions and candidate resumes.",
-    "Aligns resume content with specific job requirements and skill keywords.",
-    "Streamlines the application process for high-volume job hunting.",
-    "Acts as an agentic tool to improve applicant tracking system (ATS) compatibility."
+    "TypeScript-based architecture that supports integration with various LLM backends.",
+    "Designed to facilitate complex data analysis and hypothesis testing in scientific domains.",
+    "Provides a modular workbench environment for researchers to experiment with AI-driven discovery.",
+    "Supports reproducible research by standardizing how models interact with scientific datasets."
    ]
   },
   {
-   "name": "cclank/lanshu-create-ai-presenter-video",
-   "url": "https://github.com/cclank/lanshu-create-ai-presenter-video",
+   "name": "shhivv/taiga-s1",
+   "url": "https://github.com/shhivv/taiga-s1",
    "language": "Python",
-   "description": "Provider-neutral Codex Skill for producing verified AI presenter videos from a script and an authorized presenter image.",
-   "keywords": [
-    "AI video generation",
-    "Digital human"
-   ],
-   "trendshift_pos": 15,
-   "stars": 1609,
+   "description": "Taiga-S1: a 1.2M-parameter System-1 model that builds CAD parts in FreeCAD",
+   "keywords": [],
+   "trendshift_pos": 12,
+   "stars": 12,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A provider-neutral framework for generating AI-driven presenter videos from scripts.",
+   "one_liner": "A compact 1.2M-parameter System-1 model specialized for generating CAD parts in FreeCAD.",
    "bullets": [
-    "Modular architecture supporting multiple AI video generation providers.",
-    "Automates the synthesis of presenter images and synchronized audio scripts.",
-    "Useful for creating automated financial reports or tech product explainers.",
-    "Provides a standardized interface for verified AI content production."
-   ]
-  },
-  {
-   "name": "latent-spaces/brag",
-   "url": "https://github.com/latent-spaces/brag",
-   "language": "Python",
-   "description": "You built it. Now brag. Turn the project you just created into a short, shareable launch video with one command.",
-   "keywords": [
-    "AI video generation"
+    "Python-based implementation utilizing a highly efficient, small-scale neural architecture.",
+    "Focuses on 'System-1' thinking, prioritizing rapid, intuitive generation over complex reasoning.",
+    "Automates the creation of 3D mechanical components directly within the FreeCAD ecosystem.",
+    "Demonstrates the potential for specialized, lightweight AI agents in engineering and manufacturing workflows."
    ],
-   "trendshift_pos": 7,
-   "stars": 9806,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A command-line tool that automatically generates shareable launch videos for software projects.",
-   "bullets": [
-    "Python-based CLI tool for rapid content creation.",
-    "Automates the visual storytelling process for new software releases.",
-    "Ideal for developers and product managers to showcase new features quickly.",
-    "Reduces the overhead of marketing and documentation for technical projects."
-   ],
-   "img": "latent-spaces_brag_0.jpg",
-   "img_alt": "the /brag launch site — you built it, now brag"
+   "img": "shhivv_taiga-s1_0.jpg",
+   "img_alt": "Taiga-S1: parts the model built in FreeCAD",
+   "img2": "shhivv_taiga-s1_1.jpg",
+   "img2_alt": "Parts built correctly vs. goal length"
   }
  ]
 }

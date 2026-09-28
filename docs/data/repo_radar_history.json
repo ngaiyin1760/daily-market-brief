@@ -1,6 +1,119 @@
 {
  "days": [
   {
+   "date": "2026-09-28",
+   "generated_at": "2026-09-28 08:43 HKT",
+   "repos": [
+    {
+     "name": "Gaurav-Gosain/tuios",
+     "url": "https://github.com/Gaurav-Gosain/tuios",
+     "language": "Go",
+     "description": "A terminal window manager that knows what your agents are doing. Tiling panes, workspaces, sessions that survive restarts, and one Inbox for every coding agent.",
+     "keywords": [
+      "Self-hosted"
+     ],
+     "trendshift_pos": 13,
+     "stars": 3934,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A terminal window manager designed specifically to orchestrate and monitor multiple coding agents.",
+     "bullets": [
+      "Built in Go with a focus on high-performance terminal session management.",
+      "Features tiling panes, persistent workspaces, and session recovery across restarts.",
+      "Provides a centralized 'Inbox' to aggregate outputs and status updates from various AI coding agents.",
+      "Optimizes developer workflow by unifying fragmented agent interactions into a single interface."
+     ],
+     "img": "Gaurav-Gosain_tuios_0.jpg",
+     "img_alt": "TUIOS"
+    },
+    {
+     "name": "dzhng/jevgrep",
+     "url": "https://github.com/dzhng/jevgrep",
+     "language": "TypeScript",
+     "description": "Find code by asking what it does. A CLI for coding agents that uses Jev to discover relevant files and source context.",
+     "keywords": [],
+     "trendshift_pos": 8,
+     "stars": 763,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A CLI tool that enables coding agents to perform semantic code discovery and context retrieval.",
+     "bullets": [
+      "TypeScript-based CLI designed to bridge the gap between LLM reasoning and local file system navigation.",
+      "Uses the Jev engine to index and search codebases based on functional intent rather than just keyword matching.",
+      "Acts as a critical retrieval-augmented generation (RAG) component for autonomous coding agents.",
+      "Reduces token waste by providing agents with only the most relevant source context for a specific task."
+     ],
+     "img": "dzhng_jevgrep_0.jpg",
+     "img_alt": "jevgrep — Same intelligence. About 30% lower cost.",
+     "img2": "dzhng_jevgrep_1.jpg",
+     "img2_alt": "Jevgrep workflow: about 30% lower coding-agent cost, with 8 of 10 tasks solved both with and without Jevgrep."
+    },
+    {
+     "name": "oblien/openship",
+     "url": "https://github.com/oblien/openship",
+     "language": "TypeScript",
+     "description": "Self-hosted deployment platform",
+     "keywords": [
+      "Self-hosted"
+     ],
+     "trendshift_pos": 6,
+     "stars": 12881,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A self-hosted deployment platform designed to simplify infrastructure management for modern applications.",
+     "bullets": [
+      "Full-stack deployment solution built with TypeScript for high extensibility.",
+      "Provides a self-hosted alternative to managed PaaS providers, offering full control over infrastructure.",
+      "Streamlines CI/CD pipelines and environment management for developers and small teams.",
+      "Ideal for hosting internal tools, microservices, or staging environments with minimal overhead."
+     ]
+    },
+    {
+     "name": "aipoch/open-science",
+     "url": "https://github.com/aipoch/open-science",
+     "language": "TypeScript",
+     "description": "An open-source, model-agnostic AI workbench for scientific discovery.",
+     "keywords": [
+      "AI agent",
+      "Self-hosted"
+     ],
+     "trendshift_pos": 1,
+     "stars": 5153,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An open-source, model-agnostic AI workbench tailored for scientific discovery and research workflows.",
+     "bullets": [
+      "TypeScript-based architecture that supports integration with various LLM backends.",
+      "Designed to facilitate complex data analysis and hypothesis testing in scientific domains.",
+      "Provides a modular workbench environment for researchers to experiment with AI-driven discovery.",
+      "Supports reproducible research by standardizing how models interact with scientific datasets."
+     ]
+    },
+    {
+     "name": "shhivv/taiga-s1",
+     "url": "https://github.com/shhivv/taiga-s1",
+     "language": "Python",
+     "description": "Taiga-S1: a 1.2M-parameter System-1 model that builds CAD parts in FreeCAD",
+     "keywords": [],
+     "trendshift_pos": 12,
+     "stars": 12,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A compact 1.2M-parameter System-1 model specialized for generating CAD parts in FreeCAD.",
+     "bullets": [
+      "Python-based implementation utilizing a highly efficient, small-scale neural architecture.",
+      "Focuses on 'System-1' thinking, prioritizing rapid, intuitive generation over complex reasoning.",
+      "Automates the creation of 3D mechanical components directly within the FreeCAD ecosystem.",
+      "Demonstrates the potential for specialized, lightweight AI agents in engineering and manufacturing workflows."
+     ],
+     "img": "shhivv_taiga-s1_0.jpg",
+     "img_alt": "Taiga-S1: parts the model built in FreeCAD",
+     "img2": "shhivv_taiga-s1_1.jpg",
+     "img2_alt": "Parts built correctly vs. goal length"
+    }
+   ]
+  },
+  {
    "date": "2026-09-27",
    "generated_at": "2026-09-27 08:33 HKT",
    "repos": [
