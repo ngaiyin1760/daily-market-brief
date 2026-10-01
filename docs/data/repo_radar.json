@@ -1,110 +1,109 @@
 {
- "generated_at": "2026-10-01 16:25 HKT",
+ "generated_at": "2026-10-01 17:02 HKT",
  "repos": [
   {
-   "name": "t8y2/dbx",
-   "url": "https://github.com/t8y2/dbx",
-   "language": "Rust",
-   "description": "25 MB lightweight cross-platform database client for 100+ databases, including MySQL, PostgreSQL, SQLite, Redis, MongoDB, DuckDB, SQL Server, and Dameng. Built-in AI, MCP Server, CLI, desktop and Docker. | 轻量级跨平台数据库管理工具，支持 MySQL、PostgreSQL、SQLite、Redis、MongoDB、达梦等 100+ 数据库，提供桌面端、Docker、CLI、内置 AI 助手和 MCP。",
-   "keywords": [],
-   "trendshift_pos": 16,
-   "stars": 23480,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A lightweight, cross-platform database client featuring built-in AI and MCP server capabilities.",
-   "bullets": [
-    "Built with Rust for high performance and a compact 25MB footprint.",
-    "Supports 100+ database types including DuckDB, PostgreSQL, and Redis.",
-    "Integrates AI-driven query assistance and an MCP server for agentic workflows.",
-    "Ideal for database administrators and developers needing a unified interface for polyglot data environments."
-   ]
-  },
-  {
-   "name": "archestra-ai/OpenAPPA",
-   "url": "https://github.com/archestra-ai/OpenAPPA",
-   "language": "Rust",
-   "description": "Deterministic security for real-world agentic applications",
+   "name": "odysseus-dev/odysseus",
+   "url": "https://github.com/odysseus-dev/odysseus",
+   "language": "Python",
+   "description": "Self-hosted AI workspace.",
    "keywords": [
     "AI agent",
-    "AI infrastructure"
+    "Self-hosted"
    ],
-   "trendshift_pos": 13,
-   "stars": 963,
+   "trendshift_pos": 14,
+   "stars": 87967,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A framework providing deterministic security for real-world agentic applications.",
+   "one_liner": "A comprehensive, self-hosted AI workspace designed to centralize agentic workflows and local model management.",
    "bullets": [
-    "Written in Rust to ensure memory safety and high-performance execution.",
-    "Focuses on security guardrails for autonomous agents interacting with real-world systems.",
-    "Provides deterministic control mechanisms to prevent unexpected agent behavior.",
-    "Essential for enterprise fintech or infrastructure teams deploying agents in production."
-   ],
-   "img": "archestra-ai_OpenAPPA_0.jpg",
-   "img_alt": "A protected Claude Code session refuses to post content from a private meeting recording to a public GitHub repo, and explains why"
-  },
-  {
-   "name": "Niko1221/Strata",
-   "url": "https://github.com/Niko1221/Strata",
-   "language": "C++",
-   "description": "Qwen3.8-Flash-Next (125B MoE) on a 12-24 GB NVIDIA GPU + 64 GB RAM: one-click install for Windows / Linux. Strata inference engine, OpenAI/Anthropic API on localhost, optional image input.",
-   "keywords": [
-    "Local LLM",
-    "Chatbot"
-   ],
-   "trendshift_pos": 9,
-   "stars": 3519,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance inference engine enabling large MoE models to run on consumer-grade hardware.",
-   "bullets": [
-    "C++ based inference engine optimized for 12-24GB VRAM and 64GB RAM configurations.",
-    "Supports local hosting of large models like Qwen3.8-Flash-Next with OpenAI/Anthropic API compatibility.",
-    "Enables private, low-latency LLM deployment without relying on external cloud providers.",
-    "Perfect for quant researchers or developers building local AI-driven trading or analysis tools."
+    "Built on a modular Python architecture supporting local LLM integration and persistent memory.",
+    "Provides a unified interface for managing agentic tasks, file system interactions, and data processing.",
+    "Ideal for developers and researchers requiring a private, secure environment for AI-driven development and automation.",
+    "Focuses on data sovereignty and low-latency execution for complex agentic workflows."
    ]
   },
   {
-   "name": "monid-ai/monid",
-   "url": "https://github.com/monid-ai/monid",
-   "language": "TypeScript",
-   "description": "Monid - OpenRouter for agent tools. Join our community at https://discord.gg/rQzztcgJV8",
+   "name": "AgentSafeLabs/safelabs-eval",
+   "url": "https://github.com/AgentSafeLabs/safelabs-eval",
+   "language": "Python",
+   "description": "OWASP ASI-aligned red-teaming and evaluation framework for AI agents",
    "keywords": [
-    "AI agent"
+    "AI agent",
+    "Pentesting"
    ],
-   "trendshift_pos": 12,
-   "stars": 911,
+   "trendshift_pos": 25,
+   "stars": 370,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An OpenRouter-style gateway specifically designed for agent tools.",
+   "one_liner": "A specialized red-teaming and evaluation framework aligned with OWASP ASI standards for securing AI agents.",
    "bullets": [
-    "TypeScript-based architecture designed for high-throughput tool routing.",
-    "Acts as a centralized hub for managing and dispatching agentic tool calls.",
-    "Simplifies the integration of diverse AI tools into a unified agent workflow.",
-    "Useful for developers building complex agentic ecosystems that require standardized tool access."
-   ],
-   "img": "monid-ai_monid_0.jpg",
-   "img_alt": "discover and inspect are free, run is billed per use",
-   "img2": "monid-ai_monid_1.jpg",
-   "img2_alt": "Definitions compile into one atomic bundle, then link into a sealed unit the engine runs"
+    "Utilizes a Python-based testing suite to simulate adversarial attacks against LLM-powered agents.",
+    "Maps evaluation metrics directly to OWASP AI Security Initiative (ASI) vulnerabilities.",
+    "Essential for fintech and enterprise teams needing to validate agent safety before production deployment.",
+    "Automates the detection of prompt injection, data leakage, and unauthorized tool execution."
+   ]
   },
   {
-   "name": "composio-community/open-dot",
-   "url": "https://github.com/composio-community/open-dot",
-   "language": "TypeScript",
-   "description": "Open-source personal AI agents that work on their own, on their own computers. Mac app, OpenAI + Composio.",
+   "name": "rehan-remade/universal-modder",
+   "url": "https://github.com/rehan-remade/universal-modder",
+   "language": "Python",
+   "description": "Point Claude at any game. Skills, tools and the fal MCP that let Claude Code mod almost any PC game you own: recon, reverse engineering, fal-generated art/3D/audio, in-game testing, showcase videos.",
    "keywords": [
-    "AI agent"
+    "AI agent",
+    "AI coding assistant",
+    "Game development"
    ],
-   "trendshift_pos": 23,
-   "stars": 245,
+   "trendshift_pos": 6,
+   "stars": 1089,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An open-source platform for personal AI agents that operate autonomously on local machines.",
+   "one_liner": "An MCP-powered agentic framework that enables Claude Code to perform automated reverse engineering and game modification.",
    "bullets": [
-    "TypeScript-based Mac application integrating OpenAI models with the Composio ecosystem.",
-    "Enables agents to perform tasks locally, ensuring data privacy and persistent execution.",
-    "Designed for deep integration with local files, system tools, and developer environments.",
-    "Targeted at power users and developers building autonomous agents for personal productivity or dev-ops."
+    "Integrates Claude Code with the Model Context Protocol (MCP) to interact with game binaries and assets.",
+    "Uses fal-AI for generative asset creation, including 3D models, textures, and audio synthesis.",
+    "Demonstrates advanced agentic capabilities in complex, non-deterministic environments like PC gaming.",
+    "Useful for rapid prototyping of automated software patching and reverse engineering workflows."
+   ]
+  },
+  {
+   "name": "nicobailon/visual-explainer",
+   "url": "https://github.com/nicobailon/visual-explainer",
+   "language": "HTML",
+   "description": "Agent skill that generates rich HTML pages or slide decks for diagrams, diff reviews, plan audits, data tables, and project recaps",
+   "keywords": [
+    "AI agent",
+    "AI skills"
+   ],
+   "trendshift_pos": 20,
+   "stars": 10072,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An agentic skill that automatically generates rich, interactive HTML visualizations for complex technical data and project audits.",
+   "bullets": [
+    "Uses a lightweight HTML/JS stack to render dynamic diagrams, diff reviews, and data tables.",
+    "Acts as a communication layer for AI agents to present complex analytical findings to human stakeholders.",
+    "Perfect for quant and fintech reporting where transparency in agentic decision-making is critical.",
+    "Supports automated generation of slide decks and project recaps directly from agent logs."
+   ]
+  },
+  {
+   "name": "PSRben/VisionHOPE",
+   "url": "https://github.com/PSRben/VisionHOPE",
+   "language": "Python",
+   "description": "Official PyTorch implementation of VisionHOPE: Visual Backbones as Self-Modifying Learning Systems.",
+   "keywords": [
+    "Computer vision"
+   ],
+   "trendshift_pos": 17,
+   "stars": 318,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A PyTorch implementation of self-modifying visual backbones that adapt their architecture during the learning process.",
+   "bullets": [
+    "Implements dynamic neural network structures that evolve based on input data characteristics.",
+    "Leverages PyTorch for high-performance tensor operations and gradient-based architectural updates.",
+    "Represents a frontier approach to computer vision, potentially reducing the need for massive static pre-training.",
+    "Applicable in high-frequency visual analysis tasks where model efficiency and adaptability are paramount."
    ]
   }
  ]
