@@ -1,3 +1,7 @@
 .venv/
 __pycache__/
 *.local.md
+
+# Atomic-write scratch file for docs/data/search_index.json. The workflow
+# commits docs/ wholesale, so a leftover temp file must never be staged.
+*.tmp

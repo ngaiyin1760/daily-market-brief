@@ -62,7 +62,12 @@ Two more always-visible tabs sit under **Markets**:
   recency boost); **Semantic (AI)** mode embeds the query with a
   referrer-restricted browser key, retrieves the closest matches from the
   precomputed embeddings, and answers with inline citations. The index lives
-  in `docs/data/search_index.json` (built + embedded daily in CI).
+  in `docs/data/search_index.json` (built + embedded daily in CI). Embeddings
+  are 768-dim and stored as base64 int8 (~1.9 KB/item); the file is trimmed
+  oldest-first to `SEARCH_INDEX_MAX_BYTES` (16 MB, ~7 months of history) so it
+  cannot grow without bound — a 3072-dim float index reached 101.64 MB on
+  2026-09-30, past GitHub's 100 MB push limit, which silently blocked every
+  subsequent brief until the format was slimmed down.
 
 Both tabs follow the site's non-fatal rule: a source that fails to load just
 runs short or shows an empty note — it never breaks the daily brief.

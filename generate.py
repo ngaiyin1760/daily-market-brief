@@ -12,6 +12,7 @@ unrecoverable errors (e.g. template rendering / writing output fails).
 """
 
 import argparse
+import base64
 import calendar
 import json
 import logging
@@ -1712,28 +1713,123 @@ def _group_posts_by_blog(posts):
 # Search index (keyword + semantic embeddings) for the Search page
 # ---------------------------------------------------------------------------
 
-SEARCH_INDEX_VERSION = 2   # bump = re-embed all items (embed input changed)
+SEARCH_INDEX_VERSION = 3   # bump = re-embed all items (embed input/format changed)
+
+# Embeddings are stored 768-dim (Matryoshka truncation of gemini-embedding-001)
+# and quantized to int8 + base64. Writing 3072-dim floats as JSON cost ~42 KB
+# per item, which drove the index past GitHub's 100 MB per-file push limit on
+# 2026-09-30 and silently blocked every subsequent brief. At ~1.9 KB per item
+# the index now grows ~0.08 MB/day instead of ~1.95 MB/day.
+SEARCH_EMBED_DIM = 768
+# batchEmbedContents caps the number of requests per call; the first run after
+# a version bump re-embeds the whole index, which is far more than one batch.
+SEARCH_EMBED_BATCH = 50
+# Byte budget for the committed index. It is trimmed oldest-first, so the file
+# plateaus instead of growing without bound (the previous 50k-item cap would
+# have allowed a multi-GB file and never protected the push). 16 MB keeps
+# roughly seven months of history and stays loadable on a phone.
+SEARCH_INDEX_MAX_BYTES = 16 * 1024 * 1024
+# --check fails above this, well clear of GitHub's hard 100 MB reject.
+SEARCH_INDEX_HARD_LIMIT = 60 * 1024 * 1024
+# A single item this big is not real content (real ones are ~2 KB); dropping
+# such an item keeps the byte budget provably reachable instead of letting one
+# pathological item crowd out — or, worse, clear — the whole index.
+SEARCH_ITEM_MAX_BYTES = 1024 * 1024
 
 
 def embed_texts(texts):
     """Batch-embed a list of strings with Gemini's embedding model, using the
-    server-side key. Returns a list of vectors (same order). Raises on
-    failure (caller decides whether to degrade to keyword-only)."""
+    server-side key. Returns a list of vectors aligned with `texts`, with None
+    where a batch failed (caller decides whether to degrade to keyword-only).
+    Chunked because batchEmbedContents rejects oversized batches."""
     if not GEMINI_API_KEY:
         raise RuntimeError("No GEMINI_API_KEY for embeddings")
     url = ("https://generativelanguage.googleapis.com/v1beta/models/"
            f"{GEMINI_EMBED_MODEL}:batchEmbedContents?key={GEMINI_API_KEY}")
-    payload = {"requests": [{"model": f"models/{GEMINI_EMBED_MODEL}",
-                             "content": {"parts": [{"text": t}]}}
-                            for t in texts]}
-    resp = requests.post(url, json=payload, headers={}, timeout=60)
-    if resp.status_code == 429:
-        time.sleep(5)
-        resp = requests.post(url, json=payload, headers={}, timeout=60)
-    resp.raise_for_status()
-    data = resp.json()
-    embs = data.get("embeddings") or []
-    return [e.get("values", []) for e in embs]
+    out = []
+    for start in range(0, len(texts), SEARCH_EMBED_BATCH):
+        chunk = texts[start:start + SEARCH_EMBED_BATCH]
+        payload = {"requests": [
+            {"model": f"models/{GEMINI_EMBED_MODEL}",
+             "content": {"parts": [{"text": t}]},
+             "outputDimensionality": SEARCH_EMBED_DIM}
+            for t in chunk]}
+        try:
+            resp = None
+            for attempt in range(4):
+                resp = requests.post(url, json=payload, headers={}, timeout=120)
+                if resp.status_code == 429:
+                    time.sleep(min(5 * 2 ** attempt, 60))
+                    continue
+                break
+            resp.raise_for_status()
+            vals = [e.get("values") or [] for e in (resp.json().get("embeddings") or [])]
+            # Never let a longer-than-requested response shift every later
+            # item's vector: alignment is by position.
+            vals = vals[:len(chunk)]
+        except Exception as exc:
+            log.warning("Search: embed batch %d-%d failed (%s)",
+                        start, start + len(chunk), exc)
+            vals = []
+        out.extend(vals + [None] * (len(chunk) - len(vals)))
+    return out
+
+
+def quantize_embedding(vec):
+    """int8 + base64 for one embedding vector. Cosine similarity is
+    scale-invariant, so each vector is scaled by its own max-abs component and
+    the scale never needs storing (the client rescales implicitly)."""
+    if not vec:
+        return None
+    peak = max(abs(x) for x in vec) or 1.0
+    scale = 127.0 / peak
+    raw = bytes((max(-127, min(127, int(round(x * scale)))) & 0xFF) for x in vec)
+    return base64.b64encode(raw).decode("ascii")
+
+
+def serialize_search_index(items):
+    return json.dumps({"version": SEARCH_INDEX_VERSION, "items": items},
+                      indent=1, ensure_ascii=False)
+
+
+def write_search_index(items):
+    """Write the index atomically: a crash mid-write would otherwise leave
+    invalid JSON, and the next run treats an unreadable index as empty —
+    silently discarding the whole search history."""
+    tmp = SEARCH_INDEX_PATH.with_name(SEARCH_INDEX_PATH.name + ".tmp")
+    tmp.write_text(serialize_search_index(items), encoding="utf-8")
+    os.replace(tmp, SEARCH_INDEX_PATH)
+
+
+def trim_search_index(items, max_bytes=None):
+    """Keep the newest items that fit the byte budget.
+
+    Sized in UTF-8 bytes, not characters: non-ASCII text runs to 3-4 bytes per
+    character, so a character count would let the file overshoot by ~4x. Items
+    that cannot fit are skipped rather than ending the walk, so a single huge
+    item never discards the history behind it, and the list is append-ordered
+    so whichever of the oldest survivors do not fit are shed from the front.
+    """
+    budget = SEARCH_INDEX_MAX_BYTES if max_bytes is None else max_bytes
+    kept, used = [], 128   # leave room for the JSON envelope
+    for it in reversed(items):
+        size = len(json.dumps(it, ensure_ascii=False).encode("utf-8")) + 2
+        if size > SEARCH_ITEM_MAX_BYTES or used + size > budget:
+            continue
+        used += size
+        kept.append(it)
+    kept.reverse()
+    # The greedy pass measures compact JSON, which understates the indented
+    # envelope; shed the remainder proportionally until the real serialization
+    # fits. Items are capped at SEARCH_ITEM_MAX_BYTES, so this converges.
+    for _ in range(8):
+        body = serialize_search_index(kept).encode("utf-8")
+        if len(body) <= budget or not kept:
+            break
+        excess = len(body) - budget
+        drop = max(1, int(len(kept) * excess / len(body)) + 1)
+        kept = kept[drop:]
+    return kept
 
 
 def search_item(text, kind, date, title, url, source, rating):
@@ -1790,36 +1886,47 @@ def build_search_index(page_date, news, analytics_blogs, repos):
     # Embed anything lacking an embedding OR carrying an embedding from a
     # previous embed format (version bump forces a full re-embed, so semantic
     # search always uses the current input format).
-    need_reembed = existing and existing[0].get("embed_ver") != SEARCH_INDEX_VERSION
-    to_embed = [i for i in new_items] + [
-        i for i in existing if not i.get("embedding") or need_reembed]
-    for i in to_embed:
-        i["embedding"] = None
-        i["embed_ver"] = SEARCH_INDEX_VERSION
+    # Stale vectors are stripped up front: they are the wrong dimension, and
+    # dropping them keeps the index small even if re-embedding fails. Items are
+    # retried on later runs because embed_ver is only stamped on success.
+    for i in existing:
+        if i.get("embed_ver") != SEARCH_INDEX_VERSION:
+            i["embedding"] = None
+
+    to_embed = [i for i in new_items + existing if not i.get("embedding")]
     if to_embed:
+        # Everything that can raise lives inside this try: the caller treats
+        # the search index as non-fatal, so an escaped exception here would
+        # take the whole daily brief down with it.
         try:
             texts = [f"{i['title']}\n{i['text']}\nSource: {i.get('source','')}"
                      for i in to_embed]
             vectors = embed_texts(texts)
+            done = 0
             for i, v in zip(to_embed, vectors):
-                if v:
-                    i["embedding"] = v
-            log.info("Search: embedded %d item(s) (%d new, %d re-embedded)",
-                     len(to_embed), len(new_items),
-                     len(to_embed) - len(new_items))
+                if v and len(v) == SEARCH_EMBED_DIM:
+                    i["embedding"] = quantize_embedding(v)
+                    i["embed_ver"] = SEARCH_INDEX_VERSION
+                    done += 1
+                elif v:
+                    log.warning("Search: embedding of width %d (expected %d) "
+                                "for %r; leaving item keyword-only",
+                                len(v), SEARCH_EMBED_DIM, i.get("title", "")[:60])
+            log.info("Search: embedded %d/%d item(s) (%d new, %d re-embedded)",
+                     done, len(to_embed), len(new_items),
+                     max(0, len(to_embed) - len(new_items)))
         except Exception as exc:
             log.warning("Search embeddings failed (%s); keyword-only index", exc)
     else:
         log.info("Search: all %d item(s) already embedded", len(existing))
 
-    all_items = existing + new_items
-    # Bound the index (cap ~5 years of daily data).
-    if len(all_items) > 50000:
-        all_items = all_items[-50000:]
-    payload = {"version": SEARCH_INDEX_VERSION, "items": all_items}
-    SEARCH_INDEX_PATH.write_text(
-        json.dumps(payload, indent=1, ensure_ascii=False), encoding="utf-8")
-    log.info("Wrote %s (%d items)", SEARCH_INDEX_PATH, len(all_items))
+    all_items = trim_search_index(existing + new_items)
+    if len(all_items) < len(existing) + len(new_items):
+        log.info("Search: trimmed index to %d item(s) (byte budget)",
+                 len(all_items))
+    write_search_index(all_items)
+    log.info("Wrote %s (%d items, %.1f MB)", SEARCH_INDEX_PATH, len(all_items),
+             SEARCH_INDEX_PATH.stat().st_size / 1048576)
     return new_items
 
 
@@ -3651,6 +3758,27 @@ def check_outputs(page_date, generated_at, news, groups):
         si = json.loads(SEARCH_INDEX_PATH.read_text(encoding="utf-8"))
         if not isinstance(si.get("items"), list):
             problems.append("search index items not a list")
+        elif si.get("version") != SEARCH_INDEX_VERSION:
+            # Only reachable if build_search_index never wrote (it is called
+            # from a non-fatal block) — that must not block the whole brief.
+            log.warning("Search index is version %s, expected %s "
+                        "(semantic search may be degraded)",
+                        si.get("version"), SEARCH_INDEX_VERSION)
+        # A missing-embedding index only degrades search to keyword-only,
+        # which is an explicit fallback — warn rather than block the push.
+        items = si.get("items")
+        if isinstance(items, list) and items and \
+                not any(i.get("embedding") for i in items):
+            log.warning("Search index carries no embeddings; "
+                        "semantic search is keyword-only until re-embedded")
+        # GitHub rejects any file over 100 MB, which silently blocked every
+        # brief from 2026-09-30 until the index was slimmed down. Checked
+        # regardless of version: a stale index is exactly the oversized case.
+        size = SEARCH_INDEX_PATH.stat().st_size
+        if size > SEARCH_INDEX_HARD_LIMIT:
+            problems.append(
+                f"search index {size / 1048576:.1f} MB exceeds the "
+                f"{SEARCH_INDEX_HARD_LIMIT / 1048576:.0f} MB safety limit")
     except Exception as exc:
         problems.append(f"search index unreadable: {exc}")
     try:
