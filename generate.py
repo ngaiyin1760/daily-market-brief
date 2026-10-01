@@ -1755,18 +1755,43 @@ def embed_texts(texts):
              "outputDimensionality": SEARCH_EMBED_DIM}
             for t in chunk]}
         try:
-            resp = None
+            vals = []
             for attempt in range(4):
-                resp = requests.post(url, json=payload, headers={}, timeout=120)
-                if resp.status_code == 429:
-                    time.sleep(min(5 * 2 ** attempt, 60))
+                backoff = min(5 * 2 ** attempt, 60)
+                try:
+                    resp = requests.post(url, json=payload, headers={},
+                                         timeout=120)
+                except Exception as exc:
+                    log.warning("Search: embed batch %d-%d request failed (%s)",
+                                start, start + len(chunk), exc)
+                    time.sleep(backoff)
                     continue
-                break
-            resp.raise_for_status()
-            vals = [e.get("values") or [] for e in (resp.json().get("embeddings") or [])]
-            # Never let a longer-than-requested response shift every later
-            # item's vector: alignment is by position.
-            vals = vals[:len(chunk)]
+                if resp.status_code == 429 or resp.status_code >= 500:
+                    time.sleep(backoff)
+                    continue
+                if resp.status_code >= 400:
+                    log.warning("Search: embed batch %d-%d HTTP %d",
+                                start, start + len(chunk), resp.status_code)
+                    break
+                try:
+                    body = resp.json()
+                except Exception:
+                    body = {}
+                # Alignment is by position, so never let a longer-than-asked
+                # response shift every later item's vector.
+                vals = [e.get("values") or []
+                        for e in (body.get("embeddings") or [])][:len(chunk)]
+                if len(vals) == len(chunk) and all(vals):
+                    break
+                # A 200 carrying a short or empty embeddings list does happen
+                # under load. It must be treated as transient: padding with
+                # None here silently leaves a whole batch unembedded (this is
+                # what stranded 923 of 1923 items on the 2026-10-01 migration).
+                log.warning("Search: embed batch %d-%d returned %d/%d vectors; "
+                            "retrying (%s)", start, start + len(chunk),
+                            len(vals), len(chunk), str(body)[:160])
+                vals = []
+                time.sleep(backoff)
         except Exception as exc:
             log.warning("Search: embed batch %d-%d failed (%s)",
                         start, start + len(chunk), exc)
@@ -1893,7 +1918,11 @@ def build_search_index(page_date, news, analytics_blogs, repos):
         if i.get("embed_ver") != SEARCH_INDEX_VERSION:
             i["embedding"] = None
 
-    to_embed = [i for i in new_items + existing if not i.get("embedding")]
+    # Embed newest-first: when a run is cut short (rate limit, quota) the
+    # recent items — the ones actually being searched — are the ones that get
+    # done. The index itself stays append-ordered for trim_search_index().
+    to_embed = [i for i in reversed(existing + new_items)
+                if not i.get("embedding")]
     if to_embed:
         # Everything that can raise lives inside this try: the caller treats
         # the search index as non-fatal, so an escaped exception here would
