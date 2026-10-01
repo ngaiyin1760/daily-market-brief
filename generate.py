@@ -1724,6 +1724,13 @@ SEARCH_EMBED_DIM = 768
 # batchEmbedContents caps the number of requests per call; the first run after
 # a version bump re-embeds the whole index, which is far more than one batch.
 SEARCH_EMBED_BATCH = 50
+# Retries per batch, and how many batches may fail back-to-back before the
+# phase is abandoned. The embedding quota is finite (~1000 embeddings/day was
+# observed on 2026-10-01), so a full re-embed cannot finish in one run; giving
+# up early beats grinding through every remaining batch. Unembedded items are
+# picked up by the next run, so the index fills in over subsequent days.
+SEARCH_EMBED_ATTEMPTS = 3
+SEARCH_EMBED_MAX_FAILED_BATCHES = 3
 # Byte budget for the committed index. It is trimmed oldest-first, so the file
 # plateaus instead of growing without bound (the previous 50k-item cap would
 # have allowed a multi-GB file and never protected the push). 16 MB keeps
@@ -1746,57 +1753,65 @@ def embed_texts(texts):
         raise RuntimeError("No GEMINI_API_KEY for embeddings")
     url = ("https://generativelanguage.googleapis.com/v1beta/models/"
            f"{GEMINI_EMBED_MODEL}:batchEmbedContents?key={GEMINI_API_KEY}")
-    out = []
+    out, consecutive = [], 0
     for start in range(0, len(texts), SEARCH_EMBED_BATCH):
         chunk = texts[start:start + SEARCH_EMBED_BATCH]
-        payload = {"requests": [
-            {"model": f"models/{GEMINI_EMBED_MODEL}",
-             "content": {"parts": [{"text": t}]},
-             "outputDimensionality": SEARCH_EMBED_DIM}
-            for t in chunk]}
-        try:
-            vals = []
-            for attempt in range(4):
-                backoff = min(5 * 2 ** attempt, 60)
-                try:
-                    resp = requests.post(url, json=payload, headers={},
-                                         timeout=120)
-                except Exception as exc:
-                    log.warning("Search: embed batch %d-%d request failed (%s)",
-                                start, start + len(chunk), exc)
-                    time.sleep(backoff)
-                    continue
-                if resp.status_code == 429 or resp.status_code >= 500:
-                    time.sleep(backoff)
-                    continue
+        vals, reason = [], "no attempt made"
+        for attempt in range(SEARCH_EMBED_ATTEMPTS):
+            payload = {"requests": [
+                {"model": f"models/{GEMINI_EMBED_MODEL}",
+                 "content": {"parts": [{"text": t}]},
+                 "outputDimensionality": SEARCH_EMBED_DIM}
+                for t in chunk]}
+            try:
+                resp = requests.post(url, json=payload, headers={}, timeout=120)
+            except Exception as exc:
+                resp, reason = None, f"request error: {exc}"
+
+            if resp is not None:
                 if resp.status_code >= 400:
-                    log.warning("Search: embed batch %d-%d HTTP %d",
-                                start, start + len(chunk), resp.status_code)
-                    break
-                try:
-                    body = resp.json()
-                except Exception:
-                    body = {}
-                # Alignment is by position, so never let a longer-than-asked
-                # response shift every later item's vector.
-                vals = [e.get("values") or []
-                        for e in (body.get("embeddings") or [])][:len(chunk)]
-                if len(vals) == len(chunk) and all(vals):
-                    break
-                # A 200 carrying a short or empty embeddings list does happen
-                # under load. It must be treated as transient: padding with
-                # None here silently leaves a whole batch unembedded (this is
-                # what stranded 923 of 1923 items on the 2026-10-01 migration).
-                log.warning("Search: embed batch %d-%d returned %d/%d vectors; "
-                            "retrying (%s)", start, start + len(chunk),
-                            len(vals), len(chunk), str(body)[:160])
-                vals = []
-                time.sleep(backoff)
-        except Exception as exc:
-            log.warning("Search: embed batch %d-%d failed (%s)",
-                        start, start + len(chunk), exc)
-            vals = []
+                    # 429 (rate/quota) and 5xx are worth another try; anything
+                    # else will not improve by asking again.
+                    reason = f"HTTP {resp.status_code}"
+                    if resp.status_code != 429 and resp.status_code < 500:
+                        log.warning("Search: embed batch %d-%d %s",
+                                    start, start + len(chunk), reason)
+                        break
+                else:
+                    try:
+                        body = resp.json()
+                    except Exception:
+                        body = {}
+                    # Alignment is positional: never let a longer-than-asked
+                    # response shift every later item's vector.
+                    vals = [e.get("values") or []
+                            for e in (body.get("embeddings") or [])][:len(chunk)]
+                    if len(vals) == len(chunk) and all(vals):
+                        break
+                    # A 200 carrying a short or empty embeddings list happens
+                    # once the quota is spent. Silently padding with None here
+                    # is what stranded 923 of 1923 items on the 2026-10-01 run.
+                    reason = (f"HTTP 200 with {len(vals)}/{len(chunk)} vectors: "
+                              f"{str(body)[:120]}")
+                    vals = []
+            log.warning("Search: embed batch %d-%d attempt %d/%d failed (%s)",
+                        start, start + len(chunk), attempt + 1,
+                        SEARCH_EMBED_ATTEMPTS, reason)
+            time.sleep(min(5 * 2 ** attempt, 60))
+        ok = len(vals) == len(chunk) and all(vals)
         out.extend(vals + [None] * (len(chunk) - len(vals)))
+        consecutive = 0 if ok else consecutive + 1
+        if not ok:
+            log.warning("Search: batch %d-%d gave up after %d attempt(s) (%s)",
+                        start, start + len(chunk), SEARCH_EMBED_ATTEMPTS, reason)
+        if consecutive >= SEARCH_EMBED_MAX_FAILED_BATCHES:
+            remaining = len(texts) - (start + len(chunk))
+            log.warning("Search: %d consecutive batches failed; abandoning the "
+                        "embedding phase with %d item(s) left unembedded — "
+                        "these are retried on the next run",
+                        consecutive, remaining)
+            out.extend([None] * remaining)
+            break
     return out
 
 
