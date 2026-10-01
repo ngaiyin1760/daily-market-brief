@@ -1890,7 +1890,7 @@
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-09-29 09:55 HKT");
+  var dataTS = encodeURIComponent("2026-10-01 16:25 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
@@ -2701,6 +2701,9 @@
   // Gemini directly (needs a non-HK IP / VPN).
   var WORKER_URL = "https://dmb-search-proxy.ngaiyin1760.workers.dev";
   var EMBED_MODEL = "gemini-embedding-001";
+  // Must match SEARCH_EMBED_DIM in generate.py — the query vector has to be
+  // the same width as the stored ones or every item is filtered out.
+  var EMBED_DIM = 768;
   var GENERATION_MODEL = "gemini-3.1-flash-lite";
 
   var input = document.getElementById("search-input");
@@ -2720,11 +2723,37 @@
     return k === "news" ? "News" : k === "analytics" ? "Analytics" : "Repo Radar";
   }
 
+  // Stored embeddings ship as base64 int8 (see quantize_embedding in
+  // generate.py) — 768 bytes per item instead of ~40 KB of float JSON, which
+  // is what pushed the index past GitHub's push limit. Cosine similarity is
+  // scale-invariant, so the per-vector scale is neither stored nor needed.
+  function decodeEmbedding(s) {
+    var bin = atob(s);
+    var out = new Int8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) {
+      var c = bin.charCodeAt(i);
+      out[i] = c > 127 ? c - 256 : c;
+    }
+    return out;
+  }
+  function prepareItem(it) {
+    if (typeof it.embedding === "string" && it.embedding) {
+      try { it.embedding = decodeEmbedding(it.embedding); }
+      catch (e) { it.embedding = null; }
+    } else if (!it.embedding) {
+      it.embedding = null;
+    }
+    return it;
+  }
+
   function loadIndex() {
     if (indexPromise) return indexPromise;
     indexPromise = fetch(base + "/data/search_index.json?v=" + Date.now())
       .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-      .then(function (d) { index = (d && d.items) || []; status.textContent = index.length + " items indexed"; })
+      .then(function (d) {
+        index = ((d && d.items) || []).map(prepareItem);
+        status.textContent = index.length + " items indexed";
+      })
       .catch(function () { status.textContent = "Search index unavailable — try again later."; });
     return indexPromise;
   }
@@ -2786,7 +2815,8 @@
       referrerPolicy: "no-referrer",
       body: JSON.stringify({
         model: "models/" + EMBED_MODEL,
-        content: { parts: [{ text: q }] }
+        content: { parts: [{ text: q }] },
+        outputDimensionality: EMBED_DIM
       })
     };
     return fetch(url, init).then(function (r) {
