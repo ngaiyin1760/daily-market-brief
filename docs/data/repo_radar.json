@@ -1,111 +1,105 @@
 {
- "generated_at": "2026-10-01 17:34 HKT",
+ "generated_at": "2026-10-02 09:40 HKT",
  "repos": [
   {
-   "name": "t8y2/dbx",
-   "url": "https://github.com/t8y2/dbx",
-   "language": "Rust",
-   "description": "25 MB lightweight cross-platform database client for 100+ databases, including MySQL, PostgreSQL, SQLite, Redis, MongoDB, DuckDB, SQL Server, and Dameng. Built-in AI, MCP Server, CLI, desktop and Docker. | 轻量级跨平台数据库管理工具，支持 MySQL、PostgreSQL、SQLite、Redis、MongoDB、达梦等 100+ 数据库，提供桌面端、Docker、CLI、内置 AI 助手和 MCP。",
-   "keywords": [],
-   "trendshift_pos": 15,
-   "stars": 23532,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance, lightweight cross-platform database client supporting over 100 database types with integrated AI and MCP capabilities.",
-   "bullets": [
-    "Built in Rust for a 25MB footprint with cross-platform support across desktop and CLI environments.",
-    "Supports a vast array of databases including DuckDB, PostgreSQL, Redis, and MongoDB.",
-    "Features built-in AI assistance and an MCP (Model Context Protocol) server for agentic database workflows.",
-    "Ideal for data engineers and quant developers needing a unified, fast interface for polyglot data environments."
-   ]
-  },
-  {
-   "name": "Niko1221/Strata",
-   "url": "https://github.com/Niko1221/Strata",
-   "language": "C++",
-   "description": "Qwen3.8-Flash-Next (125B MoE) on a 12-24 GB NVIDIA GPU + 64 GB RAM: one-click install for Windows / Linux. Strata inference engine, OpenAI/Anthropic API on localhost, optional image input.",
-   "keywords": [
-    "Local LLM",
-    "Chatbot"
-   ],
-   "trendshift_pos": 8,
-   "stars": 3594,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-efficiency inference engine designed to run large MoE models like Qwen3.8-Flash-Next on consumer-grade hardware.",
-   "bullets": [
-    "Optimized C++ inference engine capable of running 125B MoE models on 12-24GB VRAM.",
-    "Provides a local OpenAI/Anthropic-compatible API endpoint for seamless integration with existing agentic stacks.",
-    "Supports optional image input, making it suitable for multimodal local AI applications.",
-    "Reduces infrastructure costs for developers building private, high-performance LLM agents."
-   ]
-  },
-  {
-   "name": "archestra-ai/OpenAPPA",
-   "url": "https://github.com/archestra-ai/OpenAPPA",
-   "language": "Rust",
-   "description": "Deterministic security for real-world agentic applications",
+   "name": "earendil-works/pi",
+   "url": "https://github.com/earendil-works/pi",
+   "language": "TypeScript",
+   "description": "AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI",
    "keywords": [
     "AI agent",
-    "AI infrastructure"
+    "AI coding assistant"
    ],
-   "trendshift_pos": 10,
-   "stars": 999,
+   "trendshift_pos": 13,
+   "stars": 111242,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A framework providing deterministic security and governance for real-world agentic applications.",
+   "one_liner": "A comprehensive AI agent toolkit providing a unified LLM API, agent loop, and coding-agent CLI.",
    "bullets": [
-    "Written in Rust to ensure memory safety and high-performance execution of security policies.",
-    "Focuses on deterministic control, preventing unauthorized actions in autonomous agent workflows.",
-    "Essential for fintech and enterprise use cases where agentic reliability and auditability are critical.",
-    "Provides a robust layer for managing permissions and constraints in complex AI-driven systems."
-   ],
-   "img": "archestra-ai_OpenAPPA_0.jpg",
-   "img_alt": "A protected Claude Code session refuses to post content from a private meeting recording to a public GitHub repo, and explains why"
-  },
-  {
-   "name": "composio-community/open-dot",
-   "url": "https://github.com/composio-community/open-dot",
-   "language": "TypeScript",
-   "description": "Open-source personal AI agents that work on their own, on their own computers. Mac app, OpenAI + Composio.",
-   "keywords": [
-    "AI agent"
-   ],
-   "trendshift_pos": 25,
-   "stars": 260,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An open-source platform for deploying personal AI agents that operate autonomously on local machines.",
-   "bullets": [
-    "Integrates with OpenAI and the Composio ecosystem to provide agents with deep system-level tool access.",
-    "Designed as a native Mac application for seamless local execution and privacy-focused agentic workflows.",
-    "Enables automation of complex tasks by allowing agents to interact directly with local files and applications.",
-    "Targeted at power users and developers building personalized productivity agents."
+    "Built with TypeScript for cross-platform compatibility.",
+    "Features a unified LLM abstraction layer to switch between providers seamlessly.",
+    "Includes a built-in TUI and CLI for managing autonomous agent workflows.",
+    "Designed for developers building complex, multi-step agentic applications."
    ]
   },
   {
-   "name": "monid-ai/monid",
-   "url": "https://github.com/monid-ai/monid",
-   "language": "TypeScript",
-   "description": "Monid - OpenRouter for agent tools. Join our community at https://discord.gg/rQzztcgJV8",
+   "name": "lexmount/moli",
+   "url": "https://github.com/lexmount/moli",
+   "language": "Rust",
+   "description": "Best browser for AI Agent, written in pure Rust",
    "keywords": [
-    "AI agent"
+    "AI agent",
+    "Headless browser"
    ],
-   "trendshift_pos": 12,
-   "stars": 935,
+   "trendshift_pos": 10,
+   "stars": 3156,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An open-source routing and management layer specifically designed for agent tools and AI infrastructure.",
+   "one_liner": "A high-performance browser built in pure Rust specifically optimized for AI agent interaction.",
    "bullets": [
-    "Acts as an 'OpenRouter' equivalent specifically optimized for agentic tool orchestration.",
-    "Built with TypeScript to facilitate easy integration into modern web and backend agent stacks.",
-    "Simplifies the management of multiple tool endpoints, improving reliability for complex agent chains.",
-    "Useful for developers building scalable agentic platforms that require centralized tool management."
+    "Developed in Rust to ensure memory safety and high-speed execution.",
+    "Architected specifically to handle the unique requirements of headless AI agent browsing.",
+    "Provides a low-latency interface for agents to navigate and interact with modern web DOMs.",
+    "Ideal for automation tasks requiring high-throughput web scraping or agentic navigation."
+   ]
+  },
+  {
+   "name": "deepopen-com/deepopen",
+   "url": "https://github.com/deepopen-com/deepopen",
+   "language": "Python",
+   "description": "非自回归System 1决策引擎，专为结构化类型决策场景设计  DeepOpen Multilingual, non-autoregressive System 1 decision engine.",
+   "keywords": [
+    "NLP"
    ],
-   "img": "monid-ai_monid_0.jpg",
-   "img_alt": "discover and inspect are free, run is billed per use",
-   "img2": "monid-ai_monid_1.jpg",
-   "img2_alt": "Definitions compile into one atomic bundle, then link into a sealed unit the engine runs"
+   "trendshift_pos": 12,
+   "stars": 1754,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A non-autoregressive System 1 decision engine designed for high-speed, structured decision-making.",
+   "bullets": [
+    "Utilizes a non-autoregressive architecture to bypass traditional LLM latency bottlenecks.",
+    "Optimized for structured data processing and deterministic decision-making tasks.",
+    "Acts as a specialized inference engine for high-frequency or real-time AI logic.",
+    "Suitable for fintech or quant applications where low-latency decision logic is critical."
+   ]
+  },
+  {
+   "name": "ThinkWatchProject/ThinkWatch-Lite",
+   "url": "https://github.com/ThinkWatchProject/ThinkWatch-Lite",
+   "language": "TypeScript",
+   "description": "Local gateway for Claude Code, Codex and other AI clients on macOS, Windows and Linux: switch upstreams without touching clients, keep API keys from relays, cut off malicious tool calls, trace every request.",
+   "keywords": [
+    "AI infrastructure"
+   ],
+   "trendshift_pos": 21,
+   "stars": 372,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A local gateway for AI clients that provides security, API key management, and request tracing.",
+   "bullets": [
+    "Acts as a middleware proxy for Claude Code, Codex, and other LLM clients.",
+    "Enables centralized API key management and upstream provider switching.",
+    "Includes security features to intercept and block malicious tool calls.",
+    "Provides observability through detailed request tracing and logging."
+   ]
+  },
+  {
+   "name": "Vibra-Ingenn/Janus",
+   "url": "https://github.com/Vibra-Ingenn/Janus",
+   "language": "Go",
+   "description": "Janus is a API router for AI models written in Go and has a Vulkan Model runner",
+   "keywords": [],
+   "trendshift_pos": 14,
+   "stars": 31,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A high-performance API router for AI models written in Go with a Vulkan-based model runner.",
+   "bullets": [
+    "Written in Go for efficient concurrency and low-overhead request routing.",
+    "Integrates a Vulkan-based model runner for hardware-accelerated local inference.",
+    "Designed to serve as a lightweight infrastructure layer for deploying multiple AI models.",
+    "Useful for edge-computing scenarios requiring local model execution and API orchestration."
+   ]
   }
  ]
 }
