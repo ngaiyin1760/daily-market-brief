@@ -1,6 +1,6 @@
 {
  "month": "2026-11",
- "updated": "2026-10-02 09:40 HKT",
+ "updated": "2026-10-03 09:10 HKT",
  "events": [
   {
    "ts": "2026-11-01T00:00:00.000Z",
@@ -32,7 +32,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 53.9,
    "category": ""
   },
   {
@@ -65,7 +65,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 3.28,
    "category": "prce"
   },
   {
@@ -76,7 +76,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 3.55,
    "category": "trd"
   },
   {
@@ -87,7 +87,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 49.8,
    "category": ""
   },
   {
@@ -120,7 +120,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 51.0,
    "category": ""
   },
   {
@@ -131,7 +131,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 55.3,
    "category": ""
   },
   {
@@ -142,7 +142,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 50.4,
    "category": ""
   },
   {
@@ -164,19 +164,8 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 51.5,
    "category": ""
-  },
-  {
-   "ts": "2026-11-02T14:00:00.000Z",
-   "title": "ISM Manufacturing Employment",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "bsnss"
   },
   {
    "ts": "2026-11-02T14:00:00.000Z",
@@ -186,7 +175,18 @@
    "importance": 1,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 54.5,
+   "category": "bsnss"
+  },
+  {
+   "ts": "2026-11-02T14:00:00.000Z",
+   "title": "ISM Manufacturing Employment",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 52.7,
    "category": "bsnss"
   },
   {
@@ -197,19 +197,8 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 2.9,
    "category": "prce"
-  },
-  {
-   "ts": "2026-11-03T00:00:00.000Z",
-   "title": "Midterm Elections",
-   "country": "US",
-   "currency": "USD",
-   "importance": 1,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "gov"
   },
   {
    "ts": "2026-11-03T03:30:00.000Z",
@@ -312,17 +301,6 @@
   },
   {
    "ts": "2026-11-03T21:45:00.000Z",
-   "title": "Unemployment Rate",
-   "country": "NZ",
-   "currency": "NZD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 5.6,
-   "category": "lbr"
-  },
-  {
-   "ts": "2026-11-03T21:45:00.000Z",
    "title": "Employment Change QoQ",
    "country": "NZ",
    "currency": "NZD",
@@ -330,6 +308,17 @@
    "actual": null,
    "forecast": null,
    "previous": 0.5,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-11-03T21:45:00.000Z",
+   "title": "Unemployment Rate",
+   "country": "NZ",
+   "currency": "NZD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 5.6,
    "category": "lbr"
   },
   {
@@ -367,17 +356,6 @@
   },
   {
    "ts": "2026-11-04T08:00:00.000Z",
-   "title": "Unemployment Change",
-   "country": "ES",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "lbr"
-  },
-  {
-   "ts": "2026-11-04T08:00:00.000Z",
    "title": "Balance of Trade Prel",
    "country": "TR",
    "currency": "TRY",
@@ -386,6 +364,17 @@
    "forecast": null,
    "previous": null,
    "category": "trd"
+  },
+  {
+   "ts": "2026-11-04T08:00:00.000Z",
+   "title": "Unemployment Change",
+   "country": "ES",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "lbr"
   },
   {
    "ts": "2026-11-04T08:15:00.000Z",
@@ -433,7 +422,7 @@
   },
   {
    "ts": "2026-11-04T10:00:00.000Z",
-   "title": "Inflation Rate MoM Flash",
+   "title": "Core Inflation Rate YoY Flash",
    "country": "EU",
    "currency": "EUR",
    "importance": 0,
@@ -444,7 +433,7 @@
   },
   {
    "ts": "2026-11-04T10:00:00.000Z",
-   "title": "Core Inflation Rate YoY Flash",
+   "title": "Inflation Rate MoM Flash",
    "country": "EU",
    "currency": "EUR",
    "importance": 0,
@@ -488,17 +477,6 @@
   },
   {
    "ts": "2026-11-04T13:30:00.000Z",
-   "title": "Balance of Trade",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "trd"
-  },
-  {
-   "ts": "2026-11-04T13:30:00.000Z",
    "title": "Exports",
    "country": "US",
    "currency": "USD",
@@ -511,6 +489,17 @@
   {
    "ts": "2026-11-04T13:30:00.000Z",
    "title": "Imports",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "trd"
+  },
+  {
+   "ts": "2026-11-04T13:30:00.000Z",
+   "title": "Balance of Trade",
    "country": "US",
    "currency": "USD",
    "importance": 0,
@@ -554,7 +543,7 @@
   },
   {
    "ts": "2026-11-04T14:30:00.000Z",
-   "title": "EIA Gasoline Stocks Change",
+   "title": "EIA Crude Oil Stocks Change",
    "country": "US",
    "currency": "USD",
    "importance": 0,
@@ -565,7 +554,7 @@
   },
   {
    "ts": "2026-11-04T14:30:00.000Z",
-   "title": "EIA Crude Oil Stocks Change",
+   "title": "EIA Gasoline Stocks Change",
    "country": "US",
    "currency": "USD",
    "importance": 0,

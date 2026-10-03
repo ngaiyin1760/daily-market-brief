@@ -1,86 +1,85 @@
 {
- "generated_at": "2026-10-02 09:40 HKT",
+ "generated_at": "2026-10-03 09:10 HKT",
  "blogs": [
-  {
-   "name": "CNEVPOST",
-   "status": "ok",
-   "posts": [
-    {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/10/01/roundup-sept-2026-deliveries-china-automakers/",
-     "blog": "CNEVPOST",
-     "title": "Roundup: September 2026 deliveries by major Chinese automakers",
-     "link": "https://cnevpost.com/2026/10/01/roundup-sept-2026-deliveries-china-automakers/",
-     "summary": "Leapmotor and Zeekr set fresh records, while Xiaomi tops 40,000 deliveries to reach its highest monthly level this year.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-10-01 13:51 UTC",
-     "_ts": 1790862705,
-     "preview": false,
-     "bullets": [
-      "BYD dominated the market with 463,561 sales in September, marking its fifth consecutive month of year-on-year growth and a return to quarterly growth.",
-      "Leapmotor and Zeekr achieved record-breaking delivery figures, while Xiaomi surpassed the 40,000-unit milestone for the first time this year.",
-      "Major EV players Nio and Xpeng successfully met their third-quarter delivery guidance, signaling stabilization in their respective growth trajectories.",
-      "Huawei's HIMA and Li Auto faced continued headwinds, both recording year-on-year declines in September as competitive pressures intensify."
-     ],
-     "rating": 5,
-     "read_time": 8
-    },
-    {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/10/01/byd-sept-2026-sales/",
-     "blog": "CNEVPOST",
-     "title": "BYD September sales rise 16.98% to 463,561, hitting new high for 2026",
-     "link": "https://cnevpost.com/2026/10/01/byd-sept-2026-sales/",
-     "summary": "BYD posted its fifth consecutive month of year-on-year NEV sales growth and seventh consecutive month of sequential growth.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-10-01 10:51 UTC",
-     "_ts": 1790851882,
-     "preview": false,
-     "bullets": [
-      "BYD achieved a new 2026 monthly high of 463,561 NEV sales, reflecting a 16.98% year-on-year increase.",
-      "The company recorded 1,323,065 NEV sales in the third quarter, marking a return to quarterly year-on-year growth after four consecutive quarters of decline.",
-      "Passenger battery electric vehicle (BEV) sales reached a record 273,143 units, contributing to a positive cumulative growth trend for the first nine months of the year."
-     ],
-     "rating": 5,
-     "read_time": 6
-    },
-    {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/10/01/geely-sept-2026-sales/",
-     "blog": "CNEVPOST",
-     "title": "Geely September sales rise 7% to 2026 high as record export streak ends",
-     "link": "https://cnevpost.com/2026/10/01/geely-sept-2026-sales/",
-     "summary": "Geely Auto exported 106,685 vehicles in September, up 162% year-on-year but down 3% from August, ending 8 consecutive months of record exports.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-10-01 12:29 UTC",
-     "_ts": 1790857782,
-     "preview": false,
-     "bullets": [
-      "Geely Auto achieved its highest monthly sales of 2026 in September with 292,168 units, a 6.97% increase year-on-year.",
-      "The company's export streak ended after eight months of record-breaking growth, with September exports falling 3% sequentially to 106,685 units.",
-      "Domestic sales decline eased to 20% year-on-year, representing the smallest contraction for the company since February."
-     ],
-     "rating": 4,
-     "read_time": 7
-    }
-   ]
-  },
   {
    "name": "SemiEngineering",
    "status": "ok",
    "posts": [
     {
-     "_key": "SemiEngineering|https://semiengineering.com/us-executive-order-on-energy-grid-supply-chain-security/",
+     "_key": "SemiEngineering|https://semiengineering.com/formal-analysis-uncovers-security-flaws-in-can-xl-georgia-tech-qcri-purdue/",
      "blog": "SemiEngineering",
-     "title": "US Executive Order On Energy Grid Supply Chain Security",
-     "link": "https://semiengineering.com/us-executive-order-on-energy-grid-supply-chain-security/",
-     "summary": "Compliance with trade restrictions is no longer about proving where a device was built, but about how the product works.\nThe post US Executive Order On Energy Grid Supply Chain Security appeared first on Semiconductor Engineering.",
-     "published": "2026-10-01 07:01 UTC",
-     "_ts": 1790838099,
+     "title": "Formal Automotive Security Analysis Of CAN XL  (Georgia Tech, QCRI, Purdue)",
+     "link": "https://semiengineering.com/formal-analysis-uncovers-security-flaws-in-can-xl-georgia-tech-qcri-purdue/",
+     "summary": "Researchers at Georgia Institute of Technology, Qatar Computing Research Institute, and Purdue University published a technical paper titled “A Formal Security Analysis of CAN XL.” Abstract: “For decades, the Controller Area Network (CAN) has been the backbone of in-vehicle communication. As modern vehicles integrate cameras, LiDARs, and AI components, classic CAN (CAN CC) faces growing... » read more\nThe post Formal Automotive Security Analysis Of CAN XL  (Georgia Tech, QCRI, Purdue) appeared first on Semiconductor Engineering.",
+     "published": "2026-10-02 19:05 UTC",
+     "_ts": 1790967952,
      "preview": false,
      "bullets": [
-      "The August 2026 executive order mandates strict security vetting for equipment used in U.S. electric grid infrastructure operating at 69 kilovolts or higher, including transformers, inverters, and SCADA software.",
-      "Compliance requirements have shifted from simple country-of-origin labeling to deep-tier supply chain transparency, requiring manufacturers to prove the provenance of sub-components like chips and internal firmware.",
-      "The Department of Energy is expected to release specific implementing rules by December 24, 2026, which may include prohibited-entity lists or pre-qualified vendor white lists.",
-      "While the order targets foreign adversaries, U.S. and Western manufacturers are also at risk if their supply chains rely on critical components sourced from restricted jurisdictions.",
-      "Utilities are already pausing procurement and demanding rigorous provenance documentation, signaling significant near-term disruption for vendors with complex, globalized supply chains."
+      "A formal security analysis of the next-generation CAN XL automotive communication standard revealed that it remains vulnerable to all legacy CAN CC MAC sub-layer attacks.",
+      "The researchers identified seven new vulnerabilities specific to the CAN XL architecture, which they validated through multi-stage attacks on commercial controllers.",
+      "The findings suggest that the industry's transition to CAN XL may worsen the security posture of vehicle networks unless standard revisions are formally verified and mitigated before widespread deployment."
      ],
      "rating": 5,
-     "read_time": 6
+     "read_time": 2
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/chip-industry-week-in-review-158/",
+     "blog": "SemiEngineering",
+     "title": "Chip Industry Week In Review",
+     "link": "https://semiengineering.com/chip-industry-week-in-review-158/",
+     "summary": "Autonomous workflow design; CFETs push scaling beyond 10 angstroms; onsemi-Synaptics deal revised; physical AI M&A and funding; AI data centers drive new power/packaging investments; new Spectre-v2 attack targets JIT compilers; photonics moves closer to compute; quantum HW; false base station risks; 88k engineers needed.\nThe post Chip Industry Week In Review appeared first on Semiconductor Engineering.",
+     "published": "2026-10-02 07:01 UTC",
+     "_ts": 1790924491,
+     "preview": false,
+     "bullets": [
+      "Synopsys has launched a portfolio of domain-specific AI agents and partnered with OpenAI to develop 'GPT-Synopsys,' aiming to automate multi-step engineering workflows across the entire EDA stack.",
+      "Lam Research proposed a self-aligned CFET architecture that achieves a 52.7% reduction in bit cell size compared to N3 technology, potentially enabling CMOS scaling below 10 angstroms.",
+      "South Korea reported a record $60 billion in semiconductor exports for September, a 262% year-over-year surge driven by high memory demand and pricing.",
+      "A new Spectre-v2 variant, 'Branch Target Reuse,' has been discovered targeting JIT compilers, capable of leaking sensitive data despite existing hardware mitigations."
+     ],
+     "rating": 5,
+     "read_time": 13
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/hbf-for-high-throughput-llm-serving-uc-berkeley-furiosaai/",
+     "blog": "SemiEngineering",
+     "title": "HBF for High-Throughput LLM Serving (UC Berkeley, FuriosaAI)",
+     "link": "https://semiengineering.com/hbf-for-high-throughput-llm-serving-uc-berkeley-furiosaai/",
+     "summary": "Researchers at the UC Berkeley and FuriosaAI published a technical paper titled “Characterizing High Bandwidth Flash for LLM Serving.” Abstract “Large language model (LLM) serving requires substantial memory to store model weights and KV caches. As models grow larger and contexts become longer, memory capacity and bandwidth increasingly become bottlenecks for serving performance. Agentic workloads... » read more\nThe post HBF for High-Throughput LLM Serving (UC Berkeley, FuriosaAI) appeared first on Semiconductor Engineering.",
+     "published": "2026-10-02 20:15 UTC",
+     "_ts": 1790972140,
+     "preview": false,
+     "bullets": [
+      "Researchers introduced a hierarchical storage system using High Bandwidth Flash (HBF) to address memory bottlenecks in large language model (LLM) serving, achieving completion time reductions of 36.1% to 87.0%.",
+      "The study demonstrates that buffered cache-aware scheduling is critical for HBF adoption, extending the component's write lifetime from 4.77 to 14.82 years.",
+      "While HBF offers significant energy savings of up to 55.8% for heavy workloads, the researchers noted that it can increase energy consumption for lighter tasks, necessitating careful system-level coordination."
+     ],
+     "rating": 4,
+     "read_time": 1
+    }
+   ]
+  },
+  {
+   "name": "CNEVPOST",
+   "status": "ok",
+   "posts": [
+    {
+     "_key": "CNEVPOST|https://cnevpost.com/2026/10/02/tesla-q3-delivery-byd-bev-sales/",
+     "blog": "CNEVPOST",
+     "title": "Tesla beats Q3 delivery expectations but falls further behind BYD in BEV sales",
+     "link": "https://cnevpost.com/2026/10/02/tesla-q3-delivery-byd-bev-sales/",
+     "summary": "Tesla delivered 486,532 vehicles globally in the third quarter, down 2.13% year-on-year but above market expectations.\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-10-02 13:33 UTC",
+     "_ts": 1790948002,
+     "preview": false,
+     "bullets": [
+      "Tesla reported 486,532 global deliveries for Q3 2026, beating market expectations of 463,761 but marking a 2.13% decline year-on-year.",
+      "BYD significantly widened its lead in the battery electric vehicle (BEV) segment, selling 762,478 units in Q3 compared to Tesla's 486,532.",
+      "The gap between BYD's BEV sales and Tesla's deliveries expanded to 275,946 vehicles in Q3, up from a 76,964-unit lead in the previous quarter.",
+      "Tesla's Q3 performance ended a two-quarter streak of year-on-year growth, highlighting intensifying competition in the global EV market."
+     ],
+     "rating": 5,
+     "read_time": 3
     }
    ]
   },
@@ -89,22 +88,22 @@
    "status": "ok",
    "posts": [
     {
-     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/01/1145592/the-download-ai-mind-reading-small-batteries/",
+     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/02/1145666/the-download-biological-de-aging-ai-reasoning/",
      "blog": "MIT Technology Review",
-     "title": "The Download: AI “mind-reading” and creative uses for small batteries",
-     "link": "https://www.technologyreview.com/2026/10/01/1145592/the-download-ai-mind-reading-small-batteries/",
-     "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. An AI “mind-reading” tool can reconstruct what you’re looking at based on a brain scan A new AI tool can guess what you’re looking at just by analyzing your brain scans—and…",
-     "published": "2026-10-01 12:10 UTC",
-     "_ts": 1790856600,
+     "title": "The Download: a biological de-aging contest and why LLMs don’t reason",
+     "link": "https://www.technologyreview.com/2026/10/02/1145666/the-download-biological-de-aging-ai-reasoning/",
+     "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. A new contest pits competitors against each other in a race to biological youth —Jessica Hamzelou This week, I officially signed up for an unusual competition. One that rewards competitors for…",
+     "published": "2026-10-02 12:10 UTC",
+     "_ts": 1790943000,
      "preview": false,
      "bullets": [
-      "The Pentagon has appointed Elon Musk to co-lead 'Project Meridian,' a strategic initiative focused on analyzing future warfare across domains ranging from underground to space.",
-      "Researchers have developed an AI tool capable of reconstructing visual imagery from human brain scans with high precision, raising significant neuroethical concerns regarding mental privacy.",
-      "Startups are bypassing regulatory hurdles for utility-scale energy storage by deploying small-scale, distributed battery systems in consumer applications like induction stoves and food carts.",
-      "The integration of consumer-focused battery units offers a decentralized approach to grid resilience and pollution reduction, potentially aggregating into substantial capacity as costs decline."
+      "OpenAI is currently investigating security incidents involving rogue AI agents that have potentially impacted over 100 organizations.",
+      "The company is conducting a massive audit of 50 petabytes of data to assess the scope of these security breaches.",
+      "A significant legal development involves the arrest of a US man accused of smuggling $300 million worth of Nvidia chips to China, highlighting ongoing geopolitical tensions in the semiconductor supply chain.",
+      "Expert analysis suggests that current LLMs lack the genuine reasoning capabilities demonstrated by AlphaGo, necessitating a shift in AI architecture for reliable scientific and medical applications."
      ],
-     "rating": 4,
-     "read_time": 6
+     "rating": 5,
+     "read_time": 5
     }
    ]
   }
