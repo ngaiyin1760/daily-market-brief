@@ -17,6 +17,7 @@ import calendar
 import json
 import logging
 import os
+import random
 import re
 import sys
 import time
@@ -63,6 +64,14 @@ GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.1-flash-lite").strip()
 GEMINI_PROVIDER = os.environ.get("GEMINI_PROVIDER", "").strip().lower()
 
 HTTP_TIMEOUT = 20
+
+# Google News RSS throttles datacenter egress IPs in bursts: on 2026-10-04 all
+# 26 requests from a westus runner returned 503 inside 9 minutes while the same
+# feed answered 200 from elsewhere. One attempt cannot tell that throttle apart
+# from a dead feed, and a feed that never answers silently empties a category.
+RSS_FETCH_ATTEMPTS = 3
+RSS_BACKOFF_BASE = 3          # seconds; doubles per attempt, plus jitter
+RSS_RETRY_STATUSES = {429, 500, 502, 503, 504}
 
 
 def gemini_provider():
@@ -910,6 +919,9 @@ def attach_article_texts(category, items):
              category["label"], extracted, len(futures))
 
 
+RSS_FAILED_CATEGORIES = set()
+
+
 def fetch_category_news(category):
     """Fetch up to 25 RSS items for a category, sorted by recency.
     The query always carries a recency operator (DEFAULT_QUERY_WINDOW unless
@@ -917,7 +929,10 @@ def fetch_category_news(category):
     relevance across all time and the feed fills with evergreen analysis that
     the 24h cutoff then discards. The 24h cutoff and source-quality ranking
     happen later in prepare_candidates; a wider pool gives trusted outlets
-    more chances to be represented."""
+    more chances to be represented.
+    Transient failures are retried; a category that still ends up with no
+    response is recorded in RSS_FAILED_CATEGORIES, the only way check_outputs
+    can tell an upstream outage apart from a Gemini outage."""
     query = category["query"]
     if "when:" not in query:
         query = f"{query} when:{DEFAULT_QUERY_WINDOW}"
@@ -927,12 +942,42 @@ def fetch_category_news(category):
         + "&hl=en-US&gl=US&ceid=US:en"
     )
     log.info("Fetching RSS: %s", category["label"])
+    resp = None
+    error = None
+    for attempt in range(RSS_FETCH_ATTEMPTS):
+        try:
+            resp = requests.get(url, timeout=HTTP_TIMEOUT,
+                                headers={"User-Agent": "Mozilla/5.0"})
+        except (requests.exceptions.Timeout,
+                requests.exceptions.ConnectionError) as exc:
+            error = exc
+        else:
+            error = None if resp.status_code < 400 else requests.HTTPError(
+                f"{resp.status_code} {resp.reason}", response=resp)
+        if error is None:
+            break
+        # Only a transient status is worth another attempt: a 404 means the
+        # query itself is wrong, and retrying it just delays the brief.
+        if resp is not None and resp.status_code not in RSS_RETRY_STATUSES:
+            log.warning("RSS fetch failed for %s: %s",
+                        category["label"], error)
+            break
+        if attempt == RSS_FETCH_ATTEMPTS - 1:
+            log.warning("RSS fetch failed for %s after %d attempts: %s",
+                        category["label"], RSS_FETCH_ATTEMPTS, error)
+            break
+        wait = RSS_BACKOFF_BASE * (2 ** attempt) + random.uniform(0, 1)
+        log.warning("RSS fetch failed for %s (%s); retry %d/%d in %.1fs",
+                    category["label"], error, attempt + 1,
+                    RSS_FETCH_ATTEMPTS - 1, wait)
+        time.sleep(wait)
+    if error is not None:
+        RSS_FAILED_CATEGORIES.add(category["label"])
+        return []
+
     try:
-        resp = requests.get(url, timeout=HTTP_TIMEOUT,
-                            headers={"User-Agent": "Mozilla/5.0"})
-        resp.raise_for_status()
         feed = feedparser.parse(resp.content)
-    except Exception as exc:  # network/parse issues are non-fatal
+    except Exception as exc:  # a malformed feed is non-fatal
         log.warning("RSS fetch failed for %s: %s", category["label"], exc)
         return []
 
@@ -3760,8 +3805,26 @@ def check_outputs(page_date, generated_at, news, groups):
 
     # AI coverage: with a key set, a fully-heuristic run is a systemic
     # failure (retired model, wrong key, location block) — fail loudly rather
-    # than silently publishing a degraded brief.
-    if GEMINI_API_KEY and news and AI_SUMMARIES["ok"] == 0:
+    # than silently publishing a degraded brief. That only holds when news
+    # actually arrived: zero collected stories is an upstream RSS failure, and
+    # blaming Gemini for it (as this check used to) hides the real cause.
+    collected = sum(len(c.get("items") or []) for c in (news or []))
+    if news and not collected:
+        unreachable = len(RSS_FAILED_CATEGORIES)
+        if unreachable >= len(news):
+            problems.append(
+                f"all {len(news)} news feeds unreachable (Google News RSS "
+                f"5xx/timeout after {RSS_FETCH_ATTEMPTS} attempts) — "
+                "nothing published")
+        elif unreachable:
+            problems.append(
+                f"{unreachable} of {len(news)} news feeds unreachable and no "
+                "news items collected at all — nothing published")
+        else:
+            problems.append(
+                "no news items collected at all (every reachable feed had "
+                "nothing inside the 24h window) — nothing published")
+    elif GEMINI_API_KEY and collected and AI_SUMMARIES["ok"] == 0:
         problems.append(
             "no AI summaries at all despite GEMINI_API_KEY "
             f"({AI_SUMMARIES['heuristic']} categories heuristic) — "
@@ -3917,6 +3980,9 @@ def main():
     yesterday_titles = load_day_titles(page_date, offset=1)
     new_count = 0
     now = time.time()
+    # A second main() in one process must not inherit the previous run's
+    # fetch failures.
+    RSS_FAILED_CATEGORIES.clear()
     for category in CATEGORIES:
         top_n = category.get("top_n", DEFAULT_TOP_N)
         candidates = fetch_category_news(category)

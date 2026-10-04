@@ -14,6 +14,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
 
@@ -40,16 +41,27 @@ jobs:
           # (higher rate limit than anonymous; automatically provided).
           GH_TOKEN: ${{ github.token }}
         run: |
-          # Rare native crashes (e.g. "double free or corruption" from the
-          # HTML-parsing stack under threads) are flaky — retry once before
-          # failing the run. --check fails loudly on structural problems or
-          # a fully-heuristic run (systemic Gemini failure) so a degraded
-          # brief is never silently published.
-          python generate.py --check || {
-            echo "::warning::generate.py failed, retrying once in 30s..."
-            sleep 30
-            python generate.py --check
-          }
+          # Both native crashes (e.g. "double free or corruption" from the
+          # HTML-parsing stack under threads) and upstream throttling of
+          # datacenter egress IPs are transient, but the latter can outlast a
+          # single retry — so keep retrying with growing waits before failing
+          # the run. --check fails loudly on structural problems or a
+          # fully-heuristic run (systemic Gemini failure) so a degraded brief
+          # is never silently published.
+          for attempt in 1 2 3; do
+            if python generate.py --check; then
+              exit 0
+            fi
+            case $attempt in
+              1) wait=120;;
+              2) wait=300;;
+              *) break;;
+            esac
+            echo "::warning::generate.py failed (attempt $attempt/3), retrying in ${wait}s..."
+            sleep "$wait"
+          done
+          echo "::error::generate.py failed after 3 attempts"
+          exit 1
 
       - name: Commit and push docs/
         run: |
