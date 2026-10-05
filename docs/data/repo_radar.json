@@ -1,112 +1,103 @@
 {
- "generated_at": "2026-10-04 12:45 HKT",
+ "generated_at": "2026-10-05 08:54 HKT",
  "repos": [
   {
-   "name": "thedotmack/claude-mem",
-   "url": "https://github.com/thedotmack/claude-mem",
-   "language": "TypeScript",
-   "description": "Persistent Context Across Sessions for Every Agent –  Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
+   "name": "deepseek-ai/DeepGEMM",
+   "url": "https://github.com/deepseek-ai/DeepGEMM",
+   "language": "Cuda",
+   "description": "DeepGEMM: clean and efficient BLAS kernel library on GPU",
    "keywords": [
-    "AI agent",
-    "AI coding assistant",
-    "AI memory"
+    "AI infrastructure"
    ],
-   "trendshift_pos": 13,
-   "stars": 95668,
+   "trendshift_pos": 5,
+   "stars": 8153,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A persistent memory layer that captures, compresses, and injects session context into AI agents.",
+   "one_liner": "A high-performance BLAS kernel library optimized for GPU-accelerated matrix multiplication.",
    "bullets": [
-    "Built with TypeScript to provide a middleware layer for LLM session management.",
-    "Uses AI-driven summarization to compress historical interactions into actionable context.",
-    "Solves the 'context window' problem by injecting relevant past data into future agent sessions.",
-    "Ideal for long-term research, complex coding tasks, or maintaining state in agentic workflows."
+    "Built with CUDA for low-level hardware acceleration.",
+    "Focuses on efficient GEMM (General Matrix Multiply) operations essential for LLM training and inference.",
+    "Provides a clean, modular codebase for integrating custom high-performance kernels into AI infrastructure.",
+    "Critical for developers building or optimizing large-scale AI model training pipelines."
    ]
   },
   {
-   "name": "Joooook/12306-mcp",
-   "url": "https://github.com/Joooook/12306-mcp",
-   "language": "JavaScript",
-   "description": "This is a 12306 ticket search server based on the Model Context Protocol (MCP).",
+   "name": "morluto/rea",
+   "url": "https://github.com/morluto/rea",
+   "language": "TypeScript",
+   "description": "Reverse engineer anything with agents: one CLI and MCP server to inspect any app, understand it fully down to the binary level.",
    "keywords": [
+    "AI agent",
     "MCP"
    ],
-   "trendshift_pos": 20,
-   "stars": 1675,
+   "trendshift_pos": 1,
+   "stars": 2095,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A Model Context Protocol (MCP) server for querying 12306 train tickets.",
+   "one_liner": "An agentic reverse engineering tool that uses MCP to inspect and understand application binaries.",
    "bullets": [
-    "Implements the Model Context Protocol (MCP) to bridge LLMs with real-world transit data.",
-    "Allows AI agents to natively search for train availability and schedules via natural language.",
-    "Demonstrates the power of MCP in integrating legacy infrastructure with modern agentic systems.",
-    "Useful for building travel-planning agents or automated booking assistants."
-   ],
-   "img": "Joooook_12306-mcp_0.jpg",
-   "img_alt": "12306-MCP 服务架构图",
-   "img2": "Joooook_12306-mcp_1.jpg",
-   "img2_alt": "MseeP.ai Security Assessment Badge"
+    "Combines CLI-based inspection with Model Context Protocol (MCP) for agentic analysis.",
+    "Automates the process of reverse engineering complex applications down to the binary level.",
+    "Enables AI agents to interpret software behavior, security vulnerabilities, or undocumented APIs.",
+    "Useful for security researchers and developers auditing proprietary fintech or legacy systems."
+   ]
   },
   {
-   "name": "CopilotKit/OpenDots",
-   "url": "https://github.com/CopilotKit/OpenDots",
+   "name": "msitarzewski/agency-agents",
+   "url": "https://github.com/msitarzewski/agency-agents",
+   "language": "Shell",
+   "description": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes, and proven deliverables.",
+   "keywords": [
+    "AI agent"
+   ],
+   "trendshift_pos": 10,
+   "stars": 156638,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A comprehensive framework for deploying specialized AI agents to automate complex business and creative workflows.",
+   "bullets": [
+    "Orchestrates a multi-agent system where each entity has a specific persona and operational process.",
+    "Designed for end-to-end automation, covering tasks from frontend development to community management.",
+    "Provides a modular architecture for scaling agentic workflows in professional environments.",
+    "Ideal for automating repetitive operational tasks in fintech or digital marketing agencies."
+   ]
+  },
+  {
+   "name": "NdoleStudio/httpsms",
+   "url": "https://github.com/NdoleStudio/httpsms",
+   "language": "Go",
+   "description": "Send and receive SMS messages using your Android phone programmatically via a simple HTTP API",
+   "keywords": [],
+   "trendshift_pos": 25,
+   "stars": 5598,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A Go-based service that turns any Android device into a programmable SMS gateway via a simple HTTP API.",
+   "bullets": [
+    "Written in Go, providing a lightweight and reliable bridge between web services and mobile networks.",
+    "Exposes a RESTful API to programmatically send and receive SMS messages.",
+    "Useful for building 2FA systems, transaction alerts, or automated notification infrastructure.",
+    "Provides a cost-effective alternative to enterprise SMS gateway providers for fintech applications."
+   ]
+  },
+  {
+   "name": "tester-army/e2e",
+   "url": "https://github.com/tester-army/e2e",
    "language": "TypeScript",
-   "description": "Your always-on AI coworkers that move between text, calls, and Slack.",
+   "description": "Next generation e2e testing framework for web and mobile apps.",
    "keywords": [
-    "AI agent",
-    "AI workflow"
-   ],
-   "trendshift_pos": 6,
-   "stars": 2640,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A framework for deploying always-on AI coworkers that operate across text, voice, and messaging platforms.",
-   "bullets": [
-    "TypeScript-based architecture designed for cross-platform agentic collaboration.",
-    "Enables agents to maintain presence and state across Slack, voice calls, and text interfaces.",
-    "Focuses on 'always-on' utility, moving beyond simple chat interfaces to active task execution.",
-    "Applicable for enterprise automation, team coordination, and persistent AI-human workflows."
-   ]
-  },
-  {
-   "name": "QingYunA/answer-me-with-html",
-   "url": "https://github.com/QingYunA/answer-me-with-html",
-   "language": "JavaScript",
-   "description": "Answer me with HTML — an agent skill that answers hard questions with a one-page HTML you can actually read. 让 AI Agent 用一页 HTML 回答复杂问题。",
-   "keywords": [
-    "AI agent",
-    "AI skills"
-   ],
-   "trendshift_pos": 2,
-   "stars": 486,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An agent skill that forces LLMs to output complex answers as structured, readable HTML pages.",
-   "bullets": [
-    "JavaScript-based agent skill designed to improve the readability of LLM-generated data.",
-    "Transforms raw text responses into interactive, formatted HTML documents for better information density.",
-    "Enhances the utility of AI agents in research and data analysis by providing a visual output layer.",
-    "Useful for financial reporting, technical documentation, or summarizing complex datasets."
-   ]
-  },
-  {
-   "name": "zerx-lab/FluxDown",
-   "url": "https://github.com/zerx-lab/FluxDown",
-   "language": "Rust",
-   "description": "Rust 驱动的多协议下载管理器，支持 HTTP/FTP/BitTorrent 磁力链接及 HLS/DASH 流媒体，智能多线程加速与浏览器无缝集成。精美界面，极致性能，永久免费，零广告。",
-   "keywords": [
-    "File management"
+    "AI agent"
    ],
    "trendshift_pos": 15,
-   "stars": 3622,
+   "stars": 3114,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A high-performance, Rust-based multi-protocol download manager with intelligent multi-threading.",
+   "one_liner": "A next-generation end-to-end testing framework designed for modern web and mobile application stacks.",
    "bullets": [
-    "Engineered in Rust for memory safety and extreme performance in data-intensive tasks.",
-    "Supports diverse protocols including HTTP, FTP, BitTorrent, and HLS/DASH streaming.",
-    "Features intelligent multi-threaded acceleration and seamless browser integration.",
-    "Highly relevant for infrastructure-heavy tasks involving large-scale data ingestion or media processing."
+    "Built with TypeScript for type-safe test definitions and robust developer experience.",
+    "Supports cross-platform testing across both web browsers and mobile environments.",
+    "Focuses on high-velocity test execution and stability for complex CI/CD pipelines.",
+    "Essential for maintaining quality assurance in high-stakes fintech or trading platforms."
    ]
   }
  ]
