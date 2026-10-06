@@ -1,6 +1,112 @@
 {
  "days": [
   {
+   "date": "2026-10-06",
+   "generated_at": "2026-10-06 10:17 HKT",
+   "repos": [
+    {
+     "name": "uber/ADR",
+     "url": "https://github.com/uber/ADR",
+     "language": "Python",
+     "description": "ADR secures enterprise AI agents through observability, security benchmarking, and threat detection. Deployed at Uber.",
+     "keywords": [
+      "AI agent",
+      "Monitoring"
+     ],
+     "trendshift_pos": 6,
+     "stars": 1731,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An enterprise-grade security and observability framework designed to protect and benchmark AI agents.",
+     "bullets": [
+      "Built in Python, focusing on security benchmarking and threat detection for LLM-based workflows.",
+      "Provides observability layers to monitor agent behavior and prevent unauthorized actions.",
+      "Designed for enterprise environments to ensure compliance and safety in agentic deployments.",
+      "Used internally at Uber to secure large-scale AI agent infrastructure."
+     ]
+    },
+    {
+     "name": "nealbridges/VulnHunter",
+     "url": "https://github.com/nealbridges/VulnHunter",
+     "language": "Python",
+     "description": "Agentic AI security scanner that hunts exploitable vulnerabilities like an adversary, proves them with executable PoCs, and fixes them test-first. A maintained fork of Capital One's VulnHunter, rebuilt for any agent harness.",
+     "keywords": [],
+     "trendshift_pos": 2,
+     "stars": 182,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An agentic AI security scanner that automates vulnerability hunting, PoC generation, and remediation.",
+     "bullets": [
+      "Leverages agentic AI workflows to identify exploitable vulnerabilities in software.",
+      "Automatically generates executable Proofs of Concept (PoCs) to validate findings.",
+      "Implements a test-first approach to suggest and verify security patches.",
+      "Maintained fork of Capital One's original tool, optimized for modern security engineering pipelines."
+     ]
+    },
+    {
+     "name": "earthtojake/text-to-cad",
+     "url": "https://github.com/earthtojake/text-to-cad",
+     "language": "Python",
+     "description": "Give your agent CAD superpowers.",
+     "keywords": [
+      "AI agent",
+      "3D generation"
+     ],
+     "trendshift_pos": 20,
+     "stars": 17457,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A specialized tool that integrates CAD capabilities into AI agents for automated design and engineering.",
+     "bullets": [
+      "Python-based library designed to bridge the gap between LLM reasoning and CAD software.",
+      "Enables agents to programmatically generate, modify, and export 3D geometry.",
+      "Useful for automating mechanical design workflows and rapid prototyping via natural language.",
+      "Provides a structured interface for agents to interact with complex engineering file formats."
+     ]
+    },
+    {
+     "name": "LaurieWired/GhidraMCP",
+     "url": "https://github.com/LaurieWired/GhidraMCP",
+     "language": "Java",
+     "description": "MCP Server for Ghidra",
+     "keywords": [
+      "MCP"
+     ],
+     "trendshift_pos": 12,
+     "stars": 10410,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A Model Context Protocol (MCP) server that allows AI agents to interact directly with the Ghidra reverse engineering suite.",
+     "bullets": [
+      "Java-based implementation connecting the Model Context Protocol to Ghidra's API.",
+      "Allows LLMs to query binary analysis data, function signatures, and decompiled code.",
+      "Facilitates agentic workflows in cybersecurity, such as automated vulnerability research and malware analysis.",
+      "Standardizes how AI agents interface with complex desktop-based security tooling."
+     ]
+    },
+    {
+     "name": "amontlabs/lcu",
+     "url": "https://github.com/amontlabs/lcu",
+     "language": "Python",
+     "description": "Codex computer use, decoupled from the app, for usage inside any harness.",
+     "keywords": [
+      "AI agent"
+     ],
+     "trendshift_pos": 21,
+     "stars": 472,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A decoupled computer-use framework that allows AI agents to control desktop applications across various harnesses.",
+     "bullets": [
+      "Python-based architecture designed to separate agent logic from specific application environments.",
+      "Enables cross-platform automation by providing a standardized interface for 'computer use' tasks.",
+      "Highly modular, allowing developers to plug the agent into custom harnesses or existing desktop workflows.",
+      "Focuses on the infrastructure layer of agentic interaction with GUI-based software."
+     ]
+    }
+   ]
+  },
+  {
    "date": "2026-10-05",
    "generated_at": "2026-10-05 08:54 HKT",
    "repos": [

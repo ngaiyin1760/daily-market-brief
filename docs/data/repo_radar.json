@@ -1,103 +1,104 @@
 {
- "generated_at": "2026-10-05 08:54 HKT",
+ "generated_at": "2026-10-06 10:17 HKT",
  "repos": [
   {
-   "name": "deepseek-ai/DeepGEMM",
-   "url": "https://github.com/deepseek-ai/DeepGEMM",
-   "language": "Cuda",
-   "description": "DeepGEMM: clean and efficient BLAS kernel library on GPU",
-   "keywords": [
-    "AI infrastructure"
-   ],
-   "trendshift_pos": 5,
-   "stars": 8153,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance BLAS kernel library optimized for GPU-accelerated matrix multiplication.",
-   "bullets": [
-    "Built with CUDA for low-level hardware acceleration.",
-    "Focuses on efficient GEMM (General Matrix Multiply) operations essential for LLM training and inference.",
-    "Provides a clean, modular codebase for integrating custom high-performance kernels into AI infrastructure.",
-    "Critical for developers building or optimizing large-scale AI model training pipelines."
-   ]
-  },
-  {
-   "name": "morluto/rea",
-   "url": "https://github.com/morluto/rea",
-   "language": "TypeScript",
-   "description": "Reverse engineer anything with agents: one CLI and MCP server to inspect any app, understand it fully down to the binary level.",
+   "name": "uber/ADR",
+   "url": "https://github.com/uber/ADR",
+   "language": "Python",
+   "description": "ADR secures enterprise AI agents through observability, security benchmarking, and threat detection. Deployed at Uber.",
    "keywords": [
     "AI agent",
+    "Monitoring"
+   ],
+   "trendshift_pos": 6,
+   "stars": 1731,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An enterprise-grade security and observability framework designed to protect and benchmark AI agents.",
+   "bullets": [
+    "Built in Python, focusing on security benchmarking and threat detection for LLM-based workflows.",
+    "Provides observability layers to monitor agent behavior and prevent unauthorized actions.",
+    "Designed for enterprise environments to ensure compliance and safety in agentic deployments.",
+    "Used internally at Uber to secure large-scale AI agent infrastructure."
+   ]
+  },
+  {
+   "name": "nealbridges/VulnHunter",
+   "url": "https://github.com/nealbridges/VulnHunter",
+   "language": "Python",
+   "description": "Agentic AI security scanner that hunts exploitable vulnerabilities like an adversary, proves them with executable PoCs, and fixes them test-first. A maintained fork of Capital One's VulnHunter, rebuilt for any agent harness.",
+   "keywords": [],
+   "trendshift_pos": 2,
+   "stars": 182,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An agentic AI security scanner that automates vulnerability hunting, PoC generation, and remediation.",
+   "bullets": [
+    "Leverages agentic AI workflows to identify exploitable vulnerabilities in software.",
+    "Automatically generates executable Proofs of Concept (PoCs) to validate findings.",
+    "Implements a test-first approach to suggest and verify security patches.",
+    "Maintained fork of Capital One's original tool, optimized for modern security engineering pipelines."
+   ]
+  },
+  {
+   "name": "earthtojake/text-to-cad",
+   "url": "https://github.com/earthtojake/text-to-cad",
+   "language": "Python",
+   "description": "Give your agent CAD superpowers.",
+   "keywords": [
+    "AI agent",
+    "3D generation"
+   ],
+   "trendshift_pos": 20,
+   "stars": 17457,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A specialized tool that integrates CAD capabilities into AI agents for automated design and engineering.",
+   "bullets": [
+    "Python-based library designed to bridge the gap between LLM reasoning and CAD software.",
+    "Enables agents to programmatically generate, modify, and export 3D geometry.",
+    "Useful for automating mechanical design workflows and rapid prototyping via natural language.",
+    "Provides a structured interface for agents to interact with complex engineering file formats."
+   ]
+  },
+  {
+   "name": "LaurieWired/GhidraMCP",
+   "url": "https://github.com/LaurieWired/GhidraMCP",
+   "language": "Java",
+   "description": "MCP Server for Ghidra",
+   "keywords": [
     "MCP"
    ],
-   "trendshift_pos": 1,
-   "stars": 2095,
+   "trendshift_pos": 12,
+   "stars": 10410,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An agentic reverse engineering tool that uses MCP to inspect and understand application binaries.",
+   "one_liner": "A Model Context Protocol (MCP) server that allows AI agents to interact directly with the Ghidra reverse engineering suite.",
    "bullets": [
-    "Combines CLI-based inspection with Model Context Protocol (MCP) for agentic analysis.",
-    "Automates the process of reverse engineering complex applications down to the binary level.",
-    "Enables AI agents to interpret software behavior, security vulnerabilities, or undocumented APIs.",
-    "Useful for security researchers and developers auditing proprietary fintech or legacy systems."
+    "Java-based implementation connecting the Model Context Protocol to Ghidra's API.",
+    "Allows LLMs to query binary analysis data, function signatures, and decompiled code.",
+    "Facilitates agentic workflows in cybersecurity, such as automated vulnerability research and malware analysis.",
+    "Standardizes how AI agents interface with complex desktop-based security tooling."
    ]
   },
   {
-   "name": "msitarzewski/agency-agents",
-   "url": "https://github.com/msitarzewski/agency-agents",
-   "language": "Shell",
-   "description": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes, and proven deliverables.",
+   "name": "amontlabs/lcu",
+   "url": "https://github.com/amontlabs/lcu",
+   "language": "Python",
+   "description": "Codex computer use, decoupled from the app, for usage inside any harness.",
    "keywords": [
     "AI agent"
    ],
-   "trendshift_pos": 10,
-   "stars": 156638,
+   "trendshift_pos": 21,
+   "stars": 472,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A comprehensive framework for deploying specialized AI agents to automate complex business and creative workflows.",
+   "one_liner": "A decoupled computer-use framework that allows AI agents to control desktop applications across various harnesses.",
    "bullets": [
-    "Orchestrates a multi-agent system where each entity has a specific persona and operational process.",
-    "Designed for end-to-end automation, covering tasks from frontend development to community management.",
-    "Provides a modular architecture for scaling agentic workflows in professional environments.",
-    "Ideal for automating repetitive operational tasks in fintech or digital marketing agencies."
-   ]
-  },
-  {
-   "name": "NdoleStudio/httpsms",
-   "url": "https://github.com/NdoleStudio/httpsms",
-   "language": "Go",
-   "description": "Send and receive SMS messages using your Android phone programmatically via a simple HTTP API",
-   "keywords": [],
-   "trendshift_pos": 25,
-   "stars": 5598,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A Go-based service that turns any Android device into a programmable SMS gateway via a simple HTTP API.",
-   "bullets": [
-    "Written in Go, providing a lightweight and reliable bridge between web services and mobile networks.",
-    "Exposes a RESTful API to programmatically send and receive SMS messages.",
-    "Useful for building 2FA systems, transaction alerts, or automated notification infrastructure.",
-    "Provides a cost-effective alternative to enterprise SMS gateway providers for fintech applications."
-   ]
-  },
-  {
-   "name": "tester-army/e2e",
-   "url": "https://github.com/tester-army/e2e",
-   "language": "TypeScript",
-   "description": "Next generation e2e testing framework for web and mobile apps.",
-   "keywords": [
-    "AI agent"
-   ],
-   "trendshift_pos": 15,
-   "stars": 3114,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A next-generation end-to-end testing framework designed for modern web and mobile application stacks.",
-   "bullets": [
-    "Built with TypeScript for type-safe test definitions and robust developer experience.",
-    "Supports cross-platform testing across both web browsers and mobile environments.",
-    "Focuses on high-velocity test execution and stability for complex CI/CD pipelines.",
-    "Essential for maintaining quality assurance in high-stakes fintech or trading platforms."
+    "Python-based architecture designed to separate agent logic from specific application environments.",
+    "Enables cross-platform automation by providing a standardized interface for 'computer use' tasks.",
+    "Highly modular, allowing developers to plug the agent into custom harnesses or existing desktop workflows.",
+    "Focuses on the infrastructure layer of agentic interaction with GUI-based software."
    ]
   }
  ]
