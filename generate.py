@@ -901,59 +901,75 @@ def resolve_article_url(link):
 
 def extract_article_text(link):
     """Resolve a (Google News) link and extract the main article text with
-    trafilatura. Returns the text, or None on any failure (paywall, 404,
-    JS-only page, timeout) — callers must degrade gracefully."""
+    trafilatura. Returns (text, resolved_url) — each is None when that half
+    alone failed, since the two fail independently (paywall, 404, JS-only
+    page, timeout): a paywalled article still has a perfectly good publisher
+    URL, and that URL is what readers should be sent to instead of the Google
+    News redirect. Callers must degrade gracefully."""
     try:
         url = resolve_article_url(link)
-        if not url:
-            return None
+    except Exception:
+        url = None
+    if not url:
+        return None, None
+    try:
         resp = requests.get(url, timeout=ARTICLE_TIMEOUT,
                             headers={"User-Agent": BROWSER_UA})
         if not resp.ok or not resp.content:
-            return None
+            return None, url
         import trafilatura
         # Pass raw bytes so trafilatura handles charset detection itself
         # (requests' guessed encoding can mangle UTF-8 pages).
         text = trafilatura.extract(resp.content)
         # Very short "extractions" are usually consent walls or nav junk.
         if text and len(text) > 200:
-            return text
+            return text, url
     except Exception:
         pass
-    return None
+    return None, url
 
 
 def attach_article_texts(category, items):
     """Extract full article text for the top candidates, concurrently.
-    Sets item['content'] (None when extraction failed) and item['read_time']
-    estimated from the FULL article text when available (so the chip reflects
-    how long the original article is, not the ~1-min digest)."""
+    Sets item['content'] (None when extraction failed), item['resolved_url']
+    (the publisher URL resolve_article_url recovered, None when it could not)
+    and item['read_time'] estimated from the FULL article text when available
+    (so the chip reflects how long the original article is, not the ~1-min
+    digest)."""
     for item in items:
         item["content"] = None
+        item["resolved_url"] = None
     top = items[:ARTICLE_EXTRACT_TOP_N]
     if not top:
         return
     extracted = 0
+    resolved = 0
     with ThreadPoolExecutor(max_workers=ARTICLE_EXTRACT_WORKERS) as pool:
         futures = {pool.submit(extract_article_text, i["link"]): i
                    for i in top if i["link"]}
         for fut in as_completed(futures):
             item = futures[fut]
             try:
-                item["content"] = fut.result()
+                text, resolved_url = fut.result()
             except Exception:
-                item["content"] = None
-            if item["content"]:
+                text, resolved_url = None, None
+            item["content"] = text
+            item["resolved_url"] = resolved_url
+            if resolved_url:
+                resolved += 1
+            if text:
                 extracted += 1
                 # Full article available: reading time reflects the ORIGINAL
                 # article length, not the digest.
-                item["read_time"] = read_time_minutes(item["content"])
+                item["read_time"] = read_time_minutes(text)
     # Items with no extracted text keep their digest-based estimate (set
     # later in summarize_category), which is all we can know.
     ARTICLE_EXTRACT_STATS["attempted"] += len(futures)
     ARTICLE_EXTRACT_STATS["extracted"] += extracted
-    log.info("%s: extracted %d/%d articles",
-             category["label"], extracted, len(futures))
+    PUBLISHER_LINK_STATS["attempted"] += len(futures)
+    PUBLISHER_LINK_STATS["resolved"] += resolved
+    log.info("%s: extracted %d/%d articles, resolved %d/%d publisher links",
+             category["label"], extracted, len(futures), resolved, len(futures))
 
 
 # A category Google News would not serve, split by how it failed so
@@ -970,6 +986,11 @@ RSS_FALLBACK_CATEGORIES = set()
 # Article-extraction coverage across the run (attempted -> extracted). Read by
 # print_summary only; deliberately not enforced anywhere.
 ARTICLE_EXTRACT_STATS = {"attempted": 0, "extracted": 0}
+# Publisher-link coverage across the run (attempted -> resolved to a non-Google
+# URL). Counted separately from extraction: a paywalled article resolves but
+# does not extract, so the two numbers legitimately differ. Read by
+# print_summary only; deliberately not enforced anywhere.
+PUBLISHER_LINK_STATS = {"attempted": 0, "resolved": 0}
 
 
 def fallback_query(query):
@@ -1204,7 +1225,9 @@ def condense_text(text, max_chars=220, max_sentences=2):
 
 def heuristic_summarize(candidates, top_n=DEFAULT_TOP_N):
     """Fallback: top N by recency. Bullets come from the best available text
-    (extracted article content, else cleaned RSS summary) — never the title."""
+    (extracted article content, else cleaned RSS summary) — never the title.
+    Each item links to the publisher URL when resolution recovered one (set in
+    attach_article_texts), else to the original Google News link."""
     out = []
     for item in candidates[:top_n]:
         if item.get("content"):
@@ -1216,7 +1239,7 @@ def heuristic_summarize(candidates, top_n=DEFAULT_TOP_N):
             bullets = ["Summary not available."]
         out.append({
             "title": item["title"],
-            "url": item["link"],
+            "url": item.get("resolved_url") or item["link"],
             "source": item["source"],
             "published": item["published"],
             "bullets": bullets,
@@ -1273,6 +1296,10 @@ def gemini_summarize(category, candidates, top_n=DEFAULT_TOP_N):
     # Map candidates by link/url so we can carry over the extracted full-article
     # reading time (set in attach_article_texts) — the AI response only gives
     # title/url/bullets/rating. Candidates use "link"; the AI echoes it as "url".
+    # The same lookup also decides the published link: the candidate's resolved
+    # publisher URL beats the URL the AI echoed back (an unverified copy of its
+    # own input), for the same reason the reading time is taken from the
+    # candidate rather than from the response.
     cand_by_url = {c.get("link") or c.get("url"): c for c in candidates}
 
     out = []
@@ -1289,7 +1316,7 @@ def gemini_summarize(category, candidates, top_n=DEFAULT_TOP_N):
         cand = cand_by_url.get(entry_url) or {}
         out.append({
             "title": str(entry.get("title", "")),
-            "url": entry_url,
+            "url": cand.get("resolved_url") or entry_url,
             "source": str(entry.get("source", "")),
             "published": str(entry.get("published", "")),
             "bullets": bullets,
@@ -2354,7 +2381,9 @@ def fetch_analytics():
         if len(fresh_by_blog[name]) > ANALYTICS_MAX_PER_BLOG_CALL:
             fresh_by_blog[name] = fresh_by_blog[name][:ANALYTICS_MAX_PER_BLOG_CALL]
 
-    # Extract full article text for the top few fresh posts per blog.
+    # Extract full article text for the top few fresh posts per blog. Blog
+    # feeds already link to the publisher, so only the text half of
+    # extract_article_text's (text, resolved_url) pair is used here.
     targets = []
     for name, posts in fresh_by_blog.items():
         for post in posts[:ANALYTICS_EXTRACT_TOP_N]:
@@ -2367,7 +2396,7 @@ def fetch_analytics():
         for fut in as_completed(futures):
             _, post = futures[fut]
             try:
-                post["content"] = fut.result()
+                post["content"] = fut.result()[0]
             except Exception:
                 post["content"] = None
             if post.get("content"):
@@ -4117,6 +4146,8 @@ def print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
     ai_line = f"{ok}/{ok + heur} AI" + (f", {heur} heuristic" if heur else "")
     ex_att, ex_ok = (ARTICLE_EXTRACT_STATS["attempted"],
                      ARTICLE_EXTRACT_STATS["extracted"])
+    link_att, link_ok = (PUBLISHER_LINK_STATS["attempted"],
+                         PUBLISHER_LINK_STATS["resolved"])
     # Extraction coverage is reported, never enforced. Failing extraction
     # degrades the bullets — they fall back to the RSS blurb — but the brief
     # itself is still useful, and withholding the whole day's output over
@@ -4125,6 +4156,14 @@ def print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
     if ex_att and not ex_ok:
         log.warning("Article extraction yielded 0/%d articles across every "
                     "category (all summaries are digest-only)", ex_att)
+    # Publisher-link coverage is reported for the same reason, and is a
+    # different number on purpose: a paywalled or JS-only article resolves
+    # without extracting. Zero means every headline still links through
+    # Google's redirect, which is the failure this metric exists to show.
+    if link_att and not link_ok:
+        log.warning("Publisher link resolution yielded 0/%d links across "
+                    "every category (every headline keeps its Google News "
+                    "redirect URL)", link_att)
     analytics_posts = sum(len(b.get("posts", [])) for b in (analytics_blogs or []))
     lines = [
         f"## Daily Market Brief — {page_date}",
@@ -4135,6 +4174,7 @@ def print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
         f"- **Indicators:** {ind_ok}/{ind_total} ok",
         f"- **Snapshot items:** {len(snapshot)}",
         f"- **Article extraction:** {ex_ok}/{ex_att} extracted",
+        f"- **Publisher links:** {link_ok}/{link_att} resolved",
         f"- **Analytics:** {analytics_posts} new post(s) "
         f"from {len(analytics_blogs or [])} blog(s)",
         f"- **Repo Radar:** {len(repos or [])} repo(s)",
@@ -4196,6 +4236,8 @@ def main():
     RSS_FALLBACK_CATEGORIES.clear()
     ARTICLE_EXTRACT_STATS["attempted"] = 0
     ARTICLE_EXTRACT_STATS["extracted"] = 0
+    PUBLISHER_LINK_STATS["attempted"] = 0
+    PUBLISHER_LINK_STATS["resolved"] = 0
     _RESOLVE_WARNED = False
     for category in CATEGORIES:
         top_n = category.get("top_n", DEFAULT_TOP_N)
