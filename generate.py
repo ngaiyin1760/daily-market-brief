@@ -73,6 +73,19 @@ RSS_FETCH_ATTEMPTS = 3
 RSS_BACKOFF_BASE = 3          # seconds; doubles per attempt, plus jitter
 RSS_RETRY_STATUSES = {429, 500, 502, 503, 504}
 
+# Second news source for the all-or-nothing Google outage above. Retrying
+# inside the same job reuses the same throttled runner IP (on 2026-10-07 all
+# 39 requests across 3 attempts and 37 minutes still returned 503), so the only
+# way to publish is a different upstream. Bing News RSS is free and keyless,
+# but its query language differs: it has no OR operator and answers an OR query
+# with its generic trending set (football scores, restaurant openings) rather
+# than the category's beat, and a multi-term query is only honoured when asked
+# to sort by date. So each query is rewritten as a leading-clauses implicit AND
+# and sent with qft=sortbydate — more clauses narrow the match set to nothing
+# inside 24h, which is exactly what the downstream cutoff discards.
+FALLBACK_NEWS_URL = "https://www.bing.com/news/search"
+FALLBACK_QUERY_CLAUSES = 2
+
 
 def gemini_provider():
     """Which Gemini endpoint to use. Vertex AI express-mode keys start with
@@ -915,11 +928,99 @@ def attach_article_texts(category, items):
                 item["read_time"] = read_time_minutes(item["content"])
     # Items with no extracted text keep their digest-based estimate (set
     # later in summarize_category), which is all we can know.
+    ARTICLE_EXTRACT_STATS["attempted"] += len(futures)
+    ARTICLE_EXTRACT_STATS["extracted"] += extracted
     log.info("%s: extracted %d/%d articles",
              category["label"], extracted, len(futures))
 
 
 RSS_FAILED_CATEGORIES = set()
+# Categories whose items came from the fallback feed rather than Google News.
+# Reported by print_summary and check_outputs so a degraded source is visible
+# instead of looking identical to a healthy run.
+RSS_FALLBACK_CATEGORIES = set()
+# Article-extraction coverage across the run (attempted -> extracted). Read by
+# print_summary only; deliberately not enforced anywhere.
+ARTICLE_EXTRACT_STATS = {"attempted": 0, "extracted": 0}
+
+
+def fallback_query(query):
+    """Rewrite a Google News category query for the fallback feed: drop the
+    Google-only `when:` recency operator and join the leading OR clauses with
+    spaces (Bing has no OR; see FALLBACK_NEWS_URL)."""
+    query = re.sub(r"\bwhen:\S+", " ", query)
+    clauses = [c.strip() for c in query.split(" OR ") if c.strip()]
+    return " ".join(clauses[:FALLBACK_QUERY_CLAUSES])
+
+
+def fallback_link(link):
+    """Unwrap Bing's apiclick redirect so article extraction and the reader's
+    browser reach the publisher directly instead of through Bing."""
+    try:
+        query = urllib.parse.parse_qs(urllib.parse.urlparse(link).query)
+        target = (query.get("url") or [""])[0]
+        if target.startswith("http"):
+            return target
+    except Exception:
+        pass
+    return link
+
+
+def fetch_fallback_news(category):
+    """Fetch a category's items from the fallback feed, in the same item shape
+    fetch_category_news builds, so the 24h cutoff, cross-category dedup and
+    tier ranking downstream consume it unchanged. An empty list means the
+    fallback had nothing either."""
+    url = (
+        FALLBACK_NEWS_URL
+        + "?q=" + urllib.parse.quote(fallback_query(category["query"]))
+        + "&format=RSS&setmkt=en-US&setlang=en-US&qft="
+        + urllib.parse.quote('sortbydate="1"')
+    )
+    try:
+        resp = requests.get(url, timeout=HTTP_TIMEOUT,
+                            headers={"User-Agent": "Mozilla/5.0"})
+        resp.raise_for_status()
+        feed = feedparser.parse(resp.content)
+    except Exception as exc:
+        log.warning("Fallback news fetch failed for %s: %s",
+                    category["label"], exc)
+        return []
+    items = []
+    for entry in feed.entries[:40]:
+        published = ""
+        ts = None
+        parsed = getattr(entry, "published_parsed", None) or getattr(
+            entry, "updated_parsed", None)
+        if parsed:
+            ts = calendar.timegm(parsed)
+            published = datetime.utcfromtimestamp(ts).strftime("%Y-%m-%d %H:%M UTC")
+        items.append({
+            "title": strip_html(getattr(entry, "title", "")),
+            "link": fallback_link(getattr(entry, "link", "")),
+            "source": strip_html(getattr(entry, "news_source", "")),
+            "published": published,
+            "summary": strip_html(getattr(entry, "summary", "")),
+            "_ts": ts or 0,
+        })
+    items.sort(key=lambda i: i["_ts"], reverse=True)
+    return items[:25]
+
+
+def fallback_news(category, reason):
+    """Serve a category from the fallback feed when Google News yielded
+    nothing. The category is recorded only when the fallback actually supplied
+    items, so RSS_FALLBACK_CATEGORIES counts real substitutions."""
+    log.warning("Falling back to Bing News for %s (%s)",
+                category["label"], reason)
+    items = fetch_fallback_news(category)
+    if not items:
+        log.warning("Fallback news also empty for %s", category["label"])
+        return []
+    RSS_FALLBACK_CATEGORIES.add(category["label"])
+    log.info("Fallback news: %d item(s) for %s", len(items),
+             category["label"])
+    return items
 
 
 def fetch_category_news(category):
@@ -930,9 +1031,12 @@ def fetch_category_news(category):
     the 24h cutoff then discards. The 24h cutoff and source-quality ranking
     happen later in prepare_candidates; a wider pool gives trusted outlets
     more chances to be represented.
-    Transient failures are retried; a category that still ends up with no
-    response is recorded in RSS_FAILED_CATEGORIES, the only way check_outputs
-    can tell an upstream outage apart from a Gemini outage."""
+    Transient failures are retried; a category Google still will not serve —
+    a 5xx/timeout after every attempt, or a 200 that parses to an empty
+    feed — is retried against the fallback feed instead (see fallback_news).
+    A Google failure is always recorded in RSS_FAILED_CATEGORIES, the only
+    way check_outputs can tell an upstream outage apart from a Gemini outage;
+    categories the fallback actually filled land in RSS_FALLBACK_CATEGORIES."""
     query = category["query"]
     if "when:" not in query:
         query = f"{query} when:{DEFAULT_QUERY_WINDOW}"
@@ -973,13 +1077,13 @@ def fetch_category_news(category):
         time.sleep(wait)
     if error is not None:
         RSS_FAILED_CATEGORIES.add(category["label"])
-        return []
+        return fallback_news(category, error)
 
     try:
         feed = feedparser.parse(resp.content)
     except Exception as exc:  # a malformed feed is non-fatal
         log.warning("RSS fetch failed for %s: %s", category["label"], exc)
-        return []
+        return fallback_news(category, exc)
 
     items = []
     for entry in feed.entries[:40]:
@@ -1004,6 +1108,12 @@ def fetch_category_news(category):
             "summary": strip_html(getattr(entry, "summary", "")),
             "_ts": ts or 0,
         })
+
+    if not items:
+        # An HTTP 200 that parses to nothing is Google's other silent failure
+        # mode: a captcha/consent page served in place of the feed. Same
+        # all-or-nothing outage, so the same fallback applies.
+        return fallback_news(category, "empty feed")
 
     # Sort by recency; the 24h cutoff and source-quality ranking happen at
     # selection time (see prepare_candidates).
@@ -1150,14 +1260,17 @@ def summarize_category(category, candidates):
     if GEMINI_API_KEY:
         try:
             log.info("Summarizing with Gemini: %s", category["label"])
-            AI_SUMMARIES["ok"] += 1
             out = gemini_summarize(category, candidates, top_n)
         except Exception as exc:
             log.warning("Gemini failed for %s (%s); using heuristic fallback",
                         category["label"], exc)
+            AI_SUMMARIES["heuristic"] += 1
             out = heuristic_summarize(candidates, top_n)
+        else:
+            AI_SUMMARIES["ok"] += 1
     else:
         log.info("No GEMINI_API_KEY; heuristic summary: %s", category["label"])
+        AI_SUMMARIES["heuristic"] += 1
         out = heuristic_summarize(candidates, top_n)
     # Reading-time chip: prefer the FULL-article estimate (set in
     # attach_article_texts); fall back to the digest length when the article
@@ -3830,6 +3943,14 @@ def check_outputs(page_date, generated_at, news, groups):
             f"({AI_SUMMARIES['heuristic']} categories heuristic) — "
             "systemic Gemini failure")
 
+    # A run partly served by the fallback feed is degraded, not failed: the
+    # brief is still publishable, so this stays a warning — --check must
+    # never withhold the day's brief over a second-choice news source.
+    if RSS_FALLBACK_CATEGORIES:
+        log.warning("%d of %d news categories were served by the fallback "
+                    "feed: %s", len(RSS_FALLBACK_CATEGORIES), len(news or []),
+                    ", ".join(sorted(RSS_FALLBACK_CATEGORIES)))
+
     # Analytics + Repo Radar pages must be structurally valid when present;
     # empty source sets are fine (pages render with an empty-note).
     try:
@@ -3923,6 +4044,14 @@ def print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
     ind_total = sum(len(gr["items"]) for gr in groups)
     ok, heur = AI_SUMMARIES["ok"], AI_SUMMARIES["heuristic"]
     ai_line = f"{ok}/{ok + heur} AI" + (f", {heur} heuristic" if heur else "")
+    ex_att, ex_ok = (ARTICLE_EXTRACT_STATS["attempted"],
+                     ARTICLE_EXTRACT_STATS["extracted"])
+    # Extraction coverage is reported, never enforced: extraction is currently
+    # broken for every category, and making it a hard --check problem would
+    # withhold the whole brief. A zero-coverage run is still worth flagging.
+    if ex_att and not ex_ok:
+        log.warning("Article extraction yielded 0/%d articles across every "
+                    "category (all summaries are digest-only)", ex_att)
     analytics_posts = sum(len(b.get("posts", [])) for b in (analytics_blogs or []))
     lines = [
         f"## Daily Market Brief — {page_date}",
@@ -3932,6 +4061,7 @@ def print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
         f"- **Takeaways:** {len(takeaways)}",
         f"- **Indicators:** {ind_ok}/{ind_total} ok",
         f"- **Snapshot items:** {len(snapshot)}",
+        f"- **Article extraction:** {ex_ok}/{ex_att} extracted",
         f"- **Analytics:** {analytics_posts} new post(s) "
         f"from {len(analytics_blogs or [])} blog(s)",
         f"- **Repo Radar:** {len(repos or [])} repo(s)",
@@ -3940,8 +4070,13 @@ def print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
         f"- **Economic Calendar:** {(econ_stats or {}).get('months', 0)} month "
         f"file(s) · {(econ_stats or {}).get('changed', 0)} refreshed · "
         f"{(econ_stats or {}).get('events', 0)} events",
-        f"- **Check:** {'FAILED' if problems else 'PASS'}",
     ]
+    if RSS_FALLBACK_CATEGORIES:
+        # Only on a degraded day, so a healthy run's summary reads as before.
+        lines.append(
+            f"- **Fallback news:** {len(RSS_FALLBACK_CATEGORIES)} of "
+            f"{len(news or [])} categories served by Bing News")
+    lines.append(f"- **Check:** {'FAILED' if problems else 'PASS'}")
     if problems:
         lines.append("")
         lines.append("Problems:")
@@ -3981,8 +4116,11 @@ def main():
     new_count = 0
     now = time.time()
     # A second main() in one process must not inherit the previous run's
-    # fetch failures.
+    # fetch failures or coverage counters.
     RSS_FAILED_CATEGORIES.clear()
+    RSS_FALLBACK_CATEGORIES.clear()
+    ARTICLE_EXTRACT_STATS["attempted"] = 0
+    ARTICLE_EXTRACT_STATS["extracted"] = 0
     for category in CATEGORIES:
         top_n = category.get("top_n", DEFAULT_TOP_N)
         candidates = fetch_category_news(category)
