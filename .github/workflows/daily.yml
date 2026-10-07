@@ -25,10 +25,29 @@ permissions:
   # automatic token, so there is no secret for the operator to supply.
   issues: write
 
+# One group for the whole pipeline, so the two crons — and a manual dispatch —
+# queue behind each other instead of racing. A racing run loses its push with
+# "! [rejected] main -> main (fetch first)": nothing is clobbered, but the run
+# is a full duplicate of a 40-minute pipeline and it raises a spurious failure
+# alert. cancel-in-progress must stay false: a run that is mid-generation must
+# never be killed by a later trigger, and the queued run waits for the running
+# one rather than being dropped.
+concurrency:
+  group: daily-market-brief
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    outputs:
+      # published is true only when the commit step really pushed, and is what
+      # the alert job requires before it closes a failure issue; day is
+      # generate.py's page_date for this run, and is what tells the alert job
+      # which day is at stake when the run dies before that point.
+      published: ${{ steps.publish.outputs.published }}
+      published_day: ${{ steps.publish.outputs.published_day }}
+      day: ${{ steps.today.outputs.date_hk }}
     steps:
       - uses: actions/checkout@v4
 
@@ -47,7 +66,31 @@ jobs:
       - name: Check whether today's brief already exists
         id: today
         run: |
-          date_hk=$(TZ=Asia/Hong_Kong date +%F)
+          # ZoneInfo("Asia/Hong_Kong"), the same clock generate.py reads for
+          # page_date — not `TZ=Asia/Hong_Kong date`, which on a host without
+          # usable tzdata silently falls back to UTC and would then test the
+          # wrong day's file: a green run that publishes nothing.
+          date_hk=$(python - <<'PY'
+          from datetime import datetime, timedelta
+          from zoneinfo import ZoneInfo
+          now_hk = datetime.now(ZoneInfo("Asia/Hong_Kong"))
+          if now_hk.utcoffset() != timedelta(hours=8):
+              raise SystemExit("Asia/Hong_Kong resolved to %s, expected UTC+8"
+                               % (now_hk.utcoffset(),))
+          print(now_hk.strftime("%Y-%m-%d"))
+          PY
+          ) || { echo "::error::Cannot compute the HKT date with zoneinfo; refusing to guess, because a wrong date here skips a day's brief."; exit 1; }
+
+          # Second, independent read of the same clock. The two only disagree
+          # when the host's tzdata is unusable — the silent-wrong-day case
+          # above — so fail loudly rather than skip on a mistaken date.
+          date_host=$(TZ=Asia/Hong_Kong date +%F)
+          if [ "$date_hk" != "$date_host" ]; then
+            echo "::error::HKT date disagreement: zoneinfo says $date_hk, the host clock says $date_host."
+            exit 1
+          fi
+          echo "date_hk=$date_hk" >> "$GITHUB_OUTPUT"
+
           if [ "${{ github.event_name }}" != "schedule" ]; then
             echo "skip=false" >> "$GITHUB_OUTPUT"
             echo "Manual dispatch: regenerating the $date_hk HKT brief regardless."
@@ -100,60 +143,156 @@ jobs:
           exit 1
 
       - name: Commit and push docs/
+        id: publish
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/
+          # published=true only when this run really pushed a brief, and the
+          # alert job closes a failure issue on nothing else: a skipped day
+          # logs "No changes to commit." and must never read as a recovery,
+          # while a push that fails leaves published at false.
+          echo "published=false" >> "$GITHUB_OUTPUT"
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
             git commit -m "Daily market brief: $(date -u +%Y-%m-%d)"
             git push
+            echo "published=true" >> "$GITHUB_OUTPUT"
+            echo "published_day=${{ steps.today.outputs.date_hk }}" >> "$GITHUB_OUTPUT"
           fi
 
-      # Runs once per failed run, after the retry loop has given up — the 3
-      # attempts live inside the step above, so this fires once, not per
-      # attempt. A fixed title means a repeat failure updates the same issue
-      # instead of opening issue #N; without it both recent 503 incidents were
-      # silent until the operator noticed a missing brief by hand.
-      # Step-level if: rather than a job-level if: — a job-level condition is
-      # evaluated before the job's own steps and so cannot see that they
-      # failed, whereas failure() on a step is true exactly when an earlier
-      # step in the same job failed. This still runs after the failing step,
-      # and the job stays failed afterwards.
+  # A separate job, not a step inside build: a job killed by its own
+  # `timeout-minutes: 60` ends with conclusion `cancelled`, which runs no
+  # further steps and makes failure() false, so a step in build can never
+  # report the one outage this alerting exists for. needs: + always() is
+  # evaluated whatever build's conclusion is, and `needs.build.result !=
+  # 'success'` is true for failure and for cancelled — the conclusion a
+  # timeout-killed job reports. A bare `needs.build.result != 'success'` at
+  # job level would not do: without a status function GitHub ANDs in the
+  # needed job's success().
+  alert:
+    needs: build
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # Fires once per failed run, after the retry loop inside build has given
+      # up. A fixed title means a repeat failure updates one issue instead of
+      # opening issue #N; without it both recent 503 incidents were silent
+      # until the operator noticed a missing brief by hand.
       - name: Alert on failure
-        if: failure()
+        if: needs.build.result != 'success'
         env:
           GH_TOKEN: ${{ github.token }}
+          # There is no checkout in this job, so gh has no git remote to read
+          # the repository from; without this every gh call fails.
+          GH_REPO: ${{ github.repository }}
           ISSUE_TITLE: Daily Market Brief pipeline failure
+          BUILD_RESULT: ${{ needs.build.result }}
+          RUN_DAY: ${{ needs.build.outputs.day }}
         run: |
-          existing=$(gh issue list --state all --limit 100 --json number,state,title \
-            --jq ".[] | select(.title == \"$ISSUE_TITLE\") | \"\(.number) \(.state)\"" \
-            | head -n 1)
-          number=${existing%% *}
-          state=$(printf '%s' "${existing##* }" | tr '[:lower:]' '[:upper:]')
-          body=$(printf 'Run %s failed (trigger: %s) for the %s brief.\n\n%s\n' \
-            "$GITHUB_RUN_ID" "$GITHUB_EVENT_NAME" "$(TZ=Asia/Hong_Kong date +%F)" \
-            "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID")
-          if [ -z "$number" ]; then
+          run_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          if [ -n "$RUN_DAY" ]; then
+            day_phrase="the $RUN_DAY HKT brief"
+          else
+            day_phrase="a brief whose HKT date this run never got as far as computing"
+          fi
+          body=$(printf 'Run %s ended as %s (trigger: %s) for %s.\n\n%s\n\nNo successful publish of docs/ was recorded by this run.\n' \
+            "$GITHUB_RUN_ID" "$BUILD_RESULT" "$GITHUB_EVENT_NAME" "$day_phrase" "$run_url")
+          if [ "$BUILD_RESULT" = "cancelled" ]; then
+            body=$(printf '%s\nA cancelled job runs no further steps, which is how a run that exceeds timeout-minutes: 60 ends.\n' "$body")
+          fi
+          if [ -n "$RUN_DAY" ]; then
+            body=$(printf '%s\n<!-- dmb-failed-day: %s -->\n' "$body" "$RUN_DAY")
+          fi
+
+          # A failed list must never be read as "no issue exists yet". That is
+          # what opened a duplicate issue on every retry, and the step still
+          # reported success because the exit status came from head and not from
+          # gh — the default Linux shell is bash -e, which has no pipefail. The
+          # list is retried, then fails the step instead of guessing.
+          for attempt in 1 2 3; do
+            existing=$(gh issue list --state all --limit 1000 --json number,state,title \
+              --jq ".[] | select(.title == \"$ISSUE_TITLE\") | \"\(.number) \(.state)\"") && break
+            if [ "$attempt" = 3 ]; then
+              echo "::error::gh issue list failed 3 times; not creating an issue that may duplicate an existing one. Re-run this job."
+              exit 1
+            fi
+            echo "::warning::gh issue list failed (attempt $attempt/3); retrying in 10s."
+            sleep 10
+          done
+
+          if [ -z "$existing" ]; then
             gh issue create --title "$ISSUE_TITLE" --body "$body"
           else
-            [ "$state" = "OPEN" ] || gh issue reopen "$number"
-            gh issue comment "$number" --body "$body"
+            # Every match, not just the first: head -n 1 left stale duplicates
+            # — the ones the masked-list bug above created — open and
+            # uncommented forever.
+            printf '%s\n' "$existing" | while read -r number state; do
+              [ "$state" = "OPEN" ] || gh issue reopen "$number"
+              gh issue comment "$number" --body "$body"
+            done
           fi
 
-      # Closing on the next success makes this single issue's open/closed state
-      # the operator's health signal for the pipeline. A no-op when nothing is
-      # open, so a normal morning stays silent.
-      - name: Close failure alert on success
-        if: success()
+      # Closing the issue on the next success is what makes its open/closed
+      # state the operator's health signal. It closes only when this run
+      # recorded a real publish of the very day the alert was raised for. The
+      # old step closed on any later success, which was false whenever that run
+      # skipped generation (it logs "No changes to commit."), and it erased the
+      # operator's only signal that an earlier day had been lost — nothing here
+      # backfills a past day.
+      - name: Close alert after a real publish
+        if: needs.build.outputs.published == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
           ISSUE_TITLE: Daily Market Brief pipeline failure
+          PUBLISHED_DAY: ${{ needs.build.outputs.published_day }}
         run: |
-          number=$(gh issue list --state open --limit 100 --json number,title \
-            --jq ".[] | select(.title == \"$ISSUE_TITLE\") | .number" | head -n 1)
-          if [ -n "$number" ]; then
-            gh issue close "$number" --comment \
-              "Recovered: run $GITHUB_RUN_ID succeeded (docs/ committed)."
+          if [ -z "$PUBLISHED_DAY" ]; then
+            echo "::error::The build job reported published=true with no published_day; cannot tell which day was published, so the alert is left alone."
+            exit 1
           fi
+
+          for attempt in 1 2 3; do
+            numbers=$(gh issue list --state open --limit 1000 --json number,title \
+              --jq ".[] | select(.title == \"$ISSUE_TITLE\") | .number") && break
+            if [ "$attempt" = 3 ]; then
+              echo "::error::gh issue list failed 3 times; leaving every alert issue open rather than closing one on a failed read."
+              exit 1
+            fi
+            echo "::warning::gh issue list failed (attempt $attempt/3); retrying in 10s."
+            sleep 10
+          done
+          if [ -z "$numbers" ]; then
+            echo "No open alert issue; nothing to close."
+            exit 0
+          fi
+
+          printf '%s\n' "$numbers" | while read -r number; do
+            if ! thread=$(gh issue view "$number" --json body,comments \
+                 --jq '[.body] + [.comments[]?.body] | join("\n")'); then
+              echo "::error::Could not read issue #$number; leaving it open."
+              exit 1
+            fi
+            # The most recent day an alert on this issue reported as failed; the
+            # marker is written by the step above.
+            failed_day=$(printf '%s\n' "$thread" \
+              | grep -oE 'dmb-failed-day: [0-9]{4}-[0-9]{2}-[0-9]{2}' \
+              | sort | tail -n 1 | cut -d' ' -f2 || true)
+            if [ "$failed_day" = "$PUBLISHED_DAY" ]; then
+              gh issue close "$number" --comment \
+                "Recovered: run $GITHUB_RUN_ID published the $PUBLISHED_DAY HKT brief (docs/ pushed to main)."
+            elif [ -n "$failed_day" ]; then
+              if printf '%s\n' "$thread" | grep -qF "dmb-lost-day: $failed_day"; then
+                echo "Issue #$number already records the $failed_day brief as lost; left open."
+              else
+                lost_body=$(printf 'Run %s published the %s HKT brief (docs/ pushed to main), not the %s brief this alert was raised for. Nothing here backfills a past day, so the %s brief is permanently missing, and this issue is left open so the gap stays visible; close it by hand once acknowledged.\n\n<!-- dmb-lost-day: %s -->\n' \
+                  "$GITHUB_RUN_ID" "$PUBLISHED_DAY" "$failed_day" "$failed_day" "$failed_day")
+                gh issue comment "$number" --body "$lost_body"
+              fi
+            else
+              gh issue comment "$number" --body "Run $GITHUB_RUN_ID published the $PUBLISHED_DAY HKT brief (docs/ pushed to main). This issue carries no dmb-failed-day marker, so it cannot be confirmed that the alert was raised for that day, and it is left open for review."
+            fi
+          done

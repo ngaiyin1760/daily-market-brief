@@ -876,8 +876,11 @@ def resolve_article_url(link):
             return result["decoded_url"]
         reason = result.get("message") or f"no decoded_url in {sorted(result)}"
     except Exception as exc:
-        # Includes ImportError when a googlenewsdecoder release imports a
-        # selectolax module that the installed selectolax has removed.
+        # Includes ImportError from googlenewsdecoder's own selectolax.parser
+        # import. selectolax 1.0 still ships that module but its import raises
+        # unconditionally, so there is nothing to restore or shim: the fix is
+        # either pinning selectolax below 1 (what requirements.txt does) or
+        # moving googlenewsdecoder to the lexbor backend.
         reason = f"{type(exc).__name__}: {exc}"
     try:
         resp = requests.get(link, timeout=ARTICLE_TIMEOUT, allow_redirects=True,
@@ -953,10 +956,16 @@ def attach_article_texts(category, items):
              category["label"], extracted, len(futures))
 
 
-RSS_FAILED_CATEGORIES = set()
+# A category Google News would not serve, split by how it failed so
+# check_outputs can name the real cause (an HTTP error or timeout is not the
+# same thing as a 200 carrying a captcha page). Both sets trigger the fallback.
+RSS_FAILED_CATEGORIES = set()   # error status or timeout on every attempt
+RSS_EMPTY_CATEGORIES = set()    # HTTP 200, but nothing parseable came back
 # Categories whose items came from the fallback feed rather than Google News.
 # Reported by print_summary and check_outputs so a degraded source is visible
-# instead of looking identical to a healthy run.
+# instead of looking identical to a healthy run. Recorded in main() after
+# selection, so a category the fallback could only answer with stale items is
+# not counted as served.
 RSS_FALLBACK_CATEGORIES = set()
 # Article-extraction coverage across the run (attempted -> extracted). Read by
 # print_summary only; deliberately not enforced anywhere.
@@ -985,11 +994,30 @@ def fallback_link(link):
     return link
 
 
+def entry_timestamp(entry):
+    """(unix seconds, display label) for a feed entry, or (None, "") when it
+    has no usable date. feedparser returns UTC struct_times, and it happily
+    parses a pubDate far outside datetime's range (a year-9999 value), which
+    makes datetime.utcfromtimestamp raise. An unformattable timestamp is
+    therefore treated as no timestamp — the item then falls to the same 24h
+    cutoff as any undated entry instead of taking the whole run down."""
+    parsed = getattr(entry, "published_parsed", None) or getattr(
+        entry, "updated_parsed", None)
+    if not parsed:
+        return None, ""
+    try:
+        ts = calendar.timegm(parsed)
+        return ts, datetime.utcfromtimestamp(ts).strftime("%Y-%m-%d %H:%M UTC")
+    except (OSError, OverflowError, ValueError):
+        return None, ""
+
+
 def fetch_fallback_news(category):
     """Fetch a category's items from the fallback feed, in the same item shape
     fetch_category_news builds, so the 24h cutoff, cross-category dedup and
     tier ranking downstream consume it unchanged. An empty list means the
-    fallback had nothing either."""
+    fallback had nothing either. Items are marked `_fallback` so main() can
+    tell which categories the published brief actually owes to this feed."""
     url = (
         FALLBACK_NEWS_URL
         + "?q=" + urllib.parse.quote(fallback_query(category["query"]))
@@ -1007,36 +1035,38 @@ def fetch_fallback_news(category):
         return []
     items = []
     for entry in feed.entries[:40]:
-        published = ""
-        ts = None
-        parsed = getattr(entry, "published_parsed", None) or getattr(
-            entry, "updated_parsed", None)
-        if parsed:
-            ts = calendar.timegm(parsed)
-            published = datetime.utcfromtimestamp(ts).strftime("%Y-%m-%d %H:%M UTC")
-        items.append({
-            "title": strip_html(getattr(entry, "title", "")),
-            "link": fallback_link(getattr(entry, "link", "")),
-            "source": strip_html(getattr(entry, "news_source", "")),
-            "published": published,
-            "summary": strip_html(getattr(entry, "summary", "")),
-            "_ts": ts or 0,
-        })
+        try:
+            ts, published = entry_timestamp(entry)
+            items.append({
+                "title": strip_html(getattr(entry, "title", "")),
+                "link": fallback_link(getattr(entry, "link", "")),
+                "source": strip_html(getattr(entry, "news_source", "")),
+                "published": published,
+                "summary": strip_html(getattr(entry, "summary", "")),
+                "_ts": ts or 0,
+                "_fallback": True,
+            })
+        except Exception as exc:
+            # A single unreadable entry must not cost the whole day's brief:
+            # this code path only runs on a day Google served nothing.
+            log.warning("Skipping unreadable fallback entry for %s: %s",
+                        category["label"], exc)
     items.sort(key=lambda i: i["_ts"], reverse=True)
     return items[:25]
 
 
 def fallback_news(category, reason):
     """Serve a category from the fallback feed when Google News yielded
-    nothing. The category is recorded only when the fallback actually supplied
-    items, so RSS_FALLBACK_CATEGORIES counts real substitutions."""
+    nothing. main() records the category in RSS_FALLBACK_CATEGORIES once its
+    items survive the 24h cutoff into the brief, so that count means "actually
+    served", not "fetched" — the fallback alone cannot know which items the
+    freshness cutoff will keep."""
     log.warning("Falling back to Bing News for %s (%s)",
                 category["label"], reason)
     items = fetch_fallback_news(category)
     if not items:
         log.warning("Fallback news also empty for %s", category["label"])
         return []
-    RSS_FALLBACK_CATEGORIES.add(category["label"])
     log.info("Fallback news: %d item(s) for %s", len(items),
              category["label"])
     return items
@@ -1051,11 +1081,13 @@ def fetch_category_news(category):
     happen later in prepare_candidates; a wider pool gives trusted outlets
     more chances to be represented.
     Transient failures are retried; a category Google still will not serve —
-    a 5xx/timeout after every attempt, or a 200 that parses to an empty
-    feed — is retried against the fallback feed instead (see fallback_news).
-    A Google failure is always recorded in RSS_FAILED_CATEGORIES, the only
-    way check_outputs can tell an upstream outage apart from a Gemini outage;
-    categories the fallback actually filled land in RSS_FALLBACK_CATEGORIES."""
+    an error status or timeout, a 200 that parses to an empty feed, or a feed
+    that fails to parse — is retried against the fallback feed instead (see
+    fallback_news). Every Google failure is recorded, so check_outputs can
+    tell an upstream outage apart from a Gemini outage: an error/timeout in
+    RSS_FAILED_CATEGORIES, a 200 that yielded nothing parseable in
+    RSS_EMPTY_CATEGORIES. Categories the fallback actually served land in
+    RSS_FALLBACK_CATEGORIES (recorded in main(), after the 24h cutoff)."""
     query = category["query"]
     if "when:" not in query:
         query = f"{query} when:{DEFAULT_QUERY_WINDOW}"
@@ -1102,36 +1134,38 @@ def fetch_category_news(category):
         feed = feedparser.parse(resp.content)
     except Exception as exc:  # a malformed feed is non-fatal
         log.warning("RSS fetch failed for %s: %s", category["label"], exc)
+        RSS_EMPTY_CATEGORIES.add(category["label"])
         return fallback_news(category, exc)
 
     items = []
     for entry in feed.entries[:40]:
-        published = ""
-        ts = None
-        parsed = getattr(entry, "published_parsed", None) or getattr(
-            entry, "updated_parsed", None)
-        if parsed:
-            ts = calendar.timegm(parsed)  # feedparser gives UTC struct_time
-            published = datetime.utcfromtimestamp(ts).strftime("%Y-%m-%d %H:%M UTC")
-        source = ""
-        src = getattr(entry, "source", None)
-        if src is not None and getattr(src, "title", None):
-            source = src.title
-        elif getattr(feed.feed, "title", None):
-            source = feed.feed.title
-        items.append({
-            "title": strip_html(getattr(entry, "title", "")),
-            "link": getattr(entry, "link", ""),
-            "source": source,
-            "published": published,
-            "summary": strip_html(getattr(entry, "summary", "")),
-            "_ts": ts or 0,
-        })
+        try:
+            ts, published = entry_timestamp(entry)
+            source = ""
+            src = getattr(entry, "source", None)
+            if src is not None and getattr(src, "title", None):
+                source = src.title
+            elif getattr(feed.feed, "title", None):
+                source = feed.feed.title
+            items.append({
+                "title": strip_html(getattr(entry, "title", "")),
+                "link": getattr(entry, "link", ""),
+                "source": source,
+                "published": published,
+                "summary": strip_html(getattr(entry, "summary", "")),
+                "_ts": ts or 0,
+            })
+        except Exception as exc:
+            # Same guard as the fallback loop: one unreadable entry must not
+            # kill the run.
+            log.warning("Skipping unreadable feed entry for %s: %s",
+                        category["label"], exc)
 
     if not items:
         # An HTTP 200 that parses to nothing is Google's other silent failure
         # mode: a captcha/consent page served in place of the feed. Same
         # all-or-nothing outage, so the same fallback applies.
+        RSS_EMPTY_CATEGORIES.add(category["label"])
         return fallback_news(category, "empty feed")
 
     # Sort by recency; the 24h cutoff and source-quality ranking happen at
@@ -3942,16 +3976,34 @@ def check_outputs(page_date, generated_at, news, groups):
     # blaming Gemini for it (as this check used to) hides the real cause.
     collected = sum(len(c.get("items") or []) for c in (news or []))
     if news and not collected:
-        unreachable = len(RSS_FAILED_CATEGORIES)
-        if unreachable >= len(news):
+        # Name the actual failure, since it decides what the operator does: a
+        # category Google errored on (including a 4xx bad query, which is
+        # never retried) needs a different response from one Google answered
+        # with a 200 that parsed to nothing (a captcha/consent page).
+        errored = len(RSS_FAILED_CATEGORIES)
+        unparseable = len(RSS_EMPTY_CATEGORIES)
+        failed = errored + unparseable
+        if failed >= len(news):
+            causes = []
+            if errored:
+                causes.append(f"{errored} unreachable/erroring "
+                              "(HTTP error or timeout)")
+            if unparseable:
+                causes.append(f"{unparseable} returned nothing parseable "
+                              "(HTTP 200 with an empty or malformed feed)")
             problems.append(
-                f"all {len(news)} news feeds unreachable (Google News RSS "
-                f"5xx/timeout after {RSS_FETCH_ATTEMPTS} attempts) — "
+                f"all {len(news)} news feeds failed: {'; '.join(causes)} — "
                 "nothing published")
-        elif unreachable:
+        elif failed:
+            causes = []
+            if errored:
+                causes.append(f"{errored} unreachable/erroring")
+            if unparseable:
+                causes.append(f"{unparseable} returned nothing parseable")
             problems.append(
-                f"{unreachable} of {len(news)} news feeds unreachable and no "
-                "news items collected at all — nothing published")
+                f"{failed} of {len(news)} news feeds failed "
+                f"({', '.join(causes)}) and no news items collected at all — "
+                "nothing published")
         else:
             problems.append(
                 "no news items collected at all (every reachable feed had "
@@ -4065,9 +4117,11 @@ def print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
     ai_line = f"{ok}/{ok + heur} AI" + (f", {heur} heuristic" if heur else "")
     ex_att, ex_ok = (ARTICLE_EXTRACT_STATS["attempted"],
                      ARTICLE_EXTRACT_STATS["extracted"])
-    # Extraction coverage is reported, never enforced: extraction is currently
-    # broken for every category, and making it a hard --check problem would
-    # withhold the whole brief. A zero-coverage run is still worth flagging.
+    # Extraction coverage is reported, never enforced. Failing extraction
+    # degrades the bullets — they fall back to the RSS blurb — but the brief
+    # itself is still useful, and withholding the whole day's output over
+    # digest-only summaries would be the worse outcome. Zero coverage is still
+    # worth flagging, since it means the extraction path has died again.
     if ex_att and not ex_ok:
         log.warning("Article extraction yielded 0/%d articles across every "
                     "category (all summaries are digest-only)", ex_att)
@@ -4114,6 +4168,7 @@ def print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
 
 
 def main():
+    global _RESOLVE_WARNED
     parser = argparse.ArgumentParser(description="Generate the Daily Market Brief site.")
     parser.add_argument("--check", action="store_true",
                         help="validate outputs and exit non-zero on problems")
@@ -4135,11 +4190,13 @@ def main():
     new_count = 0
     now = time.time()
     # A second main() in one process must not inherit the previous run's
-    # fetch failures or coverage counters.
+    # fetch failures, coverage counters or one-shot warnings.
     RSS_FAILED_CATEGORIES.clear()
+    RSS_EMPTY_CATEGORIES.clear()
     RSS_FALLBACK_CATEGORIES.clear()
     ARTICLE_EXTRACT_STATS["attempted"] = 0
     ARTICLE_EXTRACT_STATS["extracted"] = 0
+    _RESOLVE_WARNED = False
     for category in CATEGORIES:
         top_n = category.get("top_n", DEFAULT_TOP_N)
         candidates = fetch_category_news(category)
@@ -4160,6 +4217,11 @@ def main():
             stats["cross_dupes"], stats["within_dropped"])
         attach_article_texts(category, candidates)
         items = summarize_category(category, candidates)
+        if items and any(c.get("_fallback") for c in candidates):
+            # Recorded only now, after the 24h cutoff: the fallback can return
+            # nothing but stale items, and a category that ships zero items
+            # must not be reported as "served by Bing News".
+            RSS_FALLBACK_CATEGORIES.add(category["label"])
         for item in items:
             key = normalize_title(item["title"])
             item["is_new"] = bool(key) and key not in yesterday_titles

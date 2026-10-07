@@ -3,8 +3,10 @@ yfinance>=0.2
 jinja2>=3.1
 requests>=2.31
 googlenewsdecoder>=0.1
-# googlenewsdecoder imports selectolax.parser, which selectolax 1.0.0 (2026-10-03)
-# removed in favour of selectolax.lexbor. Unpinned, the runner resolves to 1.0.0,
+# googlenewsdecoder imports selectolax.parser. selectolax 1.0.0 (2026-10-03) still
+# ships that module, but its import raises ImportError unconditionally in favour of
+# selectolax.lexbor, so it cannot be restored or shimmed: pin below 1, or move
+# googlenewsdecoder to the lexbor backend. Unpinned, the runner resolves to 1.0.0,
 # the import raises, every article resolves to None and the whole brief silently
 # falls back to RSS blurbs — which is what happened from 2026-10-03 onward.
 selectolax<1
