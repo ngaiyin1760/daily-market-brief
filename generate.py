@@ -1267,6 +1267,18 @@ Candidate items:
 """
 
 
+def _title_key(title):
+    """Normalised title for matching a model's echo back to its candidate.
+
+    The model rewrites titles as it goes — it has returned "Intels" for
+    "Intel's" — so drop apostrophes outright rather than turning them into a
+    separator (which would leave "intel s" against "intels"), then match on
+    letters and digits only.
+    """
+    text = str(title or "").lower().replace("'", "").replace("\u2019", "")
+    return re.sub(r"[^a-z0-9]+", " ", text).strip()
+
+
 def gemini_summarize(category, candidates, top_n=DEFAULT_TOP_N):
     """One Gemini call per category. Raises on any failure."""
     lines = []
@@ -1300,7 +1312,12 @@ def gemini_summarize(category, candidates, top_n=DEFAULT_TOP_N):
     # publisher URL beats the URL the AI echoed back (an unverified copy of its
     # own input), for the same reason the reading time is taken from the
     # candidate rather than from the response.
+    # The model does not always echo the URL byte-for-byte (it rewrites titles
+    # the same way), and a miss used to publish the echo verbatim — which is an
+    # unverified URL, and the raw Google News one when it missed. Fall back to
+    # the title, normalised so punctuation and apostrophe mangling still match.
     cand_by_url = {c.get("link") or c.get("url"): c for c in candidates}
+    cand_by_title = {_title_key(c.get("title")): c for c in candidates}
 
     out = []
     for entry in parsed[:top_n]:
@@ -1313,7 +1330,8 @@ def gemini_summarize(category, candidates, top_n=DEFAULT_TOP_N):
         except (TypeError, ValueError):
             rating = 3
         entry_url = str(entry.get("url", ""))
-        cand = cand_by_url.get(entry_url) or {}
+        cand = (cand_by_url.get(entry_url)
+                or cand_by_title.get(_title_key(entry.get("title"))) or {})
         out.append({
             "title": str(entry.get("title", "")),
             "url": cand.get("resolved_url") or entry_url,
