@@ -2,104 +2,106 @@
  "days": [
   {
    "date": "2026-10-07",
-   "generated_at": "2026-10-07 17:27 HKT",
+   "generated_at": "2026-10-07 18:43 HKT",
    "repos": [
     {
-     "name": "anthropics/knowledge-work-plugins",
-     "url": "https://github.com/anthropics/knowledge-work-plugins",
-     "language": "Python",
-     "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
+     "name": "cathrynlavery/diagram-design",
+     "url": "https://github.com/cathrynlavery/diagram-design",
+     "language": "HTML",
+     "description": "Editorial diagram design for Claude Code, Codex, GitHub Copilot, Factory Droid, and Pi. 42 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop.",
      "keywords": [
-      "AI agent"
+      "Data visualization"
      ],
-     "trendshift_pos": 14,
-     "stars": 26788,
-     "fork": false,
-     "parent_name": "",
-     "one_liner": "A collection of open-source plugins designed to extend the capabilities of Claude Cowork for knowledge workers.",
-     "bullets": [
-      "Built as a modular plugin architecture for the Claude Cowork agentic environment.",
-      "Focuses on automating complex knowledge-based workflows and data processing tasks.",
-      "Enables seamless integration of external tools into LLM-driven agentic pipelines.",
-      "Serves as a reference implementation for building enterprise-grade AI agent skills."
-     ]
-    },
-    {
-     "name": "openai/math",
-     "url": "https://github.com/openai/math",
-     "language": "Lean",
-     "description": "",
-     "keywords": [],
-     "trendshift_pos": 1,
-     "stars": 6098,
-     "fork": false,
-     "parent_name": "",
-     "one_liner": "A formal verification and mathematical reasoning repository utilizing the Lean theorem prover.",
-     "bullets": [
-      "Leverages the Lean 4 programming language for rigorous mathematical proof verification.",
-      "Provides a structured framework for encoding complex logic and formalizing mathematical theorems.",
-      "Highly relevant for quant finance and algorithmic trading where model correctness is critical.",
-      "Demonstrates the intersection of formal logic and AI-assisted reasoning for high-stakes computation."
-     ]
-    },
-    {
-     "name": "Raja0sama/vibex",
-     "url": "https://github.com/Raja0sama/vibex",
-     "language": "JavaScript",
-     "description": "Architecture diagrams and checkable docs from your codebase — ERD, C4, API and lifecycle — generated from Prisma, OpenAPI or GraphQL. One HTML file, no server.",
-     "keywords": [],
      "trendshift_pos": 22,
-     "stars": 386,
+     "stars": 44389,
      "fork": false,
      "parent_name": "",
-     "one_liner": "A zero-server documentation tool that generates architecture diagrams and lifecycle docs directly from your codebase.",
+     "one_liner": "A comprehensive, high-quality collection of editorial-grade diagrams for technical documentation and AI-assisted workflows.",
      "bullets": [
-      "Parses Prisma schemas, OpenAPI specs, and GraphQL definitions to visualize system architecture.",
-      "Outputs a single, portable HTML file containing ERDs, C4 models, and API documentation.",
-      "Eliminates the need for external documentation servers or complex infrastructure.",
-      "Ideal for devtools workflows requiring automated, up-to-date system visualization."
+      "Built using pure, self-contained HTML and SVG for maximum portability and performance.",
+      "Provides 42 distinct diagram types designed specifically for technical contexts like AI agents and software architecture.",
+      "Serves as a clean, professional alternative to automated diagramming tools that often produce cluttered output.",
+      "Ideal for developers and technical writers creating documentation for LLM-based systems and complex infrastructure."
      ],
-     "img": "Raja0sama_vibex_0.jpg",
-     "img_alt": "vibeX: four diagrams and a checkable document, from one command"
+     "img": "cathrynlavery_diagram-design_0.jpg",
+     "img_alt": "Content site architecture",
+     "img2": "cathrynlavery_diagram-design_1.jpg",
+     "img2_alt": "The self-improving loop"
     },
     {
-     "name": "chengyi-ai/native-subtitle-quote-image",
-     "url": "https://github.com/chengyi-ai/native-subtitle-quote-image",
-     "language": "Python",
-     "description": "保留视频内嵌字幕，精确取帧并生成 3:4 社交长图的 Agent Skill",
-     "keywords": [
-      "AI skills"
-     ],
-     "trendshift_pos": 18,
-     "stars": 1719,
-     "fork": false,
-     "parent_name": "",
-     "one_liner": "An AI agent skill that extracts frames from videos while preserving subtitles to generate social-ready content.",
-     "bullets": [
-      "Utilizes computer vision and frame-extraction logic to maintain subtitle integrity.",
-      "Automates the transformation of video content into high-quality 3:4 aspect ratio images.",
-      "Designed as a modular agent skill for integration into automated content creation pipelines.",
-      "Useful for fintech/tech media teams needing to summarize video-based financial news or tutorials."
-     ]
-    },
-    {
-     "name": "storytold/photocraft",
-     "url": "https://github.com/storytold/photocraft",
+     "name": "storytold/vectorcraft",
+     "url": "https://github.com/storytold/vectorcraft",
      "language": "Rust",
-     "description": "An open-source, clean-room reimplementation of Adobe Photoshop in pure Rust",
+     "description": "An open-source, clean-room reimplementation of Adobe Illustrator, built in pure Rust.",
      "keywords": [
       "Image editing"
      ],
-     "trendshift_pos": 2,
-     "stars": 11296,
+     "trendshift_pos": 12,
+     "stars": 1526,
      "fork": false,
      "parent_name": "",
-     "one_liner": "A high-performance, clean-room reimplementation of Adobe Photoshop written entirely in Rust.",
+     "one_liner": "A high-performance, clean-room reimplementation of Adobe Illustrator built entirely in Rust.",
      "bullets": [
-      "Developed in pure Rust to ensure memory safety and high-performance image processing.",
-      "Provides a foundational infrastructure for professional-grade creative tooling.",
-      "Offers a modular architecture that can be extended for specialized image manipulation tasks.",
-      "Represents a significant shift in devtools by replacing legacy C++ stacks with modern, safe systems programming."
+      "Developed in Rust, leveraging memory safety and high-concurrency performance for complex vector operations.",
+      "Focuses on a modular, clean-room architecture to provide a modern, open-source alternative to legacy design software.",
+      "Targets professional design workflows requiring precise control over vector paths and assets.",
+      "Represents a significant infrastructure project in the creative tooling space, emphasizing native performance."
+     ]
+    },
+    {
+     "name": "storytold/filmcraft",
+     "url": "https://github.com/storytold/filmcraft",
+     "language": "Rust",
+     "description": "An open-source, clean-room reimplementation of Adobe Premiere Pro built in pure Rust.",
+     "keywords": [
+      "Video editing"
+     ],
+     "trendshift_pos": 7,
+     "stars": 2326,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An open-source, high-performance reimplementation of professional video editing software built in Rust.",
+     "bullets": [
+      "Utilizes Rust's low-level control to handle high-bandwidth video processing and non-linear editing tasks.",
+      "Designed as a clean-room implementation to ensure a modern, efficient codebase free from legacy bloat.",
+      "Provides a robust foundation for building custom media processing pipelines and automated video generation tools.",
+      "Relevant for developers building AI-driven video synthesis or automated content creation infrastructure."
+     ]
+    },
+    {
+     "name": "joshuaswarren/omarchy-apple-dev",
+     "url": "https://github.com/joshuaswarren/omarchy-apple-dev",
+     "language": "Shell",
+     "description": "Build and deploy iOS SwiftUI apps from Omarchy Linux on Apple Silicon, no Xcode required",
+     "keywords": [],
+     "trendshift_pos": 13,
+     "stars": 754,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A specialized toolset for building and deploying iOS SwiftUI applications directly from Linux environments.",
+     "bullets": [
+      "Enables cross-platform development workflows by bypassing the requirement for a native Xcode environment.",
+      "Leverages Apple Silicon capabilities to bridge the gap between Linux-based dev environments and iOS deployment.",
+      "Streamlines the CI/CD pipeline for mobile developers by reducing dependency on proprietary macOS-only tooling.",
+      "Highly applicable for infrastructure engineers looking to automate mobile app builds in containerized or Linux-based environments."
+     ]
+    },
+    {
+     "name": "DuarteSantos8/openGym",
+     "url": "https://github.com/DuarteSantos8/openGym",
+     "language": "JavaScript",
+     "description": "Self-hosted gym & body-weight tracker — plan routines, log workouts (supersets, warm-ups, cardio), see which muscles are trained, fatigued or detrained, import from FitNotes/Strong/Hevy, passkey login. Your data, your server.",
+     "keywords": [],
+     "trendshift_pos": 20,
+     "stars": 6274,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A self-hosted, privacy-focused fitness tracking platform with advanced analytics for workout optimization.",
+     "bullets": [
+      "Features a robust data-logging engine for tracking supersets, warm-ups, and muscle fatigue metrics.",
+      "Includes sophisticated analytics to visualize muscle training load and detraining cycles.",
+      "Supports data portability through imports from major fitness apps like FitNotes and Strong.",
+      "Uses modern security standards like passkey authentication, making it a model for secure, self-hosted personal data infrastructure."
      ]
     }
    ]
