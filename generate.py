@@ -966,8 +966,6 @@ def attach_article_texts(category, items):
     # later in summarize_category), which is all we can know.
     ARTICLE_EXTRACT_STATS["attempted"] += len(futures)
     ARTICLE_EXTRACT_STATS["extracted"] += extracted
-    PUBLISHER_LINK_STATS["attempted"] += len(futures)
-    PUBLISHER_LINK_STATS["resolved"] += resolved
     log.info("%s: extracted %d/%d articles, resolved %d/%d publisher links",
              category["label"], extracted, len(futures), resolved, len(futures))
 
@@ -986,11 +984,20 @@ RSS_FALLBACK_CATEGORIES = set()
 # Article-extraction coverage across the run (attempted -> extracted). Read by
 # print_summary only; deliberately not enforced anywhere.
 ARTICLE_EXTRACT_STATS = {"attempted": 0, "extracted": 0}
-# Publisher-link coverage across the run (attempted -> resolved to a non-Google
-# URL). Counted separately from extraction: a paywalled article resolves but
-# does not extract, so the two numbers legitimately differ. Read by
-# print_summary only; deliberately not enforced anywhere.
+# Publisher-link coverage of the headlines actually published (attempted ->
+# resolved to a non-Google URL). A headline still carrying a news.google.com
+# URL is the case this exists to expose: that link bounces through Google
+# instead of going to the article. Read by print_summary only; deliberately
+# not enforced anywhere.
 PUBLISHER_LINK_STATS = {"attempted": 0, "resolved": 0}
+
+
+def _published_link(url):
+    """Record and return the link a story will actually be published with."""
+    PUBLISHER_LINK_STATS["attempted"] += 1
+    if "news.google.com" not in url:
+        PUBLISHER_LINK_STATS["resolved"] += 1
+    return url
 
 
 def fallback_query(query):
@@ -1223,11 +1230,32 @@ def condense_text(text, max_chars=220, max_sentences=2):
     return out
 
 
+def _publisher_link(cand, fallback):
+    """The link to publish for one story: the publisher URL when it can be
+    recovered, else whatever the source handed us.
+
+    attach_article_texts resolves only its extraction window (the top
+    ARTICLE_EXTRACT_TOP_N candidates), but the model picks from the whole
+    ranked list, so a published story often sits outside that window and has
+    no resolved_url. Resolve it here, on demand, for the handful of stories
+    that are actually published instead of fetching a URL for all 25
+    candidates in every category — which is also what triggers Google's
+    rate limiting.
+    """
+    if cand.get("resolved_url"):
+        return cand["resolved_url"]
+    if cand.get("link"):
+        url = resolve_article_url(cand["link"])
+        if url:
+            return url
+    return fallback
+
+
 def heuristic_summarize(candidates, top_n=DEFAULT_TOP_N):
     """Fallback: top N by recency. Bullets come from the best available text
     (extracted article content, else cleaned RSS summary) — never the title.
-    Each item links to the publisher URL when resolution recovered one (set in
-    attach_article_texts), else to the original Google News link."""
+    Each item links to the publisher URL, resolved on demand when the story
+    sits outside the extraction window, else to the Google News link."""
     out = []
     for item in candidates[:top_n]:
         if item.get("content"):
@@ -1239,7 +1267,7 @@ def heuristic_summarize(candidates, top_n=DEFAULT_TOP_N):
             bullets = ["Summary not available."]
         out.append({
             "title": item["title"],
-            "url": item.get("resolved_url") or item["link"],
+            "url": _published_link(_publisher_link(item, item["link"])),
             "source": item["source"],
             "published": item["published"],
             "bullets": bullets,
@@ -1348,7 +1376,7 @@ def gemini_summarize(category, candidates, top_n=DEFAULT_TOP_N):
                 or cand_by_title.get(_title_key(entry_title)) or {})
         out.append({
             "title": str(entry.get("title", "")),
-            "url": cand.get("resolved_url") or entry_url,
+            "url": _published_link(_publisher_link(cand, entry_url)),
             "source": str(entry.get("source", "")),
             "published": str(entry.get("published", "")),
             "bullets": bullets,
