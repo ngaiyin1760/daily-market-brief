@@ -6,10 +6,24 @@ on:
     # scheduled runs (especially on-the-hour), so fire at 22:17 UTC =
     # 6:17 AM HKT on an off-peak minute — even a ~40 min delay lands by 7.
     - cron: '17 22 * * *'
+    # Catch-up: the same HKT morning, on a fresh runner and therefore a fresh
+    # egress IP — which is the whole point, because the Google News 503s that
+    # killed 2026-10-04 and 2026-10-07 are per-IP and all-or-nothing, so the
+    # in-job retries simply reused the throttled IP and failed 39/39.
+    # 00:47 UTC = 08:47 HKT, about 2.5 h after the primary: on a normal day the
+    # brief is already committed by then and this run exits in seconds, while a
+    # lost day is retried on the same HKT date the primary was generating for
+    # (that date only rolls over at 16:00 UTC, so a later catch-up would check
+    # — and publish — a different day). Median GitHub schedule delay is ~112
+    # min, putting the usual start near 02:39 UTC = 10:39 HKT, still morning.
+    - cron: '47 0 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
+  # Lets the failure alert open/update/close its issue; github.token is the
+  # automatic token, so there is no secret for the operator to supply.
+  issues: write
 
 jobs:
   build:
@@ -25,7 +39,29 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # Today is the HKT date, exactly as generate.py computes page_date, so
+      # both crons agree on which day they are about. The skip is deliberately
+      # limited to schedule events: a workflow_dispatch is the operator's way
+      # to force a regeneration over an already-published day, so it must
+      # always generate (hence the event_name test, not a bare existence test).
+      - name: Check whether today's brief already exists
+        id: today
+        run: |
+          date_hk=$(TZ=Asia/Hong_Kong date +%F)
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "Manual dispatch: regenerating the $date_hk HKT brief regardless."
+          elif grep -qF "\"$date_hk\"" docs/manifest.json 2>/dev/null \
+               || [ -f "docs/days/$date_hk.html" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Brief for $date_hk HKT is already published; skipping generation."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "Brief for $date_hk HKT is missing; generating."
+          fi
+
       - name: Generate brief
+        if: steps.today.outputs.skip != 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # Cloudflare Worker proxy for browser-side Gemini calls — lets the
@@ -73,4 +109,51 @@ jobs:
           else
             git commit -m "Daily market brief: $(date -u +%Y-%m-%d)"
             git push
+          fi
+
+      # Runs once per failed run, after the retry loop has given up — the 3
+      # attempts live inside the step above, so this fires once, not per
+      # attempt. A fixed title means a repeat failure updates the same issue
+      # instead of opening issue #N; without it both recent 503 incidents were
+      # silent until the operator noticed a missing brief by hand.
+      # Step-level if: rather than a job-level if: — a job-level condition is
+      # evaluated before the job's own steps and so cannot see that they
+      # failed, whereas failure() on a step is true exactly when an earlier
+      # step in the same job failed. This still runs after the failing step,
+      # and the job stays failed afterwards.
+      - name: Alert on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_TITLE: Daily Market Brief pipeline failure
+        run: |
+          existing=$(gh issue list --state all --limit 100 --json number,state,title \
+            --jq ".[] | select(.title == \"$ISSUE_TITLE\") | \"\(.number) \(.state)\"" \
+            | head -n 1)
+          number=${existing%% *}
+          state=$(printf '%s' "${existing##* }" | tr '[:lower:]' '[:upper:]')
+          body=$(printf 'Run %s failed (trigger: %s) for the %s brief.\n\n%s\n' \
+            "$GITHUB_RUN_ID" "$GITHUB_EVENT_NAME" "$(TZ=Asia/Hong_Kong date +%F)" \
+            "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID")
+          if [ -z "$number" ]; then
+            gh issue create --title "$ISSUE_TITLE" --body "$body"
+          else
+            [ "$state" = "OPEN" ] || gh issue reopen "$number"
+            gh issue comment "$number" --body "$body"
+          fi
+
+      # Closing on the next success makes this single issue's open/closed state
+      # the operator's health signal for the pipeline. A no-op when nothing is
+      # open, so a normal morning stays silent.
+      - name: Close failure alert on success
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_TITLE: Daily Market Brief pipeline failure
+        run: |
+          number=$(gh issue list --state open --limit 100 --json number,title \
+            --jq ".[] | select(.title == \"$ISSUE_TITLE\") | .number" | head -n 1)
+          if [ -n "$number" ]; then
+            gh issue close "$number" --comment \
+              "Recovered: run $GITHUB_RUN_ID succeeded (docs/ committed)."
           fi
