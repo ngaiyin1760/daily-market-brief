@@ -1267,15 +1267,20 @@ Candidate items:
 """
 
 
-def _title_key(title):
+def _title_key(title, source=None):
     """Normalised title for matching a model's echo back to its candidate.
 
-    The model rewrites titles as it goes — it has returned "Intels" for
-    "Intel's" — so drop apostrophes outright rather than turning them into a
-    separator (which would leave "intel s" against "intels"), then match on
-    letters and digits only.
+    Google News titles carry a " - Publisher" suffix that the model drops, so
+    strip it first (only when it really is the item's own source, since a
+    headline may legitimately contain a dash). Then drop apostrophes outright
+    rather than turning them into a separator, or "Intel's" becomes "intel s"
+    and stops matching the "Intels" the model returned.
     """
-    text = str(title or "").lower().replace("'", "").replace("\u2019", "")
+    text = str(title or "")
+    suffix = f" - {source}"
+    if source and text.lower().endswith(suffix.lower()):
+        text = text[: -len(suffix)]
+    text = text.lower().replace("'", "").replace("\u2019", "")
     return re.sub(r"[^a-z0-9]+", " ", text).strip()
 
 
@@ -1317,7 +1322,14 @@ def gemini_summarize(category, candidates, top_n=DEFAULT_TOP_N):
     # unverified URL, and the raw Google News one when it missed. Fall back to
     # the title, normalised so punctuation and apostrophe mangling still match.
     cand_by_url = {c.get("link") or c.get("url"): c for c in candidates}
-    cand_by_title = {_title_key(c.get("title")): c for c in candidates}
+    # Index each candidate under both title forms, with the " - Publisher"
+    # suffix and without it: the model usually drops the suffix but not always.
+    cand_by_title = {}
+    for c in candidates:
+        for key in (_title_key(c.get("title")),
+                    _title_key(c.get("title"), c.get("source"))):
+            if key:
+                cand_by_title.setdefault(key, c)
 
     out = []
     for entry in parsed[:top_n]:
@@ -1330,8 +1342,10 @@ def gemini_summarize(category, candidates, top_n=DEFAULT_TOP_N):
         except (TypeError, ValueError):
             rating = 3
         entry_url = str(entry.get("url", ""))
+        entry_title = entry.get("title")
         cand = (cand_by_url.get(entry_url)
-                or cand_by_title.get(_title_key(entry.get("title"))) or {})
+                or cand_by_title.get(_title_key(entry_title, entry.get("source")))
+                or cand_by_title.get(_title_key(entry_title)) or {})
         out.append({
             "title": str(entry.get("title", "")),
             "url": cand.get("resolved_url") or entry_url,
