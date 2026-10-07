@@ -1,104 +1,102 @@
 {
- "generated_at": "2026-10-06 10:17 HKT",
+ "generated_at": "2026-10-07 17:27 HKT",
  "repos": [
   {
-   "name": "uber/ADR",
-   "url": "https://github.com/uber/ADR",
+   "name": "anthropics/knowledge-work-plugins",
+   "url": "https://github.com/anthropics/knowledge-work-plugins",
    "language": "Python",
-   "description": "ADR secures enterprise AI agents through observability, security benchmarking, and threat detection. Deployed at Uber.",
-   "keywords": [
-    "AI agent",
-    "Monitoring"
-   ],
-   "trendshift_pos": 6,
-   "stars": 1731,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An enterprise-grade security and observability framework designed to protect and benchmark AI agents.",
-   "bullets": [
-    "Built in Python, focusing on security benchmarking and threat detection for LLM-based workflows.",
-    "Provides observability layers to monitor agent behavior and prevent unauthorized actions.",
-    "Designed for enterprise environments to ensure compliance and safety in agentic deployments.",
-    "Used internally at Uber to secure large-scale AI agent infrastructure."
-   ]
-  },
-  {
-   "name": "nealbridges/VulnHunter",
-   "url": "https://github.com/nealbridges/VulnHunter",
-   "language": "Python",
-   "description": "Agentic AI security scanner that hunts exploitable vulnerabilities like an adversary, proves them with executable PoCs, and fixes them test-first. A maintained fork of Capital One's VulnHunter, rebuilt for any agent harness.",
-   "keywords": [],
-   "trendshift_pos": 2,
-   "stars": 182,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An agentic AI security scanner that automates vulnerability hunting, PoC generation, and remediation.",
-   "bullets": [
-    "Leverages agentic AI workflows to identify exploitable vulnerabilities in software.",
-    "Automatically generates executable Proofs of Concept (PoCs) to validate findings.",
-    "Implements a test-first approach to suggest and verify security patches.",
-    "Maintained fork of Capital One's original tool, optimized for modern security engineering pipelines."
-   ]
-  },
-  {
-   "name": "earthtojake/text-to-cad",
-   "url": "https://github.com/earthtojake/text-to-cad",
-   "language": "Python",
-   "description": "Give your agent CAD superpowers.",
-   "keywords": [
-    "AI agent",
-    "3D generation"
-   ],
-   "trendshift_pos": 20,
-   "stars": 17457,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A specialized tool that integrates CAD capabilities into AI agents for automated design and engineering.",
-   "bullets": [
-    "Python-based library designed to bridge the gap between LLM reasoning and CAD software.",
-    "Enables agents to programmatically generate, modify, and export 3D geometry.",
-    "Useful for automating mechanical design workflows and rapid prototyping via natural language.",
-    "Provides a structured interface for agents to interact with complex engineering file formats."
-   ]
-  },
-  {
-   "name": "LaurieWired/GhidraMCP",
-   "url": "https://github.com/LaurieWired/GhidraMCP",
-   "language": "Java",
-   "description": "MCP Server for Ghidra",
-   "keywords": [
-    "MCP"
-   ],
-   "trendshift_pos": 12,
-   "stars": 10410,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A Model Context Protocol (MCP) server that allows AI agents to interact directly with the Ghidra reverse engineering suite.",
-   "bullets": [
-    "Java-based implementation connecting the Model Context Protocol to Ghidra's API.",
-    "Allows LLMs to query binary analysis data, function signatures, and decompiled code.",
-    "Facilitates agentic workflows in cybersecurity, such as automated vulnerability research and malware analysis.",
-    "Standardizes how AI agents interface with complex desktop-based security tooling."
-   ]
-  },
-  {
-   "name": "amontlabs/lcu",
-   "url": "https://github.com/amontlabs/lcu",
-   "language": "Python",
-   "description": "Codex computer use, decoupled from the app, for usage inside any harness.",
+   "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
    "keywords": [
     "AI agent"
    ],
-   "trendshift_pos": 21,
-   "stars": 472,
+   "trendshift_pos": 14,
+   "stars": 26788,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A decoupled computer-use framework that allows AI agents to control desktop applications across various harnesses.",
+   "one_liner": "A collection of open-source plugins designed to extend the capabilities of Claude Cowork for knowledge workers.",
    "bullets": [
-    "Python-based architecture designed to separate agent logic from specific application environments.",
-    "Enables cross-platform automation by providing a standardized interface for 'computer use' tasks.",
-    "Highly modular, allowing developers to plug the agent into custom harnesses or existing desktop workflows.",
-    "Focuses on the infrastructure layer of agentic interaction with GUI-based software."
+    "Built as a modular plugin architecture for the Claude Cowork agentic environment.",
+    "Focuses on automating complex knowledge-based workflows and data processing tasks.",
+    "Enables seamless integration of external tools into LLM-driven agentic pipelines.",
+    "Serves as a reference implementation for building enterprise-grade AI agent skills."
+   ]
+  },
+  {
+   "name": "openai/math",
+   "url": "https://github.com/openai/math",
+   "language": "Lean",
+   "description": "",
+   "keywords": [],
+   "trendshift_pos": 1,
+   "stars": 6098,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A formal verification and mathematical reasoning repository utilizing the Lean theorem prover.",
+   "bullets": [
+    "Leverages the Lean 4 programming language for rigorous mathematical proof verification.",
+    "Provides a structured framework for encoding complex logic and formalizing mathematical theorems.",
+    "Highly relevant for quant finance and algorithmic trading where model correctness is critical.",
+    "Demonstrates the intersection of formal logic and AI-assisted reasoning for high-stakes computation."
+   ]
+  },
+  {
+   "name": "Raja0sama/vibex",
+   "url": "https://github.com/Raja0sama/vibex",
+   "language": "JavaScript",
+   "description": "Architecture diagrams and checkable docs from your codebase — ERD, C4, API and lifecycle — generated from Prisma, OpenAPI or GraphQL. One HTML file, no server.",
+   "keywords": [],
+   "trendshift_pos": 22,
+   "stars": 386,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A zero-server documentation tool that generates architecture diagrams and lifecycle docs directly from your codebase.",
+   "bullets": [
+    "Parses Prisma schemas, OpenAPI specs, and GraphQL definitions to visualize system architecture.",
+    "Outputs a single, portable HTML file containing ERDs, C4 models, and API documentation.",
+    "Eliminates the need for external documentation servers or complex infrastructure.",
+    "Ideal for devtools workflows requiring automated, up-to-date system visualization."
+   ],
+   "img": "Raja0sama_vibex_0.jpg",
+   "img_alt": "vibeX: four diagrams and a checkable document, from one command"
+  },
+  {
+   "name": "chengyi-ai/native-subtitle-quote-image",
+   "url": "https://github.com/chengyi-ai/native-subtitle-quote-image",
+   "language": "Python",
+   "description": "保留视频内嵌字幕，精确取帧并生成 3:4 社交长图的 Agent Skill",
+   "keywords": [
+    "AI skills"
+   ],
+   "trendshift_pos": 18,
+   "stars": 1719,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An AI agent skill that extracts frames from videos while preserving subtitles to generate social-ready content.",
+   "bullets": [
+    "Utilizes computer vision and frame-extraction logic to maintain subtitle integrity.",
+    "Automates the transformation of video content into high-quality 3:4 aspect ratio images.",
+    "Designed as a modular agent skill for integration into automated content creation pipelines.",
+    "Useful for fintech/tech media teams needing to summarize video-based financial news or tutorials."
+   ]
+  },
+  {
+   "name": "storytold/photocraft",
+   "url": "https://github.com/storytold/photocraft",
+   "language": "Rust",
+   "description": "An open-source, clean-room reimplementation of Adobe Photoshop in pure Rust",
+   "keywords": [
+    "Image editing"
+   ],
+   "trendshift_pos": 2,
+   "stars": 11296,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A high-performance, clean-room reimplementation of Adobe Photoshop written entirely in Rust.",
+   "bullets": [
+    "Developed in pure Rust to ensure memory safety and high-performance image processing.",
+    "Provides a foundational infrastructure for professional-grade creative tooling.",
+    "Offers a modular architecture that can be extended for specialized image manipulation tasks.",
+    "Represents a significant shift in devtools by replacing legacy C++ stacks with modern, safe systems programming."
    ]
   }
  ]

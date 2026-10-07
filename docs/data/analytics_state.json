@@ -381,6 +381,92 @@
    "read_time": 8
   },
   {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/05/1145413/emtech-future-2026-when-ai-meets-everything/",
+   "blog": "MIT Technology Review",
+   "title": "EmTech Future 2026: When AI Meets Everything",
+   "link": "https://www.technologyreview.com/2026/10/05/1145413/emtech-future-2026-when-ai-meets-everything/",
+   "summary": "Yossi Matias, Vice President & Head of Google Research, explores how AI is beginning to reshape biology, infrastructure, manufacturing, and science, and why its greatest impact may come when it intersects with other fields.  Step inside the newsroom with our MIT Technology Review editors for sharp analysis and unpublished insights from the team that researches…",
+   "published": "2026-10-05 04:00 UTC",
+   "_ts": 1791172800,
+   "preview": false,
+   "bullets": [
+    "The EmTech Future 2026 conference emphasizes that AI's most significant economic impact will emerge from its intersection with biology, manufacturing, and infrastructure.",
+    "Experts are focusing on the convergence of quantum computing and AI, suggesting that quantum systems will gain value primarily through their interaction with existing digital architectures.",
+    "The event highlights the necessity of rethinking energy systems to support the massive infrastructure requirements of converging AI and climate technologies."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "Stratechery|https://stratechery.com/2026/apple-and-a-hackers-future/",
+   "blog": "Stratechery",
+   "title": "Apple and a Hacker’s Future",
+   "link": "https://stratechery.com/2026/apple-and-a-hackers-future/",
+   "summary": "I was happy for years in Apple's walled garden; with AI, however, their protections feel like limitations.",
+   "published": "2026-10-05 10:00 UTC",
+   "_ts": 1791194400,
+   "preview": false,
+   "bullets": [
+    "A high-severity macOS vulnerability, CVE-2026-65400, was actively exploited to gain root access and install Monero crypto miners on systems with port 5900 exposed to the internet.",
+    "The flaw exists in the macOS screen sharing state management, allowing unauthorized remote parties to view screens and control inputs without credentials.",
+    "Apple has released patches for macOS Tahoe, Sequoia, and Sonoma following the disclosure of the exploit at the Black Hat security conference.",
+    "The incident highlights the critical importance of restricting agent access and maintaining constrained environments for AI-driven workflows to mitigate the impact of system-level compromises."
+   ],
+   "rating": 3,
+   "read_time": 17
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/05/1145711/the-download-ai-popularity-paradox-emtech-future-2026/",
+   "blog": "MIT Technology Review",
+   "title": "The Download: AI’s popularity paradox and EmTech Future 2026",
+   "link": "https://www.technologyreview.com/2026/10/05/1145711/the-download-ai-popularity-paradox-emtech-future-2026/",
+   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. People really hate AI, so why can’t they get enough? —Will Douglas Heaven Over the summer I talked to the CEO of Springboards, a startup building an LLM designed to come…",
+   "published": "2026-10-05 12:10 UTC",
+   "_ts": 1791202200,
+   "preview": false,
+   "bullets": [
+    "The Trump administration has established a 'Super Intelligence Force' led by Jay Clayton to coordinate national AI policy and industry engagement.",
+    "Public sentiment toward AI is increasingly negative, yet usage metrics continue to climb, highlighting a significant disconnect between societal perception and adoption.",
+    "EmTech Future 2026 highlights the critical convergence of AI with quantum computing, robotics, and energy systems as the next frontier for industrial transformation."
+   ],
+   "rating": 3,
+   "read_time": 5
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/row-parallel-dram-computing-cuts-data-reorganization-overhead-syracuse-fau-tu-dresden/",
+   "blog": "SemiEngineering",
+   "title": "Row-Parallel DRAM Computing Cuts Data-Reorganization Overhead (Syracuse, FAU, TU Dresden)",
+   "link": "https://semiengineering.com/row-parallel-dram-computing-cuts-data-reorganization-overhead-syracuse-fau-tu-dresden/",
+   "summary": "Researchers at Syracuse University, Friedrich-Alexander-Universität Erlangen-Nürnberg, and TU Dresden published a technical paper titled “RAPID: Row-Parallel Arithmetic Processing in DRAM.” Abstract Excerpt: “Processing-using-memory (PUM) architectures perform computation directly within DRAM to reduce costly data movement between memory and processors. Because charge-sharing operations are confined to individual bitlines, existing DRAM-PUM architectures reorganize data into column-oriented, bit-serial... » read more\nThe post Row-Parallel DRAM Computing Cuts Data-Reorganization Overhead (Syracuse, FAU, TU Dresden) appeared first on Semiconductor Engineering.",
+   "published": "2026-10-05 16:16 UTC",
+   "_ts": 1791216988,
+   "preview": false,
+   "bullets": [
+    "The RAPID architecture introduces row-parallel arithmetic processing within DRAM to eliminate the costly data-reorganization overhead typical of existing processing-using-memory (PUM) designs.",
+    "By adding migration and inversion cells to DRAM subarrays, the system enables horizontal data movement and logical operations without converting data to bit-serial formats.",
+    "This approach preserves CPU-compatible, word-parallel layouts, allowing for more efficient integration of in-memory computing with conventional processor architectures."
+   ],
+   "rating": 3,
+   "read_time": 1
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/backside-clock-meshes-cut-skew-and-power-in-2nm-nanosheets-ucsc/",
+   "blog": "SemiEngineering",
+   "title": "Backside Clock Meshes Cut Skew and Power in 2nm Nanosheets (UCSC)",
+   "link": "https://semiengineering.com/backside-clock-meshes-cut-skew-and-power-in-2nm-nanosheets-ucsc/",
+   "summary": "Researchers at the University of California, Santa Cruz published a technical paper titled “Design Space Exploration of Backside Clock Meshes for 2 nm GAAFET BSPDN Technology.” Abstract Excerpt: “Clock meshes are used in high-performance VLSI designs to minimize skew and tolerate on-chip variation, but they spend scarce routing resources on premium metal layers. Backside power... » read more\nThe post Backside Clock Meshes Cut Skew and Power in 2nm Nanosheets (UCSC) appeared first on Semiconductor Engineering.",
+   "published": "2026-10-05 18:07 UTC",
+   "_ts": 1791223641,
+   "preview": false,
+   "bullets": [
+    "Researchers at UCSC have performed the first design-space exploration of backside clock meshes specifically for 2nm GAAFET nanosheet technology.",
+    "By utilizing backside power delivery networks, designers can implement thick, low-resistance metal layers to reduce clock skew and power consumption.",
+    "The study highlights the architectural challenge of connecting backside meshes to frontside flip-flops, which necessitates the use of through-silicon vias (TSVs)."
+   ],
+   "rating": 3,
+   "read_time": 9
+  },
+  {
    "_key": "CNEVPOST|https://cnevpost.com/2026/10/01/zeekr-plans-001-update-q1-2027-incentives-current-model/",
    "blog": "CNEVPOST",
    "title": "Zeekr plans 001 update in Q1 2027, offers incentives on current model",
@@ -432,6 +518,23 @@
    "read_time": 1
   },
   {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/05/1145682/people-really-hate-ai-so-why-cant-they-get-enough/",
+   "blog": "MIT Technology Review",
+   "title": "People really hate AI, so why can’t they get enough?",
+   "link": "https://www.technologyreview.com/2026/10/05/1145682/people-really-hate-ai-so-why-cant-they-get-enough/",
+   "summary": "Over the summer I talked to the CEO of Springboards, a startup building an LLM that’s designed to come up with a wider variety of responses than its mainstream rivals do. At the start of the call, he said something that’s been stuck in my head since: “We often say that we’re a self-loathing AI…",
+   "published": "2026-10-05 08:00 UTC",
+   "_ts": 1791187200,
+   "preview": false,
+   "bullets": [
+    "Despite widespread public anxiety and negative sentiment, AI adoption is at record levels, with ChatGPT and Gemini reporting nearly 1 billion monthly users each.",
+    "Surveys indicate that 71% of US adults oppose the construction of local AI data centers, reflecting a deeper societal resistance to the physical and social footprint of the technology.",
+    "Over one-third of adults across OECD countries report using generative AI tools, suggesting that individual utility often overrides broader societal skepticism."
+   ],
+   "rating": 2,
+   "read_time": 5
+  },
+  {
    "_key": "CNEVPOST|https://cnevpost.com/2026/10/01/tesla-gives-model-3-minor-upgrades-in-china/",
    "blog": "CNEVPOST",
    "title": "Tesla gives Model 3 minor upgrades in China, keeps prices unchanged",
@@ -449,107 +552,192 @@
    "read_time": 1
   },
   {
-   "_key": "SemiEngineering|https://semiengineering.com/backside-clock-meshes-cut-skew-and-power-in-2nm-nanosheets-ucsc/",
-   "blog": "SemiEngineering",
-   "title": "Backside Clock Meshes Cut Skew and Power in 2nm Nanosheets (UCSC)",
-   "link": "https://semiengineering.com/backside-clock-meshes-cut-skew-and-power-in-2nm-nanosheets-ucsc/",
-   "summary": "Researchers at the University of California, Santa Cruz published a technical paper titled “Design Space Exploration of Backside Clock Meshes for 2 nm GAAFET BSPDN Technology.” Abstract Excerpt: “Clock meshes are used in high-performance VLSI designs to minimize skew and tolerate on-chip variation, but they spend scarce routing resources on premium metal layers. Backside power... » read more\nThe post Backside Clock Meshes Cut Skew and Power in 2nm Nanosheets (UCSC) appeared first on Semiconductor Engineering.",
-   "published": "2026-10-05 18:07 UTC",
-   "_ts": 1791223641,
-   "preview": false,
-   "bullets": [
-    "Researchers at UCSC have performed the first design-space exploration of backside clock meshes specifically for 2nm GAAFET nanosheet technology.",
-    "By utilizing backside power delivery networks, designers can implement thick, low-resistance metal layers to reduce clock skew and power consumption.",
-    "The study highlights the architectural challenge of connecting backside meshes to frontside flip-flops, which necessitates the use of through-silicon vias (TSVs)."
-   ],
-   "rating": 3,
-   "read_time": 9
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/row-parallel-dram-computing-cuts-data-reorganization-overhead-syracuse-fau-tu-dresden/",
-   "blog": "SemiEngineering",
-   "title": "Row-Parallel DRAM Computing Cuts Data-Reorganization Overhead (Syracuse, FAU, TU Dresden)",
-   "link": "https://semiengineering.com/row-parallel-dram-computing-cuts-data-reorganization-overhead-syracuse-fau-tu-dresden/",
-   "summary": "Researchers at Syracuse University, Friedrich-Alexander-Universität Erlangen-Nürnberg, and TU Dresden published a technical paper titled “RAPID: Row-Parallel Arithmetic Processing in DRAM.” Abstract Excerpt: “Processing-using-memory (PUM) architectures perform computation directly within DRAM to reduce costly data movement between memory and processors. Because charge-sharing operations are confined to individual bitlines, existing DRAM-PUM architectures reorganize data into column-oriented, bit-serial... » read more\nThe post Row-Parallel DRAM Computing Cuts Data-Reorganization Overhead (Syracuse, FAU, TU Dresden) appeared first on Semiconductor Engineering.",
-   "published": "2026-10-05 16:16 UTC",
-   "_ts": 1791216988,
-   "preview": false,
-   "bullets": [
-    "The RAPID architecture introduces row-parallel arithmetic processing within DRAM to eliminate the costly data-reorganization overhead typical of existing processing-using-memory (PUM) designs.",
-    "By adding migration and inversion cells to DRAM subarrays, the system enables horizontal data movement and logical operations without converting data to bit-serial formats.",
-    "This approach preserves CPU-compatible, word-parallel layouts, allowing for more efficient integration of in-memory computing with conventional processor architectures."
-   ],
-   "rating": 3,
-   "read_time": 1
-  },
-  {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/05/1145711/the-download-ai-popularity-paradox-emtech-future-2026/",
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/06/1145025/2026-climate-tech-companies-to-watch-x-energy-helium-cooled-nuclear-reactors/",
    "blog": "MIT Technology Review",
-   "title": "The Download: AI’s popularity paradox and EmTech Future 2026",
-   "link": "https://www.technologyreview.com/2026/10/05/1145711/the-download-ai-popularity-paradox-emtech-future-2026/",
-   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. People really hate AI, so why can’t they get enough? —Will Douglas Heaven Over the summer I talked to the CEO of Springboards, a startup building an LLM designed to come…",
-   "published": "2026-10-05 12:10 UTC",
-   "_ts": 1791202200,
+   "title": "X-energy and its helium-cooled nuclear reactors",
+   "link": "https://www.technologyreview.com/2026/10/06/1145025/2026-climate-tech-companies-to-watch-x-energy-helium-cooled-nuclear-reactors/",
+   "summary": "X-energy is developing small modular reactors to satisfy some of the planet’s most power-hungry users: industrial manufacturers that need high temperatures to produce billions of tons of concrete, plastics, fibers, and chemicals. Solar panels and wind turbines are great at producing electricity but what heavy industry also needs is raw heat—and lots of it. The manufacture…",
+   "published": "2026-10-06 10:35 UTC",
+   "_ts": 1791282900,
    "preview": false,
    "bullets": [
-    "The Trump administration has established a 'Super Intelligence Force' led by Jay Clayton to coordinate national AI policy and industry engagement.",
-    "Public sentiment toward AI is increasingly negative, yet usage metrics continue to climb, highlighting a significant disconnect between societal perception and adoption.",
-    "EmTech Future 2026 highlights the critical convergence of AI with quantum computing, robotics, and energy systems as the next frontier for industrial transformation."
+    "X-energy is developing small modular reactors (SMRs) that use helium gas as a coolant, allowing for operating temperatures high enough to decarbonize heavy industries like steel and chemical manufacturing.",
+    "The Xe-100 reactor utilizes TRISO fuel pebbles, which are designed to be corrosion-resistant and inherently safe against meltdowns during power loss.",
+    "By co-locating these reactors at industrial sites, the company aims to address the 18% of global greenhouse-gas emissions currently generated by high-temperature industrial heating."
    ],
-   "rating": 3,
+   "rating": 4,
    "read_time": 5
   },
   {
-   "_key": "Stratechery|https://stratechery.com/2026/apple-and-a-hackers-future/",
-   "blog": "Stratechery",
-   "title": "Apple and a Hacker’s Future",
-   "link": "https://stratechery.com/2026/apple-and-a-hackers-future/",
-   "summary": "I was happy for years in Apple's walled garden; with AI, however, their protections feel like limitations.",
-   "published": "2026-10-05 10:00 UTC",
-   "_ts": 1791194400,
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/06/1145032/2026-climate-tech-companies-to-watch-energy-dome-carbon-dioxide-batteries/",
+   "blog": "MIT Technology Review",
+   "title": "Energy Dome and its carbon dioxide batteries",
+   "link": "https://www.technologyreview.com/2026/10/06/1145032/2026-climate-tech-companies-to-watch-energy-dome-carbon-dioxide-batteries/",
+   "summary": "There’s a growing need for long-duration storage to meet energy demand and balance out renewables on the grid. Energy Dome uses compressed carbon dioxide gas in its massive grid batteries, which can deliver power for up to 24 hours.  As the world races to meet growing electricity demand, solar and onshore wind power have become…",
+   "published": "2026-10-06 10:35 UTC",
+   "_ts": 1791282900,
    "preview": false,
    "bullets": [
-    "A high-severity macOS vulnerability, CVE-2026-65400, was actively exploited to gain root access and install Monero crypto miners on systems with port 5900 exposed to the internet.",
-    "The flaw exists in the macOS screen sharing state management, allowing unauthorized remote parties to view screens and control inputs without credentials.",
-    "Apple has released patches for macOS Tahoe, Sequoia, and Sonoma following the disclosure of the exploit at the Black Hat security conference.",
-    "The incident highlights the critical importance of restricting agent access and maintaining constrained environments for AI-driven workflows to mitigate the impact of system-level compromises."
+    "Energy Dome uses compressed carbon dioxide in a closed-loop system to provide long-duration energy storage, offering a scalable alternative to lithium-ion for grid balancing.",
+    "The system stores energy by compressing CO2 into a liquid state and releases it through a turbine to generate electricity when needed, with a capacity of up to 24 hours.",
+    "Following the launch of its first commercial plant in Sardinia in 2025, the company is planning 30 gigawatt-hours of projects across five continents."
    ],
-   "rating": 3,
-   "read_time": 17
+   "rating": 4,
+   "read_time": 4
   },
   {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/05/1145413/emtech-future-2026-when-ai-meets-everything/",
-   "blog": "MIT Technology Review",
-   "title": "EmTech Future 2026: When AI Meets Everything",
-   "link": "https://www.technologyreview.com/2026/10/05/1145413/emtech-future-2026-when-ai-meets-everything/",
-   "summary": "Yossi Matias, Vice President & Head of Google Research, explores how AI is beginning to reshape biology, infrastructure, manufacturing, and science, and why its greatest impact may come when it intersects with other fields.  Step inside the newsroom with our MIT Technology Review editors for sharp analysis and unpublished insights from the team that researches…",
-   "published": "2026-10-05 04:00 UTC",
-   "_ts": 1791172800,
+   "_key": "SemiEngineering|https://semiengineering.com/blog-review-oct-7-3/",
+   "blog": "SemiEngineering",
+   "title": "Blog Review: Oct. 7",
+   "link": "https://semiengineering.com/blog-review-oct-7-3/",
+   "summary": "CFETs and buried power rails; agentic AI for EDA; 6G architecture decisions; chiplet connectivity.\nThe post Blog Review: Oct. 7 appeared first on Semiconductor Engineering.",
+   "published": "2026-10-07 07:01 UTC",
+   "_ts": 1791356472,
    "preview": false,
    "bullets": [
-    "The EmTech Future 2026 conference emphasizes that AI's most significant economic impact will emerge from its intersection with biology, manufacturing, and infrastructure.",
-    "Experts are focusing on the convergence of quantum computing and AI, suggesting that quantum systems will gain value primarily through their interaction with existing digital architectures.",
-    "The event highlights the necessity of rethinking energy systems to support the massive infrastructure requirements of converging AI and climate technologies."
+    "Industry experts are focusing on CFETs and buried power rails as critical technologies to improve power efficiency and reduce chip area for high-performance AI accelerators.",
+    "The integration of agentic AI into EDA workflows is shifting from simple automation to the coordination of complex design operations based on company-specific methodologies.",
+    "Arm has introduced AMBA C2C to extend chiplet connectivity, providing a scalable and interoperable protocol for advanced heterogeneous compute systems."
    ],
    "rating": 3,
    "read_time": 2
   },
   {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/05/1145682/people-really-hate-ai-so-why-cant-they-get-enough/",
-   "blog": "MIT Technology Review",
-   "title": "People really hate AI, so why can’t they get enough?",
-   "link": "https://www.technologyreview.com/2026/10/05/1145682/people-really-hate-ai-so-why-cant-they-get-enough/",
-   "summary": "Over the summer I talked to the CEO of Springboards, a startup building an LLM that’s designed to come up with a wider variety of responses than its mainstream rivals do. At the start of the call, he said something that’s been stuck in my head since: “We often say that we’re a self-loathing AI…",
-   "published": "2026-10-05 08:00 UTC",
-   "_ts": 1791187200,
+   "_key": "SemiEngineering|https://semiengineering.com/monolithic-3d-memristor-tft-stack-for-programmable-neuromorphic-computing-snu-yonsei/",
+   "blog": "SemiEngineering",
+   "title": "Monolithic 3D Memristor-TFT Stack For Programmable Neuromorphic Computing (SNU, Yonsei)",
+   "link": "https://semiengineering.com/monolithic-3d-memristor-tft-stack-for-programmable-neuromorphic-computing-snu-yonsei/",
+   "summary": "Researchers at Seoul National University and Yonsei University published a technical paper titled “Monolithic three-dimensionally integrated memristor-thin-film transistor for electrically programmable multimode reservoir computing.” Abstract Excerpt: “Reservoir computing offers an efficient framework for processing temporal information, but most hardware reservoirs exhibit fixed or narrowly tunable dynamics determined by intrinsic material relaxation time. A monolithically integrated... » read more\nThe post Monolithic 3D Memristor-TFT Stack For Programmable Neuromorphic Computing (SNU, Yonsei) appeared first on Semiconductor Engineering.",
+   "published": "2026-10-06 21:29 UTC",
+   "_ts": 1791322171,
    "preview": false,
    "bullets": [
-    "Despite widespread public anxiety and negative sentiment, AI adoption is at record levels, with ChatGPT and Gemini reporting nearly 1 billion monthly users each.",
-    "Surveys indicate that 71% of US adults oppose the construction of local AI data centers, reflecting a deeper societal resistance to the physical and social footprint of the technology.",
-    "Over one-third of adults across OECD countries report using generative AI tools, suggesting that individual utility often overrides broader societal skepticism."
+    "Researchers have demonstrated a monolithically integrated memristor-TFT stack that enables electrically programmable temporal dynamics for reservoir computing.",
+    "By vertically integrating Ru/HfO2/TiN memristors with In2O3 channel TFTs, the system overcomes the fixed dynamics typically found in hardware-based neural reservoirs.",
+    "This 3D integration approach provides a more flexible framework for processing temporal information, which is essential for advanced neuromorphic computing applications."
+   ],
+   "rating": 3,
+   "read_time": 9
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/06/1145796/the-download-10-climate-tech-companies-to-watch/",
+   "blog": "MIT Technology Review",
+   "title": "The Download: 10 climate tech companies to watch",
+   "link": "https://www.technologyreview.com/2026/10/06/1145796/the-download-10-climate-tech-companies-to-watch/",
+   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. 10 climate tech companies to watch Each year, MIT Technology Review puts together a list of the most promising climate tech companies in the world. This year, the stakes feel higher…",
+   "published": "2026-10-06 12:10 UTC",
+   "_ts": 1791288600,
+   "preview": false,
+   "bullets": [
+    "MIT Technology Review has identified 10 climate tech companies addressing critical challenges such as energy storage, nuclear power, and flood mitigation.",
+    "The list highlights the industry's pivot toward supporting the surging energy demands of AI data centers and the need for weather-resilient infrastructure.",
+    "Broader market trends include the dominance of tech fortunes in billionaire wealth and rising geopolitical concerns regarding the 'Pentagon-Silicon Complex.'"
+   ],
+   "rating": 3,
+   "read_time": 5
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/06/1145172/2026-climate-tech-companies-to-watch-brimstone-one-stop-process-making-cleaner-cement-critical-minerals/",
+   "blog": "MIT Technology Review",
+   "title": "Brimstone and its one-stop process for making cleaner cement and critical minerals",
+   "link": "https://www.technologyreview.com/2026/10/06/1145172/2026-climate-tech-companies-to-watch-brimstone-one-stop-process-making-cleaner-cement-critical-minerals/",
+   "summary": "Brimstone is making strides on two industrial problems, reducing the emissions from cement and providing a way to produce more critical minerals within the US. If the company can do both, with the same rocks in the same plant, it would unlock a cleaner and more efficient process for manufacturing building materials, aluminum, steel, and…",
+   "published": "2026-10-06 10:35 UTC",
+   "_ts": 1791282900,
+   "preview": true,
+   "bullets": [
+    "Brimstone is developing a dual-purpose industrial process designed to produce carbon-neutral cement while simultaneously extracting critical minerals.",
+    "The technology aims to solve two major supply chain and environmental issues within a single plant, potentially lowering the carbon footprint of essential building materials.",
+    "If successfully scaled, the process could significantly impact the manufacturing of steel, aluminum, and construction materials by integrating mineral recovery into standard production."
+   ],
+   "rating": 3,
+   "read_time": 1
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/ultra-compact-photonic-bends-reduce-loss-while-meeting-foundry-rules-georgia-tech/",
+   "blog": "SemiEngineering",
+   "title": "Ultra-Compact Photonic Bends Reduce Loss While Meeting Foundry Rules (Georgia Tech)",
+   "link": "https://semiengineering.com/ultra-compact-photonic-bends-reduce-loss-while-meeting-foundry-rules-georgia-tech/",
+   "summary": "Researchers at Georgia Institute of Technology published a technical paper titled “Low-loss ultra-compact photonic bends with enhanced fabrication tolerance for commercial foundry processes.” Abstract Excerpt: “We present a methodology and experimentally validate it with the design of high-performance integrated photonic waveguide bends in extremely compact footprints (2.3 µm radius). The approach uses what we believe... » read more\nThe post Ultra-Compact Photonic Bends Reduce Loss While Meeting Foundry Rules (Georgia Tech) appeared first on Semiconductor Engineering.",
+   "published": "2026-10-06 21:45 UTC",
+   "_ts": 1791323113,
+   "preview": false,
+   "bullets": [
+    "Georgia Tech researchers developed a methodology for high-performance photonic waveguide bends with a compact 2.3 µm radius.",
+    "The design utilizes a novel contour constraint within a topology optimization framework to ensure compliance with commercial foundry design rules.",
+    "This approach improves fabrication tolerance, addressing a key bottleneck in the commercial viability of ultra-compact integrated photonic circuits."
    ],
    "rating": 2,
-   "read_time": 5
+   "read_time": 9
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/06/1143800/2026-climate-tech-companies-to-watch/",
+   "blog": "MIT Technology Review",
+   "title": "2026 Climate Tech Companies to Watch",
+   "link": "https://www.technologyreview.com/2026/10/06/1143800/2026-climate-tech-companies-to-watch/",
+   "summary": "",
+   "published": "2026-10-06 10:35 UTC",
+   "_ts": 1791282900,
+   "preview": false,
+   "bullets": [
+    "This fourth annual list highlights innovators across the climate sector, ranging from early-stage startups to established multinational corporations.",
+    "The selection focuses on technologies capable of both reducing greenhouse-gas emissions and helping communities adapt to the immediate impacts of a warming planet.",
+    "Key areas of focus include carbon-dioxide-based energy storage, sustainable cement production, and the refinement of critical minerals."
+   ],
+   "rating": 2,
+   "read_time": 1
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/06/1144978/2026-climate-tech-companies-to-watch-how-we-chose/",
+   "blog": "MIT Technology Review",
+   "title": "Here’s how our climate team picked 10 promising companies to watch",
+   "link": "https://www.technologyreview.com/2026/10/06/1144978/2026-climate-tech-companies-to-watch-how-we-chose/",
+   "summary": "As the team at MIT Technology Review set out to choose companies for this year’s edition of our annual list of Climate Tech Companies to Watch, the challenge felt more daunting than any year since we started compiling the list in 2023.  This year is shaping up to be one of the hottest ever recorded.…",
+   "published": "2026-10-06 10:35 UTC",
+   "_ts": 1791282900,
+   "preview": false,
+   "bullets": [
+    "Selection criteria for the 2026 list prioritized companies with proven track records in research, capital acquisition, and real-world deployment.",
+    "The editorial team vetted nominees by analyzing patents, literature, and business viability to ensure a diverse representation of industries and global regions.",
+    "The process specifically sought companies that reflect current trends, such as the impact of shifting federal regulations and the urgent need for climate adaptation tools."
+   ],
+   "rating": 2,
+   "read_time": 4
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/06/1145208/2026-climate-tech-companies-to-watch-wavesave-portable-rubber-dam/",
+   "blog": "MIT Technology Review",
+   "title": "WaveSave and its portable rubber dam",
+   "link": "https://www.technologyreview.com/2026/10/06/1145208/2026-climate-tech-companies-to-watch-wavesave-portable-rubber-dam/",
+   "summary": "As sea levels rise and flood risks worsen due to global warming, WaveSave’s easy-to-erect portable dam offers a quick-response tool. People can use the dam to protect themselves and their property, and it can also store freshwater for later use. Communities in Europe, Africa, and Southeast Asia have deployed it successfully. Now, the company is…",
+   "published": "2026-10-06 10:35 UTC",
+   "_ts": 1791282900,
+   "preview": true,
+   "bullets": [
+    "WaveSave provides a portable, easy-to-deploy rubber dam technology designed to mitigate flood risks and manage water resources in vulnerable regions.",
+    "The system has been successfully deployed across Africa, Europe, and Southeast Asia as a rapid-response tool for property protection and freshwater storage.",
+    "The company's solution addresses the growing global demand for low-cost, mobile infrastructure to combat the immediate physical threats posed by rising sea levels."
+   ],
+   "rating": 2,
+   "read_time": 1
+  },
+  {
+   "_key": "Stratechery|https://stratechery.com/2026/game-decompilation-is-this-legal-a-well-trodden-path/",
+   "blog": "Stratechery",
+   "title": "Game Decompilation, Is This Legal?, A Well-Trodden Path",
+   "link": "https://stratechery.com/2026/game-decompilation-is-this-legal-a-well-trodden-path/",
+   "summary": "Games are being decompiled, but the real risk to gaming is new games and increased personalization.",
+   "published": "2026-10-06 10:07 UTC",
+   "_ts": 1791281256,
+   "preview": false,
+   "bullets": [
+    "The practice of game decompilation is becoming a significant point of discussion within the gaming industry, raising questions about intellectual property and legal boundaries.",
+    "While legal concerns regarding code reverse-engineering are prominent, the author suggests that the primary existential risks to the gaming sector lie elsewhere.",
+    "The industry faces greater disruption from the development of new game titles and the increasing trend toward hyper-personalization in user experiences.",
+    "This analysis highlights that technical challenges like decompilation are often secondary to broader shifts in market dynamics and consumer engagement strategies."
+   ],
+   "rating": 2,
+   "read_time": 3
   }
  ]
 }
