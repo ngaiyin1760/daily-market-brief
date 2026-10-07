@@ -853,6 +853,9 @@ def read_time_minutes(*texts):
     return max(1, round(words / 200)) if words else 0
 
 
+_RESOLVE_WARNED = False
+
+
 def resolve_article_url(link):
     """Resolve a news.google.com/rss/articles URL to the publisher URL.
 
@@ -860,20 +863,36 @@ def resolve_article_url(link):
     googlenewsdecoder package; fall back to following HTTP redirects.
     Returns the publisher URL, or None on failure.
     """
+    global _RESOLVE_WARNED
+    reason = None
     try:
         from googlenewsdecoder import gnewsdecoder
         result = gnewsdecoder(link)
-        if result.get("status") and result.get("decoded_url"):
+        # The decoded URL itself is the only success signal that survives
+        # library releases: 0.1.x flags it as "status", 0.2.x renamed that key
+        # to "success", and gating on a name silently zeroed out extraction
+        # for every category for two weeks (2026-09-21 -> 2026-10-07).
+        if result.get("decoded_url"):
             return result["decoded_url"]
-    except Exception:
-        pass
+        reason = result.get("message") or f"no decoded_url in {sorted(result)}"
+    except Exception as exc:
+        # Includes ImportError when a googlenewsdecoder release imports a
+        # selectolax module that the installed selectolax has removed.
+        reason = f"{type(exc).__name__}: {exc}"
     try:
         resp = requests.get(link, timeout=ARTICLE_TIMEOUT, allow_redirects=True,
                             headers={"User-Agent": BROWSER_UA})
         if resp.url and "news.google.com" not in urllib.parse.urlparse(resp.url).netloc:
             return resp.url
-    except Exception:
-        pass
+    except Exception as exc:
+        reason = reason or f"redirect probe failed: {type(exc).__name__}: {exc}"
+    # Both resolution paths failed, so this link (and any other that fails)
+    # keeps its RSS blurb as content; log the cause once, since the zeroed
+    # extraction count was otherwise the only symptom, with no reason attached.
+    if not _RESOLVE_WARNED:
+        _RESOLVE_WARNED = True
+        log.warning("Article URL resolution failed, those articles keep their "
+                    "RSS blurb: %s", reason)
     return None
 
 
