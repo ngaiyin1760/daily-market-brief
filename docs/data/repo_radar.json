@@ -1,104 +1,106 @@
 {
- "generated_at": "2026-10-07 18:43 HKT",
+ "generated_at": "2026-10-08 09:54 HKT",
  "repos": [
   {
-   "name": "cathrynlavery/diagram-design",
-   "url": "https://github.com/cathrynlavery/diagram-design",
-   "language": "HTML",
-   "description": "Editorial diagram design for Claude Code, Codex, GitHub Copilot, Factory Droid, and Pi. 42 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop.",
+   "name": "docker/docker-agent",
+   "url": "https://github.com/docker/docker-agent",
+   "language": "Go",
+   "description": "AI Agent Builder and Runtime by Docker Engineering",
    "keywords": [
-    "Data visualization"
+    "AI agent",
+    "MCP"
    ],
-   "trendshift_pos": 22,
-   "stars": 44389,
+   "trendshift_pos": 5,
+   "stars": 3739,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A comprehensive, high-quality collection of editorial-grade diagrams for technical documentation and AI-assisted workflows.",
+   "one_liner": "An official AI agent builder and runtime environment integrated directly into the Docker ecosystem.",
    "bullets": [
-    "Built using pure, self-contained HTML and SVG for maximum portability and performance.",
-    "Provides 42 distinct diagram types designed specifically for technical contexts like AI agents and software architecture.",
-    "Serves as a clean, professional alternative to automated diagramming tools that often produce cluttered output.",
-    "Ideal for developers and technical writers creating documentation for LLM-based systems and complex infrastructure."
+    "Built in Go, leveraging Docker's native containerization and orchestration primitives.",
+    "Provides a standardized runtime for deploying and managing autonomous AI agents.",
+    "Simplifies the infrastructure layer for developers building agentic workflows.",
+    "Enables secure, isolated execution environments for LLM-driven automation tasks."
    ],
-   "img": "cathrynlavery_diagram-design_0.jpg",
-   "img_alt": "Content site architecture",
-   "img2": "cathrynlavery_diagram-design_1.jpg",
-   "img2_alt": "The self-improving loop"
+   "img": "docker_docker-agent_0.jpg",
+   "img_alt": "docker agent in action"
   },
   {
-   "name": "storytold/vectorcraft",
-   "url": "https://github.com/storytold/vectorcraft",
+   "name": "yetone/magpie",
+   "url": "https://github.com/yetone/magpie",
+   "language": "Go",
+   "description": "Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.",
+   "keywords": [
+    "AI agent",
+    "AI coding assistant"
+   ],
+   "trendshift_pos": 23,
+   "stars": 5957,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A unified menu bar interface for managing and switching between various LLM models and agentic workflows.",
+   "bullets": [
+    "Written in Go, providing a high-performance, lightweight desktop utility.",
+    "Acts as a centralized hub for interacting with diverse models like DeepSeek and Claude.",
+    "Streamlines the developer experience by abstracting model-specific API complexities.",
+    "Ideal for power users needing rapid access to AI-assisted coding and reasoning tasks."
+   ]
+  },
+  {
+   "name": "storytold/photocraft",
+   "url": "https://github.com/storytold/photocraft",
    "language": "Rust",
-   "description": "An open-source, clean-room reimplementation of Adobe Illustrator, built in pure Rust.",
+   "description": "An open-source, clean-room reimplementation of Adobe Photoshop in pure Rust",
    "keywords": [
     "Image editing"
    ],
-   "trendshift_pos": 12,
-   "stars": 1526,
+   "trendshift_pos": 1,
+   "stars": 17658,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A high-performance, clean-room reimplementation of Adobe Illustrator built entirely in Rust.",
+   "one_liner": "A high-performance, clean-room reimplementation of Adobe Photoshop built entirely in Rust.",
    "bullets": [
-    "Developed in Rust, leveraging memory safety and high-concurrency performance for complex vector operations.",
-    "Focuses on a modular, clean-room architecture to provide a modern, open-source alternative to legacy design software.",
-    "Targets professional design workflows requiring precise control over vector paths and assets.",
-    "Represents a significant infrastructure project in the creative tooling space, emphasizing native performance."
+    "Developed in Rust to ensure memory safety and high-concurrency image processing.",
+    "Focuses on modular, open-source architecture to replace proprietary creative software.",
+    "Provides a foundation for building custom, high-speed image manipulation pipelines.",
+    "Relevant for infrastructure-heavy creative workflows requiring programmatic control."
    ]
   },
   {
-   "name": "storytold/filmcraft",
-   "url": "https://github.com/storytold/filmcraft",
+   "name": "storytold/printcraft",
+   "url": "https://github.com/storytold/printcraft",
    "language": "Rust",
-   "description": "An open-source, clean-room reimplementation of Adobe Premiere Pro built in pure Rust.",
+   "description": "An open-source, clean-room reimplementation of Adobe Acrobat built in pure Rust",
    "keywords": [
-    "Video editing"
+    "Document processing"
    ],
-   "trendshift_pos": 7,
-   "stars": 2326,
+   "trendshift_pos": 10,
+   "stars": 2457,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An open-source, high-performance reimplementation of professional video editing software built in Rust.",
+   "one_liner": "A clean-room, open-source reimplementation of Adobe Acrobat built in pure Rust.",
    "bullets": [
-    "Utilizes Rust's low-level control to handle high-bandwidth video processing and non-linear editing tasks.",
-    "Designed as a clean-room implementation to ensure a modern, efficient codebase free from legacy bloat.",
-    "Provides a robust foundation for building custom media processing pipelines and automated video generation tools.",
-    "Relevant for developers building AI-driven video synthesis or automated content creation infrastructure."
+    "Utilizes Rust's type system to handle complex PDF parsing and rendering safely.",
+    "Designed as a modular library for document processing and manipulation.",
+    "Provides a secure, transparent alternative to closed-source enterprise document tools.",
+    "Useful for fintech and legal tech stacks requiring automated, verifiable document generation."
    ]
   },
   {
-   "name": "joshuaswarren/omarchy-apple-dev",
-   "url": "https://github.com/joshuaswarren/omarchy-apple-dev",
-   "language": "Shell",
-   "description": "Build and deploy iOS SwiftUI apps from Omarchy Linux on Apple Silicon, no Xcode required",
-   "keywords": [],
-   "trendshift_pos": 13,
-   "stars": 754,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A specialized toolset for building and deploying iOS SwiftUI applications directly from Linux environments.",
-   "bullets": [
-    "Enables cross-platform development workflows by bypassing the requirement for a native Xcode environment.",
-    "Leverages Apple Silicon capabilities to bridge the gap between Linux-based dev environments and iOS deployment.",
-    "Streamlines the CI/CD pipeline for mobile developers by reducing dependency on proprietary macOS-only tooling.",
-    "Highly applicable for infrastructure engineers looking to automate mobile app builds in containerized or Linux-based environments."
-   ]
-  },
-  {
-   "name": "DuarteSantos8/openGym",
-   "url": "https://github.com/DuarteSantos8/openGym",
-   "language": "JavaScript",
-   "description": "Self-hosted gym & body-weight tracker — plan routines, log workouts (supersets, warm-ups, cardio), see which muscles are trained, fatigued or detrained, import from FitNotes/Strong/Hevy, passkey login. Your data, your server.",
+   "name": "nullmoth/nvidia-macos-driver",
+   "url": "https://github.com/nullmoth/nvidia-macos-driver",
+   "language": "Rust",
+   "description": "Metal driver for NVIDIA GeForce RTX cards on macOS 15 Sequoia (Intel / OpenCore). Free, source included.",
    "keywords": [],
    "trendshift_pos": 20,
-   "stars": 6274,
+   "stars": 402,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A self-hosted, privacy-focused fitness tracking platform with advanced analytics for workout optimization.",
+   "one_liner": "A community-driven Metal driver enabling NVIDIA RTX GPU acceleration on macOS Sequoia.",
    "bullets": [
-    "Features a robust data-logging engine for tracking supersets, warm-ups, and muscle fatigue metrics.",
-    "Includes sophisticated analytics to visualize muscle training load and detraining cycles.",
-    "Supports data portability through imports from major fitness apps like FitNotes and Strong.",
-    "Uses modern security standards like passkey authentication, making it a model for secure, self-hosted personal data infrastructure."
+    "Written in Rust, focusing on low-level kernel-space driver development.",
+    "Bridges the gap between high-end NVIDIA hardware and Apple's Metal graphics API.",
+    "Enables cost-effective AI training and rendering setups on non-Apple silicon hardware.",
+    "Critical for developers building local AI/ML infrastructure on macOS-based workstations."
    ]
   }
  ]

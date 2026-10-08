@@ -1,6 +1,6 @@
 {
  "month": "2026-11",
- "updated": "2026-10-07 18:43 HKT",
+ "updated": "2026-10-08 09:54 HKT",
  "events": [
   {
    "ts": "2026-11-01T00:00:00.000Z",
@@ -92,17 +92,6 @@
   },
   {
    "ts": "2026-11-02T07:00:00.000Z",
-   "title": "Retail Sales YoY",
-   "country": "DE",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": -0.4,
-   "category": "cnsm"
-  },
-  {
-   "ts": "2026-11-02T07:00:00.000Z",
    "title": "Retail Sales MoM",
    "country": "DE",
    "currency": "EUR",
@@ -110,6 +99,17 @@
    "actual": null,
    "forecast": null,
    "previous": 1.3,
+   "category": "cnsm"
+  },
+  {
+   "ts": "2026-11-02T07:00:00.000Z",
+   "title": "Retail Sales YoY",
+   "country": "DE",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": -0.4,
    "category": "cnsm"
   },
   {
@@ -246,17 +246,6 @@
   },
   {
    "ts": "2026-11-03T07:00:00.000Z",
-   "title": "Inflation Rate MoM",
-   "country": "TR",
-   "currency": "TRY",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 1.84,
-   "category": "prce"
-  },
-  {
-   "ts": "2026-11-03T07:00:00.000Z",
    "title": "Inflation Rate YoY",
    "country": "TR",
    "currency": "TRY",
@@ -264,6 +253,17 @@
    "actual": null,
    "forecast": null,
    "previous": 29.73,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-11-03T07:00:00.000Z",
+   "title": "Inflation Rate MoM",
+   "country": "TR",
+   "currency": "TRY",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 1.84,
    "category": "prce"
   },
   {
@@ -323,17 +323,6 @@
   },
   {
    "ts": "2026-11-03T21:45:00.000Z",
-   "title": "Employment Change QoQ",
-   "country": "NZ",
-   "currency": "NZD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 0.5,
-   "category": "lbr"
-  },
-  {
-   "ts": "2026-11-03T21:45:00.000Z",
    "title": "Unemployment Rate",
    "country": "NZ",
    "currency": "NZD",
@@ -341,6 +330,17 @@
    "actual": null,
    "forecast": null,
    "previous": 5.6,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-11-03T21:45:00.000Z",
+   "title": "Employment Change QoQ",
+   "country": "NZ",
+   "currency": "NZD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 0.5,
    "category": "lbr"
   },
   {
@@ -433,17 +433,6 @@
   },
   {
    "ts": "2026-11-04T10:00:00.000Z",
-   "title": "Inflation Rate MoM Flash",
-   "country": "EU",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "prce"
-  },
-  {
-   "ts": "2026-11-04T10:00:00.000Z",
    "title": "Inflation Rate YoY Flash",
    "country": "EU",
    "currency": "EUR",
@@ -456,6 +445,17 @@
   {
    "ts": "2026-11-04T10:00:00.000Z",
    "title": "Core Inflation Rate YoY Flash",
+   "country": "EU",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-11-04T10:00:00.000Z",
+   "title": "Inflation Rate MoM Flash",
    "country": "EU",
    "currency": "EUR",
    "importance": 0,
@@ -499,13 +499,13 @@
   },
   {
    "ts": "2026-11-04T13:30:00.000Z",
-   "title": "Balance of Trade",
-   "country": "CA",
-   "currency": "CAD",
+   "title": "Exports",
+   "country": "US",
+   "currency": "USD",
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": 4.2,
+   "previous": 315.2,
    "category": "trd"
   },
   {
@@ -521,17 +521,6 @@
   },
   {
    "ts": "2026-11-04T13:30:00.000Z",
-   "title": "Exports",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 315.2,
-   "category": "trd"
-  },
-  {
-   "ts": "2026-11-04T13:30:00.000Z",
    "title": "Balance of Trade",
    "country": "US",
    "currency": "USD",
@@ -539,6 +528,17 @@
    "actual": null,
    "forecast": null,
    "previous": -105.6,
+   "category": "trd"
+  },
+  {
+   "ts": "2026-11-04T13:30:00.000Z",
+   "title": "Balance of Trade",
+   "country": "CA",
+   "currency": "CAD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 4.2,
    "category": "trd"
   },
   {
@@ -565,7 +565,7 @@
   },
   {
    "ts": "2026-11-04T14:30:00.000Z",
-   "title": "EIA Crude Oil Stocks Change",
+   "title": "EIA Gasoline Stocks Change",
    "country": "US",
    "currency": "USD",
    "importance": 0,
@@ -576,7 +576,7 @@
   },
   {
    "ts": "2026-11-04T14:30:00.000Z",
-   "title": "EIA Gasoline Stocks Change",
+   "title": "EIA Crude Oil Stocks Change",
    "country": "US",
    "currency": "USD",
    "importance": 0,
@@ -719,7 +719,18 @@
   },
   {
    "ts": "2026-11-05T12:00:00.000Z",
-   "title": "BoE MPC Vote Unchanged",
+   "title": "BoE Interest Rate Decision",
+   "country": "GB",
+   "currency": "GBP",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "mny"
+  },
+  {
+   "ts": "2026-11-05T12:00:00.000Z",
+   "title": "MPC Meeting Minutes",
    "country": "GB",
    "currency": "GBP",
    "importance": 0,
@@ -752,32 +763,21 @@
   },
   {
    "ts": "2026-11-05T12:00:00.000Z",
+   "title": "BoE MPC Vote Unchanged",
+   "country": "GB",
+   "currency": "GBP",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "mny"
+  },
+  {
+   "ts": "2026-11-05T12:00:00.000Z",
    "title": "BoE MPC Vote Hike",
    "country": "GB",
    "currency": "GBP",
    "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "mny"
-  },
-  {
-   "ts": "2026-11-05T12:00:00.000Z",
-   "title": "MPC Meeting Minutes",
-   "country": "GB",
-   "currency": "GBP",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "mny"
-  },
-  {
-   "ts": "2026-11-05T12:00:00.000Z",
-   "title": "BoE Interest Rate Decision",
-   "country": "GB",
-   "currency": "GBP",
-   "importance": 1,
    "actual": null,
    "forecast": null,
    "previous": null,
@@ -807,7 +807,7 @@
   },
   {
    "ts": "2026-11-05T13:30:00.000Z",
-   "title": "Nonfarm Productivity QoQ Prel",
+   "title": "Initial Jobless Claims",
    "country": "US",
    "currency": "USD",
    "importance": 0,
@@ -818,7 +818,7 @@
   },
   {
    "ts": "2026-11-05T13:30:00.000Z",
-   "title": "Initial Jobless Claims",
+   "title": "Nonfarm Productivity QoQ Prel",
    "country": "US",
    "currency": "USD",
    "importance": 0,
@@ -895,13 +895,68 @@
   },
   {
    "ts": "2026-11-06T13:30:00.000Z",
+   "title": "Employment Change",
+   "country": "CA",
+   "currency": "CAD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-11-06T13:30:00.000Z",
+   "title": "Part Time Employment Chg",
+   "country": "CA",
+   "currency": "CAD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-11-06T13:30:00.000Z",
+   "title": "Participation Rate",
+   "country": "CA",
+   "currency": "CAD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-11-06T13:30:00.000Z",
+   "title": "Full Time Employment Chg",
+   "country": "CA",
+   "currency": "CAD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-11-06T13:30:00.000Z",
    "title": "Unemployment Rate",
-   "country": "US",
-   "currency": "USD",
+   "country": "CA",
+   "currency": "CAD",
    "importance": 1,
    "actual": null,
    "forecast": null,
-   "previous": 4.2,
+   "previous": null,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-11-06T13:30:00.000Z",
+   "title": "Participation Rate",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 61.8,
    "category": "lbr"
   },
   {
@@ -928,17 +983,6 @@
   },
   {
    "ts": "2026-11-06T13:30:00.000Z",
-   "title": "Participation Rate",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 61.8,
-   "category": "lbr"
-  },
-  {
-   "ts": "2026-11-06T13:30:00.000Z",
    "title": "Non Farm Payrolls",
    "country": "US",
    "currency": "USD",
@@ -951,56 +995,12 @@
   {
    "ts": "2026-11-06T13:30:00.000Z",
    "title": "Unemployment Rate",
-   "country": "CA",
-   "currency": "CAD",
+   "country": "US",
+   "currency": "USD",
    "importance": 1,
    "actual": null,
    "forecast": null,
-   "previous": null,
-   "category": "lbr"
-  },
-  {
-   "ts": "2026-11-06T13:30:00.000Z",
-   "title": "Part Time Employment Chg",
-   "country": "CA",
-   "currency": "CAD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "lbr"
-  },
-  {
-   "ts": "2026-11-06T13:30:00.000Z",
-   "title": "Employment Change",
-   "country": "CA",
-   "currency": "CAD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "lbr"
-  },
-  {
-   "ts": "2026-11-06T13:30:00.000Z",
-   "title": "Full Time Employment Chg",
-   "country": "CA",
-   "currency": "CAD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "lbr"
-  },
-  {
-   "ts": "2026-11-06T13:30:00.000Z",
-   "title": "Participation Rate",
-   "country": "CA",
-   "currency": "CAD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
+   "previous": 4.2,
    "category": "lbr"
   },
   {
@@ -1035,6 +1035,28 @@
    "forecast": null,
    "previous": 7.74,
    "category": "trd"
+  },
+  {
+   "ts": "2026-11-07T07:00:00.000Z",
+   "title": "Lloyds House Price Index MoM",
+   "country": "GB",
+   "currency": "GBP",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 0.0,
+   "category": "hse"
+  },
+  {
+   "ts": "2026-11-07T07:00:00.000Z",
+   "title": "Lloyds House Price Index YoY",
+   "country": "GB",
+   "currency": "GBP",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 0.0,
+   "category": "hse"
   }
  ]
 }
