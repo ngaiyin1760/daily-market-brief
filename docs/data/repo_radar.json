@@ -1,106 +1,106 @@
 {
- "generated_at": "2026-10-08 09:54 HKT",
+ "generated_at": "2026-10-09 14:49 HKT",
  "repos": [
   {
-   "name": "docker/docker-agent",
-   "url": "https://github.com/docker/docker-agent",
+   "name": "anthropics/knowledge-work-plugins",
+   "url": "https://github.com/anthropics/knowledge-work-plugins",
+   "language": "Python",
+   "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
+   "keywords": [
+    "AI skills"
+   ],
+   "trendshift_pos": 19,
+   "stars": 27844,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A collection of open-source plugins designed to extend the capabilities of Claude for knowledge workers.",
+   "bullets": [
+    "Built using Python to integrate seamlessly with Claude's agentic workflows.",
+    "Focuses on automating complex knowledge-based tasks and data processing.",
+    "Provides a standardized framework for building custom AI-driven productivity tools.",
+    "Ideal for professionals looking to integrate LLMs into their daily research and documentation pipelines."
+   ]
+  },
+  {
+   "name": "mhtsec/ARTEX",
+   "url": "https://github.com/mhtsec/ARTEX",
    "language": "Go",
-   "description": "AI Agent Builder and Runtime by Docker Engineering",
-   "keywords": [
-    "AI agent",
-    "MCP"
-   ],
-   "trendshift_pos": 5,
-   "stars": 3739,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An official AI agent builder and runtime environment integrated directly into the Docker ecosystem.",
-   "bullets": [
-    "Built in Go, leveraging Docker's native containerization and orchestration primitives.",
-    "Provides a standardized runtime for deploying and managing autonomous AI agents.",
-    "Simplifies the infrastructure layer for developers building agentic workflows.",
-    "Enables secure, isolated execution environments for LLM-driven automation tasks."
-   ],
-   "img": "docker_docker-agent_0.jpg",
-   "img_alt": "docker agent in action"
-  },
-  {
-   "name": "yetone/magpie",
-   "url": "https://github.com/yetone/magpie",
-   "language": "Go",
-   "description": "Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.",
-   "keywords": [
-    "AI agent",
-    "AI coding assistant"
-   ],
-   "trendshift_pos": 23,
-   "stars": 5957,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A unified menu bar interface for managing and switching between various LLM models and agentic workflows.",
-   "bullets": [
-    "Written in Go, providing a high-performance, lightweight desktop utility.",
-    "Acts as a centralized hub for interacting with diverse models like DeepSeek and Claude.",
-    "Streamlines the developer experience by abstracting model-specific API complexities.",
-    "Ideal for power users needing rapid access to AI-assisted coding and reasoning tasks."
-   ]
-  },
-  {
-   "name": "storytold/photocraft",
-   "url": "https://github.com/storytold/photocraft",
-   "language": "Rust",
-   "description": "An open-source, clean-room reimplementation of Adobe Photoshop in pure Rust",
-   "keywords": [
-    "Image editing"
-   ],
-   "trendshift_pos": 1,
-   "stars": 17658,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance, clean-room reimplementation of Adobe Photoshop built entirely in Rust.",
-   "bullets": [
-    "Developed in Rust to ensure memory safety and high-concurrency image processing.",
-    "Focuses on modular, open-source architecture to replace proprietary creative software.",
-    "Provides a foundation for building custom, high-speed image manipulation pipelines.",
-    "Relevant for infrastructure-heavy creative workflows requiring programmatic control."
-   ]
-  },
-  {
-   "name": "storytold/printcraft",
-   "url": "https://github.com/storytold/printcraft",
-   "language": "Rust",
-   "description": "An open-source, clean-room reimplementation of Adobe Acrobat built in pure Rust",
-   "keywords": [
-    "Document processing"
-   ],
-   "trendshift_pos": 10,
-   "stars": 2457,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A clean-room, open-source reimplementation of Adobe Acrobat built in pure Rust.",
-   "bullets": [
-    "Utilizes Rust's type system to handle complex PDF parsing and rendering safely.",
-    "Designed as a modular library for document processing and manipulation.",
-    "Provides a secure, transparent alternative to closed-source enterprise document tools.",
-    "Useful for fintech and legal tech stacks requiring automated, verifiable document generation."
-   ]
-  },
-  {
-   "name": "nullmoth/nvidia-macos-driver",
-   "url": "https://github.com/nullmoth/nvidia-macos-driver",
-   "language": "Rust",
-   "description": "Metal driver for NVIDIA GeForce RTX cards on macOS 15 Sequoia (Intel / OpenCore). Free, source included.",
+   "description": "AI 自主渗透测试系统 | 百度“agent+”攻防挑战赛冠军项目",
    "keywords": [],
-   "trendshift_pos": 20,
-   "stars": 402,
+   "trendshift_pos": 4,
+   "stars": 1300,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A community-driven Metal driver enabling NVIDIA RTX GPU acceleration on macOS Sequoia.",
+   "one_liner": "An autonomous AI-driven penetration testing system designed for security research and defense.",
    "bullets": [
-    "Written in Rust, focusing on low-level kernel-space driver development.",
-    "Bridges the gap between high-end NVIDIA hardware and Apple's Metal graphics API.",
-    "Enables cost-effective AI training and rendering setups on non-Apple silicon hardware.",
-    "Critical for developers building local AI/ML infrastructure on macOS-based workstations."
+    "Developed in Go, leveraging agentic workflows for automated vulnerability assessment.",
+    "Winner of the Baidu 'Agent+' security challenge, demonstrating high-level autonomous reasoning.",
+    "Automates the discovery and exploitation lifecycle, reducing manual security audit overhead.",
+    "Useful for fintech security teams to proactively identify infrastructure vulnerabilities."
+   ],
+   "img": "mhtsec_ARTEX_0.jpg",
+   "img_alt": "仪表盘",
+   "img2": "mhtsec_ARTEX_1.jpg",
+   "img2_alt": "任务"
+  },
+  {
+   "name": "zhongerxin/iPhone-use",
+   "url": "https://github.com/zhongerxin/iPhone-use",
+   "language": "Python",
+   "description": "让 Codex 通过 USB 操作真实 iPhone：引导安装、App 自动化、实时屏幕与截图回退。",
+   "keywords": [],
+   "trendshift_pos": 6,
+   "stars": 894,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A framework that enables LLMs to control physical iPhones via USB for automation and testing.",
+   "bullets": [
+    "Uses Python to bridge Codex/LLMs with iOS device interfaces via USB.",
+    "Supports real-time screen monitoring, automated app interaction, and screenshot-based feedback loops.",
+    "Enables agentic control of mobile environments for QA or automated data extraction.",
+    "Highly relevant for mobile-first fintech apps requiring automated regression testing."
+   ],
+   "img": "zhongerxin_iPhone-use_0.jpg",
+   "img_alt": "iPhone Use 在 Codex 中操作真实 iPhone 并实时展示手机屏幕"
+  },
+  {
+   "name": "wuyoscar/AISafetyHot-Hub",
+   "url": "https://github.com/wuyoscar/AISafetyHot-Hub",
+   "language": "TeX",
+   "description": "每天的 AI 安全精选和论文清单（md / bib / json），附 Agent 接入说明 · AI Safety HOT",
+   "keywords": [
+    "Curated list"
+   ],
+   "trendshift_pos": 24,
+   "stars": 640,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A curated daily hub for AI safety research, papers, and agentic integration guidelines.",
+   "bullets": [
+    "Maintains structured data in MD, BibTeX, and JSON formats for easy programmatic access.",
+    "Focuses on the critical intersection of AI safety and agentic system deployment.",
+    "Provides essential infrastructure for developers building robust, secure AI agents.",
+    "Acts as a high-signal resource for professionals monitoring the risks of autonomous systems."
+   ]
+  },
+  {
+   "name": "codeman008/Financial_freedom",
+   "url": "https://github.com/codeman008/Financial_freedom",
+   "language": "—",
+   "description": "Technical guide to making money and investing（最全赚钱投资指南）",
+   "keywords": [
+    "Curated list"
+   ],
+   "trendshift_pos": 16,
+   "stars": 6405,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A comprehensive technical guide and repository for investment strategies and wealth management.",
+   "bullets": [
+    "Aggregates diverse financial methodologies and investment frameworks into a single knowledge base.",
+    "Covers technical analysis, asset allocation, and long-term wealth accumulation strategies.",
+    "Serves as a foundational resource for quant-curious individuals or retail investors.",
+    "Provides actionable insights into market mechanics and personal finance automation."
    ]
   }
  ]
