@@ -1,107 +1,112 @@
 {
- "generated_at": "2026-10-09 14:49 HKT",
+ "generated_at": "2026-10-10 09:45 HKT",
  "repos": [
   {
-   "name": "anthropics/knowledge-work-plugins",
-   "url": "https://github.com/anthropics/knowledge-work-plugins",
-   "language": "Python",
-   "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
+   "name": "CopilotKit/OpenIntelligentUI",
+   "url": "https://github.com/CopilotKit/OpenIntelligentUI",
+   "language": "TypeScript",
+   "description": "Open-Source Generative UI Framework",
    "keywords": [
-    "AI skills"
+    "UI components"
+   ],
+   "trendshift_pos": 22,
+   "stars": 1920,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A comprehensive framework for building generative, AI-driven user interfaces that react to real-time data and user intent.",
+   "bullets": [
+    "Built with TypeScript, leveraging React hooks and LLM-integrated state management.",
+    "Provides a declarative API for creating UI components that adapt dynamically based on AI model outputs.",
+    "Ideal for fintech dashboards requiring real-time data visualization and conversational data exploration.",
+    "Supports seamless integration with existing LLM backends to enable agentic UI experiences."
+   ]
+  },
+  {
+   "name": "totec448-spec/chat-on-steroids",
+   "url": "https://github.com/totec448-spec/chat-on-steroids",
+   "language": "TypeScript",
+   "description": "Local Windows coding and computer-use bridge for ChatGPT over MCP, limited to folders and capabilities you approve.",
+   "keywords": [
+    "AI agent",
+    "MCP"
+   ],
+   "trendshift_pos": 8,
+   "stars": 4336,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A local Windows bridge that connects ChatGPT to your local file system and system capabilities via the Model Context Protocol (MCP).",
+   "bullets": [
+    "Utilizes TypeScript and the Model Context Protocol (MCP) to bridge LLMs with local OS environments.",
+    "Enables secure, folder-restricted access for AI agents to perform local file operations and system tasks.",
+    "Perfect for developers building local-first AI coding assistants or automated research agents.",
+    "Focuses on privacy by keeping sensitive data and execution within local Windows boundaries."
+   ],
+   "img": "totec448-spec_chat-on-steroids_0.jpg",
+   "img_alt": "Conversation, workers and task plan",
+   "img2": "totec448-spec_chat-on-steroids_1.jpg",
+   "img2_alt": "Model and reasoning selection"
+  },
+  {
+   "name": "rasonyang/freesbc",
+   "url": "https://github.com/rasonyang/freesbc",
+   "language": "Go",
+   "description": "All-in-one open source Session Border Controller in pure Go. One static binary, one YAML file: trunk B2BUA, edge proxy, RTP/SRTP relay, WebRTC gateway, built-in SIP security.",
+   "keywords": [
+    "Proxy"
    ],
    "trendshift_pos": 19,
-   "stars": 27844,
+   "stars": 161,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A collection of open-source plugins designed to extend the capabilities of Claude for knowledge workers.",
+   "one_liner": "A high-performance, all-in-one Session Border Controller written in Go, designed for secure VoIP and WebRTC infrastructure.",
    "bullets": [
-    "Built using Python to integrate seamlessly with Claude's agentic workflows.",
-    "Focuses on automating complex knowledge-based tasks and data processing.",
-    "Provides a standardized framework for building custom AI-driven productivity tools.",
-    "Ideal for professionals looking to integrate LLMs into their daily research and documentation pipelines."
+    "Developed in Go as a single static binary, ensuring minimal footprint and high deployment velocity.",
+    "Includes built-in SIP security, RTP/SRTP relay, and a WebRTC gateway for modern communication stacks.",
+    "Essential infrastructure for fintech platforms requiring secure, compliant voice and data transmission.",
+    "Simplifies complex telecom networking into a single YAML configuration file."
    ]
   },
   {
-   "name": "mhtsec/ARTEX",
-   "url": "https://github.com/mhtsec/ARTEX",
-   "language": "Go",
-   "description": "AI 自主渗透测试系统 | 百度“agent+”攻防挑战赛冠军项目",
-   "keywords": [],
-   "trendshift_pos": 4,
-   "stars": 1300,
+   "name": "storytold/pdfcraft",
+   "url": "https://github.com/storytold/pdfcraft",
+   "language": "Rust",
+   "description": "An open-source, clean-room reimplementation of Adobe Acrobat built in pure Rust",
+   "keywords": [
+    "Document processing"
+   ],
+   "trendshift_pos": 14,
+   "stars": 6468,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An autonomous AI-driven penetration testing system designed for security research and defense.",
+   "one_liner": "A clean-room, open-source reimplementation of Adobe Acrobat built entirely in Rust.",
    "bullets": [
-    "Developed in Go, leveraging agentic workflows for automated vulnerability assessment.",
-    "Winner of the Baidu 'Agent+' security challenge, demonstrating high-level autonomous reasoning.",
-    "Automates the discovery and exploitation lifecycle, reducing manual security audit overhead.",
-    "Useful for fintech security teams to proactively identify infrastructure vulnerabilities."
-   ],
-   "img": "mhtsec_ARTEX_0.jpg",
-   "img_alt": "仪表盘",
-   "img2": "mhtsec_ARTEX_1.jpg",
-   "img2_alt": "任务"
+    "Written in Rust to ensure memory safety and high-performance document processing.",
+    "Provides a modern, open-source alternative to proprietary document management software.",
+    "Useful for building automated document parsing pipelines in financial or legal tech workflows.",
+    "Focuses on modularity and clean-room architecture to avoid legacy technical debt."
+   ]
   },
   {
-   "name": "zhongerxin/iPhone-use",
-   "url": "https://github.com/zhongerxin/iPhone-use",
+   "name": "sirioberati/Genjustsu-Open-Source-Workflow",
+   "url": "https://github.com/sirioberati/Genjustsu-Open-Source-Workflow",
    "language": "Python",
-   "description": "让 Codex 通过 USB 操作真实 iPhone：引导安装、App 自动化、实时屏幕与截图回退。",
+   "description": "Open-source AI video replacement workflow by TEIN. Combine depth maps, SAM segmentation, face meshes, and audio processing to replace characters and objects with Seedance. Includes a local web UI to prepare inputs, review masks, preview generations, and export with original audio.",
    "keywords": [],
-   "trendshift_pos": 6,
-   "stars": 894,
+   "trendshift_pos": 15,
+   "stars": 173,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A framework that enables LLMs to control physical iPhones via USB for automation and testing.",
+   "one_liner": "An advanced AI video processing workflow combining segmentation, depth mapping, and face mesh tracking for automated content replacement.",
    "bullets": [
-    "Uses Python to bridge Codex/LLMs with iOS device interfaces via USB.",
-    "Supports real-time screen monitoring, automated app interaction, and screenshot-based feedback loops.",
-    "Enables agentic control of mobile environments for QA or automated data extraction.",
-    "Highly relevant for mobile-first fintech apps requiring automated regression testing."
+    "Python-based stack integrating SAM (Segment Anything Model), depth maps, and audio processing.",
+    "Features a local web UI for orchestrating complex agentic video editing tasks.",
+    "Enables sophisticated automated video synthesis, useful for media-tech and creative AI applications.",
+    "Modular design allows for swapping individual AI components to optimize for specific visual fidelity requirements."
    ],
-   "img": "zhongerxin_iPhone-use_0.jpg",
-   "img_alt": "iPhone Use 在 Codex 中操作真实 iPhone 并实时展示手机屏幕"
-  },
-  {
-   "name": "wuyoscar/AISafetyHot-Hub",
-   "url": "https://github.com/wuyoscar/AISafetyHot-Hub",
-   "language": "TeX",
-   "description": "每天的 AI 安全精选和论文清单（md / bib / json），附 Agent 接入说明 · AI Safety HOT",
-   "keywords": [
-    "Curated list"
-   ],
-   "trendshift_pos": 24,
-   "stars": 640,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A curated daily hub for AI safety research, papers, and agentic integration guidelines.",
-   "bullets": [
-    "Maintains structured data in MD, BibTeX, and JSON formats for easy programmatic access.",
-    "Focuses on the critical intersection of AI safety and agentic system deployment.",
-    "Provides essential infrastructure for developers building robust, secure AI agents.",
-    "Acts as a high-signal resource for professionals monitoring the risks of autonomous systems."
-   ]
-  },
-  {
-   "name": "codeman008/Financial_freedom",
-   "url": "https://github.com/codeman008/Financial_freedom",
-   "language": "—",
-   "description": "Technical guide to making money and investing（最全赚钱投资指南）",
-   "keywords": [
-    "Curated list"
-   ],
-   "trendshift_pos": 16,
-   "stars": 6405,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A comprehensive technical guide and repository for investment strategies and wealth management.",
-   "bullets": [
-    "Aggregates diverse financial methodologies and investment frameworks into a single knowledge base.",
-    "Covers technical analysis, asset allocation, and long-term wealth accumulation strategies.",
-    "Serves as a foundational resource for quant-curious individuals or retail investors.",
-    "Provides actionable insights into market mechanics and personal finance automation."
-   ]
+   "img": "sirioberati_Genjustsu-Open-Source-Workflow_0.jpg",
+   "img_alt": "Animated workflow walkthrough",
+   "img2": "sirioberati_Genjustsu-Open-Source-Workflow_1.jpg",
+   "img2_alt": "Animated preview of example 1"
   }
  ]
 }
