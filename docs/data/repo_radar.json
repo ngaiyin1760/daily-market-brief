@@ -1,112 +1,99 @@
 {
- "generated_at": "2026-10-10 09:45 HKT",
+ "generated_at": "2026-10-11 08:59 HKT",
  "repos": [
   {
-   "name": "CopilotKit/OpenIntelligentUI",
-   "url": "https://github.com/CopilotKit/OpenIntelligentUI",
-   "language": "TypeScript",
-   "description": "Open-Source Generative UI Framework",
-   "keywords": [
-    "UI components"
-   ],
-   "trendshift_pos": 22,
-   "stars": 1920,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A comprehensive framework for building generative, AI-driven user interfaces that react to real-time data and user intent.",
-   "bullets": [
-    "Built with TypeScript, leveraging React hooks and LLM-integrated state management.",
-    "Provides a declarative API for creating UI components that adapt dynamically based on AI model outputs.",
-    "Ideal for fintech dashboards requiring real-time data visualization and conversational data exploration.",
-    "Supports seamless integration with existing LLM backends to enable agentic UI experiences."
-   ]
-  },
-  {
-   "name": "totec448-spec/chat-on-steroids",
-   "url": "https://github.com/totec448-spec/chat-on-steroids",
-   "language": "TypeScript",
-   "description": "Local Windows coding and computer-use bridge for ChatGPT over MCP, limited to folders and capabilities you approve.",
-   "keywords": [
-    "AI agent",
-    "MCP"
-   ],
-   "trendshift_pos": 8,
-   "stars": 4336,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A local Windows bridge that connects ChatGPT to your local file system and system capabilities via the Model Context Protocol (MCP).",
-   "bullets": [
-    "Utilizes TypeScript and the Model Context Protocol (MCP) to bridge LLMs with local OS environments.",
-    "Enables secure, folder-restricted access for AI agents to perform local file operations and system tasks.",
-    "Perfect for developers building local-first AI coding assistants or automated research agents.",
-    "Focuses on privacy by keeping sensitive data and execution within local Windows boundaries."
-   ],
-   "img": "totec448-spec_chat-on-steroids_0.jpg",
-   "img_alt": "Conversation, workers and task plan",
-   "img2": "totec448-spec_chat-on-steroids_1.jpg",
-   "img2_alt": "Model and reasoning selection"
-  },
-  {
-   "name": "rasonyang/freesbc",
-   "url": "https://github.com/rasonyang/freesbc",
-   "language": "Go",
-   "description": "All-in-one open source Session Border Controller in pure Go. One static binary, one YAML file: trunk B2BUA, edge proxy, RTP/SRTP relay, WebRTC gateway, built-in SIP security.",
-   "keywords": [
-    "Proxy"
-   ],
-   "trendshift_pos": 19,
-   "stars": 161,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance, all-in-one Session Border Controller written in Go, designed for secure VoIP and WebRTC infrastructure.",
-   "bullets": [
-    "Developed in Go as a single static binary, ensuring minimal footprint and high deployment velocity.",
-    "Includes built-in SIP security, RTP/SRTP relay, and a WebRTC gateway for modern communication stacks.",
-    "Essential infrastructure for fintech platforms requiring secure, compliant voice and data transmission.",
-    "Simplifies complex telecom networking into a single YAML configuration file."
-   ]
-  },
-  {
-   "name": "storytold/pdfcraft",
-   "url": "https://github.com/storytold/pdfcraft",
-   "language": "Rust",
-   "description": "An open-source, clean-room reimplementation of Adobe Acrobat built in pure Rust",
-   "keywords": [
-    "Document processing"
-   ],
-   "trendshift_pos": 14,
-   "stars": 6468,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A clean-room, open-source reimplementation of Adobe Acrobat built entirely in Rust.",
-   "bullets": [
-    "Written in Rust to ensure memory safety and high-performance document processing.",
-    "Provides a modern, open-source alternative to proprietary document management software.",
-    "Useful for building automated document parsing pipelines in financial or legal tech workflows.",
-    "Focuses on modularity and clean-room architecture to avoid legacy technical debt."
-   ]
-  },
-  {
-   "name": "sirioberati/Genjustsu-Open-Source-Workflow",
-   "url": "https://github.com/sirioberati/Genjustsu-Open-Source-Workflow",
+   "name": "hugohe3/ppt-master",
+   "url": "https://github.com/hugohe3/ppt-master",
    "language": "Python",
-   "description": "Open-source AI video replacement workflow by TEIN. Combine depth maps, SAM segmentation, face meshes, and audio processing to replace characters and objects with Seedance. Includes a local web UI to prepare inputs, review masks, preview generations, and export with original audio.",
+   "description": "AI turns documents or topics into real, native PowerPoint decks—with native shapes, transitions and animations, data-backed charts and tables on demand, audio narration from speaker notes, and support for your own .pptx templates. · by Hugo He",
+   "keywords": [],
+   "trendshift_pos": 16,
+   "stars": 59462,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An AI-powered engine that generates native, editable PowerPoint presentations from documents or topics.",
+   "bullets": [
+    "Built with Python, leveraging LLMs to structure content into slide decks.",
+    "Generates native PPTX files with shapes, transitions, animations, and data-backed charts.",
+    "Automates professional slide creation for financial reporting and corporate presentations.",
+    "Includes features for audio narration generation based on speaker notes."
+   ]
+  },
+  {
+   "name": "rociiu/talorys",
+   "url": "https://github.com/rociiu/talorys",
+   "language": "TypeScript",
+   "description": "Your personal AI agent in your own Cloudflare account. Chat, memory, tasks, notes and scheduled reminders, deployed with one command: npx create-talorys@latest. Free-tier friendly, single-user, no telemetry.",
+   "keywords": [],
+   "trendshift_pos": 22,
+   "stars": 379,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A personal AI agent framework designed for deployment within a private Cloudflare account.",
+   "bullets": [
+    "TypeScript-based architecture optimized for Cloudflare Workers and KV storage.",
+    "Provides a self-hosted environment for chat, memory management, and task scheduling.",
+    "Ideal for privacy-conscious users needing a persistent, low-cost agentic infrastructure.",
+    "Supports one-command deployment via npx for rapid setup of personal automation workflows."
+   ],
+   "img": "rociiu_talorys_0.jpg",
+   "img_alt": "Chat",
+   "img2": "rociiu_talorys_1.jpg",
+   "img2_alt": "Tasks"
+  },
+  {
+   "name": "aindeev/agent-chrome-relay",
+   "url": "https://github.com/aindeev/agent-chrome-relay",
+   "language": "JavaScript",
+   "description": "Let your AI agents use your Chrome, signed in as you, in background tabs. By Alexey Indeev · blog: read.aindeev.com · X: @AlexeyIndeev",
+   "keywords": [],
+   "trendshift_pos": 14,
+   "stars": 113,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A bridge that allows AI agents to interact with the Chrome browser using the user's authenticated session.",
+   "bullets": [
+    "JavaScript-based relay that bridges external AI agents to local browser instances.",
+    "Enables agents to perform authenticated actions in background tabs as the user.",
+    "Solves the 'auth' bottleneck for agentic web automation and data scraping tasks.",
+    "Useful for building agents that require access to financial dashboards or SaaS tools."
+   ]
+  },
+  {
+   "name": "Jakubantalik/transitions.dev",
+   "url": "https://github.com/Jakubantalik/transitions.dev",
+   "language": "HTML",
+   "description": "UI montion AI agent, a library of 43+ crafted transitions, a skill that fits your workflow.",
+   "keywords": [],
+   "trendshift_pos": 9,
+   "stars": 4673,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A library of motion transitions designed to be integrated into AI-driven UI workflows.",
+   "bullets": [
+    "Collection of 43+ high-quality, crafted UI transitions.",
+    "Focuses on enhancing the visual polish of AI-generated interfaces.",
+    "Provides a standardized skill set for developers building agentic UI/UX.",
+    "Simplifies the implementation of complex motion design in modern web applications."
+   ]
+  },
+  {
+   "name": "krishhgg/Insomnia",
+   "url": "https://github.com/krishhgg/Insomnia",
+   "language": "Swift",
+   "description": "A macOS menu bar app that keeps a MacBook awake safely for timed agent sessions.",
    "keywords": [],
    "trendshift_pos": 15,
-   "stars": 173,
+   "stars": 416,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An advanced AI video processing workflow combining segmentation, depth mapping, and face mesh tracking for automated content replacement.",
+   "one_liner": "A macOS utility designed to keep systems awake during long-running AI agent or background tasks.",
    "bullets": [
-    "Python-based stack integrating SAM (Segment Anything Model), depth maps, and audio processing.",
-    "Features a local web UI for orchestrating complex agentic video editing tasks.",
-    "Enables sophisticated automated video synthesis, useful for media-tech and creative AI applications.",
-    "Modular design allows for swapping individual AI components to optimize for specific visual fidelity requirements."
-   ],
-   "img": "sirioberati_Genjustsu-Open-Source-Workflow_0.jpg",
-   "img_alt": "Animated workflow walkthrough",
-   "img2": "sirioberati_Genjustsu-Open-Source-Workflow_1.jpg",
-   "img2_alt": "Animated preview of example 1"
+    "Swift-based macOS menu bar application for system power management.",
+    "Prevents sleep cycles to ensure uninterrupted execution of agentic sessions.",
+    "Essential infrastructure for local LLM processing or long-running data analysis.",
+    "Provides a lightweight, non-intrusive solution for maintaining uptime on development machines."
+   ]
   }
  ]
 }
