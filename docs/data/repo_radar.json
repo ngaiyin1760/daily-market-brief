@@ -1,99 +1,100 @@
 {
- "generated_at": "2026-10-11 08:59 HKT",
+ "generated_at": "2026-10-12 09:18 HKT",
  "repos": [
   {
-   "name": "hugohe3/ppt-master",
-   "url": "https://github.com/hugohe3/ppt-master",
-   "language": "Python",
-   "description": "AI turns documents or topics into real, native PowerPoint decks—with native shapes, transitions and animations, data-backed charts and tables on demand, audio narration from speaker notes, and support for your own .pptx templates. · by Hugo He",
+   "name": "lyogavin/airllm",
+   "url": "https://github.com/lyogavin/airllm",
+   "language": "Jupyter Notebook",
+   "description": "AirLLM 70B inference with single 4GB GPU",
    "keywords": [],
-   "trendshift_pos": 16,
-   "stars": 59462,
+   "trendshift_pos": 23,
+   "stars": 36508,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An AI-powered engine that generates native, editable PowerPoint presentations from documents or topics.",
+   "one_liner": "A library designed to run massive 70B parameter LLMs on consumer-grade hardware with as little as 4GB of VRAM.",
    "bullets": [
-    "Built with Python, leveraging LLMs to structure content into slide decks.",
-    "Generates native PPTX files with shapes, transitions, animations, and data-backed charts.",
-    "Automates professional slide creation for financial reporting and corporate presentations.",
-    "Includes features for audio narration generation based on speaker notes."
+    "Utilizes layer-wise inference optimization to drastically reduce memory footprint.",
+    "Enables high-performance LLM deployment on edge devices or budget cloud instances.",
+    "Supports large-scale model execution without requiring expensive multi-GPU clusters.",
+    "Ideal for local AI agent development and cost-effective inference pipelines."
    ]
   },
   {
-   "name": "rociiu/talorys",
-   "url": "https://github.com/rociiu/talorys",
-   "language": "TypeScript",
-   "description": "Your personal AI agent in your own Cloudflare account. Chat, memory, tasks, notes and scheduled reminders, deployed with one command: npx create-talorys@latest. Free-tier friendly, single-user, no telemetry.",
+   "name": "richhardvano/SlotDrift",
+   "url": "https://github.com/richhardvano/SlotDrift",
+   "language": "Python",
+   "description": "Slot continuity and fork analysis for captured Solana slot records - gaps, skips, duplicate slots and orphaned branches, with an independent Rust engine.",
    "keywords": [],
-   "trendshift_pos": 22,
-   "stars": 379,
+   "trendshift_pos": 6,
+   "stars": 147,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A personal AI agent framework designed for deployment within a private Cloudflare account.",
+   "one_liner": "A specialized analysis tool for Solana blockchain slot continuity, fork detection, and network performance auditing.",
    "bullets": [
-    "TypeScript-based architecture optimized for Cloudflare Workers and KV storage.",
-    "Provides a self-hosted environment for chat, memory management, and task scheduling.",
-    "Ideal for privacy-conscious users needing a persistent, low-cost agentic infrastructure.",
-    "Supports one-command deployment via npx for rapid setup of personal automation workflows."
-   ],
-   "img": "rociiu_talorys_0.jpg",
-   "img_alt": "Chat",
-   "img2": "rociiu_talorys_1.jpg",
-   "img2_alt": "Tasks"
+    "Features a high-performance Rust engine for processing captured blockchain slot records.",
+    "Identifies critical network anomalies including gaps, skips, and orphaned branches.",
+    "Provides essential data for quant traders and infrastructure providers to monitor chain health.",
+    "Enables precise forensic analysis of Solana ledger integrity and consensus performance."
+   ]
   },
   {
-   "name": "aindeev/agent-chrome-relay",
-   "url": "https://github.com/aindeev/agent-chrome-relay",
-   "language": "JavaScript",
-   "description": "Let your AI agents use your Chrome, signed in as you, in background tabs. By Alexey Indeev · blog: read.aindeev.com · X: @AlexeyIndeev",
+   "name": "ARahim3/DigUp",
+   "url": "https://github.com/ARahim3/DigUp",
+   "language": "Swift",
+   "description": "Search your Mac by what's in your files: photos, PDFs, recordings, videos and code. On-device, built on Google DeepMind's EmbeddingGemma 2.",
    "keywords": [],
-   "trendshift_pos": 14,
+   "trendshift_pos": 18,
+   "stars": 1039,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A privacy-focused, on-device semantic search engine for macOS using Google DeepMind's EmbeddingGemma 2.",
+   "bullets": [
+    "Leverages local embedding models to index photos, PDFs, videos, and codebases.",
+    "Operates entirely on-device, ensuring sensitive financial or personal data never leaves the machine.",
+    "Provides natural language search capabilities for local file systems.",
+    "Serves as a powerful local infrastructure tool for knowledge management and document retrieval."
+   ]
+  },
+  {
+   "name": "StoopwenpueNq/QuorumForge",
+   "url": "https://github.com/StoopwenpueNq/QuorumForge",
+   "language": "Rust",
+   "description": "Multi-agent evidence adjudication engine - normalize claims, weigh support and contradiction, and render deterministic verdicts, with a Rust engine and a TypeScript viewer.",
+   "keywords": [],
+   "trendshift_pos": 2,
+   "stars": 189,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A multi-agent adjudication engine designed to normalize conflicting claims and generate deterministic verdicts.",
+   "bullets": [
+    "Combines a robust Rust-based logic engine with a TypeScript-based visualization layer.",
+    "Implements structured evidence weighting to resolve contradictions between multiple AI agents.",
+    "Useful for automated compliance, audit trails, and complex decision-making workflows.",
+    "Provides a framework for verifiable and transparent agentic reasoning."
+   ]
+  },
+  {
+   "name": "Parcha-ai/agentrun",
+   "url": "https://github.com/Parcha-ai/agentrun",
+   "language": "JavaScript",
+   "description": "The Agentrun Workflow DSL",
+   "keywords": [
+    "AI agent",
+    "Workflow automation"
+   ],
+   "trendshift_pos": 22,
    "stars": 113,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A bridge that allows AI agents to interact with the Chrome browser using the user's authenticated session.",
+   "one_liner": "A domain-specific language (DSL) designed to define, orchestrate, and manage complex agentic workflows.",
    "bullets": [
-    "JavaScript-based relay that bridges external AI agents to local browser instances.",
-    "Enables agents to perform authenticated actions in background tabs as the user.",
-    "Solves the 'auth' bottleneck for agentic web automation and data scraping tasks.",
-    "Useful for building agents that require access to financial dashboards or SaaS tools."
-   ]
-  },
-  {
-   "name": "Jakubantalik/transitions.dev",
-   "url": "https://github.com/Jakubantalik/transitions.dev",
-   "language": "HTML",
-   "description": "UI montion AI agent, a library of 43+ crafted transitions, a skill that fits your workflow.",
-   "keywords": [],
-   "trendshift_pos": 9,
-   "stars": 4673,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A library of motion transitions designed to be integrated into AI-driven UI workflows.",
-   "bullets": [
-    "Collection of 43+ high-quality, crafted UI transitions.",
-    "Focuses on enhancing the visual polish of AI-generated interfaces.",
-    "Provides a standardized skill set for developers building agentic UI/UX.",
-    "Simplifies the implementation of complex motion design in modern web applications."
-   ]
-  },
-  {
-   "name": "krishhgg/Insomnia",
-   "url": "https://github.com/krishhgg/Insomnia",
-   "language": "Swift",
-   "description": "A macOS menu bar app that keeps a MacBook awake safely for timed agent sessions.",
-   "keywords": [],
-   "trendshift_pos": 15,
-   "stars": 416,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A macOS utility designed to keep systems awake during long-running AI agent or background tasks.",
-   "bullets": [
-    "Swift-based macOS menu bar application for system power management.",
-    "Prevents sleep cycles to ensure uninterrupted execution of agentic sessions.",
-    "Essential infrastructure for local LLM processing or long-running data analysis.",
-    "Provides a lightweight, non-intrusive solution for maintaining uptime on development machines."
-   ]
+    "Provides a structured syntax for defining multi-step agent interactions and state management.",
+    "Simplifies the orchestration of complex tasks in autonomous agent systems.",
+    "Focuses on reliability and repeatability in agent-based automation.",
+    "Targeted at developers building scalable infrastructure for agentic applications."
+   ],
+   "img": "Parcha-ai_agentrun_0.jpg",
+   "img_alt": "Support workflow: search for an answer, check it with Jev, and return it or ask an agent to investigate. Check the investigation before returning it or escalating for review."
   }
  ]
 }

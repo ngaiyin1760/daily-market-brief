@@ -1,6 +1,107 @@
 {
  "days": [
   {
+   "date": "2026-10-12",
+   "generated_at": "2026-10-12 09:18 HKT",
+   "repos": [
+    {
+     "name": "lyogavin/airllm",
+     "url": "https://github.com/lyogavin/airllm",
+     "language": "Jupyter Notebook",
+     "description": "AirLLM 70B inference with single 4GB GPU",
+     "keywords": [],
+     "trendshift_pos": 23,
+     "stars": 36508,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A library designed to run massive 70B parameter LLMs on consumer-grade hardware with as little as 4GB of VRAM.",
+     "bullets": [
+      "Utilizes layer-wise inference optimization to drastically reduce memory footprint.",
+      "Enables high-performance LLM deployment on edge devices or budget cloud instances.",
+      "Supports large-scale model execution without requiring expensive multi-GPU clusters.",
+      "Ideal for local AI agent development and cost-effective inference pipelines."
+     ]
+    },
+    {
+     "name": "richhardvano/SlotDrift",
+     "url": "https://github.com/richhardvano/SlotDrift",
+     "language": "Python",
+     "description": "Slot continuity and fork analysis for captured Solana slot records - gaps, skips, duplicate slots and orphaned branches, with an independent Rust engine.",
+     "keywords": [],
+     "trendshift_pos": 6,
+     "stars": 147,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A specialized analysis tool for Solana blockchain slot continuity, fork detection, and network performance auditing.",
+     "bullets": [
+      "Features a high-performance Rust engine for processing captured blockchain slot records.",
+      "Identifies critical network anomalies including gaps, skips, and orphaned branches.",
+      "Provides essential data for quant traders and infrastructure providers to monitor chain health.",
+      "Enables precise forensic analysis of Solana ledger integrity and consensus performance."
+     ]
+    },
+    {
+     "name": "ARahim3/DigUp",
+     "url": "https://github.com/ARahim3/DigUp",
+     "language": "Swift",
+     "description": "Search your Mac by what's in your files: photos, PDFs, recordings, videos and code. On-device, built on Google DeepMind's EmbeddingGemma 2.",
+     "keywords": [],
+     "trendshift_pos": 18,
+     "stars": 1039,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A privacy-focused, on-device semantic search engine for macOS using Google DeepMind's EmbeddingGemma 2.",
+     "bullets": [
+      "Leverages local embedding models to index photos, PDFs, videos, and codebases.",
+      "Operates entirely on-device, ensuring sensitive financial or personal data never leaves the machine.",
+      "Provides natural language search capabilities for local file systems.",
+      "Serves as a powerful local infrastructure tool for knowledge management and document retrieval."
+     ]
+    },
+    {
+     "name": "StoopwenpueNq/QuorumForge",
+     "url": "https://github.com/StoopwenpueNq/QuorumForge",
+     "language": "Rust",
+     "description": "Multi-agent evidence adjudication engine - normalize claims, weigh support and contradiction, and render deterministic verdicts, with a Rust engine and a TypeScript viewer.",
+     "keywords": [],
+     "trendshift_pos": 2,
+     "stars": 189,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A multi-agent adjudication engine designed to normalize conflicting claims and generate deterministic verdicts.",
+     "bullets": [
+      "Combines a robust Rust-based logic engine with a TypeScript-based visualization layer.",
+      "Implements structured evidence weighting to resolve contradictions between multiple AI agents.",
+      "Useful for automated compliance, audit trails, and complex decision-making workflows.",
+      "Provides a framework for verifiable and transparent agentic reasoning."
+     ]
+    },
+    {
+     "name": "Parcha-ai/agentrun",
+     "url": "https://github.com/Parcha-ai/agentrun",
+     "language": "JavaScript",
+     "description": "The Agentrun Workflow DSL",
+     "keywords": [
+      "AI agent",
+      "Workflow automation"
+     ],
+     "trendshift_pos": 22,
+     "stars": 113,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A domain-specific language (DSL) designed to define, orchestrate, and manage complex agentic workflows.",
+     "bullets": [
+      "Provides a structured syntax for defining multi-step agent interactions and state management.",
+      "Simplifies the orchestration of complex tasks in autonomous agent systems.",
+      "Focuses on reliability and repeatability in agent-based automation.",
+      "Targeted at developers building scalable infrastructure for agentic applications."
+     ],
+     "img": "Parcha-ai_agentrun_0.jpg",
+     "img_alt": "Support workflow: search for an answer, check it with Jev, and return it or ask an agent to investigate. Check the investigation before returning it or escalating for review."
+    }
+   ]
+  },
+  {
    "date": "2026-10-11",
    "generated_at": "2026-10-11 08:59 HKT",
    "repos": [
