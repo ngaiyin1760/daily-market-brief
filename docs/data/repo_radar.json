@@ -1,100 +1,104 @@
 {
- "generated_at": "2026-10-12 09:18 HKT",
+ "generated_at": "2026-10-13 11:02 HKT",
  "repos": [
   {
-   "name": "lyogavin/airllm",
-   "url": "https://github.com/lyogavin/airllm",
-   "language": "Jupyter Notebook",
-   "description": "AirLLM 70B inference with single 4GB GPU",
+   "name": "open-webui/open-webui",
+   "url": "https://github.com/open-webui/open-webui",
+   "language": "Python",
+   "description": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
+   "keywords": [
+    "AI chat"
+   ],
+   "trendshift_pos": 8,
+   "stars": 155139,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A feature-rich, self-hosted web interface for LLMs that supports Ollama and OpenAI-compatible APIs.",
+   "bullets": [
+    "Built with Python and Svelte for a responsive, desktop-like AI interaction experience.",
+    "Supports RAG (Retrieval-Augmented Generation) and multi-modal model integration.",
+    "Designed for enterprise-grade deployment with robust role-based access control and authentication.",
+    "Ideal for teams building internal AI tools or private LLM-powered knowledge bases."
+   ],
+   "img": "open-webui_open-webui_0.jpg",
+   "img_alt": "Open WebUI Demo"
+  },
+  {
+   "name": "richiemcilroy/Tov",
+   "url": "https://github.com/richiemcilroy/Tov",
+   "language": "JavaScript",
+   "description": "A TypeScript-shaped language built for coding agents. It compiles to small, fast native binaries.",
    "keywords": [],
    "trendshift_pos": 23,
-   "stars": 36508,
+   "stars": 483,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A library designed to run massive 70B parameter LLMs on consumer-grade hardware with as little as 4GB of VRAM.",
+   "one_liner": "A TypeScript-shaped programming language specifically engineered for AI coding agents.",
    "bullets": [
-    "Utilizes layer-wise inference optimization to drastically reduce memory footprint.",
-    "Enables high-performance LLM deployment on edge devices or budget cloud instances.",
-    "Supports large-scale model execution without requiring expensive multi-GPU clusters.",
-    "Ideal for local AI agent development and cost-effective inference pipelines."
+    "Compiles to small, high-performance native binaries for efficient agent execution.",
+    "Syntax optimized for LLM reasoning, reducing token overhead and hallucination risks.",
+    "Focuses on type safety and deterministic behavior in automated coding workflows.",
+    "Targeted at developers building the next generation of autonomous software engineering agents."
    ]
   },
   {
-   "name": "richhardvano/SlotDrift",
-   "url": "https://github.com/richhardvano/SlotDrift",
+   "name": "Alishahryar1/free-claude-code",
+   "url": "https://github.com/Alishahryar1/free-claude-code",
    "language": "Python",
-   "description": "Slot continuity and fork analysis for captured Solana slot records - gaps, skips, duplicate slots and orphaned branches, with an independent Rust engine.",
-   "keywords": [],
-   "trendshift_pos": 6,
-   "stars": 147,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A specialized analysis tool for Solana blockchain slot continuity, fork detection, and network performance auditing.",
-   "bullets": [
-    "Features a high-performance Rust engine for processing captured blockchain slot records.",
-    "Identifies critical network anomalies including gaps, skips, and orphaned branches.",
-    "Provides essential data for quant traders and infrastructure providers to monitor chain health.",
-    "Enables precise forensic analysis of Solana ledger integrity and consensus performance."
-   ]
-  },
-  {
-   "name": "ARahim3/DigUp",
-   "url": "https://github.com/ARahim3/DigUp",
-   "language": "Swift",
-   "description": "Search your Mac by what's in your files: photos, PDFs, recordings, videos and code. On-device, built on Google DeepMind's EmbeddingGemma 2.",
-   "keywords": [],
-   "trendshift_pos": 18,
-   "stars": 1039,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A privacy-focused, on-device semantic search engine for macOS using Google DeepMind's EmbeddingGemma 2.",
-   "bullets": [
-    "Leverages local embedding models to index photos, PDFs, videos, and codebases.",
-    "Operates entirely on-device, ensuring sensitive financial or personal data never leaves the machine.",
-    "Provides natural language search capabilities for local file systems.",
-    "Serves as a powerful local infrastructure tool for knowledge management and document retrieval."
-   ]
-  },
-  {
-   "name": "StoopwenpueNq/QuorumForge",
-   "url": "https://github.com/StoopwenpueNq/QuorumForge",
-   "language": "Rust",
-   "description": "Multi-agent evidence adjudication engine - normalize claims, weigh support and contradiction, and render deterministic verdicts, with a Rust engine and a TypeScript viewer.",
-   "keywords": [],
-   "trendshift_pos": 2,
-   "stars": 189,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A multi-agent adjudication engine designed to normalize conflicting claims and generate deterministic verdicts.",
-   "bullets": [
-    "Combines a robust Rust-based logic engine with a TypeScript-based visualization layer.",
-    "Implements structured evidence weighting to resolve contradictions between multiple AI agents.",
-    "Useful for automated compliance, audit trails, and complex decision-making workflows.",
-    "Provides a framework for verifiable and transparent agentic reasoning."
-   ]
-  },
-  {
-   "name": "Parcha-ai/agentrun",
-   "url": "https://github.com/Parcha-ai/agentrun",
-   "language": "JavaScript",
-   "description": "The Agentrun Workflow DSL",
+   "description": "Use Claude Code, Codex, VSCode, Pi, and OpenCode (and 6 other harnesses) for free (1.3B+ free tokens) from your terminal, app, IDE, or phone, and now from the browser with native browser sessions (multi-harness + multi-model) like OpenClaw (voice supported + ToS friendly)",
    "keywords": [
-    "AI agent",
-    "Workflow automation"
+    "AI coding assistant",
+    "LLM gateway"
    ],
-   "trendshift_pos": 22,
-   "stars": 113,
+   "trendshift_pos": 16,
+   "stars": 59260,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A domain-specific language (DSL) designed to define, orchestrate, and manage complex agentic workflows.",
+   "one_liner": "A comprehensive harness providing free access to advanced coding models like Claude Code and Codex.",
    "bullets": [
-    "Provides a structured syntax for defining multi-step agent interactions and state management.",
-    "Simplifies the orchestration of complex tasks in autonomous agent systems.",
-    "Focuses on reliability and repeatability in agent-based automation.",
-    "Targeted at developers building scalable infrastructure for agentic applications."
+    "Aggregates multiple AI coding harnesses into a single terminal and IDE-integrated interface.",
+    "Enables high-volume development tasks by leveraging over 1.3 billion free tokens.",
+    "Supports native browser sessions, allowing agents to interact with web-based environments.",
+    "Essential for developers looking to scale agentic workflows without incurring high API costs."
+   ]
+  },
+  {
+   "name": "onehumanbeing/esp32-iphone-agent",
+   "url": "https://github.com/onehumanbeing/esp32-iphone-agent",
+   "language": "Python",
+   "description": "Let an AI model use a real iPhone with a $7 ESP32: AirPlay eyes, USB HID hands, any OpenAI-compatible vision model. No developer account, no Xcode, no jailbreak.",
+   "keywords": [
+    "AI agent"
    ],
-   "img": "Parcha-ai_agentrun_0.jpg",
-   "img_alt": "Support workflow: search for an answer, check it with Jev, and return it or ask an agent to investigate. Check the investigation before returning it or escalating for review."
+   "trendshift_pos": 3,
+   "stars": 770,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An innovative hardware-software bridge allowing AI agents to control a physical iPhone via an ESP32.",
+   "bullets": [
+    "Uses a $7 ESP32 microcontroller to simulate USB HID inputs and AirPlay visual feedback.",
+    "Enables agentic control of mobile apps without requiring jailbreaks or developer accounts.",
+    "Compatible with any OpenAI-compatible vision model for real-time screen analysis.",
+    "Pioneers a new category of physical-world automation for mobile-first fintech or productivity testing."
+   ]
+  },
+  {
+   "name": "NVIDIA-Omniverse/usd-brep",
+   "url": "https://github.com/NVIDIA-Omniverse/usd-brep",
+   "language": "C++",
+   "description": "USD BRep is a standalone C++ and Python library for NURBS-based boundary representation (BRep) solid modeling",
+   "keywords": [],
+   "trendshift_pos": 4,
+   "stars": 550,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A high-performance C++ and Python library for NURBS-based boundary representation solid modeling.",
+   "bullets": [
+    "Provides robust infrastructure for precise 3D geometry processing within the USD ecosystem.",
+    "Supports complex BRep operations essential for CAD/CAM and industrial digital twin applications.",
+    "Optimized for integration into large-scale simulation and visualization pipelines.",
+    "Critical for professionals working in infrastructure modeling, manufacturing, or high-fidelity simulation."
+   ]
   }
  ]
 }

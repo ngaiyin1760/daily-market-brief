@@ -141,92 +141,6 @@
    "read_time": 3
   },
   {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/05/1145413/emtech-future-2026-when-ai-meets-everything/",
-   "blog": "MIT Technology Review",
-   "title": "EmTech Future 2026: When AI Meets Everything",
-   "link": "https://www.technologyreview.com/2026/10/05/1145413/emtech-future-2026-when-ai-meets-everything/",
-   "summary": "Yossi Matias, Vice President & Head of Google Research, explores how AI is beginning to reshape biology, infrastructure, manufacturing, and science, and why its greatest impact may come when it intersects with other fields.  Step inside the newsroom with our MIT Technology Review editors for sharp analysis and unpublished insights from the team that researches…",
-   "published": "2026-10-05 04:00 UTC",
-   "_ts": 1791172800,
-   "preview": false,
-   "bullets": [
-    "The EmTech Future 2026 conference emphasizes that AI's most significant economic impact will emerge from its intersection with biology, manufacturing, and infrastructure.",
-    "Experts are focusing on the convergence of quantum computing and AI, suggesting that quantum systems will gain value primarily through their interaction with existing digital architectures.",
-    "The event highlights the necessity of rethinking energy systems to support the massive infrastructure requirements of converging AI and climate technologies."
-   ],
-   "rating": 3,
-   "read_time": 2
-  },
-  {
-   "_key": "Stratechery|https://stratechery.com/2026/apple-and-a-hackers-future/",
-   "blog": "Stratechery",
-   "title": "Apple and a Hacker’s Future",
-   "link": "https://stratechery.com/2026/apple-and-a-hackers-future/",
-   "summary": "I was happy for years in Apple's walled garden; with AI, however, their protections feel like limitations.",
-   "published": "2026-10-05 10:00 UTC",
-   "_ts": 1791194400,
-   "preview": false,
-   "bullets": [
-    "A high-severity macOS vulnerability, CVE-2026-65400, was actively exploited to gain root access and install Monero crypto miners on systems with port 5900 exposed to the internet.",
-    "The flaw exists in the macOS screen sharing state management, allowing unauthorized remote parties to view screens and control inputs without credentials.",
-    "Apple has released patches for macOS Tahoe, Sequoia, and Sonoma following the disclosure of the exploit at the Black Hat security conference.",
-    "The incident highlights the critical importance of restricting agent access and maintaining constrained environments for AI-driven workflows to mitigate the impact of system-level compromises."
-   ],
-   "rating": 3,
-   "read_time": 17
-  },
-  {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/05/1145711/the-download-ai-popularity-paradox-emtech-future-2026/",
-   "blog": "MIT Technology Review",
-   "title": "The Download: AI’s popularity paradox and EmTech Future 2026",
-   "link": "https://www.technologyreview.com/2026/10/05/1145711/the-download-ai-popularity-paradox-emtech-future-2026/",
-   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. People really hate AI, so why can’t they get enough? —Will Douglas Heaven Over the summer I talked to the CEO of Springboards, a startup building an LLM designed to come…",
-   "published": "2026-10-05 12:10 UTC",
-   "_ts": 1791202200,
-   "preview": false,
-   "bullets": [
-    "The Trump administration has established a 'Super Intelligence Force' led by Jay Clayton to coordinate national AI policy and industry engagement.",
-    "Public sentiment toward AI is increasingly negative, yet usage metrics continue to climb, highlighting a significant disconnect between societal perception and adoption.",
-    "EmTech Future 2026 highlights the critical convergence of AI with quantum computing, robotics, and energy systems as the next frontier for industrial transformation."
-   ],
-   "rating": 3,
-   "read_time": 5
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/row-parallel-dram-computing-cuts-data-reorganization-overhead-syracuse-fau-tu-dresden/",
-   "blog": "SemiEngineering",
-   "title": "Row-Parallel DRAM Computing Cuts Data-Reorganization Overhead (Syracuse, FAU, TU Dresden)",
-   "link": "https://semiengineering.com/row-parallel-dram-computing-cuts-data-reorganization-overhead-syracuse-fau-tu-dresden/",
-   "summary": "Researchers at Syracuse University, Friedrich-Alexander-Universität Erlangen-Nürnberg, and TU Dresden published a technical paper titled “RAPID: Row-Parallel Arithmetic Processing in DRAM.” Abstract Excerpt: “Processing-using-memory (PUM) architectures perform computation directly within DRAM to reduce costly data movement between memory and processors. Because charge-sharing operations are confined to individual bitlines, existing DRAM-PUM architectures reorganize data into column-oriented, bit-serial... » read more\nThe post Row-Parallel DRAM Computing Cuts Data-Reorganization Overhead (Syracuse, FAU, TU Dresden) appeared first on Semiconductor Engineering.",
-   "published": "2026-10-05 16:16 UTC",
-   "_ts": 1791216988,
-   "preview": false,
-   "bullets": [
-    "The RAPID architecture introduces row-parallel arithmetic processing within DRAM to eliminate the costly data-reorganization overhead typical of existing processing-using-memory (PUM) designs.",
-    "By adding migration and inversion cells to DRAM subarrays, the system enables horizontal data movement and logical operations without converting data to bit-serial formats.",
-    "This approach preserves CPU-compatible, word-parallel layouts, allowing for more efficient integration of in-memory computing with conventional processor architectures."
-   ],
-   "rating": 3,
-   "read_time": 1
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/backside-clock-meshes-cut-skew-and-power-in-2nm-nanosheets-ucsc/",
-   "blog": "SemiEngineering",
-   "title": "Backside Clock Meshes Cut Skew and Power in 2nm Nanosheets (UCSC)",
-   "link": "https://semiengineering.com/backside-clock-meshes-cut-skew-and-power-in-2nm-nanosheets-ucsc/",
-   "summary": "Researchers at the University of California, Santa Cruz published a technical paper titled “Design Space Exploration of Backside Clock Meshes for 2 nm GAAFET BSPDN Technology.” Abstract Excerpt: “Clock meshes are used in high-performance VLSI designs to minimize skew and tolerate on-chip variation, but they spend scarce routing resources on premium metal layers. Backside power... » read more\nThe post Backside Clock Meshes Cut Skew and Power in 2nm Nanosheets (UCSC) appeared first on Semiconductor Engineering.",
-   "published": "2026-10-05 18:07 UTC",
-   "_ts": 1791223641,
-   "preview": false,
-   "bullets": [
-    "Researchers at UCSC have performed the first design-space exploration of backside clock meshes specifically for 2nm GAAFET nanosheet technology.",
-    "By utilizing backside power delivery networks, designers can implement thick, low-resistance metal layers to reduce clock skew and power consumption.",
-    "The study highlights the architectural challenge of connecting backside meshes to frontside flip-flops, which necessitates the use of through-silicon vias (TSVs)."
-   ],
-   "rating": 3,
-   "read_time": 9
-  },
-  {
    "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/06/1145172/2026-climate-tech-companies-to-watch-brimstone-one-stop-process-making-cleaner-cement-critical-minerals/",
    "blog": "MIT Technology Review",
    "title": "Brimstone and its one-stop process for making cleaner cement and critical minerals",
@@ -453,23 +367,6 @@
    "read_time": 2
   },
   {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/05/1145682/people-really-hate-ai-so-why-cant-they-get-enough/",
-   "blog": "MIT Technology Review",
-   "title": "People really hate AI, so why can’t they get enough?",
-   "link": "https://www.technologyreview.com/2026/10/05/1145682/people-really-hate-ai-so-why-cant-they-get-enough/",
-   "summary": "Over the summer I talked to the CEO of Springboards, a startup building an LLM that’s designed to come up with a wider variety of responses than its mainstream rivals do. At the start of the call, he said something that’s been stuck in my head since: “We often say that we’re a self-loathing AI…",
-   "published": "2026-10-05 08:00 UTC",
-   "_ts": 1791187200,
-   "preview": false,
-   "bullets": [
-    "Despite widespread public anxiety and negative sentiment, AI adoption is at record levels, with ChatGPT and Gemini reporting nearly 1 billion monthly users each.",
-    "Surveys indicate that 71% of US adults oppose the construction of local AI data centers, reflecting a deeper societal resistance to the physical and social footprint of the technology.",
-    "Over one-third of adults across OECD countries report using generative AI tools, suggesting that individual utility often overrides broader societal skepticism."
-   ],
-   "rating": 2,
-   "read_time": 5
-  },
-  {
    "_key": "Stratechery|https://stratechery.com/2026/game-decompilation-is-this-legal-a-well-trodden-path/",
    "blog": "Stratechery",
    "title": "Game Decompilation, Is This Legal?, A Well-Trodden Path",
@@ -694,6 +591,249 @@
     "The role requires a blend of traditional aviation certification, technical proficiency in sensor monitoring, and the ability to manage multiple autonomous units simultaneously under variable weather conditions."
    ],
    "rating": 2,
+   "read_time": 3
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/on-chip-monitors-detect-bit-flip-attacks-in-ai-accelerators-uf-ut-dallas-rpi/",
+   "blog": "SemiEngineering",
+   "title": "On-Chip Monitors Detect Bit-Flip Attacks in AI Accelerators (UF, UT Dallas, RPI)",
+   "link": "https://semiengineering.com/on-chip-monitors-detect-bit-flip-attacks-in-ai-accelerators-uf-ut-dallas-rpi/",
+   "summary": "Researchers at the University of Florida, University of Texas at Dallas, and Rensselaer Polytechnic Institute published a technical paper titled “BARE-AI: Bit-Flip Attack Resilience in AI Hardware through Built-in Performance Monitors.” Abstract Excerpt: “Deep Neural Networks (DNNs) are integral to many safety critical systems, yet they remain highly vulnerable to bit-flip attacks (BFAs), where a... » read more\nThe post On-Chip Monitors Detect Bit-Flip Attacks in AI Accelerators (UF, UT Dallas, RPI) appeared first on Semiconductor Engineering.",
+   "published": "2026-10-12 22:34 UTC",
+   "_ts": 1791844487,
+   "preview": false,
+   "bullets": [
+    "The BARE-AI framework introduces a runtime solution to detect, localize, and mitigate bit-flip attacks (BFAs) that threaten the accuracy of deep neural networks.",
+    "BFAs represent a significant security risk for safety-critical AI systems, where minor memory perturbations can lead to catastrophic failure.",
+    "Unlike previous defenses that require costly hardware overhead or model retraining, this approach utilizes built-in performance monitors for real-time resilience."
+   ],
+   "rating": 4,
+   "read_time": 9
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/12/li-auto-i6-european-debut/",
+   "blog": "CNEVPOST",
+   "title": "Li Auto i6 makes European debut ahead of Q1 2027 launch in Norway and Netherlands",
+   "link": "https://cnevpost.com/2026/10/12/li-auto-i6-european-debut/",
+   "summary": "The European version of the Li i6, named Li 6, was originally scheduled to go on sale in the fourth quarter of this year.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-12 15:48 UTC",
+   "_ts": 1791820102,
+   "preview": false,
+   "bullets": [
+    "Li Auto has officially debuted its battery electric i6 SUV in Europe, with market entry scheduled for Q1 2027 in the Netherlands and Norway.",
+    "The company is delaying its European launch from the previously targeted Q4 2026 to ensure better adaptation of hardware and software to local conditions.",
+    "Li Auto plans to introduce extended-range electric vehicles (EREVs) to the European market, following a strategy of tailoring powertrains to specific regional needs.",
+    "The i6, which has seen over 190,000 units sold in China, serves as the company's primary vehicle for global expansion."
+   ],
+   "rating": 4,
+   "read_time": 3
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/12/aito-confirms-2027-european-entry-paris-show/",
+   "blog": "CNEVPOST",
+   "title": "Aito confirms 2027 European entry at Paris Motor Show",
+   "link": "https://cnevpost.com/2026/10/12/aito-confirms-2027-european-entry-paris-show/",
+   "summary": "Aito showcased 4 SUVs — the Aito 9, Aito 8, Aito 7 and Aito 6 — at the 2026 Paris Motor Show.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-12 15:23 UTC",
+   "_ts": 1791818615,
+   "preview": false,
+   "bullets": [
+    "Huawei-backed Aito has confirmed its entry into the European market for the fall of 2027, showcasing four SUV models at the Paris Motor Show.",
+    "The brand is currently working toward EU Whole Vehicle Type Approval (WVTA) and targeting a 5-star Euro NCAP safety rating to facilitate its launch.",
+    "Aito is building a localized service network and adapting its driver-assistance systems to meet European road conditions and regulatory standards.",
+    "The expansion follows a deepened five-year cooperation agreement between Huawei and Seres, which now includes a dedicated team for the Aito brand."
+   ],
+   "rating": 4,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/12/xpeng-launches-g9l-europe/",
+   "blog": "CNEVPOST",
+   "title": "Xpeng launches G9L SUV in Europe as monthly overseas sales top 10,000 for first time",
+   "link": "https://cnevpost.com/2026/10/12/xpeng-launches-g9l-europe/",
+   "summary": "The G9L was launched in European markets including France and Germany, following trial production at Magna's Austrian plant.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-12 12:52 UTC",
+   "_ts": 1791809574,
+   "preview": false,
+   "bullets": [
+    "Xpeng has launched the G9L flagship SUV in Europe, with pricing starting at approximately 75,000 euros across key markets like France and Germany.",
+    "The European version of the G9L features 6-seat and 7-seat configurations, distinguishing it from the 5-seat model sold in China.",
+    "Xpeng's overseas sales surpassed 10,000 units in September, marking a significant milestone as international deliveries now account for over 20% of total volume.",
+    "The G9L is the fourth model to enter local production at the Magna Steyr plant in Austria, supporting the company's long-term European growth strategy."
+   ],
+   "rating": 4,
+   "read_time": 2
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/12/1145760/imagining-building-cities-on-the-moon/",
+   "blog": "MIT Technology Review",
+   "title": "Mars may be a hellhole, but the moon is not far behind",
+   "link": "https://www.technologyreview.com/2026/10/12/1145760/imagining-building-cities-on-the-moon/",
+   "summary": "Welcome to the second space race. You can be forgiven for experiencing déjà vu. Last time, it was the Soviet Union and the United States vying to be the first to plant some flags. Now it’s a sprint to the lunar surface between America and China—alongside a host of varyingly friendly and rival nations—plus a…",
+   "published": "2026-10-12 09:37 UTC",
+   "_ts": 1791797822,
+   "preview": false,
+   "bullets": [
+    "NASA's lunar development strategy, led by Administrator Jared Isaacman, aims to transition from initial exploration in 2028 to long-term habitation by the 2030s.",
+    "The lunar infrastructure plan includes significant capital investment in communication satellites, nuclear power plants, and mechanized mining operations to support a multi-hundred-square-mile base.",
+    "Geopolitical competition is a primary driver for lunar development, as the first nation to establish a base will likely dictate the regulatory and operational standards for future lunar activity."
+   ],
+   "rating": 4,
+   "read_time": 25
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/12/vw-id-era-8x-launch-china/",
+   "blog": "CNEVPOST",
+   "title": "VW steps up China EREV push with ID. ERA 8X launch; ID. ERA 5X to follow in November",
+   "link": "https://cnevpost.com/2026/10/12/vw-id-era-8x-launch-china/",
+   "summary": "The 5-seat ID. ERA 8X starts at a limited-time price of 206,800 yuan ($30,720) and is the third model in SAIC Volkswagen's ID. ERA lineup.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-12 08:52 UTC",
+   "_ts": 1791795165,
+   "preview": false,
+   "bullets": [
+    "SAIC Volkswagen has launched the ID. ERA 8X, an extended-range SUV priced aggressively between 206,800 and 269,800 yuan to compete with Li Auto and Aito.",
+    "The 8X is the second EREV in the ID. ERA lineup and features an 800-volt architecture, offering a combined range of up to 1,602 km.",
+    "All variants come equipped with Momenta's R7 driver-assistance system, which utilizes 192-channel LiDAR for advanced navigation on autopilot.",
+    "The company plans to further expand the lineup with the launch of the ID. ERA 5X, the first battery-electric model in the series, in November."
+   ],
+   "rating": 4,
+   "read_time": 3
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/carbon-dot-interface-enables-ultrathin-high-%ce%ba-dielectrics-on-2d-semiconductors-uiuc-netl-argonne-monash/",
+   "blog": "SemiEngineering",
+   "title": "Carbon-Dot Interface Enables Ultrathin High-κ Dielectrics on 2D Semiconductors (UIUC, NETL, Argonne, Monash)",
+   "link": "https://semiengineering.com/carbon-dot-interface-enables-ultrathin-high-%ce%ba-dielectrics-on-2d-semiconductors-uiuc-netl-argonne-monash/",
+   "summary": "Researchers at the University of Illinois Urbana-Champaign, National Energy Technology Laboratory, Argonne National Laboratory, and Monash University published a technical paper titled “Integration of high-κ oxide on 2D semiconductors with carbon-dot monolayer assembly as van der Waals interfacial layer.” Abstract Excerpt: “This atomically thin assembly forms a van der Waals interfacial layer that enables deposition... » read more\nThe post Carbon-Dot Interface Enables Ultrathin High-κ Dielectrics on 2D Semiconductors (UIUC, NETL, Argonne, Monash) appeared first on Semiconductor Engineering.",
+   "published": "2026-10-12 22:55 UTC",
+   "_ts": 1791845748,
+   "preview": false,
+   "bullets": [
+    "Researchers have developed a carbon-dot monolayer assembly that functions as a van der Waals interfacial layer for 2D semiconductors.",
+    "This innovation enables the deposition of ultrathin high-κ (high-dielectric constant) oxides, a critical requirement for scaling next-generation semiconductor devices.",
+    "The collaborative effort between UIUC, NETL, Argonne, and Monash University addresses a major hurdle in integrating high-performance dielectrics with 2D materials."
+   ],
+   "rating": 3,
+   "read_time": 9
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/deterministic-nucleation-enables-controlled-growth-of-2d-semiconductors-kaist-tds-hanyang-et-al/",
+   "blog": "SemiEngineering",
+   "title": "Deterministic Nucleation Enables Controlled Growth of 2D Semiconductors (KAIST, TDS, Hanyang et al.)",
+   "link": "https://semiengineering.com/deterministic-nucleation-enables-controlled-growth-of-2d-semiconductors-kaist-tds-hanyang-et-al/",
+   "summary": "Researchers at KAIST, TDS Innovation, Hanyang University, UNIST, et al. published a technical paper titled “Spatially deterministic nucleation of 2D semiconductors by etching flux.” Abstract Excerpt: “Nucleation control is fundamental to semiconductor deposition, governing when, where and how crystalline materials form. Conventional strategies can regulate nucleation density and, through area-selective growth, confine deposition to designated... » read more\nThe post Deterministic Nucleation Enables Controlled Growth of 2D Semiconductors (KAIST, TDS, Hanyang et al.) appeared first on Semiconductor Engineering.",
+   "published": "2026-10-12 22:25 UTC",
+   "_ts": 1791843906,
+   "preview": false,
+   "bullets": [
+    "A new technique using etching-flux-mediated nucleation allows for the precise, single-centered growth of 2D semiconductors.",
+    "This method overcomes the stochastic nature of conventional deposition, where individual nucleus formation is typically random and difficult to control.",
+    "Deterministic control over nucleation sites is a fundamental advancement for the scalable and reliable manufacturing of crystalline 2D materials."
+   ],
+   "rating": 3,
+   "read_time": 9
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/12/1146376/the-download-moon-city-drone-air-traffic-controllers/",
+   "blog": "MIT Technology Review",
+   "title": "The Download: moon city problems and drone traffic controllers",
+   "link": "https://www.technologyreview.com/2026/10/12/1146376/the-download-moon-city-drone-air-traffic-controllers/",
+   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. Mars may be a hellhole, but the moon is not far behind The US and China are racing to build bases on the moon, with NASA hoping to establish a small…",
+   "published": "2026-10-12 12:10 UTC",
+   "_ts": 1791807000,
+   "preview": false,
+   "bullets": [
+    "NASA and China are engaged in a competitive race to establish permanent lunar bases, with plans for autonomous robotics, nuclear power, and resource extraction.",
+    "Brimstone, a climate tech startup, is pivoting its value proposition to align with shifting political climates by marketing both low-carbon cement and critical mineral extraction.",
+    "The emergence of drone delivery services is creating a new labor market for specialized air traffic controllers to manage low-altitude urban airspace."
+   ],
+   "rating": 3,
+   "read_time": 6
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/12/smart-2-debuts-paris-couture-edition-launches-china/",
+   "blog": "CNEVPOST",
+   "title": "Smart #2 debuts in Paris as Couture Edition launches in China",
+   "link": "https://cnevpost.com/2026/10/12/smart-2-debuts-paris-couture-edition-launches-china/",
+   "summary": "The Couture Edition costs 112,999 yuan ($16,790) in China, with production limited to 999 units each for China and Europe.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-12 10:39 UTC",
+   "_ts": 1791801566,
+   "preview": false,
+   "bullets": [
+    "Smart, a joint venture between Mercedes-Benz and Geely, has unveiled the all-electric #2, a successor to the classic ForTwo city car.",
+    "The limited-run Couture Edition is priced at 112,999 yuan in China, with production capped at 999 units for both the Chinese and European markets.",
+    "The vehicle utilizes a 35.8-kWh LFP battery, offering a CLTC range of 410 km in China and a WLTP range of 290 km in Europe.",
+    "Designed for ultra-compact urban mobility, the #2 features a specialized Electric Compact Architecture and unique design elements like a split tailgate."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/12/china-sept-2026-nev-retail-cpca/",
+   "blog": "CNEVPOST",
+   "title": "China September NEV retail sales fall 16.7% as penetration hits record 67%, CPCA data shows",
+   "link": "https://cnevpost.com/2026/10/12/china-sept-2026-nev-retail-cpca/",
+   "summary": "China's NEV retail sales totaled 1.084 million in September, down 16.7% year-on-year for a ninth consecutive monthly decline.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-12 07:10 UTC",
+   "_ts": 1791789045,
+   "preview": true,
+   "bullets": [
+    "China's NEV retail sales fell by 16.7% year-on-year in September, marking the ninth consecutive month of decline in the retail segment.",
+    "Despite the retail sales drop, NEV market penetration reached a record high of 67% during the month.",
+    "The divergence between wholesale figures and retail sales suggests a potential buildup in inventory or a shift in distribution channels for Chinese automakers."
+   ],
+   "rating": 3,
+   "read_time": 1
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/12/1145745/daisy-dent-ecologist-revealing-invisible-networks-revive-rainforests/",
+   "blog": "MIT Technology Review",
+   "title": "The ecologist revealing the invisible networks that revive rainforests",
+   "link": "https://www.technologyreview.com/2026/10/12/1145745/daisy-dent-ecologist-revealing-invisible-networks-revive-rainforests/",
+   "summary": "In a research station in central Panama, you can walk through a century of forest time, watching scrubby plots of adolescent trees give way to cathedral-­like canopies of mature growth. Forest ecologist Daisy Dent, a senior scientist at ETH Zurich, oversees this sequence of plots across the Barro Colorado Nature Monument, some of which date…",
+   "published": "2026-10-12 09:00 UTC",
+   "_ts": 1791795600,
+   "preview": false,
+   "bullets": [
+    "Research by ecologist Daisy Dent suggests that natural forest regeneration is a more effective and resilient carbon sequestration strategy than human-led monocrop tree-planting programs.",
+    "Data from the Barro Colorado Nature Monument indicates that animal-led seed dispersal, particularly by fruit-eating species, is responsible for over 70% of tropical forest growth.",
+    "The findings challenge current carbon-crediting models, suggesting that high-impact, low-cost climate solutions should prioritize protecting biodiversity to facilitate natural ecosystem recovery."
+   ],
+   "rating": 2,
+   "read_time": 9
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/12/xpeng-mona-l03-launch-australia-new-zealand/",
+   "blog": "CNEVPOST",
+   "title": "Xpeng steps up Australia, New Zealand push with Mona L03 launch",
+   "link": "https://cnevpost.com/2026/10/12/xpeng-mona-l03-launch-australia-new-zealand/",
+   "summary": "Mona L03 SUV is Xpeng's third model in the 2 markets, following the G6 SUV and X9 MPV.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-12 06:20 UTC",
+   "_ts": 1791786005,
+   "preview": true,
+   "bullets": [
+    "Xpeng has expanded its footprint in Australia and New Zealand with the launch of the Mona L03 SUV.",
+    "The L03 joins the G6 SUV and X9 MPV as the third model in the company's lineup for these specific Oceania markets.",
+    "This launch is part of Xpeng's broader strategy to diversify its international presence beyond Europe and the Middle East."
+   ],
+   "rating": 2,
+   "read_time": 1
+  },
+  {
+   "_key": "Stratechery|https://stratechery.com/2026/personal-day-4/",
+   "blog": "Stratechery",
+   "title": "Personal Day",
+   "link": "https://stratechery.com/2026/personal-day-4/",
+   "summary": "Personal Day — No Update",
+   "published": "2026-10-12 10:00 UTC",
+   "_ts": 1791799200,
+   "preview": false,
+   "bullets": [
+    "The post serves as a placeholder notification indicating that no new analysis or content was published on this date.",
+    "Stratechery maintains a structured publishing schedule that includes planned days off, which are communicated to subscribers via the update schedule.",
+    "The platform continues to emphasize its subscription-based model, offering access to various podcasts and newsletters through the Stratechery Plus tier."
+   ],
+   "rating": 1,
    "read_time": 3
   }
  ]
