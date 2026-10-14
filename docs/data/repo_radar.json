@@ -1,103 +1,102 @@
 {
- "generated_at": "2026-10-13 11:02 HKT",
+ "generated_at": "2026-10-14 09:15 HKT",
  "repos": [
   {
-   "name": "open-webui/open-webui",
-   "url": "https://github.com/open-webui/open-webui",
-   "language": "Python",
-   "description": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
-   "keywords": [
-    "AI chat"
-   ],
-   "trendshift_pos": 8,
-   "stars": 155139,
+   "name": "xtool-org/xtool",
+   "url": "https://github.com/xtool-org/xtool",
+   "language": "Swift",
+   "description": "Cross-platform Xcode replacement. Build and deploy iOS apps with SwiftPM on Linux, Windows, macOS.",
+   "keywords": [],
+   "trendshift_pos": 9,
+   "stars": 9395,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A feature-rich, self-hosted web interface for LLMs that supports Ollama and OpenAI-compatible APIs.",
+   "one_liner": "A cross-platform Xcode replacement enabling SwiftPM-based iOS development on Linux, Windows, and macOS.",
    "bullets": [
-    "Built with Python and Svelte for a responsive, desktop-like AI interaction experience.",
-    "Supports RAG (Retrieval-Augmented Generation) and multi-modal model integration.",
-    "Designed for enterprise-grade deployment with robust role-based access control and authentication.",
-    "Ideal for teams building internal AI tools or private LLM-powered knowledge bases."
+    "Built using Swift and SwiftPM for native performance and cross-platform compatibility.",
+    "Provides a modular infrastructure for building and deploying iOS applications outside of the Apple-restricted ecosystem.",
+    "Ideal for CI/CD pipelines and developers looking to reduce reliance on proprietary macOS build environments.",
+    "Streamlines the development lifecycle by abstracting complex Xcode project configurations."
    ],
-   "img": "open-webui_open-webui_0.jpg",
-   "img_alt": "Open WebUI Demo"
+   "img": "xtool-org_xtool_0.jpg",
+   "img_alt": "A screenshot of xtool being invoked from VSCode"
   },
   {
-   "name": "richiemcilroy/Tov",
-   "url": "https://github.com/richiemcilroy/Tov",
+   "name": "wheresryan22/anatomy",
+   "url": "https://github.com/wheresryan22/anatomy",
    "language": "JavaScript",
-   "description": "A TypeScript-shaped language built for coding agents. It compiles to small, fast native binaries.",
+   "description": "A Claude Code skill that turns a technical idea into a detailed, interactive isometric figure of a real machine. It makes SVG with optional WebGL shaders and 3D, for docs, articles and landing pages.",
    "keywords": [],
-   "trendshift_pos": 23,
-   "stars": 483,
+   "trendshift_pos": 10,
+   "stars": 8246,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A TypeScript-shaped programming language specifically engineered for AI coding agents.",
+   "one_liner": "A Claude Code skill that generates interactive isometric technical diagrams and 3D visualizations from text prompts.",
    "bullets": [
-    "Compiles to small, high-performance native binaries for efficient agent execution.",
-    "Syntax optimized for LLM reasoning, reducing token overhead and hallucination risks.",
-    "Focuses on type safety and deterministic behavior in automated coding workflows.",
-    "Targeted at developers building the next generation of autonomous software engineering agents."
+    "Utilizes SVG, WebGL shaders, and 3D rendering engines to create high-fidelity technical documentation assets.",
+    "Functions as an AI-agent skill, integrating directly into Claude Code workflows for automated visual generation.",
+    "Automates the creation of complex system architecture diagrams for technical whitepapers and landing pages.",
+    "Reduces the manual design overhead for developers needing to communicate complex infrastructure concepts."
    ]
   },
   {
-   "name": "Alishahryar1/free-claude-code",
-   "url": "https://github.com/Alishahryar1/free-claude-code",
+   "name": "yeyuxin777/baoyan-agent-benchmark",
+   "url": "https://github.com/yeyuxin777/baoyan-agent-benchmark",
    "language": "Python",
-   "description": "Use Claude Code, Codex, VSCode, Pi, and OpenCode (and 6 other harnesses) for free (1.3B+ free tokens) from your terminal, app, IDE, or phone, and now from the browser with native browser sessions (multi-harness + multi-model) like OpenClaw (voice supported + ToS friendly)",
-   "keywords": [
-    "AI coding assistant",
-    "LLM gateway"
-   ],
-   "trendshift_pos": 16,
-   "stars": 59260,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A comprehensive harness providing free access to advanced coding models like Claude Code and Codex.",
-   "bullets": [
-    "Aggregates multiple AI coding harnesses into a single terminal and IDE-integrated interface.",
-    "Enables high-volume development tasks by leveraging over 1.3 billion free tokens.",
-    "Supports native browser sessions, allowing agents to interact with web-based environments.",
-    "Essential for developers looking to scale agentic workflows without incurring high API costs."
-   ]
-  },
-  {
-   "name": "onehumanbeing/esp32-iphone-agent",
-   "url": "https://github.com/onehumanbeing/esp32-iphone-agent",
-   "language": "Python",
-   "description": "Let an AI model use a real iPhone with a $7 ESP32: AirPlay eyes, USB HID hands, any OpenAI-compatible vision model. No developer account, no Xcode, no jailbreak.",
-   "keywords": [
-    "AI agent"
-   ],
+   "description": "Sprix AI at 屿智同行 × 保研岛 — an open-source benchmark for AI agents in Baoyan advising and application planning.",
+   "keywords": [],
    "trendshift_pos": 3,
-   "stars": 770,
+   "stars": 180,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An innovative hardware-software bridge allowing AI agents to control a physical iPhone via an ESP32.",
+   "one_liner": "An open-source evaluation framework designed to benchmark the performance of AI agents in complex planning and advising tasks.",
    "bullets": [
-    "Uses a $7 ESP32 microcontroller to simulate USB HID inputs and AirPlay visual feedback.",
-    "Enables agentic control of mobile apps without requiring jailbreaks or developer accounts.",
-    "Compatible with any OpenAI-compatible vision model for real-time screen analysis.",
-    "Pioneers a new category of physical-world automation for mobile-first fintech or productivity testing."
-   ]
+    "Python-based evaluation suite tailored for measuring agentic reasoning and multi-step planning capabilities.",
+    "Provides standardized metrics for assessing how well AI agents handle domain-specific advising and application logic.",
+    "Serves as a critical tool for developers building specialized agents that require high accuracy in decision-making.",
+    "Helps quantify the reliability of agentic workflows in high-stakes advisory environments."
+   ],
+   "img": "yeyuxin777_baoyan-agent-benchmark_0.jpg",
+   "img_alt": "Performance of agent configurations on graduate admissions tasks",
+   "img2": "yeyuxin777_baoyan-agent-benchmark_1.jpg",
+   "img2_alt": "Two-stage evaluation within a single session"
   },
   {
-   "name": "NVIDIA-Omniverse/usd-brep",
-   "url": "https://github.com/NVIDIA-Omniverse/usd-brep",
-   "language": "C++",
-   "description": "USD BRep is a standalone C++ and Python library for NURBS-based boundary representation (BRep) solid modeling",
+   "name": "arcboxlabs/arcbox-desktop",
+   "url": "https://github.com/arcboxlabs/arcbox-desktop",
+   "language": "Swift",
+   "description": "Native macOS GUI for ArcBox — containers, VMs, and sandboxes at your fingertips. Open Source alternative to OrbStack.",
    "keywords": [],
-   "trendshift_pos": 4,
-   "stars": 550,
+   "trendshift_pos": 15,
+   "stars": 250,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A high-performance C++ and Python library for NURBS-based boundary representation solid modeling.",
+   "one_liner": "A native macOS GUI for managing containers, VMs, and sandboxes as an open-source alternative to OrbStack.",
    "bullets": [
-    "Provides robust infrastructure for precise 3D geometry processing within the USD ecosystem.",
-    "Supports complex BRep operations essential for CAD/CAM and industrial digital twin applications.",
-    "Optimized for integration into large-scale simulation and visualization pipelines.",
-    "Critical for professionals working in infrastructure modeling, manufacturing, or high-fidelity simulation."
+    "Swift-based native macOS application providing a high-performance interface for virtualization management.",
+    "Simplifies the orchestration of local development infrastructure, including Docker-compatible containers and virtual machines.",
+    "Offers a lightweight, open-source alternative for developers managing complex local dev environments.",
+    "Enhances productivity by providing a centralized dashboard for resource-heavy containerized workflows."
+   ],
+   "img": "arcboxlabs_arcbox-desktop_0.jpg",
+   "img_alt": "ArcBox"
+  },
+  {
+   "name": "storytold/wordcraft",
+   "url": "https://github.com/storytold/wordcraft",
+   "language": "Rust",
+   "description": "An open-source, clean-room reimplementation of Microsoft Word in pure Rust",
+   "keywords": [],
+   "trendshift_pos": 19,
+   "stars": 11133,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A clean-room reimplementation of Microsoft Word written entirely in Rust.",
+   "bullets": [
+    "Developed in Rust, focusing on memory safety, performance, and cross-platform portability.",
+    "Represents a significant infrastructure project to recreate complex document processing software from scratch.",
+    "Demonstrates advanced document rendering and text-processing capabilities outside of legacy proprietary stacks.",
+    "Useful for developers interested in high-performance text-processing engines and modular software architecture."
    ]
   }
  ]
