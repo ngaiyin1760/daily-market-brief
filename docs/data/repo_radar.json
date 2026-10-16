@@ -1,105 +1,100 @@
 {
- "generated_at": "2026-10-15 08:30 HKT",
+ "generated_at": "2026-10-16 08:22 HKT",
  "repos": [
   {
-   "name": "yakuikai/tokentab",
-   "url": "https://github.com/yakuikai/tokentab",
-   "language": "Python",
-   "description": "Local-first CLI and web dashboard that reads Claude Code, Codex and Gemini CLI session logs and shows token usage and cost by model, project, day and activity. No account, no API key, nothing leaves your machine",
-   "keywords": [
-    "AI coding assistant"
-   ],
-   "trendshift_pos": 2,
-   "stars": 1032,
+   "name": "xerj-org/xerj",
+   "url": "https://github.com/xerj-org/xerj",
+   "language": "Rust",
+   "description": "XERJ is the new way for AI to search data. Its autoindex capability activates agents to know your data without the token waste of grep and sed. One command indexes code, docs, logs and PDFs for search, RAG, security audits and agent memory, using 40x fewer tokens than grep. Elasticsearch compatible, so existing clients just work.",
+   "keywords": [],
+   "trendshift_pos": 7,
+   "stars": 5625,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A privacy-focused local dashboard for tracking LLM token usage and costs across various CLI tools.",
+   "one_liner": "An intelligent data indexing engine designed to optimize AI agent access to large-scale local datasets.",
    "bullets": [
-    "Built as a local-first CLI and web dashboard using Python.",
-    "Parses session logs from Claude Code, Codex, and Gemini CLI to calculate granular costs.",
-    "Ensures data privacy by keeping all usage metrics and logs strictly on the local machine.",
-    "Ideal for developers and quant researchers monitoring LLM API spend without third-party tracking."
+    "Built in Rust for high-performance indexing and low-latency retrieval.",
+    "Implements auto-indexing capabilities to minimize token waste during agentic data processing.",
+    "Designed for developers to provide AI agents with context-aware access to codebases, logs, and documentation.",
+    "Replaces traditional grep/sed workflows with semantic-aware search for LLM-driven development."
    ]
   },
   {
-   "name": "Ebony-Vinyl/dsh-our-free-model",
-   "url": "https://github.com/Ebony-Vinyl/dsh-our-free-model",
+   "name": "career-ops-hq/career-ops",
+   "url": "https://github.com/career-ops-hq/career-ops",
    "language": "JavaScript",
-   "description": "在 dsh 里装上这个插件即可，无需登录、注册或填 API Key，就能使用包括 Muse Spark 1.3、MiMo V2.6 在内的前沿模型——完全免费，不限量。 All you do is install this plugin in dsh: no login, no sign-up, no API key — the frontier models are just there, Muse Spark 1.3 and MiMo V2.6 among them. Completely free, with no usage cap.",
+   "description": "Open-source AI job search agent and job finder: scan job boards, score each job 1-5 against your CV before you apply, tailor an ATS-friendly resume and cover letter, get interview prep and a job application tracker. It helps you fill in each application; you press Submit. Runs locally in your AI coding CLI (Claude Code, Codex, OpenCode and more).",
    "keywords": [
-    "LLM gateway"
+    "AI agent",
+    "Job search"
    ],
-   "trendshift_pos": 23,
-   "stars": 16161,
+   "trendshift_pos": 21,
+   "stars": 75053,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A plugin for dsh that provides free, unlimited access to frontier AI models without requiring API keys or logins.",
+   "one_liner": "An autonomous AI agent designed to automate the end-to-end job search and application process.",
    "bullets": [
-    "JavaScript-based plugin architecture designed for seamless integration into the dsh environment.",
-    "Provides direct access to advanced models like Muse Spark 1.3 and MiMo V2.6.",
-    "Eliminates friction by removing the need for account registration or API key management.",
-    "Useful for rapid prototyping and testing high-end AI models in a zero-cost, zero-setup workflow."
+    "Utilizes automated workflows to scan job boards and evaluate roles against user CVs.",
+    "Features a scoring system (1-5) to prioritize applications based on candidate-job fit.",
+    "Generates ATS-friendly resumes and tailored cover letters automatically.",
+    "Includes integrated interview preparation modules to streamline the hiring pipeline."
    ]
   },
   {
-   "name": "Caho1/open-claude-ui",
-   "url": "https://github.com/Caho1/open-claude-ui",
-   "language": "TypeScript",
-   "description": "基于 REA 深度拆解并高保真还原 Claude 官方桌面端 UI。纯手写 30 个独立 React 组件与 8 项硬核交互物理算法，附带 3000+ 行逆向分析手册。",
+   "name": "Thysrael/Horizon",
+   "url": "https://github.com/Thysrael/Horizon",
+   "language": "Python",
+   "description": "📡 Your own AI-powered news radar. Generates daily briefings in English & Chinese. | 用 AI 构建你专属的新闻雷达",
    "keywords": [],
    "trendshift_pos": 3,
-   "stars": 157,
+   "stars": 9900,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A high-fidelity React-based recreation of the official Claude desktop UI, complete with reverse-engineered interaction logic.",
+   "one_liner": "An AI-powered news radar that aggregates and synthesizes daily briefings for professional intelligence.",
    "bullets": [
-    "Developed using TypeScript and React with 30 independent, modular components.",
-    "Features custom-built physics algorithms to replicate the specific feel of the Claude interface.",
-    "Includes a 3000+ line reverse-engineering manual detailing the UI/UX architecture.",
-    "Serves as a reference implementation for developers building complex, agentic AI interfaces."
+    "Python-based architecture for automated news scraping and data ingestion.",
+    "Leverages LLMs to distill high-volume information into concise, actionable daily briefings.",
+    "Supports multi-language output, specifically English and Chinese, for global market monitoring.",
+    "Ideal for finance professionals tracking sector-specific trends or geopolitical developments."
    ]
   },
   {
-   "name": "Leonxlnx/taste-skill",
-   "url": "https://github.com/Leonxlnx/taste-skill",
-   "language": "JavaScript",
-   "description": "Taste-Skill - gives your AI good taste. stops the AI from generating boring, generic slop",
-   "keywords": [
-    "AI skills"
-   ],
-   "trendshift_pos": 12,
-   "stars": 96412,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A utility designed to improve the quality of AI-generated content by filtering out generic or 'slop' outputs.",
-   "bullets": [
-    "JavaScript-based logic layer that acts as a quality-control filter for LLM prompts and responses.",
-    "Focuses on stylistic refinement to ensure AI output aligns with higher aesthetic or professional standards.",
-    "Addresses the common issue of 'generic slop' in automated content generation pipelines.",
-    "Applicable for automated marketing, creative writing, and high-quality synthetic data generation."
-   ]
-  },
-  {
-   "name": "Saffsanity/sill",
-   "url": "https://github.com/Saffsanity/sill",
-   "language": "Swift",
-   "description": "Any window from your Mac, live on your iPhone or iPad. Touch, Apple Pencil, trackpad and keys. Free, open source, no servers.",
+   "name": "joeseesun/qiaomu-anything-to-notebooklm",
+   "url": "https://github.com/joeseesun/qiaomu-anything-to-notebooklm",
+   "language": "Python",
+   "description": "Claude Skill: Multi-source content processor for NotebookLM. Supports WeChat articles, web pages, YouTube, PDF, Markdown, search queries → Podcast/PPT/MindMap/Quiz etc.",
    "keywords": [],
-   "trendshift_pos": 16,
-   "stars": 903,
+   "trendshift_pos": 25,
+   "stars": 6263,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A zero-server, open-source utility for streaming Mac windows to iOS/iPadOS devices with full input support.",
+   "one_liner": "A multi-source content processor that bridges diverse data formats into NotebookLM for advanced analysis.",
    "bullets": [
-    "Built with Swift for native performance and low-latency screen sharing.",
-    "Supports bidirectional input including Apple Pencil, trackpad, and keyboard integration.",
-    "Operates entirely peer-to-peer without the need for external servers or cloud infrastructure.",
-    "Valuable for power users and developers needing a portable, secure secondary display for terminal or IDE workflows."
+    "Python-based toolchain that converts web pages, PDFs, and social media content into structured formats.",
+    "Enables the transformation of raw data into podcasts, mind maps, and quizzes via AI.",
+    "Acts as a middleware layer to prepare unstructured data for RAG-based knowledge management.",
+    "Useful for researchers and analysts needing to synthesize large volumes of disparate information quickly."
+   ]
+  },
+  {
+   "name": "anthropics/claude-plugins-official",
+   "url": "https://github.com/anthropics/claude-plugins-official",
+   "language": "Python",
+   "description": "Official, Anthropic-managed directory of high quality Claude Code Plugins.",
+   "keywords": [
+    "Curated list"
    ],
-   "img": "Saffsanity_sill_0.jpg",
-   "img_alt": "\"Your Mac, on your iPad.\" The Mac's Weather app on an iPad held sideways, under Sill's bar of window thumbnails and buttons.",
-   "img2": "Saffsanity_sill_1.jpg",
-   "img2_alt": "\"Laptop mode.\" An iPad held upright, with the Mac's Clock app on top and Sill's bar, a row of keys and a trackpad below it."
+   "trendshift_pos": 2,
+   "stars": 39076,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "The official repository for high-quality plugins designed to extend the capabilities of Claude Code.",
+   "bullets": [
+    "Curated collection of plugins managed directly by Anthropic for enterprise-grade reliability.",
+    "Extends the agentic capabilities of Claude by allowing it to interact with external tools and APIs.",
+    "Focuses on standardizing the integration layer between LLMs and developer infrastructure.",
+    "Essential for developers building agentic workflows that require secure, verified tool access."
+   ]
   }
  ]
 }
