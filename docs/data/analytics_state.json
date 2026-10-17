@@ -1,42 +1,6 @@
 {
  "backlog": [
   {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/09/1145728/we-are-putting-too-much-faith-in-ai-to-say-no/",
-   "blog": "MIT Technology Review",
-   "title": "We’re putting too much faith in AI’s ability to say no",
-   "link": "https://www.technologyreview.com/2026/10/09/1145728/we-are-putting-too-much-faith-in-ai-to-say-no/",
-   "summary": "Ever since people first seriously contemplated giving machines an intelligence modeled on our own, there has never been any question that they would, like us, be able to say no. The sci-fi canon is full of stories of robotic disobedience. Most of these capers are, of course, cautionary.  But recently, the idea that AI shouldn’t…",
-   "published": "2026-10-09 09:00 UTC",
-   "_ts": 1791536400,
-   "preview": false,
-   "bullets": [
-    "Modern LLMs are trained to refuse dangerous requests through reinforcement learning, often utilizing other AI models to simulate and refine these safety boundaries.",
-    "The reliance on automated refusal mechanisms is not foolproof, as models can still be manipulated to generate harmful content despite extensive safety training.",
-    "The industry faces a significant trade-off between model utility and safety, as over-refusal can degrade performance while under-refusal poses severe real-world security risks.",
-    "The standardization of AI refusal protocols raises long-term concerns regarding corporate and government control over the information models are permitted to provide."
-   ],
-   "rating": 4,
-   "read_time": 24
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/09/tesla-china-sept-2026-wholesale/",
-   "blog": "CNEVPOST",
-   "title": "Tesla China September wholesale sales rise 5% to 95,366, a year-to-date high",
-   "link": "https://cnevpost.com/2026/10/09/tesla-china-sept-2026-wholesale/",
-   "summary": "Strong export growth continued to offset declining domestic deliveries in China.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-09 12:04 UTC",
-   "_ts": 1791547486,
-   "preview": false,
-   "bullets": [
-    "Tesla China achieved 95,366 wholesale sales in September, the highest monthly figure for the year, driven by a 58% surge in exports.",
-    "Domestic deliveries in China fell 9.35% year-on-year, marking the fourth consecutive month of decline, though the rate of contraction is narrowing.",
-    "In the first nine months of 2026, exports accounted for 48.71% of Tesla China's total wholesale volume, up significantly from 28.64% in the prior year.",
-    "Tesla's Shanghai factory set a quarterly record in Q3 with 275,111 wholesale units, despite global delivery challenges."
-   ],
-   "rating": 4,
-   "read_time": 3
-  },
-  {
    "_key": "CNEVPOST|https://cnevpost.com/2026/10/12/vw-id-era-8x-launch-china/",
    "blog": "CNEVPOST",
    "title": "VW steps up China EREV push with ID. ERA 8X launch; ID. ERA 5X to follow in November",
@@ -317,74 +281,158 @@
    "read_time": 3
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/09/byd-opens-pre-orders-second-gen-seagull/",
-   "blog": "CNEVPOST",
-   "title": "BYD opens pre-orders for larger second-gen Seagull ahead of launch this year",
-   "link": "https://cnevpost.com/2026/10/09/byd-opens-pre-orders-second-gen-seagull/",
-   "summary": "BYD has not announced pre-order prices for the second-generation Seagull, which is 425 mm longer than its predecessor.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-09 02:01 UTC",
-   "_ts": 1791511315,
+   "_key": "SemiEngineering|https://semiengineering.com/thermal-co-simulation-testing-of-co-packaged-optics/",
+   "blog": "SemiEngineering",
+   "title": "Thermal Co-Simulation Testing Of Co-Packaged Optics",
+   "link": "https://semiengineering.com/thermal-co-simulation-testing-of-co-packaged-optics/",
+   "summary": "Ensuring optical engines can operate reliably alongside high-power AI processors in multi-chip packages.\nThe post Thermal Co-Simulation Testing Of Co-Packaged Optics appeared first on Semiconductor Engineering.",
+   "published": "2026-10-15 07:01 UTC",
+   "_ts": 1792047661,
    "preview": false,
    "bullets": [
-    "BYD has opened blind pre-orders for the second-generation Seagull, which features a significantly larger body and increased seating capacity.",
-    "The new model measures 425 mm longer than its predecessor and upgrades the motor output to 95 kW, positioning it closer to the Dolphin in size.",
-    "Despite the upcoming launch, the current Seagull model faces year-to-date sales pressure, with volume down 33.22% through the first nine months."
+    "Co-packaged optics (CPO) are essential for scaling data center interconnects, but they introduce significant thermal management challenges in high-power AI packages.",
+    "Thermal co-simulation results demonstrate that CPO can operate reliably within a 3 kW power envelope when integrated into advanced multi-chip packages.",
+    "The design utilizes a 9-2-9 layer substrate and UCIe interfaces to support over 100 Tbps of optical bandwidth, proving that optical engines can coexist with high-performance AI silicon."
    ],
-   "rating": 3,
+   "rating": 4,
+   "read_time": 6
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/why-open-weight-ai-matters/",
+   "blog": "SemiEngineering",
+   "title": "Why Open-Weight AI Matters",
+   "link": "https://semiengineering.com/why-open-weight-ai-matters/",
+   "summary": "Proprietary models still hold the edge, but open-weight models add more flexibility for deploying AI.\nThe post Why Open-Weight AI Matters appeared first on Semiconductor Engineering.",
+   "published": "2026-10-15 07:02 UTC",
+   "_ts": 1792047733,
+   "preview": false,
+   "bullets": [
+    "Open-weight AI models allow users to host and adapt models locally, reducing vendor lock-in and enabling deployment on custom hardware.",
+    "Hardware architects must now design for adaptability, as model architectures evolve in weeks while silicon development cycles take years.",
+    "The shift toward trillion-parameter models and open-weight availability is driving a need for hardware that can handle sparse computation and rapidly changing numeric formats."
+   ],
+   "rating": 4,
+   "read_time": 18
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/building-ai-infrastructure-for-greater-choice-and-flexibility/",
+   "blog": "SemiEngineering",
+   "title": "Building AI Infrastructure For Greater Choice And Flexibility",
+   "link": "https://semiengineering.com/building-ai-infrastructure-for-greater-choice-and-flexibility/",
+   "summary": "Open interfaces and interoperability allow designers to choose technologies based on the needs of the system.\nThe post Building AI Infrastructure For Greater Choice And Flexibility appeared first on Semiconductor Engineering.",
+   "published": "2026-10-15 07:03 UTC",
+   "_ts": 1792047785,
+   "preview": false,
+   "bullets": [
+    "AI infrastructure is shifting toward heterogeneous architectures because training and inference workloads have distinct requirements for memory, latency, and throughput.",
+    "Open standards like UCIe are critical for enabling a chiplet-based ecosystem, allowing architects to mix and match compute, I/O, and memory interfaces from different vendors.",
+    "Standardized die-to-die connectivity provides the flexibility to partition functions within a package, helping designers balance performance, power, and cost more effectively."
+   ],
+   "rating": 4,
    "read_time": 3
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/09/li-auto-launch-2026-li-i6-oct-28/",
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/china-ev-battery-installations-sept-2026/",
    "blog": "CNEVPOST",
-   "title": "Li Auto to launch 2026 Li i6 on October 28, deliveries to start in early November",
-   "link": "https://cnevpost.com/2026/10/09/li-auto-launch-2026-li-i6-oct-28/",
-   "summary": "Li Auto will begin displaying the 2026 Li i6 at 485 stores in China on October 11, with the model set to appear at the Paris Motor Show on October 12.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-09 03:18 UTC",
-   "_ts": 1791515928,
+   "title": "China EV battery installations reach 87.2 GWh in September, setting fresh high for year",
+   "link": "https://cnevpost.com/2026/10/15/china-ev-battery-installations-sept-2026/",
+   "summary": "China's EV battery installations rose 14.7% year-on-year in September, with growth slowing for the second consecutive month.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-15 07:03 UTC",
+   "_ts": 1792047803,
    "preview": false,
    "bullets": [
-    "Li Auto will launch the 2026 Li i6 on October 28, with deliveries scheduled to commence in early November.",
-    "The new model will feature in-house developed 5C battery technology and Mach driver-assistance chips, signaling a deeper vertical integration strategy.",
-    "The vehicle will debut internationally at the Paris Motor Show on October 12, marketed as the company's first all-electric global model under the name 'Li 6'.",
-    "The Li i6 remains a cornerstone of the company's portfolio, accounting for over 45% of total deliveries in August 2026."
+    "China's EV battery installations hit a 2026 monthly high of 87.2 GWh in September, representing a 14.7% year-on-year increase.",
+    "Lithium iron phosphate (LFP) batteries remain the dominant technology, accounting for 85.5% of total installations, while ternary battery usage saw a year-on-year decline.",
+    "Despite reaching a new monthly high, the overall annual growth rate for battery installations has slowed for the second consecutive month."
    ],
-   "rating": 3,
+   "rating": 4,
+   "read_time": 10
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/strengthening-advanced-node-interconnects-through-automated-via-insertion/",
+   "blog": "SemiEngineering",
+   "title": "Strengthening Advanced-Node Interconnects Through Automated Via Insertion",
+   "link": "https://semiengineering.com/strengthening-advanced-node-interconnects-through-automated-via-insertion/",
+   "summary": "Short-resilient via insertion improves reliability and performance.\nThe post Strengthening Advanced-Node Interconnects Through Automated Via Insertion appeared first on Semiconductor Engineering.",
+   "published": "2026-10-15 07:06 UTC",
+   "_ts": 1792047962,
+   "preview": false,
+   "bullets": [
+    "At sub-5nm nodes, via resistance increases exponentially, making vertical interconnects a primary bottleneck for power, performance, and area (PPA).",
+    "High via resistance exacerbates electromigration and IR drop, which can lead to timing failures or permanent silicon damage if not addressed during the design phase.",
+    "Manual via insertion is no longer feasible due to layout density, necessitating automated, signoff-aware optimization to maintain reliability and time-to-market."
+   ],
+   "rating": 4,
+   "read_time": 6
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/15/1146091/pig-kidneys-that-were-frozen-for-a-year-have-been-brought-back-to-life/",
+   "blog": "MIT Technology Review",
+   "title": "Pig kidneys that were “frozen” for a year have been brought back to life",
+   "link": "https://www.technologyreview.com/2026/10/15/1146091/pig-kidneys-that-were-frozen-for-a-year-have-been-brought-back-to-life/",
+   "summary": "Pig kidneys that were cooled to -150 °C and stored in a freezer for months have been successfully rewarmed and shown to work again for the first time, say scientists. They hope to replicate the findings with human organs. The kidneys—which are similar in size to human ones—were left in a glass-like state, in one…",
+   "published": "2026-10-15 08:43 UTC",
+   "_ts": 1792053804,
+   "preview": false,
+   "bullets": [
+    "Researchers have achieved a breakthrough in cryopreservation by successfully storing and rewarming pig kidneys, a process that could eventually allow for the indefinite banking of human organs.",
+    "Current organ transplantation is severely limited by a 24-to-36-hour viability window, which creates significant logistical challenges and contributes to the global organ shortage.",
+    "While the current results are a milestone, the researchers have yet to prove that these organs can sustain long-term life, and the findings have not yet undergone peer review.",
+    "The ability to bank organs would fundamentally transform the transplant market, potentially reducing the reliance on immunosuppressive drugs and improving matching efficiency for patients."
+   ],
+   "rating": 4,
+   "read_time": 10
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/bmw-starts-gen-6-battery-production-china/",
+   "blog": "CNEVPOST",
+   "title": "BMW starts Gen 6 battery production in China as Neue Klasse i3 covers 1,213 km without recharging in test",
+   "link": "https://cnevpost.com/2026/10/15/bmw-starts-gen-6-battery-production-china/",
+   "summary": "BMW said the Neue Klasse i3 50L traveled 1,213 km in a real-world road test without recharging.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-15 09:02 UTC",
+   "_ts": 1792054934,
+   "preview": false,
+   "bullets": [
+    "BMW has commenced mass production of its sixth-generation high-voltage batteries at a new 10 billion yuan facility in Shenyang, China.",
+    "The facility is the third global site for Gen 6 battery production and will initially supply the Neue Klasse iX3 and i3 models.",
+    "In a recent real-world road test, a long-wheelbase Neue Klasse i3 achieved a range of 1,213 km on a single charge, demonstrating the efficiency of the new battery architecture."
+   ],
+   "rating": 4,
    "read_time": 3
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/09/geely-main-brand-entry-canada/",
-   "blog": "CNEVPOST",
-   "title": "Geely's main brand announces entry into Canada, plans first models in 2027",
-   "link": "https://cnevpost.com/2026/10/09/geely-main-brand-entry-canada/",
-   "summary": "The Geely brand has begun establishing local operations and a retail and service network in Canada, with initial models yet to be announced.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-09 13:07 UTC",
-   "_ts": 1791551245,
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/15/1146755/the-download-reviving-frozen-pig-kidneys-boosting-nuclear-power/",
+   "blog": "MIT Technology Review",
+   "title": "The Download: reviving frozen pig kidneys and boosting nuclear power",
+   "link": "https://www.technologyreview.com/2026/10/15/1146755/the-download-reviving-frozen-pig-kidneys-boosting-nuclear-power/",
+   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. Pig kidneys that were “frozen” for a year have been brought back to life Pig kidneys that were cooled to -150 °C and stored in a freezer for months have been…",
+   "published": "2026-10-15 12:10 UTC",
+   "_ts": 1792066200,
    "preview": false,
    "bullets": [
-    "Geely Auto has officially announced its entry into the Canadian market, with plans to launch its first models in 2027.",
-    "The company is currently establishing local operations and developing a retail and service network through partnerships with experienced local entities.",
-    "Canada's recent trade policy, which allows up to 49,000 China-made EVs annually at a 6.1% tariff rate, has created a viable entry window for Chinese automakers.",
-    "Geely joins other Chinese manufacturers like Dongfeng in targeting the Canadian market, leveraging the new quota system to expand its international presence."
+    "Scientists successfully rewarmed pig kidneys stored at -150 °C for over a year, demonstrating that the organs could regain function and produce urine after transplantation.",
+    "Constellation Energy plans to add nearly a gigawatt of capacity across 11 existing nuclear reactors, while the Department of Energy has issued a $4.2 billion loan to Vistra for plant upgrades.",
+    "The climate tech startup BasiGo is scaling its electric bus fleet in sub-Saharan Africa using a pay-as-you-drive model to overcome high upfront capital barriers for private operators.",
+    "Ukraine reported that sudden speed limits imposed on Starlink services disrupted critical drone operations, highlighting the geopolitical risks of relying on private satellite infrastructure for military missions."
    ],
-   "rating": 3,
-   "read_time": 3
+   "rating": 4,
+   "read_time": 6
   },
   {
-   "_key": "Stratechery|https://stratechery.com/2026/its-not-you-its-me/",
-   "blog": "Stratechery",
-   "title": "2026.41: It’s Not You, It’s Me",
-   "link": "https://stratechery.com/2026/its-not-you-its-me/",
-   "summary": "The best Stratechery content from the week of October 5, 2026, including drifting apart from Apple, Facebook complications, and the delightful absurdity of U.S.-China dynamics.",
-   "published": "2026-10-09 17:00 UTC",
-   "_ts": 1791565200,
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/xpeng-opens-mona-l05-pre-sales/",
+   "blog": "CNEVPOST",
+   "title": "Xpeng opens Mona L05 pre-sales to bolster Q4 sales push",
+   "link": "https://cnevpost.com/2026/10/15/xpeng-opens-mona-l05-pre-sales/",
+   "summary": "Mona L05 starts at 169,800 yuan ($25,250) in pre-sales, with its official launch in China set for October 29.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-15 12:54 UTC",
+   "_ts": 1792068868,
    "preview": false,
    "bullets": [
-    "Apple's product strategy is increasingly bifurcating into two distinct paths: highly customized tools for specialized users and deeply integrated, consumer-focused ecosystems like the new LG home partnership.",
-    "The evolution of tech's role in politics, as discussed with Katie Harbath, highlights how Facebook's business imperatives shifted alongside global political volatility over the last decade.",
-    "U.S.-China trade dynamics have shifted significantly, with European nations now actively lobbying for trade barriers and a 'China kill switch' to mitigate reliance on Chinese imports.",
-    "The effectiveness of U.S. counter-measures against Beijing has grown, as evidenced by the global shift away from Chinese rare earth dependency and the hardening of Western trade policies."
+    "Xpeng has opened pre-sales for the Mona L05 mid-size SUV with a starting price of 169,800 yuan, ahead of its official October 29 launch.",
+    "The model is available in both battery electric (BEV) and extended-range (EREV) configurations, featuring high-end driver assistance powered by Xpeng's in-house Turing AI chips.",
+    "This launch is a strategic move to help Xpeng reach its ambitious fourth-quarter target of exceeding 60,000 monthly vehicle sales."
    ],
-   "rating": 3,
+   "rating": 4,
    "read_time": 3
   },
   {
@@ -630,73 +678,107 @@
    "read_time": 17
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/09/xpeng-launches-dark-knight-package-for-p7-sedan-echoing-nios-design-update-playbook/",
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/leapmotor-to-launch-a10s-oct-18/",
    "blog": "CNEVPOST",
-   "title": "Xpeng launches Dark Knight package for P7+ sedan, echoing Nio's design update playbook",
-   "link": "https://cnevpost.com/2026/10/09/xpeng-launches-dark-knight-package-for-p7-sedan-echoing-nios-design-update-playbook/",
-   "summary": "The Dark Knight package is priced at 6,000 yuan ($890) for a limited time, lifting the appeal of the electric sedan with exterior and interior updates.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-09 02:46 UTC",
-   "_ts": 1791513997,
+   "title": "Leapmotor to launch A10s on October 18, adding sporty variant to A10 electric SUV lineup",
+   "link": "https://cnevpost.com/2026/10/15/leapmotor-to-launch-a10s-oct-18/",
+   "summary": "The A10s is expected to retain the A10's battery and range specifications, with key changes centered on red-and-black styling and driver-assistance features.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-15 03:51 UTC",
+   "_ts": 1792036282,
    "preview": false,
    "bullets": [
-    "Xpeng introduced a 'Dark Knight' aesthetic package for the P7+ sedan, priced at a limited-time 6,000 yuan.",
-    "The update focuses exclusively on cosmetic changes, such as blacked-out logos and interior color schemes, with no modifications to powertrain or software.",
-    "This strategy mirrors Nio's frequent use of design-focused refresh packages to maintain consumer interest in existing vehicle platforms."
+    "Leapmotor will launch the A10s, a sporty variant of its A10 electric SUV, on October 18, featuring distinct red-and-black styling and enhanced driver-assistance hardware.",
+    "The A10s will include LiDAR and a Qualcomm SA8650 chip to support advanced features like urban navigation on autopilot (NOA).",
+    "The launch follows a 24% month-on-month decline in A10 deliveries in September, as the company works to meet its annual target of 1 million global deliveries."
    ],
-   "rating": 2,
-   "read_time": 3
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/09/byd-humanoid-robot-design-emerges/",
-   "blog": "CNEVPOST",
-   "title": "BYD humanoid robot design emerges as formal debut remains pending",
-   "link": "https://cnevpost.com/2026/10/09/byd-humanoid-robot-design-emerges/",
-   "summary": "Patent images show a bipedal humanoid robot designed for service, education and industrial applications.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-09 05:59 UTC",
-   "_ts": 1791525556,
-   "preview": false,
-   "bullets": [
-    "BYD has filed a design patent for a bipedal humanoid robot, signaling continued investment in robotics despite missing an initial August debut target.",
-    "The patent reveals a robot with human-like proportions intended for service, education, and industrial applications.",
-    "Management has previously expressed interest in deploying these robots within their dealership network to assist with vehicle demonstrations."
-   ],
-   "rating": 2,
+   "rating": 3,
    "read_time": 2
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/09/nio-1-2-million-battery-swaps-7-day-holiday/",
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/avatr-launches-2026-avatr-06/",
    "blog": "CNEVPOST",
-   "title": "Nio completes nearly 1.2 million battery swaps over 7-day holiday, sets daily record twice",
-   "link": "https://cnevpost.com/2026/10/09/nio-1-2-million-battery-swaps-7-day-holiday/",
-   "summary": "Nio's 4,168 battery swap stations completed 1,192,221 swaps from October 1 to 7, with the daily average rising 22% year-on-year.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-09 06:33 UTC",
-   "_ts": 1791527605,
+   "title": "Avatr launches 2026 Avatr 06 with Huawei ADS 5, trims lineup to 2 variants",
+   "link": "https://cnevpost.com/2026/10/15/avatr-launches-2026-avatr-06/",
+   "summary": "The 2026 Avatr 06 starts at 205,900 yuan ($30,620) after incentives and comes with larger batteries.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-15 05:14 UTC",
+   "_ts": 1792041254,
    "preview": false,
    "bullets": [
-    "Nio completed nearly 1.2 million battery swaps during the 7-day National Day holiday, with daily average usage rising 22% year-on-year.",
-    "The company set a new daily record of 183,664 swaps on October 5, demonstrating the scalability of its energy replenishment network during peak travel.",
-    "Highway-specific infrastructure played a major role, with Nio's highway stations supplying over 24.83 million kWh of electricity, a 30.8% increase from the previous year.",
-    "The data highlights the growing reliance on battery swapping for long-distance travel, with over 200,000 users opting for this method exclusively during their holiday trips."
+    "Avatr has launched the 2026 Avatr 06, streamlining its lineup to two variants and making Huawei's Qiankun ADS 5 driver assistance system standard.",
+    "The updated model is priced competitively, starting at 205,900 yuan after limited-time incentives, and offers both EREV and BEV powertrain options.",
+    "The 2026 version features significant upgrades in battery capacity, with the EREV variant achieving a combined range of 1,190 km."
    ],
-   "rating": 2,
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/amba-c2c-moving-forward-with-a-converged-amba-foundation-for-c2c-connectivity/",
+   "blog": "SemiEngineering",
+   "title": "AMBA C2C: Moving Forward With A Converged AMBA Foundation For C2C Connectivity",
+   "link": "https://semiengineering.com/amba-c2c-moving-forward-with-a-converged-amba-foundation-for-c2c-connectivity/",
+   "summary": "Extending chiplet connectivity across AXI and CHI with scalable protocol subsets, interoperability, and flexible transport support.\nThe post AMBA C2C: Moving Forward With A Converged AMBA Foundation For C2C Connectivity appeared first on Semiconductor Engineering.",
+   "published": "2026-10-15 07:02 UTC",
+   "_ts": 1792047757,
+   "preview": false,
+   "bullets": [
+    "The new AMBA C2C specification aims to unify chip-to-chip connectivity by supporting both AXI and CHI protocols under a single, scalable framework.",
+    "By utilizing protocol subsetting, AMBA C2C allows implementations to scale complexity based on specific use cases, such as simple I/O attachment versus fully coherent superchips.",
+    "This converged approach addresses the need for greater reuse and interoperability across the vast installed base of AXI-based designs in the chiplet ecosystem."
+   ],
+   "rating": 3,
    "read_time": 4
   },
   {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/09/1145737/job-titles-delivery-drone-air-traffic-controller-trevor-wischnewsky/",
-   "blog": "MIT Technology Review",
-   "title": "Job titles of the future: Delivery drone air traffic controller",
-   "link": "https://www.technologyreview.com/2026/10/09/1145737/job-titles-delivery-drone-air-traffic-controller-trevor-wischnewsky/",
-   "summary": "The moment Trevor Wischnewsky heard that drones were delivering pizza and sushi around his Texas neighborhood, his mind was made up. “It was super fascinating,” he says. “I just immediately wanted to be a part of it.” Wischnewsky is now an RPIC, or “remote pilot in command,” at a company called FlyTrex. An RPIC is…",
-   "published": "2026-10-09 09:00 UTC",
-   "_ts": 1791536400,
+   "_key": "SemiEngineering|https://semiengineering.com/beyond-the-specification-what-really-determines-pcie-retimer-reach/",
+   "blog": "SemiEngineering",
+   "title": "Beyond The Specification: What Really Determines PCIe Retimer Reach?",
+   "link": "https://semiengineering.com/beyond-the-specification-what-really-determines-pcie-retimer-reach/",
+   "summary": "Multiple interacting factors span silicon design, controller intelligence, channel quality, and the transmission medium itself.\nThe post Beyond The Specification: What Really Determines PCIe Retimer Reach? appeared first on Semiconductor Engineering.",
+   "published": "2026-10-15 07:07 UTC",
+   "_ts": 1792048065,
    "preview": false,
    "bullets": [
-    "The rise of commercial drone delivery is creating a new professional class of 'remote pilots in command' (RPIC) who manage fleets of autonomous aircraft.",
-    "These operators utilize Unmanned Aircraft Systems Traffic Management (UTM) networks to coordinate flight paths between competing companies, ensuring collision avoidance beyond the line of sight.",
-    "The role requires a blend of traditional aviation certification, technical proficiency in sensor monitoring, and the ability to manage multiple autonomous units simultaneously under variable weather conditions."
+    "PCIe retimer reach is determined by a combination of SerDes architecture, controller intelligence, and channel quality rather than just specification compliance.",
+    "While standard specifications often target 36 dB of insertion loss at Nyquist, leading retimer vendors are engineering for 40 dB or higher to provide greater deployment flexibility.",
+    "The ability to exceed standard loss budgets allows designers to accommodate more connectors, longer PCB traces, and manufacturing variations without requiring costly board redesigns."
    ],
-   "rating": 2,
-   "read_time": 3
+   "rating": 3,
+   "read_time": 5
+  },
+  {
+   "_key": "Stratechery|https://stratechery.com/2026/a-conversation-with-ari-emanuel-about-entertainment-and-ai/",
+   "blog": "Stratechery",
+   "title": "A Conversation With Ari Emanuel About Entertainment and AI",
+   "link": "https://stratechery.com/2026/a-conversation-with-ari-emanuel-about-entertainment-and-ai/",
+   "summary": "A conversation with Hollywood super-agent Ari Emanuel about his memoir, the impact of AI on Hollywood, and the power of a phone call.",
+   "published": "2026-10-15 10:00 UTC",
+   "_ts": 1792058400,
+   "preview": false,
+   "bullets": [
+    "Ari Emanuel, CEO of TKO Group Holdings, emphasizes the strategic importance of live events and experiences as a core pillar of his business model in the current media landscape.",
+    "The discussion explores the tension between SaaS-based revenue models for AI and advertising-supported models, with a specific focus on how companies like Muse leverage existing revenue streams to avoid data-privacy concerns.",
+    "Emanuel and Ben Thompson analyze the impact of AI on Hollywood, debating which creative skills will remain valuable as generative technologies reshape content production.",
+    "The conversation highlights the role of interpersonal communication, specifically phone calls, as a potential tool to combat the polarization often exacerbated by social media algorithms."
+   ],
+   "rating": 3,
+   "read_time": 60
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/chery-icar-uk-v27-launch-2027/",
+   "blog": "CNEVPOST",
+   "title": "Chery to bring iCar brand to UK with V27 launch in early 2027",
+   "link": "https://cnevpost.com/2026/10/15/chery-icar-uk-v27-launch-2027/",
+   "summary": "iCar will enter the UK under its overseas name iCaur, becoming Chery's fifth brand in the market.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-15 13:35 UTC",
+   "_ts": 1792071326,
+   "preview": false,
+   "bullets": [
+    "Chery is expanding its UK footprint by introducing its iCar brand, branded as 'iCaur', in early 2027, marking its fifth brand in the British market.",
+    "The brand will launch with the boxy V27 SUV, which is currently sold in 40 countries and will be tuned specifically for UK roads at Chery's new R&D center at UTAC Millbrook.",
+    "Chery has become the top-selling Chinese automaker in the UK, capturing a 7% market share in the first nine months of 2026."
+   ],
+   "rating": 3,
+   "read_time": 2
   },
   {
    "_key": "CNEVPOST|https://cnevpost.com/2026/10/12/xpeng-mona-l03-launch-australia-new-zealand/",
@@ -767,279 +849,21 @@
    "read_time": 1
   },
   {
-   "_key": "Stratechery|https://stratechery.com/2026/personal-day-4/",
-   "blog": "Stratechery",
-   "title": "Personal Day",
-   "link": "https://stratechery.com/2026/personal-day-4/",
-   "summary": "Personal Day — No Update",
-   "published": "2026-10-12 10:00 UTC",
-   "_ts": 1791799200,
-   "preview": false,
-   "bullets": [
-    "The post serves as a placeholder notification indicating that no new analysis or content was published on this date.",
-    "Stratechery maintains a structured publishing schedule that includes planned days off, which are communicated to subscribers via the update schedule.",
-    "The platform continues to emphasize its subscription-based model, offering access to various podcasts and newsletters through the Stratechery Plus tier."
-   ],
-   "rating": 1,
-   "read_time": 3
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/xpeng-opens-mona-l05-pre-sales/",
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/catl-chairman-donates-shares-shanghai-jiao-tong/",
    "blog": "CNEVPOST",
-   "title": "Xpeng opens Mona L05 pre-sales to bolster Q4 sales push",
-   "link": "https://cnevpost.com/2026/10/15/xpeng-opens-mona-l05-pre-sales/",
-   "summary": "Mona L05 starts at 169,800 yuan ($25,250) in pre-sales, with its official launch in China set for October 29.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-15 12:54 UTC",
-   "_ts": 1792068868,
-   "preview": false,
+   "title": "CATL chairman donates $62.5 million in shares to Shanghai Jiao Tong research institute",
+   "link": "https://cnevpost.com/2026/10/15/catl-chairman-donates-shares-shanghai-jiao-tong/",
+   "summary": "The donation will go to a research institute established this year in Ningde, Fujian province, where CATL is headquartered.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-15 03:28 UTC",
+   "_ts": 1792034922,
+   "preview": true,
    "bullets": [
-    "Xpeng has opened pre-sales for the Mona L05 mid-size SUV with a starting price of 169,800 yuan, ahead of its official October 29 launch.",
-    "The model is available in both battery electric (BEV) and extended-range (EREV) configurations, featuring high-end driver assistance powered by Xpeng's in-house Turing AI chips.",
-    "This launch is a strategic move to help Xpeng reach its ambitious fourth-quarter target of exceeding 60,000 monthly vehicle sales."
+    "CATL Chairman Robin Zeng has donated $62.5 million worth of company shares to a research institute at Shanghai Jiao Tong University.",
+    "The donation is earmarked for a newly established research facility in Ningde, Fujian, the headquarters of the battery giant.",
+    "This philanthropic move underscores the ongoing collaboration between China's leading battery manufacturer and top-tier academic institutions."
    ],
-   "rating": 4,
-   "read_time": 3
-  },
-  {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/15/1146755/the-download-reviving-frozen-pig-kidneys-boosting-nuclear-power/",
-   "blog": "MIT Technology Review",
-   "title": "The Download: reviving frozen pig kidneys and boosting nuclear power",
-   "link": "https://www.technologyreview.com/2026/10/15/1146755/the-download-reviving-frozen-pig-kidneys-boosting-nuclear-power/",
-   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. Pig kidneys that were “frozen” for a year have been brought back to life Pig kidneys that were cooled to -150 °C and stored in a freezer for months have been…",
-   "published": "2026-10-15 12:10 UTC",
-   "_ts": 1792066200,
-   "preview": false,
-   "bullets": [
-    "Scientists successfully rewarmed pig kidneys stored at -150 °C for over a year, demonstrating that the organs could regain function and produce urine after transplantation.",
-    "Constellation Energy plans to add nearly a gigawatt of capacity across 11 existing nuclear reactors, while the Department of Energy has issued a $4.2 billion loan to Vistra for plant upgrades.",
-    "The climate tech startup BasiGo is scaling its electric bus fleet in sub-Saharan Africa using a pay-as-you-drive model to overcome high upfront capital barriers for private operators.",
-    "Ukraine reported that sudden speed limits imposed on Starlink services disrupted critical drone operations, highlighting the geopolitical risks of relying on private satellite infrastructure for military missions."
-   ],
-   "rating": 4,
-   "read_time": 6
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/bmw-starts-gen-6-battery-production-china/",
-   "blog": "CNEVPOST",
-   "title": "BMW starts Gen 6 battery production in China as Neue Klasse i3 covers 1,213 km without recharging in test",
-   "link": "https://cnevpost.com/2026/10/15/bmw-starts-gen-6-battery-production-china/",
-   "summary": "BMW said the Neue Klasse i3 50L traveled 1,213 km in a real-world road test without recharging.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-15 09:02 UTC",
-   "_ts": 1792054934,
-   "preview": false,
-   "bullets": [
-    "BMW has commenced mass production of its sixth-generation high-voltage batteries at a new 10 billion yuan facility in Shenyang, China.",
-    "The facility is the third global site for Gen 6 battery production and will initially supply the Neue Klasse iX3 and i3 models.",
-    "In a recent real-world road test, a long-wheelbase Neue Klasse i3 achieved a range of 1,213 km on a single charge, demonstrating the efficiency of the new battery architecture."
-   ],
-   "rating": 4,
-   "read_time": 3
-  },
-  {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/15/1146091/pig-kidneys-that-were-frozen-for-a-year-have-been-brought-back-to-life/",
-   "blog": "MIT Technology Review",
-   "title": "Pig kidneys that were “frozen” for a year have been brought back to life",
-   "link": "https://www.technologyreview.com/2026/10/15/1146091/pig-kidneys-that-were-frozen-for-a-year-have-been-brought-back-to-life/",
-   "summary": "Pig kidneys that were cooled to -150 °C and stored in a freezer for months have been successfully rewarmed and shown to work again for the first time, say scientists. They hope to replicate the findings with human organs. The kidneys—which are similar in size to human ones—were left in a glass-like state, in one…",
-   "published": "2026-10-15 08:43 UTC",
-   "_ts": 1792053804,
-   "preview": false,
-   "bullets": [
-    "Researchers have achieved a breakthrough in cryopreservation by successfully storing and rewarming pig kidneys, a process that could eventually allow for the indefinite banking of human organs.",
-    "Current organ transplantation is severely limited by a 24-to-36-hour viability window, which creates significant logistical challenges and contributes to the global organ shortage.",
-    "While the current results are a milestone, the researchers have yet to prove that these organs can sustain long-term life, and the findings have not yet undergone peer review.",
-    "The ability to bank organs would fundamentally transform the transplant market, potentially reducing the reliance on immunosuppressive drugs and improving matching efficiency for patients."
-   ],
-   "rating": 4,
-   "read_time": 10
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/strengthening-advanced-node-interconnects-through-automated-via-insertion/",
-   "blog": "SemiEngineering",
-   "title": "Strengthening Advanced-Node Interconnects Through Automated Via Insertion",
-   "link": "https://semiengineering.com/strengthening-advanced-node-interconnects-through-automated-via-insertion/",
-   "summary": "Short-resilient via insertion improves reliability and performance.\nThe post Strengthening Advanced-Node Interconnects Through Automated Via Insertion appeared first on Semiconductor Engineering.",
-   "published": "2026-10-15 07:06 UTC",
-   "_ts": 1792047962,
-   "preview": false,
-   "bullets": [
-    "At sub-5nm nodes, via resistance increases exponentially, making vertical interconnects a primary bottleneck for power, performance, and area (PPA).",
-    "High via resistance exacerbates electromigration and IR drop, which can lead to timing failures or permanent silicon damage if not addressed during the design phase.",
-    "Manual via insertion is no longer feasible due to layout density, necessitating automated, signoff-aware optimization to maintain reliability and time-to-market."
-   ],
-   "rating": 4,
-   "read_time": 6
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/china-ev-battery-installations-sept-2026/",
-   "blog": "CNEVPOST",
-   "title": "China EV battery installations reach 87.2 GWh in September, setting fresh high for year",
-   "link": "https://cnevpost.com/2026/10/15/china-ev-battery-installations-sept-2026/",
-   "summary": "China's EV battery installations rose 14.7% year-on-year in September, with growth slowing for the second consecutive month.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-15 07:03 UTC",
-   "_ts": 1792047803,
-   "preview": false,
-   "bullets": [
-    "China's EV battery installations hit a 2026 monthly high of 87.2 GWh in September, representing a 14.7% year-on-year increase.",
-    "Lithium iron phosphate (LFP) batteries remain the dominant technology, accounting for 85.5% of total installations, while ternary battery usage saw a year-on-year decline.",
-    "Despite reaching a new monthly high, the overall annual growth rate for battery installations has slowed for the second consecutive month."
-   ],
-   "rating": 4,
-   "read_time": 10
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/building-ai-infrastructure-for-greater-choice-and-flexibility/",
-   "blog": "SemiEngineering",
-   "title": "Building AI Infrastructure For Greater Choice And Flexibility",
-   "link": "https://semiengineering.com/building-ai-infrastructure-for-greater-choice-and-flexibility/",
-   "summary": "Open interfaces and interoperability allow designers to choose technologies based on the needs of the system.\nThe post Building AI Infrastructure For Greater Choice And Flexibility appeared first on Semiconductor Engineering.",
-   "published": "2026-10-15 07:03 UTC",
-   "_ts": 1792047785,
-   "preview": false,
-   "bullets": [
-    "AI infrastructure is shifting toward heterogeneous architectures because training and inference workloads have distinct requirements for memory, latency, and throughput.",
-    "Open standards like UCIe are critical for enabling a chiplet-based ecosystem, allowing architects to mix and match compute, I/O, and memory interfaces from different vendors.",
-    "Standardized die-to-die connectivity provides the flexibility to partition functions within a package, helping designers balance performance, power, and cost more effectively."
-   ],
-   "rating": 4,
-   "read_time": 3
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/why-open-weight-ai-matters/",
-   "blog": "SemiEngineering",
-   "title": "Why Open-Weight AI Matters",
-   "link": "https://semiengineering.com/why-open-weight-ai-matters/",
-   "summary": "Proprietary models still hold the edge, but open-weight models add more flexibility for deploying AI.\nThe post Why Open-Weight AI Matters appeared first on Semiconductor Engineering.",
-   "published": "2026-10-15 07:02 UTC",
-   "_ts": 1792047733,
-   "preview": false,
-   "bullets": [
-    "Open-weight AI models allow users to host and adapt models locally, reducing vendor lock-in and enabling deployment on custom hardware.",
-    "Hardware architects must now design for adaptability, as model architectures evolve in weeks while silicon development cycles take years.",
-    "The shift toward trillion-parameter models and open-weight availability is driving a need for hardware that can handle sparse computation and rapidly changing numeric formats."
-   ],
-   "rating": 4,
-   "read_time": 18
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/thermal-co-simulation-testing-of-co-packaged-optics/",
-   "blog": "SemiEngineering",
-   "title": "Thermal Co-Simulation Testing Of Co-Packaged Optics",
-   "link": "https://semiengineering.com/thermal-co-simulation-testing-of-co-packaged-optics/",
-   "summary": "Ensuring optical engines can operate reliably alongside high-power AI processors in multi-chip packages.\nThe post Thermal Co-Simulation Testing Of Co-Packaged Optics appeared first on Semiconductor Engineering.",
-   "published": "2026-10-15 07:01 UTC",
-   "_ts": 1792047661,
-   "preview": false,
-   "bullets": [
-    "Co-packaged optics (CPO) are essential for scaling data center interconnects, but they introduce significant thermal management challenges in high-power AI packages.",
-    "Thermal co-simulation results demonstrate that CPO can operate reliably within a 3 kW power envelope when integrated into advanced multi-chip packages.",
-    "The design utilizes a 9-2-9 layer substrate and UCIe interfaces to support over 100 Tbps of optical bandwidth, proving that optical engines can coexist with high-performance AI silicon."
-   ],
-   "rating": 4,
-   "read_time": 6
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/chery-icar-uk-v27-launch-2027/",
-   "blog": "CNEVPOST",
-   "title": "Chery to bring iCar brand to UK with V27 launch in early 2027",
-   "link": "https://cnevpost.com/2026/10/15/chery-icar-uk-v27-launch-2027/",
-   "summary": "iCar will enter the UK under its overseas name iCaur, becoming Chery's fifth brand in the market.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-15 13:35 UTC",
-   "_ts": 1792071326,
-   "preview": false,
-   "bullets": [
-    "Chery is expanding its UK footprint by introducing its iCar brand, branded as 'iCaur', in early 2027, marking its fifth brand in the British market.",
-    "The brand will launch with the boxy V27 SUV, which is currently sold in 40 countries and will be tuned specifically for UK roads at Chery's new R&D center at UTAC Millbrook.",
-    "Chery has become the top-selling Chinese automaker in the UK, capturing a 7% market share in the first nine months of 2026."
-   ],
-   "rating": 3,
-   "read_time": 2
-  },
-  {
-   "_key": "Stratechery|https://stratechery.com/2026/a-conversation-with-ari-emanuel-about-entertainment-and-ai/",
-   "blog": "Stratechery",
-   "title": "A Conversation With Ari Emanuel About Entertainment and AI",
-   "link": "https://stratechery.com/2026/a-conversation-with-ari-emanuel-about-entertainment-and-ai/",
-   "summary": "A conversation with Hollywood super-agent Ari Emanuel about his memoir, the impact of AI on Hollywood, and the power of a phone call.",
-   "published": "2026-10-15 10:00 UTC",
-   "_ts": 1792058400,
-   "preview": false,
-   "bullets": [
-    "Ari Emanuel, CEO of TKO Group Holdings, emphasizes the strategic importance of live events and experiences as a core pillar of his business model in the current media landscape.",
-    "The discussion explores the tension between SaaS-based revenue models for AI and advertising-supported models, with a specific focus on how companies like Muse leverage existing revenue streams to avoid data-privacy concerns.",
-    "Emanuel and Ben Thompson analyze the impact of AI on Hollywood, debating which creative skills will remain valuable as generative technologies reshape content production.",
-    "The conversation highlights the role of interpersonal communication, specifically phone calls, as a potential tool to combat the polarization often exacerbated by social media algorithms."
-   ],
-   "rating": 3,
-   "read_time": 60
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/beyond-the-specification-what-really-determines-pcie-retimer-reach/",
-   "blog": "SemiEngineering",
-   "title": "Beyond The Specification: What Really Determines PCIe Retimer Reach?",
-   "link": "https://semiengineering.com/beyond-the-specification-what-really-determines-pcie-retimer-reach/",
-   "summary": "Multiple interacting factors span silicon design, controller intelligence, channel quality, and the transmission medium itself.\nThe post Beyond The Specification: What Really Determines PCIe Retimer Reach? appeared first on Semiconductor Engineering.",
-   "published": "2026-10-15 07:07 UTC",
-   "_ts": 1792048065,
-   "preview": false,
-   "bullets": [
-    "PCIe retimer reach is determined by a combination of SerDes architecture, controller intelligence, and channel quality rather than just specification compliance.",
-    "While standard specifications often target 36 dB of insertion loss at Nyquist, leading retimer vendors are engineering for 40 dB or higher to provide greater deployment flexibility.",
-    "The ability to exceed standard loss budgets allows designers to accommodate more connectors, longer PCB traces, and manufacturing variations without requiring costly board redesigns."
-   ],
-   "rating": 3,
-   "read_time": 5
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/amba-c2c-moving-forward-with-a-converged-amba-foundation-for-c2c-connectivity/",
-   "blog": "SemiEngineering",
-   "title": "AMBA C2C: Moving Forward With A Converged AMBA Foundation For C2C Connectivity",
-   "link": "https://semiengineering.com/amba-c2c-moving-forward-with-a-converged-amba-foundation-for-c2c-connectivity/",
-   "summary": "Extending chiplet connectivity across AXI and CHI with scalable protocol subsets, interoperability, and flexible transport support.\nThe post AMBA C2C: Moving Forward With A Converged AMBA Foundation For C2C Connectivity appeared first on Semiconductor Engineering.",
-   "published": "2026-10-15 07:02 UTC",
-   "_ts": 1792047757,
-   "preview": false,
-   "bullets": [
-    "The new AMBA C2C specification aims to unify chip-to-chip connectivity by supporting both AXI and CHI protocols under a single, scalable framework.",
-    "By utilizing protocol subsetting, AMBA C2C allows implementations to scale complexity based on specific use cases, such as simple I/O attachment versus fully coherent superchips.",
-    "This converged approach addresses the need for greater reuse and interoperability across the vast installed base of AXI-based designs in the chiplet ecosystem."
-   ],
-   "rating": 3,
-   "read_time": 4
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/avatr-launches-2026-avatr-06/",
-   "blog": "CNEVPOST",
-   "title": "Avatr launches 2026 Avatr 06 with Huawei ADS 5, trims lineup to 2 variants",
-   "link": "https://cnevpost.com/2026/10/15/avatr-launches-2026-avatr-06/",
-   "summary": "The 2026 Avatr 06 starts at 205,900 yuan ($30,620) after incentives and comes with larger batteries.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-15 05:14 UTC",
-   "_ts": 1792041254,
-   "preview": false,
-   "bullets": [
-    "Avatr has launched the 2026 Avatr 06, streamlining its lineup to two variants and making Huawei's Qiankun ADS 5 driver assistance system standard.",
-    "The updated model is priced competitively, starting at 205,900 yuan after limited-time incentives, and offers both EREV and BEV powertrain options.",
-    "The 2026 version features significant upgrades in battery capacity, with the EREV variant achieving a combined range of 1,190 km."
-   ],
-   "rating": 3,
-   "read_time": 3
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/leapmotor-to-launch-a10s-oct-18/",
-   "blog": "CNEVPOST",
-   "title": "Leapmotor to launch A10s on October 18, adding sporty variant to A10 electric SUV lineup",
-   "link": "https://cnevpost.com/2026/10/15/leapmotor-to-launch-a10s-oct-18/",
-   "summary": "The A10s is expected to retain the A10's battery and range specifications, with key changes centered on red-and-black styling and driver-assistance features.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-15 03:51 UTC",
-   "_ts": 1792036282,
-   "preview": false,
-   "bullets": [
-    "Leapmotor will launch the A10s, a sporty variant of its A10 electric SUV, on October 18, featuring distinct red-and-black styling and enhanced driver-assistance hardware.",
-    "The A10s will include LiDAR and a Qualcomm SA8650 chip to support advanced features like urban navigation on autopilot (NOA).",
-    "The launch follows a 24% month-on-month decline in A10 deliveries in September, as the company works to meet its annual target of 1 million global deliveries."
-   ],
-   "rating": 3,
-   "read_time": 2
+   "rating": 2,
+   "read_time": 1
   },
   {
    "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/15/1145819/six-wild-ideas-perpetuating-your-mind-cognitive-immortality/",
@@ -1059,21 +883,246 @@
    "read_time": 13
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/catl-chairman-donates-shares-shanghai-jiao-tong/",
+   "_key": "Stratechery|https://stratechery.com/2026/personal-day-4/",
+   "blog": "Stratechery",
+   "title": "Personal Day",
+   "link": "https://stratechery.com/2026/personal-day-4/",
+   "summary": "Personal Day — No Update",
+   "published": "2026-10-12 10:00 UTC",
+   "_ts": 1791799200,
+   "preview": false,
+   "bullets": [
+    "The post serves as a placeholder notification indicating that no new analysis or content was published on this date.",
+    "Stratechery maintains a structured publishing schedule that includes planned days off, which are communicated to subscribers via the update schedule.",
+    "The platform continues to emphasize its subscription-based model, offering access to various podcasts and newsletters through the Stratechery Plus tier."
+   ],
+   "rating": 1,
+   "read_time": 3
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/16/li-auto-financing-deal-mach-chip-business/",
    "blog": "CNEVPOST",
-   "title": "CATL chairman donates $62.5 million in shares to Shanghai Jiao Tong research institute",
-   "link": "https://cnevpost.com/2026/10/15/catl-chairman-donates-shares-shanghai-jiao-tong/",
-   "summary": "The donation will go to a research institute established this year in Ningde, Fujian province, where CATL is headquartered.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-15 03:28 UTC",
-   "_ts": 1792034922,
+   "title": "Li Auto chip unit signs first funding deal at up to $2.5 billion post-money valuation",
+   "link": "https://cnevpost.com/2026/10/16/li-auto-financing-deal-mach-chip-business/",
+   "summary": "Li Auto will contribute 1 billion yuan and external investors 625 million yuan under the signed agreements.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-16 08:43 UTC",
+   "_ts": 1792140181,
+   "preview": false,
+   "bullets": [
+    "Li Auto's chip subsidiary, MHX Technology, secured 1.625 billion yuan in its first external funding round at a post-money valuation of up to 17.1 billion yuan.",
+    "Li Auto will retain control and consolidate the unit's financial results, maintaining a 74.01% stake after the financing and incentive plans.",
+    "The capital injection is intended to accelerate R&D and commercialization of proprietary chips, with potential expansion beyond the automotive sector.",
+    "The deal includes an additional subscription right for investors, which could increase total investment to 2.125 billion yuan by the end of 2026."
+   ],
+   "rating": 4,
+   "read_time": 4
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/16/tesla-unveils-redesigned-roadster/",
+   "blog": "CNEVPOST",
+   "title": "Tesla unveils redesigned Roadster, with Performance reservations available in China",
+   "link": "https://cnevpost.com/2026/10/16/tesla-unveils-redesigned-roadster/",
+   "summary": "Reservations in China require a 332,000 yuan ($49,390) deposit, with the website describing the Performance version as suitable for public roads.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-16 07:01 UTC",
+   "_ts": 1792134067,
+   "preview": false,
+   "bullets": [
+    "Tesla has opened reservations for the redesigned second-generation Roadster in China, requiring a 332,000 yuan deposit, with production targeted for 2028.",
+    "The vehicle features advanced aerodynamics and a suction system, with a 0-60 mph acceleration time of under 1.6 seconds for the Performance version.",
+    "While the demonstration showcased aerial stunts using cold-gas thrusters, these capabilities are limited to specific 'Rocket' configurations available by invitation only.",
+    "The reservation process highlights Tesla's strategy of generating early capital and interest for high-end, low-volume halo products."
+   ],
+   "rating": 4,
+   "read_time": 3
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/16/nio-launch-60-kwh-battery-pack-firefly-oct-23/",
+   "blog": "CNEVPOST",
+   "title": "Nio to launch larger 60-kWh battery pack for Firefly on October 23",
+   "link": "https://cnevpost.com/2026/10/16/nio-launch-60-kwh-battery-pack-firefly-oct-23/",
+   "summary": "Firefly currently offers only a 42.1-kWh battery pack. The new pack will deliver a CLTC range of 560 kilometers.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-16 14:19 UTC",
+   "_ts": 1792160386,
+   "preview": false,
+   "bullets": [
+    "Nio will launch a 60-kWh long-life battery pack for its Firefly brand on October 23, providing a 560-kilometer CLTC range.",
+    "The new pack, utilizing ternary lithium chemistry, will be available as an upgrade for both new and existing Firefly owners.",
+    "This expansion allows Firefly to better compete in the long-distance travel market and increases potential service revenue for Nio.",
+    "The upgrade is supported by Nio's fifth-generation battery swap stations, which now accommodate the smaller Firefly vehicle dimensions."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/16/aiva-me7-regulatory-filing/",
+   "blog": "CNEVPOST",
+   "title": "Aiva ME7 appears in regulatory filing as Seres-backed brand moves toward production",
+   "link": "https://cnevpost.com/2026/10/16/aiva-me7-regulatory-filing/",
+   "summary": "The model is Aiva's first production vehicle since the brand's launch in June, measuring 4,999 mm in length.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-16 13:44 UTC",
+   "_ts": 1792158270,
+   "preview": false,
+   "bullets": [
+    "The Aiva ME7, an all-electric SUV backed by Seres, has appeared in a Chinese regulatory filing, signaling an approaching market launch.",
+    "The vehicle features a 5-seat layout and will be available in both single-motor (270 kW) and dual-motor (420 kW) configurations.",
+    "Aiva is positioning itself as an AI-defined vehicle brand, utilizing ByteDance's Volcano Engine for smart cockpit technology.",
+    "While the brand is supported by Seres, it is reportedly pursuing independent partnerships for smart driving systems rather than relying on Huawei's Qiankun."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/16/1146864/the-download-failed-social-media-bans-and-extending-pets-lives/",
+   "blog": "MIT Technology Review",
+   "title": "The Download: failed social media bans, and extending pets’ lives",
+   "link": "https://www.technologyreview.com/2026/10/16/1146864/the-download-failed-social-media-bans-and-extending-pets-lives/",
+   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. Kids are outsmarting social media bans. That’s not a problem we need to solve.   —Michal Luria, Aliya Bhatia, and Danah Boyd Social media bans are stacking up. In July, France joined…",
+   "published": "2026-10-16 12:10 UTC",
+   "_ts": 1792152600,
+   "preview": false,
+   "bullets": [
+    "Global legislative efforts to ban social media for minors, including initiatives in the UK and EU, are facing significant implementation challenges.",
+    "The pet longevity market is expanding, with biotech firms exploring drugs, cloning, and cryonics to extend the lifespans of domestic animals.",
+    "Form Energy is scaling iron-based battery technology designed to provide 100 hours of storage, addressing a critical bottleneck for renewable energy integration."
+   ],
+   "rating": 3,
+   "read_time": 6
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/16/nio-firefly-90000-cumulative-deliveries/",
+   "blog": "CNEVPOST",
+   "title": "Nio Firefly reaches 90,000 cumulative deliveries after record September",
+   "link": "https://cnevpost.com/2026/10/16/nio-firefly-90000-cumulative-deliveries/",
+   "summary": "Firefly delivered its 90,000th vehicle about 1.5 months after reaching the 80,000 milestone in late August.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-16 12:06 UTC",
+   "_ts": 1792152404,
+   "preview": false,
+   "bullets": [
+    "Nio's Firefly brand reached 90,000 cumulative deliveries in October, less than 18 months after its initial market entry.",
+    "The brand achieved a record 7,327 deliveries in September, representing nearly 20% of Nio Inc's total monthly volume.",
+    "Firefly's rapid growth demonstrates the success of Nio's strategy to capture younger, urban-focused demographics through a lower-priced, small-EV segment."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/16/1146766/pet-biotech-longevity-cloning-cryonics/",
+   "blog": "MIT Technology Review",
+   "title": "Can’t bear to say goodbye to your pet? Biotech’s got you covered.",
+   "link": "https://www.technologyreview.com/2026/10/16/1146766/pet-biotech-longevity-cloning-cryonics/",
+   "summary": "I don’t remember much about Peppy, my first and only pet cat. I can conjure the sensation of stroking her while she purred, recall how she used to get stuck in trees (just like in cartoons!), and chuckle about the time she pooed in my baby sister’s cot. That’s about it. What I do vividly…",
+   "published": "2026-10-16 09:00 UTC",
+   "_ts": 1792141200,
+   "preview": false,
+   "bullets": [
+    "The pet longevity sector is attracting significant investment, with companies like Loyal currently trialing metabolic health drugs for dogs.",
+    "Commercial pet cloning services, such as those offered by Viagen Pets, are available for approximately $50,000, though they produce genetic twins rather than identical replicas.",
+    "The industry faces ethical and scientific scrutiny as it moves from treating age-related diseases to attempting to fundamentally extend animal lifespans."
+   ],
+   "rating": 3,
+   "read_time": 5
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/16/geely-holding-bring-google-services-more-overseas-models/",
+   "blog": "CNEVPOST",
+   "title": "Geely Holding to bring Google services to more overseas models from H2 2027",
+   "link": "https://cnevpost.com/2026/10/16/geely-holding-bring-google-services-more-overseas-models/",
+   "summary": "The partnership will introduce Gemini, Google Maps and Google Play, with the first model planned for markets outside China and the US.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-16 08:25 UTC",
+   "_ts": 1792139111,
+   "preview": false,
+   "bullets": [
+    "Geely Holding Group has partnered with Google to integrate Android Automotive Services, including Gemini AI and Google Maps, into its overseas vehicle lineup starting in H2 2027.",
+    "The rollout will span multiple brands under the Geely umbrella, including Lynk & Co, Proton, Riddara, and Smart, in markets outside China and the US.",
+    "This move is a strategic effort to enhance the digital cockpit experience for international consumers and support Geely's aggressive global export targets."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/16/byd-picks-ckd-assembly-partner-malaysia/",
+   "blog": "CNEVPOST",
+   "title": "BYD picks local assembly partner in Malaysia to advance EV production",
+   "link": "https://cnevpost.com/2026/10/16/byd-picks-ckd-assembly-partner-malaysia/",
+   "summary": "BYD will use existing manufacturing capacity at Sime Darby's Inokom, with models and production timing yet to be announced.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-16 04:18 UTC",
+   "_ts": 1792124315,
    "preview": true,
    "bullets": [
-    "CATL Chairman Robin Zeng has donated $62.5 million worth of company shares to a research institute at Shanghai Jiao Tong University.",
-    "The donation is earmarked for a newly established research facility in Ningde, Fujian, the headquarters of the battery giant.",
-    "This philanthropic move underscores the ongoing collaboration between China's leading battery manufacturer and top-tier academic institutions."
+    "BYD has selected Sime Darby's Inokom facility as its local assembly partner in Malaysia to advance its EV production capabilities in the region.",
+    "This move aligns with BYD's broader strategy to localize manufacturing in key Southeast Asian markets to bypass import tariffs and improve supply chain efficiency.",
+    "Specific models and production timelines for the Malaysian facility have not yet been disclosed."
+   ],
+   "rating": 3,
+   "read_time": 1
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/16/tesla-roadster-can-fly-nio-william-li-comment/",
+   "blog": "CNEVPOST",
+   "title": "Tesla's Roadster can fly, and Nio's William Li admits: 'This we really don't have'",
+   "link": "https://cnevpost.com/2026/10/16/tesla-roadster-can-fly-nio-william-li-comment/",
+   "summary": "Nio founder reposted a Roadster stunt video and praises Tesla, echoing his 2018 remark that \"whatever Tesla has, we have.\"\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-16 12:42 UTC",
+   "_ts": 1792154578,
+   "preview": false,
+   "bullets": [
+    "Nio CEO William Li publicly acknowledged Tesla's technological lead regarding the new Roadster's flight capabilities, humorously walking back his 2018 claim that Nio matched all Tesla innovations.",
+    "The interaction highlights the ongoing competitive tension and public benchmarking between Chinese EV leaders and Tesla.",
+    "Industry peers, including Xpeng's He Xiaopeng, noted that while the technology is impressive, mass-market adoption remains constrained by strict global flight safety and certification requirements."
+   ],
+   "rating": 2,
+   "read_time": 3
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/16/1146834/kids-are-outsmarting-social-media-bans-thats-not-a-problem-we-need-to-solve/",
+   "blog": "MIT Technology Review",
+   "title": "Kids are outsmarting social media bans. That’s not a problem we need to solve.",
+   "link": "https://www.technologyreview.com/2026/10/16/1146834/kids-are-outsmarting-social-media-bans-thats-not-a-problem-we-need-to-solve/",
+   "summary": "Social media bans are stacking up. In July, France joined Australia in restricting minors from accessing social media—barring children under 15 from major platforms, before the ban was blocked by the country’s top court on human rights grounds. The UK aims to forbid kids under 16 from accessing Facebook, TikTok, and other platforms in early…",
+   "published": "2026-10-16 07:56 UTC",
+   "_ts": 1792137392,
+   "preview": false,
+   "bullets": [
+    "Evidence from Australia suggests that age-gating social media is largely ineffective, with four out of five teens successfully bypassing restrictions.",
+    "Strict age verification mandates may inadvertently compromise user privacy and security by requiring the submission of sensitive personal data.",
+    "Experts argue that instead of bans, policy should focus on regulating data collection practices and providing families with better content-control tools."
+   ],
+   "rating": 2,
+   "read_time": 8
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/16/jac-shares-rebound-as-maextro-v800-brake-probe/",
+   "blog": "CNEVPOST",
+   "title": "JAC shares rebound by daily limit as Maextro V800 brake controversy faces joint probe",
+   "link": "https://cnevpost.com/2026/10/16/jac-shares-rebound-as-maextro-v800-brake-probe/",
+   "summary": "JAC rose 9.98% at the time of writing, after falling 22.37% from the open on October 8 to the close on October 15.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-16 02:34 UTC",
+   "_ts": 1792118077,
+   "preview": true,
+   "bullets": [
+    "JAC shares rebounded by their daily limit following a significant decline caused by safety concerns regarding the Maextro V800 braking system.",
+    "The market reaction follows the announcement of a joint investigation into the brake controversy, which had previously pressured the stock price.",
+    "The rebound suggests investor confidence in the resolution of the technical probe and the ongoing partnership between JAC and its collaborators."
    ],
    "rating": 2,
    "read_time": 1
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/16/1145845/love-is-infrastructure-fiction-charlie-jane-anders/",
+   "blog": "MIT Technology Review",
+   "title": "Love is infrastructure",
+   "link": "https://www.technologyreview.com/2026/10/16/1145845/love-is-infrastructure-fiction-charlie-jane-anders/",
+   "summary": "I. Meet cute Barnabas and Mainspring grew up near at hand, about an hour apart with good traffic, but for a long time they weren’t close. They traded glimpses and occasional hellos and then went about their business. Both of them carried on livelier conversations with farther-flung neighbors, who were richer and had more to…",
+   "published": "2026-10-16 09:00 UTC",
+   "_ts": 1792141200,
+   "preview": false,
+   "bullets": [
+    "This piece is a work of fiction exploring themes of urban development, self-aware cities, and democratic governance.",
+    "The narrative uses the metaphor of a romantic relationship to discuss the complexities of municipal infrastructure and civic identity.",
+    "The story does not contain technical or financial analysis relevant to industry professionals."
+   ],
+   "rating": 1,
+   "read_time": 30
   }
  ]
 }

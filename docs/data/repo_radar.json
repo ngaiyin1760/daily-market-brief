@@ -1,100 +1,112 @@
 {
- "generated_at": "2026-10-16 08:22 HKT",
+ "generated_at": "2026-10-17 08:28 HKT",
  "repos": [
   {
-   "name": "xerj-org/xerj",
-   "url": "https://github.com/xerj-org/xerj",
-   "language": "Rust",
-   "description": "XERJ is the new way for AI to search data. Its autoindex capability activates agents to know your data without the token waste of grep and sed. One command indexes code, docs, logs and PDFs for search, RAG, security audits and agent memory, using 40x fewer tokens than grep. Elasticsearch compatible, so existing clients just work.",
+   "name": "anujasid/mcp-for-blender-pro",
+   "url": "https://github.com/anujasid/mcp-for-blender-pro",
+   "language": "Python",
+   "description": "AI assistant and MCP server for Blender: visual chat, scene tools, model selection, multi-agent workflows. Works with OpenAI, Claude, Gemini, Ollama and OpenCode. Blender AI automation, bpy scripting, 3D modeling, geometry nodes and MCP integration.",
    "keywords": [],
-   "trendshift_pos": 7,
-   "stars": 5625,
+   "trendshift_pos": 8,
+   "stars": 248,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An intelligent data indexing engine designed to optimize AI agent access to large-scale local datasets.",
+   "one_liner": "An AI-powered assistant and Model Context Protocol (MCP) server designed to automate Blender workflows.",
    "bullets": [
-    "Built in Rust for high-performance indexing and low-latency retrieval.",
-    "Implements auto-indexing capabilities to minimize token waste during agentic data processing.",
-    "Designed for developers to provide AI agents with context-aware access to codebases, logs, and documentation.",
-    "Replaces traditional grep/sed workflows with semantic-aware search for LLM-driven development."
-   ]
+    "Built with Python, integrating with major LLM providers like OpenAI, Claude, and Ollama.",
+    "Implements MCP to bridge AI agents with Blender's bpy scripting environment.",
+    "Enables multi-agent workflows for complex 3D scene generation and automated visual chat.",
+    "Targeted at technical artists and developers looking to automate 3D asset production pipelines."
+   ],
+   "img": "anujasid_mcp-for-blender-pro_0.jpg",
+   "img_alt": "AI chat workspace with a live Blender scene preview",
+   "img2": "anujasid_mcp-for-blender-pro_1.jpg",
+   "img2_alt": "Agent roles and model configuration"
   },
   {
-   "name": "career-ops-hq/career-ops",
-   "url": "https://github.com/career-ops-hq/career-ops",
-   "language": "JavaScript",
-   "description": "Open-source AI job search agent and job finder: scan job boards, score each job 1-5 against your CV before you apply, tailor an ATS-friendly resume and cover letter, get interview prep and a job application tracker. It helps you fill in each application; you press Submit. Runs locally in your AI coding CLI (Claude Code, Codex, OpenCode and more).",
+   "name": "Da7-Tech/SureForge",
+   "url": "https://github.com/Da7-Tech/SureForge",
+   "language": "Python",
+   "description": "Agent Skill for complex work: research before asking, ask before planning, plan before building, verify before delivering, independent review before calling it done. Plain text, no runtime.",
    "keywords": [
     "AI agent",
-    "Job search"
+    "AI skills"
    ],
-   "trendshift_pos": 21,
-   "stars": 75053,
+   "trendshift_pos": 10,
+   "stars": 122,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An autonomous AI agent designed to automate the end-to-end job search and application process.",
+   "one_liner": "An agentic framework focused on high-reliability task execution through structured reasoning and verification.",
    "bullets": [
-    "Utilizes automated workflows to scan job boards and evaluate roles against user CVs.",
-    "Features a scoring system (1-5) to prioritize applications based on candidate-job fit.",
-    "Generates ATS-friendly resumes and tailored cover letters automatically.",
-    "Includes integrated interview preparation modules to streamline the hiring pipeline."
+    "Python-based architecture emphasizing a 'research-plan-build-verify' lifecycle.",
+    "Designed for complex, multi-step work requiring independent review before final delivery.",
+    "Uses plain text configurations to maintain transparency and avoid opaque runtime dependencies.",
+    "Ideal for autonomous agents tasked with high-stakes coding or research assignments."
    ]
   },
   {
-   "name": "Thysrael/Horizon",
-   "url": "https://github.com/Thysrael/Horizon",
-   "language": "Python",
-   "description": "📡 Your own AI-powered news radar. Generates daily briefings in English & Chinese. | 用 AI 构建你专属的新闻雷达",
-   "keywords": [],
-   "trendshift_pos": 3,
-   "stars": 9900,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An AI-powered news radar that aggregates and synthesizes daily briefings for professional intelligence.",
-   "bullets": [
-    "Python-based architecture for automated news scraping and data ingestion.",
-    "Leverages LLMs to distill high-volume information into concise, actionable daily briefings.",
-    "Supports multi-language output, specifically English and Chinese, for global market monitoring.",
-    "Ideal for finance professionals tracking sector-specific trends or geopolitical developments."
-   ]
-  },
-  {
-   "name": "joeseesun/qiaomu-anything-to-notebooklm",
-   "url": "https://github.com/joeseesun/qiaomu-anything-to-notebooklm",
-   "language": "Python",
-   "description": "Claude Skill: Multi-source content processor for NotebookLM. Supports WeChat articles, web pages, YouTube, PDF, Markdown, search queries → Podcast/PPT/MindMap/Quiz etc.",
-   "keywords": [],
-   "trendshift_pos": 25,
-   "stars": 6263,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A multi-source content processor that bridges diverse data formats into NotebookLM for advanced analysis.",
-   "bullets": [
-    "Python-based toolchain that converts web pages, PDFs, and social media content into structured formats.",
-    "Enables the transformation of raw data into podcasts, mind maps, and quizzes via AI.",
-    "Acts as a middleware layer to prepare unstructured data for RAG-based knowledge management.",
-    "Useful for researchers and analysts needing to synthesize large volumes of disparate information quickly."
-   ]
-  },
-  {
-   "name": "anthropics/claude-plugins-official",
-   "url": "https://github.com/anthropics/claude-plugins-official",
-   "language": "Python",
-   "description": "Official, Anthropic-managed directory of high quality Claude Code Plugins.",
+   "name": "jub0t/Concat",
+   "url": "https://github.com/jub0t/Concat",
+   "language": "Rust",
+   "description": "Concat: The truly free, and open-source cross-platform CapCut replacement. Supports MCPs & API.",
    "keywords": [
-    "Curated list"
+    "Video editing"
    ],
-   "trendshift_pos": 2,
-   "stars": 39076,
+   "trendshift_pos": 17,
+   "stars": 7687,
    "fork": false,
    "parent_name": "",
-   "one_liner": "The official repository for high-quality plugins designed to extend the capabilities of Claude Code.",
+   "one_liner": "A high-performance, open-source video editing engine written in Rust, designed as a CapCut alternative.",
    "bullets": [
-    "Curated collection of plugins managed directly by Anthropic for enterprise-grade reliability.",
-    "Extends the agentic capabilities of Claude by allowing it to interact with external tools and APIs.",
-    "Focuses on standardizing the integration layer between LLMs and developer infrastructure.",
-    "Essential for developers building agentic workflows that require secure, verified tool access."
+    "Developed in Rust for memory safety and high-speed video processing performance.",
+    "Features native support for MCP and external APIs, allowing for programmatic video manipulation.",
+    "Provides a cross-platform foundation for building automated video generation tools.",
+    "Useful for developers building AI-driven video editing or content automation platforms."
    ]
+  },
+  {
+   "name": "Leonxlnx/earshot",
+   "url": "https://github.com/Leonxlnx/earshot",
+   "language": "Python",
+   "description": "Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.",
+   "keywords": [],
+   "trendshift_pos": 23,
+   "stars": 325,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An open-source audio processing layer that enables AI agents to 'hear' and interact with sound.",
+   "bullets": [
+    "Python-based implementation optimized for CPU-only environments.",
+    "Provides a bridge for coding agents to review, analyze, and generate audio feedback.",
+    "Low-overhead design makes it suitable for integration into existing agentic workflows.",
+    "Enables multimodal agent capabilities, moving beyond text-only interaction."
+   ],
+   "img": "Leonxlnx_earshot_0.jpg",
+   "img_alt": "Frames from the launch film",
+   "img2": "Leonxlnx_earshot_1.jpg",
+   "img2_alt": "earshot sheet of the launch film"
+  },
+  {
+   "name": "rohit267/net-merge",
+   "url": "https://github.com/rohit267/net-merge",
+   "language": "Go",
+   "description": "Use all your network adapters at once on Windows: per-connection load balancing over Wi-Fi, Ethernet and phone/USB tethers (TUN + Wintun)",
+   "keywords": [],
+   "trendshift_pos": 22,
+   "stars": 108,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A network infrastructure tool for Windows that aggregates multiple internet connections into a single high-bandwidth stream.",
+   "bullets": [
+    "Written in Go, utilizing TUN and Wintun drivers for low-level network packet management.",
+    "Performs per-connection load balancing across Wi-Fi, Ethernet, and mobile tethering.",
+    "Solves connectivity bottlenecks for data-intensive tasks like large model training or cloud syncing.",
+    "Essential infrastructure for developers working in remote or unstable network environments."
+   ],
+   "img": "rohit267_net-merge_0.jpg",
+   "img_alt": "Menu: total, each adapter's speed and flows, IPv6 option, Pause merging, Quit",
+   "img2": "rohit267_net-merge_1.jpg",
+   "img2_alt": "macOS menu: total 399 Mbit/s, en0 and feth0 each with their flows, Pause merging, Quit"
   }
  ]
 }
