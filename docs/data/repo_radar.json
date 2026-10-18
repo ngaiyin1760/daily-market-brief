@@ -1,112 +1,106 @@
 {
- "generated_at": "2026-10-17 08:28 HKT",
+ "generated_at": "2026-10-18 08:01 HKT",
  "repos": [
   {
-   "name": "anujasid/mcp-for-blender-pro",
-   "url": "https://github.com/anujasid/mcp-for-blender-pro",
-   "language": "Python",
-   "description": "AI assistant and MCP server for Blender: visual chat, scene tools, model selection, multi-agent workflows. Works with OpenAI, Claude, Gemini, Ollama and OpenCode. Blender AI automation, bpy scripting, 3D modeling, geometry nodes and MCP integration.",
-   "keywords": [],
-   "trendshift_pos": 8,
-   "stars": 248,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An AI-powered assistant and Model Context Protocol (MCP) server designed to automate Blender workflows.",
-   "bullets": [
-    "Built with Python, integrating with major LLM providers like OpenAI, Claude, and Ollama.",
-    "Implements MCP to bridge AI agents with Blender's bpy scripting environment.",
-    "Enables multi-agent workflows for complex 3D scene generation and automated visual chat.",
-    "Targeted at technical artists and developers looking to automate 3D asset production pipelines."
-   ],
-   "img": "anujasid_mcp-for-blender-pro_0.jpg",
-   "img_alt": "AI chat workspace with a live Blender scene preview",
-   "img2": "anujasid_mcp-for-blender-pro_1.jpg",
-   "img2_alt": "Agent roles and model configuration"
-  },
-  {
-   "name": "Da7-Tech/SureForge",
-   "url": "https://github.com/Da7-Tech/SureForge",
-   "language": "Python",
-   "description": "Agent Skill for complex work: research before asking, ask before planning, plan before building, verify before delivering, independent review before calling it done. Plain text, no runtime.",
+   "name": "anthropics/claude-code",
+   "url": "https://github.com/anthropics/claude-code",
+   "language": "TypeScript",
+   "description": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.",
    "keywords": [
     "AI agent",
-    "AI skills"
+    "AI coding assistant"
    ],
-   "trendshift_pos": 10,
-   "stars": 122,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An agentic framework focused on high-reliability task execution through structured reasoning and verification.",
-   "bullets": [
-    "Python-based architecture emphasizing a 'research-plan-build-verify' lifecycle.",
-    "Designed for complex, multi-step work requiring independent review before final delivery.",
-    "Uses plain text configurations to maintain transparency and avoid opaque runtime dependencies.",
-    "Ideal for autonomous agents tasked with high-stakes coding or research assignments."
-   ]
-  },
-  {
-   "name": "jub0t/Concat",
-   "url": "https://github.com/jub0t/Concat",
-   "language": "Rust",
-   "description": "Concat: The truly free, and open-source cross-platform CapCut replacement. Supports MCPs & API.",
-   "keywords": [
-    "Video editing"
-   ],
-   "trendshift_pos": 17,
-   "stars": 7687,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance, open-source video editing engine written in Rust, designed as a CapCut alternative.",
-   "bullets": [
-    "Developed in Rust for memory safety and high-speed video processing performance.",
-    "Features native support for MCP and external APIs, allowing for programmatic video manipulation.",
-    "Provides a cross-platform foundation for building automated video generation tools.",
-    "Useful for developers building AI-driven video editing or content automation platforms."
-   ]
-  },
-  {
-   "name": "Leonxlnx/earshot",
-   "url": "https://github.com/Leonxlnx/earshot",
-   "language": "Python",
-   "description": "Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.",
-   "keywords": [],
    "trendshift_pos": 23,
-   "stars": 325,
+   "stars": 151726,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An open-source audio processing layer that enables AI agents to 'hear' and interact with sound.",
+   "one_liner": "An agentic CLI tool that integrates Claude directly into the terminal to automate coding tasks and codebase navigation.",
    "bullets": [
-    "Python-based implementation optimized for CPU-only environments.",
-    "Provides a bridge for coding agents to review, analyze, and generate audio feedback.",
-    "Low-overhead design makes it suitable for integration into existing agentic workflows.",
-    "Enables multimodal agent capabilities, moving beyond text-only interaction."
-   ],
-   "img": "Leonxlnx_earshot_0.jpg",
-   "img_alt": "Frames from the launch film",
-   "img2": "Leonxlnx_earshot_1.jpg",
-   "img2_alt": "earshot sheet of the launch film"
+    "Built with TypeScript for high-performance terminal interaction.",
+    "Utilizes Claude 3.5 Sonnet to execute complex coding tasks, git workflows, and debugging.",
+    "Designed for developers to offload routine maintenance and boilerplate generation to an autonomous agent.",
+    "Provides deep codebase context awareness to assist in refactoring and feature implementation."
+   ]
   },
   {
-   "name": "rohit267/net-merge",
-   "url": "https://github.com/rohit267/net-merge",
-   "language": "Go",
-   "description": "Use all your network adapters at once on Windows: per-connection load balancing over Wi-Fi, Ethernet and phone/USB tethers (TUN + Wintun)",
+   "name": "tangency-labs/solidcraft",
+   "url": "https://github.com/tangency-labs/solidcraft",
+   "language": "Rust",
+   "description": "An open-source, clean-room reimplementation of Autodesk Fusion 360 in pure Rust. Parametric 3D CAD for desktop, browser, and AI agents via MCP.",
    "keywords": [],
-   "trendshift_pos": 22,
-   "stars": 108,
+   "trendshift_pos": 3,
+   "stars": 4282,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A network infrastructure tool for Windows that aggregates multiple internet connections into a single high-bandwidth stream.",
+   "one_liner": "A high-performance, open-source parametric 3D CAD engine built in Rust, designed for integration with AI agents.",
    "bullets": [
-    "Written in Go, utilizing TUN and Wintun drivers for low-level network packet management.",
-    "Performs per-connection load balancing across Wi-Fi, Ethernet, and mobile tethering.",
-    "Solves connectivity bottlenecks for data-intensive tasks like large model training or cloud syncing.",
-    "Essential infrastructure for developers working in remote or unstable network environments."
+    "Written in Rust for memory safety and high-performance geometric computation.",
+    "Supports cross-platform deployment across desktop, browser, and headless environments.",
+    "Features native support for Model Context Protocol (MCP) to enable AI-driven design workflows.",
+    "Ideal for automated engineering tasks and programmatic 3D model generation."
+   ]
+  },
+  {
+   "name": "Ojhaharsh/30u30",
+   "url": "https://github.com/Ojhaharsh/30u30",
+   "language": "Python",
+   "description": "30 Days. 30 Papers. 90% of AI",
+   "keywords": [
+    "Learning resources"
    ],
-   "img": "rohit267_net-merge_0.jpg",
-   "img_alt": "Menu: total, each adapter's speed and flows, IPv6 option, Pause merging, Quit",
-   "img2": "rohit267_net-merge_1.jpg",
-   "img2_alt": "macOS menu: total 399 Mbit/s, en0 and feth0 each with their flows, Pause merging, Quit"
+   "trendshift_pos": 25,
+   "stars": 906,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A structured curriculum designed to master 90% of modern AI by analyzing 30 foundational research papers in 30 days.",
+   "bullets": [
+    "Curated Python-based learning path focusing on the most impactful AI research.",
+    "Provides a systematic approach to understanding LLM architectures and agentic frameworks.",
+    "Accelerates technical literacy for finance professionals looking to implement AI in quantitative workflows.",
+    "Focuses on high-signal papers that define the current state of the art in machine learning."
+   ]
+  },
+  {
+   "name": "walkinglabs/learn-harness-engineering",
+   "url": "https://github.com/walkinglabs/learn-harness-engineering",
+   "language": "TypeScript",
+   "description": "Harness engineering beginner tutorial, from 0 to 1",
+   "keywords": [
+    "Learning resources"
+   ],
+   "trendshift_pos": 20,
+   "stars": 20431,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A comprehensive, from-scratch tutorial series for mastering harness engineering and infrastructure automation.",
+   "bullets": [
+    "TypeScript-based educational framework for building robust CI/CD and deployment pipelines.",
+    "Covers the full lifecycle of infrastructure engineering from initial setup to production scaling.",
+    "Provides practical, hands-on modules for developers to standardize their deployment environments.",
+    "Essential for DevOps and platform engineers aiming to improve infrastructure reliability."
+   ],
+   "img": "walkinglabs_learn-harness-engineering_0.jpg",
+   "img_alt": "Course homepage preview",
+   "img2": "walkinglabs_learn-harness-engineering_1.jpg",
+   "img2_alt": "Course lecture preview"
+  },
+  {
+   "name": "KnifeLemon/Filee",
+   "url": "https://github.com/KnifeLemon/Filee",
+   "language": "C#",
+   "description": "Free, open-source file converter. Convert 180+ formats offline by drag & drop — images, PDF, Word, Excel, PowerPoint, HWP/HWPX, video, audio, e-books and archives. No upload, no Office needed.",
+   "keywords": [],
+   "trendshift_pos": 7,
+   "stars": 2141,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A privacy-focused, offline file conversion utility supporting over 180 formats without requiring external cloud uploads.",
+   "bullets": [
+    "Developed in C# as a lightweight, high-performance desktop application.",
+    "Enables secure, local processing of sensitive financial documents like Excel, PDF, and Word files.",
+    "Eliminates data privacy risks associated with cloud-based conversion services.",
+    "Useful for automating data ingestion pipelines where data sovereignty and security are paramount."
+   ]
   }
  ]
 }
