@@ -1,6 +1,99 @@
 {
  "days": [
   {
+   "date": "2026-10-19",
+   "generated_at": "2026-10-19 08:12 HKT",
+   "posts": [
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/a-composable-thermal-solver-for-heterogeneous-2-5d-3d-ic-packages-cadence-notre-dame/",
+     "blog": "SemiEngineering",
+     "title": "A Composable Thermal Solver For Heterogeneous 2.5D/3D-IC Packages (Cadence, Notre Dame)",
+     "link": "https://semiengineering.com/a-composable-thermal-solver-for-heterogeneous-2-5d-3d-ic-packages-cadence-notre-dame/",
+     "summary": "Researchers at Cadence Design Systems and the University of Notre Dame published “A Composable AI-Accelerated Iterative Solver for 3D-IC Thermal Modeling.” Abstract: “Accurate thermal analysis of heterogeneous 2.5D/3D-IC packages is essential yet computationally prohibitive. A single full-package FEM simulation can take hours, while AI-based surrogates treat the entire stack as a monolithic prediction target and... » read more\nThe post A Composable Thermal Solver For Heterogeneous 2.5D/3D-IC Packages (Cadence, Notre Dame) appeared first on Semiconductor Engineering.",
+     "published": "2026-10-18 22:51 UTC",
+     "_ts": 1792363892,
+     "preview": false,
+     "bullets": [
+      "Cadence and Notre Dame researchers introduced DAIST, an AI-accelerated thermal solver that decomposes complex 3D-IC packages into modular subdomains.",
+      "The tool achieves up to 178x speedup compared to traditional Finite Element Method (FEM) solvers while maintaining high accuracy with mean temperature errors below 0.4%.",
+      "Unlike monolithic AI models, DAIST allows for cross-topology reuse of block-level neural operators, significantly reducing the need for retraining when package designs change."
+     ],
+     "rating": 5,
+     "read_time": 1
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/nanoelectromechanical-switches-target-more-efficient-embedded-dram-uc-berkeley-samsung-intel/",
+     "blog": "SemiEngineering",
+     "title": "Nanoelectromechanical Switches Target More Efficient Embedded DRAM (UC Berkeley, Samsung, Intel)",
+     "link": "https://semiengineering.com/nanoelectromechanical-switches-target-more-efficient-embedded-dram-uc-berkeley-samsung-intel/",
+     "summary": "Researchers at the UC Berkeley, Samsung Electronics, and Intel published “Nanoelectromechanically Gated Gain Cell eDRAM.” Abstract Excerpt: “The memory wall and the slowdown of static random access memory (SRAM) scaling have renewed interest in gain-cell embedded dynamic random access memory (DRAM). While gain cells offer high density and energy efficiency, they suffer from limited retention,... » read more\nThe post Nanoelectromechanical Switches Target More Efficient Embedded DRAM (UC Berkeley, Samsung, Intel) appeared first on Semiconductor Engineering.",
+     "published": "2026-10-18 23:28 UTC",
+     "_ts": 1792366111,
+     "preview": false,
+     "bullets": [
+      "Researchers from UC Berkeley, Samsung, and Intel have developed a nanoelectromechanically gated gain cell to address the scaling limitations of traditional SRAM.",
+      "The design aims to overcome critical eDRAM bottlenecks, specifically limited data retention, parasitic coupling, and the requirement for high write voltages.",
+      "This innovation represents a potential pathway to maintain high-density memory performance as traditional SRAM scaling continues to slow down."
+     ],
+     "rating": 4,
+     "read_time": 9
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/thermal-side-channels-create-new-security-risks-for-autonomous-vehicles-missouri-st/",
+     "blog": "SemiEngineering",
+     "title": "Thermal Side Channels Create New Security Risks For Autonomous Vehicles (Missouri S&T)",
+     "link": "https://semiengineering.com/thermal-side-channels-create-new-security-risks-for-autonomous-vehicles-missouri-st/",
+     "summary": "Researchers at Missouri University of Science and Technology published “Can Autonomous Vehicles Keep Their Cool? A Survey of Thermal Side-Channel and Perception Attacks.” Abstract excerpt: “This survey systematizes thirteen representative works into thermal perception integrity, telemetry leakage, and model-information extraction, comparing them by privilege, timescale, co-tenancy, deployability, and AV relevance. We distinguish attack family from... » read more\nThe post Thermal Side Channels Create New Security Risks For Autonomous Vehicles (Missouri S&T) appeared first on Semiconductor Engineering.",
+     "published": "2026-10-18 22:10 UTC",
+     "_ts": 1792361459,
+     "preview": false,
+     "bullets": [
+      "A new survey from Missouri S&T highlights how thermal side-channel attacks can compromise the integrity of autonomous vehicle (AV) perception systems.",
+      "The research categorizes threats into three primary vectors: thermal perception integrity, telemetry leakage, and the extraction of sensitive model information.",
+      "As AI workloads increase thermal stress on automotive sensors, the study emphasizes the urgent need for new security defenses that operate within existing thermal management constraints."
+     ],
+     "rating": 3,
+     "read_time": 9
+    },
+    {
+     "_key": "CNEVPOST|https://cnevpost.com/2026/10/12/vw-id-era-8x-launch-china/",
+     "blog": "CNEVPOST",
+     "title": "VW steps up China EREV push with ID. ERA 8X launch; ID. ERA 5X to follow in November",
+     "link": "https://cnevpost.com/2026/10/12/vw-id-era-8x-launch-china/",
+     "summary": "The 5-seat ID. ERA 8X starts at a limited-time price of 206,800 yuan ($30,720) and is the third model in SAIC Volkswagen's ID. ERA lineup.\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-10-12 08:52 UTC",
+     "_ts": 1791795165,
+     "preview": false,
+     "bullets": [
+      "SAIC Volkswagen has launched the ID. ERA 8X, an extended-range SUV priced aggressively between 206,800 and 269,800 yuan to compete with Li Auto and Aito.",
+      "The 8X is the second EREV in the ID. ERA lineup and features an 800-volt architecture, offering a combined range of up to 1,602 km.",
+      "All variants come equipped with Momenta's R7 driver-assistance system, which utilizes 192-channel LiDAR for advanced navigation on autopilot.",
+      "The company plans to further expand the lineup with the launch of the ID. ERA 5X, the first battery-electric model in the series, in November."
+     ],
+     "rating": 4,
+     "read_time": 3
+    },
+    {
+     "_key": "CNEVPOST|https://cnevpost.com/2026/10/18/leapmotor-launches-a10s/",
+     "blog": "CNEVPOST",
+     "title": "Leapmotor launches A10s with LiDAR for about $13,800",
+     "link": "https://cnevpost.com/2026/10/18/leapmotor-launches-a10s/",
+     "summary": "The A10s focuses on exclusive styling and comfort upgrades, with a CLTC range of 505 km.\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-10-18 05:47 UTC",
+     "_ts": 1792302425,
+     "preview": false,
+     "bullets": [
+      "Leapmotor has launched the A10s, a new variant of its small electric SUV priced at 92,800 yuan ($13,810), positioning it as a premium-styled option within the existing A10 lineup.",
+      "The vehicle maintains core performance specs from the A10 505 LiDAR variant, including a 505 km CLTC range, a 90 kW motor, and advanced driver-assistance hardware powered by Qualcomm SA8295 and SA8650 chips.",
+      "The launch serves as a strategic year-end sales push following a 24.08% month-on-month decline in A10 deliveries during September, which totaled 24,457 units.",
+      "Despite the recent dip, the A10 remains a critical volume driver for Leapmotor, accounting for over 23% of the company's record-breaking 105,656 global deliveries in September."
+     ],
+     "rating": 3,
+     "read_time": 2
+    }
+   ]
+  },
+  {
    "date": "2026-10-18",
    "generated_at": "2026-10-18 08:01 HKT",
    "posts": [

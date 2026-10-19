@@ -1,94 +1,102 @@
 {
- "generated_at": "2026-10-18 08:01 HKT",
+ "generated_at": "2026-10-19 08:12 HKT",
  "blogs": [
+  {
+   "name": "SemiEngineering",
+   "status": "ok",
+   "posts": [
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/a-composable-thermal-solver-for-heterogeneous-2-5d-3d-ic-packages-cadence-notre-dame/",
+     "blog": "SemiEngineering",
+     "title": "A Composable Thermal Solver For Heterogeneous 2.5D/3D-IC Packages (Cadence, Notre Dame)",
+     "link": "https://semiengineering.com/a-composable-thermal-solver-for-heterogeneous-2-5d-3d-ic-packages-cadence-notre-dame/",
+     "summary": "Researchers at Cadence Design Systems and the University of Notre Dame published “A Composable AI-Accelerated Iterative Solver for 3D-IC Thermal Modeling.” Abstract: “Accurate thermal analysis of heterogeneous 2.5D/3D-IC packages is essential yet computationally prohibitive. A single full-package FEM simulation can take hours, while AI-based surrogates treat the entire stack as a monolithic prediction target and... » read more\nThe post A Composable Thermal Solver For Heterogeneous 2.5D/3D-IC Packages (Cadence, Notre Dame) appeared first on Semiconductor Engineering.",
+     "published": "2026-10-18 22:51 UTC",
+     "_ts": 1792363892,
+     "preview": false,
+     "bullets": [
+      "Cadence and Notre Dame researchers introduced DAIST, an AI-accelerated thermal solver that decomposes complex 3D-IC packages into modular subdomains.",
+      "The tool achieves up to 178x speedup compared to traditional Finite Element Method (FEM) solvers while maintaining high accuracy with mean temperature errors below 0.4%.",
+      "Unlike monolithic AI models, DAIST allows for cross-topology reuse of block-level neural operators, significantly reducing the need for retraining when package designs change."
+     ],
+     "rating": 5,
+     "read_time": 1
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/nanoelectromechanical-switches-target-more-efficient-embedded-dram-uc-berkeley-samsung-intel/",
+     "blog": "SemiEngineering",
+     "title": "Nanoelectromechanical Switches Target More Efficient Embedded DRAM (UC Berkeley, Samsung, Intel)",
+     "link": "https://semiengineering.com/nanoelectromechanical-switches-target-more-efficient-embedded-dram-uc-berkeley-samsung-intel/",
+     "summary": "Researchers at the UC Berkeley, Samsung Electronics, and Intel published “Nanoelectromechanically Gated Gain Cell eDRAM.” Abstract Excerpt: “The memory wall and the slowdown of static random access memory (SRAM) scaling have renewed interest in gain-cell embedded dynamic random access memory (DRAM). While gain cells offer high density and energy efficiency, they suffer from limited retention,... » read more\nThe post Nanoelectromechanical Switches Target More Efficient Embedded DRAM (UC Berkeley, Samsung, Intel) appeared first on Semiconductor Engineering.",
+     "published": "2026-10-18 23:28 UTC",
+     "_ts": 1792366111,
+     "preview": false,
+     "bullets": [
+      "Researchers from UC Berkeley, Samsung, and Intel have developed a nanoelectromechanically gated gain cell to address the scaling limitations of traditional SRAM.",
+      "The design aims to overcome critical eDRAM bottlenecks, specifically limited data retention, parasitic coupling, and the requirement for high write voltages.",
+      "This innovation represents a potential pathway to maintain high-density memory performance as traditional SRAM scaling continues to slow down."
+     ],
+     "rating": 4,
+     "read_time": 9
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/thermal-side-channels-create-new-security-risks-for-autonomous-vehicles-missouri-st/",
+     "blog": "SemiEngineering",
+     "title": "Thermal Side Channels Create New Security Risks For Autonomous Vehicles (Missouri S&T)",
+     "link": "https://semiengineering.com/thermal-side-channels-create-new-security-risks-for-autonomous-vehicles-missouri-st/",
+     "summary": "Researchers at Missouri University of Science and Technology published “Can Autonomous Vehicles Keep Their Cool? A Survey of Thermal Side-Channel and Perception Attacks.” Abstract excerpt: “This survey systematizes thirteen representative works into thermal perception integrity, telemetry leakage, and model-information extraction, comparing them by privilege, timescale, co-tenancy, deployability, and AV relevance. We distinguish attack family from... » read more\nThe post Thermal Side Channels Create New Security Risks For Autonomous Vehicles (Missouri S&T) appeared first on Semiconductor Engineering.",
+     "published": "2026-10-18 22:10 UTC",
+     "_ts": 1792361459,
+     "preview": false,
+     "bullets": [
+      "A new survey from Missouri S&T highlights how thermal side-channel attacks can compromise the integrity of autonomous vehicle (AV) perception systems.",
+      "The research categorizes threats into three primary vectors: thermal perception integrity, telemetry leakage, and the extraction of sensitive model information.",
+      "As AI workloads increase thermal stress on automotive sensors, the study emphasizes the urgent need for new security defenses that operate within existing thermal management constraints."
+     ],
+     "rating": 3,
+     "read_time": 9
+    }
+   ]
+  },
   {
    "name": "CNEVPOST",
    "status": "ok",
    "posts": [
     {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/10/17/chery-luxeed-carmaking-license-plans-ipo/",
+     "_key": "CNEVPOST|https://cnevpost.com/2026/10/12/vw-id-era-8x-launch-china/",
      "blog": "CNEVPOST",
-     "title": "Chery's Huawei-backed Luxeed to get independent carmaking license, plans IPO",
-     "link": "https://cnevpost.com/2026/10/17/chery-luxeed-carmaking-license-plans-ipo/",
-     "summary": "Luxeed is set to obtain its own production license, and an insider said the Chery unit plans to go public independently in the future.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-10-17 11:41 UTC",
-     "_ts": 1792237306,
+     "title": "VW steps up China EREV push with ID. ERA 8X launch; ID. ERA 5X to follow in November",
+     "link": "https://cnevpost.com/2026/10/12/vw-id-era-8x-launch-china/",
+     "summary": "The 5-seat ID. ERA 8X starts at a limited-time price of 206,800 yuan ($30,720) and is the third model in SAIC Volkswagen's ID. ERA lineup.\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-10-12 08:52 UTC",
+     "_ts": 1791795165,
      "preview": false,
      "bullets": [
-      "Luxeed, the EV brand partnership between Huawei and Chery, is set to receive an independent carmaking license following a production capacity transfer from Chery Group.",
-      "The brand plans to transition its vehicle badging from 'Chery' to 'Luxeed' once the regulatory approval process concludes.",
-      "An insider confirmed that the business unit, which has operated with separate accounting since 2024, is preparing for an independent public listing in the future."
+      "SAIC Volkswagen has launched the ID. ERA 8X, an extended-range SUV priced aggressively between 206,800 and 269,800 yuan to compete with Li Auto and Aito.",
+      "The 8X is the second EREV in the ID. ERA lineup and features an 800-volt architecture, offering a combined range of up to 1,602 km.",
+      "All variants come equipped with Momenta's R7 driver-assistance system, which utilizes 192-channel LiDAR for advanced navigation on autopilot.",
+      "The company plans to further expand the lineup with the launch of the ID. ERA 5X, the first battery-electric model in the series, in November."
      ],
      "rating": 4,
      "read_time": 3
     },
     {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/10/17/byd-all-new-han-third-gen-qin-plus-filings/",
+     "_key": "CNEVPOST|https://cnevpost.com/2026/10/18/leapmotor-launches-a10s/",
      "blog": "CNEVPOST",
-     "title": "BYD's all-new Han and third-gen Qin Plus appear in filings as core sedan refresh continues",
-     "link": "https://cnevpost.com/2026/10/17/byd-all-new-han-third-gen-qin-plus-filings/",
-     "summary": "The all-new Han measures more than 5.1 meters long, an increase of 161 mm over the Han EV Flash Charging Edition launched in April.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-10-17 09:48 UTC",
-     "_ts": 1792230507,
+     "title": "Leapmotor launches A10s with LiDAR for about $13,800",
+     "link": "https://cnevpost.com/2026/10/18/leapmotor-launches-a10s/",
+     "summary": "The A10s focuses on exclusive styling and comfort upgrades, with a CLTC range of 505 km.\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-10-18 05:47 UTC",
+     "_ts": 1792302425,
      "preview": false,
      "bullets": [
-      "BYD is refreshing its core sedan lineup with an all-new Han and a third-generation Qin Plus, as revealed in recent Ministry of Industry and Information Technology filings.",
-      "The new Han model features significantly larger dimensions, with a length of 5,156 mm and a wheelbase of 3,030 mm, and offers high-performance dual-motor AWD variants with up to 520 kW of peak power.",
-      "The refresh is a strategic response to declining sales in the Han series, which saw a 70.9% year-on-year drop in September."
+      "Leapmotor has launched the A10s, a new variant of its small electric SUV priced at 92,800 yuan ($13,810), positioning it as a premium-styled option within the existing A10 lineup.",
+      "The vehicle maintains core performance specs from the A10 505 LiDAR variant, including a 505 km CLTC range, a 90 kW motor, and advanced driver-assistance hardware powered by Qualcomm SA8295 and SA8650 chips.",
+      "The launch serves as a strategic year-end sales push following a 24.08% month-on-month decline in A10 deliveries during September, which totaled 24,457 units.",
+      "Despite the recent dip, the A10 remains a critical volume driver for Leapmotor, accounting for over 23% of the company's record-breaking 105,656 global deliveries in September."
      ],
-     "rating": 4,
-     "read_time": 3
-    },
-    {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/10/17/xpeng-expands-gx-shipments-overseas/",
-     "blog": "CNEVPOST",
-     "title": "Xpeng expands GX shipments overseas as Middle East orders exceed 3,000",
-     "link": "https://cnevpost.com/2026/10/17/xpeng-expands-gx-shipments-overseas/",
-     "summary": "Xpeng's overseas sales exceeded 10,000 vehicles for the first time in September, with global markets accounting for a growing share of total deliveries.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-10-17 06:51 UTC",
-     "_ts": 1792219870,
-     "preview": false,
-     "bullets": [
-      "Xpeng has begun volume shipments of its flagship GX SUV to the Middle East and Africa, with over 3,000 orders already secured in the Middle East region.",
-      "International markets have become a critical growth engine, with overseas sales exceeding 10,000 units in September and accounting for over 20% of total deliveries year-to-date.",
-      "The expansion of the GX, alongside the recent launch of the G9L in Europe and the Mona L03 in Oceania, highlights Xpeng's aggressive strategy to offset domestic delivery declines."
-     ],
-     "rating": 4,
+     "rating": 3,
      "read_time": 2
-    },
-    {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/10/17/vw-updates-id-unyx-06-07-china/",
-     "blog": "CNEVPOST",
-     "title": "VW updates ID. UNYX 06 and 07 in China with LiDAR, lower entry prices",
-     "link": "https://cnevpost.com/2026/10/17/vw-updates-id-unyx-06-07-china/",
-     "summary": "The ID. UNYX 07 now starts at 99,900 yuan ($14,860), the first time Volkswagen has priced a fully electric model in China below 100,000 yuan.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-10-17 14:25 UTC",
-     "_ts": 1792247121,
-     "preview": false,
-     "bullets": [
-      "Volkswagen Anhui has updated the ID. UNYX 06 and 07 models, lowering entry prices by 20,000 yuan compared to their May launch.",
-      "The ID. UNYX 07 Lite variant is now priced at 99,900 yuan, marking the first time a Volkswagen pure-electric model has dropped below the 100,000 yuan threshold in China.",
-      "New variants feature LiDAR-based driver-assistance systems powered by Horizon Robotics' Journey 6H chip, enabling advanced Navigation on Autopilot (NOA) capabilities."
-     ],
-     "rating": 3,
-     "read_time": 3
-    },
-    {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/10/17/gac-aion-opens-pre-sales-ray-7/",
-     "blog": "CNEVPOST",
-     "title": "GAC Aion opens pre-sales for first Ray model, targeting younger buyers",
-     "link": "https://cnevpost.com/2026/10/17/gac-aion-opens-pre-sales-ray-7/",
-     "summary": "Ray 7 pre-sales start at 128,800 yuan ($19,160), with a CLTC range of up to 702 km.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-10-17 13:14 UTC",
-     "_ts": 1792242852,
-     "preview": false,
-     "bullets": [
-      "GAC Aion has opened pre-sales for the Ray 7, the first model in its new series, with prices ranging from 128,800 to 158,800 yuan.",
-      "The vehicle integrates Huawei's DriveONE electric drive system across all variants, with higher-end trims featuring LiDAR for urban and highway navigation assistance.",
-      "The model offers two battery options, including a 62.98-kWh pack from CATL that provides a maximum CLTC range of 702 kilometers."
-     ],
-     "rating": 3,
-     "read_time": 3
     }
    ]
   }
