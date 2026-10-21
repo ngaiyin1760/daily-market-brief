@@ -1,100 +1,104 @@
 {
- "generated_at": "2026-10-20 09:05 HKT",
+ "generated_at": "2026-10-21 13:44 HKT",
  "repos": [
   {
-   "name": "shiyu-coder/Kronos",
-   "url": "https://github.com/shiyu-coder/Kronos",
+   "name": "luongnv89/claude-howto",
+   "url": "https://github.com/luongnv89/claude-howto",
    "language": "Python",
-   "description": "Kronos: A Foundation Model for the Language of Financial Markets",
-   "keywords": [],
-   "trendshift_pos": 23,
-   "stars": 41684,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A specialized foundation model architecture designed specifically for the language and data patterns of global financial markets.",
-   "bullets": [
-    "Built on a transformer-based architecture optimized for time-series and financial sentiment analysis.",
-    "Processes multi-modal market data including order books, news feeds, and historical price action.",
-    "Designed for quantitative research, algorithmic trading signal generation, and automated market analysis.",
-    "Provides a specialized foundation for building domain-specific financial agents."
-   ]
-  },
-  {
-   "name": "openclaw/openclaw",
-   "url": "https://github.com/openclaw/openclaw",
-   "language": "TypeScript",
-   "description": "The AI that really does things. Any OS. Any Platform. The lobster way. 🦞",
+   "description": "A visual, example-driven guide to Claude Code — from basic concepts to advanced agents, with copy-paste templates that bring immediate value.",
    "keywords": [
-    "AI agent"
+    "Learning resources"
    ],
-   "trendshift_pos": 7,
-   "stars": 392651,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A cross-platform agentic framework designed to execute complex tasks across any operating system or application environment.",
-   "bullets": [
-    "Utilizes a modular TypeScript-based architecture for high-performance agent orchestration.",
-    "Focuses on 'agentic' workflows that interact with UI elements and system APIs to perform autonomous actions.",
-    "Enables cross-platform automation, bridging the gap between disparate desktop and mobile environments.",
-    "Useful for automating complex enterprise workflows that require interaction with legacy software."
-   ]
-  },
-  {
-   "name": "Comfy-Org/ComfyUI",
-   "url": "https://github.com/Comfy-Org/ComfyUI",
-   "language": "Python",
-   "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface. The fastest local inference engine in the world.",
-   "keywords": [
-    "AI image generation"
-   ],
-   "trendshift_pos": 21,
-   "stars": 139732,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance, node-based graphical user interface and backend for running diffusion models locally.",
-   "bullets": [
-    "Features a graph-based workflow engine that allows for complex, modular AI pipeline construction.",
-    "Optimized for low-latency local inference, making it a standard for high-throughput generative AI tasks.",
-    "Includes a robust API backend that allows developers to integrate generative workflows into larger enterprise applications.",
-    "Widely used for rapid prototyping of AI-driven creative and data-visualization tools."
-   ]
-  },
-  {
-   "name": "kuafuai/andee",
-   "url": "https://github.com/kuafuai/andee",
-   "language": "Kotlin",
-   "description": "An agent that moves into your Android phone and becomes its soul — not an assistant, not a tool. Any app, no integrations, on-device, one APK.",
-   "keywords": [
-    "AI agent"
-   ],
-   "trendshift_pos": 8,
-   "stars": 1071,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An on-device agent that integrates directly into the Android OS to function as an autonomous system-level assistant.",
-   "bullets": [
-    "Built with Kotlin, focusing on deep system-level integration rather than external API calls.",
-    "Operates entirely on-device, ensuring data privacy and low-latency execution for sensitive tasks.",
-    "Functions as an autonomous agent capable of navigating apps and performing actions without manual user intervention.",
-    "Ideal for mobile-first productivity automation and secure, private agentic workflows."
-   ]
-  },
-  {
-   "name": "vercel-labs/fx0",
-   "url": "https://github.com/vercel-labs/fx0",
-   "language": "TypeScript",
-   "description": "A lightweight design agent built with libfx. Describe a page and an agent writes it as one HTML file.",
-   "keywords": [],
    "trendshift_pos": 11,
-   "stars": 119,
+   "stars": 42266,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A lightweight design agent that translates natural language descriptions into functional, single-file HTML/CSS/JS prototypes.",
+   "one_liner": "A comprehensive, visual guide and template library for mastering Claude Code and building advanced AI agents.",
    "bullets": [
-    "Powered by the libfx framework, designed for rapid, agent-driven frontend development.",
-    "Streamlines the prototyping phase of software development by automating UI generation from text prompts.",
-    "Outputs clean, portable HTML files, making it easy to integrate into existing web infrastructure.",
-    "Useful for developers and product managers to quickly visualize and test interface concepts."
+    "Built as a modular, example-driven repository for rapid AI agent prototyping.",
+    "Focuses on practical implementation of Claude Code for complex automation tasks.",
+    "Provides copy-paste templates for immediate integration into developer workflows.",
+    "Serves as a high-velocity resource for engineers looking to leverage agentic coding tools."
+   ]
+  },
+  {
+   "name": "oxc-project/tsrs",
+   "url": "https://github.com/oxc-project/tsrs",
+   "language": "Rust",
+   "description": "Rust port of the TypeScript 7 type checker",
+   "keywords": [
+    "Static analysis"
+   ],
+   "trendshift_pos": 13,
+   "stars": 1302,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A high-performance Rust-based port of the TypeScript type checker, designed for extreme speed in infrastructure tooling.",
+   "bullets": [
+    "Written in Rust to provide memory safety and massive performance gains over the original TypeScript implementation.",
+    "Acts as a foundational infrastructure component for modern JavaScript/TypeScript build tooling.",
+    "Enables faster static analysis and type checking for large-scale enterprise codebases.",
+    "Critical for developers building high-performance devtools and CI/CD pipelines."
+   ]
+  },
+  {
+   "name": "gamedev-skills/awesome-gamedev-agent-skills",
+   "url": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills",
+   "language": "Python",
+   "description": "74 game-dev skills for AI coding agents — Godot, Unity, Unreal, Phaser, PixiJS, three.js, Bevy, pygame, LÖVE, Roblox. Portable SKILL.md Agent Skills (the format Anthropic launched as Claude Skills), with a router that loads the right skill for your engine and task. Runs in Claude Code, Cursor, Kiro, Codex, Copilot, Gemini CLI and more.",
+   "keywords": [
+    "AI skills"
+   ],
+   "trendshift_pos": 16,
+   "stars": 1975,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A curated collection of 74 portable agent skills designed to enable AI coding agents to interact with major game engines.",
+   "bullets": [
+    "Utilizes the Claude Skills format for standardized, portable agent capabilities.",
+    "Supports a wide range of engines including Godot, Unity, Unreal, and Bevy.",
+    "Facilitates the automation of complex game development tasks via LLM-driven agents.",
+    "Provides a structured framework for extending agentic intelligence into specialized technical domains."
+   ]
+  },
+  {
+   "name": "alexgaoth/awesome-reverse-engineered",
+   "url": "https://github.com/alexgaoth/awesome-reverse-engineered",
+   "language": "Python",
+   "description": "Don't reverse engineer it twice. 12,000+ open-source tools built by reverse engineering closed apps, APIs, devices, protocols, file formats, games and AI tools. Search site + agent skill, refreshed nightly.",
+   "keywords": [
+    "Curated list"
+   ],
+   "trendshift_pos": 14,
+   "stars": 249,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A massive, searchable database of 12,000+ open-source tools derived from reverse-engineering closed-source systems.",
+   "bullets": [
+    "Aggregates reverse-engineered protocols, APIs, and file formats into a single searchable index.",
+    "Includes agent-ready skills to assist developers in integrating with proprietary or legacy systems.",
+    "Highly valuable for fintech and security professionals needing to interface with closed financial APIs.",
+    "Reduces redundant engineering effort by documenting existing community-led reverse engineering projects."
+   ]
+  },
+  {
+   "name": "nano-muse/nanoMuse",
+   "url": "https://github.com/nano-muse/nanoMuse",
+   "language": "Swift",
+   "description": "nanoMuse: an open-source personal agent for every device you own. One agent with a name and a look of its own that does things, keeps working while the app is closed, remembers you, and asks before anything you cannot undo. On Android, iPhone and iPad, Windows / macOS / Linux and in the browser; your phone's screen and your computer as its hands.",
+   "keywords": [
+    "AI agent"
+   ],
+   "trendshift_pos": 24,
+   "stars": 1880,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An open-source, persistent personal agent framework designed to run across multiple devices with long-term memory.",
+   "bullets": [
+    "Built with Swift, focusing on native performance and cross-device synchronization.",
+    "Features persistent background operation and long-term memory capabilities for personalized assistance.",
+    "Designed as a privacy-conscious, user-controlled agent architecture.",
+    "Ideal for building custom personal productivity agents that require context-awareness and cross-platform presence."
    ]
   }
  ]
