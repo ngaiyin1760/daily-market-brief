@@ -31,7 +31,10 @@ permissions:
 # is a full duplicate of a 40-minute pipeline and it raises a spurious failure
 # alert. cancel-in-progress must stay false: a run that is mid-generation must
 # never be killed by a later trigger, and the queued run waits for the running
-# one rather than being dropped.
+# one rather than being dropped. This group does NOT cover the operator's
+# autopilot pushes of data/autopilot_rules.json, which come from outside
+# Actions at :08 and :38 of every hour — that is why the publish step below
+# rebases onto origin/main before pushing.
 concurrency:
   group: daily-market-brief
   cancel-in-progress: false
@@ -157,9 +160,54 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "Daily market brief: $(date -u +%Y-%m-%d)"
-            git push
-            echo "published=true" >> "$GITHUB_OUTPUT"
-            echo "published_day=${{ steps.today.outputs.date_hk }}" >> "$GITHUB_OUTPUT"
+            # Rebase onto the newest origin/main before pushing, and retry on
+            # failure: the operator's machine pushes data/autopilot_rules.json
+            # to main at :08 and :38 of every hour, outside this concurrency
+            # group, and this run's checkout predates those pushes. Run 193
+            # (2026-10-21) checked out at 00:36:06 UTC, the autopilot landed at
+            # 00:38:15, and the bare `git push` here died with
+            # "! [rejected] main -> main (fetch first)"; the brief only went
+            # out via the catch-up run, five hours late. Those commits touch
+            # only data/, ours only docs/, so the rebase cannot conflict. The
+            # retries with growing waits also absorb transient GitHub errors
+            # (the 2026-10-07 "remote: Internal Server Error"); 4 attempts
+            # total well under a minute, because a rebase resolves a collision
+            # immediately and the sleeps only cover transients.
+            pushed=false
+            for attempt in 1 2 3 4; do
+              # The &&-chain is safe under bash -e inside `if`; a failed
+              # attempt falls through to the abort/sleep instead of killing
+              # the step before the loop can retry.
+              if git pull --rebase --autostash origin main && git push; then
+                pushed=true
+                break
+              fi
+              # Leave the work tree clean before retrying. --autostash only
+              # stashes a dirty tree, and if applying that stash ever conflicts
+              # the rebase still completes (so the brief commit is safe) while
+              # the working tree keeps unmerged paths — and every later attempt
+              # then dies with "Pulling is not possible because you have
+              # unmerged files", burning all four attempts on debris rather than
+              # on the push. HEAD always holds the brief commit here, so
+              # resetting the tree costs nothing and makes the retry real.
+              git rebase --abort 2>/dev/null || true
+              git reset -q --hard HEAD
+              case $attempt in
+                1) wait=5;;
+                2) wait=10;;
+                3) wait=15;;
+                *) break;;  # last attempt: fall through to the error, no wait
+              esac
+              echo "::warning::push failed (attempt $attempt/4); rebasing and retrying in ${wait}s..."
+              sleep "$wait"
+            done
+            if [ "$pushed" = "true" ]; then
+              echo "published=true" >> "$GITHUB_OUTPUT"
+              echo "published_day=${{ steps.today.outputs.date_hk }}" >> "$GITHUB_OUTPUT"
+            else
+              echo "::error::Push of the ${{ steps.today.outputs.date_hk }} HKT brief failed after 4 rebase-and-push attempts; the brief is not published."
+              exit 1
+            fi
           fi
 
   # A separate job, not a step inside build: a job killed by its own
