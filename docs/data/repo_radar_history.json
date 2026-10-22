@@ -1,6 +1,116 @@
 {
  "days": [
   {
+   "date": "2026-10-22",
+   "generated_at": "2026-10-22 08:40 HKT",
+   "repos": [
+    {
+     "name": "deepseek-ai/DeepInfer",
+     "url": "https://github.com/deepseek-ai/DeepInfer",
+     "language": "Python",
+     "description": "DeepInfer: High-performance, large-scale inference framework for DeepSeek models",
+     "keywords": [
+      "LLM inference"
+     ],
+     "trendshift_pos": 7,
+     "stars": 17873,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A high-performance, large-scale inference framework specifically optimized for DeepSeek models.",
+     "bullets": [
+      "Built with Python and optimized C++/CUDA kernels for low-latency model serving.",
+      "Designed to handle massive parameter counts and complex attention mechanisms.",
+      "Enables enterprise-grade deployment of state-of-the-art LLMs in production environments.",
+      "Focuses on memory efficiency and throughput for high-demand AI infrastructure."
+     ],
+     "img": "deepseek-ai_DeepInfer_0.jpg",
+     "img_alt": "Prefill: non-cached input throughput vs. latency",
+     "img2": "deepseek-ai_DeepInfer_1.jpg",
+     "img2_alt": "Decode: output throughput vs. per-user speed"
+    },
+    {
+     "name": "twentyhq/twenty",
+     "url": "https://github.com/twentyhq/twenty",
+     "language": "TypeScript",
+     "description": "The open alternative to Salesforce, designed for AI.",
+     "keywords": [],
+     "trendshift_pos": 21,
+     "stars": 59162,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An open-source, AI-native CRM platform designed to replace Salesforce.",
+     "bullets": [
+      "Full-stack TypeScript application utilizing a modern web architecture.",
+      "Integrates AI agents directly into the sales workflow for automated data entry and lead scoring.",
+      "Provides a modular infrastructure that allows for custom data modeling and self-hosting.",
+      "Ideal for fintech and B2B companies requiring data sovereignty and custom CRM logic."
+     ]
+    },
+    {
+     "name": "Louis-CFM/coucou",
+     "url": "https://github.com/Louis-CFM/coucou",
+     "language": "Swift",
+     "description": "A tiny friend in your Mac's notch and on your iPhone that keeps an eye on your AI coding agents: Claude Code, Codex, Cursor, Gemini CLI, Antigravity and more. Approve from the notch or your Lock Screen.",
+     "keywords": [
+      "AI coding assistant"
+     ],
+     "trendshift_pos": 16,
+     "stars": 5926,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A macOS and iOS utility that monitors and manages AI coding agents from your menu bar.",
+     "bullets": [
+      "Swift-based native macOS app with deep integration into the system notch and iOS Lock Screen.",
+      "Acts as a centralized control plane for agents like Claude Code, Cursor, and Gemini CLI.",
+      "Provides real-time approval workflows for agentic actions, enhancing security and oversight.",
+      "Essential devtool for developers managing multiple autonomous AI coding sessions."
+     ]
+    },
+    {
+     "name": "ikow/php2shell-poc",
+     "url": "https://github.com/ikow/php2shell-poc",
+     "language": "Python",
+     "description": "CVE-2026-109618/109619 PHP session.upload_progress Exploit Research — POC & Analysis",
+     "keywords": [],
+     "trendshift_pos": 9,
+     "stars": 950,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A research-focused Proof of Concept for critical PHP session upload vulnerabilities.",
+     "bullets": [
+      "Python-based exploit research tool targeting CVE-2026-109618 and CVE-2026-109619.",
+      "Analyzes session.upload_progress mechanisms to identify remote code execution vectors.",
+      "Critical for security professionals auditing web infrastructure and fintech backend stacks.",
+      "Provides deep insight into PHP engine vulnerabilities and mitigation strategies."
+     ]
+    },
+    {
+     "name": "mmparko/dsh-purge",
+     "url": "https://github.com/mmparko/dsh-purge",
+     "language": "JavaScript",
+     "description": "DeepSeek Harness 破甲 (mirror of YuJunZhiXue/dsh-purge) — 上游即将删库，此为本仓库全量镜像：含全部分支/73 个 tag/完整提交历史。原作者署名与二开要求见 README 署名章节。",
+     "keywords": [
+      "LLM evaluation"
+     ],
+     "trendshift_pos": 23,
+     "stars": 1047,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A comprehensive mirror and preservation repository for the DeepSeek Harness project.",
+     "bullets": [
+      "Maintains full commit history, branches, and tags for critical AI infrastructure tooling.",
+      "Ensures availability of open-source research code that is prone to sudden upstream deletion.",
+      "Serves as a vital resource for developers building on top of DeepSeek's ecosystem.",
+      "Demonstrates the importance of version control and archival in the fast-moving AI devtools space."
+     ],
+     "img": "mmparko_dsh-purge_0.jpg",
+     "img_alt": "Clean",
+     "img2": "mmparko_dsh-purge_1.jpg",
+     "img2_alt": "Drill authorization"
+    }
+   ]
+  },
+  {
    "date": "2026-10-21",
    "generated_at": "2026-10-21 13:44 HKT",
    "repos": [

@@ -1,57 +1,6 @@
 {
  "backlog": [
   {
-   "_key": "SemiEngineering|https://semiengineering.com/accelerating-advanced-ic-package-design-a-methodology-for-early-and-iterative-optimization-of-chiplet-integration/",
-   "blog": "SemiEngineering",
-   "title": "Accelerating Advanced IC Package Design: A Methodology for Early and Iterative Optimization of Chiplet Integration",
-   "link": "https://semiengineering.com/accelerating-advanced-ic-package-design-a-methodology-for-early-and-iterative-optimization-of-chiplet-integration/",
-   "summary": "Optimizing chiplet integration, power integrity, and performance through early-stage IC package design and analysis.\nThe post Accelerating Advanced IC Package Design: A Methodology for Early and Iterative Optimization of Chiplet Integration appeared first on Semiconductor Engineering.",
-   "published": "2026-10-14 07:02 UTC",
-   "_ts": 1791961320,
-   "preview": false,
-   "bullets": [
-    "Advanced packaging technologies like CoWoS-R and CoWoS-L are increasing design complexity, making traditional analysis workflows a bottleneck for project timelines.",
-    "Integrating in-design analysis (IDA) allows engineers to perform iterative optimization earlier in the design cycle, reducing the risk of late-stage failures.",
-    "The methodology emphasizes the use of scalable multiphysics simulation engines to manage the high signal counts and integration requirements of modern chiplet-based systems."
-   ],
-   "rating": 4,
-   "read_time": 1
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/how-to-define-cpu-and-software-stack-performance-for-agentic-ai/",
-   "blog": "SemiEngineering",
-   "title": "How To Define CPU And Software Stack Performance For Agentic AI",
-   "link": "https://semiengineering.com/how-to-define-cpu-and-software-stack-performance-for-agentic-ai/",
-   "summary": "Measuring the performance demands of agentic AI; assessing CPU bottlenecks, SW stack efficiency, and system-level tradeoffs.\nThe post How To Define CPU And Software Stack Performance For Agentic AI appeared first on Semiconductor Engineering.",
-   "published": "2026-10-14 07:04 UTC",
-   "_ts": 1791961459,
-   "preview": false,
-   "bullets": [
-    "Agentic AI workloads shift the performance burden, requiring CPUs to manage complex state, tool execution, and validation loops rather than just model inference.",
-    "The proposed framework categorizes CPU-visible work into common agentic functions and use-case-specific tool workloads to better assess system-level bottlenecks.",
-    "The industry is moving toward using replayable agent trajectories to isolate CPU performance from non-deterministic model and network effects."
-   ],
-   "rating": 4,
-   "read_time": 9
-  },
-  {
-   "_key": "Stratechery|https://stratechery.com/2026/apple-homeview-the-new-apple-tv-the-app-story/",
-   "blog": "Stratechery",
-   "title": "Apple HomeView, The New Apple TV, The App Story",
-   "link": "https://stratechery.com/2026/apple-homeview-the-new-apple-tv-the-app-story/",
-   "summary": "The Apple Homeview is official, and the question is how big is the addressable market for expensive devices based on subpar AI.",
-   "published": "2026-10-14 10:00 UTC",
-   "_ts": 1791972000,
-   "preview": false,
-   "bullets": [
-    "Apple has officially launched the HomeView, a new hardware device that serves as an evolution of the Apple TV platform.",
-    "The primary strategic question facing the product is the size of the addressable market for premium-priced hardware that relies on current, potentially subpar AI capabilities.",
-    "The launch highlights Apple's ongoing challenge to integrate its ecosystem into the home while balancing hardware margins against the limitations of its generative AI offerings."
-   ],
-   "rating": 4,
-   "read_time": 3
-  },
-  {
    "_key": "SemiEngineering|https://semiengineering.com/thermal-co-simulation-testing-of-co-packaged-optics/",
    "blog": "SemiEngineering",
    "title": "Thermal Co-Simulation Testing Of Co-Packaged Optics",
@@ -310,75 +259,6 @@
    ],
    "rating": 4,
    "read_time": 2
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/simplify-electronic-photonic-design-workflows/",
-   "blog": "SemiEngineering",
-   "title": "Simplify Electronic-Photonic Design Workflows: eBook",
-   "link": "https://semiengineering.com/simplify-electronic-photonic-design-workflows/",
-   "summary": "The natural evolution of EDA, extending proven design methodologies to include photonic devices, circuits, and systems. \nThe post Simplify Electronic-Photonic Design Workflows: eBook appeared first on Semiconductor Engineering.",
-   "published": "2026-10-14 07:02 UTC",
-   "_ts": 1791961361,
-   "preview": false,
-   "bullets": [
-    "The convergence of optical and electronic technologies necessitates a shift toward Electronic Photonic Design Automation (EPDA) to handle complex cross-domain physics.",
-    "Traditional EDA workflows are insufficient for the integration of light-based components, which require specialized handling of bandwidth, latency, and power constraints.",
-    "Adopting EPDA is becoming essential for manufacturers to deliver scalable and manufacturable systems as silicon photonics move into mainstream high-performance designs."
-   ],
-   "rating": 3,
-   "read_time": 8
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/generative-ai-on-a-general-purpose-neural-processor-gpnpu/",
-   "blog": "SemiEngineering",
-   "title": "Generative AI On A General-Purpose Neural Processor (GPNPU)",
-   "link": "https://semiengineering.com/generative-ai-on-a-general-purpose-neural-processor-gpnpu/",
-   "summary": "A single processor architecture that unifies scalar, vector, and matrix execution in one ISA and one C++ programming model.\nThe post Generative AI On A General-Purpose Neural Processor (GPNPU) appeared first on Semiconductor Engineering.",
-   "published": "2026-10-14 07:03 UTC",
-   "_ts": 1791961382,
-   "preview": false,
-   "bullets": [
-    "The rapid evolution of generative AI models, including new attention variants and quantization schemes, renders fixed-function neural processors increasingly obsolete.",
-    "The GPNPU architecture unifies scalar, vector, and matrix execution under a single instruction-set architecture (ISA) to provide greater flexibility.",
-    "By utilizing a software-managed memory model and C++/Python accessibility, the GPNPU aims to bridge the gap between hardware efficiency and the need for rapid algorithmic updates."
-   ],
-   "rating": 3,
-   "read_time": 9
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/14/faw-vw-teases-new-model-2nd-id-aura/",
-   "blog": "CNEVPOST",
-   "title": "FAW-VW teases new model, potentially second in ID. AURA lineup",
-   "link": "https://cnevpost.com/2026/10/14/faw-vw-teases-new-model-2nd-id-aura/",
-   "summary": "The new model is expected to be a compact electric sedan and could be named ID. AURA L5.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-14 07:54 UTC",
-   "_ts": 1791964442,
-   "preview": false,
-   "bullets": [
-    "FAW-Volkswagen is expanding its China-focused ID. AURA lineup with a new model, widely expected to be a compact electric sedan dubbed the ID. AURA L5.",
-    "The vehicle is anticipated to utilize Volkswagen's CMP platform and the China-specific CEA electronic architecture, the latter of which was developed in partnership with Xpeng.",
-    "This launch aligns with the joint venture's 2026 strategy to introduce four new NEV models, diversifying the ID. AURA series beyond the T6 electric SUV launched in September."
-   ],
-   "rating": 3,
-   "read_time": 2
-  },
-  {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/14/1145807/us-military-race-to-make-fake-blood/",
-   "blog": "MIT Technology Review",
-   "title": "The US military’s race to make fake blood",
-   "link": "https://www.technologyreview.com/2026/10/14/1145807/us-military-race-to-make-fake-blood/",
-   "summary": "Its call sign was Morphine 1-2.   In February 2007, the hulking dual-­rotor casualty evacuation helicopter had just flown three wounded soldiers to a field hospital in Balad, north of Baghdad, when another call came: an emergency mission to fly through an insurgent-controlled area in broad daylight. Typically, helicopters would be in a spot like…",
-   "published": "2026-10-14 09:00 UTC",
-   "_ts": 1791968400,
-   "preview": false,
-   "bullets": [
-    "Hemorrhage remains the leading cause of preventable battlefield deaths, accounting for approximately 90% of such fatalities, yet current blood supply chains are severely constrained by short shelf lives.",
-    "A 2025 study in the journal Transfusion revealed that only 1% of the 1.2 million US trauma patients who required blood before reaching a hospital actually received it, highlighting a massive systemic failure.",
-    "The military's reliance on 'blood runs' creates dangerous operational vulnerabilities, necessitating the development of synthetic alternatives that do not require refrigeration or complex storage protocols.",
-    "The global impact of blood shortages is significant, with an estimated 10,000 preventable deaths annually in the US alone and millions globally, driving urgent investment into synthetic blood research."
-   ],
-   "rating": 3,
-   "read_time": 17
   },
   {
    "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/leapmotor-to-launch-a10s-oct-18/",
@@ -831,40 +711,6 @@
    "read_time": 4
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/14/leapmotor-teases-a10s/",
-   "blog": "CNEVPOST",
-   "title": "Leapmotor teases A10s electric SUV with sporty black-and-red styling",
-   "link": "https://cnevpost.com/2026/10/14/leapmotor-teases-a10s/",
-   "summary": "The A10s features black bodywork, a red rear badge and red seat stitching. Pricing, launch timing and powertrain details have yet to be announced.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-14 06:58 UTC",
-   "_ts": 1791961136,
-   "preview": false,
-   "bullets": [
-    "Leapmotor has unveiled the A10s, a sportier variant of its popular A10 small electric SUV, featuring distinct black-and-red aesthetic trim and upgraded interior materials.",
-    "The A10 model remains a critical volume driver for the company, despite experiencing a 24.08% month-on-month delivery decline in September.",
-    "While the A10s focuses on design updates, it remains unclear if the variant will include performance enhancements over the standard model's 90 kW motor and existing battery options."
-   ],
-   "rating": 2,
-   "read_time": 2
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/blog-review-oct-14-3/",
-   "blog": "SemiEngineering",
-   "title": "Blog Review: Oct. 14",
-   "link": "https://semiengineering.com/blog-review-oct-14-3/",
-   "summary": "Engineers' role in autonomous workflows; UALink over UCIe; GDDR7; on-device speech filtering.\nThe post Blog Review: Oct. 14 appeared first on Semiconductor Engineering.",
-   "published": "2026-10-14 07:01 UTC",
-   "_ts": 1791961264,
-   "preview": false,
-   "bullets": [
-    "The industry is focusing on standardizing interfaces like UALink over UCIe to improve cross-vendor interoperability for scalable AI systems.",
-    "New standards like GDDR7 are introducing advanced signaling and protection mechanisms to support the bandwidth demands of next-generation data centers.",
-    "Engineers are increasingly tasked with defining autonomous workflows and objectives, shifting their role from manual implementation to high-level system guidance."
-   ],
-   "rating": 2,
-   "read_time": 1
-  },
-  {
    "_key": "CNEVPOST|https://cnevpost.com/2026/10/15/catl-chairman-donates-shares-shanghai-jiao-tong/",
    "blog": "CNEVPOST",
    "title": "CATL chairman donates $62.5 million in shares to Shanghai Jiao Tong research institute",
@@ -1230,6 +1076,262 @@
    ],
    "rating": 1,
    "read_time": 1
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/21/vw-anhui-launch-id-unyx-09-oct-24/",
+   "blog": "CNEVPOST",
+   "title": "VW Anhui to launch ID. UNYX 09 on October 24 as second model developed with Xpeng",
+   "link": "https://cnevpost.com/2026/10/21/vw-anhui-launch-id-unyx-09-oct-24/",
+   "summary": "Pre-sales for the ID. UNYX 09 began on September 24, with prices ranging from 199,900 yuan ($29,750) to 249,900 yuan.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-21 09:15 UTC",
+   "_ts": 1792574108,
+   "preview": false,
+   "bullets": [
+    "Volkswagen Anhui will launch the ID. UNYX 09 on October 24, marking the second model developed in collaboration with Xpeng.",
+    "The electric sedan features Xpeng's Turing AI chip with 750 TOPS of computing power, supporting advanced driver-assistance systems like urban and highway NOA.",
+    "Available in single and dual-motor configurations, the vehicle utilizes a 91.963-kWh LFP battery from CATL, offering a maximum CLTC range of 755 kilometers."
+   ],
+   "rating": 4,
+   "read_time": 2
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/21/1146061/nuclear-powered-spaceships-impossible-issue/",
+   "blog": "MIT Technology Review",
+   "title": "Nuclear-powered spaceships",
+   "link": "https://www.technologyreview.com/2026/10/21/1146061/nuclear-powered-spaceships-impossible-issue/",
+   "summary": "Just before the Artemis II crew began its historic slingshot around the moon this past April, NASA announced plans to build Space Reactor-1 Freedom. SR-1, the first-ever nuclear-reactor-­powered interplanetary spacecraft, is meant to fly an uncrewed mission to Mars by the end of 2028, arriving in 2029. A successful mission would herald a new era…",
+   "published": "2026-10-21 09:00 UTC",
+   "_ts": 1792573200,
+   "preview": false,
+   "bullets": [
+    "NASA is investing $2 billion into nuclear electric propulsion, which utilizes uranium-atom-splitting reactions to generate electricity for ion-based thrust.",
+    "The agency plans to launch the uncrewed Space Reactor-1 (SR-1) mission to Mars by late 2028, aiming to significantly reduce travel time and cosmic radiation exposure for future astronauts.",
+    "While previous programs like DRACO were canceled due to high costs and safety testing challenges, experts believe nuclear propulsion is technically viable and essential for efficient interplanetary travel."
+   ],
+   "rating": 4,
+   "read_time": 5
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/21/1146121/exercise-in-a-pill-impossible-issue/",
+   "blog": "MIT Technology Review",
+   "title": "Exercise in a pill",
+   "link": "https://www.technologyreview.com/2026/10/21/1146121/exercise-in-a-pill-impossible-issue/",
+   "summary": "We all know exercise is good for us. It builds muscle, strengthens bones, lowers blood pressure, and boosts mood. By deciphering how movement benefits the body, researchers hope to develop medicines that can offer some of the same perks—without the workout. The idea isn’t to replace exercise but to bring its upsides to people who…",
+   "published": "2026-10-21 09:00 UTC",
+   "_ts": 1792573200,
+   "preview": false,
+   "bullets": [
+    "Researchers are identifying molecular pathways triggered by physical activity to develop pharmaceuticals that mimic the health benefits of exercise for patients with frailty or chronic illness.",
+    "The biotech firm Pelagos is developing a compound that targets specific receptors in muscle cells to boost endurance, with early mouse studies showing improved cognitive and heart health.",
+    "Regulatory hurdles remain significant, as the FDA currently approves drugs for disease treatment rather than wellness enhancement, and over 90% of human clinical trials fail."
+   ],
+   "rating": 4,
+   "read_time": 3
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/21/1146128/cleaning-up-pfas-impossible-issue/",
+   "blog": "MIT Technology Review",
+   "title": "Cleaning up PFAS",
+   "link": "https://www.technologyreview.com/2026/10/21/1146128/cleaning-up-pfas-impossible-issue/",
+   "summary": "Scrubbing Earth of per- and polyfluoroalkyl substances—a.k.a. PFAS or forever chemicals—could eliminate a list of woes for people and planet. Used for decades in everything from nonstick pans to firefighting foams, PFAS have been linked to increased risks of fertility challenges, developmental delays, cancer, and reduced immune response. They are known for a strong bond…",
+   "published": "2026-10-21 09:00 UTC",
+   "_ts": 1792573200,
+   "preview": false,
+   "bullets": [
+    "PFAS 'forever chemicals' are pervasive in the environment, with 89% of the US population showing blood plasma levels above common thresholds for potential health risks.",
+    "Current cleanup efforts focus on trapping chemicals via reverse osmosis or foam fractionation, though these methods leave behind contaminated brine that requires expensive destruction.",
+    "Electrochemical degradation, a method using electrodes to break down the carbon-fluorine bonds in PFAS, has demonstrated over 90% efficiency in tests and is being commercialized by AECOM."
+   ],
+   "rating": 4,
+   "read_time": 3
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/scaling-data-movement-for-physical-ai/",
+   "blog": "SemiEngineering",
+   "title": "Scaling Data Movement For Physical AI",
+   "link": "https://semiengineering.com/scaling-data-movement-for-physical-ai/",
+   "summary": "One size does not fit all.\nThe post Scaling Data Movement For Physical AI appeared first on Semiconductor Engineering.",
+   "published": "2026-10-21 07:15 UTC",
+   "_ts": 1792566931,
+   "preview": false,
+   "bullets": [
+    "Physical AI systems require a strategic balance between compute elements and data movement to maintain real-time decision-making while preserving battery life.",
+    "Engineers are increasingly differentiating between coherent interconnects for CPUs and non-coherent interconnects for AI accelerators to optimize system efficiency.",
+    "The industry is facing significant challenges in managing data streams in heterogeneous architectures, necessitating new approaches to chip design and interconnect scaling."
+   ],
+   "rating": 4,
+   "read_time": 9
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/scaling-cpo-testing-beyond-a-single-die/",
+   "blog": "SemiEngineering",
+   "title": "Scaling CPO Testing Beyond A Single Die",
+   "link": "https://semiengineering.com/scaling-cpo-testing-beyond-a-single-die/",
+   "summary": "Fiber alignment, connector durability, and simultaneous optical and electrical testing pose challenges for high-volume manufacturing.\nThe post Scaling CPO Testing Beyond A Single Die appeared first on Semiconductor Engineering.",
+   "published": "2026-10-21 07:01 UTC",
+   "_ts": 1792566092,
+   "preview": false,
+   "bullets": [
+    "High-volume manufacturing of Co-Packaged Optics (CPO) is currently constrained by single-site testing limitations, primarily due to the complexities of fiber alignment.",
+    "While NPO (Near-Packaged Optics) and CPO architectures are evolving, the industry is actively seeking multi-site testing solutions to improve throughput and reduce costs.",
+    "Testing high-power ASICs alongside optical engines presents significant challenges in power delivery and thermal management, complicating the transition to parallel testing."
+   ],
+   "rating": 4,
+   "read_time": 7
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/accelerating-manufacturing-aware-simulations-for-photonic-integrated-circuits-with-ftco-and-digital-twins/",
+   "blog": "SemiEngineering",
+   "title": "Accelerating Manufacturing-Aware Simulations For Photonic Integrated Circuits With FTCO And Digital Twins",
+   "link": "https://semiengineering.com/accelerating-manufacturing-aware-simulations-for-photonic-integrated-circuits-with-ftco-and-digital-twins/",
+   "summary": "Fab workflow connects GDS layout import, 3D process simulation, GPU-accelerated FDTD, design of experiments, with AI-based surrogate modeling.\nThe post Accelerating Manufacturing-Aware Simulations For Photonic Integrated Circuits With FTCO And Digital Twins appeared first on Semiconductor Engineering.",
+   "published": "2026-10-21 07:01 UTC",
+   "_ts": 1792566083,
+   "preview": false,
+   "bullets": [
+    "New Fab Technology Co-Optimization (FTCO) workflows now integrate GDS layout data with 3D process simulation and AI-based surrogate modeling to account for real-world fabrication variations.",
+    "GPU-accelerated FDTD simulations can now process complex 3D models with 65 million cells in under 10 hours, significantly speeding up design cycles.",
+    "The use of digital twins allows non-simulation experts to intuitively understand the relationship between manufacturing process variations and final photonic circuit performance."
+   ],
+   "rating": 4,
+   "read_time": 9
+  },
+  {
+   "_key": "Stratechery|https://stratechery.com/2026/presented-by-stripe/",
+   "blog": "Stratechery",
+   "title": "Presented by Stripe",
+   "link": "https://stratechery.com/2026/presented-by-stripe/",
+   "summary": "Stratechery is now presented by Stripe. What that means for me, for you, and for the future of Stratechery content.",
+   "published": "2026-10-21 17:35 UTC",
+   "_ts": 1792604131,
+   "preview": false,
+   "bullets": [
+    "Stratechery has officially adopted a 'Unified Content Business Model,' integrating advertising alongside its existing subscription revenue stream.",
+    "Stripe has become the presenting sponsor for the publication, marking a shift in the site's long-standing ad-free format.",
+    "To maintain transparency, the author has updated his ethics policy to explicitly disclose the financial relationship with Stripe and acknowledge a lack of objectivity regarding the company.",
+    "The author maintains that the contract with Stripe guarantees total editorial independence, despite the inherent conflict of interest in covering the fintech sector."
+   ],
+   "rating": 3,
+   "read_time": 7
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/21/byd-yangwang-unveil-sedan-hu-uae/",
+   "blog": "CNEVPOST",
+   "title": "BYD Yangwang to unveil ultra-luxury executive sedan 'HU' in UAE",
+   "link": "https://cnevpost.com/2026/10/21/byd-yangwang-unveil-sedan-hu-uae/",
+   "summary": "Yangwang confirmed that the new model, internally codenamed \"HU,\" will be unveiled in the UAE, but has yet to announce a date or venue.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-21 12:53 UTC",
+   "_ts": 1792587203,
+   "preview": false,
+   "bullets": [
+    "BYD's ultra-luxury brand Yangwang plans to unveil a new executive sedan, internally codenamed 'HU', in the United Arab Emirates.",
+    "While official specifications are pending, reports suggest the vehicle may measure 5.5 meters in length and carry a price tag exceeding 2,000,000 yuan.",
+    "The model is expected to feature advanced technology, including roof-mounted LiDAR and potentially coach doors, aligning with the brand's high-end market positioning."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/21/1147573/the-download-introducing-impossible-issue/",
+   "blog": "MIT Technology Review",
+   "title": "The Download: introducing the Impossible issue",
+   "link": "https://www.technologyreview.com/2026/10/21/1147573/the-download-introducing-impossible-issue/",
+   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. Introducing: the Impossible issue We wanted our last print edition of 2026 to include a slate of stories that check in on impossible ideas. Why? Because it’s fun to dream about…",
+   "published": "2026-10-21 12:10 UTC",
+   "_ts": 1792584600,
+   "preview": false,
+   "bullets": [
+    "Astrolab’s FLIP lunar rover is scheduled to launch as early as next month, carrying a computer payload designed to run large language models (LLMs) on the moon.",
+    "The mission aims to test whether AI can provide autonomous, real-time decision-making capabilities in extreme lunar conditions, including intense radiation and temperature fluctuations.",
+    "Researchers in Denali National Park are studying how wildfire-induced permafrost thaw creates a feedback loop that accelerates greenhouse gas emissions and further climate warming."
+   ],
+   "rating": 3,
+   "read_time": 7
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/blog-review-oct-21-3/",
+   "blog": "SemiEngineering",
+   "title": "Blog Review: Oct. 21",
+   "link": "https://semiengineering.com/blog-review-oct-21-3/",
+   "summary": "From server to rack; AMBA CXS; digital twins; edge AI development loop; satellite power; global talent challenges.\nThe post Blog Review: Oct. 21 appeared first on Semiconductor Engineering.",
+   "published": "2026-10-21 07:01 UTC",
+   "_ts": 1792566111,
+   "preview": false,
+   "bullets": [
+    "AI workload optimization is shifting from server-level design to rack-level architecture, focusing on performance per watt and dollar.",
+    "New interconnect standards like AMBA CXS are evolving to support multi-protocol, multi-node traffic with controlled interleaving and packet reconstruction.",
+    "Global semiconductor talent shortages remain a critical bottleneck that government subsidies alone cannot resolve, requiring region-specific strategies."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/21/byd-exterior-images-third-gen-qin-plus/",
+   "blog": "CNEVPOST",
+   "title": "BYD releases exterior images of third-gen Qin Plus ahead of key family sedan overhaul",
+   "link": "https://cnevpost.com/2026/10/21/byd-exterior-images-third-gen-qin-plus/",
+   "summary": "The third-generation Qin Plus EV has appeared in a regulatory filing, measuring 4,840 mm in length.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-21 06:53 UTC",
+   "_ts": 1792565592,
+   "preview": false,
+   "bullets": [
+    "BYD has released exterior teasers for the third-generation Qin Plus, signaling a major design overhaul for its high-volume family sedan line.",
+    "Regulatory filings indicate the new electric version will measure 4,840 mm in length and feature a 100 kW permanent magnet synchronous motor.",
+    "The update arrives as the current Qin family faces significant sales pressure, with year-to-date sales down 54.71% compared to the previous year."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/21/1146124/interspecies-communication-impossible-issue/",
+   "blog": "MIT Technology Review",
+   "title": "Interspecies communication",
+   "link": "https://www.technologyreview.com/2026/10/21/1146124/interspecies-communication-impossible-issue/",
+   "summary": "Humans are far from the only species with a gift for gab, and our furry, feathered, and finned friends could have a lot to tell us. Decoding how animals communicate with one another could offer a window into the inner lives of other species and help humans realize that “animals are sentient creatures who think,…",
+   "published": "2026-10-21 09:00 UTC",
+   "_ts": 1792573200,
+   "preview": false,
+   "bullets": [
+    "The Earth Species Project (ESP) is utilizing machine learning and large language models to analyze animal vocalizations and identify patterns in interspecies communication.",
+    "Researchers are training 'NatureLM' on a dataset of human speech, music, and animal sounds to attempt the translation of vocalizations from species like carrion crows.",
+    "The field faces significant challenges, including the difficulty of interpreting non-auditory signals like pheromones and the lack of a 'Rosetta stone' to verify the accuracy of AI-generated translations."
+   ],
+   "rating": 2,
+   "read_time": 3
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/21/1146141/eliminating-traffic-deaths-impossible-issue/",
+   "blog": "MIT Technology Review",
+   "title": "Eliminating traffic deaths",
+   "link": "https://www.technologyreview.com/2026/10/21/1146141/eliminating-traffic-deaths-impossible-issue/",
+   "summary": "Every year, traffic crashes kill more than one million people, and they’re the leading cause of death for children and young adults. In the US, 100 people a day lose their lives this way, in many cases not on highways but on rural and local streets. “Traffic deaths are a leading cause of preventable death,…",
+   "published": "2026-10-21 09:00 UTC",
+   "_ts": 1792573200,
+   "preview": false,
+   "bullets": [
+    "Traffic crashes kill over one million people annually, making them a leading cause of preventable death for children and young adults globally.",
+    "Cities like Hoboken, New Jersey, have achieved zero traffic fatalities since 2017 by implementing infrastructure changes such as curb extensions, improved public transit, and data-driven intersection redesigns.",
+    "Widespread adoption of safety measures is often hindered by government bureaucracy and the difficulty of justifying the removal of parking or road space for pedestrian-focused infrastructure."
+   ],
+   "rating": 2,
+   "read_time": 3
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/21/1146053/editor-letter-we-can-do-impossible-things/",
+   "blog": "MIT Technology Review",
+   "title": "We can do impossible things",
+   "link": "https://www.technologyreview.com/2026/10/21/1146053/editor-letter-we-can-do-impossible-things/",
+   "summary": "I’d wager everyone has a rehearsed response to what’s absolutely one of the world’s worst interview questions: “What’s your biggest weakness?” Whenever I’ve gotten it, I take a slow—even pensive—breath and rattle off my line: “I say no to myself too much.”  I won’t lie. It’s a bit shameless—a definite humblebrag. I’m a systems thinker:…",
+   "published": "2026-10-21 09:00 UTC",
+   "_ts": 1792573200,
+   "preview": false,
+   "bullets": [
+    "The editorial team is pivoting the magazine's focus toward 'impossible' ideas to explore the intersection of audacious ambition and scientific reality.",
+    "The publication is reintroducing a regular roster of data-driven infographics and lists to enhance its coverage of complex R&D topics.",
+    "The editorial shift emphasizes the role of technology in addressing global challenges by highlighting projects that push the boundaries of current feasibility."
+   ],
+   "rating": 1,
+   "read_time": 4
   }
  ]
 }
