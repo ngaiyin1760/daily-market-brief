@@ -1,6 +1,110 @@
 {
  "days": [
   {
+   "date": "2026-10-23",
+   "generated_at": "2026-10-23 08:38 HKT",
+   "repos": [
+    {
+     "name": "paradigmxyz/iron-proxy",
+     "url": "https://github.com/paradigmxyz/iron-proxy",
+     "language": "Go",
+     "description": "An egress firewall for untrusted workloads.",
+     "keywords": [],
+     "trendshift_pos": 7,
+     "stars": 749,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A specialized egress firewall designed to secure untrusted workloads by controlling outbound network traffic.",
+     "bullets": [
+      "Built in Go, focusing on high-performance network filtering and security.",
+      "Acts as a gatekeeper for sensitive environments, preventing unauthorized data exfiltration.",
+      "Ideal for infrastructure teams managing multi-tenant environments or untrusted AI agent execution.",
+      "Provides granular control over egress traffic, essential for zero-trust architecture."
+     ]
+    },
+    {
+     "name": "liguobao/ds-harness-remote",
+     "url": "https://github.com/liguobao/ds-harness-remote",
+     "language": "TypeScript",
+     "description": "一个基于 DeepSeek Harness 插件机制构建的多端远程访问方案，通过安全、低延迟、端到端加密的 P2P 优先网络，支持从 PC、Android 和 Web 随时访问并操作远程 Harness 和 CodeX。 (A multi-device remote access solution built on the DeepSeek Harness plugin system, enabling PC, Android, and Web clients to securely access and operate remote Harness and CodeX over a low-latency, end-to-end encrypted, P2P-first network.)",
+     "keywords": [],
+     "trendshift_pos": 8,
+     "stars": 590,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A P2P-based remote access solution for DeepSeek Harness, enabling secure, low-latency control of AI development environments.",
+     "bullets": [
+      "Utilizes P2P-first networking with end-to-end encryption for secure remote connectivity.",
+      "Integrates directly with the DeepSeek Harness plugin system for seamless AI workflow management.",
+      "Supports cross-platform access from PC, Android, and Web browsers.",
+      "Enables developers to manage and operate remote AI agents and CodeX instances on the go."
+     ]
+    },
+    {
+     "name": "Acelogic/Snapintosh",
+     "url": "https://github.com/Acelogic/Snapintosh",
+     "language": "Python",
+     "description": "EL2 hypervisor and toolchain that boots macOS on the ASUS A16 (Snapdragon X2 Elite), with an Adreno Metal/IOGPU stack",
+     "keywords": [],
+     "trendshift_pos": 22,
+     "stars": 558,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An EL2 hypervisor and toolchain enabling macOS execution on Snapdragon X Elite hardware.",
+     "bullets": [
+      "Features a custom EL2 hypervisor and an Adreno Metal/IOGPU graphics stack.",
+      "Bridges the gap between ARM-based Windows hardware and macOS virtualization.",
+      "Provides a unique infrastructure platform for testing cross-platform ARM software.",
+      "Demonstrates advanced low-level systems engineering for modern heterogeneous computing."
+     ],
+     "img": "Acelogic_Snapintosh_0.jpg",
+     "img_alt": "Snapintosh — macOS on Snapdragon; ASCII hands reaching toward a red chip"
+    },
+    {
+     "name": "lemomo-ai/lemo-opuscar",
+     "url": "https://github.com/lemomo-ai/lemo-opuscar",
+     "language": "JavaScript",
+     "description": "Claude Code skill for short films with no video model: 43 film styles, each a style prompt plus a demo film made entirely in code by Claude Opus 5.5 (incl. OPUSCAR 98). By Lemomo. · Opus5.5 x 43 种影片风格：风格提示词 + 纯代码样片 + 导演与技术指南",
+     "keywords": [],
+     "trendshift_pos": 25,
+     "stars": 5567,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A collection of Claude Code skills that generate cinematic film styles through programmatic prompts.",
+     "bullets": [
+      "Leverages Claude Opus 5.5 to translate code-based logic into high-quality visual styles.",
+      "Includes 43 distinct film style presets for automated creative content generation.",
+      "Demonstrates the power of agentic workflows in automating complex creative tasks.",
+      "Useful for rapid prototyping of media assets within AI-driven development pipelines."
+     ],
+     "img": "lemomo-ai_lemo-opuscar_0.jpg",
+     "img_alt": "All styles"
+    },
+    {
+     "name": "fastapi/fastapi",
+     "url": "https://github.com/fastapi/fastapi",
+     "language": "Python",
+     "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+     "keywords": [],
+     "trendshift_pos": 13,
+     "stars": 103741,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A modern, high-performance web framework for building APIs with Python based on standard type hints.",
+     "bullets": [
+      "Built on Starlette and Pydantic, offering industry-leading performance and asynchronous support.",
+      "Automatically generates OpenAPI documentation, critical for fintech and data-heavy API integrations.",
+      "Standardizes request validation and serialization, reducing bugs in production financial services.",
+      "Widely adopted as the backbone for modern AI/ML model serving and microservices infrastructure."
+     ],
+     "img": "fastapi_fastapi_0.jpg",
+     "img_alt": "Swagger UI",
+     "img2": "fastapi_fastapi_1.jpg",
+     "img2_alt": "ReDoc"
+    }
+   ]
+  },
+  {
    "date": "2026-10-22",
    "generated_at": "2026-10-22 08:40 HKT",
    "repos": [

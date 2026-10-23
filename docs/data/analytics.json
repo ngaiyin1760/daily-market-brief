@@ -1,26 +1,60 @@
 {
- "generated_at": "2026-10-22 08:40 HKT",
+ "generated_at": "2026-10-23 08:38 HKT",
  "blogs": [
   {
    "name": "MIT Technology Review",
    "status": "ok",
    "posts": [
     {
-     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/21/1146137/solid-state-batteries-impossible-issue/",
+     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/22/1146948/ais-hidden-storage-bill-what-inference-leaves-behind/",
      "blog": "MIT Technology Review",
-     "title": "Solid-state batteries",
-     "link": "https://www.technologyreview.com/2026/10/21/1146137/solid-state-batteries-impossible-issue/",
-     "summary": "The rise of the lithium-ion battery, which powers everything from the smallest personal electronics to gargantuan energy storage systems, has been nothing short of revolutionary. But as anyone who’s boarded a plane in the last decade could tell you, storing and pumping out energy by moving charged lithium ions through a liquid electrolyte soup has…",
-     "published": "2026-10-21 09:00 UTC",
-     "_ts": 1792573200,
+     "title": "AI’s hidden storage bill: What inference leaves behind",
+     "link": "https://www.technologyreview.com/2026/10/22/1146948/ais-hidden-storage-bill-what-inference-leaves-behind/",
+     "summary": "Ask most executives to picture the cost of AI and they’ll likely see GPUs—racks of accelerators with gigawatts of power—and a waitlist for silicon. But that picture leaves something out: Data storage costs. What happens to data after a model responds? Much of the back-end data that’s generated—from billions of daily prompts, images, and videos—needs…",
+     "published": "2026-10-22 08:41 UTC",
+     "_ts": 1792658478,
      "preview": false,
      "bullets": [
-      "Solid-state batteries replace liquid electrolytes with solid ceramics or polymers to improve energy density, safety, and charging speeds while reducing fire risks.",
-      "Manufacturing at scale remains the primary barrier, as the production of defect-free ceramic electrolytes requires specialized dry-room environments and high-precision assembly.",
-      "QuantumScape and other developers are working to overcome dendrite formation—needlelike filaments that short-circuit cells—with most industry experts projecting price parity with lithium-ion by the mid-2030s."
+      "AI inference generates massive amounts of back-end data, such as logs and cached context, which can be 130 times larger than the actual output file.",
+      "McKinsey projects AI inference demand will grow at a 35% CAGR through 2030, outpacing training demand and consuming over 40% of data center capacity.",
+      "Inadequate storage planning risks expensive GPU idle time, as accelerators often wait for data to be retrieved from storage systems."
      ],
      "rating": 5,
+     "read_time": 6
+    },
+    {
+     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/22/1146109/designing-an-ai-serving-harness-built-to-last/",
+     "blog": "MIT Technology Review",
+     "title": "Designing an AI serving harness built to last",
+     "link": "https://www.technologyreview.com/2026/10/22/1146109/designing-an-ai-serving-harness-built-to-last/",
+     "summary": "The next competitive advantage in enterprise AI has less to do with which model you choose than with what you build around it. That’s an important shift. For the past several years, much of the AI conversation has centered on model capability: bigger models, better reasoning, larger context windows, higher benchmark scores. Those advances have…",
+     "published": "2026-10-22 21:17 UTC",
+     "_ts": 1792703849,
+     "preview": false,
+     "bullets": [
+      "Enterprise AI success is shifting from model selection to the engineering of the 'serving harness,' which manages memory, scheduling, and architecture.",
+      "Technical executives must prioritize workload-specific constraints—such as latency and GPU utilization—over raw model capability to ensure production reliability.",
+      "A model that offers marginal accuracy gains may be a poor business choice if it significantly increases inference costs or fails to meet operational performance requirements."
+     ],
+     "rating": 4,
      "read_time": 5
+    },
+    {
+     "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/22/1146812/making-the-case-for-context-aware-ai/",
+     "blog": "MIT Technology Review",
+     "title": "Making the case for context-aware AI",
+     "link": "https://www.technologyreview.com/2026/10/22/1146812/making-the-case-for-context-aware-ai/",
+     "summary": "Enterprise AI can generate recommendations, automate tasks, and help organizations make decisions faster. But without an understanding of how a business actually operates, even powerful models can miss the constraints and relationships that determine whether a decision is the right one. As companies look to move AI from experimentation into everyday operations, the challenge ahead…",
+     "published": "2026-10-22 10:00 UTC",
+     "_ts": 1792663200,
+     "preview": false,
+     "bullets": [
+      "AI agents require deep integration with operational data and business processes to avoid costly mistakes and inefficient resource consumption.",
+      "Decision intelligence relies on a contextual layer that allows agents to operate within defined guardrails and understand the specific business conditions of a task.",
+      "Organizations should focus on automating high-value, complex decision steps rather than simple tasks to maximize the ROI of AI deployments."
+     ],
+     "rating": 4,
+     "read_time": 17
     }
    ]
   },
@@ -29,21 +63,22 @@
    "status": "ok",
    "posts": [
     {
-     "_key": "SemiEngineering|https://semiengineering.com/accelerate-yield-ramp-with-closed-loop-yield-learning/",
+     "_key": "SemiEngineering|https://semiengineering.com/chip-scaling-moves-beyond-the-transistor/",
      "blog": "SemiEngineering",
-     "title": "Accelerate Yield Ramp with Closed-Loop Yield Learning",
-     "link": "https://semiengineering.com/accelerate-yield-ramp-with-closed-loop-yield-learning/",
-     "summary": "An analytics-driven approach leveraging integrated industry leading technologies targeting advanced node devices.\nThe post Accelerate Yield Ramp with Closed-Loop Yield Learning appeared first on Semiconductor Engineering.",
-     "published": "2026-10-21 07:01 UTC",
-     "_ts": 1792566067,
+     "title": "Chip Scaling Moves Beyond The Transistor",
+     "link": "https://semiengineering.com/chip-scaling-moves-beyond-the-transistor/",
+     "summary": "SEMICON West 2026: Advanced packaging, photonics, test, and AI are increasingly intertwined; very different conversations ahead. \nThe post Chip Scaling Moves Beyond The Transistor appeared first on Semiconductor Engineering.",
+     "published": "2026-10-22 07:05 UTC",
+     "_ts": 1792652716,
      "preview": false,
      "bullets": [
-      "Closed-loop yield learning is becoming essential for advanced node production to minimize time-to-market and reduce the high costs associated with yield loss.",
-      "Advanced analytics-driven diagnostics allow engineers to reverse-engineer test failures from automatic test equipment (ATE) to pinpoint precise failure locations within a chip.",
-      "By ranking failure candidates based on yield impact, manufacturers can prioritize root-cause analysis and implement corrective actions in either design or process flows more efficiently."
+      "The semiconductor industry is projected to reach a $2 trillion market valuation by 2030, with 300mm fab equipment spending expected to hit $227 billion by 2029.",
+      "Scaling is no longer just about transistor density; it has become a system-level challenge requiring co-design across physics, materials, architecture, and software.",
+      "Advanced packaging, photonics, and AI-driven design are converging, making it increasingly difficult to optimize these technologies in isolation.",
+      "The industry is undergoing a fundamental shift toward 're-engineering engineering,' where the workload itself defines the optimization parameters for the entire hardware stack."
      ],
      "rating": 5,
-     "read_time": 9
+     "read_time": 15
     }
    ]
   },
@@ -52,58 +87,18 @@
    "status": "ok",
    "posts": [
     {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/10/21/catl-shares-fall-profit-pressure/",
+     "_key": "CNEVPOST|https://cnevpost.com/2026/10/22/catl-battery-swap-baic-adoption/",
      "blog": "CNEVPOST",
-     "title": "CATL shares fall over 10% in Hong Kong as tax changes add to profit pressure",
-     "link": "https://cnevpost.com/2026/10/21/catl-shares-fall-profit-pressure/",
-     "summary": "CATL's Hong Kong shares fell to their lowest since July 2025 after third-quarter net profit declined 5.77% from the previous quarter.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-10-21 06:29 UTC",
-     "_ts": 1792564173,
+     "title": "CATL expands battery swap partnership as BAIC plans adoption across multiple brands",
+     "link": "https://cnevpost.com/2026/10/22/catl-battery-swap-baic-adoption/",
+     "summary": "BAIC will connect models across multiple brands to CATL's battery swap network and open its dealer network to support station construction.\nFor details, please visit CnEVPost (cnev.co).",
+     "published": "2026-10-22 13:07 UTC",
+     "_ts": 1792674442,
      "preview": false,
      "bullets": [
-      "CATL shares dropped over 10% following a 5.77% sequential decline in third-quarter net profit, despite a 58.58% year-on-year revenue increase.",
-      "Profitability is being squeezed by new government consumption taxes on lithium batteries and the reduction of export tax rebates.",
-      "Management is currently negotiating cost-sharing arrangements with customers to mitigate the impact of these tax policy changes on unit margins."
-     ],
-     "rating": 5,
-     "read_time": 3
-    },
-    {
-     "_key": "CNEVPOST|https://cnevpost.com/2026/10/21/china-nev-retail-first-18-days-oct-2026/",
-     "blog": "CNEVPOST",
-     "title": "China NEV retail sales fall 13% in first 18 days of October, penetration rebounds to 65.9%",
-     "link": "https://cnevpost.com/2026/10/21/china-nev-retail-first-18-days-oct-2026/",
-     "summary": "China's passenger NEV retail sales totaled 520,000 units from October 1 to 18, down 13% year-on-year and 2% from the same period last month.\nFor details, please visit CnEVPost (cnev.co).",
-     "published": "2026-10-21 09:32 UTC",
-     "_ts": 1792575137,
-     "preview": false,
-     "bullets": [
-      "China's passenger NEV retail sales reached 520,000 units in the first 18 days of October, representing a 13% year-on-year decline.",
-      "NEV penetration reached 65.9% during this period, showing a rebound from early October levels but remaining below the record 67% seen in September.",
-      "The broader passenger car market is facing significant headwinds, with retail sales falling 26% year-on-year and daily sales trends weakening throughout the month."
-     ],
-     "rating": 4,
-     "read_time": 3
-    }
-   ]
-  },
-  {
-   "name": "Stratechery",
-   "status": "ok",
-   "posts": [
-    {
-     "_key": "Stratechery|https://stratechery.com/2026/netflix-earnings-business-or-franchise-disneys-deal/",
-     "blog": "Stratechery",
-     "title": "Netflix Earnings, Business or Franchise, Disney’s Deal",
-     "link": "https://stratechery.com/2026/netflix-earnings-business-or-franchise-disneys-deal/",
-     "summary": "Netflix has a solid business, which is exactly the problem: the company increasingly seems like a business and not a franchise, at least in terms of growth.",
-     "published": "2026-10-21 10:00 UTC",
-     "_ts": 1792576800,
-     "preview": false,
-     "bullets": [
-      "Netflix is facing a growth plateau where it is increasingly viewed as a standard business rather than a high-growth franchise.",
-      "The analysis highlights the difficulty for mature streaming platforms to maintain the explosive growth metrics expected by public markets.",
-      "The content suggests that the transition from a growth-oriented tech company to a stable media business creates significant valuation challenges for investors."
+      "BAIC Group and CATL have deepened their partnership to integrate multiple BAIC brands into the Choco-SEB battery swap network.",
+      "The collaboration includes opening BAIC's dealer network to facilitate the construction of public energy replenishment infrastructure.",
+      "The companies aim to establish a mature battery swap ecosystem capable of serving a million-level vehicle population, leveraging recurring revenue models from battery rentals."
      ],
      "rating": 4,
      "read_time": 3
