@@ -1,103 +1,99 @@
 {
- "generated_at": "2026-10-23 08:38 HKT",
+ "generated_at": "2026-10-24 08:38 HKT",
  "repos": [
   {
-   "name": "paradigmxyz/iron-proxy",
-   "url": "https://github.com/paradigmxyz/iron-proxy",
-   "language": "Go",
-   "description": "An egress firewall for untrusted workloads.",
+   "name": "humanlayer/humanlayer",
+   "url": "https://github.com/humanlayer/humanlayer",
+   "language": "TypeScript",
+   "description": "The best way to get AI coding agents to solve hard problems in complex codebases.",
    "keywords": [],
-   "trendshift_pos": 7,
-   "stars": 749,
+   "trendshift_pos": 1,
+   "stars": 11883,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A specialized egress firewall designed to secure untrusted workloads by controlling outbound network traffic.",
+   "one_liner": "A developer-focused platform that integrates human-in-the-loop oversight into AI agent workflows.",
    "bullets": [
-    "Built in Go, focusing on high-performance network filtering and security.",
-    "Acts as a gatekeeper for sensitive environments, preventing unauthorized data exfiltration.",
-    "Ideal for infrastructure teams managing multi-tenant environments or untrusted AI agent execution.",
-    "Provides granular control over egress traffic, essential for zero-trust architecture."
+    "Built with TypeScript to provide seamless integration for AI coding agents.",
+    "Enables real-time human approval and intervention for sensitive agentic operations.",
+    "Designed to solve complex, high-stakes coding tasks by bridging the gap between autonomous agents and human oversight.",
+    "Ideal for enterprise environments requiring audit trails and safety guardrails for AI-driven development."
    ]
   },
   {
-   "name": "liguobao/ds-harness-remote",
-   "url": "https://github.com/liguobao/ds-harness-remote",
+   "name": "harvard-edge/cs249r_book",
+   "url": "https://github.com/harvard-edge/cs249r_book",
+   "language": "Python",
+   "description": "Machine Learning Systems: Foundations, Scaling, Agentic AI, and Physical AI (Vols I–IV) • Harvard CS249r | https://mlsysbook.ai",
+   "keywords": [
+    "Learning resources"
+   ],
+   "trendshift_pos": 17,
+   "stars": 29353,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A comprehensive, open-source academic resource covering the foundations of Machine Learning Systems and Agentic AI.",
+   "bullets": [
+    "Python-based educational content covering ML systems, scaling, and physical AI.",
+    "Provides deep technical insights into the infrastructure required to support modern LLM and agentic workloads.",
+    "Serves as a foundational text for engineers building high-performance AI infrastructure.",
+    "Covers critical topics like distributed training, inference optimization, and agentic system architecture."
+   ]
+  },
+  {
+   "name": "anthropics/sandbox-runtime",
+   "url": "https://github.com/anthropics/sandbox-runtime",
    "language": "TypeScript",
-   "description": "一个基于 DeepSeek Harness 插件机制构建的多端远程访问方案，通过安全、低延迟、端到端加密的 P2P 优先网络，支持从 PC、Android 和 Web 随时访问并操作远程 Harness 和 CodeX。 (A multi-device remote access solution built on the DeepSeek Harness plugin system, enabling PC, Android, and Web clients to securely access and operate remote Harness and CodeX over a low-latency, end-to-end encrypted, P2P-first network.)",
+   "description": "A lightweight sandboxing tool for enforcing filesystem and network restrictions on arbitrary processes at the OS level, without requiring a container.",
    "keywords": [],
    "trendshift_pos": 8,
-   "stars": 590,
+   "stars": 5932,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A P2P-based remote access solution for DeepSeek Harness, enabling secure, low-latency control of AI development environments.",
+   "one_liner": "A lightweight, container-free sandboxing tool for enforcing strict filesystem and network security policies.",
    "bullets": [
-    "Utilizes P2P-first networking with end-to-end encryption for secure remote connectivity.",
-    "Integrates directly with the DeepSeek Harness plugin system for seamless AI workflow management.",
-    "Supports cross-platform access from PC, Android, and Web browsers.",
-    "Enables developers to manage and operate remote AI agents and CodeX instances on the go."
+    "Implemented in TypeScript to provide OS-level process isolation without the overhead of Docker or VMs.",
+    "Enforces granular security restrictions on arbitrary processes to prevent unauthorized system access.",
+    "Critical infrastructure component for safely executing untrusted code or AI agent tasks.",
+    "Reduces attack surface by limiting process capabilities at the kernel/OS interface."
    ]
   },
   {
-   "name": "Acelogic/Snapintosh",
-   "url": "https://github.com/Acelogic/Snapintosh",
-   "language": "Python",
-   "description": "EL2 hypervisor and toolchain that boots macOS on the ASUS A16 (Snapdragon X2 Elite), with an Adreno Metal/IOGPU stack",
-   "keywords": [],
-   "trendshift_pos": 22,
-   "stars": 558,
+   "name": "makecindy/cindy",
+   "url": "https://github.com/makecindy/cindy",
+   "language": "TypeScript",
+   "description": "Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。",
+   "keywords": [
+    "AI agent"
+   ],
+   "trendshift_pos": 12,
+   "stars": 3529,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An EL2 hypervisor and toolchain enabling macOS execution on Snapdragon X Elite hardware.",
+   "one_liner": "An open-source, out-of-the-box AI agent designed to execute complex tasks autonomously.",
    "bullets": [
-    "Features a custom EL2 hypervisor and an Adreno Metal/IOGPU graphics stack.",
-    "Bridges the gap between ARM-based Windows hardware and macOS virtualization.",
-    "Provides a unique infrastructure platform for testing cross-platform ARM software.",
-    "Demonstrates advanced low-level systems engineering for modern heterogeneous computing."
-   ],
-   "img": "Acelogic_Snapintosh_0.jpg",
-   "img_alt": "Snapintosh — macOS on Snapdragon; ASCII hands reaching toward a red chip"
+    "TypeScript-based architecture optimized for immediate deployment and task execution.",
+    "Focuses on agentic workflows that translate high-level intent into actionable, multi-step processes.",
+    "Designed to function as a general-purpose assistant for automating repetitive technical or administrative workflows.",
+    "Provides a modular framework for developers to extend agent capabilities for specific business domains."
+   ]
   },
   {
-   "name": "lemomo-ai/lemo-opuscar",
-   "url": "https://github.com/lemomo-ai/lemo-opuscar",
-   "language": "JavaScript",
-   "description": "Claude Code skill for short films with no video model: 43 film styles, each a style prompt plus a demo film made entirely in code by Claude Opus 5.5 (incl. OPUSCAR 98). By Lemomo. · Opus5.5 x 43 种影片风格：风格提示词 + 纯代码样片 + 导演与技术指南",
+   "name": "xevrion/hatchzip",
+   "url": "https://github.com/xevrion/hatchzip",
+   "language": "Rust",
+   "description": "Extract huge archives in place: the archive shrinks as your files hatch, so you only need room for the output. ZIP, 7z, tar, split archives.",
    "keywords": [],
-   "trendshift_pos": 25,
-   "stars": 5567,
+   "trendshift_pos": 5,
+   "stars": 980,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A collection of Claude Code skills that generate cinematic film styles through programmatic prompts.",
+   "one_liner": "A high-performance Rust utility for extracting massive archives in-place to minimize disk space requirements.",
    "bullets": [
-    "Leverages Claude Opus 5.5 to translate code-based logic into high-quality visual styles.",
-    "Includes 43 distinct film style presets for automated creative content generation.",
-    "Demonstrates the power of agentic workflows in automating complex creative tasks.",
-    "Useful for rapid prototyping of media assets within AI-driven development pipelines."
-   ],
-   "img": "lemomo-ai_lemo-opuscar_0.jpg",
-   "img_alt": "All styles"
-  },
-  {
-   "name": "fastapi/fastapi",
-   "url": "https://github.com/fastapi/fastapi",
-   "language": "Python",
-   "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
-   "keywords": [],
-   "trendshift_pos": 13,
-   "stars": 103741,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A modern, high-performance web framework for building APIs with Python based on standard type hints.",
-   "bullets": [
-    "Built on Starlette and Pydantic, offering industry-leading performance and asynchronous support.",
-    "Automatically generates OpenAPI documentation, critical for fintech and data-heavy API integrations.",
-    "Standardizes request validation and serialization, reducing bugs in production financial services.",
-    "Widely adopted as the backbone for modern AI/ML model serving and microservices infrastructure."
-   ],
-   "img": "fastapi_fastapi_0.jpg",
-   "img_alt": "Swagger UI",
-   "img2": "fastapi_fastapi_1.jpg",
-   "img2_alt": "ReDoc"
+    "Written in Rust for memory safety and high-throughput I/O performance.",
+    "Implements an in-place extraction algorithm that shrinks the source archive as files are processed.",
+    "Essential devtool for managing large datasets, logs, or model weights in resource-constrained environments.",
+    "Supports multiple formats including ZIP, 7z, and tar, making it a versatile utility for data-heavy infrastructure pipelines."
+   ]
   }
  ]
 }
