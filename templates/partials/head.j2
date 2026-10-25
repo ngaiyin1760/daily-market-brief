@@ -81,6 +81,8 @@
   [data-theme="dark"] .saved-item,
   [data-theme="dark"] .search-box input,
   [data-theme="dark"] .day-jump { background: var(--card); border-color: var(--rule-dark); color: var(--ink); }
+  /* Analytics filters: the native dropdown list follows the select, not the OS white. */
+  [data-theme="dark"] .filters .day-jump option { background: var(--card); color: var(--ink); }
   [data-theme="dark"] .rag-answer { background: #241f33; border-color: var(--rule-dark); }
   [data-theme="dark"] .imp-badge { color: #fff; }  /* badges keep colored bg */
   [data-theme="dark"] .imp-verdict { color: var(--ink-soft); }
@@ -1378,6 +1380,38 @@
     background: var(--card);
     color: var(--ink);
   }
+
+  /* Source + importance filters above the day accordion */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 18px;
+    margin: 14px 0 18px;
+  }
+  .filters .day-jump-wrap { margin: 0; }
+  .filter-status {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  .filter-reset[hidden] { display: none; }
+  /* The `hidden` attribute must beat the block display of the day/section/card
+     wrappers, which are styled by class and not by attribute. */
+  .day-group[hidden],
+  .desk[hidden],
+  .blog-card[hidden] { display: none !important; }
+  @media (max-width: 640px) {
+    .filters {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+    .filters .day-jump-wrap { width: 100%; }
+    .filters .day-jump { flex: 1 1 auto; min-width: 0; }
+    .filters .filter-btn { width: 100%; }
+  }
+
   .day-group {
     border: 1px solid var(--rule);
     border-radius: 10px;

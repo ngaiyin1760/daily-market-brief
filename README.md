@@ -129,7 +129,13 @@ the model (default `gemini-3.1-flash-lite`).
   picks 5 trending GitHub repos per the topics in `repo_radar.md`
   (trendshift.io velocity ranking primary, GitHub Search API fallback, one
   Gemini curation call), rendering both
-  `analytics.html` and `repo-radar.html`.
+  `analytics.html` and `repo-radar.html`. The rendered Analytics page carries
+  two correlated filters over that day history — **Source** (blog) and
+  **Importance** (1–5★), each option labelled with its count, both applied
+  together — with a Reset button, a live match count, an empty state ("No
+  posts match these filters."), and deep links of the form
+  `analytics.html?source=<blog name>&rating=<1-5>` (either parameter
+  optional).
 - Output: `docs/index.html` (latest day), `docs/days/YYYY-MM-DD.html` (one
   standalone page per day), `docs/markets.html` (all indicator charts +
   figures with 10y history and zoom buttons, driven by

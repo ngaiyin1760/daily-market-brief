@@ -19,15 +19,34 @@
   </header>
 
   {% if days %}
-  <div class="day-jump-wrap">
-    <label for="day-jump">Jump to</label>
-    <select id="day-jump" class="day-jump">
-      {% for d in days %}<option value="{{ d.date|e }}">{{ d.date|e }}{% if loop.first %} (latest){% endif %}</option>{% endfor %}
-    </select>
+  <div class="filters">
+    <div class="day-jump-wrap">
+      <label for="source-filter">Source</label>
+      <select id="source-filter" class="day-jump">
+        <option value="">All sources ({{ total_posts }})</option>
+        {% for s in sources %}<option value="{{ s.name|e }}">{{ s.name|e }} ({{ s.count }})</option>{% endfor %}
+      </select>
+    </div>
+    <div class="day-jump-wrap">
+      <label for="rating-filter">Importance</label>
+      <select id="rating-filter" class="day-jump">
+        <option value="">Any importance</option>
+        {% for r in ratings %}<option value="{{ r.rating }}">{{ r.rating }}★ ({{ r.count }})</option>{% endfor %}
+      </select>
+    </div>
+    <div class="day-jump-wrap">
+      <label for="day-jump">Jump to</label>
+      <select id="day-jump" class="day-jump">
+        {% for d in days %}<option value="{{ d.date|e }}">{{ d.date|e }}{% if loop.first %} (latest){% endif %}</option>{% endfor %}
+      </select>
+    </div>
+    <button type="button" id="filter-reset" class="filter-btn" hidden>Reset</button>
   </div>
+  <div class="filter-status" id="filter-status" role="status" aria-live="polite"></div>
+  <p class="empty-note" id="filter-empty" hidden>No posts match these filters.</p>
 
   {% for d in days %}
-  <details class="day-group" id="day-{{ d.date|e }}"{% if loop.first %} open{% endif %}>
+  <details class="day-group" id="day-{{ d.date|e }}" data-day="{{ d.date|e }}"{% if loop.first %} open{% endif %}>
     <summary class="day-bar">
       <svg class="day-chevron" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span class="day-date">{{ d.date|e }}</span>
@@ -36,11 +55,12 @@
     </summary>
     <div class="day-body">
       {% for b in d.blogs %}
-      <section class="desk reveal">
+      <section class="desk" data-source="{{ b.name|e }}">
         <h2>{{ b.name|e }}</h2>
         {% for post in b.posts %}
-        <article class="blog-card">
+        <article class="blog-card" data-source="{{ b.name|e }}" data-rating="{{ post.rating }}">
           <div class="bc-head">
+            <span class="rating-chip r{{ post.rating }}" title="Importance {{ post.rating }} of 5" aria-label="Importance {{ post.rating }} of 5">{{ post.rating }}★</span>
             {% if post.preview %}<span class="preview-tag">preview only</span>{% endif %}
             {% if post.read_time %}<span class="chip read-time-chip">{{ post.read_time }} min</span>{% endif %}
           </div>

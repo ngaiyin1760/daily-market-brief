@@ -13,7 +13,11 @@ Every day's shown posts are also appended to a cumulative history at
 `docs/data/analytics_history.json` (newest first, one entry per date, keyed by
 date so re-running a day overwrites it). Each entry keeps the full post record
 (title, link, bullets, rating, source, publish time, preview flag) so the data
-is available for future builds.
+is available for future builds. That history is what the Analytics page
+renders: collapsible per-day groups that can be narrowed in place by
+**Source** (blog) and **Importance** (1–5★), applied together, or opened
+directly at `analytics.html?source=<blog name>&rating=<1-5>` — both
+parameters optional.
 
 ## How to edit
 

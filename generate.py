@@ -2007,6 +2007,54 @@ def _group_posts_by_blog(posts):
     ]
 
 
+def build_analytics_context():
+    """Read the analytics history and build everything the page renders from:
+    (history_days, sources, ratings, total_posts).
+
+    history_days is the per-day view model. sources and ratings are the
+    aggregates behind the Source / Importance selects; they cover the whole
+    history rather than today only, because the page renders every day at once
+    and the filters apply across all of them."""
+    history_days = []
+    try:
+        data = json.loads(ANALYTICS_HISTORY_PATH.read_text(encoding="utf-8"))
+        raw_days = data.get("days", []) if isinstance(data, dict) else []
+    except Exception:
+        raw_days = []
+
+    source_counts, source_days, rating_counts = {}, {}, {}
+    total_posts = 0
+    for d in raw_days:
+        posts = d.get("posts") or []
+        total_posts += len(posts)
+        seen_sources = set()
+        for post in posts:
+            # "Other" matches what _group_posts_by_blog does with a missing
+            # blog name, so option values line up with the rendered desks.
+            name = post.get("blog") or "Other"
+            source_counts[name] = source_counts.get(name, 0) + 1
+            seen_sources.add(name)
+            rating = post.get("rating")
+            if rating is not None:
+                rating_counts[rating] = rating_counts.get(rating, 0) + 1
+        for name in seen_sources:
+            source_days[name] = source_days.get(name, 0) + 1
+        history_days.append({
+            "date": d.get("date", ""),
+            "generated_at": d.get("generated_at", ""),
+            "blogs": _group_posts_by_blog(posts),
+            "post_count": len(posts),
+        })
+
+    sources = [{"name": name, "count": source_counts[name],
+                "days": source_days.get(name, 0)}
+               for name in sorted(source_counts,
+                                  key=lambda n: (-source_counts[n], n))]
+    ratings = [{"rating": r, "count": rating_counts[r]}
+               for r in sorted(rating_counts, reverse=True)]
+    return history_days, sources, ratings, total_posts
+
+
 # ---------------------------------------------------------------------------
 # Search index (keyword + semantic embeddings) for the Search page
 # ---------------------------------------------------------------------------
@@ -3882,26 +3930,13 @@ def render_analytics_page(page_date, generated_at, blogs_meta):
     """Render the Analytics (blog digest) page + raw debug JSON.
 
     The page shows the cumulative history as collapsible per-day sections
-    (today open by default, newest first); today's run is also appended to
-    the history store."""
+    (today open by default, newest first) plus Source / Importance filters
+    over that history; today's run is also appended to the history store."""
     from jinja2 import Environment, FileSystemLoader, select_autoescape
 
     update_analytics_history(page_date, generated_at, blogs_meta)
 
-    history_days = []
-    try:
-        data = json.loads(ANALYTICS_HISTORY_PATH.read_text(encoding="utf-8"))
-        raw_days = data.get("days", []) if isinstance(data, dict) else []
-    except Exception:
-        raw_days = []
-    for d in raw_days:
-        posts = d.get("posts") or []
-        history_days.append({
-            "date": d.get("date", ""),
-            "generated_at": d.get("generated_at", ""),
-            "blogs": _group_posts_by_blog(posts),
-            "post_count": len(posts),
-        })
+    history_days, sources, ratings, total_posts = build_analytics_context()
 
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATE_PATH.parent)),
@@ -3909,7 +3944,8 @@ def render_analytics_page(page_date, generated_at, blogs_meta):
     )
     html = env.get_template("analytics.html.j2").render(
         base=".", page_date=page_date, generated_at=generated_at,
-        days=history_days, daily_max=ANALYTICS_DAILY_MAX, is_analytics=True)
+        days=history_days, sources=sources, ratings=ratings,
+        total_posts=total_posts, daily_max=ANALYTICS_DAILY_MAX, is_analytics=True)
     (DOCS_DIR / "analytics.html").write_text(html, encoding="utf-8")
     log.info("Wrote %s", DOCS_DIR / "analytics.html")
     payload = {"generated_at": generated_at, "blogs": blogs_meta}
