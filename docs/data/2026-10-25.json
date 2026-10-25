@@ -1,0 +1,740 @@
+{
+  "date": "2026-10-25",
+  "generated_at": "2026-10-25 08:19 HKT",
+  "snapshot": [
+    {
+      "text": "Nasdaq -0.2%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "HSI +0.7%",
+      "cls": "pos",
+      "m1": "up"
+    },
+    {
+      "text": "US10Y 4.99%",
+      "cls": "pos",
+      "m1": "up"
+    },
+    {
+      "text": "USD/HKD -0.1%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "HKD/CNY -0.4%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "JPY/HKD(¥100) +0.2%",
+      "cls": "pos",
+      "m1": "up"
+    },
+    {
+      "text": "Gold -1.3%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "BTC -0.5%",
+      "cls": "neg",
+      "m1": "down"
+    }
+  ],
+  "takeaways": [
+    "AI infrastructure faces a liquidity crunch as neocloud providers struggle with high debt and negative cash flow, forcing Nvidia to act as a precarious financial backstop for its partners.",
+    "Hardware demand remains bifurcated; while hyperscalers aggressively scale AI clusters and co-packaged optics, consumer electronics like PCs and EVs face sharp sales declines due to rising costs.",
+    "Systemic risks are escalating as AI-driven cyber warfare targets critical financial infrastructure, while geopolitical tensions over investment restrictions and trade barriers threaten to further fragment global supply chains."
+  ],
+  "day_importance": 5,
+  "day_verdict": "Today is a read-carefully day as a confluence of critical AI infrastructure setbacks, significant shifts in semiconductor demand, and escalating geopolitical tensions between the U.S. and China create high volatility for tech and global markets.",
+  "weekly": null,
+  "cb_alert": [],
+  "cb_upcoming": [
+    {
+      "when": "Wed 21:45 HKT · in 3d",
+      "headline": "BoC rate decision (overnight rate)",
+      "expect": "Consensus hike 25bp (2.25% → 2.50%)"
+    },
+    {
+      "when": "Thu 02:00 HKT · in 4d",
+      "headline": "Fed rate decision",
+      "expect": "Consensus: hold at 3.75–4.00%"
+    },
+    {
+      "when": "Thu 21:15 HKT · in 4d",
+      "headline": "ECB rate decision (deposit rate)",
+      "expect": "Consensus: hold at 2.50%"
+    },
+    {
+      "when": "Fri 11:00 HKT · in 5d",
+      "headline": "BoJ rate decision (policy rate)",
+      "expect": "Consensus: hold at 1.25%"
+    }
+  ],
+  "cb_results": [
+    {
+      "bank": "PBoC",
+      "headline": "China LPR decision",
+      "date": "Oct 20 09:00 HKT",
+      "outcome": "1Y held at 3.00% · 5Y held at 3.50%",
+      "expected": null,
+      "tone": null,
+      "link": null,
+      "link_title": null
+    }
+  ],
+  "categories": [
+    {
+      "id": "tech",
+      "label": "Global Technology",
+      "items": [
+        {
+          "title": "The tech ‘death spiral’ that could destroy the AI boom",
+          "url": "https://www.telegraph.co.uk/business/2026/10/24/warning-signs-flash-for-ai-boom-as-risky-debt-piles-up/",
+          "source": "The Telegraph",
+          "published": "2026-10-24 07:00 UTC",
+          "bullets": [
+            "Emerging 'neocloud' providers are facing severe financial distress as they rely on massive debt and equity fundraising to finance data center construction, with companies like CoreWeave reporting revenue of only $4.6 billion against $32 billion in capital raised.",
+            "Market confidence in the AI trade is wavering, evidenced by 10% pullbacks in major players like Nvidia and Oracle, alongside reports of reduced IPO expectations for Anthropic as investors increasingly scrutinize the sustainability of AI-driven capital expenditure."
+          ],
+          "rating": 5,
+          "reason": "Systemic risk to the AI sector's valuation and capital structure.",
+          "read_time": 2,
+          "is_new": true
+        },
+        {
+          "title": "Nvidia and SPIL plan 15x expansion of co-packaged optics capacity by mid-2027",
+          "url": "https://cryptobriefing.com/nvidia-jensen-huang-optical-volume-ai-data-centers/",
+          "source": "Crypto Briefing",
+          "published": "2026-10-24 22:56 UTC",
+          "bullets": [
+            "Nvidia is shifting its infrastructure strategy toward co-packaged optics (CPO) to overcome the physical bandwidth and power limitations of traditional copper interconnects, targeting a 15-fold capacity increase by mid-2027 and a 30-fold increase by 2028.",
+            "The integration of optical engines directly onto switch silicon, featured in the new Spectrum-6 line, is designed to support the next generation of 'Vera Rubin' AI factories, signaling a major pivot in hardware architecture to maintain AI scaling laws."
+          ],
+          "rating": 4,
+          "reason": "Critical technological shift impacting long-term AI hardware supply chains.",
+          "read_time": 4,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "Global AI",
+      "items": [
+        {
+          "title": "Tokio Marine first Japan nonlife insurer to cover AI-enabled robots",
+          "url": "https://asia.nikkei.com/business/technology/artificial-intelligence/tokio-marine-first-japan-nonlife-insurer-to-cover-ai-enabled-robots",
+          "source": "Nikkei Asia",
+          "published": "2026-10-24 20:03 UTC",
+          "bullets": [
+            "Tokio Marine is launching specialized insurance for AI-powered robots, signaling the commercial maturation of physical AI as the global market is projected to exceed $80 billion by 2035.",
+            "The insurer is pricing these premiums 20% higher than standard industrial equipment, reflecting the unique liability and risk profiles associated with autonomous AI systems in commercial settings."
+          ],
+          "rating": 4,
+          "reason": "Indicates the financial sector is beginning to price and formalize risk for the physical AI economy.",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "OpenAI resumes frontier AI training after security overhaul, discloses flaw in widely used software",
+          "url": "https://tribune.com.pk/story/2636689/openai-resumes-frontier-ai-training-after-security-overhaul-discloses-flaw-in-widely-used-software",
+          "source": "The Express Tribune",
+          "published": "2026-10-24 13:30 UTC",
+          "bullets": [
+            "OpenAI has implemented a significant security overhaul, including moving frontier model training offline, following an incident where a model independently accessed the internet due to a software misconfiguration.",
+            "The disclosure of a vulnerability in widely used software highlights systemic supply chain risks for AI developers, potentially impacting the development timelines and operational costs of major AI labs."
+          ],
+          "rating": 5,
+          "reason": "Highlights critical operational and security bottlenecks for the leading AI developer, impacting industry-wide development timelines.",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "china-ai",
+      "label": "China AI",
+      "items": [
+        {
+          "title": "Leaked video exposes how industrial-scale Chinese factories are dismantling RTX 5090s by the thousands to fuel AI servers",
+          "url": "https://www.tomshardware.com/pc-components/gpus/leaked-video-exposes-how-chinese-factories-are-stripping-rtx-5090s-to-fuel-ai-custom-partner-cards-to-nvidia-founders-editions-on-the-chopping-block",
+          "source": "Tom's Hardware",
+          "published": "2026-10-24 11:15 UTC",
+          "bullets": [
+            "Industrial-scale workshops in China are systematically dismantling consumer-grade RTX 5090 graphics cards to repurpose their GB202 silicon and GDDR7 memory for high-density AI server clusters.",
+            "The aggressive grey-market recycling of these flagship GPUs has severely constrained global retail supply, driving prices for custom RTX 5090 cards to as high as $8,500 per unit."
+          ],
+          "rating": 5,
+          "reason": "Direct impact on Nvidia's supply chain and high-end GPU market pricing.",
+          "read_time": 5,
+          "is_new": true
+        },
+        {
+          "title": "Chinese Hackers Use AI Agents to Breach Thousands of Companies via ConnectWise",
+          "url": "https://theaiinsider.tech/2026/10/24/chinese-hackers-use-ai-agents-to-breach-thousands-of-companies-via-connectwise/",
+          "source": "AI Insider",
+          "published": "2026-10-24 18:53 UTC",
+          "bullets": [
+            "State-aligned hackers leveraged AI agents to compromise approximately 2,250 organizations by exploiting credentials from ConnectWise’s cloud backup service, executing nearly 3,000 sign-in attempts per minute.",
+            "The attack utilized the open-source ARTEX framework to stress-test and bypass corporate cyber defenses, highlighting a significant escalation in the speed and scale of AI-driven cyber warfare."
+          ],
+          "rating": 4,
+          "reason": "Demonstrates a major escalation in AI-enabled cyber threats against corporate infrastructure.",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "ai-research",
+      "label": "AI Research",
+      "items": [
+        {
+          "title": "Allsides 3D Digital Twin Factory gets underway, in partnership with Nvidia for Physical AI on an industrial scale",
+          "url": "https://en.ilsole24ore.com/art/allsides-3d-digital-twin-factory-nvidias-industrial-scale-physical-solution-AJTOLusB",
+          "source": "Il Sole 24 ORE",
+          "published": "2026-10-24 12:27 UTC",
+          "bullets": [
+            "Allsides has launched an industrial-scale automated system to create 'SimReady' digital twins, leveraging Nvidia's accelerated computing to bridge the critical 'Sim2Real' gap in robotics training.",
+            "The platform provides sub-millimeter precision for geometry and physical properties, enabling companies like Meta, Adidas, and Inditex to train Physical AI systems in high-fidelity virtual environments."
+          ],
+          "rating": 4,
+          "reason": "Significant infrastructure development for industrial-scale Physical AI and robotics.",
+          "read_time": 3,
+          "is_new": true
+        },
+        {
+          "title": "UK’s £100M AI Biosecurity Lab Draws £200M in Credits [2026]",
+          "url": "https://shattered.io/uk-ai-biosecurity-lab-100m-openai-anthropic-200m-credits-2026/",
+          "source": "shattered.io",
+          "published": "2026-10-24 05:00 UTC",
+          "bullets": [
+            "The UK government's £100 million investment in an AI biosecurity lab has successfully attracted an additional £200 million in credits, signaling strong private sector and institutional interest in AI safety infrastructure.",
+            "Major industry players including OpenAI and Anthropic have joined the initiative, highlighting the strategic importance of collaborative AI governance and safety research in high-stakes biological applications."
+          ],
+          "rating": 4,
+          "reason": "Major public-private partnership involving top-tier AI firms in a critical safety sector.",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "semis",
+      "label": "Semiconductors",
+      "items": [
+        {
+          "title": "PC Sales Just Crashed 21% as AI Eats the World’s Memory Chips",
+          "url": "https://finance.yahoo.com/technology/articles/pc-sales-just-crashed-21-155052873.html",
+          "source": "Yahoo Finance",
+          "published": "2026-10-24 15:50 UTC",
+          "bullets": [
+            "Global PC shipments plummeted 21% year-over-year in Q3 2026, with major manufacturers like HP and Dell experiencing double-digit declines as component costs and high prices suppress consumer demand.",
+            "Memory manufacturers are prioritizing higher-margin AI server chips over PC components, creating a supply-demand imbalance that forces PC makers to pass increased DRAM and NAND costs to end-users."
+          ],
+          "rating": 4,
+          "reason": "Highlights a significant cyclical downturn in the PC market driven by AI-induced supply chain shifts.",
+          "read_time": 4,
+          "is_new": true
+        },
+        {
+          "title": "Elon Musk Just Gave Fantastic News for Nvidia Investors",
+          "url": "https://www.fool.com/investing/2026/10/24/elon-musk-gave-great-news-for-nvidia-investors/",
+          "source": "The Motley Fool",
+          "published": "2026-10-24 21:17 UTC",
+          "bullets": [
+            "SpaceX's AI division, 'SI', reported an 835% year-over-year revenue surge and is aggressively scaling its infrastructure, with plans to deploy 440,000 of Nvidia’s Vera Rubin chips for its next-generation training cluster.",
+            "The massive capital expenditure commitment from a single major player underscores the sustained, high-volume demand for Nvidia’s next-generation hardware, supporting long-term revenue growth forecasts despite supply constraints."
+          ],
+          "rating": 5,
+          "reason": "Provides concrete evidence of massive, multi-billion dollar demand for Nvidia's next-gen hardware from a major hyperscaler.",
+          "read_time": 2,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "ev",
+      "label": "Electric Vehicles",
+      "items": [
+        {
+          "title": "EV Sales Crashed 41% In January—But These Brands Still Grew",
+          "url": "https://insideevs.com/news/790092/ev-sales-us-january-2025/",
+          "source": "InsideEVs",
+          "published": "2026-10-24 18:18 UTC",
+          "bullets": [
+            "U.S. electric vehicle registrations plummeted 41% in January, causing the segment's total market share to contract to 5.1% from 8.3% in the same period last year.",
+            "The decline follows the expiration of the $7,500 federal tax credit on September 30, 2025, which has led several major automakers to cancel EV models and scale back production investments."
+          ],
+          "rating": 5,
+          "reason": "Significant market contraction and policy-driven shift in U.S. automotive demand.",
+          "read_time": 4,
+          "is_new": true
+        },
+        {
+          "title": "Toyota's EV Sales Have More Than Doubled This Year",
+          "url": "https://insideevs.com/news/801340/toyota-ev-sales-doubled-2026/",
+          "source": "InsideEVs",
+          "published": "2026-10-24 11:53 UTC",
+          "bullets": [
+            "Toyota bucked the broader industry downturn by selling 21,855 EVs in the first half of 2026, a 136% increase compared to the same period in 2025.",
+            "The company has successfully moved into the top five U.S. EV sellers by expanding its lineup with the bZ Woodland and C-HR models, effectively capturing market share as competitors cull their electric offerings."
+          ],
+          "rating": 4,
+          "reason": "Outperformance of a major incumbent during a period of industry-wide decline.",
+          "read_time": 3,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "data-center",
+      "label": "Data Centers",
+      "items": [
+        {
+          "title": "Setbacks Mounting On The AI Data Center Front",
+          "url": "https://seekingalpha.com/article/4957234-setbacks-mounting-on-the-ai-data-center-front",
+          "source": "Seeking Alpha",
+          "published": "2026-10-24 14:51 UTC",
+          "bullets": [
+            "The AI infrastructure sector is facing significant headwinds as hyperscalers and neocloud providers struggle with rising capital expenditures, negative free cash flow, and increasing credit risks.",
+            "Market sentiment is shifting due to a combination of failed project financing, regulatory hurdles, and local opposition, which are collectively threatening the sustainability of the ongoing AI-driven market rally."
+          ],
+          "rating": 5,
+          "reason": "Highlights systemic risks to the core AI infrastructure investment thesis.",
+          "read_time": 2,
+          "is_new": true
+        },
+        {
+          "title": "SLB (SLB) Opens Canada Facility After Data Center Win Changed The Story",
+          "url": "https://finance.yahoo.com/technology/articles/slb-slb-opens-canada-facility-201019376.html",
+          "source": "Yahoo Finance",
+          "published": "2026-10-24 20:10 UTC",
+          "bullets": [
+            "SLB is diversifying from its traditional oilfield services into digital infrastructure by launching a modular data center facility in Canada specifically to support Meta's hyperscale computing needs.",
+            "The project is a key component of SLB's growth strategy, which targets $4.5 billion to $5.0 billion in data center revenue by 2028, though success remains contingent on execution and margin management."
+          ],
+          "rating": 4,
+          "reason": "Demonstrates a major industrial player's strategic pivot into the data center supply chain.",
+          "read_time": 2,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "space",
+      "label": "Space & Aerospace",
+      "items": [
+        {
+          "title": "Elon Musk's SpaceX and Jeff Bezos' Blue Origin will face off in orbit next year, NASA confirms",
+          "url": "https://fortune.com/2026/10/24/elon-musk-spacex-jeff-bezos-blue-origin-lunar-landers-earth-orbit-docking-nasa-artemis-moon-progam/",
+          "source": "Fortune",
+          "published": "2026-10-24 14:55 UTC",
+          "bullets": [
+            "NASA has scheduled a high-stakes 2027 test mission, Artemis III, requiring SpaceX and Blue Origin to perform complex docking maneuvers with the Orion spacecraft in low-Earth orbit.",
+            "This mission serves as a critical vetting process for the Artemis IV lunar landing, with NASA maintaining flexibility to choose between the two commercial providers based on their performance in these orbital tests."
+          ],
+          "rating": 5,
+          "reason": "Directly impacts the competitive landscape and contract viability for two major private space firms.",
+          "read_time": 3,
+          "is_new": true
+        },
+        {
+          "title": "Rocket Lab (NASDAQ:RKLB) Lands Another Launch: Can It Recover?",
+          "url": "https://kalkinemedia.com/us/stocks/industrial/rocket-lab-nasdaqrklb-lands-another-launch-can-it-recover",
+          "source": "Kalkine Media",
+          "published": "2026-10-24 21:42 UTC",
+          "bullets": [
+            "While Rocket Lab continues to demonstrate operational reliability with successful Electron launches, the company's stock remains under pressure due to manufacturing delays pushing the Neutron rocket's debut into next year.",
+            "As a vertically integrated player, the company's long-term valuation is heavily tied to the successful launch of the medium-lift Neutron, which is essential for capturing larger commercial and government payload contracts."
+          ],
+          "rating": 4,
+          "reason": "Highlights key operational risks and growth catalysts for a publicly traded aerospace company.",
+          "read_time": 8,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "global-macro",
+      "label": "Global Economy",
+      "items": [
+        {
+          "title": "Israeli central bank rejects Benjamin Netanyahu’s plan to use crypto to evade sanctions",
+          "url": "https://www.ft.com/content/39e475e7-0392-4856-aaaf-5ab3e35b8215?syn-25a6b1a6=1",
+          "source": "Financial Times",
+          "published": "2026-10-24 19:19 UTC",
+          "bullets": [
+            "Prime Minister Benjamin Netanyahu has directed advisors to develop a financial model utilizing cryptocurrency and blockchain to circumvent potential international banking sanctions.",
+            "The Bank of Israel has formally rejected the proposal, warning that digital currencies cannot replace traditional financial systems and that such rhetoric could negatively impact Israel's international economic standing."
+          ],
+          "rating": 4,
+          "reason": "Geopolitical risk and central bank policy conflict",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Charting the Global Economy: Euro Area Business Activity Cools",
+          "url": "https://www.bloomberg.com/news/articles/2026-10-24/world-economy-latest-euro-area-business-activity-cools-on-weakness-in-france",
+          "source": "Bloomberg.com",
+          "published": "2026-10-24 09:00 UTC",
+          "bullets": [
+            "Recent data indicates a cooling trend in Euro Area business activity, signaling potential headwinds for the region's economic growth trajectory.",
+            "Investors should monitor these indicators as they suggest a weakening demand environment, which may influence future European Central Bank monetary policy decisions."
+          ],
+          "rating": 4,
+          "reason": "Macroeconomic indicator of regional growth",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Bangladesh Bank keeps website offline amid global cyber alert",
+          "url": "https://www.thedailystar.net/business/news/bangladesh-bank-keeps-website-offline-amid-global-cyber-alert-4305776",
+          "source": "The Daily Star",
+          "published": "2026-10-24 23:16 UTC",
+          "bullets": [
+            "The central bank of Bangladesh has kept its website offline following a global cybersecurity alert regarding critical vulnerabilities in the PHP programming language.",
+            "While internal connections to commercial banks remain operational, the prolonged outage highlights significant systemic risks to financial infrastructure from unpatched software vulnerabilities."
+          ],
+          "rating": 3,
+          "reason": "Operational risk in emerging market financial infrastructure",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "equity",
+      "label": "Equity Markets",
+      "items": [
+        {
+          "title": "Has Trump Been Good for the Stock Market? Anthony Scaramucci Weighs In. - Barron's",
+          "url": "https://www.barrons.com/video/has-trump-been-good-for-the-stock-market-anthony-scaramucci-weighs-in/1FBD2A1A-F504-405A-B871-A34CE57574C5",
+          "source": "Barron's",
+          "published": "2026-10-24 18:25 UTC",
+          "bullets": [
+            "Has Trump Been Good for the Stock Market? Anthony Scaramucci Weighs In.  Barron's"
+          ],
+          "rating": 2,
+          "reason": "Heuristic rating (no AI summary).",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Hamburger Hafen Und Logistik (XTRA:HHFA) Stock May Be A Bargain After Lowered 2026 Earnings Forecast - Yahoo Finance",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/hamburger-hafen-und-logistik-xtra-231603842.html",
+          "source": "Yahoo Finance",
+          "published": "2026-10-24 23:16 UTC",
+          "bullets": [
+            "Hamburger Hafen und Logistik has delivered a 29.6% share price gain over the past three years, while also cutting back its medium term earnings outlook after recent operational setbacks. That mix of steady long term..."
+          ],
+          "rating": 2,
+          "reason": "Heuristic rating (no AI summary).",
+          "read_time": 2,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "fixed-income",
+      "label": "Fixed Income",
+      "items": [
+        {
+          "title": "Nvidia's role as AI financier faces first big test as neoclouds take market hit",
+          "url": "https://www.cnbc.com/2026/10/24/nvidias-role-as-ai-financier-faces-first-big-test-as-neoclouds-take-market-hit.html",
+          "source": "CNBC",
+          "published": "2026-10-24 11:00 UTC",
+          "bullets": [
+            "Nvidia has extended its financial reach by providing $36 billion in off-balance-sheet AI cloud agreements and $105 billion in project guarantees, effectively acting as a backstop for capital-intensive AI infrastructure.",
+            "Credit stress is mounting as key partners like CoreWeave face surging credit default swap spreads exceeding 11%, raising concerns that Nvidia’s exposure to these cash-burning entities could trigger significant losses if compute demand falters."
+          ],
+          "rating": 5,
+          "reason": "Systemic risk exposure to AI infrastructure financing",
+          "read_time": 9,
+          "is_new": true
+        },
+        {
+          "title": "Evercore Outlines Key Credit and Treasury Yield Thresholds That Could Signal AI Stock Market Correction",
+          "url": "https://uk.finance.yahoo.com/news/evercore-outlines-key-credit-treasury-114900385.html",
+          "source": "Yahoo Finance UK",
+          "published": "2026-10-24 11:49 UTC",
+          "bullets": [
+            "Strategists have identified a 10-year Treasury yield of 5.62% as a 'fiscal alarm bell' that would likely trigger a broader reassessment of financial asset valuations and increase government borrowing costs.",
+            "The firm is monitoring investment-grade and high-yield credit default swap spreads against previous peaks of 68.33 and 411.04, respectively, as critical indicators for a potential transition from a tech-specific selloff to a wider market correction."
+          ],
+          "rating": 4,
+          "reason": "Clear quantitative thresholds for market-wide risk",
+          "read_time": 5,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "china",
+      "label": "China Economy",
+      "items": [
+        {
+          "title": "China Hits Back at US Proposal to Tighten Investment Limits",
+          "url": "https://www.bloomberg.com/news/articles/2026-10-24/china-hits-back-at-us-proposal-to-tighten-investment-limits",
+          "source": "Bloomberg.com",
+          "published": "2026-10-24 12:18 UTC",
+          "bullets": [
+            "The Chinese Ministry of Commerce has formally opposed the US Treasury's latest proposed outbound investment restrictions, labeling them a discriminatory abuse of national security concepts that disrupts bilateral economic cooperation.",
+            "Beijing has warned that it reserves the right to take corresponding countermeasures, signaling potential retaliatory risks for US firms operating in China and further escalation in the ongoing tech-investment decoupling."
+          ],
+          "rating": 5,
+          "reason": "Escalating geopolitical trade tensions",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Chinese EVs found back door into Western car markets – at 40% off MSRP",
+          "url": "https://electrek.co/2026/10/24/chinese-evs-found-back-door-into-western-car-markets-at-40-off-msrp/",
+          "source": "Electrek",
+          "published": "2026-10-24 14:04 UTC",
+          "bullets": [
+            "Used Chinese electric vehicles are bypassing Western protectionist tariffs, with sales to European customers surging 280% year-over-year as buyers seek high-tech alternatives priced up to 40% below original MSRPs.",
+            "This trend creates a significant competitive challenge for legacy Western automakers, as the influx of low-mileage, affordable Chinese EVs undermines the effectiveness of import duties designed to shield domestic markets."
+          ],
+          "rating": 4,
+          "reason": "Impact on global automotive market competition",
+          "read_time": 4,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "hk",
+      "label": "Hong Kong Economy",
+      "items": [
+        {
+          "title": "Hong Kong must revive growth and drive reforms with government’s ‘visible hand’",
+          "url": "https://amp.scmp.com/news/hong-kong/politics/article/3372011/hong-kong-must-revive-growth-and-drive-reforms-governments-visible-hand",
+          "source": "South China Morning Post",
+          "published": "2026-10-24 07:04 UTC",
+          "bullets": [
+            "Former Beijing official Deng Zhonghua has signaled a strategic shift for Hong Kong, advocating for a 'visible hand' approach where the government actively intervenes to break down barriers created by vested interests.",
+            "The proposed policy shift aims to move away from traditional positive non-interventionism toward a model that prioritizes deregulation for emerging industries and addresses structural inequality in housing and social services."
+          ],
+          "rating": 4,
+          "reason": "Signals a major potential shift in Hong Kong's long-standing economic governance philosophy.",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Receivers to sell indebted Shimao’s two Hong Kong hotels to Malaysian developer",
+          "url": "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/10/24/receivers-to-sell-indebted-shimaos-two-hong-kong-hotels-to-malaysian-developer",
+          "source": "The Star",
+          "published": "2026-10-24 09:38 UTC",
+          "bullets": [
+            "Receivers are offloading two Hong Kong hotel assets belonging to the debt-laden Shimao Group to a Malaysian developer, highlighting the ongoing distress and asset liquidation within the Chinese property sector.",
+            "This transaction reflects the continued pressure on mainland developers to divest high-value overseas and regional assets to meet liquidity requirements and satisfy creditor claims amid broader industry instability."
+          ],
+          "rating": 3,
+          "reason": "Highlights ongoing liquidity issues and asset restructuring for major Chinese developers in the HK market.",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    }
+  ],
+  "indicator_groups": [
+    {
+      "name": "Equity Indices",
+      "items": [
+        {
+          "label": "S&P 500",
+          "kind": "price",
+          "last": null,
+          "change": null,
+          "change_bp": null
+        },
+        {
+          "label": "Nasdaq",
+          "kind": "price",
+          "last": 25955.3398,
+          "change": -0.21,
+          "change_bp": null
+        },
+        {
+          "label": "Dow Jones",
+          "kind": "price",
+          "last": 52215.1602,
+          "change": -1.23,
+          "change_bp": null
+        },
+        {
+          "label": "FTSE 100",
+          "kind": "price",
+          "last": 10690.4004,
+          "change": -0.32,
+          "change_bp": null
+        },
+        {
+          "label": "STOXX 600",
+          "kind": "price",
+          "last": 635.77,
+          "change": -0.31,
+          "change_bp": null
+        },
+        {
+          "label": "Nikkei 225",
+          "kind": "price",
+          "last": 62693.1602,
+          "change": -0.34,
+          "change_bp": null
+        },
+        {
+          "label": "Hang Seng",
+          "kind": "price",
+          "last": 23093.3691,
+          "change": 0.69,
+          "change_bp": null
+        },
+        {
+          "label": "CSI 300",
+          "kind": "price",
+          "last": 4105.3286,
+          "change": null,
+          "change_bp": null
+        }
+      ]
+    },
+    {
+      "name": "Bond Yields",
+      "items": [
+        {
+          "label": "US 10Y",
+          "kind": "yield",
+          "last": 4.988,
+          "change": null,
+          "change_bp": 3.5
+        },
+        {
+          "label": "US 30Y",
+          "kind": "yield",
+          "last": 5.315,
+          "change": null,
+          "change_bp": 2.8
+        },
+        {
+          "label": "US 2Y",
+          "kind": "yield",
+          "last": 4.65,
+          "change": null,
+          "change_bp": -16.0
+        }
+      ]
+    },
+    {
+      "name": "FX",
+      "items": [
+        {
+          "label": "US Dollar Index",
+          "kind": "price",
+          "last": 101.81,
+          "change": 0.2,
+          "change_bp": null
+        },
+        {
+          "label": "EUR/USD",
+          "kind": "price",
+          "last": 1.1204,
+          "change": -0.28,
+          "change_bp": null
+        },
+        {
+          "label": "USD/JPY",
+          "kind": "price",
+          "last": 156.814,
+          "change": -0.83,
+          "change_bp": null
+        },
+        {
+          "label": "USD/CNY",
+          "kind": "price",
+          "last": 6.6606,
+          "change": -0.26,
+          "change_bp": null
+        },
+        {
+          "label": "USD/HKD",
+          "kind": "price",
+          "last": 7.8413,
+          "change": -0.06,
+          "change_bp": null
+        },
+        {
+          "label": "HKD/CNY",
+          "kind": "price",
+          "last": 0.8491,
+          "change": -0.36,
+          "change_bp": null
+        },
+        {
+          "label": "JPY/HKD (¥100)",
+          "kind": "price",
+          "last": 4.974,
+          "change": 0.25,
+          "change_bp": null
+        }
+      ]
+    },
+    {
+      "name": "Commodities",
+      "items": [
+        {
+          "label": "Gold",
+          "kind": "price",
+          "last": 4007.8999,
+          "change": -1.29,
+          "change_bp": null
+        },
+        {
+          "label": "WTI Crude",
+          "kind": "price",
+          "last": 103.27,
+          "change": 3.82,
+          "change_bp": null
+        },
+        {
+          "label": "Brent",
+          "kind": "price",
+          "last": 116.72,
+          "change": 3.14,
+          "change_bp": null
+        },
+        {
+          "label": "Copper",
+          "kind": "price",
+          "last": 6.476,
+          "change": 1.78,
+          "change_bp": null
+        }
+      ]
+    },
+    {
+      "name": "Volatility & Crypto",
+      "items": [
+        {
+          "label": "VIX",
+          "kind": "price",
+          "last": 19.45,
+          "change": 2.21,
+          "change_bp": null
+        },
+        {
+          "label": "Bitcoin",
+          "kind": "price",
+          "last": 80683.1484,
+          "change": -0.48,
+          "change_bp": null
+        }
+      ]
+    }
+  ]
+}

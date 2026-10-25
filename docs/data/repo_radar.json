@@ -1,98 +1,102 @@
 {
- "generated_at": "2026-10-24 08:38 HKT",
+ "generated_at": "2026-10-25 08:19 HKT",
  "repos": [
   {
-   "name": "humanlayer/humanlayer",
-   "url": "https://github.com/humanlayer/humanlayer",
+   "name": "cheaper-inference/OmniRoute",
+   "url": "https://github.com/cheaper-inference/OmniRoute",
    "language": "TypeScript",
-   "description": "The best way to get AI coding agents to solve hard problems in complex codebases.",
+   "description": "Never stop coding. Free MIT AI gateway: one endpoint, 359 providers (150+ free), 1200+ models Kimi, Claude, GPT, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline & Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by hundreds of contributors",
+   "keywords": [
+    "LLM gateway"
+   ],
+   "trendshift_pos": 19,
+   "stars": 80772,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A unified, free MIT-licensed AI gateway providing access to over 359 model providers and 1200+ LLMs through a single endpoint.",
+   "bullets": [
+    "Built with TypeScript, acting as a high-performance proxy/gateway for LLM API requests.",
+    "Aggregates 150+ free providers alongside major commercial models like Claude, GPT, and DeepSeek.",
+    "Designed for seamless integration with developer tools like Cursor, Claude Code, and Cline.",
+    "Enables developers to switch models dynamically without changing infrastructure code."
+   ]
+  },
+  {
+   "name": "ai-job-search-dev/ai-job-search",
+   "url": "https://github.com/ai-job-search-dev/ai-job-search",
+   "language": "Python",
+   "description": "The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.",
+   "keywords": [
+    "AI agent",
+    "Job search"
+   ],
+   "trendshift_pos": 18,
+   "stars": 64837,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An agentic framework built on Claude Code that automates the end-to-end job application process locally.",
+   "bullets": [
+    "Python-based framework leveraging Claude Code for autonomous task execution.",
+    "Automates CV tailoring, cover letter generation, and interview preparation based on specific job postings.",
+    "Runs locally on the user's machine to ensure privacy and ownership of application data.",
+    "Ideal for professionals looking to scale their job search efforts using agentic workflows."
+   ]
+  },
+  {
+   "name": "microsoft/skill-recorder",
+   "url": "https://github.com/microsoft/skill-recorder",
+   "language": "TypeScript",
+   "description": "Desktop app that records your on-screen work session and uses the GitHub Copilot SDK to reconstruct it as an intent + ordered steps, then builds a reusable Skill or Automation for Microsoft Autopilots like Scout, Microsoft Copilot Cowork, or Copilot Studio.",
+   "keywords": [],
+   "trendshift_pos": 4,
+   "stars": 4662,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A desktop application that captures on-screen workflows and converts them into reusable automation skills via the GitHub Copilot SDK.",
+   "bullets": [
+    "TypeScript-based desktop application utilizing the GitHub Copilot SDK for intent recognition.",
+    "Records user interactions to reconstruct structured steps and logic for automated tasks.",
+    "Outputs reusable 'Skills' compatible with Microsoft Autopilots for enterprise workflow automation.",
+    "Reduces manual effort in creating complex automation scripts by capturing human intent in real-time."
+   ]
+  },
+  {
+   "name": "google-gemini/gemini-cli",
+   "url": "https://github.com/google-gemini/gemini-cli",
+   "language": "TypeScript",
+   "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+   "keywords": [
+    "AI agent",
+    "AI coding assistant"
+   ],
+   "trendshift_pos": 8,
+   "stars": 108049,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An open-source AI agent that integrates Gemini's multimodal capabilities directly into the terminal environment.",
+   "bullets": [
+    "TypeScript-based CLI tool providing direct access to Gemini's LLM capabilities.",
+    "Enables terminal-based agentic workflows, allowing users to execute complex tasks via natural language.",
+    "Supports multimodal inputs, making it useful for developers managing infrastructure or code via CLI.",
+    "Facilitates rapid interaction with AI models without leaving the command-line interface."
+   ]
+  },
+  {
+   "name": "hugoj0s3/NaturalCron",
+   "url": "https://github.com/hugoj0s3/NaturalCron",
+   "language": "C#",
+   "description": "Human-readable schedule expressions for .NET (C#): write \"every day at 9am except sunday\" instead of cron. Time zones, fluent builder, custom keywords, cron converter.",
    "keywords": [],
    "trendshift_pos": 1,
-   "stars": 11883,
+   "stars": 150,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A developer-focused platform that integrates human-in-the-loop oversight into AI agent workflows.",
+   "one_liner": "A .NET library that allows developers to define complex scheduling expressions using natural language.",
    "bullets": [
-    "Built with TypeScript to provide seamless integration for AI coding agents.",
-    "Enables real-time human approval and intervention for sensitive agentic operations.",
-    "Designed to solve complex, high-stakes coding tasks by bridging the gap between autonomous agents and human oversight.",
-    "Ideal for enterprise environments requiring audit trails and safety guardrails for AI-driven development."
-   ]
-  },
-  {
-   "name": "harvard-edge/cs249r_book",
-   "url": "https://github.com/harvard-edge/cs249r_book",
-   "language": "Python",
-   "description": "Machine Learning Systems: Foundations, Scaling, Agentic AI, and Physical AI (Vols I–IV) • Harvard CS249r | https://mlsysbook.ai",
-   "keywords": [
-    "Learning resources"
-   ],
-   "trendshift_pos": 17,
-   "stars": 29353,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A comprehensive, open-source academic resource covering the foundations of Machine Learning Systems and Agentic AI.",
-   "bullets": [
-    "Python-based educational content covering ML systems, scaling, and physical AI.",
-    "Provides deep technical insights into the infrastructure required to support modern LLM and agentic workloads.",
-    "Serves as a foundational text for engineers building high-performance AI infrastructure.",
-    "Covers critical topics like distributed training, inference optimization, and agentic system architecture."
-   ]
-  },
-  {
-   "name": "anthropics/sandbox-runtime",
-   "url": "https://github.com/anthropics/sandbox-runtime",
-   "language": "TypeScript",
-   "description": "A lightweight sandboxing tool for enforcing filesystem and network restrictions on arbitrary processes at the OS level, without requiring a container.",
-   "keywords": [],
-   "trendshift_pos": 8,
-   "stars": 5932,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A lightweight, container-free sandboxing tool for enforcing strict filesystem and network security policies.",
-   "bullets": [
-    "Implemented in TypeScript to provide OS-level process isolation without the overhead of Docker or VMs.",
-    "Enforces granular security restrictions on arbitrary processes to prevent unauthorized system access.",
-    "Critical infrastructure component for safely executing untrusted code or AI agent tasks.",
-    "Reduces attack surface by limiting process capabilities at the kernel/OS interface."
-   ]
-  },
-  {
-   "name": "makecindy/cindy",
-   "url": "https://github.com/makecindy/cindy",
-   "language": "TypeScript",
-   "description": "Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。",
-   "keywords": [
-    "AI agent"
-   ],
-   "trendshift_pos": 12,
-   "stars": 3529,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An open-source, out-of-the-box AI agent designed to execute complex tasks autonomously.",
-   "bullets": [
-    "TypeScript-based architecture optimized for immediate deployment and task execution.",
-    "Focuses on agentic workflows that translate high-level intent into actionable, multi-step processes.",
-    "Designed to function as a general-purpose assistant for automating repetitive technical or administrative workflows.",
-    "Provides a modular framework for developers to extend agent capabilities for specific business domains."
-   ]
-  },
-  {
-   "name": "xevrion/hatchzip",
-   "url": "https://github.com/xevrion/hatchzip",
-   "language": "Rust",
-   "description": "Extract huge archives in place: the archive shrinks as your files hatch, so you only need room for the output. ZIP, 7z, tar, split archives.",
-   "keywords": [],
-   "trendshift_pos": 5,
-   "stars": 980,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance Rust utility for extracting massive archives in-place to minimize disk space requirements.",
-   "bullets": [
-    "Written in Rust for memory safety and high-throughput I/O performance.",
-    "Implements an in-place extraction algorithm that shrinks the source archive as files are processed.",
-    "Essential devtool for managing large datasets, logs, or model weights in resource-constrained environments.",
-    "Supports multiple formats including ZIP, 7z, and tar, making it a versatile utility for data-heavy infrastructure pipelines."
+    "C# fluent builder library that parses human-readable strings into standard cron expressions.",
+    "Supports advanced scheduling features including time zones, custom keywords, and complex recurrence patterns.",
+    "Provides a robust infrastructure component for fintech applications requiring precise, readable job scheduling.",
+    "Eliminates the maintenance burden of cryptic cron syntax in enterprise .NET systems."
    ]
   }
  ]
