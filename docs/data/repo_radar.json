@@ -1,102 +1,100 @@
 {
- "generated_at": "2026-10-25 08:19 HKT",
+ "generated_at": "2026-10-26 08:19 HKT",
  "repos": [
   {
-   "name": "cheaper-inference/OmniRoute",
-   "url": "https://github.com/cheaper-inference/OmniRoute",
-   "language": "TypeScript",
-   "description": "Never stop coding. Free MIT AI gateway: one endpoint, 359 providers (150+ free), 1200+ models Kimi, Claude, GPT, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline & Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by hundreds of contributors",
-   "keywords": [
-    "LLM gateway"
-   ],
-   "trendshift_pos": 19,
-   "stars": 80772,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A unified, free MIT-licensed AI gateway providing access to over 359 model providers and 1200+ LLMs through a single endpoint.",
-   "bullets": [
-    "Built with TypeScript, acting as a high-performance proxy/gateway for LLM API requests.",
-    "Aggregates 150+ free providers alongside major commercial models like Claude, GPT, and DeepSeek.",
-    "Designed for seamless integration with developer tools like Cursor, Claude Code, and Cline.",
-    "Enables developers to switch models dynamically without changing infrastructure code."
-   ]
-  },
-  {
-   "name": "ai-job-search-dev/ai-job-search",
-   "url": "https://github.com/ai-job-search-dev/ai-job-search",
+   "name": "Alpha-Dojo/DojoAgents",
+   "url": "https://github.com/Alpha-Dojo/DojoAgents",
    "language": "Python",
-   "description": "The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.",
+   "description": "DojoAgents: Full-Market AI Copilot for Personal Investment",
    "keywords": [
-    "AI agent",
-    "Job search"
+    "AI agent"
    ],
-   "trendshift_pos": 18,
-   "stars": 64837,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An agentic framework built on Claude Code that automates the end-to-end job application process locally.",
-   "bullets": [
-    "Python-based framework leveraging Claude Code for autonomous task execution.",
-    "Automates CV tailoring, cover letter generation, and interview preparation based on specific job postings.",
-    "Runs locally on the user's machine to ensure privacy and ownership of application data.",
-    "Ideal for professionals looking to scale their job search efforts using agentic workflows."
-   ]
-  },
-  {
-   "name": "microsoft/skill-recorder",
-   "url": "https://github.com/microsoft/skill-recorder",
-   "language": "TypeScript",
-   "description": "Desktop app that records your on-screen work session and uses the GitHub Copilot SDK to reconstruct it as an intent + ordered steps, then builds a reusable Skill or Automation for Microsoft Autopilots like Scout, Microsoft Copilot Cowork, or Copilot Studio.",
-   "keywords": [],
-   "trendshift_pos": 4,
-   "stars": 4662,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A desktop application that captures on-screen workflows and converts them into reusable automation skills via the GitHub Copilot SDK.",
-   "bullets": [
-    "TypeScript-based desktop application utilizing the GitHub Copilot SDK for intent recognition.",
-    "Records user interactions to reconstruct structured steps and logic for automated tasks.",
-    "Outputs reusable 'Skills' compatible with Microsoft Autopilots for enterprise workflow automation.",
-    "Reduces manual effort in creating complex automation scripts by capturing human intent in real-time."
-   ]
-  },
-  {
-   "name": "google-gemini/gemini-cli",
-   "url": "https://github.com/google-gemini/gemini-cli",
-   "language": "TypeScript",
-   "description": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
-   "keywords": [
-    "AI agent",
-    "AI coding assistant"
-   ],
-   "trendshift_pos": 8,
-   "stars": 108049,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An open-source AI agent that integrates Gemini's multimodal capabilities directly into the terminal environment.",
-   "bullets": [
-    "TypeScript-based CLI tool providing direct access to Gemini's LLM capabilities.",
-    "Enables terminal-based agentic workflows, allowing users to execute complex tasks via natural language.",
-    "Supports multimodal inputs, making it useful for developers managing infrastructure or code via CLI.",
-    "Facilitates rapid interaction with AI models without leaving the command-line interface."
-   ]
-  },
-  {
-   "name": "hugoj0s3/NaturalCron",
-   "url": "https://github.com/hugoj0s3/NaturalCron",
-   "language": "C#",
-   "description": "Human-readable schedule expressions for .NET (C#): write \"every day at 9am except sunday\" instead of cron. Time zones, fluent builder, custom keywords, cron converter.",
-   "keywords": [],
    "trendshift_pos": 1,
-   "stars": 150,
+   "stars": 3474,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A .NET library that allows developers to define complex scheduling expressions using natural language.",
+   "one_liner": "An AI-powered copilot designed to provide real-time market analysis and investment insights.",
    "bullets": [
-    "C# fluent builder library that parses human-readable strings into standard cron expressions.",
-    "Supports advanced scheduling features including time zones, custom keywords, and complex recurrence patterns.",
-    "Provides a robust infrastructure component for fintech applications requiring precise, readable job scheduling.",
-    "Eliminates the maintenance burden of cryptic cron syntax in enterprise .NET systems."
+    "Built with Python to integrate complex financial data streams.",
+    "Utilizes agentic workflows to perform automated market research and portfolio monitoring.",
+    "Designed for retail and professional investors to streamline decision-making processes.",
+    "Focuses on synthesizing fragmented market signals into actionable investment intelligence."
+   ]
+  },
+  {
+   "name": "coollabsio/coolify",
+   "url": "https://github.com/coollabsio/coolify",
+   "language": "PHP",
+   "description": "An open-source, self-hostable PaaS alternative to Vercel, Heroku & Netlify that lets you easily deploy static sites, databases, full-stack applications and 280+ one-click services on your own servers.",
+   "keywords": [],
+   "trendshift_pos": 8,
+   "stars": 64365,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A self-hostable, open-source PaaS that simplifies infrastructure management for developers.",
+   "bullets": [
+    "Written in PHP with a robust architecture for managing containerized deployments.",
+    "Provides a unified dashboard to replace expensive services like Vercel or Heroku.",
+    "Supports one-click deployment for databases, full-stack apps, and over 280 services.",
+    "Ideal for teams looking to reduce cloud infrastructure costs while maintaining full control."
+   ]
+  },
+  {
+   "name": "HKUDS/AutoSwarm",
+   "url": "https://github.com/HKUDS/AutoSwarm",
+   "language": "Python",
+   "description": "AutoSwarm: Automating Agent Swarms — Self-Built, Self-Run, Self-Grown",
+   "keywords": [
+    "AI agent"
+   ],
+   "trendshift_pos": 17,
+   "stars": 1913,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A framework for orchestrating autonomous agent swarms that can self-build and self-evolve.",
+   "bullets": [
+    "Python-based architecture designed for high-concurrency agent interactions.",
+    "Implements self-growth mechanisms allowing agents to optimize their own logic over time.",
+    "Focuses on decentralized task execution and multi-agent collaboration.",
+    "Useful for complex automation tasks that require adaptive, multi-step problem solving."
+   ]
+  },
+  {
+   "name": "thesysdev/openui",
+   "url": "https://github.com/thesysdev/openui",
+   "language": "TypeScript",
+   "description": "The Open Standard for Generative UI",
+   "keywords": [],
+   "trendshift_pos": 21,
+   "stars": 13969,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An open standard for generative UI that allows LLMs to render interactive components directly.",
+   "bullets": [
+    "TypeScript-based framework for bridging the gap between LLM output and frontend components.",
+    "Enables dynamic generation of user interfaces based on natural language prompts.",
+    "Standardizes how AI agents interact with and manipulate web-based UI elements.",
+    "Critical for building next-generation agentic applications that require visual feedback."
+   ]
+  },
+  {
+   "name": "drduh/YubiKey-Guide",
+   "url": "https://github.com/drduh/YubiKey-Guide",
+   "language": "HTML",
+   "description": "Community guide to using YubiKey for GnuPG and SSH - protect secrets with hardware crypto.",
+   "keywords": [
+    "Learning resources"
+   ],
+   "trendshift_pos": 23,
+   "stars": 12887,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "The definitive community-driven guide for securing digital assets and infrastructure using hardware security keys.",
+   "bullets": [
+    "Focuses on hardware-backed cryptography for GnuPG and SSH authentication.",
+    "Provides essential security infrastructure protocols for protecting sensitive financial and dev credentials.",
+    "Standardizes best practices for multi-factor authentication and secret management.",
+    "Essential for developers and finance professionals managing high-value infrastructure or trading keys."
    ]
   }
  ]

@@ -87,6 +87,8 @@
   [data-theme="dark"] .saved-item,
   [data-theme="dark"] .search-box input,
   [data-theme="dark"] .day-jump { background: var(--card); border-color: var(--rule-dark); color: var(--ink); }
+  /* Analytics filters: the native dropdown list follows the select, not the OS white. */
+  [data-theme="dark"] .filters .day-jump option { background: var(--card); color: var(--ink); }
   [data-theme="dark"] .rag-answer { background: #241f33; border-color: var(--rule-dark); }
   [data-theme="dark"] .imp-badge { color: #fff; }  /* badges keep colored bg */
   [data-theme="dark"] .imp-verdict { color: var(--ink-soft); }
@@ -1384,6 +1386,38 @@
     background: var(--card);
     color: var(--ink);
   }
+
+  /* Source + importance filters above the day accordion */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 18px;
+    margin: 14px 0 18px;
+  }
+  .filters .day-jump-wrap { margin: 0; }
+  .filter-status {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  .filter-reset[hidden] { display: none; }
+  /* The `hidden` attribute must beat the block display of the day/section/card
+     wrappers, which are styled by class and not by attribute. */
+  .day-group[hidden],
+  .desk[hidden],
+  .blog-card[hidden] { display: none !important; }
+  @media (max-width: 640px) {
+    .filters {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+    .filters .day-jump-wrap { width: 100%; }
+    .filters .day-jump { flex: 1 1 auto; min-width: 0; }
+    .filters .filter-btn { width: 100%; }
+  }
+
   .day-group {
     border: 1px solid var(--rule);
     border-radius: 10px;
@@ -1835,23 +1869,194 @@
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
     <h1>Repo Radar</h1>
-    <div class="generated">5 trending GitHub repos · finance/tech weighted · never repeated across days · updated 2026-10-25 08:19 HKT</div>
+    <div class="generated">5 trending GitHub repos · finance/tech weighted · never repeated across days · updated 2026-10-26 08:19 HKT</div>
   </header>
 
   
   <div class="day-jump-wrap">
     <label for="day-jump">Jump to</label>
     <select id="day-jump" class="day-jump">
-      <option value="2026-10-25">2026-10-25 (latest)</option><option value="2026-10-24">2026-10-24</option><option value="2026-10-23">2026-10-23</option><option value="2026-10-22">2026-10-22</option><option value="2026-10-21">2026-10-21</option><option value="2026-10-20">2026-10-20</option><option value="2026-10-19">2026-10-19</option><option value="2026-10-18">2026-10-18</option><option value="2026-10-17">2026-10-17</option><option value="2026-10-16">2026-10-16</option><option value="2026-10-15">2026-10-15</option><option value="2026-10-14">2026-10-14</option><option value="2026-10-13">2026-10-13</option><option value="2026-10-12">2026-10-12</option><option value="2026-10-11">2026-10-11</option><option value="2026-10-10">2026-10-10</option><option value="2026-10-09">2026-10-09</option><option value="2026-10-08">2026-10-08</option><option value="2026-10-07">2026-10-07</option><option value="2026-10-06">2026-10-06</option><option value="2026-10-05">2026-10-05</option><option value="2026-10-04">2026-10-04</option><option value="2026-10-03">2026-10-03</option><option value="2026-10-02">2026-10-02</option><option value="2026-10-01">2026-10-01</option><option value="2026-09-29">2026-09-29</option><option value="2026-09-28">2026-09-28</option><option value="2026-09-27">2026-09-27</option><option value="2026-09-26">2026-09-26</option><option value="2026-09-25">2026-09-25</option><option value="2026-09-24">2026-09-24</option><option value="2026-09-23">2026-09-23</option><option value="2026-09-22">2026-09-22</option><option value="2026-09-21">2026-09-21</option><option value="2026-09-20">2026-09-20</option><option value="2026-09-19">2026-09-19</option><option value="2026-09-18">2026-09-18</option><option value="2026-09-17">2026-09-17</option><option value="2026-09-16">2026-09-16</option><option value="2026-09-15">2026-09-15</option><option value="2026-09-14">2026-09-14</option><option value="2026-09-13">2026-09-13</option><option value="2026-09-12">2026-09-12</option><option value="2026-09-11">2026-09-11</option><option value="2026-09-10">2026-09-10</option><option value="2026-09-09">2026-09-09</option><option value="2026-09-08">2026-09-08</option><option value="2026-09-07">2026-09-07</option><option value="2026-09-06">2026-09-06</option><option value="2026-09-05">2026-09-05</option><option value="2026-09-04">2026-09-04</option><option value="2026-09-03">2026-09-03</option><option value="2026-09-02">2026-09-02</option><option value="2026-09-01">2026-09-01</option><option value="2026-08-31">2026-08-31</option><option value="2026-08-30">2026-08-30</option><option value="2026-08-29">2026-08-29</option><option value="2026-08-28">2026-08-28</option><option value="2026-08-27">2026-08-27</option><option value="2026-08-26">2026-08-26</option><option value="2026-08-25">2026-08-25</option><option value="2026-08-24">2026-08-24</option><option value="2026-08-23">2026-08-23</option><option value="2026-08-22">2026-08-22</option><option value="2026-08-21">2026-08-21</option><option value="2026-08-20">2026-08-20</option><option value="2026-08-19">2026-08-19</option><option value="2026-08-18">2026-08-18</option><option value="2026-08-17">2026-08-17</option><option value="2026-08-16">2026-08-16</option><option value="2026-08-15">2026-08-15</option><option value="2026-08-14">2026-08-14</option><option value="2026-08-13">2026-08-13</option>
+      <option value="2026-10-26">2026-10-26 (latest)</option><option value="2026-10-25">2026-10-25</option><option value="2026-10-24">2026-10-24</option><option value="2026-10-23">2026-10-23</option><option value="2026-10-22">2026-10-22</option><option value="2026-10-21">2026-10-21</option><option value="2026-10-20">2026-10-20</option><option value="2026-10-19">2026-10-19</option><option value="2026-10-18">2026-10-18</option><option value="2026-10-17">2026-10-17</option><option value="2026-10-16">2026-10-16</option><option value="2026-10-15">2026-10-15</option><option value="2026-10-14">2026-10-14</option><option value="2026-10-13">2026-10-13</option><option value="2026-10-12">2026-10-12</option><option value="2026-10-11">2026-10-11</option><option value="2026-10-10">2026-10-10</option><option value="2026-10-09">2026-10-09</option><option value="2026-10-08">2026-10-08</option><option value="2026-10-07">2026-10-07</option><option value="2026-10-06">2026-10-06</option><option value="2026-10-05">2026-10-05</option><option value="2026-10-04">2026-10-04</option><option value="2026-10-03">2026-10-03</option><option value="2026-10-02">2026-10-02</option><option value="2026-10-01">2026-10-01</option><option value="2026-09-29">2026-09-29</option><option value="2026-09-28">2026-09-28</option><option value="2026-09-27">2026-09-27</option><option value="2026-09-26">2026-09-26</option><option value="2026-09-25">2026-09-25</option><option value="2026-09-24">2026-09-24</option><option value="2026-09-23">2026-09-23</option><option value="2026-09-22">2026-09-22</option><option value="2026-09-21">2026-09-21</option><option value="2026-09-20">2026-09-20</option><option value="2026-09-19">2026-09-19</option><option value="2026-09-18">2026-09-18</option><option value="2026-09-17">2026-09-17</option><option value="2026-09-16">2026-09-16</option><option value="2026-09-15">2026-09-15</option><option value="2026-09-14">2026-09-14</option><option value="2026-09-13">2026-09-13</option><option value="2026-09-12">2026-09-12</option><option value="2026-09-11">2026-09-11</option><option value="2026-09-10">2026-09-10</option><option value="2026-09-09">2026-09-09</option><option value="2026-09-08">2026-09-08</option><option value="2026-09-07">2026-09-07</option><option value="2026-09-06">2026-09-06</option><option value="2026-09-05">2026-09-05</option><option value="2026-09-04">2026-09-04</option><option value="2026-09-03">2026-09-03</option><option value="2026-09-02">2026-09-02</option><option value="2026-09-01">2026-09-01</option><option value="2026-08-31">2026-08-31</option><option value="2026-08-30">2026-08-30</option><option value="2026-08-29">2026-08-29</option><option value="2026-08-28">2026-08-28</option><option value="2026-08-27">2026-08-27</option><option value="2026-08-26">2026-08-26</option><option value="2026-08-25">2026-08-25</option><option value="2026-08-24">2026-08-24</option><option value="2026-08-23">2026-08-23</option><option value="2026-08-22">2026-08-22</option><option value="2026-08-21">2026-08-21</option><option value="2026-08-20">2026-08-20</option><option value="2026-08-19">2026-08-19</option><option value="2026-08-18">2026-08-18</option><option value="2026-08-17">2026-08-17</option><option value="2026-08-16">2026-08-16</option><option value="2026-08-15">2026-08-15</option><option value="2026-08-14">2026-08-14</option><option value="2026-08-13">2026-08-13</option>
     </select>
   </div>
 
   
-  <details class="day-group" id="day-2026-10-25" open>
+  <details class="day-group" id="day-2026-10-26" open>
+    <summary class="day-bar">
+      <svg class="day-chevron" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="day-date">2026-10-26</span>
+      <span class="day-tag">Today</span>
+      <span class="day-meta">5 repo(s)</span>
+    </summary>
+    <div class="day-body">
+      <section class="desk reveal">
+        <div class="repo-grid">
+          
+          <article class="repo-card">
+            <div class="rc-head">
+              <span class="chip">Python</span>
+              <span class="chip stars">3474★</span>
+            </div>
+            <h3><a href="https://github.com/Alpha-Dojo/DojoAgents" target="_blank" rel="noopener">Alpha-Dojo/DojoAgents</a></h3>
+            <p class="rc-oneliner">An AI-powered copilot designed to provide real-time market analysis and investment insights.</p>
+            
+            
+            
+            <ul class="rc-bullets">
+              <li>Built with Python to integrate complex financial data streams.</li><li>Utilizes agentic workflows to perform automated market research and portfolio monitoring.</li><li>Designed for retail and professional investors to streamline decision-making processes.</li><li>Focuses on synthesizing fragmented market signals into actionable investment intelligence.</li>
+            </ul>
+            
+            <div class="bc-footer">
+              <div class="bc-url"><a href="https://github.com/Alpha-Dojo/DojoAgents" target="_blank" rel="noopener">https://github.com/Alpha-Dojo/DojoAgents</a></div>
+              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
+                      data-save-url="https://github.com/Alpha-Dojo/DojoAgents"
+                      data-save-title="Alpha-Dojo/DojoAgents"
+                      data-save-source="Python"
+                      data-save-category="Repo Radar"
+                      data-save-rating="0"
+                      data-save-date="2026-10-26">
+                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+          
+          <article class="repo-card">
+            <div class="rc-head">
+              <span class="chip">PHP</span>
+              <span class="chip stars">64365★</span>
+            </div>
+            <h3><a href="https://github.com/coollabsio/coolify" target="_blank" rel="noopener">coollabsio/coolify</a></h3>
+            <p class="rc-oneliner">A self-hostable, open-source PaaS that simplifies infrastructure management for developers.</p>
+            
+            
+            
+            <ul class="rc-bullets">
+              <li>Written in PHP with a robust architecture for managing containerized deployments.</li><li>Provides a unified dashboard to replace expensive services like Vercel or Heroku.</li><li>Supports one-click deployment for databases, full-stack apps, and over 280 services.</li><li>Ideal for teams looking to reduce cloud infrastructure costs while maintaining full control.</li>
+            </ul>
+            
+            <div class="bc-footer">
+              <div class="bc-url"><a href="https://github.com/coollabsio/coolify" target="_blank" rel="noopener">https://github.com/coollabsio/coolify</a></div>
+              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
+                      data-save-url="https://github.com/coollabsio/coolify"
+                      data-save-title="coollabsio/coolify"
+                      data-save-source="PHP"
+                      data-save-category="Repo Radar"
+                      data-save-rating="0"
+                      data-save-date="2026-10-26">
+                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+          
+          <article class="repo-card">
+            <div class="rc-head">
+              <span class="chip">Python</span>
+              <span class="chip stars">1913★</span>
+            </div>
+            <h3><a href="https://github.com/HKUDS/AutoSwarm" target="_blank" rel="noopener">HKUDS/AutoSwarm</a></h3>
+            <p class="rc-oneliner">A framework for orchestrating autonomous agent swarms that can self-build and self-evolve.</p>
+            
+            
+            
+            <ul class="rc-bullets">
+              <li>Python-based architecture designed for high-concurrency agent interactions.</li><li>Implements self-growth mechanisms allowing agents to optimize their own logic over time.</li><li>Focuses on decentralized task execution and multi-agent collaboration.</li><li>Useful for complex automation tasks that require adaptive, multi-step problem solving.</li>
+            </ul>
+            
+            <div class="bc-footer">
+              <div class="bc-url"><a href="https://github.com/HKUDS/AutoSwarm" target="_blank" rel="noopener">https://github.com/HKUDS/AutoSwarm</a></div>
+              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
+                      data-save-url="https://github.com/HKUDS/AutoSwarm"
+                      data-save-title="HKUDS/AutoSwarm"
+                      data-save-source="Python"
+                      data-save-category="Repo Radar"
+                      data-save-rating="0"
+                      data-save-date="2026-10-26">
+                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+          
+          <article class="repo-card">
+            <div class="rc-head">
+              <span class="chip">TypeScript</span>
+              <span class="chip stars">13969★</span>
+            </div>
+            <h3><a href="https://github.com/thesysdev/openui" target="_blank" rel="noopener">thesysdev/openui</a></h3>
+            <p class="rc-oneliner">An open standard for generative UI that allows LLMs to render interactive components directly.</p>
+            
+            
+            
+            <ul class="rc-bullets">
+              <li>TypeScript-based framework for bridging the gap between LLM output and frontend components.</li><li>Enables dynamic generation of user interfaces based on natural language prompts.</li><li>Standardizes how AI agents interact with and manipulate web-based UI elements.</li><li>Critical for building next-generation agentic applications that require visual feedback.</li>
+            </ul>
+            
+            <div class="bc-footer">
+              <div class="bc-url"><a href="https://github.com/thesysdev/openui" target="_blank" rel="noopener">https://github.com/thesysdev/openui</a></div>
+              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
+                      data-save-url="https://github.com/thesysdev/openui"
+                      data-save-title="thesysdev/openui"
+                      data-save-source="TypeScript"
+                      data-save-category="Repo Radar"
+                      data-save-rating="0"
+                      data-save-date="2026-10-26">
+                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+          
+          <article class="repo-card">
+            <div class="rc-head">
+              <span class="chip">HTML</span>
+              <span class="chip stars">12887★</span>
+            </div>
+            <h3><a href="https://github.com/drduh/YubiKey-Guide" target="_blank" rel="noopener">drduh/YubiKey-Guide</a></h3>
+            <p class="rc-oneliner">The definitive community-driven guide for securing digital assets and infrastructure using hardware security keys.</p>
+            
+            
+            
+            <ul class="rc-bullets">
+              <li>Focuses on hardware-backed cryptography for GnuPG and SSH authentication.</li><li>Provides essential security infrastructure protocols for protecting sensitive financial and dev credentials.</li><li>Standardizes best practices for multi-factor authentication and secret management.</li><li>Essential for developers and finance professionals managing high-value infrastructure or trading keys.</li>
+            </ul>
+            
+            <div class="bc-footer">
+              <div class="bc-url"><a href="https://github.com/drduh/YubiKey-Guide" target="_blank" rel="noopener">https://github.com/drduh/YubiKey-Guide</a></div>
+              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
+                      data-save-url="https://github.com/drduh/YubiKey-Guide"
+                      data-save-title="drduh/YubiKey-Guide"
+                      data-save-source="HTML"
+                      data-save-category="Repo Radar"
+                      data-save-rating="0"
+                      data-save-date="2026-10-26">
+                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </article>
+          
+        </div>
+      </section>
+    </div>
+  </details>
+  
+  <details class="day-group" id="day-2026-10-25">
     <summary class="day-bar">
       <svg class="day-chevron" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span class="day-date">2026-10-25</span>
-      <span class="day-tag">Today</span>
+      
       <span class="day-meta">5 repo(s)</span>
     </summary>
     <div class="day-body">
@@ -14061,7 +14266,7 @@
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-10-25 08:19 HKT");
+  var dataTS = encodeURIComponent("2026-10-26 08:19 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
@@ -14508,6 +14713,261 @@
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
+
+  // ---------- Analytics history filters (Source × Importance) ----------
+  // Two correlated facets: every count is recomputed against the OTHER facet's
+  // active value, so a number always reads "what you get if you also pick
+  // this". A selection is never reset behind the user's back, and the state is
+  // mirrored into the URL so a filtered view is linkable.
+  var srcSel = document.getElementById("source-filter");
+  if (srcSel) {
+    var rateSel = document.getElementById("rating-filter");
+    var jumpSel = document.getElementById("day-jump");
+    var statusEl = document.getElementById("filter-status");
+    var emptyEl = document.getElementById("filter-empty");
+    var resetBtn = document.getElementById("filter-reset");
+    var allDays = Array.prototype.slice.call(
+      document.querySelectorAll("details.day-group[data-day]"));
+    var allCards = Array.prototype.slice.call(
+      document.querySelectorAll("article.blog-card[data-source][data-rating]"));
+    var fState = { source: "", rating: 0 };
+
+    function optionSnapshot(sel) {
+      var out = [];
+      if (!sel) return out;
+      Array.prototype.forEach.call(sel.options, function (o) {
+        out.push({ value: o.value, text: o.textContent });
+      });
+      return out;
+    }
+
+    function setHidden(el, hide) {
+      if (!el) return;
+      if (hide) el.setAttribute("hidden", "");
+      else el.removeAttribute("hidden");
+    }
+
+    // Snapshot the server-rendered selects and day-meta text: the widgets are
+    // rebuilt on every apply, so these are the only way back to the page as
+    // rendered (option sets, the "(latest)" marker, the real per-day counts).
+    var srcOpts = optionSnapshot(srcSel);
+    var rateOpts = optionSnapshot(rateSel);
+    var jumpOpts = optionSnapshot(jumpSel);
+    var metaText = allDays.map(function (day) {
+      var el = day.querySelector(".day-meta");
+      return { el: el, text: el ? el.textContent : "" };
+    });
+
+    // Static tallies over the card set (fixed after load): one per facet plus
+    // a source × rating grid behind the correlated counts.
+    var bySource = {}, byRating = {}, cell = {}, grandTotal = 0;
+    allCards.forEach(function (card) {
+      var s = card.getAttribute("data-source");
+      var r = card.getAttribute("data-rating");
+      grandTotal++;
+      bySource[s] = (bySource[s] || 0) + 1;
+      byRating[r] = (byRating[r] || 0) + 1;
+      cell[s + "|" + r] = (cell[s + "|" + r] || 0) + 1;
+    });
+
+    function sourceCount(name) {
+      return fState.rating
+        ? (cell[name + "|" + fState.rating] || 0)
+        : (bySource[name] || 0);
+    }
+
+    function ratingCount(rating) {
+      return fState.source
+        ? (cell[fState.source + "|" + rating] || 0)
+        : (byRating[rating] || 0);
+    }
+
+    // Labels only: the option list itself stays as rendered, so a value the
+    // user already picked can never disappear (and never be reset to "").
+    function updateSourceOptions() {
+      Array.prototype.forEach.call(srcSel.options, function (o, i) {
+        var from = srcOpts[i];
+        if (!from) return;
+        o.textContent = from.value === ""
+          ? "All sources (" + (fState.rating ? (byRating[fState.rating] || 0)
+                                            : grandTotal) + ")"
+          : from.value + " (" + sourceCount(from.value) + ")";
+      });
+      srcSel.value = fState.source;
+    }
+
+    function updateRatingOptions() {
+      if (!rateSel) return;
+      Array.prototype.forEach.call(rateSel.options, function (o, i) {
+        var from = rateOpts[i];
+        if (!from) return;
+        o.textContent = from.value === ""
+          ? "Any importance"
+          : from.value + "★ (" + ratingCount(from.value) + ")";
+      });
+      rateSel.value = fState.rating ? String(fState.rating) : "";
+    }
+
+    // Rebuild the day jump from the days that survived; unfiltered restores
+    // the rendered set byte for byte (including the "(latest)" suffix).
+    function rebuildJump(visibleDates, newest) {
+      if (!jumpSel) return;
+      var keep = jumpSel.value;
+      while (jumpSel.options.length) jumpSel.remove(0);
+      if (!fState.source && !fState.rating) {
+        jumpOpts.forEach(function (o) {
+          var opt = document.createElement("option");
+          opt.value = o.value;
+          opt.textContent = o.text;
+          jumpSel.appendChild(opt);
+        });
+      } else {
+        // Newest first, like the rendered accordion.
+        visibleDates.slice().sort().reverse().forEach(function (date) {
+          var opt = document.createElement("option");
+          opt.value = date;
+          opt.textContent = date + (date === newest ? " (latest)" : "");
+          jumpSel.appendChild(opt);
+        });
+      }
+      // Keep the user's day when it survived the filter, else fall back to the
+      // rendered first day / the newest visible one.
+      if (keep) jumpSel.value = keep;
+      if (!jumpSel.value) {
+        jumpSel.value = (!fState.source && !fState.rating && jumpOpts.length)
+          ? jumpOpts[0].value : (newest || "");
+      }
+    }
+
+    function syncUrl() {
+      try {
+        var params = new URLSearchParams(location.search);
+        params.delete("source");
+        params.delete("rating");
+        if (fState.source) params.set("source", fState.source);
+        if (fState.rating) params.set("rating", String(fState.rating));
+        var qs = params.toString();
+        history.replaceState(null, "", location.pathname + (qs ? "?" + qs : ""));
+      } catch (e) {}   // file:// documents have an opaque origin and refuse this
+    }
+
+    function applyFilters() {
+      var filtered = !!(fState.source || fState.rating);
+      var visibleDates = [], newest = null, shownPosts = 0, shownDays = 0;
+
+      // Pass 1 — cards: a card shows only when it matches BOTH facets.
+      allCards.forEach(function (card) {
+        var okSource = !fState.source ||
+          card.getAttribute("data-source") === fState.source;
+        var okRating = !fState.rating ||
+          (parseInt(card.getAttribute("data-rating"), 10) || 0) === fState.rating;
+        setHidden(card, !(okSource && okRating));
+        if (okSource && okRating) shownPosts++;
+      });
+
+      // Pass 2 — a desk/day survives only while it still owns a visible card;
+      // day-meta is rewritten from what is actually on screen.
+      allDays.forEach(function (day, i) {
+        var n = 0, blogs = {};
+        Array.prototype.forEach.call(
+          day.querySelectorAll("article.blog-card"), function (card) {
+            if (card.hasAttribute("hidden")) return;
+            n++;
+            blogs[card.getAttribute("data-source")] = 1;
+          });
+        Array.prototype.forEach.call(
+          day.querySelectorAll("section.desk"), function (desk) {
+            var any = Array.prototype.some.call(
+              desk.querySelectorAll("article.blog-card"),
+              function (card) { return !card.hasAttribute("hidden"); });
+            setHidden(desk, !any);
+          });
+        setHidden(day, n === 0);
+        if (metaText[i] && metaText[i].el) {
+          metaText[i].el.textContent = filtered
+            ? n + " post(s) · " + Object.keys(blogs).length + " blog(s)"
+            : metaText[i].text;
+        }
+        if (n > 0) {
+          var date = day.getAttribute("data-day");
+          shownDays++;
+          visibleDates.push(date);
+          if (newest === null || date > newest) newest = date;
+        }
+      });
+
+      // Pass 3 — open the newest matching day when the user left every day
+      // collapsed, so filtering never lands on a seemingly empty page.
+      var anyOpen = false;
+      allDays.forEach(function (day) {
+        if (!day.hasAttribute("hidden") && day.open) anyOpen = true;
+      });
+      if (!anyOpen && newest) {
+        var target = document.getElementById("day-" + newest);
+        if (target) target.open = true;
+      }
+
+      rebuildJump(visibleDates, newest);
+      updateSourceOptions();
+      updateRatingOptions();
+
+      var desc = (fState.source || "All sources") + " · " +
+        (fState.rating ? fState.rating + "★" : "Any importance");
+      if (statusEl) {
+        statusEl.textContent = shownPosts === 0
+          ? desc + " — no matching posts"
+          : desc + " — " + shownPosts + " post" + (shownPosts === 1 ? "" : "s") +
+            " across " + shownDays + " day" + (shownDays === 1 ? "" : "s");
+      }
+      setHidden(emptyEl, shownPosts !== 0);
+      setHidden(resetBtn, !filtered);
+
+      syncUrl();
+    }
+
+    // Seed from ?source=&rating= so a filtered view can be shared. Values that
+    // no longer exist (renamed blog, rating absent from history) are ignored
+    // rather than shown as a stale selection.
+    (function seedFromUrl() {
+      var params;
+      try { params = new URLSearchParams(location.search); } catch (e) { return; }
+      var wantSource = params.get("source") || "";
+      var wantRating = parseInt(params.get("rating"), 10) || 0;
+      var knownSource = false, knownRating = false;
+      srcOpts.forEach(function (o) {
+        if (o.value && o.value === wantSource) knownSource = true;
+      });
+      rateOpts.forEach(function (o) {
+        if (o.value && parseInt(o.value, 10) === wantRating) knownRating = true;
+      });
+      fState.source = knownSource ? wantSource : "";
+      fState.rating = knownRating ? wantRating : 0;
+      srcSel.value = fState.source;
+      if (rateSel) rateSel.value = fState.rating ? String(fState.rating) : "";
+    })();
+
+    srcSel.addEventListener("change", function () {
+      fState.source = srcSel.value;
+      applyFilters();
+    });
+    if (rateSel) {
+      rateSel.addEventListener("change", function () {
+        fState.rating = parseInt(rateSel.value, 10) || 0;
+        applyFilters();
+      });
+    }
+    if (resetBtn) {
+      resetBtn.addEventListener("click", function () {
+        fState.source = "";
+        fState.rating = 0;
+        srcSel.value = "";
+        if (rateSel) rateSel.value = "";
+        applyFilters();
+      });
+    }
+
+    applyFilters();
+  }
 
   // Per-item remove (✕), event-delegated from the list container.
   // BUG FIX: the old handler called ev.target.closest() directly — on mobile

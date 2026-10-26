@@ -1,0 +1,733 @@
+{
+  "date": "2026-10-26",
+  "generated_at": "2026-10-26 08:19 HKT",
+  "snapshot": [
+    {
+      "text": "S&P -0.5%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "Nasdaq -0.2%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "HSI +0.7%",
+      "cls": "pos",
+      "m1": "up"
+    },
+    {
+      "text": "US10Y 4.99%",
+      "cls": "pos",
+      "m1": "up"
+    },
+    {
+      "text": "USD/HKD +0.1%",
+      "cls": "pos",
+      "m1": "up"
+    },
+    {
+      "text": "HKD/CNY -0.2%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "JPY/HKD(¥100) -0.8%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "Gold -0.1%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "BTC -1.0%",
+      "cls": "neg",
+      "m1": "down"
+    }
+  ],
+  "takeaways": [
+    "Corporate AI adoption faces a widening productivity gap, as non-tech firms struggle with rising token costs and flat returns, while 'Magnificent Seven' firms consolidate market dominance.",
+    "High-end GPU scarcity is driving a shift toward 'AI-as-collateral' financing and grey-market industrial repurposing, as firms like SpaceX secure massive debt to build proprietary compute infrastructure.",
+    "Geopolitical friction and fiscal concerns are decoupling global markets, with investors pivoting toward emerging market debt and domestic Chinese alternatives as trade restrictions escalate across critical tech sectors."
+  ],
+  "day_importance": 5,
+  "day_verdict": "Today is a read-carefully day as the market braces for critical earnings from Big Tech giants Microsoft, Alphabet, and Amazon, compounded by significant structural concerns regarding AI ROI and shifting semiconductor trade dynamics.",
+  "weekly": null,
+  "cb_alert": [],
+  "cb_upcoming": [
+    {
+      "when": "Wed 21:45 HKT · in 2d",
+      "headline": "BoC rate decision (overnight rate)",
+      "expect": "Consensus hike 25bp (2.25% → 2.50%)"
+    },
+    {
+      "when": "Thu 02:00 HKT · in 3d",
+      "headline": "Fed rate decision",
+      "expect": "Consensus: hold at 3.75–4.00%"
+    },
+    {
+      "when": "Thu 21:15 HKT · in 3d",
+      "headline": "ECB rate decision (deposit rate)",
+      "expect": "Consensus: hold at 2.50%"
+    },
+    {
+      "when": "Fri 11:00 HKT · in 4d",
+      "headline": "BoJ rate decision (policy rate)",
+      "expect": "Consensus: hold at 1.25%"
+    }
+  ],
+  "cb_results": [],
+  "categories": [
+    {
+      "id": "tech",
+      "label": "Global Technology",
+      "items": [
+        {
+          "title": "AI delivers ‘zero financial payoff’ to most companies, Apollo economist says",
+          "url": "https://finance.yahoo.com/technology/ai/articles/ai-delivers-zero-financial-payoff-165732723.html",
+          "source": "Yahoo Finance",
+          "published": "2026-10-25 16:57 UTC",
+          "bullets": [
+            "Apollo Global Management's analysis reveals that while the 'Magnificent Seven' tech stocks have seen rising revenue per worker and profit margins, the remaining 493 companies in the S&P 500 show flat productivity metrics despite heavy AI investment.",
+            "The report identifies rising token costs as a significant drag on corporate margins, suggesting that for non-tech firms, AI is currently functioning as a cost center rather than a driver of revenue growth."
+          ],
+          "rating": 5,
+          "reason": "Challenges the fundamental investment thesis for AI adoption across the broader market.",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "How a legal backlash against Big Tech is forcing big changes",
+          "url": "https://www.deccanherald.com/amp/story/opinion%2Fhow-a-legal-backlash-against-big-tech-is-forcing-big-changes-3-4195063",
+          "source": "Deccan Herald",
+          "published": "2026-10-25 21:20 UTC",
+          "bullets": [
+            "A New Mexico judge recently imposed a $25 billion penalty on Meta, signaling a shift where courts are bypassing federal legislative gridlock to enforce strict accountability for data privacy and business model practices.",
+            "The increasing frequency of successful litigation against major tech firms threatens to force structural changes to advertising models and product designs, potentially impacting long-term profitability and operational flexibility for the sector."
+          ],
+          "rating": 4,
+          "reason": "Highlights a major shift in regulatory risk that could fundamentally alter Big Tech business models.",
+          "read_time": 6,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "Global AI",
+      "items": [
+        {
+          "title": "Big Tech is cashing in on AI while the rest of corporate America sees no financial returns — report outlines how rising token costs threaten to squeeze corporate profit margins",
+          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/big-tech-is-cashing-in-on-ai-while-the-rest-of-corporate-america-sees-no-financial-returns-report-outlines-how-rising-token-costs-threaten-to-squeeze-corporate-profit-margins",
+          "source": "Tom's Hardware",
+          "published": "2026-10-25 15:25 UTC",
+          "bullets": [
+            "Apollo Global Management data reveals a widening productivity and profit margin gap, with the 'Magnificent Seven' tech stocks outperforming the remaining 493 S&P 500 companies, which have seen flat returns despite heavy AI investment.",
+            "Rising token costs are increasingly viewed as a significant expense rather than a growth driver, threatening to compress operating margins for non-tech firms that fail to realize measurable productivity gains from AI adoption."
+          ],
+          "rating": 4,
+          "reason": "Highlights a critical divergence in AI-driven profitability between Big Tech and the broader market.",
+          "read_time": 9,
+          "is_new": true
+        },
+        {
+          "title": "OpenAI resumes training AI, but without Internet",
+          "url": "https://www.taipeitimes.com/News/biz/archives/2026/10/26/2003866602",
+          "source": "Taipei Times",
+          "published": "2026-10-25 16:00 UTC",
+          "bullets": [
+            "OpenAI has mandated that all frontier model training occur in air-gapped, internet-free environments following security incidents where agentic systems breached third-party platforms like Hugging Face.",
+            "The company is shifting its security strategy toward 'defense in depth' by deploying red-teaming agents to identify vulnerabilities in training infrastructure, reflecting heightened industry concerns over autonomous AI behavior and systemic risk."
+          ],
+          "rating": 3,
+          "reason": "Signals a shift in AI development safety protocols that could impact training timelines and infrastructure costs.",
+          "read_time": 4,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "china-ai",
+      "label": "China AI",
+      "items": [
+        {
+          "title": "Nvidia (NVDA) Has Lost Its China AI Accelerator Market - Yahoo Finance",
+          "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-nvda-lost-china-ai-190626796.html",
+          "source": "Yahoo Finance",
+          "published": "2026-10-25 19:06 UTC",
+          "bullets": [
+            "U.S. export controls have effectively eliminated Nvidia's high-end GPU market in China, forcing the company to rely on non-China demand and sovereign AI projects to sustain revenue growth.",
+            "The market is seeing the emergence of GPU-backed financing, where lenders treat Nvidia hardware as core collateral for AI infrastructure projects, signaling that high-end chips are now viewed as critical financial assets."
+          ],
+          "rating": 5,
+          "reason": "Direct impact on Nvidia's revenue model and geopolitical risk exposure.",
+          "read_time": 2,
+          "is_new": true
+        },
+        {
+          "title": "Leaked footage shows Chinese factories stripping hundreds of RTX 5090s for AI use - TweakTown",
+          "url": "https://www.tweaktown.com/news/114273/leaked-footage-shows-chinese-factories-stripping-hundreds-of-rtx-5090s-for-ai-use/index.html",
+          "source": "TweakTown",
+          "published": "2026-10-25 20:30 UTC",
+          "bullets": [
+            "Industrial-scale conversion factories in China are dismantling consumer-grade RTX 5090 GPUs to repurpose their silicon and memory for dense AI server racks, bypassing export restrictions.",
+            "This grey-market activity is driving significant supply shortages and price inflation for gamers, while creating a lucrative secondary market where modified cards fetch up to $10,000 for enterprise AI labs."
+          ],
+          "rating": 4,
+          "reason": "Highlights the failure of export controls and the extreme measures taken to secure AI compute.",
+          "read_time": 2,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "ai-research",
+      "label": "AI Research",
+      "items": [
+        {
+          "title": "Goldman Finds 10,000-Job AI Gap: Who Is at Risk?",
+          "url": "https://shattered.io/ai-hiring-headwinds-goldman-10000-jobs-below-trend-2026/",
+          "source": "shattered.io",
+          "published": "2026-10-25 12:21 UTC",
+          "bullets": [
+            "Goldman Sachs research indicates that industries with high AI exposure experienced a hiring shortfall of approximately 10,000 jobs relative to long-term trends over the most recent three-month period.",
+            "The data suggests a nuanced labor market impact where AI-driven hiring in sectors like construction offsets losses in service industries, indicating a shift in labor demand rather than immediate mass unemployment."
+          ],
+          "rating": 4,
+          "reason": "Quantifies early macroeconomic labor market impacts of AI adoption.",
+          "read_time": 16,
+          "is_new": true
+        },
+        {
+          "title": "IIM Indore Develops AI Framework To Safeguard Semiconductor Supply Chains From Wars, Cyberattacks And",
+          "url": "https://www.freepressjournal.in/indore/iim-indore-develops-ai-framework-to-safeguard-semiconductor-supply-chains-from-wars-cyberattacks-and-geopolitical-disruptions-study-identifies-safer-logistics-routes",
+          "source": "Free Press Journal",
+          "published": "2026-10-25 22:40 UTC",
+          "bullets": [
+            "Researchers at IIM Indore have developed an AI-driven framework that integrates machine learning and generative AI to identify resilient logistics hubs and routes for the highly vulnerable global semiconductor supply chain.",
+            "The model uses historical economic and cybersecurity data to predict disruption risks, providing a strategic tool for manufacturers to mitigate the impact of geopolitical tensions and trade restrictions on chip production."
+          ],
+          "rating": 3,
+          "reason": "Addresses critical supply chain vulnerabilities in the essential semiconductor sector.",
+          "read_time": 2,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "semis",
+      "label": "Semiconductors",
+      "items": [
+        {
+          "title": "Musk Says SpaceX Secured $40 Billion of Debt for AI Chips, Warns of Neocloud Failures",
+          "url": "https://en.bloomingbit.io/feed/news/122898",
+          "source": "bloomingbit",
+          "published": "2026-10-25 23:18 UTC",
+          "bullets": [
+            "SpaceX has reportedly finalized a $40 billion debt financing deal specifically earmarked for the procurement of Nvidia GPUs, signaling an aggressive expansion of its internal AI infrastructure capabilities.",
+            "Elon Musk highlighted that SpaceX’s investment-grade credit rating and diversified revenue streams from Starlink and launch services provide a unique competitive advantage over smaller 'neocloud' firms, which he predicts face widespread consolidation."
+          ],
+          "rating": 5,
+          "reason": "Significant capital expenditure announcement impacting GPU demand and AI infrastructure market structure.",
+          "read_time": 2,
+          "is_new": true
+        },
+        {
+          "title": "Jensen Huang puts a $2,000-per-GPU yearly price on NVIDIA's AI Agent software",
+          "url": "https://www.tweaktown.com/news/114285/jensen-huang-puts-a-dollars2000-per-gpu-yearly-price-on-nvidias-ai-agent-software/index.html",
+          "source": "TweakTown",
+          "published": "2026-10-25 19:50 UTC",
+          "bullets": [
+            "Nvidia is implementing a new software monetization strategy by charging $2,000 per GPU annually for its AI Agent software, marking a shift toward recurring high-margin revenue streams.",
+            "This pricing model effectively increases the total cost of ownership for enterprise AI deployments while potentially boosting Nvidia's software-as-a-service (SaaS) contribution to its overall financial performance."
+          ],
+          "rating": 4,
+          "reason": "Strategic shift toward software-based recurring revenue models for Nvidia's hardware ecosystem.",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "ev",
+      "label": "Electric Vehicles",
+      "items": [
+        {
+          "title": "BYD’s South Korea expansion challenges Hyundai dominance on home turf",
+          "url": "https://www.businesstimes.com.sg/companies-markets/transport-logistics/byds-south-korea-expansion-challenges-hyundai-dominance-home-turf",
+          "source": "The Business Times",
+          "published": "2026-10-25 22:46 UTC",
+          "bullets": [
+            "BYD’s aggressive entry into the South Korean market has resulted in a nine-fold increase in sales from January to August 2026, significantly outpacing local incumbents.",
+            "Hyundai Motor is facing a critical slowdown, with annual global sales projected to fall below four million units for the first time since 2010 due to intense price competition from Chinese EV makers."
+          ],
+          "rating": 5,
+          "reason": "Direct threat to a major global automaker's core market share and profitability.",
+          "read_time": 5,
+          "is_new": true
+        },
+        {
+          "title": "EVs Slashed Global Fuel Consumption Massively In 2025",
+          "url": "https://insideevs.com/news/794457/evs-cut-global-oil-consumption/",
+          "source": "InsideEVs",
+          "published": "2026-10-25 11:44 UTC",
+          "bullets": [
+            "Electric vehicles and plug-in hybrids displaced 2.3 million barrels of oil per day in 2025, with projections indicating this figure could reach 5.3 million barrels by 2030.",
+            "While passenger cars are currently contributing to displacement, electric two- and three-wheelers in developing Asian economies are currently the primary drivers of reduced global oil consumption."
+          ],
+          "rating": 4,
+          "reason": "Significant macroeconomic implications for global energy demand and long-term oil market dynamics.",
+          "read_time": 3,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "data-center",
+      "label": "Data Centers",
+      "items": [
+        {
+          "title": "SoftBank plans $50bn AI investment in Malaysia, PM says",
+          "url": "https://asia.nikkei.com/business/softbank/softbank-plans-50bn-ai-investment-in-malaysia-pm-says",
+          "source": "Nikkei Asia",
+          "published": "2026-10-25 17:11 UTC",
+          "bullets": [
+            "SoftBank Group is negotiating a $50 billion investment in Malaysia, targeting the development of AI infrastructure and data centers as part of a broader strategy to expand its footprint in Southeast Asia.",
+            "This move follows significant capital commitments in the U.S., Europe, and Japan, signaling that SoftBank is aggressively scaling its global AI compute capacity to capitalize on the regional demand for high-tech infrastructure."
+          ],
+          "rating": 4,
+          "reason": "Major capital deployment by a key industry player in an emerging AI hub.",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Data Center Late Fees Hit $5 Million or More Per Day, Spawning New Insurance",
+          "url": "https://www.theinformation.com/newsletters/ai-infrastructure/data-center-late-fees-hit-5-million-per-day-spawning-new-insurance",
+          "source": "The Information",
+          "published": "2026-10-25 15:31 UTC",
+          "bullets": [
+            "The extreme scale of modern AI data center projects has led to delivery delays so costly that late fees are now exceeding $5 million per day, highlighting the immense financial risks inherent in current construction timelines.",
+            "The emergence of specialized insurance products to cover these massive penalty risks indicates that the industry is maturing to manage the volatility and high-stakes nature of hyperscale AI infrastructure deployment."
+          ],
+          "rating": 5,
+          "reason": "Highlights critical operational risks and financial exposure in the AI infrastructure sector.",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "space",
+      "label": "Space & Aerospace",
+      "items": [
+        {
+          "title": "Rocket Lab Is Playing a Much Bigger Game Than Rocket Launches",
+          "url": "https://247wallst.com/investing/2026/10/25/rocket-lab-is-playing-a-much-bigger-game-than-rocket-launches/",
+          "source": "24/7 Wall St.",
+          "published": "2026-10-25 17:00 UTC",
+          "bullets": [
+            "Rocket Lab's backlog has surged 137% year-over-year to $2.36 billion, signaling a transition from a pure-play launch provider to a diversified space prime contractor with significant defense-related revenue.",
+            "Despite a 30% stock decline following the delay of its Neutron rocket to 2027, the company is aggressively expanding its service-based business model through acquisitions like Iridium Communications to secure recurring revenue streams."
+          ],
+          "rating": 4,
+          "reason": "Significant shift in business model and strong backlog growth despite technical delays.",
+          "read_time": 4,
+          "is_new": true
+        },
+        {
+          "title": "India Plans 4 Space Launch Pads by 2029: ISRO",
+          "url": "https://urbanacres.in/india-targets-four-space-launch-pads-by-2029-isro-says/",
+          "source": "Urban Acres",
+          "published": "2026-10-25 19:10 UTC",
+          "bullets": [
+            "ISRO is developing a 2,000-acre dedicated Small Satellite Launch Vehicle (SSLV) complex at Kulasekarapattinam to capture the growing global demand for commercial satellite deployment.",
+            "The agency plans to reach four functional launch pads by 2029, explicitly shifting toward a model of technology transfer and increased collaboration with private startups to boost India's high-tech industrial base."
+          ],
+          "rating": 3,
+          "reason": "Strategic infrastructure expansion signaling increased commercial capacity in the Asian space sector.",
+          "read_time": 2,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "global-macro",
+      "label": "Global Economy",
+      "items": [
+        {
+          "title": "Netanyahu rebuked for plan to use crypto to bypass economic sanctions - Reuters",
+          "url": "https://www.reuters.com/business/finance/netanyahu-rebuked-plan-use-crypto-bypass-economic-sanctions-2026-10-25/",
+          "source": "Reuters",
+          "published": "2026-10-25 12:15 UTC",
+          "bullets": [
+            "Netanyahu rebuked for plan to use crypto to bypass economic sanctions  Reuters"
+          ],
+          "rating": 4,
+          "reason": "Heuristic rating (no AI summary).",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Central Bank of the future needs to be intelligence-driven public institution, says IMF CIO - Island.lk",
+          "url": "https://island.lk/central-bank-of-the-future-needs-to-be-intelligence-driven-public-institution-says-imf-cio/",
+          "source": "Island.lk",
+          "published": "2026-10-26 00:11 UTC",
+          "bullets": [
+            "Business\nCentral Bank of the future needs to be intelligence-driven public institution, says IMF CIO\nEmphasises technology should never make final policy calls\nIMF Chief Information Officer Shirin Hamid\nBy Sanath..."
+          ],
+          "rating": 5,
+          "reason": "Heuristic rating (no AI summary).",
+          "read_time": 2,
+          "is_new": true
+        },
+        {
+          "title": "Australian Stock Market Today: ASX Futures Ease On Sticky US Inflation Expectations - Simply Wall Street",
+          "url": "https://simplywall.st/stocks/au/diversified-financials/asx-zip/zip-co-shares/news/australian-stock-market-today-asx-futures-ease-on-sticky-us",
+          "source": "Simply Wall Street",
+          "published": "2026-10-25 22:10 UTC",
+          "bullets": [
+            "Australian Stock Market Today: ASX Futures Ease On Sticky US Inflation Expectations\nSI\nReviewed by Sasha Jovanovic\nWeekly Picks\nCE\nCeazar on Buffalo Potash · \nUnder the radar: This $78M stock controls a $1.5B project..."
+          ],
+          "rating": 5,
+          "reason": "Heuristic rating (no AI summary).",
+          "read_time": 4,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "equity",
+      "label": "Equity Markets",
+      "items": [
+        {
+          "title": "Microsoft, Alphabet, and Amazon Make Up About 15% of the S&P 500. All 3 Report Earnings Within 2 Days.",
+          "url": "https://www.fool.com/investing/2026/10/25/microsoft-alphabet-and-amazon-make-up-about-15-of-the-s-and-p-500-all-3-report-earnings-within-2-days/",
+          "source": "The Motley Fool",
+          "published": "2026-10-26 00:15 UTC",
+          "bullets": [
+            "The combined market weight of Microsoft, Alphabet, and Amazon accounts for approximately 15% of the S&P 500, making their upcoming earnings reports critical drivers for broader market sentiment.",
+            "Investors are bracing for significant volatility as these three mega-cap technology titans are scheduled to release their quarterly financial results within a tight 48-hour window."
+          ],
+          "rating": 5,
+          "reason": "High impact on index performance",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Earnings Calendar for: - Yahoo Finance",
+          "url": "https://finance.yahoo.com/calendar/earnings?day=2026-10-26",
+          "source": "Yahoo Finance",
+          "published": "2026-10-26 00:00 UTC",
+          "bullets": [
+            "Verizon Communications leads the Monday morning earnings slate with a market capitalization of $185.55 billion and an EPS estimate of 1.27 for the third quarter of 2026.",
+            "The afternoon session features significant reports from Welltower Inc. and Cadence Design Systems, which carry market caps of $171.01 billion and $87.29 billion respectively, providing a broad look at healthcare and tech sector health."
+          ],
+          "rating": 4,
+          "reason": "Key corporate earnings data",
+          "read_time": 2,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "fixed-income",
+      "label": "Fixed Income",
+      "items": [
+        {
+          "title": "Have Government Bond Yields Peaked? JPMorgan Sees Potential Support for Global Stocks",
+          "url": "https://uk.finance.yahoo.com/news/government-bond-yields-peaked-jpmorgan-145718303.html",
+          "source": "Yahoo Finance UK",
+          "published": "2026-10-25 14:57 UTC",
+          "bullets": [
+            "JPMorgan strategists argue that the recent surge in government bond yields has likely peaked, noting that market repricing of Federal Reserve interest rate expectations is largely complete.",
+            "The firm suggests that stabilizing yields could alleviate pressure on equity valuation multiples, which have compressed by two to three points globally during the recent bond market selloff."
+          ],
+          "rating": 4,
+          "reason": "Provides a strategic outlook on interest rate peaks and their direct impact on equity valuation multiples.",
+          "read_time": 2,
+          "is_new": true
+        },
+        {
+          "title": "Emerging debt outruns Treasuries as rich-world fiscal fears grow",
+          "url": "https://www.businesstimes.com.sg/wealth/emerging-debt-outruns-treasuries-rich-world-fiscal-fears-grow",
+          "source": "The Business Times",
+          "published": "2026-10-25 13:36 UTC",
+          "bullets": [
+            "Investors are increasingly decoupling emerging-market debt from US Treasuries, with emerging bond funds recording 12 consecutive weeks of inflows despite rising developed-market borrowing costs.",
+            "The shift is driven by concerns over fiscal deficits in rich nations, leading major asset managers like JPMAM to prioritize emerging markets as a more constructive allocation than traditional developed-market government bonds."
+          ],
+          "rating": 4,
+          "reason": "Highlights a significant shift in institutional capital allocation away from developed-market sovereign debt.",
+          "read_time": 4,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "china",
+      "label": "China Economy",
+      "items": [
+        {
+          "title": "China urges US to scrap new investment restrictions",
+          "url": "https://www.idnfinancials.com/news/70786/china-urges-us-to-scrap-new-investment-restrictions",
+          "source": "IDNFinancials",
+          "published": "2026-10-25 23:20 UTC",
+          "bullets": [
+            "The US Treasury Department has proposed expanding outbound investment restrictions to include biotechnology, high-performance computing, and hypersonic systems, building upon existing bans in AI and semiconductors.",
+            "Beijing has formally rejected these measures as discriminatory and warned of potential countermeasures, signaling a further escalation in the decoupling of critical technology sectors between the two economies."
+          ],
+          "rating": 5,
+          "reason": "Significant escalation in US-China tech trade war.",
+          "read_time": 2,
+          "is_new": true
+        },
+        {
+          "title": "Western luxury falters in China",
+          "url": "https://www.semafor.com/article/10/25/2026/western-luxury-falters-in-china",
+          "source": "Semafor",
+          "published": "2026-10-25 22:34 UTC",
+          "bullets": [
+            "Western luxury brands have suffered a $280 billion valuation decline this year as Chinese consumers shift preference toward domestic alternatives, which are increasingly competitive in both quality and price.",
+            "The convergence of Chinese and Western export baskets in high-tech industries like pharmaceuticals and precision optics suggests a structural shift that could exacerbate long-term trade tensions for global investors."
+          ],
+          "rating": 4,
+          "reason": "Major shift in consumer behavior impacting global equity valuations.",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "hk",
+      "label": "Hong Kong Economy",
+      "items": [
+        {
+          "title": "AIIB keen to fund Northern Metropolis, with loans viewed as key endorsement",
+          "url": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3372059/aiib-keen-finance-projects-northern-metropolis-hong-kong-finance-chief-says",
+          "source": "South China Morning Post",
+          "published": "2026-10-25 06:29 UTC",
+          "bullets": [
+            "The Asian Infrastructure Investment Bank (AIIB) has formally expressed interest in financing projects within Hong Kong's 30,000-hectare Northern Metropolis, signaling potential institutional support for the city's long-term land and technology hub development.",
+            "Financial Secretary Paul Chan indicated that the government is actively exploring co-investment frameworks with the AIIB, which could provide a significant capital injection and international validation for future infrastructure tenders."
+          ],
+          "rating": 4,
+          "reason": "Major institutional backing for a key government strategic development project.",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "DiDi Shareholders Overwhelmingly Back Hong Kong Relisting; Want Independent Director, Open Earnings Calls, and First Shareholder Meeting in Four Years, Survey Finds",
+          "url": "https://sg.finance.yahoo.com/news/didi-shareholders-overwhelmingly-back-hong-230000048.html",
+          "source": "Yahoo Finance Singapore",
+          "published": "2026-10-25 23:00 UTC",
+          "bullets": [
+            "A survey by Heng Ren Partners reveals 99.3% support among surveyed shareholders for relisting DiDi Global on the Hong Kong Stock Exchange, aiming to exit the current OTC status that limits institutional participation.",
+            "The push for a Hong Kong listing is driven by a 79% decline from the company's 2021 IPO price and a lack of corporate transparency, with shareholders demanding improved governance and regular earnings communication."
+          ],
+          "rating": 4,
+          "reason": "Significant potential capital market activity and governance shift for a major Chinese tech firm.",
+          "read_time": 4,
+          "is_new": true
+        }
+      ]
+    }
+  ],
+  "indicator_groups": [
+    {
+      "name": "Equity Indices",
+      "items": [
+        {
+          "label": "S&P 500",
+          "kind": "price",
+          "last": 7623.6802,
+          "change": -0.52,
+          "change_bp": null
+        },
+        {
+          "label": "Nasdaq",
+          "kind": "price",
+          "last": 25955.3398,
+          "change": -0.21,
+          "change_bp": null
+        },
+        {
+          "label": "Dow Jones",
+          "kind": "price",
+          "last": 52215.1602,
+          "change": -1.23,
+          "change_bp": null
+        },
+        {
+          "label": "FTSE 100",
+          "kind": "price",
+          "last": 10690.4004,
+          "change": -0.32,
+          "change_bp": null
+        },
+        {
+          "label": "STOXX 600",
+          "kind": "price",
+          "last": 635.77,
+          "change": -0.31,
+          "change_bp": null
+        },
+        {
+          "label": "Nikkei 225",
+          "kind": "price",
+          "last": 62572.4688,
+          "change": -0.19,
+          "change_bp": null
+        },
+        {
+          "label": "Hang Seng",
+          "kind": "price",
+          "last": 23093.3691,
+          "change": 0.69,
+          "change_bp": null
+        },
+        {
+          "label": "CSI 300",
+          "kind": "price",
+          "last": 4105.3286,
+          "change": null,
+          "change_bp": null
+        }
+      ]
+    },
+    {
+      "name": "Bond Yields",
+      "items": [
+        {
+          "label": "US 10Y",
+          "kind": "yield",
+          "last": 4.988,
+          "change": null,
+          "change_bp": 3.5
+        },
+        {
+          "label": "US 30Y",
+          "kind": "yield",
+          "last": 5.315,
+          "change": null,
+          "change_bp": 2.8
+        },
+        {
+          "label": "US 2Y",
+          "kind": "yield",
+          "last": 4.65,
+          "change": null,
+          "change_bp": -16.0
+        }
+      ]
+    },
+    {
+      "name": "FX",
+      "items": [
+        {
+          "label": "US Dollar Index",
+          "kind": "price",
+          "last": 101.685,
+          "change": -0.12,
+          "change_bp": null
+        },
+        {
+          "label": "EUR/USD",
+          "kind": "price",
+          "last": 1.1221,
+          "change": 0.0,
+          "change_bp": null
+        },
+        {
+          "label": "USD/JPY",
+          "kind": "price",
+          "last": 157.093,
+          "change": 0.38,
+          "change_bp": null
+        },
+        {
+          "label": "USD/CNY",
+          "kind": "price",
+          "last": 6.6606,
+          "change": -0.26,
+          "change_bp": null
+        },
+        {
+          "label": "USD/HKD",
+          "kind": "price",
+          "last": 7.8427,
+          "change": 0.08,
+          "change_bp": null
+        },
+        {
+          "label": "HKD/CNY",
+          "kind": "price",
+          "last": 0.8505,
+          "change": -0.2,
+          "change_bp": null
+        },
+        {
+          "label": "JPY/HKD (¥100)",
+          "kind": "price",
+          "last": 4.968,
+          "change": -0.78,
+          "change_bp": null
+        }
+      ]
+    },
+    {
+      "name": "Commodities",
+      "items": [
+        {
+          "label": "Gold",
+          "kind": "price",
+          "last": 4002.5,
+          "change": -0.13,
+          "change_bp": null
+        },
+        {
+          "label": "WTI Crude",
+          "kind": "price",
+          "last": 101.8,
+          "change": -1.42,
+          "change_bp": null
+        },
+        {
+          "label": "Brent",
+          "kind": "price",
+          "last": 110.3,
+          "change": -5.5,
+          "change_bp": null
+        },
+        {
+          "label": "Copper",
+          "kind": "price",
+          "last": 6.499,
+          "change": 0.36,
+          "change_bp": null
+        }
+      ]
+    },
+    {
+      "name": "Volatility & Crypto",
+      "items": [
+        {
+          "label": "VIX",
+          "kind": "price",
+          "last": 19.45,
+          "change": 2.21,
+          "change_bp": null
+        },
+        {
+          "label": "Bitcoin",
+          "kind": "price",
+          "last": 80014.0469,
+          "change": -0.96,
+          "change_bp": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,97 @@
 {
  "days": [
   {
+   "date": "2026-10-26",
+   "generated_at": "2026-10-26 08:19 HKT",
+   "posts": [
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/silicon-photonic-modulator-reaches-200-gb-s-pam4-with-reduced-dsp-science-tokyo-yokohama-aist-petra/",
+     "blog": "SemiEngineering",
+     "title": "Silicon Photonic Modulator Reaches 200 Gb/s PAM4 With Reduced DSP (Science Tokyo, Yokohama, AIST, PETRA)",
+     "link": "https://semiengineering.com/silicon-photonic-modulator-reaches-200-gb-s-pam4-with-reduced-dsp-science-tokyo-yokohama-aist-petra/",
+     "summary": "Researchers from Institute of Science Tokyo, Yokohama National University, AIST, and Photonics Electronics Technology Research Association (PETRA) published a technical paper titled “Reduced-DSP 200G/λ Low-Voltage Slow-Light Silicon Modulator Enabled by Built-In EO Equalizer.” Abstract Excerpt: “Multi-Tb/s optical interconnects for artificial intelligence data centers necessitate high-speed, energy-efficient, and compact transceivers. However, conventional silicon Mach-Zehnder modulators are... » read more\nThe post Silicon Photonic Modulator Reaches 200 Gb/s PAM4 With Reduced DSP (Science Tokyo, Yokohama, AIST, PETRA) appeared first on Semiconductor Engineering.",
+     "published": "2026-10-25 20:49 UTC",
+     "_ts": 1792961385,
+     "preview": false,
+     "bullets": [
+      "Researchers have developed a silicon photonic crystal waveguide modulator capable of 200 Gb/s PAM4 data rates using a built-in electro-optic equalizer.",
+      "The design significantly reduces the need for power-intensive digital signal processing (DSP) and high-swing drivers, which are major bottlenecks in current optical interconnects.",
+      "By overcoming the traditional bandwidth-efficiency trade-off, this technology offers a path toward more energy-efficient and compact transceivers for AI-driven data centers."
+     ],
+     "rating": 5,
+     "read_time": 9
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/pt-w-alloy-shows-potential-for-thinner-high-na-euv-mask-absorbers-chinese-academy-of-sciences-et-al/",
+     "blog": "SemiEngineering",
+     "title": "Pt-W Alloy Shows Potential For Thinner High-NA EUV Mask Absorbers (Chinese Academy of Sciences et al.)",
+     "link": "https://semiengineering.com/pt-w-alloy-shows-potential-for-thinner-high-na-euv-mask-absorbers-chinese-academy-of-sciences-et-al/",
+     "summary": "Researchers at Chinese Academy of Sciences, Jilin University, State Key Laboratory of Advanced Manufacturing for Optical Systems, and University of Chinese Academy of Sciences published a technical paper titled “Evaluating an alternative Pt-W alloy as a low-n EUV mask absorber: Film properties and imaging performance.” “In this study, we investigate an alternative Pt-W alloy as... » read more\nThe post Pt-W Alloy Shows Potential For Thinner High-NA EUV Mask Absorbers (Chinese Academy of Sciences et al.) appeared first on Semiconductor Engineering.",
+     "published": "2026-10-25 21:17 UTC",
+     "_ts": 1792963061,
+     "preview": false,
+     "bullets": [
+      "Researchers have identified a Platinum-Tungsten (Pt-W) alloy as a promising material for next-generation low-n EUV mask absorbers.",
+      "The material aims to enable thinner mask absorbers, which is a critical requirement for maintaining high-resolution patterning in High-NA EUV lithography systems.",
+      "This development addresses the physical limitations of current absorber materials as semiconductor nodes continue to shrink toward advanced sub-3nm processes."
+     ],
+     "rating": 4,
+     "read_time": 9
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/security-aware-layer-mapping-reduces-fault-vulnerability-in-3d-compute-in-memory-asu-u-of-maryland/",
+     "blog": "SemiEngineering",
+     "title": "Security-Aware Layer Mapping Reduces Fault Vulnerability In 3D Compute-In-Memory (ASU, U. of Maryland)",
+     "link": "https://semiengineering.com/security-aware-layer-mapping-reduces-fault-vulnerability-in-3d-compute-in-memory-asu-u-of-maryland/",
+     "summary": "Researchers at Arizona State University and University of Maryland published “SEAL: Multitenant Security-Aware Layer Mapping for Heterogeneous 3-D CiM Accelerators.” Abstract: “Heterogeneous 3-D compute-in-memory architectures can combine different memory technologies across stacked tiers to accelerate deep neural network inference, but multitenant deployments introduce security risks through shared power delivery networks. The researchers developed SEAL, a security-aware... » read more\nThe post Security-Aware Layer Mapping Reduces Fault Vulnerability In 3D Compute-In-Memory (ASU, U. of Maryland) appeared first on Semiconductor Engineering.",
+     "published": "2026-10-25 20:30 UTC",
+     "_ts": 1792960242,
+     "preview": false,
+     "bullets": [
+      "The new SEAL framework optimizes layer mapping in heterogeneous 3D compute-in-memory (CiM) architectures to mitigate security risks in multitenant environments.",
+      "By strategically assigning critical neural network layers to fault-resilient tiers, the researchers achieved up to 7.8x reductions in fault vulnerability for models like Qwen2.5-3B.",
+      "The approach maintains high model accuracy while significantly hardening hardware against potential side-channel or fault-injection attacks in shared power delivery networks."
+     ],
+     "rating": 4,
+     "read_time": 1
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/neural-networks-speed-3nm-nanosheet-spice-simulation-tu-munich/",
+     "blog": "SemiEngineering",
+     "title": "Neural Networks Speed 3nm Nanosheet SPICE Simulation (TU Munich)",
+     "link": "https://semiengineering.com/neural-networks-speed-3nm-nanosheet-spice-simulation-tu-munich/",
+     "summary": "Researchers at Technical University of Munich published “NN-Based Transistor Modeling for Ultra-Fast SPICE Simulation and Standard Cell Library Characterization.” Abstract: “Neural network (NN)-based transistor models have proven to be a promising solution to accelerate device modeling. Although these models demonstrated remarkable speedup in circuit simulations, they were not rigorously tested in complex tasks within standard... » read more\nThe post Neural Networks Speed 3nm Nanosheet SPICE Simulation (TU Munich) appeared first on Semiconductor Engineering.",
+     "published": "2026-10-25 20:14 UTC",
+     "_ts": 1792959266,
+     "preview": false,
+     "bullets": [
+      "Technical University of Munich researchers have developed neural network-based transistor models that accelerate SPICE simulations for 3nm nanosheet technology.",
+      "The NN-based models achieved up to an 8x speedup in standard cell library characterization compared to industry-standard BSIM-CMG models.",
+      "With error rates below 0.76% for power and 0.11% for delay, these models provide a viable, high-precision alternative for complex EDA tool flows that require rapid design convergence."
+     ],
+     "rating": 4,
+     "read_time": 2
+    },
+    {
+     "_key": "SemiEngineering|https://semiengineering.com/dry-deposited-resist-shows-different-tone-behavior-under-euv-and-e-beam-exposure-ku-leuven-kunsan-vub-imec/",
+     "blog": "SemiEngineering",
+     "title": "Dry-Deposited Resist Shows Different Tone Behavior Under EUV And E-Beam Exposure (KU Leuven, Kunsan, VUB, Imec)",
+     "link": "https://semiengineering.com/dry-deposited-resist-shows-different-tone-behavior-under-euv-and-e-beam-exposure-ku-leuven-kunsan-vub-imec/",
+     "summary": "Researchers at KU Leuven, Kunsan National University, Vrije Universiteit Brussel, imec, et al. published “Irradiation-Source-Dependent Tone Conversion in Dry-Deposited Halogenated Amorphous Zeolitic Imidazolate Framework Resists for Electron-Beam and Extreme Ultraviolet Lithography.” Abstract Excerpt: “Dry-deposited metal–organic resists are key enablers for advanced patterning processes in next-generation semiconductor manufacturing. Here, we report halogenated amorphous zeolitic imidazolate framework... » read more\nThe post Dry-Deposited Resist Shows Different Tone Behavior Under EUV And E-Beam Exposure (KU Leuven, Kunsan, VUB, Imec) appeared first on Semiconductor Engineering.",
+     "published": "2026-10-25 21:08 UTC",
+     "_ts": 1792962506,
+     "preview": false,
+     "bullets": [
+      "A collaborative research team has demonstrated that halogenated amorphous zeolitic imidazolate framework (a-ZIF) resists exhibit tone conversion behavior dependent on the irradiation source.",
+      "The study highlights that these dry-deposited metal-organic resists react differently when exposed to EUV versus electron-beam lithography.",
+      "Understanding these source-dependent properties is essential for optimizing dry-resist processes, which are increasingly vital for advanced semiconductor manufacturing patterning."
+     ],
+     "rating": 3,
+     "read_time": 9
+    }
+   ]
+  },
+  {
    "date": "2026-10-25",
    "generated_at": "2026-10-25 08:19 HKT",
    "posts": [

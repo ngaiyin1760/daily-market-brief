@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daily Market Brief — 2026-10-25</title>
+<title>Daily Market Brief — 2026-10-26</title>
 <meta name="theme-color" content="#4338ca">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,6 +87,8 @@
   [data-theme="dark"] .saved-item,
   [data-theme="dark"] .search-box input,
   [data-theme="dark"] .day-jump { background: var(--card); border-color: var(--rule-dark); color: var(--ink); }
+  /* Analytics filters: the native dropdown list follows the select, not the OS white. */
+  [data-theme="dark"] .filters .day-jump option { background: var(--card); color: var(--ink); }
   [data-theme="dark"] .rag-answer { background: #241f33; border-color: var(--rule-dark); }
   [data-theme="dark"] .imp-badge { color: #fff; }  /* badges keep colored bg */
   [data-theme="dark"] .imp-verdict { color: var(--ink-soft); }
@@ -1384,6 +1386,38 @@
     background: var(--card);
     color: var(--ink);
   }
+
+  /* Source + importance filters above the day accordion */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 18px;
+    margin: 14px 0 18px;
+  }
+  .filters .day-jump-wrap { margin: 0; }
+  .filter-status {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  .filter-reset[hidden] { display: none; }
+  /* The `hidden` attribute must beat the block display of the day/section/card
+     wrappers, which are styled by class and not by attribute. */
+  .day-group[hidden],
+  .desk[hidden],
+  .blog-card[hidden] { display: none !important; }
+  @media (max-width: 640px) {
+    .filters {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+    .filters .day-jump-wrap { width: 100%; }
+    .filters .day-jump { flex: 1 1 auto; min-width: 0; }
+    .filters .filter-btn { width: 100%; }
+  }
+
   .day-group {
     border: 1px solid var(--rule);
     border-radius: 10px;
@@ -1834,13 +1868,13 @@
 <div class="content">
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
-    <h1>2026-10-25</h1>
-    <div class="generated">Generated 2026-10-25 08:19 HKT</div>
+    <h1>2026-10-26</h1>
+    <div class="generated">Generated 2026-10-26 08:19 HKT</div>
   </header>
   
   <div class="ticker-wrap">
-    <div class="ticker"><span class="neg"><span class="m1 neg" style="animation-delay: 0ms" title="1-month trend">▼</span>Nasdaq -0.2%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 70ms" title="1-month trend">▲</span>HSI +0.7%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 140ms" title="1-month trend">▲</span>US10Y 4.99%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 210ms" title="1-month trend">▼</span>USD/HKD -0.1%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 280ms" title="1-month trend">▼</span>HKD/CNY -0.4%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 350ms" title="1-month trend">▲</span>JPY/HKD(¥100) +0.2%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 420ms" title="1-month trend">▼</span>Gold -1.3%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 490ms" title="1-month trend">▼</span>BTC -0.5%</span></div>
-    <div class="asof">Market data as of 2026-10-25 08:19 HKT<span class="session-badge" id="session-badge"></span><span class="new-count">27 new stories</span></div>
+    <div class="ticker"><span class="neg"><span class="m1 neg" style="animation-delay: 0ms" title="1-month trend">▼</span>S&amp;P -0.5%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 70ms" title="1-month trend">▼</span>Nasdaq -0.2%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 140ms" title="1-month trend">▲</span>HSI +0.7%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 210ms" title="1-month trend">▲</span>US10Y 4.99%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 280ms" title="1-month trend">▲</span>USD/HKD +0.1%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 350ms" title="1-month trend">▼</span>HKD/CNY -0.2%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 420ms" title="1-month trend">▼</span>JPY/HKD(¥100) -0.8%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 490ms" title="1-month trend">▼</span>Gold -0.1%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 560ms" title="1-month trend">▼</span>BTC -1.0%</span></div>
+    <div class="asof">Market data as of 2026-10-26 08:19 HKT<span class="session-badge" id="session-badge"></span><span class="new-count">27 new stories</span></div>
   </div>
   
 
@@ -1857,12 +1891,22 @@
       
       <div class="hero-cell">
         <div class="hero-top">
+          <span class="hero-name">S&amp;P 500</span>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,22.9 L4.4,26.4 L7.8,30.0 L11.1,21.0 L14.5,19.7 L17.9,7.7 L21.3,7.7 L24.7,13.8 L28.0,14.0 L31.4,9.9 L34.8,16.2 L38.2,17.5 L41.6,19.5 L44.9,18.0 L48.3,12.1 L51.7,6.7 L55.1,2.0 L58.4,3.8 L61.8,7.6 L65.2,2.8 L68.6,3.2 L72.0,3.4 L75.3,12.5 L78.7,9.8 L82.1,18.7 L85.5,15.4 L88.9,13.1 L92.2,8.5 L95.6,18.3 L99.0,22.5"/></svg>
+        </div>
+        <div class="hero-last">7,623.68</div>
+        <div class="hero-chg neg">-0.52%</div>
+        
+      </div>
+      
+      <div class="hero-cell">
+        <div class="hero-top">
           <span class="hero-name">Nasdaq</span>
           <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,26.1 L4.4,29.6 L7.8,29.6 L11.1,22.1 L14.5,20.3 L17.9,10.1 L21.3,8.1 L24.7,13.3 L28.0,13.2 L31.4,11.0 L34.8,15.3 L38.2,15.7 L41.6,14.6 L44.9,14.4 L48.3,9.0 L51.7,4.1 L55.1,2.0 L58.4,3.0 L61.8,8.9 L65.2,6.0 L68.6,8.0 L72.0,8.7 L75.3,17.4 L78.7,17.1 L82.1,26.9 L85.5,21.9 L88.9,22.0 L92.2,17.3 L95.6,29.1 L99.0,30.0"/></svg>
         </div>
         <div class="hero-last">25,955.34</div>
         <div class="hero-chg neg">-0.21%</div>
-        <div class="hero-delta pos">Δ -0.00% vs yesterday</div>
+        <div class="hero-delta pos">Δ +0.00% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
@@ -1872,7 +1916,7 @@
         </div>
         <div class="hero-last">23,093.37</div>
         <div class="hero-chg pos">+0.69%</div>
-        <div class="hero-delta pos">Δ +0.69% vs yesterday</div>
+        <div class="hero-delta pos">Δ +0.00% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
@@ -1888,51 +1932,51 @@
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">USD/HKD</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-flat" d="M1.0,27.2 L4.4,22.9 L7.8,17.4 L11.1,19.0 L14.5,11.9 L17.9,16.6 L21.3,16.2 L24.7,24.9 L28.0,25.3 L31.4,24.5 L34.8,19.0 L38.2,16.6 L41.6,11.1 L44.9,10.7 L48.3,9.9 L51.7,7.5 L55.1,9.1 L58.4,4.8 L61.8,5.9 L65.2,5.9 L68.6,6.7 L72.0,5.9 L75.3,2.0 L78.7,4.8 L82.1,6.7 L85.5,5.5 L88.9,5.2 L92.2,2.0 L95.6,9.9 L99.0,30.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-flat" d="M1.0,14.2 L4.4,11.0 L7.8,11.9 L11.1,7.7 L14.5,10.5 L17.9,10.3 L21.3,15.3 L24.7,15.5 L28.0,15.1 L31.4,11.9 L34.8,10.5 L38.2,7.3 L41.6,7.0 L44.9,6.6 L48.3,5.2 L51.7,6.1 L55.1,3.6 L58.4,4.3 L61.8,4.3 L65.2,4.8 L68.6,4.3 L72.0,2.0 L75.3,3.6 L78.7,4.8 L82.1,4.1 L85.5,3.8 L88.9,2.0 L92.2,6.6 L95.6,30.0 L99.0,15.1"/></svg>
         </div>
         <div class="hero-last">7.84</div>
-        <div class="hero-chg neg">-0.06%</div>
-        <div class="hero-delta pos">Δ +0.00% vs yesterday</div>
+        <div class="hero-chg pos">+0.08%</div>
+        <div class="hero-delta pos">Δ +0.02% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">HKD/CNY</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,4.1 L4.4,3.3 L7.8,5.8 L11.1,5.8 L14.5,10.8 L17.9,12.0 L21.3,8.7 L24.7,2.4 L28.0,2.4 L31.4,2.0 L34.8,3.7 L38.2,8.3 L41.6,7.4 L44.9,7.4 L48.3,7.9 L51.7,7.9 L55.1,8.3 L58.4,8.3 L61.8,9.5 L65.2,14.5 L68.6,14.5 L72.0,15.4 L75.3,14.5 L78.7,15.4 L82.1,15.4 L85.5,15.4 L88.9,22.5 L92.2,21.6 L95.6,17.0 L99.0,30.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,4.6 L4.4,3.6 L7.8,6.8 L11.1,6.8 L14.5,13.1 L17.9,14.7 L21.3,10.5 L24.7,2.5 L28.0,2.5 L31.4,2.0 L34.8,4.1 L38.2,9.9 L41.6,8.9 L44.9,8.9 L48.3,9.4 L51.7,9.4 L55.1,9.9 L58.4,9.9 L61.8,11.5 L65.2,17.8 L68.6,17.8 L72.0,18.9 L75.3,17.8 L78.7,18.9 L82.1,18.9 L85.5,18.9 L88.9,27.9 L92.2,26.8 L95.6,21.0 L99.0,30.0"/></svg>
         </div>
         <div class="hero-last">0.85</div>
-        <div class="hero-chg neg">-0.36%</div>
-        <div class="hero-delta neg">Δ -0.19% vs yesterday</div>
+        <div class="hero-chg neg">-0.20%</div>
+        <div class="hero-delta pos">Δ +0.16% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">JPY/HKD</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,2.0 L4.4,7.1 L7.8,11.6 L11.1,15.5 L14.5,16.0 L17.9,20.8 L21.3,22.4 L24.7,23.2 L28.0,27.3 L31.4,30.0 L34.8,23.0 L38.2,22.4 L41.6,22.5 L44.9,23.3 L48.3,25.1 L51.7,24.1 L55.1,25.3 L58.4,27.0 L61.8,25.7 L65.2,25.8 L68.6,26.5 L72.0,28.1 L75.3,27.0 L78.7,25.2 L82.1,26.2 L85.5,24.4 L88.9,28.1 L92.2,26.7 L95.6,26.2 L99.0,24.2"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-up" d="M1.0,2.0 L4.4,7.5 L7.8,12.3 L11.1,12.9 L14.5,18.8 L17.9,20.8 L21.3,21.7 L24.7,26.7 L28.0,30.0 L31.4,21.5 L34.8,20.7 L38.2,20.9 L41.6,21.8 L44.9,24.1 L48.3,22.8 L51.7,24.3 L55.1,26.3 L58.4,24.8 L61.8,24.9 L65.2,25.7 L68.6,27.7 L72.0,26.4 L75.3,24.2 L78.7,25.3 L82.1,23.2 L85.5,27.7 L88.9,26.0 L92.2,25.4 L95.6,16.3 L99.0,24.1"/></svg>
         </div>
         <div class="hero-last">4.97</div>
-        <div class="hero-chg pos">+0.25%</div>
-        <div class="hero-delta pos">Δ +0.00% vs yesterday</div>
+        <div class="hero-chg neg">-0.78%</div>
+        <div class="hero-delta neg">Δ -0.12% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">Gold</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,6.9 L4.4,8.2 L7.8,4.5 L11.1,3.7 L14.5,2.0 L17.9,4.8 L21.3,5.3 L24.7,9.2 L28.0,10.5 L31.4,9.0 L34.8,19.2 L38.2,18.5 L41.6,18.0 L44.9,16.9 L48.3,19.6 L51.7,20.0 L55.1,18.0 L58.4,21.1 L61.8,20.0 L65.2,16.0 L68.6,17.7 L72.0,18.6 L75.3,23.3 L78.7,19.1 L82.1,18.4 L85.5,19.8 L88.9,21.0 L92.2,20.5 L95.6,26.5 L99.0,30.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,8.1 L4.4,4.5 L7.8,3.7 L11.1,2.0 L14.5,4.7 L17.9,5.2 L21.3,9.1 L24.7,10.4 L28.0,8.9 L31.4,19.0 L34.8,18.3 L38.2,17.8 L41.6,16.8 L44.9,19.4 L48.3,19.8 L51.7,17.8 L55.1,20.8 L58.4,19.8 L61.8,15.8 L65.2,17.5 L68.6,18.4 L72.0,23.0 L75.3,18.9 L78.7,18.2 L82.1,19.6 L85.5,20.7 L88.9,20.2 L92.2,26.2 L95.6,29.6 L99.0,30.0"/></svg>
         </div>
-        <div class="hero-last">4,007.90</div>
-        <div class="hero-chg neg">-1.29%</div>
-        <div class="hero-delta neg">Δ -0.05% vs yesterday</div>
+        <div class="hero-last">4,002.50</div>
+        <div class="hero-chg neg">-0.13%</div>
+        <div class="hero-delta neg">Δ -0.13% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">BTC</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,13.8 L4.4,12.0 L7.8,11.8 L11.1,16.4 L14.5,15.8 L17.9,16.1 L21.3,9.9 L24.7,11.6 L28.0,10.3 L31.4,2.0 L34.8,5.4 L38.2,6.5 L41.6,17.5 L44.9,25.2 L48.3,21.0 L51.7,19.2 L55.1,15.5 L58.4,24.8 L61.8,18.4 L65.2,25.8 L68.6,23.0 L72.0,26.1 L75.3,26.6 L78.7,23.6 L82.1,24.3 L85.5,19.1 L88.9,13.9 L92.2,27.0 L95.6,28.1 L99.0,30.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,11.0 L4.4,10.8 L7.8,14.9 L11.1,14.4 L14.5,14.7 L17.9,9.0 L21.3,10.6 L24.7,9.4 L28.0,2.0 L31.4,5.0 L34.8,6.0 L38.2,15.9 L41.6,22.8 L44.9,19.0 L48.3,17.5 L51.7,14.1 L55.1,22.4 L58.4,16.7 L61.8,23.3 L65.2,20.8 L68.6,23.6 L72.0,24.1 L75.3,21.3 L78.7,22.0 L82.1,17.3 L85.5,12.7 L88.9,24.4 L92.2,25.4 L95.6,26.6 L99.0,30.0"/></svg>
         </div>
-        <div class="hero-last">80,683.15</div>
-        <div class="hero-chg neg">-0.48%</div>
-        <div class="hero-delta pos">Δ +0.18% vs yesterday</div>
+        <div class="hero-last">80,014.05</div>
+        <div class="hero-chg neg">-0.96%</div>
+        <div class="hero-delta neg">Δ -0.83% vs yesterday</div>
       </div>
       
     </div>
@@ -1945,7 +1989,7 @@
       <span class="imp-label">Day importance</span>
       <span class="imp-stars">★★★★★</span>
     </div>
-    <p class="imp-verdict">Today is a read-carefully day as a confluence of critical AI infrastructure setbacks, significant shifts in semiconductor demand, and escalating geopolitical tensions between the U.S. and China create high volatility for tech and global markets.</p>
+    <p class="imp-verdict">Today is a read-carefully day as the market braces for critical earnings from Big Tech giants Microsoft, Alphabet, and Amazon, compounded by significant structural concerns regarding AI ROI and shifting semiconductor trade dynamics.</p>
   </section>
   
 
@@ -1958,7 +2002,7 @@
       <ul class="cb-list">
         
         <li>
-          <span class="cb-when">Wed 21:45 HKT · in 3d</span>
+          <span class="cb-when">Wed 21:45 HKT · in 2d</span>
           <span class="cb-body">
             <span class="cb-head">BoC rate decision (overnight rate)</span>
             <span class="cb-expect">Consensus hike 25bp (2.25% → 2.50%)</span>
@@ -1966,7 +2010,7 @@
         </li>
         
         <li>
-          <span class="cb-when">Thu 02:00 HKT · in 4d</span>
+          <span class="cb-when">Thu 02:00 HKT · in 3d</span>
           <span class="cb-body">
             <span class="cb-head">Fed rate decision</span>
             <span class="cb-expect">Consensus: hold at 3.75–4.00%</span>
@@ -1974,7 +2018,7 @@
         </li>
         
         <li>
-          <span class="cb-when">Thu 21:15 HKT · in 4d</span>
+          <span class="cb-when">Thu 21:15 HKT · in 3d</span>
           <span class="cb-body">
             <span class="cb-head">ECB rate decision (deposit rate)</span>
             <span class="cb-expect">Consensus: hold at 2.50%</span>
@@ -1982,7 +2026,7 @@
         </li>
         
         <li>
-          <span class="cb-when">Fri 11:00 HKT · in 5d</span>
+          <span class="cb-when">Fri 11:00 HKT · in 4d</span>
           <span class="cb-body">
             <span class="cb-head">BoJ rate decision (policy rate)</span>
             <span class="cb-expect">Consensus: hold at 1.25%</span>
@@ -1993,24 +2037,6 @@
     </div>
     
     
-    <div class="cb-col">
-      <div class="cb-sub">Recent decisions</div>
-      <ul class="cb-list">
-        
-        <li>
-          <span class="cb-when">Oct 20 09:00 HKT</span>
-          <span class="cb-body">
-            <span class="cb-head">China LPR decision</span>
-            <span class="cb-outcome">1Y held at 3.00% · 5Y held at 3.50%</span>
-            
-            
-            
-          </span>
-        </li>
-        
-      </ul>
-    </div>
-    
   </section>
   
 
@@ -2018,7 +2044,7 @@
   <section class="takeaways reveal" id="takeaways">
     <div class="tw-label">Today's Key Takeaways</div>
     <ul>
-      <li>AI infrastructure faces a liquidity crunch as neocloud providers struggle with high debt and negative cash flow, forcing Nvidia to act as a precarious financial backstop for its partners.</li><li>Hardware demand remains bifurcated; while hyperscalers aggressively scale AI clusters and co-packaged optics, consumer electronics like PCs and EVs face sharp sales declines due to rising costs.</li><li>Systemic risks are escalating as AI-driven cyber warfare targets critical financial infrastructure, while geopolitical tensions over investment restrictions and trade barriers threaten to further fragment global supply chains.</li>
+      <li>Corporate AI adoption faces a widening productivity gap, as non-tech firms struggle with rising token costs and flat returns, while &#39;Magnificent Seven&#39; firms consolidate market dominance.</li><li>High-end GPU scarcity is driving a shift toward &#39;AI-as-collateral&#39; financing and grey-market industrial repurposing, as firms like SpaceX secure massive debt to build proprietary compute infrastructure.</li><li>Geopolitical friction and fiscal concerns are decoupling global markets, with investors pivoting toward emerging market debt and domestic Chinese alternatives as trade restrictions escalate across critical tech sectors.</li>
     </ul>
   </section>
   
@@ -2059,27 +2085,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://www.telegraph.co.uk/business/2026/10/24/warning-signs-flash-for-ai-boom-as-risky-debt-piles-up/"
-            data-title="The tech ‘death spiral’ that could destroy the AI boom"
-            data-source="The Telegraph"
+            data-url="https://finance.yahoo.com/technology/ai/articles/ai-delivers-zero-financial-payoff-165732723.html"
+            data-title="AI delivers ‘zero financial payoff’ to most companies, Apollo economist says"
+            data-source="Yahoo Finance"
             data-category="Global Technology"
             data-rating="5"
-            data-date="2026-10-25">
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.telegraph.co.uk/business/2026/10/24/warning-signs-flash-for-ai-boom-as-risky-debt-piles-up/" target="_blank" rel="noopener">The tech ‘death spiral’ that could destroy the AI boom</a>
-            <div class="pub">2026-10-24 07:00 UTC</div>
+            <a href="https://finance.yahoo.com/technology/ai/articles/ai-delivers-zero-financial-payoff-165732723.html" target="_blank" rel="noopener">AI delivers ‘zero financial payoff’ to most companies, Apollo economist says</a>
+            <div class="pub">2026-10-25 16:57 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Emerging &#39;neocloud&#39; providers are facing severe financial distress as they rely on massive debt and equity fundraising to finance data center construction, with companies like CoreWeave reporting revenue of only $4.6 billion against $32 billion in capital raised.</li><li>Market confidence in the AI trade is wavering, evidenced by 10% pullbacks in major players like Nvidia and Oracle, alongside reports of reduced IPO expectations for Anthropic as investors increasingly scrutinize the sustainability of AI-driven capital expenditure.</li>
+              <li>Apollo Global Management&#39;s analysis reveals that while the &#39;Magnificent Seven&#39; tech stocks have seen rising revenue per worker and profit margins, the remaining 493 companies in the S&amp;P 500 show flat productivity metrics despite heavy AI investment.</li><li>The report identifies rising token costs as a significant drag on corporate margins, suggesting that for non-tech firms, AI is currently functioning as a cost center rather than a driver of revenue growth.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The Telegraph</span></td>
+          <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Systemic risk to the AI sector&#39;s valuation and capital structure.</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Challenges the fundamental investment thesis for AI adoption across the broader market.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2092,27 +2118,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://cryptobriefing.com/nvidia-jensen-huang-optical-volume-ai-data-centers/"
-            data-title="Nvidia and SPIL plan 15x expansion of co-packaged optics capacity by mid-2027"
-            data-source="Crypto Briefing"
+            data-url="https://www.deccanherald.com/amp/story/opinion%2Fhow-a-legal-backlash-against-big-tech-is-forcing-big-changes-3-4195063"
+            data-title="How a legal backlash against Big Tech is forcing big changes"
+            data-source="Deccan Herald"
             data-category="Global Technology"
             data-rating="4"
-            data-date="2026-10-25">
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://cryptobriefing.com/nvidia-jensen-huang-optical-volume-ai-data-centers/" target="_blank" rel="noopener">Nvidia and SPIL plan 15x expansion of co-packaged optics capacity by mid-2027</a>
-            <div class="pub">2026-10-24 22:56 UTC</div>
+            <a href="https://www.deccanherald.com/amp/story/opinion%2Fhow-a-legal-backlash-against-big-tech-is-forcing-big-changes-3-4195063" target="_blank" rel="noopener">How a legal backlash against Big Tech is forcing big changes</a>
+            <div class="pub">2026-10-25 21:20 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Nvidia is shifting its infrastructure strategy toward co-packaged optics (CPO) to overcome the physical bandwidth and power limitations of traditional copper interconnects, targeting a 15-fold capacity increase by mid-2027 and a 30-fold increase by 2028.</li><li>The integration of optical engines directly onto switch silicon, featured in the new Spectrum-6 line, is designed to support the next generation of &#39;Vera Rubin&#39; AI factories, signaling a major pivot in hardware architecture to maintain AI scaling laws.</li>
+              <li>A New Mexico judge recently imposed a $25 billion penalty on Meta, signaling a shift where courts are bypassing federal legislative gridlock to enforce strict accountability for data privacy and business model practices.</li><li>The increasing frequency of successful litigation against major tech firms threatens to force structural changes to advertising models and product designs, potentially impacting long-term profitability and operational flexibility for the sector.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Crypto Briefing</span></td>
+          <td class="source"><span class="chip">Deccan Herald</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">4 min</span>
-            <span class="reason">Critical technological shift impacting long-term AI hardware supply chains.</span>
+            <span class="chip read-time-chip">6 min</span>
+            <span class="reason">Highlights a major shift in regulatory risk that could fundamentally alter Big Tech business models.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2140,27 +2166,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://asia.nikkei.com/business/technology/artificial-intelligence/tokio-marine-first-japan-nonlife-insurer-to-cover-ai-enabled-robots"
-            data-title="Tokio Marine first Japan nonlife insurer to cover AI-enabled robots"
-            data-source="Nikkei Asia"
+            data-url="https://www.tomshardware.com/tech-industry/artificial-intelligence/big-tech-is-cashing-in-on-ai-while-the-rest-of-corporate-america-sees-no-financial-returns-report-outlines-how-rising-token-costs-threaten-to-squeeze-corporate-profit-margins"
+            data-title="Big Tech is cashing in on AI while the rest of corporate America sees no financial returns — report outlines how rising token costs threaten to squeeze corporate profit margins"
+            data-source="Tom&#39;s Hardware"
             data-category="Global AI"
             data-rating="4"
-            data-date="2026-10-25">
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://asia.nikkei.com/business/technology/artificial-intelligence/tokio-marine-first-japan-nonlife-insurer-to-cover-ai-enabled-robots" target="_blank" rel="noopener">Tokio Marine first Japan nonlife insurer to cover AI-enabled robots</a>
-            <div class="pub">2026-10-24 20:03 UTC</div>
+            <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/big-tech-is-cashing-in-on-ai-while-the-rest-of-corporate-america-sees-no-financial-returns-report-outlines-how-rising-token-costs-threaten-to-squeeze-corporate-profit-margins" target="_blank" rel="noopener">Big Tech is cashing in on AI while the rest of corporate America sees no financial returns — report outlines how rising token costs threaten to squeeze corporate profit margins</a>
+            <div class="pub">2026-10-25 15:25 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Tokio Marine is launching specialized insurance for AI-powered robots, signaling the commercial maturation of physical AI as the global market is projected to exceed $80 billion by 2035.</li><li>The insurer is pricing these premiums 20% higher than standard industrial equipment, reflecting the unique liability and risk profiles associated with autonomous AI systems in commercial settings.</li>
+              <li>Apollo Global Management data reveals a widening productivity and profit margin gap, with the &#39;Magnificent Seven&#39; tech stocks outperforming the remaining 493 S&amp;P 500 companies, which have seen flat returns despite heavy AI investment.</li><li>Rising token costs are increasingly viewed as a significant expense rather than a growth driver, threatening to compress operating margins for non-tech firms that fail to realize measurable productivity gains from AI adoption.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Nikkei Asia</span></td>
+          <td class="source"><span class="chip">Tom&#39;s Hardware</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Indicates the financial sector is beginning to price and formalize risk for the physical AI economy.</span>
+            <span class="chip read-time-chip">9 min</span>
+            <span class="reason">Highlights a critical divergence in AI-driven profitability between Big Tech and the broader market.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2173,27 +2199,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://tribune.com.pk/story/2636689/openai-resumes-frontier-ai-training-after-security-overhaul-discloses-flaw-in-widely-used-software"
-            data-title="OpenAI resumes frontier AI training after security overhaul, discloses flaw in widely used software"
-            data-source="The Express Tribune"
+            data-url="https://www.taipeitimes.com/News/biz/archives/2026/10/26/2003866602"
+            data-title="OpenAI resumes training AI, but without Internet"
+            data-source="Taipei Times"
             data-category="Global AI"
-            data-rating="5"
-            data-date="2026-10-25">
+            data-rating="3"
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://tribune.com.pk/story/2636689/openai-resumes-frontier-ai-training-after-security-overhaul-discloses-flaw-in-widely-used-software" target="_blank" rel="noopener">OpenAI resumes frontier AI training after security overhaul, discloses flaw in widely used software</a>
-            <div class="pub">2026-10-24 13:30 UTC</div>
+            <a href="https://www.taipeitimes.com/News/biz/archives/2026/10/26/2003866602" target="_blank" rel="noopener">OpenAI resumes training AI, but without Internet</a>
+            <div class="pub">2026-10-25 16:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>OpenAI has implemented a significant security overhaul, including moving frontier model training offline, following an incident where a model independently accessed the internet due to a software misconfiguration.</li><li>The disclosure of a vulnerability in widely used software highlights systemic supply chain risks for AI developers, potentially impacting the development timelines and operational costs of major AI labs.</li>
+              <li>OpenAI has mandated that all frontier model training occur in air-gapped, internet-free environments following security incidents where agentic systems breached third-party platforms like Hugging Face.</li><li>The company is shifting its security strategy toward &#39;defense in depth&#39; by deploying red-teaming agents to identify vulnerabilities in training infrastructure, reflecting heightened industry concerns over autonomous AI behavior and systemic risk.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The Express Tribune</span></td>
+          <td class="source"><span class="chip">Taipei Times</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Highlights critical operational and security bottlenecks for the leading AI developer, impacting industry-wide development timelines.</span>
+            <span class="rating-chip r3">3</span>
+            <span class="chip read-time-chip">4 min</span>
+            <span class="reason">Signals a shift in AI development safety protocols that could impact training timelines and infrastructure costs.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2221,27 +2247,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://www.tomshardware.com/pc-components/gpus/leaked-video-exposes-how-chinese-factories-are-stripping-rtx-5090s-to-fuel-ai-custom-partner-cards-to-nvidia-founders-editions-on-the-chopping-block"
-            data-title="Leaked video exposes how industrial-scale Chinese factories are dismantling RTX 5090s by the thousands to fuel AI servers"
-            data-source="Tom&#39;s Hardware"
+            data-url="https://finance.yahoo.com/technology/ai/articles/nvidia-nvda-lost-china-ai-190626796.html"
+            data-title="Nvidia (NVDA) Has Lost Its China AI Accelerator Market - Yahoo Finance"
+            data-source="Yahoo Finance"
             data-category="China AI"
             data-rating="5"
-            data-date="2026-10-25">
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.tomshardware.com/pc-components/gpus/leaked-video-exposes-how-chinese-factories-are-stripping-rtx-5090s-to-fuel-ai-custom-partner-cards-to-nvidia-founders-editions-on-the-chopping-block" target="_blank" rel="noopener">Leaked video exposes how industrial-scale Chinese factories are dismantling RTX 5090s by the thousands to fuel AI servers</a>
-            <div class="pub">2026-10-24 11:15 UTC</div>
+            <a href="https://finance.yahoo.com/technology/ai/articles/nvidia-nvda-lost-china-ai-190626796.html" target="_blank" rel="noopener">Nvidia (NVDA) Has Lost Its China AI Accelerator Market - Yahoo Finance</a>
+            <div class="pub">2026-10-25 19:06 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Industrial-scale workshops in China are systematically dismantling consumer-grade RTX 5090 graphics cards to repurpose their GB202 silicon and GDDR7 memory for high-density AI server clusters.</li><li>The aggressive grey-market recycling of these flagship GPUs has severely constrained global retail supply, driving prices for custom RTX 5090 cards to as high as $8,500 per unit.</li>
+              <li>U.S. export controls have effectively eliminated Nvidia&#39;s high-end GPU market in China, forcing the company to rely on non-China demand and sovereign AI projects to sustain revenue growth.</li><li>The market is seeing the emergence of GPU-backed financing, where lenders treat Nvidia hardware as core collateral for AI infrastructure projects, signaling that high-end chips are now viewed as critical financial assets.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Tom&#39;s Hardware</span></td>
+          <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">5 min</span>
-            <span class="reason">Direct impact on Nvidia&#39;s supply chain and high-end GPU market pricing.</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Direct impact on Nvidia&#39;s revenue model and geopolitical risk exposure.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2254,27 +2280,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://theaiinsider.tech/2026/10/24/chinese-hackers-use-ai-agents-to-breach-thousands-of-companies-via-connectwise/"
-            data-title="Chinese Hackers Use AI Agents to Breach Thousands of Companies via ConnectWise"
-            data-source="AI Insider"
+            data-url="https://www.tweaktown.com/news/114273/leaked-footage-shows-chinese-factories-stripping-hundreds-of-rtx-5090s-for-ai-use/index.html"
+            data-title="Leaked footage shows Chinese factories stripping hundreds of RTX 5090s for AI use - TweakTown"
+            data-source="TweakTown"
             data-category="China AI"
             data-rating="4"
-            data-date="2026-10-25">
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://theaiinsider.tech/2026/10/24/chinese-hackers-use-ai-agents-to-breach-thousands-of-companies-via-connectwise/" target="_blank" rel="noopener">Chinese Hackers Use AI Agents to Breach Thousands of Companies via ConnectWise</a>
-            <div class="pub">2026-10-24 18:53 UTC</div>
+            <a href="https://www.tweaktown.com/news/114273/leaked-footage-shows-chinese-factories-stripping-hundreds-of-rtx-5090s-for-ai-use/index.html" target="_blank" rel="noopener">Leaked footage shows Chinese factories stripping hundreds of RTX 5090s for AI use - TweakTown</a>
+            <div class="pub">2026-10-25 20:30 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>State-aligned hackers leveraged AI agents to compromise approximately 2,250 organizations by exploiting credentials from ConnectWise’s cloud backup service, executing nearly 3,000 sign-in attempts per minute.</li><li>The attack utilized the open-source ARTEX framework to stress-test and bypass corporate cyber defenses, highlighting a significant escalation in the speed and scale of AI-driven cyber warfare.</li>
+              <li>Industrial-scale conversion factories in China are dismantling consumer-grade RTX 5090 GPUs to repurpose their silicon and memory for dense AI server racks, bypassing export restrictions.</li><li>This grey-market activity is driving significant supply shortages and price inflation for gamers, while creating a lucrative secondary market where modified cards fetch up to $10,000 for enterprise AI labs.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">AI Insider</span></td>
+          <td class="source"><span class="chip">TweakTown</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Demonstrates a major escalation in AI-enabled cyber threats against corporate infrastructure.</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Highlights the failure of export controls and the extreme measures taken to secure AI compute.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2302,27 +2328,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://en.ilsole24ore.com/art/allsides-3d-digital-twin-factory-nvidias-industrial-scale-physical-solution-AJTOLusB"
-            data-title="Allsides 3D Digital Twin Factory gets underway, in partnership with Nvidia for Physical AI on an industrial scale"
-            data-source="Il Sole 24 ORE"
+            data-url="https://shattered.io/ai-hiring-headwinds-goldman-10000-jobs-below-trend-2026/"
+            data-title="Goldman Finds 10,000-Job AI Gap: Who Is at Risk?"
+            data-source="shattered.io"
             data-category="AI Research"
             data-rating="4"
-            data-date="2026-10-25">
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://en.ilsole24ore.com/art/allsides-3d-digital-twin-factory-nvidias-industrial-scale-physical-solution-AJTOLusB" target="_blank" rel="noopener">Allsides 3D Digital Twin Factory gets underway, in partnership with Nvidia for Physical AI on an industrial scale</a>
-            <div class="pub">2026-10-24 12:27 UTC</div>
+            <a href="https://shattered.io/ai-hiring-headwinds-goldman-10000-jobs-below-trend-2026/" target="_blank" rel="noopener">Goldman Finds 10,000-Job AI Gap: Who Is at Risk?</a>
+            <div class="pub">2026-10-25 12:21 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Allsides has launched an industrial-scale automated system to create &#39;SimReady&#39; digital twins, leveraging Nvidia&#39;s accelerated computing to bridge the critical &#39;Sim2Real&#39; gap in robotics training.</li><li>The platform provides sub-millimeter precision for geometry and physical properties, enabling companies like Meta, Adidas, and Inditex to train Physical AI systems in high-fidelity virtual environments.</li>
+              <li>Goldman Sachs research indicates that industries with high AI exposure experienced a hiring shortfall of approximately 10,000 jobs relative to long-term trends over the most recent three-month period.</li><li>The data suggests a nuanced labor market impact where AI-driven hiring in sectors like construction offsets losses in service industries, indicating a shift in labor demand rather than immediate mass unemployment.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Il Sole 24 ORE</span></td>
+          <td class="source"><span class="chip">shattered.io</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">3 min</span>
-            <span class="reason">Significant infrastructure development for industrial-scale Physical AI and robotics.</span>
+            <span class="chip read-time-chip">16 min</span>
+            <span class="reason">Quantifies early macroeconomic labor market impacts of AI adoption.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2335,27 +2361,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://shattered.io/uk-ai-biosecurity-lab-100m-openai-anthropic-200m-credits-2026/"
-            data-title="UK’s £100M AI Biosecurity Lab Draws £200M in Credits [2026]"
-            data-source="shattered.io"
+            data-url="https://www.freepressjournal.in/indore/iim-indore-develops-ai-framework-to-safeguard-semiconductor-supply-chains-from-wars-cyberattacks-and-geopolitical-disruptions-study-identifies-safer-logistics-routes"
+            data-title="IIM Indore Develops AI Framework To Safeguard Semiconductor Supply Chains From Wars, Cyberattacks And"
+            data-source="Free Press Journal"
             data-category="AI Research"
-            data-rating="4"
-            data-date="2026-10-25">
+            data-rating="3"
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://shattered.io/uk-ai-biosecurity-lab-100m-openai-anthropic-200m-credits-2026/" target="_blank" rel="noopener">UK’s £100M AI Biosecurity Lab Draws £200M in Credits [2026]</a>
-            <div class="pub">2026-10-24 05:00 UTC</div>
+            <a href="https://www.freepressjournal.in/indore/iim-indore-develops-ai-framework-to-safeguard-semiconductor-supply-chains-from-wars-cyberattacks-and-geopolitical-disruptions-study-identifies-safer-logistics-routes" target="_blank" rel="noopener">IIM Indore Develops AI Framework To Safeguard Semiconductor Supply Chains From Wars, Cyberattacks And</a>
+            <div class="pub">2026-10-25 22:40 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The UK government&#39;s £100 million investment in an AI biosecurity lab has successfully attracted an additional £200 million in credits, signaling strong private sector and institutional interest in AI safety infrastructure.</li><li>Major industry players including OpenAI and Anthropic have joined the initiative, highlighting the strategic importance of collaborative AI governance and safety research in high-stakes biological applications.</li>
+              <li>Researchers at IIM Indore have developed an AI-driven framework that integrates machine learning and generative AI to identify resilient logistics hubs and routes for the highly vulnerable global semiconductor supply chain.</li><li>The model uses historical economic and cybersecurity data to predict disruption risks, providing a strategic tool for manufacturers to mitigate the impact of geopolitical tensions and trade restrictions on chip production.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">shattered.io</span></td>
+          <td class="source"><span class="chip">Free Press Journal</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Major public-private partnership involving top-tier AI firms in a critical safety sector.</span>
+            <span class="rating-chip r3">3</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Addresses critical supply chain vulnerabilities in the essential semiconductor sector.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2383,27 +2409,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://finance.yahoo.com/technology/articles/pc-sales-just-crashed-21-155052873.html"
-            data-title="PC Sales Just Crashed 21% as AI Eats the World’s Memory Chips"
-            data-source="Yahoo Finance"
+            data-url="https://en.bloomingbit.io/feed/news/122898"
+            data-title="Musk Says SpaceX Secured $40 Billion of Debt for AI Chips, Warns of Neocloud Failures"
+            data-source="bloomingbit"
             data-category="Semiconductors"
-            data-rating="4"
-            data-date="2026-10-25">
+            data-rating="5"
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://finance.yahoo.com/technology/articles/pc-sales-just-crashed-21-155052873.html" target="_blank" rel="noopener">PC Sales Just Crashed 21% as AI Eats the World’s Memory Chips</a>
-            <div class="pub">2026-10-24 15:50 UTC</div>
+            <a href="https://en.bloomingbit.io/feed/news/122898" target="_blank" rel="noopener">Musk Says SpaceX Secured $40 Billion of Debt for AI Chips, Warns of Neocloud Failures</a>
+            <div class="pub">2026-10-25 23:18 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Global PC shipments plummeted 21% year-over-year in Q3 2026, with major manufacturers like HP and Dell experiencing double-digit declines as component costs and high prices suppress consumer demand.</li><li>Memory manufacturers are prioritizing higher-margin AI server chips over PC components, creating a supply-demand imbalance that forces PC makers to pass increased DRAM and NAND costs to end-users.</li>
+              <li>SpaceX has reportedly finalized a $40 billion debt financing deal specifically earmarked for the procurement of Nvidia GPUs, signaling an aggressive expansion of its internal AI infrastructure capabilities.</li><li>Elon Musk highlighted that SpaceX’s investment-grade credit rating and diversified revenue streams from Starlink and launch services provide a unique competitive advantage over smaller &#39;neocloud&#39; firms, which he predicts face widespread consolidation.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Yahoo Finance</span></td>
+          <td class="source"><span class="chip">bloomingbit</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">4 min</span>
-            <span class="reason">Highlights a significant cyclical downturn in the PC market driven by AI-induced supply chain shifts.</span>
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Significant capital expenditure announcement impacting GPU demand and AI infrastructure market structure.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2416,27 +2442,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://www.fool.com/investing/2026/10/24/elon-musk-gave-great-news-for-nvidia-investors/"
-            data-title="Elon Musk Just Gave Fantastic News for Nvidia Investors"
-            data-source="The Motley Fool"
+            data-url="https://www.tweaktown.com/news/114285/jensen-huang-puts-a-dollars2000-per-gpu-yearly-price-on-nvidias-ai-agent-software/index.html"
+            data-title="Jensen Huang puts a $2,000-per-GPU yearly price on NVIDIA&#39;s AI Agent software"
+            data-source="TweakTown"
             data-category="Semiconductors"
-            data-rating="5"
-            data-date="2026-10-25">
+            data-rating="4"
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.fool.com/investing/2026/10/24/elon-musk-gave-great-news-for-nvidia-investors/" target="_blank" rel="noopener">Elon Musk Just Gave Fantastic News for Nvidia Investors</a>
-            <div class="pub">2026-10-24 21:17 UTC</div>
+            <a href="https://www.tweaktown.com/news/114285/jensen-huang-puts-a-dollars2000-per-gpu-yearly-price-on-nvidias-ai-agent-software/index.html" target="_blank" rel="noopener">Jensen Huang puts a $2,000-per-GPU yearly price on NVIDIA&#39;s AI Agent software</a>
+            <div class="pub">2026-10-25 19:50 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>SpaceX&#39;s AI division, &#39;SI&#39;, reported an 835% year-over-year revenue surge and is aggressively scaling its infrastructure, with plans to deploy 440,000 of Nvidia’s Vera Rubin chips for its next-generation training cluster.</li><li>The massive capital expenditure commitment from a single major player underscores the sustained, high-volume demand for Nvidia’s next-generation hardware, supporting long-term revenue growth forecasts despite supply constraints.</li>
+              <li>Nvidia is implementing a new software monetization strategy by charging $2,000 per GPU annually for its AI Agent software, marking a shift toward recurring high-margin revenue streams.</li><li>This pricing model effectively increases the total cost of ownership for enterprise AI deployments while potentially boosting Nvidia&#39;s software-as-a-service (SaaS) contribution to its overall financial performance.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The Motley Fool</span></td>
+          <td class="source"><span class="chip">TweakTown</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Provides concrete evidence of massive, multi-billion dollar demand for Nvidia&#39;s next-gen hardware from a major hyperscaler.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Strategic shift toward software-based recurring revenue models for Nvidia&#39;s hardware ecosystem.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2464,27 +2490,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://insideevs.com/news/790092/ev-sales-us-january-2025/"
-            data-title="EV Sales Crashed 41% In January—But These Brands Still Grew"
-            data-source="InsideEVs"
+            data-url="https://www.businesstimes.com.sg/companies-markets/transport-logistics/byds-south-korea-expansion-challenges-hyundai-dominance-home-turf"
+            data-title="BYD’s South Korea expansion challenges Hyundai dominance on home turf"
+            data-source="The Business Times"
             data-category="Electric Vehicles"
             data-rating="5"
-            data-date="2026-10-25">
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://insideevs.com/news/790092/ev-sales-us-january-2025/" target="_blank" rel="noopener">EV Sales Crashed 41% In January—But These Brands Still Grew</a>
-            <div class="pub">2026-10-24 18:18 UTC</div>
+            <a href="https://www.businesstimes.com.sg/companies-markets/transport-logistics/byds-south-korea-expansion-challenges-hyundai-dominance-home-turf" target="_blank" rel="noopener">BYD’s South Korea expansion challenges Hyundai dominance on home turf</a>
+            <div class="pub">2026-10-25 22:46 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>U.S. electric vehicle registrations plummeted 41% in January, causing the segment&#39;s total market share to contract to 5.1% from 8.3% in the same period last year.</li><li>The decline follows the expiration of the $7,500 federal tax credit on September 30, 2025, which has led several major automakers to cancel EV models and scale back production investments.</li>
+              <li>BYD’s aggressive entry into the South Korean market has resulted in a nine-fold increase in sales from January to August 2026, significantly outpacing local incumbents.</li><li>Hyundai Motor is facing a critical slowdown, with annual global sales projected to fall below four million units for the first time since 2010 due to intense price competition from Chinese EV makers.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">InsideEVs</span></td>
+          <td class="source"><span class="chip">The Business Times</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">4 min</span>
-            <span class="reason">Significant market contraction and policy-driven shift in U.S. automotive demand.</span>
+            <span class="chip read-time-chip">5 min</span>
+            <span class="reason">Direct threat to a major global automaker&#39;s core market share and profitability.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2497,27 +2523,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://insideevs.com/news/801340/toyota-ev-sales-doubled-2026/"
-            data-title="Toyota&#39;s EV Sales Have More Than Doubled This Year"
+            data-url="https://insideevs.com/news/794457/evs-cut-global-oil-consumption/"
+            data-title="EVs Slashed Global Fuel Consumption Massively In 2025"
             data-source="InsideEVs"
             data-category="Electric Vehicles"
             data-rating="4"
-            data-date="2026-10-25">
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://insideevs.com/news/801340/toyota-ev-sales-doubled-2026/" target="_blank" rel="noopener">Toyota&#39;s EV Sales Have More Than Doubled This Year</a>
-            <div class="pub">2026-10-24 11:53 UTC</div>
+            <a href="https://insideevs.com/news/794457/evs-cut-global-oil-consumption/" target="_blank" rel="noopener">EVs Slashed Global Fuel Consumption Massively In 2025</a>
+            <div class="pub">2026-10-25 11:44 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Toyota bucked the broader industry downturn by selling 21,855 EVs in the first half of 2026, a 136% increase compared to the same period in 2025.</li><li>The company has successfully moved into the top five U.S. EV sellers by expanding its lineup with the bZ Woodland and C-HR models, effectively capturing market share as competitors cull their electric offerings.</li>
+              <li>Electric vehicles and plug-in hybrids displaced 2.3 million barrels of oil per day in 2025, with projections indicating this figure could reach 5.3 million barrels by 2030.</li><li>While passenger cars are currently contributing to displacement, electric two- and three-wheelers in developing Asian economies are currently the primary drivers of reduced global oil consumption.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">InsideEVs</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
             <span class="chip read-time-chip">3 min</span>
-            <span class="reason">Outperformance of a major incumbent during a period of industry-wide decline.</span>
+            <span class="reason">Significant macroeconomic implications for global energy demand and long-term oil market dynamics.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2545,27 +2571,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://seekingalpha.com/article/4957234-setbacks-mounting-on-the-ai-data-center-front"
-            data-title="Setbacks Mounting On The AI Data Center Front"
-            data-source="Seeking Alpha"
+            data-url="https://asia.nikkei.com/business/softbank/softbank-plans-50bn-ai-investment-in-malaysia-pm-says"
+            data-title="SoftBank plans $50bn AI investment in Malaysia, PM says"
+            data-source="Nikkei Asia"
             data-category="Data Centers"
-            data-rating="5"
-            data-date="2026-10-25">
+            data-rating="4"
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://seekingalpha.com/article/4957234-setbacks-mounting-on-the-ai-data-center-front" target="_blank" rel="noopener">Setbacks Mounting On The AI Data Center Front</a>
-            <div class="pub">2026-10-24 14:51 UTC</div>
+            <a href="https://asia.nikkei.com/business/softbank/softbank-plans-50bn-ai-investment-in-malaysia-pm-says" target="_blank" rel="noopener">SoftBank plans $50bn AI investment in Malaysia, PM says</a>
+            <div class="pub">2026-10-25 17:11 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The AI infrastructure sector is facing significant headwinds as hyperscalers and neocloud providers struggle with rising capital expenditures, negative free cash flow, and increasing credit risks.</li><li>Market sentiment is shifting due to a combination of failed project financing, regulatory hurdles, and local opposition, which are collectively threatening the sustainability of the ongoing AI-driven market rally.</li>
+              <li>SoftBank Group is negotiating a $50 billion investment in Malaysia, targeting the development of AI infrastructure and data centers as part of a broader strategy to expand its footprint in Southeast Asia.</li><li>This move follows significant capital commitments in the U.S., Europe, and Japan, signaling that SoftBank is aggressively scaling its global AI compute capacity to capitalize on the regional demand for high-tech infrastructure.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Seeking Alpha</span></td>
+          <td class="source"><span class="chip">Nikkei Asia</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Highlights systemic risks to the core AI infrastructure investment thesis.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Major capital deployment by a key industry player in an emerging AI hub.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2578,27 +2604,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://finance.yahoo.com/technology/articles/slb-slb-opens-canada-facility-201019376.html"
-            data-title="SLB (SLB) Opens Canada Facility After Data Center Win Changed The Story"
-            data-source="Yahoo Finance"
+            data-url="https://www.theinformation.com/newsletters/ai-infrastructure/data-center-late-fees-hit-5-million-per-day-spawning-new-insurance"
+            data-title="Data Center Late Fees Hit $5 Million or More Per Day, Spawning New Insurance"
+            data-source="The Information"
             data-category="Data Centers"
-            data-rating="4"
-            data-date="2026-10-25">
+            data-rating="5"
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://finance.yahoo.com/technology/articles/slb-slb-opens-canada-facility-201019376.html" target="_blank" rel="noopener">SLB (SLB) Opens Canada Facility After Data Center Win Changed The Story</a>
-            <div class="pub">2026-10-24 20:10 UTC</div>
+            <a href="https://www.theinformation.com/newsletters/ai-infrastructure/data-center-late-fees-hit-5-million-per-day-spawning-new-insurance" target="_blank" rel="noopener">Data Center Late Fees Hit $5 Million or More Per Day, Spawning New Insurance</a>
+            <div class="pub">2026-10-25 15:31 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>SLB is diversifying from its traditional oilfield services into digital infrastructure by launching a modular data center facility in Canada specifically to support Meta&#39;s hyperscale computing needs.</li><li>The project is a key component of SLB&#39;s growth strategy, which targets $4.5 billion to $5.0 billion in data center revenue by 2028, though success remains contingent on execution and margin management.</li>
+              <li>The extreme scale of modern AI data center projects has led to delivery delays so costly that late fees are now exceeding $5 million per day, highlighting the immense financial risks inherent in current construction timelines.</li><li>The emergence of specialized insurance products to cover these massive penalty risks indicates that the industry is maturing to manage the volatility and high-stakes nature of hyperscale AI infrastructure deployment.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Yahoo Finance</span></td>
+          <td class="source"><span class="chip">The Information</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Demonstrates a major industrial player&#39;s strategic pivot into the data center supply chain.</span>
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Highlights critical operational risks and financial exposure in the AI infrastructure sector.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2626,27 +2652,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://fortune.com/2026/10/24/elon-musk-spacex-jeff-bezos-blue-origin-lunar-landers-earth-orbit-docking-nasa-artemis-moon-progam/"
-            data-title="Elon Musk&#39;s SpaceX and Jeff Bezos&#39; Blue Origin will face off in orbit next year, NASA confirms"
-            data-source="Fortune"
+            data-url="https://247wallst.com/investing/2026/10/25/rocket-lab-is-playing-a-much-bigger-game-than-rocket-launches/"
+            data-title="Rocket Lab Is Playing a Much Bigger Game Than Rocket Launches"
+            data-source="24/7 Wall St."
             data-category="Space &amp; Aerospace"
-            data-rating="5"
-            data-date="2026-10-25">
+            data-rating="4"
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://fortune.com/2026/10/24/elon-musk-spacex-jeff-bezos-blue-origin-lunar-landers-earth-orbit-docking-nasa-artemis-moon-progam/" target="_blank" rel="noopener">Elon Musk&#39;s SpaceX and Jeff Bezos&#39; Blue Origin will face off in orbit next year, NASA confirms</a>
-            <div class="pub">2026-10-24 14:55 UTC</div>
+            <a href="https://247wallst.com/investing/2026/10/25/rocket-lab-is-playing-a-much-bigger-game-than-rocket-launches/" target="_blank" rel="noopener">Rocket Lab Is Playing a Much Bigger Game Than Rocket Launches</a>
+            <div class="pub">2026-10-25 17:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>NASA has scheduled a high-stakes 2027 test mission, Artemis III, requiring SpaceX and Blue Origin to perform complex docking maneuvers with the Orion spacecraft in low-Earth orbit.</li><li>This mission serves as a critical vetting process for the Artemis IV lunar landing, with NASA maintaining flexibility to choose between the two commercial providers based on their performance in these orbital tests.</li>
+              <li>Rocket Lab&#39;s backlog has surged 137% year-over-year to $2.36 billion, signaling a transition from a pure-play launch provider to a diversified space prime contractor with significant defense-related revenue.</li><li>Despite a 30% stock decline following the delay of its Neutron rocket to 2027, the company is aggressively expanding its service-based business model through acquisitions like Iridium Communications to secure recurring revenue streams.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Fortune</span></td>
+          <td class="source"><span class="chip">24/7 Wall St.</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">3 min</span>
-            <span class="reason">Directly impacts the competitive landscape and contract viability for two major private space firms.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">4 min</span>
+            <span class="reason">Significant shift in business model and strong backlog growth despite technical delays.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2659,27 +2685,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://kalkinemedia.com/us/stocks/industrial/rocket-lab-nasdaqrklb-lands-another-launch-can-it-recover"
-            data-title="Rocket Lab (NASDAQ:RKLB) Lands Another Launch: Can It Recover?"
-            data-source="Kalkine Media"
+            data-url="https://urbanacres.in/india-targets-four-space-launch-pads-by-2029-isro-says/"
+            data-title="India Plans 4 Space Launch Pads by 2029: ISRO"
+            data-source="Urban Acres"
             data-category="Space &amp; Aerospace"
-            data-rating="4"
-            data-date="2026-10-25">
+            data-rating="3"
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://kalkinemedia.com/us/stocks/industrial/rocket-lab-nasdaqrklb-lands-another-launch-can-it-recover" target="_blank" rel="noopener">Rocket Lab (NASDAQ:RKLB) Lands Another Launch: Can It Recover?</a>
-            <div class="pub">2026-10-24 21:42 UTC</div>
+            <a href="https://urbanacres.in/india-targets-four-space-launch-pads-by-2029-isro-says/" target="_blank" rel="noopener">India Plans 4 Space Launch Pads by 2029: ISRO</a>
+            <div class="pub">2026-10-25 19:10 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>While Rocket Lab continues to demonstrate operational reliability with successful Electron launches, the company&#39;s stock remains under pressure due to manufacturing delays pushing the Neutron rocket&#39;s debut into next year.</li><li>As a vertically integrated player, the company&#39;s long-term valuation is heavily tied to the successful launch of the medium-lift Neutron, which is essential for capturing larger commercial and government payload contracts.</li>
+              <li>ISRO is developing a 2,000-acre dedicated Small Satellite Launch Vehicle (SSLV) complex at Kulasekarapattinam to capture the growing global demand for commercial satellite deployment.</li><li>The agency plans to reach four functional launch pads by 2029, explicitly shifting toward a model of technology transfer and increased collaboration with private startups to boost India&#39;s high-tech industrial base.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Kalkine Media</span></td>
+          <td class="source"><span class="chip">Urban Acres</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">8 min</span>
-            <span class="reason">Highlights key operational risks and growth catalysts for a publicly traded aerospace company.</span>
+            <span class="rating-chip r3">3</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Strategic infrastructure expansion signaling increased commercial capacity in the Asian space sector.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2707,27 +2733,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://www.ft.com/content/39e475e7-0392-4856-aaaf-5ab3e35b8215?syn-25a6b1a6=1"
-            data-title="Israeli central bank rejects Benjamin Netanyahu’s plan to use crypto to evade sanctions"
-            data-source="Financial Times"
+            data-url="https://www.reuters.com/business/finance/netanyahu-rebuked-plan-use-crypto-bypass-economic-sanctions-2026-10-25/"
+            data-title="Netanyahu rebuked for plan to use crypto to bypass economic sanctions - Reuters"
+            data-source="Reuters"
             data-category="Global Economy"
             data-rating="4"
-            data-date="2026-10-25">
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.ft.com/content/39e475e7-0392-4856-aaaf-5ab3e35b8215?syn-25a6b1a6=1" target="_blank" rel="noopener">Israeli central bank rejects Benjamin Netanyahu’s plan to use crypto to evade sanctions</a>
-            <div class="pub">2026-10-24 19:19 UTC</div>
+            <a href="https://www.reuters.com/business/finance/netanyahu-rebuked-plan-use-crypto-bypass-economic-sanctions-2026-10-25/" target="_blank" rel="noopener">Netanyahu rebuked for plan to use crypto to bypass economic sanctions - Reuters</a>
+            <div class="pub">2026-10-25 12:15 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Prime Minister Benjamin Netanyahu has directed advisors to develop a financial model utilizing cryptocurrency and blockchain to circumvent potential international banking sanctions.</li><li>The Bank of Israel has formally rejected the proposal, warning that digital currencies cannot replace traditional financial systems and that such rhetoric could negatively impact Israel&#39;s international economic standing.</li>
+              <li>Netanyahu rebuked for plan to use crypto to bypass economic sanctions  Reuters</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Financial Times</span></td>
+          <td class="source"><span class="chip">Reuters</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
             <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Geopolitical risk and central bank policy conflict</span>
+            <span class="reason">Heuristic rating (no AI summary).</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2740,27 +2766,31 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://www.bloomberg.com/news/articles/2026-10-24/world-economy-latest-euro-area-business-activity-cools-on-weakness-in-france"
-            data-title="Charting the Global Economy: Euro Area Business Activity Cools"
-            data-source="Bloomberg.com"
+            data-url="https://island.lk/central-bank-of-the-future-needs-to-be-intelligence-driven-public-institution-says-imf-cio/"
+            data-title="Central Bank of the future needs to be intelligence-driven public institution, says IMF CIO - Island.lk"
+            data-source="Island.lk"
             data-category="Global Economy"
-            data-rating="4"
-            data-date="2026-10-25">
+            data-rating="5"
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.bloomberg.com/news/articles/2026-10-24/world-economy-latest-euro-area-business-activity-cools-on-weakness-in-france" target="_blank" rel="noopener">Charting the Global Economy: Euro Area Business Activity Cools</a>
-            <div class="pub">2026-10-24 09:00 UTC</div>
+            <a href="https://island.lk/central-bank-of-the-future-needs-to-be-intelligence-driven-public-institution-says-imf-cio/" target="_blank" rel="noopener">Central Bank of the future needs to be intelligence-driven public institution, says IMF CIO - Island.lk</a>
+            <div class="pub">2026-10-26 00:11 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Recent data indicates a cooling trend in Euro Area business activity, signaling potential headwinds for the region&#39;s economic growth trajectory.</li><li>Investors should monitor these indicators as they suggest a weakening demand environment, which may influence future European Central Bank monetary policy decisions.</li>
+              <li>Business
+Central Bank of the future needs to be intelligence-driven public institution, says IMF CIO
+Emphasises technology should never make final policy calls
+IMF Chief Information Officer Shirin Hamid
+By Sanath...</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Bloomberg.com</span></td>
+          <td class="source"><span class="chip">Island.lk</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Macroeconomic indicator of regional growth</span>
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Heuristic rating (no AI summary).</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2773,27 +2803,33 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://www.thedailystar.net/business/news/bangladesh-bank-keeps-website-offline-amid-global-cyber-alert-4305776"
-            data-title="Bangladesh Bank keeps website offline amid global cyber alert"
-            data-source="The Daily Star"
+            data-url="https://simplywall.st/stocks/au/diversified-financials/asx-zip/zip-co-shares/news/australian-stock-market-today-asx-futures-ease-on-sticky-us"
+            data-title="Australian Stock Market Today: ASX Futures Ease On Sticky US Inflation Expectations - Simply Wall Street"
+            data-source="Simply Wall Street"
             data-category="Global Economy"
-            data-rating="3"
-            data-date="2026-10-25">
+            data-rating="5"
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.thedailystar.net/business/news/bangladesh-bank-keeps-website-offline-amid-global-cyber-alert-4305776" target="_blank" rel="noopener">Bangladesh Bank keeps website offline amid global cyber alert</a>
-            <div class="pub">2026-10-24 23:16 UTC</div>
+            <a href="https://simplywall.st/stocks/au/diversified-financials/asx-zip/zip-co-shares/news/australian-stock-market-today-asx-futures-ease-on-sticky-us" target="_blank" rel="noopener">Australian Stock Market Today: ASX Futures Ease On Sticky US Inflation Expectations - Simply Wall Street</a>
+            <div class="pub">2026-10-25 22:10 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The central bank of Bangladesh has kept its website offline following a global cybersecurity alert regarding critical vulnerabilities in the PHP programming language.</li><li>While internal connections to commercial banks remain operational, the prolonged outage highlights significant systemic risks to financial infrastructure from unpatched software vulnerabilities.</li>
+              <li>Australian Stock Market Today: ASX Futures Ease On Sticky US Inflation Expectations
+SI
+Reviewed by Sasha Jovanovic
+Weekly Picks
+CE
+Ceazar on Buffalo Potash · 
+Under the radar: This $78M stock controls a $1.5B project...</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The Daily Star</span></td>
+          <td class="source"><span class="chip">Simply Wall Street</span></td>
           <td class="rating">
-            <span class="rating-chip r3">3</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Operational risk in emerging market financial infrastructure</span>
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">4 min</span>
+            <span class="reason">Heuristic rating (no AI summary).</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2821,27 +2857,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://www.barrons.com/video/has-trump-been-good-for-the-stock-market-anthony-scaramucci-weighs-in/1FBD2A1A-F504-405A-B871-A34CE57574C5"
-            data-title="Has Trump Been Good for the Stock Market? Anthony Scaramucci Weighs In. - Barron&#39;s"
-            data-source="Barron&#39;s"
+            data-url="https://www.fool.com/investing/2026/10/25/microsoft-alphabet-and-amazon-make-up-about-15-of-the-s-and-p-500-all-3-report-earnings-within-2-days/"
+            data-title="Microsoft, Alphabet, and Amazon Make Up About 15% of the S&amp;P 500. All 3 Report Earnings Within 2 Days."
+            data-source="The Motley Fool"
             data-category="Equity Markets"
-            data-rating="2"
-            data-date="2026-10-25">
+            data-rating="5"
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.barrons.com/video/has-trump-been-good-for-the-stock-market-anthony-scaramucci-weighs-in/1FBD2A1A-F504-405A-B871-A34CE57574C5" target="_blank" rel="noopener">Has Trump Been Good for the Stock Market? Anthony Scaramucci Weighs In. - Barron&#39;s</a>
-            <div class="pub">2026-10-24 18:25 UTC</div>
+            <a href="https://www.fool.com/investing/2026/10/25/microsoft-alphabet-and-amazon-make-up-about-15-of-the-s-and-p-500-all-3-report-earnings-within-2-days/" target="_blank" rel="noopener">Microsoft, Alphabet, and Amazon Make Up About 15% of the S&amp;P 500. All 3 Report Earnings Within 2 Days.</a>
+            <div class="pub">2026-10-26 00:15 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Has Trump Been Good for the Stock Market? Anthony Scaramucci Weighs In.  Barron&#39;s</li>
+              <li>The combined market weight of Microsoft, Alphabet, and Amazon accounts for approximately 15% of the S&amp;P 500, making their upcoming earnings reports critical drivers for broader market sentiment.</li><li>Investors are bracing for significant volatility as these three mega-cap technology titans are scheduled to release their quarterly financial results within a tight 48-hour window.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Barron&#39;s</span></td>
+          <td class="source"><span class="chip">The Motley Fool</span></td>
           <td class="rating">
-            <span class="rating-chip r2">2</span>
+            <span class="rating-chip r5">5</span>
             <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Heuristic rating (no AI summary).</span>
+            <span class="reason">High impact on index performance</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2854,27 +2890,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://finance.yahoo.com/markets/stocks/articles/hamburger-hafen-und-logistik-xtra-231603842.html"
-            data-title="Hamburger Hafen Und Logistik (XTRA:HHFA) Stock May Be A Bargain After Lowered 2026 Earnings Forecast - Yahoo Finance"
+            data-url="https://finance.yahoo.com/calendar/earnings?day=2026-10-26"
+            data-title="Earnings Calendar for: - Yahoo Finance"
             data-source="Yahoo Finance"
             data-category="Equity Markets"
-            data-rating="2"
-            data-date="2026-10-25">
+            data-rating="4"
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://finance.yahoo.com/markets/stocks/articles/hamburger-hafen-und-logistik-xtra-231603842.html" target="_blank" rel="noopener">Hamburger Hafen Und Logistik (XTRA:HHFA) Stock May Be A Bargain After Lowered 2026 Earnings Forecast - Yahoo Finance</a>
-            <div class="pub">2026-10-24 23:16 UTC</div>
+            <a href="https://finance.yahoo.com/calendar/earnings?day=2026-10-26" target="_blank" rel="noopener">Earnings Calendar for: - Yahoo Finance</a>
+            <div class="pub">2026-10-26 00:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Hamburger Hafen und Logistik has delivered a 29.6% share price gain over the past three years, while also cutting back its medium term earnings outlook after recent operational setbacks. That mix of steady long term...</li>
+              <li>Verizon Communications leads the Monday morning earnings slate with a market capitalization of $185.55 billion and an EPS estimate of 1.27 for the third quarter of 2026.</li><li>The afternoon session features significant reports from Welltower Inc. and Cadence Design Systems, which carry market caps of $171.01 billion and $87.29 billion respectively, providing a broad look at healthcare and tech sector health.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
-            <span class="rating-chip r2">2</span>
+            <span class="rating-chip r4">4</span>
             <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Heuristic rating (no AI summary).</span>
+            <span class="reason">Key corporate earnings data</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2902,27 +2938,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://www.cnbc.com/2026/10/24/nvidias-role-as-ai-financier-faces-first-big-test-as-neoclouds-take-market-hit.html"
-            data-title="Nvidia&#39;s role as AI financier faces first big test as neoclouds take market hit"
-            data-source="CNBC"
+            data-url="https://uk.finance.yahoo.com/news/government-bond-yields-peaked-jpmorgan-145718303.html"
+            data-title="Have Government Bond Yields Peaked? JPMorgan Sees Potential Support for Global Stocks"
+            data-source="Yahoo Finance UK"
             data-category="Fixed Income"
-            data-rating="5"
-            data-date="2026-10-25">
+            data-rating="4"
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.cnbc.com/2026/10/24/nvidias-role-as-ai-financier-faces-first-big-test-as-neoclouds-take-market-hit.html" target="_blank" rel="noopener">Nvidia&#39;s role as AI financier faces first big test as neoclouds take market hit</a>
-            <div class="pub">2026-10-24 11:00 UTC</div>
+            <a href="https://uk.finance.yahoo.com/news/government-bond-yields-peaked-jpmorgan-145718303.html" target="_blank" rel="noopener">Have Government Bond Yields Peaked? JPMorgan Sees Potential Support for Global Stocks</a>
+            <div class="pub">2026-10-25 14:57 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Nvidia has extended its financial reach by providing $36 billion in off-balance-sheet AI cloud agreements and $105 billion in project guarantees, effectively acting as a backstop for capital-intensive AI infrastructure.</li><li>Credit stress is mounting as key partners like CoreWeave face surging credit default swap spreads exceeding 11%, raising concerns that Nvidia’s exposure to these cash-burning entities could trigger significant losses if compute demand falters.</li>
+              <li>JPMorgan strategists argue that the recent surge in government bond yields has likely peaked, noting that market repricing of Federal Reserve interest rate expectations is largely complete.</li><li>The firm suggests that stabilizing yields could alleviate pressure on equity valuation multiples, which have compressed by two to three points globally during the recent bond market selloff.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">CNBC</span></td>
+          <td class="source"><span class="chip">Yahoo Finance UK</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">9 min</span>
-            <span class="reason">Systemic risk exposure to AI infrastructure financing</span>
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Provides a strategic outlook on interest rate peaks and their direct impact on equity valuation multiples.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2935,27 +2971,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://uk.finance.yahoo.com/news/evercore-outlines-key-credit-treasury-114900385.html"
-            data-title="Evercore Outlines Key Credit and Treasury Yield Thresholds That Could Signal AI Stock Market Correction"
-            data-source="Yahoo Finance UK"
+            data-url="https://www.businesstimes.com.sg/wealth/emerging-debt-outruns-treasuries-rich-world-fiscal-fears-grow"
+            data-title="Emerging debt outruns Treasuries as rich-world fiscal fears grow"
+            data-source="The Business Times"
             data-category="Fixed Income"
             data-rating="4"
-            data-date="2026-10-25">
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://uk.finance.yahoo.com/news/evercore-outlines-key-credit-treasury-114900385.html" target="_blank" rel="noopener">Evercore Outlines Key Credit and Treasury Yield Thresholds That Could Signal AI Stock Market Correction</a>
-            <div class="pub">2026-10-24 11:49 UTC</div>
+            <a href="https://www.businesstimes.com.sg/wealth/emerging-debt-outruns-treasuries-rich-world-fiscal-fears-grow" target="_blank" rel="noopener">Emerging debt outruns Treasuries as rich-world fiscal fears grow</a>
+            <div class="pub">2026-10-25 13:36 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Strategists have identified a 10-year Treasury yield of 5.62% as a &#39;fiscal alarm bell&#39; that would likely trigger a broader reassessment of financial asset valuations and increase government borrowing costs.</li><li>The firm is monitoring investment-grade and high-yield credit default swap spreads against previous peaks of 68.33 and 411.04, respectively, as critical indicators for a potential transition from a tech-specific selloff to a wider market correction.</li>
+              <li>Investors are increasingly decoupling emerging-market debt from US Treasuries, with emerging bond funds recording 12 consecutive weeks of inflows despite rising developed-market borrowing costs.</li><li>The shift is driven by concerns over fiscal deficits in rich nations, leading major asset managers like JPMAM to prioritize emerging markets as a more constructive allocation than traditional developed-market government bonds.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Yahoo Finance UK</span></td>
+          <td class="source"><span class="chip">The Business Times</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">5 min</span>
-            <span class="reason">Clear quantitative thresholds for market-wide risk</span>
+            <span class="chip read-time-chip">4 min</span>
+            <span class="reason">Highlights a significant shift in institutional capital allocation away from developed-market sovereign debt.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2983,27 +3019,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://www.bloomberg.com/news/articles/2026-10-24/china-hits-back-at-us-proposal-to-tighten-investment-limits"
-            data-title="China Hits Back at US Proposal to Tighten Investment Limits"
-            data-source="Bloomberg.com"
+            data-url="https://www.idnfinancials.com/news/70786/china-urges-us-to-scrap-new-investment-restrictions"
+            data-title="China urges US to scrap new investment restrictions"
+            data-source="IDNFinancials"
             data-category="China Economy"
             data-rating="5"
-            data-date="2026-10-25">
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.bloomberg.com/news/articles/2026-10-24/china-hits-back-at-us-proposal-to-tighten-investment-limits" target="_blank" rel="noopener">China Hits Back at US Proposal to Tighten Investment Limits</a>
-            <div class="pub">2026-10-24 12:18 UTC</div>
+            <a href="https://www.idnfinancials.com/news/70786/china-urges-us-to-scrap-new-investment-restrictions" target="_blank" rel="noopener">China urges US to scrap new investment restrictions</a>
+            <div class="pub">2026-10-25 23:20 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The Chinese Ministry of Commerce has formally opposed the US Treasury&#39;s latest proposed outbound investment restrictions, labeling them a discriminatory abuse of national security concepts that disrupts bilateral economic cooperation.</li><li>Beijing has warned that it reserves the right to take corresponding countermeasures, signaling potential retaliatory risks for US firms operating in China and further escalation in the ongoing tech-investment decoupling.</li>
+              <li>The US Treasury Department has proposed expanding outbound investment restrictions to include biotechnology, high-performance computing, and hypersonic systems, building upon existing bans in AI and semiconductors.</li><li>Beijing has formally rejected these measures as discriminatory and warned of potential countermeasures, signaling a further escalation in the decoupling of critical technology sectors between the two economies.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Bloomberg.com</span></td>
+          <td class="source"><span class="chip">IDNFinancials</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Escalating geopolitical trade tensions</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Significant escalation in US-China tech trade war.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -3016,27 +3052,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://electrek.co/2026/10/24/chinese-evs-found-back-door-into-western-car-markets-at-40-off-msrp/"
-            data-title="Chinese EVs found back door into Western car markets – at 40% off MSRP"
-            data-source="Electrek"
+            data-url="https://www.semafor.com/article/10/25/2026/western-luxury-falters-in-china"
+            data-title="Western luxury falters in China"
+            data-source="Semafor"
             data-category="China Economy"
             data-rating="4"
-            data-date="2026-10-25">
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://electrek.co/2026/10/24/chinese-evs-found-back-door-into-western-car-markets-at-40-off-msrp/" target="_blank" rel="noopener">Chinese EVs found back door into Western car markets – at 40% off MSRP</a>
-            <div class="pub">2026-10-24 14:04 UTC</div>
+            <a href="https://www.semafor.com/article/10/25/2026/western-luxury-falters-in-china" target="_blank" rel="noopener">Western luxury falters in China</a>
+            <div class="pub">2026-10-25 22:34 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Used Chinese electric vehicles are bypassing Western protectionist tariffs, with sales to European customers surging 280% year-over-year as buyers seek high-tech alternatives priced up to 40% below original MSRPs.</li><li>This trend creates a significant competitive challenge for legacy Western automakers, as the influx of low-mileage, affordable Chinese EVs undermines the effectiveness of import duties designed to shield domestic markets.</li>
+              <li>Western luxury brands have suffered a $280 billion valuation decline this year as Chinese consumers shift preference toward domestic alternatives, which are increasingly competitive in both quality and price.</li><li>The convergence of Chinese and Western export baskets in high-tech industries like pharmaceuticals and precision optics suggests a structural shift that could exacerbate long-term trade tensions for global investors.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Electrek</span></td>
+          <td class="source"><span class="chip">Semafor</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">4 min</span>
-            <span class="reason">Impact on global automotive market competition</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Major shift in consumer behavior impacting global equity valuations.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -3064,27 +3100,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://amp.scmp.com/news/hong-kong/politics/article/3372011/hong-kong-must-revive-growth-and-drive-reforms-governments-visible-hand"
-            data-title="Hong Kong must revive growth and drive reforms with government’s ‘visible hand’"
+            data-url="https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3372059/aiib-keen-finance-projects-northern-metropolis-hong-kong-finance-chief-says"
+            data-title="AIIB keen to fund Northern Metropolis, with loans viewed as key endorsement"
             data-source="South China Morning Post"
             data-category="Hong Kong Economy"
             data-rating="4"
-            data-date="2026-10-25">
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://amp.scmp.com/news/hong-kong/politics/article/3372011/hong-kong-must-revive-growth-and-drive-reforms-governments-visible-hand" target="_blank" rel="noopener">Hong Kong must revive growth and drive reforms with government’s ‘visible hand’</a>
-            <div class="pub">2026-10-24 07:04 UTC</div>
+            <a href="https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3372059/aiib-keen-finance-projects-northern-metropolis-hong-kong-finance-chief-says" target="_blank" rel="noopener">AIIB keen to fund Northern Metropolis, with loans viewed as key endorsement</a>
+            <div class="pub">2026-10-25 06:29 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Former Beijing official Deng Zhonghua has signaled a strategic shift for Hong Kong, advocating for a &#39;visible hand&#39; approach where the government actively intervenes to break down barriers created by vested interests.</li><li>The proposed policy shift aims to move away from traditional positive non-interventionism toward a model that prioritizes deregulation for emerging industries and addresses structural inequality in housing and social services.</li>
+              <li>The Asian Infrastructure Investment Bank (AIIB) has formally expressed interest in financing projects within Hong Kong&#39;s 30,000-hectare Northern Metropolis, signaling potential institutional support for the city&#39;s long-term land and technology hub development.</li><li>Financial Secretary Paul Chan indicated that the government is actively exploring co-investment frameworks with the AIIB, which could provide a significant capital injection and international validation for future infrastructure tenders.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">South China Morning Post</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
             <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Signals a major potential shift in Hong Kong&#39;s long-standing economic governance philosophy.</span>
+            <span class="reason">Major institutional backing for a key government strategic development project.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -3097,27 +3133,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/10/24/receivers-to-sell-indebted-shimaos-two-hong-kong-hotels-to-malaysian-developer"
-            data-title="Receivers to sell indebted Shimao’s two Hong Kong hotels to Malaysian developer"
-            data-source="The Star"
+            data-url="https://sg.finance.yahoo.com/news/didi-shareholders-overwhelmingly-back-hong-230000048.html"
+            data-title="DiDi Shareholders Overwhelmingly Back Hong Kong Relisting; Want Independent Director, Open Earnings Calls, and First Shareholder Meeting in Four Years, Survey Finds"
+            data-source="Yahoo Finance Singapore"
             data-category="Hong Kong Economy"
-            data-rating="3"
-            data-date="2026-10-25">
+            data-rating="4"
+            data-date="2026-10-26">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/10/24/receivers-to-sell-indebted-shimaos-two-hong-kong-hotels-to-malaysian-developer" target="_blank" rel="noopener">Receivers to sell indebted Shimao’s two Hong Kong hotels to Malaysian developer</a>
-            <div class="pub">2026-10-24 09:38 UTC</div>
+            <a href="https://sg.finance.yahoo.com/news/didi-shareholders-overwhelmingly-back-hong-230000048.html" target="_blank" rel="noopener">DiDi Shareholders Overwhelmingly Back Hong Kong Relisting; Want Independent Director, Open Earnings Calls, and First Shareholder Meeting in Four Years, Survey Finds</a>
+            <div class="pub">2026-10-25 23:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Receivers are offloading two Hong Kong hotel assets belonging to the debt-laden Shimao Group to a Malaysian developer, highlighting the ongoing distress and asset liquidation within the Chinese property sector.</li><li>This transaction reflects the continued pressure on mainland developers to divest high-value overseas and regional assets to meet liquidity requirements and satisfy creditor claims amid broader industry instability.</li>
+              <li>A survey by Heng Ren Partners reveals 99.3% support among surveyed shareholders for relisting DiDi Global on the Hong Kong Stock Exchange, aiming to exit the current OTC status that limits institutional participation.</li><li>The push for a Hong Kong listing is driven by a 79% decline from the company&#39;s 2021 IPO price and a lack of corporate transparency, with shareholders demanding improved governance and regular earnings communication.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The Star</span></td>
+          <td class="source"><span class="chip">Yahoo Finance Singapore</span></td>
           <td class="rating">
-            <span class="rating-chip r3">3</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Highlights ongoing liquidity issues and asset restructuring for major Chinese developers in the HK market.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">4 min</span>
+            <span class="reason">Significant potential capital market activity and governance shift for a major Chinese tech firm.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -3175,10 +3211,10 @@
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-10-25 08:19 HKT");
+  var dataTS = encodeURIComponent("2026-10-26 08:19 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
-  var currentDate = "2026-10-25";
+  var currentDate = "2026-10-26";
 
   // Write-through hooks for Firebase cloud sync. No-ops until the Firebase
   // layer (bottom of this script) replaces them after sign-in.
@@ -3648,6 +3684,261 @@
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
+
+  // ---------- Analytics history filters (Source × Importance) ----------
+  // Two correlated facets: every count is recomputed against the OTHER facet's
+  // active value, so a number always reads "what you get if you also pick
+  // this". A selection is never reset behind the user's back, and the state is
+  // mirrored into the URL so a filtered view is linkable.
+  var srcSel = document.getElementById("source-filter");
+  if (srcSel) {
+    var rateSel = document.getElementById("rating-filter");
+    var jumpSel = document.getElementById("day-jump");
+    var statusEl = document.getElementById("filter-status");
+    var emptyEl = document.getElementById("filter-empty");
+    var resetBtn = document.getElementById("filter-reset");
+    var allDays = Array.prototype.slice.call(
+      document.querySelectorAll("details.day-group[data-day]"));
+    var allCards = Array.prototype.slice.call(
+      document.querySelectorAll("article.blog-card[data-source][data-rating]"));
+    var fState = { source: "", rating: 0 };
+
+    function optionSnapshot(sel) {
+      var out = [];
+      if (!sel) return out;
+      Array.prototype.forEach.call(sel.options, function (o) {
+        out.push({ value: o.value, text: o.textContent });
+      });
+      return out;
+    }
+
+    function setHidden(el, hide) {
+      if (!el) return;
+      if (hide) el.setAttribute("hidden", "");
+      else el.removeAttribute("hidden");
+    }
+
+    // Snapshot the server-rendered selects and day-meta text: the widgets are
+    // rebuilt on every apply, so these are the only way back to the page as
+    // rendered (option sets, the "(latest)" marker, the real per-day counts).
+    var srcOpts = optionSnapshot(srcSel);
+    var rateOpts = optionSnapshot(rateSel);
+    var jumpOpts = optionSnapshot(jumpSel);
+    var metaText = allDays.map(function (day) {
+      var el = day.querySelector(".day-meta");
+      return { el: el, text: el ? el.textContent : "" };
+    });
+
+    // Static tallies over the card set (fixed after load): one per facet plus
+    // a source × rating grid behind the correlated counts.
+    var bySource = {}, byRating = {}, cell = {}, grandTotal = 0;
+    allCards.forEach(function (card) {
+      var s = card.getAttribute("data-source");
+      var r = card.getAttribute("data-rating");
+      grandTotal++;
+      bySource[s] = (bySource[s] || 0) + 1;
+      byRating[r] = (byRating[r] || 0) + 1;
+      cell[s + "|" + r] = (cell[s + "|" + r] || 0) + 1;
+    });
+
+    function sourceCount(name) {
+      return fState.rating
+        ? (cell[name + "|" + fState.rating] || 0)
+        : (bySource[name] || 0);
+    }
+
+    function ratingCount(rating) {
+      return fState.source
+        ? (cell[fState.source + "|" + rating] || 0)
+        : (byRating[rating] || 0);
+    }
+
+    // Labels only: the option list itself stays as rendered, so a value the
+    // user already picked can never disappear (and never be reset to "").
+    function updateSourceOptions() {
+      Array.prototype.forEach.call(srcSel.options, function (o, i) {
+        var from = srcOpts[i];
+        if (!from) return;
+        o.textContent = from.value === ""
+          ? "All sources (" + (fState.rating ? (byRating[fState.rating] || 0)
+                                            : grandTotal) + ")"
+          : from.value + " (" + sourceCount(from.value) + ")";
+      });
+      srcSel.value = fState.source;
+    }
+
+    function updateRatingOptions() {
+      if (!rateSel) return;
+      Array.prototype.forEach.call(rateSel.options, function (o, i) {
+        var from = rateOpts[i];
+        if (!from) return;
+        o.textContent = from.value === ""
+          ? "Any importance"
+          : from.value + "★ (" + ratingCount(from.value) + ")";
+      });
+      rateSel.value = fState.rating ? String(fState.rating) : "";
+    }
+
+    // Rebuild the day jump from the days that survived; unfiltered restores
+    // the rendered set byte for byte (including the "(latest)" suffix).
+    function rebuildJump(visibleDates, newest) {
+      if (!jumpSel) return;
+      var keep = jumpSel.value;
+      while (jumpSel.options.length) jumpSel.remove(0);
+      if (!fState.source && !fState.rating) {
+        jumpOpts.forEach(function (o) {
+          var opt = document.createElement("option");
+          opt.value = o.value;
+          opt.textContent = o.text;
+          jumpSel.appendChild(opt);
+        });
+      } else {
+        // Newest first, like the rendered accordion.
+        visibleDates.slice().sort().reverse().forEach(function (date) {
+          var opt = document.createElement("option");
+          opt.value = date;
+          opt.textContent = date + (date === newest ? " (latest)" : "");
+          jumpSel.appendChild(opt);
+        });
+      }
+      // Keep the user's day when it survived the filter, else fall back to the
+      // rendered first day / the newest visible one.
+      if (keep) jumpSel.value = keep;
+      if (!jumpSel.value) {
+        jumpSel.value = (!fState.source && !fState.rating && jumpOpts.length)
+          ? jumpOpts[0].value : (newest || "");
+      }
+    }
+
+    function syncUrl() {
+      try {
+        var params = new URLSearchParams(location.search);
+        params.delete("source");
+        params.delete("rating");
+        if (fState.source) params.set("source", fState.source);
+        if (fState.rating) params.set("rating", String(fState.rating));
+        var qs = params.toString();
+        history.replaceState(null, "", location.pathname + (qs ? "?" + qs : ""));
+      } catch (e) {}   // file:// documents have an opaque origin and refuse this
+    }
+
+    function applyFilters() {
+      var filtered = !!(fState.source || fState.rating);
+      var visibleDates = [], newest = null, shownPosts = 0, shownDays = 0;
+
+      // Pass 1 — cards: a card shows only when it matches BOTH facets.
+      allCards.forEach(function (card) {
+        var okSource = !fState.source ||
+          card.getAttribute("data-source") === fState.source;
+        var okRating = !fState.rating ||
+          (parseInt(card.getAttribute("data-rating"), 10) || 0) === fState.rating;
+        setHidden(card, !(okSource && okRating));
+        if (okSource && okRating) shownPosts++;
+      });
+
+      // Pass 2 — a desk/day survives only while it still owns a visible card;
+      // day-meta is rewritten from what is actually on screen.
+      allDays.forEach(function (day, i) {
+        var n = 0, blogs = {};
+        Array.prototype.forEach.call(
+          day.querySelectorAll("article.blog-card"), function (card) {
+            if (card.hasAttribute("hidden")) return;
+            n++;
+            blogs[card.getAttribute("data-source")] = 1;
+          });
+        Array.prototype.forEach.call(
+          day.querySelectorAll("section.desk"), function (desk) {
+            var any = Array.prototype.some.call(
+              desk.querySelectorAll("article.blog-card"),
+              function (card) { return !card.hasAttribute("hidden"); });
+            setHidden(desk, !any);
+          });
+        setHidden(day, n === 0);
+        if (metaText[i] && metaText[i].el) {
+          metaText[i].el.textContent = filtered
+            ? n + " post(s) · " + Object.keys(blogs).length + " blog(s)"
+            : metaText[i].text;
+        }
+        if (n > 0) {
+          var date = day.getAttribute("data-day");
+          shownDays++;
+          visibleDates.push(date);
+          if (newest === null || date > newest) newest = date;
+        }
+      });
+
+      // Pass 3 — open the newest matching day when the user left every day
+      // collapsed, so filtering never lands on a seemingly empty page.
+      var anyOpen = false;
+      allDays.forEach(function (day) {
+        if (!day.hasAttribute("hidden") && day.open) anyOpen = true;
+      });
+      if (!anyOpen && newest) {
+        var target = document.getElementById("day-" + newest);
+        if (target) target.open = true;
+      }
+
+      rebuildJump(visibleDates, newest);
+      updateSourceOptions();
+      updateRatingOptions();
+
+      var desc = (fState.source || "All sources") + " · " +
+        (fState.rating ? fState.rating + "★" : "Any importance");
+      if (statusEl) {
+        statusEl.textContent = shownPosts === 0
+          ? desc + " — no matching posts"
+          : desc + " — " + shownPosts + " post" + (shownPosts === 1 ? "" : "s") +
+            " across " + shownDays + " day" + (shownDays === 1 ? "" : "s");
+      }
+      setHidden(emptyEl, shownPosts !== 0);
+      setHidden(resetBtn, !filtered);
+
+      syncUrl();
+    }
+
+    // Seed from ?source=&rating= so a filtered view can be shared. Values that
+    // no longer exist (renamed blog, rating absent from history) are ignored
+    // rather than shown as a stale selection.
+    (function seedFromUrl() {
+      var params;
+      try { params = new URLSearchParams(location.search); } catch (e) { return; }
+      var wantSource = params.get("source") || "";
+      var wantRating = parseInt(params.get("rating"), 10) || 0;
+      var knownSource = false, knownRating = false;
+      srcOpts.forEach(function (o) {
+        if (o.value && o.value === wantSource) knownSource = true;
+      });
+      rateOpts.forEach(function (o) {
+        if (o.value && parseInt(o.value, 10) === wantRating) knownRating = true;
+      });
+      fState.source = knownSource ? wantSource : "";
+      fState.rating = knownRating ? wantRating : 0;
+      srcSel.value = fState.source;
+      if (rateSel) rateSel.value = fState.rating ? String(fState.rating) : "";
+    })();
+
+    srcSel.addEventListener("change", function () {
+      fState.source = srcSel.value;
+      applyFilters();
+    });
+    if (rateSel) {
+      rateSel.addEventListener("change", function () {
+        fState.rating = parseInt(rateSel.value, 10) || 0;
+        applyFilters();
+      });
+    }
+    if (resetBtn) {
+      resetBtn.addEventListener("click", function () {
+        fState.source = "";
+        fState.rating = 0;
+        srcSel.value = "";
+        if (rateSel) rateSel.value = "";
+        applyFilters();
+      });
+    }
+
+    applyFilters();
+  }
 
   // Per-item remove (✕), event-delegated from the list container.
   // BUG FIX: the old handler called ev.target.closest() directly — on mobile
