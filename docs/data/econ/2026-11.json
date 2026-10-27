@@ -1,6 +1,6 @@
 {
  "month": "2026-11",
- "updated": "2026-10-26 08:19 HKT",
+ "updated": "2026-10-27 09:27 HKT",
  "events": [
   {
    "ts": "2026-11-01T00:00:00.000Z",
@@ -1973,6 +1973,17 @@
   },
   {
    "ts": "2026-11-16T02:00:00.000Z",
+   "title": "Fixed Asset Investment (YTD) YoY",
+   "country": "CN",
+   "currency": "CNY",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": -7.2,
+   "category": "mny"
+  },
+  {
+   "ts": "2026-11-16T02:00:00.000Z",
    "title": "Retail Sales YoY",
    "country": "CN",
    "currency": "CNY",
@@ -1992,17 +2003,6 @@
    "forecast": null,
    "previous": 5.5,
    "category": "bsnss"
-  },
-  {
-   "ts": "2026-11-16T02:00:00.000Z",
-   "title": "Fixed Asset Investment (YTD) YoY",
-   "country": "CN",
-   "currency": "CNY",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": -7.2,
-   "category": "mny"
   },
   {
    "ts": "2026-11-16T08:00:00.000Z",
@@ -2072,17 +2072,6 @@
   },
   {
    "ts": "2026-11-16T13:30:00.000Z",
-   "title": "Inflation Rate MoM",
-   "country": "CA",
-   "currency": "CAD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 0.1,
-   "category": "prce"
-  },
-  {
-   "ts": "2026-11-16T13:30:00.000Z",
    "title": "Core Inflation Rate YoY",
    "country": "CA",
    "currency": "CAD",
@@ -2090,6 +2079,17 @@
    "actual": null,
    "forecast": null,
    "previous": 2.2,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-11-16T13:30:00.000Z",
+   "title": "Inflation Rate MoM",
+   "country": "CA",
+   "currency": "CAD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 0.1,
    "category": "prce"
   },
   {
@@ -2183,17 +2183,6 @@
   {
    "ts": "2026-11-17T10:00:00.000Z",
    "title": "ZEW Economic Sentiment Index",
-   "country": "EU",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 18.5,
-   "category": "bsnss"
-  },
-  {
-   "ts": "2026-11-17T10:00:00.000Z",
-   "title": "ZEW Economic Sentiment Index",
    "country": "DE",
    "currency": "EUR",
    "importance": 1,
@@ -2203,15 +2192,15 @@
    "category": "bsnss"
   },
   {
-   "ts": "2026-11-17T13:15:00.000Z",
-   "title": "Housing Starts",
-   "country": "CA",
-   "currency": "CAD",
+   "ts": "2026-11-17T10:00:00.000Z",
+   "title": "ZEW Economic Sentiment Index",
+   "country": "EU",
+   "currency": "EUR",
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": 250.0,
-   "category": "hse"
+   "previous": 18.5,
+   "category": "bsnss"
   },
   {
    "ts": "2026-11-17T13:15:00.000Z",
@@ -2225,26 +2214,15 @@
    "category": "lbr"
   },
   {
-   "ts": "2026-11-17T13:30:00.000Z",
-   "title": "Retail Sales MoM",
-   "country": "US",
-   "currency": "USD",
-   "importance": 1,
-   "actual": null,
-   "forecast": null,
-   "previous": 0.8,
-   "category": "cnsm"
-  },
-  {
-   "ts": "2026-11-17T13:30:00.000Z",
-   "title": "Retail Sales Control Group MoM",
-   "country": "US",
-   "currency": "USD",
+   "ts": "2026-11-17T13:15:00.000Z",
+   "title": "Housing Starts",
+   "country": "CA",
+   "currency": "CAD",
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
-   "category": "cnsm"
+   "previous": 250.0,
+   "category": "hse"
   },
   {
    "ts": "2026-11-17T13:30:00.000Z",
@@ -2259,6 +2237,17 @@
   },
   {
    "ts": "2026-11-17T13:30:00.000Z",
+   "title": "Retail Sales Ex Autos MoM",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 0.9,
+   "category": "cnsm"
+  },
+  {
+   "ts": "2026-11-17T13:30:00.000Z",
    "title": "Import Prices MoM",
    "country": "US",
    "currency": "USD",
@@ -2270,13 +2259,24 @@
   },
   {
    "ts": "2026-11-17T13:30:00.000Z",
-   "title": "Retail Sales Ex Autos MoM",
+   "title": "Retail Sales Control Group MoM",
    "country": "US",
    "currency": "USD",
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": 0.9,
+   "previous": null,
+   "category": "cnsm"
+  },
+  {
+   "ts": "2026-11-17T13:30:00.000Z",
+   "title": "Retail Sales MoM",
+   "country": "US",
+   "currency": "USD",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": 0.8,
    "category": "cnsm"
   },
   {
@@ -2336,17 +2336,6 @@
   },
   {
    "ts": "2026-11-17T23:50:00.000Z",
-   "title": "Exports YoY",
-   "country": "JP",
-   "currency": "JPY",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 16.7,
-   "category": "trd"
-  },
-  {
-   "ts": "2026-11-17T23:50:00.000Z",
    "title": "Balance of Trade",
    "country": "JP",
    "currency": "JPY",
@@ -2357,14 +2346,25 @@
    "category": "trd"
   },
   {
-   "ts": "2026-11-18T07:00:00.000Z",
-   "title": "Inflation Rate MoM",
-   "country": "GB",
-   "currency": "GBP",
+   "ts": "2026-11-17T23:50:00.000Z",
+   "title": "Exports YoY",
+   "country": "JP",
+   "currency": "JPY",
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": 0.4,
+   "previous": 16.7,
+   "category": "trd"
+  },
+  {
+   "ts": "2026-11-18T07:00:00.000Z",
+   "title": "Inflation Rate YoY",
+   "country": "GB",
+   "currency": "GBP",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": 3.5,
    "category": "prce"
   },
   {
@@ -2380,13 +2380,13 @@
   },
   {
    "ts": "2026-11-18T07:00:00.000Z",
-   "title": "Inflation Rate YoY",
+   "title": "Inflation Rate MoM",
    "country": "GB",
    "currency": "GBP",
-   "importance": 1,
+   "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": 3.5,
+   "previous": 0.4,
    "category": "prce"
   },
   {
@@ -2413,17 +2413,6 @@
   },
   {
    "ts": "2026-11-18T08:00:00.000Z",
-   "title": "Inflation Rate MoM",
-   "country": "ZA",
-   "currency": "ZAR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 0.4,
-   "category": "prce"
-  },
-  {
-   "ts": "2026-11-18T08:00:00.000Z",
    "title": "Inflation Rate YoY",
    "country": "ZA",
    "currency": "ZAR",
@@ -2431,6 +2420,17 @@
    "actual": null,
    "forecast": null,
    "previous": 4.5,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-11-18T08:00:00.000Z",
+   "title": "Inflation Rate MoM",
+   "country": "ZA",
+   "currency": "ZAR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 0.4,
    "category": "prce"
   },
   {
@@ -2578,17 +2578,6 @@
   },
   {
    "ts": "2026-11-18T23:50:00.000Z",
-   "title": "Machinery Orders YoY",
-   "country": "JP",
-   "currency": "JPY",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 18.6,
-   "category": "bsnss"
-  },
-  {
-   "ts": "2026-11-18T23:50:00.000Z",
    "title": "Machinery Orders MoM",
    "country": "JP",
    "currency": "JPY",
@@ -2596,6 +2585,17 @@
    "actual": null,
    "forecast": null,
    "previous": 5.2,
+   "category": "bsnss"
+  },
+  {
+   "ts": "2026-11-18T23:50:00.000Z",
+   "title": "Machinery Orders YoY",
+   "country": "JP",
+   "currency": "JPY",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 18.6,
    "category": "bsnss"
   },
   {
@@ -2633,17 +2633,6 @@
   },
   {
    "ts": "2026-11-19T04:00:00.000Z",
-   "title": "Inflation Rate MoM",
-   "country": "MY",
-   "currency": "MYR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 0.1,
-   "category": "prce"
-  },
-  {
-   "ts": "2026-11-19T04:00:00.000Z",
    "title": "Inflation Rate YoY",
    "country": "MY",
    "currency": "MYR",
@@ -2651,6 +2640,17 @@
    "actual": null,
    "forecast": null,
    "previous": 1.8,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-11-19T04:00:00.000Z",
+   "title": "Inflation Rate MoM",
+   "country": "MY",
+   "currency": "MYR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 0.1,
    "category": "prce"
   },
   {
@@ -2798,39 +2798,6 @@
   },
   {
    "ts": "2026-11-20T07:00:00.000Z",
-   "title": "Consumer Confidence",
-   "country": "TR",
-   "currency": "TRY",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 84.8,
-   "category": "cnsm"
-  },
-  {
-   "ts": "2026-11-20T07:00:00.000Z",
-   "title": "Retail Sales MoM",
-   "country": "GB",
-   "currency": "GBP",
-   "importance": 1,
-   "actual": null,
-   "forecast": null,
-   "previous": -0.4,
-   "category": "cnsm"
-  },
-  {
-   "ts": "2026-11-20T07:00:00.000Z",
-   "title": "Retail Sales YoY",
-   "country": "GB",
-   "currency": "GBP",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 0.8,
-   "category": "cnsm"
-  },
-  {
-   "ts": "2026-11-20T07:00:00.000Z",
    "title": "Business Confidence",
    "country": "TR",
    "currency": "TRY",
@@ -2850,6 +2817,39 @@
    "forecast": null,
    "previous": 6.7,
    "category": "prce"
+  },
+  {
+   "ts": "2026-11-20T07:00:00.000Z",
+   "title": "Retail Sales YoY",
+   "country": "GB",
+   "currency": "GBP",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 0.8,
+   "category": "cnsm"
+  },
+  {
+   "ts": "2026-11-20T07:00:00.000Z",
+   "title": "Retail Sales MoM",
+   "country": "GB",
+   "currency": "GBP",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": -0.4,
+   "category": "cnsm"
+  },
+  {
+   "ts": "2026-11-20T07:00:00.000Z",
+   "title": "Consumer Confidence",
+   "country": "TR",
+   "currency": "TRY",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 84.8,
+   "category": "cnsm"
   },
   {
    "ts": "2026-11-20T07:45:00.000Z",
@@ -2897,17 +2897,6 @@
   },
   {
    "ts": "2026-11-20T13:30:00.000Z",
-   "title": "Retail Sales Ex Autos MoM",
-   "country": "CA",
-   "currency": "CAD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 1.2,
-   "category": "cnsm"
-  },
-  {
-   "ts": "2026-11-20T13:30:00.000Z",
    "title": "Retail Sales MoM Prel",
    "country": "CA",
    "currency": "CAD",
@@ -2925,6 +2914,17 @@
    "importance": 0,
    "actual": null,
    "forecast": 0.7,
+   "previous": 1.2,
+   "category": "cnsm"
+  },
+  {
+   "ts": "2026-11-20T13:30:00.000Z",
+   "title": "Retail Sales Ex Autos MoM",
+   "country": "CA",
+   "currency": "CAD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
    "previous": 1.2,
    "category": "cnsm"
   },
@@ -2985,17 +2985,6 @@
   },
   {
    "ts": "2026-11-22T22:00:00.000Z",
-   "title": "S&P Global Services PMI Flash",
-   "country": "AU",
-   "currency": "AUD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": ""
-  },
-  {
-   "ts": "2026-11-22T22:00:00.000Z",
    "title": "S&P Global Manufacturing PMI Flash",
    "country": "AU",
    "currency": "AUD",
@@ -3006,8 +2995,19 @@
    "category": ""
   },
   {
+   "ts": "2026-11-22T22:00:00.000Z",
+   "title": "S&P Global Services PMI Flash",
+   "country": "AU",
+   "currency": "AUD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
+  },
+  {
    "ts": "2026-11-23T05:00:00.000Z",
-   "title": "HSBC Services PMI Flash",
+   "title": "HSBC Composite PMI Flash",
    "country": "IN",
    "currency": "INR",
    "importance": 0,
@@ -3018,7 +3018,7 @@
   },
   {
    "ts": "2026-11-23T05:00:00.000Z",
-   "title": "HSBC Composite PMI Flash",
+   "title": "HSBC Services PMI Flash",
    "country": "IN",
    "currency": "INR",
    "importance": 0,
@@ -3040,6 +3040,17 @@
   },
   {
    "ts": "2026-11-23T08:15:00.000Z",
+   "title": "S&P Global Services PMI Flash",
+   "country": "FR",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
+  },
+  {
+   "ts": "2026-11-23T08:15:00.000Z",
    "title": "S&P Global Composite PMI Flash",
    "country": "FR",
    "currency": "EUR",
@@ -3061,9 +3072,20 @@
    "category": ""
   },
   {
-   "ts": "2026-11-23T08:15:00.000Z",
+   "ts": "2026-11-23T08:30:00.000Z",
+   "title": "S&P Global Composite PMI Flash",
+   "country": "DE",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
+  },
+  {
+   "ts": "2026-11-23T08:30:00.000Z",
    "title": "S&P Global Services PMI Flash",
-   "country": "FR",
+   "country": "DE",
    "currency": "EUR",
    "importance": 0,
    "actual": null,
@@ -3083,30 +3105,8 @@
    "category": ""
   },
   {
-   "ts": "2026-11-23T08:30:00.000Z",
-   "title": "S&P Global Services PMI Flash",
-   "country": "DE",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": ""
-  },
-  {
-   "ts": "2026-11-23T08:30:00.000Z",
-   "title": "S&P Global Composite PMI Flash",
-   "country": "DE",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": ""
-  },
-  {
    "ts": "2026-11-23T09:00:00.000Z",
-   "title": "S&P Global Services PMI Flash",
+   "title": "S&P Global Composite PMI Flash",
    "country": "EU",
    "currency": "EUR",
    "importance": 0,
@@ -3128,7 +3128,7 @@
   },
   {
    "ts": "2026-11-23T09:00:00.000Z",
-   "title": "S&P Global Composite PMI Flash",
+   "title": "S&P Global Services PMI Flash",
    "country": "EU",
    "currency": "EUR",
    "importance": 0,
@@ -3178,7 +3178,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 0.07,
    "category": "bsnss"
   },
   {
@@ -3194,17 +3194,6 @@
   },
   {
    "ts": "2026-11-23T14:45:00.000Z",
-   "title": "S&P Global Composite PMI Flash",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": ""
-  },
-  {
-   "ts": "2026-11-23T14:45:00.000Z",
    "title": "S&P Global Manufacturing PMI Flash",
    "country": "US",
    "currency": "USD",
@@ -3217,6 +3206,17 @@
   {
    "ts": "2026-11-23T14:45:00.000Z",
    "title": "S&P Global Services PMI Flash",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
+  },
+  {
+   "ts": "2026-11-23T14:45:00.000Z",
+   "title": "S&P Global Composite PMI Flash",
    "country": "US",
    "currency": "USD",
    "importance": 0,
@@ -3233,12 +3233,12 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 105.4,
    "category": "cnsm"
   },
   {
    "ts": "2026-11-24T00:30:00.000Z",
-   "title": "S&P Global Manufacturing PMI Flash",
+   "title": "S&P Global Services PMI Flash",
    "country": "JP",
    "currency": "JPY",
    "importance": 0,
@@ -3249,7 +3249,7 @@
   },
   {
    "ts": "2026-11-24T00:30:00.000Z",
-   "title": "S&P Global Services PMI Flash",
+   "title": "S&P Global Manufacturing PMI Flash",
    "country": "JP",
    "currency": "JPY",
    "importance": 0,
@@ -3277,7 +3277,7 @@
    "importance": 1,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 90.2,
    "category": "bsnss"
   },
   {
@@ -3334,6 +3334,336 @@
    "forecast": null,
    "previous": null,
    "category": "enrg"
+  },
+  {
+   "ts": "2026-11-25T00:30:00.000Z",
+   "title": "Construction Work Done QoQ",
+   "country": "AU",
+   "currency": "AUD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": -2.1,
+   "category": "hse"
+  },
+  {
+   "ts": "2026-11-25T00:30:00.000Z",
+   "title": "Inflation Rate MoM",
+   "country": "AU",
+   "currency": "AUD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-11-25T00:30:00.000Z",
+   "title": "RBA Trimmed Mean CPI MoM",
+   "country": "AU",
+   "currency": "AUD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-11-25T00:30:00.000Z",
+   "title": "RBA Trimmed Mean CPI YoY",
+   "country": "AU",
+   "currency": "AUD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-11-25T00:30:00.000Z",
+   "title": "Inflation Rate YoY",
+   "country": "AU",
+   "currency": "AUD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-11-25T07:45:00.000Z",
+   "title": "Consumer Confidence",
+   "country": "FR",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "cnsm"
+  },
+  {
+   "ts": "2026-11-25T08:30:00.000Z",
+   "title": "Unemployment Rate",
+   "country": "PL",
+   "currency": "PLN",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 5.8,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-11-25T11:00:00.000Z",
+   "title": "CBI Distributive Trades",
+   "country": "GB",
+   "currency": "GBP",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": -10.0,
+   "category": "cnsm"
+  },
+  {
+   "ts": "2026-11-25T12:00:00.000Z",
+   "title": "MBA 30-Year Mortgage Rate",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "hse"
+  },
+  {
+   "ts": "2026-11-25T13:00:00.000Z",
+   "title": "Building Permits MoM Final",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "hse"
+  },
+  {
+   "ts": "2026-11-25T13:30:00.000Z",
+   "title": "GDP Growth Rate QoQ 2nd Est",
+   "country": "US",
+   "currency": "USD",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": 2.2,
+   "category": "gdp"
+  },
+  {
+   "ts": "2026-11-25T13:30:00.000Z",
+   "title": "Personal Spending MoM",
+   "country": "US",
+   "currency": "USD",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "cnsm"
+  },
+  {
+   "ts": "2026-11-25T13:30:00.000Z",
+   "title": "Personal Income MoM",
+   "country": "US",
+   "currency": "USD",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "cnsm"
+  },
+  {
+   "ts": "2026-11-25T13:30:00.000Z",
+   "title": "PCE Price Index MoM",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-11-25T13:30:00.000Z",
+   "title": "Corporate Profits QoQ Prel",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 7.7,
+   "category": "bsnss"
+  },
+  {
+   "ts": "2026-11-25T13:30:00.000Z",
+   "title": "Durable Goods Orders Ex Transp MoM",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "bsnss"
+  },
+  {
+   "ts": "2026-11-25T13:30:00.000Z",
+   "title": "Core PCE Price Index MoM",
+   "country": "US",
+   "currency": "USD",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-11-25T13:30:00.000Z",
+   "title": "GDP Price Index QoQ 2nd Est",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 6.1,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-11-25T13:30:00.000Z",
+   "title": "PCE Price Index YoY",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-11-25T13:30:00.000Z",
+   "title": "Durable Goods Orders MoM",
+   "country": "US",
+   "currency": "USD",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "bsnss"
+  },
+  {
+   "ts": "2026-11-25T15:00:00.000Z",
+   "title": "New Home Sales MoM",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "hse"
+  },
+  {
+   "ts": "2026-11-25T15:00:00.000Z",
+   "title": "New Home Sales",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "hse"
+  },
+  {
+   "ts": "2026-11-25T15:30:00.000Z",
+   "title": "EIA Gasoline Stocks Change",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "enrg"
+  },
+  {
+   "ts": "2026-11-25T15:30:00.000Z",
+   "title": "EIA Crude Oil Stocks Change",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "enrg"
+  },
+  {
+   "ts": "2026-11-25T16:00:00.000Z",
+   "title": "Atlanta Fed GDPNow",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
+  },
+  {
+   "ts": "2026-11-26T01:00:00.000Z",
+   "title": "Interest Rate Decision",
+   "country": "KR",
+   "currency": "KRW",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 3.0,
+   "category": "mny"
+  },
+  {
+   "ts": "2026-11-26T07:00:00.000Z",
+   "title": "GfK Consumer Confidence",
+   "country": "DE",
+   "currency": "EUR",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "cnsm"
+  },
+  {
+   "ts": "2026-11-26T11:00:00.000Z",
+   "title": "Unemployment Benefit Claims",
+   "country": "FR",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-11-26T12:30:00.000Z",
+   "title": "ECB Monetary Policy Meeting Accounts",
+   "country": "EU",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "mny"
+  },
+  {
+   "ts": "2026-11-26T13:30:00.000Z",
+   "title": "Initial Jobless Claims",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "lbr"
   }
  ]
 }
