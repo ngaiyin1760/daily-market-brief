@@ -1,97 +1,103 @@
 {
- "generated_at": "2026-10-29 09:47 HKT",
+ "generated_at": "2026-10-30 09:56 HKT",
  "repos": [
   {
-   "name": "zeabur-oss/zeabur",
-   "url": "https://github.com/zeabur-oss/zeabur",
-   "language": "Rust",
-   "description": "Self-hosted PaaS on your own Kubernetes.",
-   "keywords": [],
-   "trendshift_pos": 3,
-   "stars": 249,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A self-hosted Platform-as-a-Service (PaaS) solution that runs on your own Kubernetes cluster.",
-   "bullets": [
-    "Built with Rust for high performance and memory safety in infrastructure management.",
-    "Simplifies deployment by abstracting Kubernetes complexity into a developer-friendly interface.",
-    "Ideal for teams needing private cloud infrastructure with the ease of use of managed services.",
-    "Supports automated scaling and environment management for production-grade applications."
-   ]
-  },
-  {
-   "name": "l0ng-ai/openidea",
-   "url": "https://github.com/l0ng-ai/openidea",
-   "language": "TypeScript",
-   "description": "The IDE you know, rebuilt in Rust. IntelliJ IDEA–style keymap, tool windows and search-everywhere in a fast native app: editor, code insight, debugger, Git, terminal, database and HTTP clients for 60+ languages.",
-   "keywords": [],
-   "trendshift_pos": 6,
-   "stars": 611,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance, native IDE built in Rust that replicates the IntelliJ IDEA experience.",
-   "bullets": [
-    "Engineered in Rust to provide a fast, native alternative to JVM-based development environments.",
-    "Includes integrated database clients, terminal, and Git tools for a comprehensive dev workflow.",
-    "Features IntelliJ-style keymaps and search-everywhere functionality for seamless developer migration.",
-    "Targets developers requiring low-latency code insight and debugging capabilities."
-   ]
-  },
-  {
-   "name": "google/elephant-goldfish-model",
-   "url": "https://github.com/google/elephant-goldfish-model",
-   "language": "Astro",
-   "description": "An open-source method and skill set created at Google for spec-driven development with LLMs",
-   "keywords": [
-    "AI agent"
-   ],
-   "trendshift_pos": 12,
-   "stars": 4803,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An open-source methodology from Google for spec-driven development using LLMs.",
-   "bullets": [
-    "Provides a structured framework for integrating LLMs into the software development lifecycle.",
-    "Focuses on spec-driven engineering to improve code reliability and architectural consistency.",
-    "Leverages AI agents to bridge the gap between high-level requirements and implementation.",
-    "Useful for enterprise teams looking to standardize AI-assisted coding practices."
-   ]
-  },
-  {
-   "name": "OpenBMB/MiniCPM-OCR",
-   "url": "https://github.com/OpenBMB/MiniCPM-OCR",
+   "name": "skyzh/tiny-llm",
+   "url": "https://github.com/skyzh/tiny-llm",
    "language": "Python",
-   "description": "An open-source OCR solution for fast, accurate document parsing with correctness assessment.",
-   "keywords": [],
-   "trendshift_pos": 25,
-   "stars": 267,
+   "description": "learn LLM inference system on Apple Silicon for systems engineers: build a tiny vLLM + Qwen",
+   "keywords": [
+    "Learning resources"
+   ],
+   "trendshift_pos": 3,
+   "stars": 4904,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An open-source OCR solution optimized for fast, accurate document parsing and data extraction.",
+   "one_liner": "A hands-on educational project for building a high-performance LLM inference engine from scratch on Apple Silicon.",
    "bullets": [
-    "Utilizes advanced vision-language models to achieve high-precision text recognition.",
-    "Includes built-in correctness assessment to validate extracted data against source documents.",
-    "Highly applicable for fintech document processing, such as automated invoice or statement parsing.",
-    "Lightweight architecture allows for efficient deployment in data-heavy pipelines."
+    "Built using Python with a focus on low-level systems engineering principles.",
+    "Implements core inference components like KV cache, PagedAttention, and model quantization.",
+    "Designed to teach the architecture behind production-grade systems like vLLM.",
+    "Ideal for engineers looking to understand the hardware-software interface of LLM deployment."
    ]
   },
   {
-   "name": "feimacode/open-design-agent-kit",
-   "url": "https://github.com/feimacode/open-design-agent-kit",
-   "language": "HTML",
-   "description": "Pro-grade UI design built into the coding agent you already use — GitHub Copilot Chat, Claude Code, Codex, Cursor. 270+ design skills, 150+ brand design systems, 160+ remixable examples. No desktop app, no daemon, no API keys — just files in your repo.",
-   "keywords": [],
-   "trendshift_pos": 24,
-   "stars": 258,
+   "name": "JimLiu/baoyu-design",
+   "url": "https://github.com/JimLiu/baoyu-design",
+   "language": "JavaScript",
+   "description": "Run Claude Design locally as an Agent Skill — Cursor, Claude Code & more. Produce polished UI mockups, prototypes, decks & wireframes as self-contained HTML, without claude.ai/design. Best with Opus or Claude.",
+   "keywords": [
+    "AI skills"
+   ],
+   "trendshift_pos": 18,
+   "stars": 5149,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A toolkit that integrates professional-grade UI design skills directly into coding agents.",
+   "one_liner": "A local agent skill that enables Claude to generate professional UI mockups and prototypes directly in your development environment.",
    "bullets": [
-    "Compatible with major AI coding assistants like Claude Code, Cursor, and GitHub Copilot.",
-    "Contains 270+ design skills and 150+ brand design systems for automated UI generation.",
-    "Enables agentic workflows to produce production-ready frontend code with design consistency.",
-    "Reduces the feedback loop between design specifications and technical implementation."
+    "Operates as an agent skill compatible with Cursor and Claude Code.",
+    "Generates self-contained HTML/CSS/JS prototypes without relying on external design platforms.",
+    "Streamlines the design-to-code workflow by automating UI production via LLM.",
+    "Useful for rapid prototyping of fintech dashboards or internal enterprise tools."
    ]
+  },
+  {
+   "name": "betterleaks/betterleaks",
+   "url": "https://github.com/betterleaks/betterleaks",
+   "language": "Go",
+   "description": "Find leaked secrets everywhere.",
+   "keywords": [
+    "Static analysis"
+   ],
+   "trendshift_pos": 22,
+   "stars": 2585,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A high-performance infrastructure security tool designed to detect leaked secrets across distributed environments.",
+   "bullets": [
+    "Written in Go for high-concurrency scanning and efficient resource utilization.",
+    "Automates the discovery of sensitive credentials, API keys, and tokens in codebases.",
+    "Essential for DevSecOps pipelines to prevent data breaches in cloud-native infrastructure.",
+    "Provides a scalable solution for monitoring enterprise-wide repositories for security regressions."
+   ]
+  },
+  {
+   "name": "jackwener/DeepseekHarness-Android",
+   "url": "https://github.com/jackwener/DeepseekHarness-Android",
+   "language": "Kotlin",
+   "description": "免 ROOT 免 Termux，一个 APK 在安卓手机上跑 DeepSeek Harness。引擎内嵌 App 进程 · 读屏操作 App · 改系统设置 · 定时/条件自动化 · 可选 Shizuku",
+   "keywords": [],
+   "trendshift_pos": 14,
+   "stars": 245,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An Android application that embeds an LLM harness to automate system-level tasks and screen interactions without root access.",
+   "bullets": [
+    "Utilizes Kotlin and Shizuku to perform system-level automation on Android devices.",
+    "Enables agentic control over screen reading, app navigation, and system settings.",
+    "Demonstrates the potential for on-device AI agents to manage complex mobile workflows.",
+    "Applicable for building automated testing suites or personal productivity agents on mobile."
+   ]
+  },
+  {
+   "name": "lexifina/global-law",
+   "url": "https://github.com/lexifina/global-law",
+   "language": "HTML",
+   "description": "Git for Global Law: the law of every country as one git history, each country's record a submodule, every commit one law taking effect",
+   "keywords": [],
+   "trendshift_pos": 11,
+   "stars": 81,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A version-controlled, global repository of legal codes using Git to track legislative changes across jurisdictions.",
+   "bullets": [
+    "Uses Git submodules to organize and track the legal history of individual countries.",
+    "Treats every legislative update as a discrete commit, creating a verifiable audit trail of law.",
+    "Provides a structured data foundation for legal-tech applications and regulatory compliance monitoring.",
+    "Useful for quant researchers tracking regulatory shifts that impact financial markets."
+   ],
+   "img": "lexifina_global-law_0.jpg",
+   "img_alt": "How long each country's law waits between adoption and entry into force, one distribution per jurisdiction"
   }
  ]
 }

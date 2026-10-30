@@ -1,6 +1,110 @@
 {
  "days": [
   {
+   "date": "2026-10-30",
+   "generated_at": "2026-10-30 09:56 HKT",
+   "repos": [
+    {
+     "name": "skyzh/tiny-llm",
+     "url": "https://github.com/skyzh/tiny-llm",
+     "language": "Python",
+     "description": "learn LLM inference system on Apple Silicon for systems engineers: build a tiny vLLM + Qwen",
+     "keywords": [
+      "Learning resources"
+     ],
+     "trendshift_pos": 3,
+     "stars": 4904,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A hands-on educational project for building a high-performance LLM inference engine from scratch on Apple Silicon.",
+     "bullets": [
+      "Built using Python with a focus on low-level systems engineering principles.",
+      "Implements core inference components like KV cache, PagedAttention, and model quantization.",
+      "Designed to teach the architecture behind production-grade systems like vLLM.",
+      "Ideal for engineers looking to understand the hardware-software interface of LLM deployment."
+     ]
+    },
+    {
+     "name": "JimLiu/baoyu-design",
+     "url": "https://github.com/JimLiu/baoyu-design",
+     "language": "JavaScript",
+     "description": "Run Claude Design locally as an Agent Skill — Cursor, Claude Code & more. Produce polished UI mockups, prototypes, decks & wireframes as self-contained HTML, without claude.ai/design. Best with Opus or Claude.",
+     "keywords": [
+      "AI skills"
+     ],
+     "trendshift_pos": 18,
+     "stars": 5149,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A local agent skill that enables Claude to generate professional UI mockups and prototypes directly in your development environment.",
+     "bullets": [
+      "Operates as an agent skill compatible with Cursor and Claude Code.",
+      "Generates self-contained HTML/CSS/JS prototypes without relying on external design platforms.",
+      "Streamlines the design-to-code workflow by automating UI production via LLM.",
+      "Useful for rapid prototyping of fintech dashboards or internal enterprise tools."
+     ]
+    },
+    {
+     "name": "betterleaks/betterleaks",
+     "url": "https://github.com/betterleaks/betterleaks",
+     "language": "Go",
+     "description": "Find leaked secrets everywhere.",
+     "keywords": [
+      "Static analysis"
+     ],
+     "trendshift_pos": 22,
+     "stars": 2585,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A high-performance infrastructure security tool designed to detect leaked secrets across distributed environments.",
+     "bullets": [
+      "Written in Go for high-concurrency scanning and efficient resource utilization.",
+      "Automates the discovery of sensitive credentials, API keys, and tokens in codebases.",
+      "Essential for DevSecOps pipelines to prevent data breaches in cloud-native infrastructure.",
+      "Provides a scalable solution for monitoring enterprise-wide repositories for security regressions."
+     ]
+    },
+    {
+     "name": "jackwener/DeepseekHarness-Android",
+     "url": "https://github.com/jackwener/DeepseekHarness-Android",
+     "language": "Kotlin",
+     "description": "免 ROOT 免 Termux，一个 APK 在安卓手机上跑 DeepSeek Harness。引擎内嵌 App 进程 · 读屏操作 App · 改系统设置 · 定时/条件自动化 · 可选 Shizuku",
+     "keywords": [],
+     "trendshift_pos": 14,
+     "stars": 245,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An Android application that embeds an LLM harness to automate system-level tasks and screen interactions without root access.",
+     "bullets": [
+      "Utilizes Kotlin and Shizuku to perform system-level automation on Android devices.",
+      "Enables agentic control over screen reading, app navigation, and system settings.",
+      "Demonstrates the potential for on-device AI agents to manage complex mobile workflows.",
+      "Applicable for building automated testing suites or personal productivity agents on mobile."
+     ]
+    },
+    {
+     "name": "lexifina/global-law",
+     "url": "https://github.com/lexifina/global-law",
+     "language": "HTML",
+     "description": "Git for Global Law: the law of every country as one git history, each country's record a submodule, every commit one law taking effect",
+     "keywords": [],
+     "trendshift_pos": 11,
+     "stars": 81,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A version-controlled, global repository of legal codes using Git to track legislative changes across jurisdictions.",
+     "bullets": [
+      "Uses Git submodules to organize and track the legal history of individual countries.",
+      "Treats every legislative update as a discrete commit, creating a verifiable audit trail of law.",
+      "Provides a structured data foundation for legal-tech applications and regulatory compliance monitoring.",
+      "Useful for quant researchers tracking regulatory shifts that impact financial markets."
+     ],
+     "img": "lexifina_global-law_0.jpg",
+     "img_alt": "How long each country's law waits between adoption and entry into force, one distribution per jurisdiction"
+    }
+   ]
+  },
+  {
    "date": "2026-10-29",
    "generated_at": "2026-10-29 09:47 HKT",
    "repos": [
