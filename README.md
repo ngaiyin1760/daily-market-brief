@@ -135,7 +135,14 @@ the model (default `gemini-3.1-flash-lite`).
   together — with a Reset button, a live match count, an empty state ("No
   posts match these filters."), and deep links of the form
   `analytics.html?source=<blog name>&rating=<1-5>` (either parameter
-  optional).
+  optional). The rendered Repo Radar page groups its history by **category**
+  (the keyword label recorded on each repo — AI agent, MCP, Fintech, …) and
+  carries three correlated filters over it — **Category**, **Language** and
+  **Stars** (star-count tier), each option labelled with its count, all
+  applied together — with the same Reset button, live match count, empty
+  state, and deep links of the form
+  `repo-radar.html?category=<keyword>&language=<language>&stars=<tier>`
+  (any parameter optional).
 - Output: `docs/index.html` (latest day), `docs/days/YYYY-MM-DD.html` (one
   standalone page per day), `docs/markets.html` (all indicator charts +
   figures with 10y history and zoom buttons, driven by

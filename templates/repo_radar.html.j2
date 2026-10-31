@@ -19,58 +19,85 @@
   </header>
 
   {% if days %}
-  <div class="day-jump-wrap">
-    <label for="day-jump">Jump to</label>
-    <select id="day-jump" class="day-jump">
-      {% for d in days %}<option value="{{ d.date|e }}">{{ d.date|e }}{% if loop.first %} (latest){% endif %}</option>{% endfor %}
-    </select>
+  <div class="filters" data-facet-filters data-item-noun="repo" data-group-noun="category">
+    <div class="day-jump-wrap">
+      <label for="facet-category">Category</label>
+      <select id="facet-category" class="day-jump" data-facet="category" data-any-label="All categories">
+        <option value="">All categories ({{ total_repos }})</option>
+        {% for c in facet_categories %}<option value="{{ c.name|e }}">{{ c.name|e }} ({{ c.count }})</option>{% endfor %}
+      </select>
+    </div>
+    <div class="day-jump-wrap">
+      <label for="facet-language">Language</label>
+      <select id="facet-language" class="day-jump" data-facet="language" data-any-label="All languages">
+        <option value="">All languages ({{ total_repos }})</option>
+        {% for l in facet_languages %}<option value="{{ l.name|e }}">{{ l.name|e }} ({{ l.count }})</option>{% endfor %}
+      </select>
+    </div>
+    <div class="day-jump-wrap">
+      <label for="facet-stars">Stars</label>
+      <select id="facet-stars" class="day-jump" data-facet="stars" data-any-label="Any stars">
+        <option value="">Any stars ({{ total_repos }})</option>
+        {% for t in facet_star_tiers %}<option value="{{ t.name|e }}">{{ t.name|e }} ({{ t.count }})</option>{% endfor %}
+      </select>
+    </div>
+    <div class="day-jump-wrap">
+      <label for="day-jump">Jump to</label>
+      <select id="day-jump" class="day-jump">
+        {% for d in days %}<option value="{{ d.date|e }}">{{ d.date|e }}{% if loop.first %} (latest){% endif %}</option>{% endfor %}
+      </select>
+    </div>
+    <button type="button" id="filter-reset" class="filter-btn" hidden>Reset</button>
   </div>
+  <div class="filter-status" id="filter-status" role="status" aria-live="polite"></div>
+  <p class="empty-note" id="filter-empty" hidden>No repos match these filters.</p>
 
   {% for d in days %}
-  <details class="day-group" id="day-{{ d.date|e }}"{% if loop.first %} open{% endif %}>
+  <details class="day-group" id="day-{{ d.date|e }}" data-day="{{ d.date|e }}"{% if loop.first %} open{% endif %}>
     <summary class="day-bar">
       <svg class="day-chevron" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span class="day-date">{{ d.date|e }}</span>
       {% if loop.first %}<span class="day-tag">Today</span>{% endif %}
-      <span class="day-meta">{{ d.repos|length }} repo(s)</span>
+      <span class="day-meta">{{ d.repo_count }} repo(s) · {{ d.categories|length }} category(s)</span>
     </summary>
     <div class="day-body">
-      <section class="desk reveal">
-        <div class="repo-grid">
-          {% for repo in d.repos %}
-          <article class="repo-card">
-            <div class="rc-head">
-              <span class="chip">{{ repo.language|e }}</span>
-              <span class="chip stars">{{ repo.stars }}★</span>
-            </div>
-            <h3><a href="{{ repo.url|e }}" target="_blank" rel="noopener">{{ repo.name|e }}</a></h3>
-            {% if repo.one_liner %}<p class="rc-oneliner">{{ repo.one_liner|e }}</p>{% endif %}
-            {% if repo.img %}<img class="repo-img" src="{{ base }}/data/repo-radar-img/{{ d.date|e }}/{{ repo.img|e }}" alt="{{ repo.img_alt|e }}" loading="lazy">{% endif %}
-            {% if repo.img2 %}<img class="repo-img" src="{{ base }}/data/repo-radar-img/{{ d.date|e }}/{{ repo.img2|e }}" alt="{{ repo.img2_alt|e }}" loading="lazy">{% endif %}
-            {% if repo.bullets %}
-            <ul class="rc-bullets">
-              {% for b in repo.bullets %}<li>{{ b|e }}</li>{% endfor %}
-            </ul>
-            {% endif %}
-            <div class="bc-footer">
-              <div class="bc-url"><a href="{{ repo.url|e }}" target="_blank" rel="noopener">{{ repo.url|e }}</a></div>
-              <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
-                      data-save-url="{{ repo.url|e }}"
-                      data-save-title="{{ repo.name|e }}"
-                      data-save-source="{{ repo.language|e }}"
-                      data-save-category="Repo Radar"
-                      data-save-rating="0"
-                      data-save-date="{{ d.date|e }}">
-                <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
-                  <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
-                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </div>
-          </article>
-          {% endfor %}
-        </div>
+      {% for c in d.categories %}
+      <section class="desk" data-facet-group data-category="{{ c.name|e }}">
+        <h2>{{ c.name|e }}</h2>
+        {% for repo in c.repos %}
+        <article class="repo-card" data-facet-item data-facet-category="{{ c.name|e }}" data-facet-language="{{ repo.language|e }}" data-facet-stars="{{ repo.star_tier|e }}">
+          <div class="rc-head">
+            <span class="chip">{{ repo.language|e }}</span>
+            <span class="chip stars">{{ repo.stars }}★</span>
+          </div>
+          <h3><a href="{{ repo.url|e }}" target="_blank" rel="noopener">{{ repo.name|e }}</a></h3>
+          {% if repo.one_liner %}<p class="rc-oneliner">{{ repo.one_liner|e }}</p>{% endif %}
+          {% if repo.img %}<img class="repo-img" src="{{ base }}/data/repo-radar-img/{{ d.date|e }}/{{ repo.img|e }}" alt="{{ repo.img_alt|e }}" loading="lazy">{% endif %}
+          {% if repo.img2 %}<img class="repo-img" src="{{ base }}/data/repo-radar-img/{{ d.date|e }}/{{ repo.img2|e }}" alt="{{ repo.img2_alt|e }}" loading="lazy">{% endif %}
+          {% if repo.bullets %}
+          <ul class="rc-bullets">
+            {% for b in repo.bullets %}<li>{{ b|e }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+          <div class="bc-footer">
+            <div class="bc-url"><a href="{{ repo.url|e }}" target="_blank" rel="noopener">{{ repo.url|e }}</a></div>
+            <button type="button" class="save-btn" aria-label="Save this repo" title="Save this repo"
+                    data-save-url="{{ repo.url|e }}"
+                    data-save-title="{{ repo.name|e }}"
+                    data-save-source="{{ repo.language|e }}"
+                    data-save-category="Repo Radar"
+                    data-save-rating="0"
+                    data-save-date="{{ d.date|e }}">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+                <path d="M6.5 2.5h11a1 1 0 0 1 1 1v18l-6.5-4.2-6.5 4.2v-18a1 1 0 0 1 1-1z"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </article>
+        {% endfor %}
       </section>
+      {% endfor %}
     </div>
   </details>
   {% endfor %}

@@ -1992,6 +1992,105 @@ def update_repo_radar_history(page_date, generated_at, repos):
         log.warning("Could not write repo radar history: %s", exc)
 
 
+# Star tiers in page display order (top bucket first). Buckets are inclusive at
+# the bottom: 20000+ / 10000-19999 / 5000-9999 / 1000-4999 / under 1000.
+REPO_RADAR_STAR_TIERS = ("20k+", "10k-20k", "5k-10k", "1k-5k", "under-1k")
+
+
+def _repo_star_tier(stars):
+    """Bucket a star count into one of REPO_RADAR_STAR_TIERS."""
+    try:
+        n = int(stars)
+    except (TypeError, ValueError):
+        n = 0
+    if n >= 20000:
+        return "20k+"
+    if n >= 10000:
+        return "10k-20k"
+    if n >= 5000:
+        return "5k-10k"
+    if n >= 1000:
+        return "1k-5k"
+    return "under-1k"
+
+
+def _repo_category(repo):
+    """A repo's category is its first keyword. Repos with no keyword at all
+    fall into 'Uncategorised', so no card can escape the Category facet."""
+    for kw in repo.get("keywords") or []:
+        if kw:
+            return str(kw)
+    return "Uncategorised"
+
+
+def _group_repos_by_category(repos):
+    """Group a flat repo list by category, categories ordered by size then
+    name (a day is only ~5 repos, so the biggest category leads)."""
+    by_cat = {}
+    for repo in repos:
+        by_cat.setdefault(_repo_category(repo), []).append(repo)
+    return [{"name": name, "repos": by_cat[name]}
+            for name in sorted(by_cat,
+                               key=lambda n: (-len(by_cat[n]), n))]
+
+
+def build_repo_radar_context():
+    """Read the repo radar history and build everything the page renders from:
+    (history_days, categories, languages, star_tiers, total_repos).
+
+    history_days is the per-day view model: a day keeps its repos grouped into
+    one section per category, and every repo carries its normalised language
+    and star tier so the template can emit the facet attributes. categories /
+    languages / star_tiers are the aggregates behind the three selects; they
+    cover the whole history rather than today only, because the page renders
+    every day at once and the filters apply across all of them."""
+    history_days = []
+    try:
+        data = json.loads(REPO_RADAR_HISTORY_PATH.read_text(encoding="utf-8"))
+        raw_days = data.get("days", []) if isinstance(data, dict) else []
+    except Exception:
+        raw_days = []
+
+    category_counts, language_counts, tier_counts = {}, {}, {}
+    total_repos = 0
+    for d in raw_days:
+        items = []
+        for repo in d.get("repos") or []:
+            item = dict(repo)
+            # "—" is the placeholder the card already shows for a repo with no
+            # detected language; normalising here keeps the card, the chip and
+            # the select's option value in agreement.
+            item["language"] = repo.get("language") or "—"
+            item["star_tier"] = _repo_star_tier(repo.get("stars"))
+            items.append(item)
+            category = _repo_category(repo)
+            category_counts[category] = category_counts.get(category, 0) + 1
+            language_counts[item["language"]] = \
+                language_counts.get(item["language"], 0) + 1
+            tier_counts[item["star_tier"]] = \
+                tier_counts.get(item["star_tier"], 0) + 1
+        total_repos += len(items)
+        history_days.append({
+            "date": d.get("date", ""),
+            "generated_at": d.get("generated_at", ""),
+            "repos": items,
+            "repo_count": len(items),
+            "categories": _group_repos_by_category(items),
+        })
+
+    categories = [{"name": name, "count": category_counts[name]}
+                  for name in sorted(category_counts,
+                                     key=lambda n: (-category_counts[n], n))]
+    languages = [{"name": name, "count": language_counts[name]}
+                 for name in sorted(language_counts,
+                                    key=lambda n: (-language_counts[n], n))]
+    # Tiers keep their display order (they are ordered buckets, not ranked by
+    # count); an empty tier is left out so the select has no dead option.
+    star_tiers = [{"name": tier, "count": tier_counts[tier]}
+                  for tier in REPO_RADAR_STAR_TIERS if tier in tier_counts]
+    return history_days, categories, languages, star_tiers, total_repos
+
+
 def _group_posts_by_blog(posts):
     """Group a flat post list by blog, blogs ordered by best-rated post,
     posts within a blog ordered by rating desc."""
@@ -3958,31 +4057,27 @@ def render_repo_radar_page(page_date, generated_at, repos):
     """Render the Repo Radar page + raw debug JSON.
 
     Like Analytics: cumulative per-day history as collapsible sections
-    (today open by default), and today's run is appended to the history."""
+    (today open by default) with Category / Language / Stars filters over that
+    history, and today's run is appended to the history."""
     from jinja2 import Environment, FileSystemLoader, select_autoescape
 
     update_repo_radar_history(page_date, generated_at, repos)
 
-    history_days = []
-    try:
-        data = json.loads(REPO_RADAR_HISTORY_PATH.read_text(encoding="utf-8"))
-        raw_days = data.get("days", []) if isinstance(data, dict) else []
-    except Exception:
-        raw_days = []
-    for d in raw_days:
-        history_days.append({
-            "date": d.get("date", ""),
-            "generated_at": d.get("generated_at", ""),
-            "repos": d.get("repos") or [],
-        })
+    (history_days, categories, languages,
+     star_tiers, total_repos) = build_repo_radar_context()
 
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATE_PATH.parent)),
         autoescape=select_autoescape(["html", "j2"]),
     )
+    # Prefixed facet names on purpose: core.js.j2 reads a `categories` context
+    # variable (the brief's configured categories, for Archive grouping), so
+    # binding the Category facet's aggregates to that name breaks the shared JS.
     html = env.get_template("repo_radar.html.j2").render(
         base=".", page_date=page_date, generated_at=generated_at,
-        days=history_days, is_repo_radar=True)
+        days=history_days, facet_categories=categories,
+        facet_languages=languages, facet_star_tiers=star_tiers,
+        total_repos=total_repos, is_repo_radar=True)
     (DOCS_DIR / "repo-radar.html").write_text(html, encoding="utf-8")
     log.info("Wrote %s", DOCS_DIR / "repo-radar.html")
     payload = {"generated_at": generated_at, "repos": repos}

@@ -19,18 +19,18 @@
   </header>
 
   {% if days %}
-  <div class="filters">
+  <div class="filters" data-facet-filters data-item-noun="post" data-group-noun="blog">
     <div class="day-jump-wrap">
-      <label for="source-filter">Source</label>
-      <select id="source-filter" class="day-jump">
+      <label for="facet-source">Source</label>
+      <select id="facet-source" class="day-jump" data-facet="source" data-any-label="All sources">
         <option value="">All sources ({{ total_posts }})</option>
         {% for s in sources %}<option value="{{ s.name|e }}">{{ s.name|e }} ({{ s.count }})</option>{% endfor %}
       </select>
     </div>
     <div class="day-jump-wrap">
-      <label for="rating-filter">Importance</label>
-      <select id="rating-filter" class="day-jump">
-        <option value="">Any importance</option>
+      <label for="facet-rating">Importance</label>
+      <select id="facet-rating" class="day-jump" data-facet="rating" data-any-label="Any importance" data-option-suffix="★">
+        <option value="">Any importance ({{ total_posts }})</option>
         {% for r in ratings %}<option value="{{ r.rating }}">{{ r.rating }}★ ({{ r.count }})</option>{% endfor %}
       </select>
     </div>
@@ -55,10 +55,10 @@
     </summary>
     <div class="day-body">
       {% for b in d.blogs %}
-      <section class="desk" data-source="{{ b.name|e }}">
+      <section class="desk" data-facet-group>
         <h2>{{ b.name|e }}</h2>
         {% for post in b.posts %}
-        <article class="blog-card" data-source="{{ b.name|e }}" data-rating="{{ post.rating }}">
+        <article class="blog-card" data-facet-item data-facet-source="{{ b.name|e }}" data-facet-rating="{{ post.rating }}">
           <div class="bc-head">
             <span class="rating-chip r{{ post.rating }}" title="Importance {{ post.rating }} of 5" aria-label="Importance {{ post.rating }} of 5">{{ post.rating }}★</span>
             {% if post.preview %}<span class="preview-tag">preview only</span>{% endif %}

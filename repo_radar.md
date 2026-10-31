@@ -5,6 +5,33 @@ The Repo Radar tab picks 5 interesting/trendy GitHub repositories each day
 what it is / tech structure / purpose / use cases — always with the repo URL,
 language, and star count.
 
+## The page
+
+`docs/repo-radar.html` renders the cumulative history
+(`docs/data/repo_radar_history.json`) as collapsible days — newest first,
+today open — and inside each day groups the repos by **category**, the keyword
+label recorded on each repo (`AI agent`, `MCP`, `Fintech`, …).
+
+Three filters sit above the day list and combine as AND:
+
+- **Category** — the repo's keyword label.
+- **Language** — the repo's primary language; a repo GitHub reports no
+  language for shows `—`.
+- **Stars** — a star-count tier (e.g. `10k-20k`), not an exact number.
+
+Every option carries its count, and the counts are correlated: an option's
+count is what it would leave with the other active filters still applied.
+Days and categories with no matching repo are hidden, the per-day meta counts
+only what is visible, "Jump to" lists just the days that still match (opening
+the newest one when the open day has no matches), and the status line reads
+e.g. `AI agent · Rust — 12 repo(s) across 7 day(s)`. **Reset** clears all
+three.
+
+Any combination is also a deep link; every parameter is optional and unknown
+values are ignored:
+
+    repo-radar.html?category=AI%20agent&language=Rust&stars=10k-20k
+
 ## How to edit
 
 - The `## Topics` section drives both topic-priority weighting and the fallback

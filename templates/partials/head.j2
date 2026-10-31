@@ -1356,12 +1356,6 @@
     background: #fff;
     display: block;
   }
-  .repo-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);   /* one repo card per row — big, readable */
-    gap: 20px;
-  }
-
   /* ---------- Analytics / Repo Radar day-history accordion ---------- */
   .day-jump-wrap {
     display: flex;
@@ -1395,12 +1389,12 @@
     color: var(--muted);
     margin: 0 0 14px;
   }
-  .filter-reset[hidden] { display: none; }
   /* The `hidden` attribute must beat the block display of the day/section/card
      wrappers, which are styled by class and not by attribute. */
   .day-group[hidden],
   .desk[hidden],
-  .blog-card[hidden] { display: none !important; }
+  .blog-card[hidden],
+  .repo-card[hidden] { display: none !important; }
   @media (max-width: 640px) {
     .filters {
       flex-direction: column;
