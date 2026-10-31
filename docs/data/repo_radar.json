@@ -1,103 +1,103 @@
 {
- "generated_at": "2026-10-30 09:56 HKT",
+ "generated_at": "2026-10-31 09:34 HKT",
  "repos": [
   {
-   "name": "skyzh/tiny-llm",
-   "url": "https://github.com/skyzh/tiny-llm",
-   "language": "Python",
-   "description": "learn LLM inference system on Apple Silicon for systems engineers: build a tiny vLLM + Qwen",
+   "name": "lightpanda-io/browser",
+   "url": "https://github.com/lightpanda-io/browser",
+   "language": "Zig",
+   "description": "Lightpanda: the headless browser designed for AI and automation",
    "keywords": [
-    "Learning resources"
+    "Browser automation"
    ],
-   "trendshift_pos": 3,
-   "stars": 4904,
+   "trendshift_pos": 15,
+   "stars": 38421,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A hands-on educational project for building a high-performance LLM inference engine from scratch on Apple Silicon.",
+   "one_liner": "A high-performance, lightweight headless browser engine built specifically for AI agents and automation tasks.",
    "bullets": [
-    "Built using Python with a focus on low-level systems engineering principles.",
-    "Implements core inference components like KV cache, PagedAttention, and model quantization.",
-    "Designed to teach the architecture behind production-grade systems like vLLM.",
-    "Ideal for engineers looking to understand the hardware-software interface of LLM deployment."
+    "Written in Zig for memory safety and extreme performance compared to traditional Chromium-based headless browsers.",
+    "Designed to be lightweight and resource-efficient, making it ideal for containerized agent environments.",
+    "Provides a clean API for scraping and interacting with complex web interfaces, reducing the overhead for LLM-based automation.",
+    "Primary use case is enabling AI agents to browse the web reliably without the heavy footprint of full browser engines."
    ]
   },
   {
-   "name": "JimLiu/baoyu-design",
-   "url": "https://github.com/JimLiu/baoyu-design",
-   "language": "JavaScript",
-   "description": "Run Claude Design locally as an Agent Skill — Cursor, Claude Code & more. Produce polished UI mockups, prototypes, decks & wireframes as self-contained HTML, without claude.ai/design. Best with Opus or Claude.",
+   "name": "vercel-labs/agent-desktop",
+   "url": "https://github.com/vercel-labs/agent-desktop",
+   "language": "Rust",
+   "description": "Agent Desktop gives any agent reliable computer use on the desktop. Built with Rust, it sees any app's real UI structure through OS accessibility trees and operates it — refs stay stable and actions stay safe to retry, instead of guessing from pixels.",
+   "keywords": [
+    "AI agent"
+   ],
+   "trendshift_pos": 1,
+   "stars": 2004,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A Rust-based framework that enables AI agents to interact with desktop applications via OS accessibility trees.",
+   "bullets": [
+    "Utilizes native OS accessibility APIs to map UI elements, ensuring stable references for agent interactions.",
+    "Built in Rust to provide the low-latency execution required for real-time desktop automation.",
+    "Allows agents to operate any desktop application by 'seeing' the UI structure rather than relying on brittle pixel-based vision.",
+    "Enables complex agentic workflows that span across multiple desktop applications and local system tasks."
+   ]
+  },
+  {
+   "name": "microsoft/TokenEconomizer",
+   "url": "https://github.com/microsoft/TokenEconomizer",
+   "language": "Python",
+   "description": "Experience-Driven Black-Box Cost Control for Coding Agents",
+   "keywords": [
+    "AI coding assistant"
+   ],
+   "trendshift_pos": 10,
+   "stars": 2034,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A system designed for experience-driven, black-box cost control for coding agents.",
+   "bullets": [
+    "Implements cost-management logic for LLM-based coding agents to prevent runaway token consumption.",
+    "Uses a black-box approach to monitor and optimize agent behavior without requiring deep integration into the model architecture.",
+    "Provides infrastructure for developers to set guardrails on AI-driven development workflows.",
+    "Essential for enterprise-grade fintech or devtools where LLM usage costs must be strictly governed and predictable."
+   ]
+  },
+  {
+   "name": "wici-ai/inferssd",
+   "url": "https://github.com/wici-ai/inferssd",
+   "language": "C++",
+   "description": "Run models larger than your RAM or VRAM by streaming MoE experts from SSD. Built on llama.cpp.",
+   "keywords": [],
+   "trendshift_pos": 25,
+   "stars": 61,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A llama.cpp-based inference engine that allows running models larger than available RAM/VRAM by streaming MoE experts from SSD.",
+   "bullets": [
+    "Leverages Mixture-of-Experts (MoE) architecture to load only necessary model weights into memory on-demand.",
+    "Optimized for high-throughput SSD streaming to minimize latency during model inference.",
+    "Enables the deployment of massive, high-parameter models on consumer-grade hardware with limited VRAM.",
+    "Ideal for local AI infrastructure where running large-scale models is constrained by hardware memory limits."
+   ]
+  },
+  {
+   "name": "anthropics/skills",
+   "url": "https://github.com/anthropics/skills",
+   "language": "Python",
+   "description": "Public repository for Agent Skills",
    "keywords": [
     "AI skills"
    ],
-   "trendshift_pos": 18,
-   "stars": 5149,
+   "trendshift_pos": 21,
+   "stars": 185338,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A local agent skill that enables Claude to generate professional UI mockups and prototypes directly in your development environment.",
+   "one_liner": "A centralized repository of modular skills and capabilities designed to extend the functionality of AI agents.",
    "bullets": [
-    "Operates as an agent skill compatible with Cursor and Claude Code.",
-    "Generates self-contained HTML/CSS/JS prototypes without relying on external design platforms.",
-    "Streamlines the design-to-code workflow by automating UI production via LLM.",
-    "Useful for rapid prototyping of fintech dashboards or internal enterprise tools."
+    "Provides a standardized library of reusable agentic functions and tool definitions.",
+    "Focuses on interoperability, allowing developers to plug-and-play capabilities into various agent frameworks.",
+    "Includes implementations for common tasks, data processing, and external service integration.",
+    "Serves as a foundational infrastructure component for building robust, multi-step agentic workflows in professional environments."
    ]
-  },
-  {
-   "name": "betterleaks/betterleaks",
-   "url": "https://github.com/betterleaks/betterleaks",
-   "language": "Go",
-   "description": "Find leaked secrets everywhere.",
-   "keywords": [
-    "Static analysis"
-   ],
-   "trendshift_pos": 22,
-   "stars": 2585,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance infrastructure security tool designed to detect leaked secrets across distributed environments.",
-   "bullets": [
-    "Written in Go for high-concurrency scanning and efficient resource utilization.",
-    "Automates the discovery of sensitive credentials, API keys, and tokens in codebases.",
-    "Essential for DevSecOps pipelines to prevent data breaches in cloud-native infrastructure.",
-    "Provides a scalable solution for monitoring enterprise-wide repositories for security regressions."
-   ]
-  },
-  {
-   "name": "jackwener/DeepseekHarness-Android",
-   "url": "https://github.com/jackwener/DeepseekHarness-Android",
-   "language": "Kotlin",
-   "description": "免 ROOT 免 Termux，一个 APK 在安卓手机上跑 DeepSeek Harness。引擎内嵌 App 进程 · 读屏操作 App · 改系统设置 · 定时/条件自动化 · 可选 Shizuku",
-   "keywords": [],
-   "trendshift_pos": 14,
-   "stars": 245,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An Android application that embeds an LLM harness to automate system-level tasks and screen interactions without root access.",
-   "bullets": [
-    "Utilizes Kotlin and Shizuku to perform system-level automation on Android devices.",
-    "Enables agentic control over screen reading, app navigation, and system settings.",
-    "Demonstrates the potential for on-device AI agents to manage complex mobile workflows.",
-    "Applicable for building automated testing suites or personal productivity agents on mobile."
-   ]
-  },
-  {
-   "name": "lexifina/global-law",
-   "url": "https://github.com/lexifina/global-law",
-   "language": "HTML",
-   "description": "Git for Global Law: the law of every country as one git history, each country's record a submodule, every commit one law taking effect",
-   "keywords": [],
-   "trendshift_pos": 11,
-   "stars": 81,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A version-controlled, global repository of legal codes using Git to track legislative changes across jurisdictions.",
-   "bullets": [
-    "Uses Git submodules to organize and track the legal history of individual countries.",
-    "Treats every legislative update as a discrete commit, creating a verifiable audit trail of law.",
-    "Provides a structured data foundation for legal-tech applications and regulatory compliance monitoring.",
-    "Useful for quant researchers tracking regulatory shifts that impact financial markets."
-   ],
-   "img": "lexifina_global-law_0.jpg",
-   "img_alt": "How long each country's law waits between adoption and entry into force, one distribution per jurisdiction"
   }
  ]
 }

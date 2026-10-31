@@ -193,125 +193,111 @@
    "read_time": 7
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/23/byd-steps-up-teasers-2nd-gen-seal-07/",
-   "blog": "CNEVPOST",
-   "title": "BYD steps up teasers for second-gen Seal 07 sedan, turns focus to cabin",
-   "link": "https://cnevpost.com/2026/10/23/byd-steps-up-teasers-2nd-gen-seal-07/",
-   "summary": "The second-generation BYD Seal 07 is larger, with a length of 5,080 mm.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-23 05:02 UTC",
-   "_ts": 1792731771,
+   "_key": "SemiEngineering|https://semiengineering.com/why-physics-needs-to-move-at-the-pace-of-design/",
+   "blog": "SemiEngineering",
+   "title": "Why Physics Needs To Move At The Pace Of Design",
+   "link": "https://semiengineering.com/why-physics-needs-to-move-at-the-pace-of-design/",
+   "summary": "Physics-based analysis becomes more consequential as chips, packages, boards, and systems are designed together.\nThe post Why Physics Needs To Move At The Pace Of Design appeared first on Semiconductor Engineering.",
+   "published": "2026-10-29 07:03 UTC",
+   "_ts": 1793257414,
+   "preview": true,
+   "bullets": [
+    "As chips, packages, and boards are increasingly designed as a single system, physics-based analysis must be integrated earlier and more tightly into the design flow.",
+    "The convergence of multi-physics constraints requires analysis tools that can keep pace with the rapid iteration cycles of modern semiconductor development.",
+    "Failure to align physics-based validation with the speed of design increases the risk of performance bottlenecks and reliability issues in advanced integrated systems."
+   ],
+   "rating": 4,
+   "read_time": 1
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/from-functional-monitoring-to-in-system-test-extending-voltage-aware-observability/",
+   "blog": "SemiEngineering",
+   "title": "From Functional Monitoring To In-System Test: Extending Voltage-Aware Observability",
+   "link": "https://semiengineering.com/from-functional-monitoring-to-in-system-test-extending-voltage-aware-observability/",
+   "summary": "Separate false failures caused by voltage droop from real structural defects.\nThe post From Functional Monitoring To In-System Test: Extending Voltage-Aware Observability appeared first on Semiconductor Engineering.",
+   "published": "2026-10-29 07:05 UTC",
+   "_ts": 1793257554,
    "preview": false,
    "bullets": [
-    "BYD is intensifying marketing for the second-generation Seal 07, highlighting a 'light-luxury' cabin with zero-gravity seats and a 20-speaker Devialet audio system.",
-    "The new model is significantly larger than its predecessor, with an 85 mm increase in length and a 60 mm longer wheelbase.",
-    "Technical filings indicate the vehicle will offer both battery electric and plug-in hybrid variants, with the electric version featuring higher motor power outputs than the current generation."
+    "High-performance AI and HPC systems are increasingly susceptible to 'spiky' workloads that induce voltage droops, often leading to false failures during testing.",
+    "Integrating physical sensors with In-System Test (IST) allows engineers to distinguish between actual structural defects and transient voltage-induced errors.",
+    "Major tech firms like Meta and Google have reported significant rates of silent data corruption in fleet machines, highlighting the need for advanced in-field monitoring.",
+    "The ability to perform structural testing on deployed systems without removing devices is becoming essential for maintaining system reliability in the field."
    ],
-   "rating": 3,
+   "rating": 4,
+   "read_time": 5
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/is-it-getting-hot-in-here-why-thermal-is-no-longer-a-signoff-problem/",
+   "blog": "SemiEngineering",
+   "title": "Is It Getting Hot In Here? Why Thermal Is No Longer A Signoff Problem",
+   "link": "https://semiengineering.com/is-it-getting-hot-in-here-why-thermal-is-no-longer-a-signoff-problem/",
+   "summary": "Applying the appropriate level of simulation and abstraction at each stage of the design process is key to effective thermal analysis.\nThe post Is It Getting Hot In Here? Why Thermal Is No Longer A Signoff Problem appeared first on Semiconductor Engineering.",
+   "published": "2026-10-29 07:08 UTC",
+   "_ts": 1793257728,
+   "preview": false,
+   "bullets": [
+    "Thermal management has transitioned from a post-design signoff task to a critical multi-physics challenge that influences floor planning, reliability, and system performance.",
+    "Advanced packaging architectures like 3D-ICs and chiplets create complex thermal interactions that require analysis across multiple levels of abstraction.",
+    "Simulating every element at maximum fidelity is computationally impractical, necessitating the use of reduced-order modeling and superposition techniques.",
+    "Effective thermal strategy now requires a holistic approach where electrical, mechanical, and thermal domains are analyzed concurrently rather than in isolation."
+   ],
+   "rating": 4,
    "read_time": 3
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/23/pony-ai-enters-central-asia-robotaxi-pilot-kazakhstan/",
-   "blog": "CNEVPOST",
-   "title": "Pony AI enters Central Asia with inDrive robotaxi pilot in Kazakhstan",
-   "link": "https://cnevpost.com/2026/10/23/pony-ai-enters-central-asia-robotaxi-pilot-kazakhstan/",
-   "summary": "The partnership will use Kazakhstan as its initial pilot market, with robotaxis to be deployed first in the capital, Astana.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-23 06:46 UTC",
-   "_ts": 1792738016,
+   "_key": "SemiEngineering|https://semiengineering.com/rethinking-shift-left-in-chip-design/",
+   "blog": "SemiEngineering",
+   "title": "Rethinking Shift Left In Chip Design",
+   "link": "https://semiengineering.com/rethinking-shift-left-in-chip-design/",
+   "summary": "Is it better to do everything earlier in the flow, or should design be more flexible and iterative? \nThe post Rethinking Shift Left In Chip Design appeared first on Semiconductor Engineering.",
+   "published": "2026-10-29 07:11 UTC",
+   "_ts": 1793257917,
    "preview": false,
    "bullets": [
-    "Pony AI is expanding into Central Asia through a robotaxi pilot in Kazakhstan, partnering with ride-hailing platform inDrive and Nvidia.",
-    "The pilot will test Level 4 autonomous driving technology in Astana, providing a critical evaluation of system performance in extreme winter conditions.",
-    "Kazakhstan was selected due to its proactive regulatory framework for driverless mobility and the government's commitment to AI and digitalization."
+    "The 'shift left' methodology is evolving to include digital twins and multi-physics surrogate models to address the demands of advanced nodes like CFET.",
+    "A critical 'reasoning gap' has emerged in chip design, shifting the focus from mere productivity to the need for engineers to better reason about product performance.",
+    "Trust in AI-generated models is a major concern; experts emphasize that surrogate models must be validated by humans to ensure they accurately represent physical reality.",
+    "Predictive accuracy is paramount in shift-left strategies, as reliance on unverified models can lead to costly, unnecessary silicon respins."
    ],
-   "rating": 3,
-   "read_time": 3
+   "rating": 4,
+   "read_time": 10
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/23/nio-3rd-gen-es8-160000-deliveries/",
-   "blog": "CNEVPOST",
-   "title": "Nio third-gen ES8 reaches 160,000 deliveries, adding 10,000 in 33 days",
-   "link": "https://cnevpost.com/2026/10/23/nio-3rd-gen-es8-160000-deliveries/",
-   "summary": "The third-generation ES8 remains a key sales driver for the Nio main brand more than 1 year after launch.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-23 07:06 UTC",
-   "_ts": 1792739196,
-   "preview": false,
-   "bullets": [
-    "Nio's third-generation ES8 has reached 160,000 cumulative deliveries, maintaining its status as a core volume driver for the brand.",
-    "The model continues to see strong demand, with monthly deliveries exceeding 10,000 units for three consecutive months.",
-    "The introduction of a 5-seat variant in July has successfully broadened the ES8's customer base, contributing to its market-leading position in the large SUV segment in key regions like Xi'an."
-   ],
-   "rating": 3,
-   "read_time": 2
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/23/arcfox-pre-sales-2027-alpha-s5/",
-   "blog": "CNEVPOST",
-   "title": "Arcfox opens pre-sales for 2027 Alpha S5 with standard LiDAR, starting at about $18,130",
-   "link": "https://cnevpost.com/2026/10/23/arcfox-pre-sales-2027-alpha-s5/",
-   "summary": "The 2027 Arcfox Alpha S5 sedan starts at 121,800 yuan ($18,130) in pre-sales and offers a CLTC range of up to 750 km.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-23 08:41 UTC",
-   "_ts": 1792744885,
-   "preview": false,
-   "bullets": [
-    "Arcfox has opened pre-sales for the 2027 Alpha S5 starting at 121,800 yuan, positioning the model aggressively in the competitive electric sedan segment.",
-    "The vehicle features standard 192-channel LiDAR and an end-to-end 4.0 AI model for driver assistance, emphasizing high-tech hardware at a lower price point.",
-    "The model supports 5C ultra-fast charging, capable of adding 560 kilometers of range in just 15 minutes, addressing a key consumer demand for reduced charging times."
-   ],
-   "rating": 3,
-   "read_time": 3
-  },
-  {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/23/1147610/biotech-you-can-see-everything-theranos-holmes/",
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/29/1147735/climate-models-blind-spot/",
    "blog": "MIT Technology Review",
-   "title": "In the biotech world, you can’t see everything",
-   "link": "https://www.technologyreview.com/2026/10/23/1147610/biotech-you-can-see-everything-theranos-holmes/",
-   "summary": "Earlier this week, I attended a screening of You Can See Everything, the buzzy new documentary about the disgraced former biotech CEO Elizabeth Holmes.  I went in not really knowing what to expect. I’d avoided spoilers (and won’t be giving anything away here, either!). I was wondering what new information this film could reveal, given…",
-   "published": "2026-10-23 09:00 UTC",
-   "_ts": 1792746000,
+   "title": "Our climate models have a big, dangerous blind spot",
+   "link": "https://www.technologyreview.com/2026/10/29/1147735/climate-models-blind-spot/",
+   "summary": "Climate change itself is increasingly fueling climate change. Rising concentrations of greenhouse gases are driving up global temperatures, setting off dangerous feedback loops that we have not fully accounted for in our climate models—or our emissions-reduction goals. Scientists have long warned that warming would propel further warming in various ways, but a growing number of…",
+   "published": "2026-10-29 10:00 UTC",
+   "_ts": 1793268000,
    "preview": false,
    "bullets": [
-    "The documentary 'You Can See Everything' provides a new lens on the Theranos scandal, focusing on the psychological and systemic factors that allowed Elizabeth Holmes to deceive investors.",
-    "At its peak in 2014, Theranos reached a $9 billion valuation, with Holmes briefly holding a net worth of $4.5 billion before the company's collapse and subsequent fraud charges.",
-    "The Theranos case serves as a foundational warning for the biotech industry regarding the dangers of prioritizing compelling narratives over rigorous, transparent scientific validation.",
-    "The film documents Holmes's life post-conviction, illustrating the enduring public and media fascination with the intersection of high-growth tech startups and corporate malfeasance."
+    "A study published in Environmental Research Letters indicates that feedback loops—such as thawing permafrost and intensifying wildfires—could add 0.2 °C to 0.4 °C to global temperatures by 2100, beyond current projections.",
+    "Major UN climate reports currently fail to fully account for these cascading feedback effects, creating a significant discrepancy between official emissions-reduction goals and actual warming risks.",
+    "Research in One Earth suggests that emissions from thawing permafrost, boreal forest fires, and tropical wetlands could shorten the remaining time to breach critical 1.5 °C and 2 °C warming thresholds by up to 25%."
    ],
-   "rating": 3,
-   "read_time": 6
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/23/gwm-launches-2027-tank-500/",
-   "blog": "CNEVPOST",
-   "title": "GWM launches 2027 Tank 500 with driver-assistance and cabin upgrades",
-   "link": "https://cnevpost.com/2026/10/23/gwm-launches-2027-tank-500/",
-   "summary": "The off-road SUV gains driver-assistance and cabin upgrades while retaining plug-in hybrid and gasoline options.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-23 13:06 UTC",
-   "_ts": 1792760798,
-   "preview": false,
-   "bullets": [
-    "GWM has launched the 2027 Tank 500, maintaining its price range of 335,000 to 375,000 yuan despite significant hardware and software upgrades.",
-    "The new Zhixiang editions integrate Nvidia's Thor-U chip, delivering 700 TOPS of computing power and enabling advanced urban and highway NOA capabilities.",
-    "The update includes 296 improvements across the vehicle, focusing on cabin luxury, safety redundancy, and the integration of LiDAR-based driver-assistance systems."
-   ],
-   "rating": 3,
-   "read_time": 3
-  },
-  {
-   "_key": "Stratechery|https://stratechery.com/2026/a-new-era/",
-   "blog": "Stratechery",
-   "title": "2026.43: A New Era",
-   "link": "https://stratechery.com/2026/a-new-era/",
-   "summary": "The best Stratechery content from the week of October 19, 2026, including the best iPad but worst phone, SS Sarandos in a storm, and You Can See Everything.",
-   "published": "2026-10-23 17:00 UTC",
-   "_ts": 1792774800,
-   "preview": false,
-   "bullets": [
-    "Stratechery has entered a new partnership with Stripe, which will serve as the presenting sponsor for the platform.",
-    "The partnership facilitates the expansion of the 'Sharp Tech' podcast into a video format, with new episodes available on YouTube and the Stratechery site.",
-    "Netflix is facing significant operational headwinds, including executive departures and layoffs, contributing to a 40% decline in share price over the past year.",
-    "Analysts are evaluating the competitive threat posed by Meta and YouTube, which are increasingly challenging Netflix for primary consumer engagement."
-   ],
-   "rating": 3,
+   "rating": 4,
    "read_time": 4
+  },
+  {
+   "_key": "Stratechery|https://stratechery.com/2026/an-interview-with-palantir-cto-shyam-sankar-about-the-ai-religious-war/",
+   "blog": "Stratechery",
+   "title": "An Interview with Palantir CTO Shyam Sankar About the AI Religious War",
+   "link": "https://stratechery.com/2026/an-interview-with-palantir-cto-shyam-sankar-about-the-ai-religious-war/",
+   "summary": "An interview with Palantir CTO Shyam Sankar about AI diffusion and safety, forward-deployed engineer, and what the battle in tech is actually about.",
+   "published": "2026-10-29 10:00 UTC",
+   "_ts": 1793268000,
+   "preview": false,
+   "bullets": [
+    "Palantir CTO Shyam Sankar argues that the AI industry is currently failing to prioritize the diffusion of intelligence, focusing too heavily on model creation rather than practical application.",
+    "Sankar contends that companies prioritizing top-line growth see significantly higher success rates in AI adoption compared to those focused solely on cost-cutting or bottom-line efficiency.",
+    "The interview highlights a critique of current AI safety practices, with Sankar advocating for a rigorous systems engineering approach rather than the abstract frameworks currently favored by major AI labs.",
+    "Palantir emphasizes the importance of 'forward-deployed engineering' as a core competency, which allows the company to integrate AI solutions directly into client workflows to preserve competitive alpha.",
+    "Sankar frames the current state of the AI industry as a 'religious war,' noting that ideological divides regarding safety and deployment are hindering the necessary industrial reboot of the American base."
+   ],
+   "rating": 4,
+   "read_time": 58
   },
   {
    "_key": "CNEVPOST|https://cnevpost.com/2026/10/26/audi-china-business-split/",
@@ -509,56 +495,57 @@
    "read_time": 3
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/23/smart-2-set-for-nov-5-launch-china/",
-   "blog": "CNEVPOST",
-   "title": "Smart #2 set for November 5 launch in China, retaining ForTwo's 2-seat layout",
-   "link": "https://cnevpost.com/2026/10/23/smart-2-set-for-nov-5-launch-china/",
-   "summary": "The Couture Edition went on sale last week at an official retail price of 112,999 yuan ($16,820), with availability limited to 999 units in China.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-23 02:09 UTC",
-   "_ts": 1792721375,
+   "_key": "SemiEngineering|https://semiengineering.com/scaling-autonomous-root-cause-analysis-for-regression-triage/",
+   "blog": "SemiEngineering",
+   "title": "Scaling Autonomous Root Cause Analysis For Regression Triage",
+   "link": "https://semiengineering.com/scaling-autonomous-root-cause-analysis-for-regression-triage/",
+   "summary": "Solving difficult bugs while intelligently deciding what to investigate, what to rerun, and where to spend compute. \nThe post Scaling Autonomous Root Cause Analysis For Regression Triage appeared first on Semiconductor Engineering.",
+   "published": "2026-10-29 07:04 UTC",
+   "_ts": 1793257477,
    "preview": true,
    "bullets": [
-    "The Smart #2 is scheduled for a November 5 launch in China, maintaining the brand's signature 2-seat layout.",
-    "A limited Couture Edition has already been released at 112,999 yuan, with production capped at 999 units.",
-    "The launch represents Smart's continued focus on the niche urban micro-car segment within the Chinese EV market."
+    "Autonomous root cause analysis is becoming critical for managing the massive volume of regressions in modern chip design flows.",
+    "Intelligent triage systems are being deployed to optimize compute resource allocation by prioritizing which bugs to investigate and which tests to rerun.",
+    "Automating the triage process helps engineering teams reduce the time spent on manual debugging, allowing them to focus on complex, high-impact issues."
    ],
-   "rating": 2,
+   "rating": 3,
    "read_time": 1
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/23/nio-firefly-launches-60-kwh-battery-pack/",
-   "blog": "CNEVPOST",
-   "title": "Nio Firefly launches larger 60-kWh battery pack, extending range to 560 km",
-   "link": "https://cnevpost.com/2026/10/23/nio-firefly-launches-60-kwh-battery-pack/",
-   "summary": "Both new and existing owners can opt for the larger battery, with the permanent upgrade priced at 17,000 yuan ($2,530) for owners who bought the vehicle outright.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-23 02:31 UTC",
-   "_ts": 1792722696,
-   "preview": true,
-   "bullets": [
-    "Nio's Firefly brand has introduced a 60-kWh battery pack, extending the vehicle's range to 560 kilometers.",
-    "The upgrade is available to both new and existing owners, with a permanent upgrade price set at 17,000 yuan for outright purchasers.",
-    "This move allows Nio to offer greater flexibility and range options to its entry-level segment customers."
-   ],
-   "rating": 2,
-   "read_time": 1
-  },
-  {
-   "_key": "Stratechery|https://stratechery.com/2026/sharp-tech-on-video-netflix-angst-the-end-of-the-internet-and-metas-vr-glasses/",
-   "blog": "Stratechery",
-   "title": "Sharp Tech on Video: Netflix Angst, the End of the Internet, and Meta’s VR Glasses",
-   "link": "https://stratechery.com/2026/sharp-tech-on-video-netflix-angst-the-end-of-the-internet-and-metas-vr-glasses/",
-   "summary": "Sharp Tech is, for the first time, available on video. You have two ways to consume it: YouTube, and here on Stratechery",
-   "published": "2026-10-23 10:00 UTC",
-   "_ts": 1792749600,
+   "_key": "SemiEngineering|https://semiengineering.com/the-complexity-between-the-bits/",
+   "blog": "SemiEngineering",
+   "title": "The Complexity Between The Bits",
+   "link": "https://semiengineering.com/the-complexity-between-the-bits/",
+   "summary": "What biological reasoning can teach us about verifying silicon systems.\nThe post The Complexity Between The Bits appeared first on Semiconductor Engineering.",
+   "published": "2026-10-29 07:09 UTC",
+   "_ts": 1793257792,
    "preview": false,
    "bullets": [
-    "Stratechery is pivoting to include video content for its 'Sharp Tech' podcast series to diversify its media offerings.",
-    "The platform maintains a tiered subscription model, priced at $15 per month or $150 per year, providing access to various podcasts and written updates.",
-    "The content ecosystem now spans multiple specialized verticals, including Sharp China, Dithering, and Asianometry, aimed at providing deep technical and geopolitical analysis.",
-    "The platform continues to enforce strict individual subscription policies, prohibiting the sharing of email updates and podcast feeds among multiple users."
+    "Drawing parallels from structural biology, engineers are encouraged to view silicon systems as complex networks where connectivity does not guarantee functional correctness.",
+    "Verification must evolve to explicitly define the context—such as neighboring states and event orderings—under which system guarantees hold true.",
+    "The industry must distinguish between simple connectivity and the specific conditions under which components produce intended behaviors to avoid integration failures.",
+    "Explicitly documenting assumptions and dependencies is essential for verifying modern, highly integrated silicon systems."
    ],
-   "rating": 2,
-   "read_time": 3
+   "rating": 3,
+   "read_time": 7
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/auto-generation-of-properties-methodology-insertion/",
+   "blog": "SemiEngineering",
+   "title": "Auto-Generation Of Properties: Methodology Insertion",
+   "link": "https://semiengineering.com/auto-generation-of-properties-methodology-insertion/",
+   "summary": "Technology is only useful if it improves an existing methodology. Property generation is still refining that goal, but in the long term it could be very useful.\nThe post Auto-Generation Of Properties: Methodology Insertion appeared first on Semiconductor Engineering.",
+   "published": "2026-10-29 07:13 UTC",
+   "_ts": 1793257992,
+   "preview": false,
+   "bullets": [
+    "The semiconductor industry faces a significant bottleneck in verification due to incomplete or ambiguous natural-language specifications.",
+    "While AI can generate SystemVerilog assertions in seconds, the quality of these outputs remains tethered to the clarity of the underlying source documentation.",
+    "Experts suggest that the current 5-to-1 ratio of verification engineers to designers is a structural indicator that design complexity has outpaced traditional manual methodologies.",
+    "The industry is shifting toward AI-assisted artifact generation as a practical requirement to manage SoC complexity, though success depends on improving the discipline of specification writing."
+   ],
+   "rating": 3,
+   "read_time": 11
   },
   {
    "_key": "CNEVPOST|https://cnevpost.com/2026/10/26/byd-denza-opens-reservations-revamped-n8/",
@@ -694,166 +681,6 @@
    "read_time": 6
   },
   {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/29/1147735/climate-models-blind-spot/",
-   "blog": "MIT Technology Review",
-   "title": "Our climate models have a big, dangerous blind spot",
-   "link": "https://www.technologyreview.com/2026/10/29/1147735/climate-models-blind-spot/",
-   "summary": "Climate change itself is increasingly fueling climate change. Rising concentrations of greenhouse gases are driving up global temperatures, setting off dangerous feedback loops that we have not fully accounted for in our climate models—or our emissions-reduction goals. Scientists have long warned that warming would propel further warming in various ways, but a growing number of…",
-   "published": "2026-10-29 10:00 UTC",
-   "_ts": 1793268000,
-   "preview": false,
-   "bullets": [
-    "A study published in Environmental Research Letters indicates that feedback loops—such as thawing permafrost and intensifying wildfires—could add 0.2 °C to 0.4 °C to global temperatures by 2100, beyond current projections.",
-    "Major UN climate reports currently fail to fully account for these cascading feedback effects, creating a significant discrepancy between official emissions-reduction goals and actual warming risks.",
-    "Research in One Earth suggests that emissions from thawing permafrost, boreal forest fires, and tropical wetlands could shorten the remaining time to breach critical 1.5 °C and 2 °C warming thresholds by up to 25%."
-   ],
-   "rating": 4,
-   "read_time": 4
-  },
-  {
-   "_key": "Stratechery|https://stratechery.com/2026/an-interview-with-palantir-cto-shyam-sankar-about-the-ai-religious-war/",
-   "blog": "Stratechery",
-   "title": "An Interview with Palantir CTO Shyam Sankar About the AI Religious War",
-   "link": "https://stratechery.com/2026/an-interview-with-palantir-cto-shyam-sankar-about-the-ai-religious-war/",
-   "summary": "An interview with Palantir CTO Shyam Sankar about AI diffusion and safety, forward-deployed engineer, and what the battle in tech is actually about.",
-   "published": "2026-10-29 10:00 UTC",
-   "_ts": 1793268000,
-   "preview": false,
-   "bullets": [
-    "Palantir CTO Shyam Sankar argues that the AI industry is currently failing to prioritize the diffusion of intelligence, focusing too heavily on model creation rather than practical application.",
-    "Sankar contends that companies prioritizing top-line growth see significantly higher success rates in AI adoption compared to those focused solely on cost-cutting or bottom-line efficiency.",
-    "The interview highlights a critique of current AI safety practices, with Sankar advocating for a rigorous systems engineering approach rather than the abstract frameworks currently favored by major AI labs.",
-    "Palantir emphasizes the importance of 'forward-deployed engineering' as a core competency, which allows the company to integrate AI solutions directly into client workflows to preserve competitive alpha.",
-    "Sankar frames the current state of the AI industry as a 'religious war,' noting that ideological divides regarding safety and deployment are hindering the necessary industrial reboot of the American base."
-   ],
-   "rating": 4,
-   "read_time": 58
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/rethinking-shift-left-in-chip-design/",
-   "blog": "SemiEngineering",
-   "title": "Rethinking Shift Left In Chip Design",
-   "link": "https://semiengineering.com/rethinking-shift-left-in-chip-design/",
-   "summary": "Is it better to do everything earlier in the flow, or should design be more flexible and iterative? \nThe post Rethinking Shift Left In Chip Design appeared first on Semiconductor Engineering.",
-   "published": "2026-10-29 07:11 UTC",
-   "_ts": 1793257917,
-   "preview": false,
-   "bullets": [
-    "The 'shift left' methodology is evolving to include digital twins and multi-physics surrogate models to address the demands of advanced nodes like CFET.",
-    "A critical 'reasoning gap' has emerged in chip design, shifting the focus from mere productivity to the need for engineers to better reason about product performance.",
-    "Trust in AI-generated models is a major concern; experts emphasize that surrogate models must be validated by humans to ensure they accurately represent physical reality.",
-    "Predictive accuracy is paramount in shift-left strategies, as reliance on unverified models can lead to costly, unnecessary silicon respins."
-   ],
-   "rating": 4,
-   "read_time": 10
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/is-it-getting-hot-in-here-why-thermal-is-no-longer-a-signoff-problem/",
-   "blog": "SemiEngineering",
-   "title": "Is It Getting Hot In Here? Why Thermal Is No Longer A Signoff Problem",
-   "link": "https://semiengineering.com/is-it-getting-hot-in-here-why-thermal-is-no-longer-a-signoff-problem/",
-   "summary": "Applying the appropriate level of simulation and abstraction at each stage of the design process is key to effective thermal analysis.\nThe post Is It Getting Hot In Here? Why Thermal Is No Longer A Signoff Problem appeared first on Semiconductor Engineering.",
-   "published": "2026-10-29 07:08 UTC",
-   "_ts": 1793257728,
-   "preview": false,
-   "bullets": [
-    "Thermal management has transitioned from a post-design signoff task to a critical multi-physics challenge that influences floor planning, reliability, and system performance.",
-    "Advanced packaging architectures like 3D-ICs and chiplets create complex thermal interactions that require analysis across multiple levels of abstraction.",
-    "Simulating every element at maximum fidelity is computationally impractical, necessitating the use of reduced-order modeling and superposition techniques.",
-    "Effective thermal strategy now requires a holistic approach where electrical, mechanical, and thermal domains are analyzed concurrently rather than in isolation."
-   ],
-   "rating": 4,
-   "read_time": 3
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/from-functional-monitoring-to-in-system-test-extending-voltage-aware-observability/",
-   "blog": "SemiEngineering",
-   "title": "From Functional Monitoring To In-System Test: Extending Voltage-Aware Observability",
-   "link": "https://semiengineering.com/from-functional-monitoring-to-in-system-test-extending-voltage-aware-observability/",
-   "summary": "Separate false failures caused by voltage droop from real structural defects.\nThe post From Functional Monitoring To In-System Test: Extending Voltage-Aware Observability appeared first on Semiconductor Engineering.",
-   "published": "2026-10-29 07:05 UTC",
-   "_ts": 1793257554,
-   "preview": false,
-   "bullets": [
-    "High-performance AI and HPC systems are increasingly susceptible to 'spiky' workloads that induce voltage droops, often leading to false failures during testing.",
-    "Integrating physical sensors with In-System Test (IST) allows engineers to distinguish between actual structural defects and transient voltage-induced errors.",
-    "Major tech firms like Meta and Google have reported significant rates of silent data corruption in fleet machines, highlighting the need for advanced in-field monitoring.",
-    "The ability to perform structural testing on deployed systems without removing devices is becoming essential for maintaining system reliability in the field."
-   ],
-   "rating": 4,
-   "read_time": 5
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/why-physics-needs-to-move-at-the-pace-of-design/",
-   "blog": "SemiEngineering",
-   "title": "Why Physics Needs To Move At The Pace Of Design",
-   "link": "https://semiengineering.com/why-physics-needs-to-move-at-the-pace-of-design/",
-   "summary": "Physics-based analysis becomes more consequential as chips, packages, boards, and systems are designed together.\nThe post Why Physics Needs To Move At The Pace Of Design appeared first on Semiconductor Engineering.",
-   "published": "2026-10-29 07:03 UTC",
-   "_ts": 1793257414,
-   "preview": true,
-   "bullets": [
-    "As chips, packages, and boards are increasingly designed as a single system, physics-based analysis must be integrated earlier and more tightly into the design flow.",
-    "The convergence of multi-physics constraints requires analysis tools that can keep pace with the rapid iteration cycles of modern semiconductor development.",
-    "Failure to align physics-based validation with the speed of design increases the risk of performance bottlenecks and reliability issues in advanced integrated systems."
-   ],
-   "rating": 4,
-   "read_time": 1
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/auto-generation-of-properties-methodology-insertion/",
-   "blog": "SemiEngineering",
-   "title": "Auto-Generation Of Properties: Methodology Insertion",
-   "link": "https://semiengineering.com/auto-generation-of-properties-methodology-insertion/",
-   "summary": "Technology is only useful if it improves an existing methodology. Property generation is still refining that goal, but in the long term it could be very useful.\nThe post Auto-Generation Of Properties: Methodology Insertion appeared first on Semiconductor Engineering.",
-   "published": "2026-10-29 07:13 UTC",
-   "_ts": 1793257992,
-   "preview": false,
-   "bullets": [
-    "The semiconductor industry faces a significant bottleneck in verification due to incomplete or ambiguous natural-language specifications.",
-    "While AI can generate SystemVerilog assertions in seconds, the quality of these outputs remains tethered to the clarity of the underlying source documentation.",
-    "Experts suggest that the current 5-to-1 ratio of verification engineers to designers is a structural indicator that design complexity has outpaced traditional manual methodologies.",
-    "The industry is shifting toward AI-assisted artifact generation as a practical requirement to manage SoC complexity, though success depends on improving the discipline of specification writing."
-   ],
-   "rating": 3,
-   "read_time": 11
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/the-complexity-between-the-bits/",
-   "blog": "SemiEngineering",
-   "title": "The Complexity Between The Bits",
-   "link": "https://semiengineering.com/the-complexity-between-the-bits/",
-   "summary": "What biological reasoning can teach us about verifying silicon systems.\nThe post The Complexity Between The Bits appeared first on Semiconductor Engineering.",
-   "published": "2026-10-29 07:09 UTC",
-   "_ts": 1793257792,
-   "preview": false,
-   "bullets": [
-    "Drawing parallels from structural biology, engineers are encouraged to view silicon systems as complex networks where connectivity does not guarantee functional correctness.",
-    "Verification must evolve to explicitly define the context—such as neighboring states and event orderings—under which system guarantees hold true.",
-    "The industry must distinguish between simple connectivity and the specific conditions under which components produce intended behaviors to avoid integration failures.",
-    "Explicitly documenting assumptions and dependencies is essential for verifying modern, highly integrated silicon systems."
-   ],
-   "rating": 3,
-   "read_time": 7
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/scaling-autonomous-root-cause-analysis-for-regression-triage/",
-   "blog": "SemiEngineering",
-   "title": "Scaling Autonomous Root Cause Analysis For Regression Triage",
-   "link": "https://semiengineering.com/scaling-autonomous-root-cause-analysis-for-regression-triage/",
-   "summary": "Solving difficult bugs while intelligently deciding what to investigate, what to rerun, and where to spend compute. \nThe post Scaling Autonomous Root Cause Analysis For Regression Triage appeared first on Semiconductor Engineering.",
-   "published": "2026-10-29 07:04 UTC",
-   "_ts": 1793257477,
-   "preview": true,
-   "bullets": [
-    "Autonomous root cause analysis is becoming critical for managing the massive volume of regressions in modern chip design flows.",
-    "Intelligent triage systems are being deployed to optimize compute resource allocation by prioritizing which bugs to investigate and which tests to rerun.",
-    "Automating the triage process helps engineering teams reduce the time spent on manual debugging, allowing them to focus on complex, high-impact issues."
-   ],
-   "rating": 3,
-   "read_time": 1
-  },
-  {
    "_key": "SemiEngineering|https://semiengineering.com/ai-raises-the-bar-for-tomorrows-engineers/",
    "blog": "SemiEngineering",
    "title": "AI Raises The Bar For Tomorrow’s Engineers",
@@ -870,6 +697,95 @@
    ],
    "rating": 2,
    "read_time": 17
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/30/li-auto-i6-production-200000/",
+   "blog": "CNEVPOST",
+   "title": "Li Auto's i6 production reaches 200,000 as November capacity targets 20,000",
+   "link": "https://cnevpost.com/2026/10/30/li-auto-i6-production-200000/",
+   "summary": "Deliveries of the 2026 i6 began on October 29, with current wait times of 7 to 8 weeks.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-30 06:20 UTC",
+   "_ts": 1793341231,
+   "preview": false,
+   "bullets": [
+    "Li Auto has reached a cumulative production milestone of 200,000 units for its i6 battery electric SUV, just 13 months after its initial market launch.",
+    "The company is aggressively scaling production capacity to 20,000 units per month starting in November to address current wait times of 7 to 8 weeks.",
+    "The updated 2026 i6 model features significant technical upgrades, including a new in-house driver-assistance chip and an improved 96-kWh battery pack.",
+    "The i6 is a critical component of Li Auto's international expansion strategy, with scheduled launches in Norway and the Netherlands."
+   ],
+   "rating": 4,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/31/leapmotor-launches-a10-thailand/",
+   "blog": "CNEVPOST",
+   "title": "Leapmotor launches A10 in Thailand, with updated C10 to follow this year",
+   "link": "https://cnevpost.com/2026/10/31/leapmotor-launches-a10-thailand/",
+   "summary": "The Leapmotor A10, known internationally as the B03X, has arrived at 19 showrooms in Thailand.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-30 22:59 UTC",
+   "_ts": 1793401143,
+   "preview": false,
+   "bullets": [
+    "Leapmotor has officially launched its A10 small electric SUV in Thailand, marking a significant expansion of its Southeast Asian footprint.",
+    "The company aims to scale its local presence to 30 sales and service outlets by the end of 2026, supported by a new local spare parts warehouse.",
+    "Leapmotor's international strategy is heavily reliant on its joint venture with Stellantis, which holds exclusive rights to manufacture and sell Leapmotor products outside Greater China.",
+    "Export growth remains a primary driver for the company, with year-to-date exports reaching 159,572 vehicles, representing a 322% year-on-year increase."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "Stratechery|https://stratechery.com/2026/sharp-tech-on-video-anthropics-s-1-and-what-it-means-for-meta-and-muse-you-can-see-everything-and-brewers/",
+   "blog": "Stratechery",
+   "title": "Sharp Tech on Video: Anthropic’s S-1 and What It Means for Meta and Muse, You Can See Everything, and Brewers!",
+   "link": "https://stratechery.com/2026/sharp-tech-on-video-anthropics-s-1-and-what-it-means-for-meta-and-muse-you-can-see-everything-and-brewers/",
+   "summary": "Sharp Tech is, for the first time, available on video. You have three ways to consume it: YouTube, Spotify, and here on Stratechery.",
+   "published": "2026-10-30 10:00 UTC",
+   "_ts": 1793354400,
+   "preview": false,
+   "bullets": [
+    "Stratechery has expanded its multimedia offerings by launching a video version of the 'Sharp Tech' podcast, now available on YouTube, Spotify, and the Stratechery platform.",
+    "The latest 'Sharp Tech' episode provides a deep dive into the financial implications of Anthropic's S-1 filing for investors and the broader AI ecosystem.",
+    "The analysis explores the competitive dynamics between Anthropic and Meta, specifically examining how SEC disclosures shed light on Meta’s strategic 'Muse' initiative."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/30/1147838/eating-disorders-rise-glp-1s-weight-loss-drugs/",
+   "blog": "MIT Technology Review",
+   "title": "Eating disorders are on the rise. GLP-1s could make things worse.",
+   "link": "https://www.technologyreview.com/2026/10/30/1147838/eating-disorders-rise-glp-1s-weight-loss-drugs/",
+   "summary": "GLP-1 weight-loss drugs are one of the biggest biotech breakthroughs of the last decade. But to some clinical psychologists, they can represent something more sinister—a potential trigger for eating disorders. A new report suggests that the global incidence of anorexia nervosa and bulimia nervosa shot up between 1990 and 2023—by a whopping 71%. By 2023,…",
+   "published": "2026-10-30 09:00 UTC",
+   "_ts": 1793350800,
+   "preview": false,
+   "bullets": [
+    "Clinical data indicates that the global incidence of anorexia and bulimia nervosa reached approximately 18.1 million cases by 2023, reflecting a 71% increase since 1990.",
+    "Clinical psychologists report that GLP-1 weight-loss drugs are being misused by patients, potentially acting as a trigger for the onset or exacerbation of severe eating disorders.",
+    "The research highlights that external stressors and restrictive dieting behaviors are primary catalysts for eating disorders, creating a high-risk environment for vulnerable populations using weight-loss medication.",
+    "Healthcare professionals are observing an increase in both the volume and severity of eating disorder cases, suggesting that the rapid market expansion of GLP-1s may have unforeseen clinical consequences."
+   ],
+   "rating": 3,
+   "read_time": 7
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/10/30/gac-inpow-starts-production-thailand-plant/",
+   "blog": "CNEVPOST",
+   "title": "GAC's battery unit Inpow starts production at Thailand plant, its first overseas pack facility",
+   "link": "https://cnevpost.com/2026/10/30/gac-inpow-starts-production-thailand-plant/",
+   "summary": "The facility is GAC's first overseas in-house battery pack plant and Inpow's first factory outside China.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-10-30 07:12 UTC",
+   "_ts": 1793344363,
+   "preview": false,
+   "bullets": [
+    "GAC Group's battery subsidiary, Inpow, has commenced production at its first overseas battery pack facility located in Chonburi, Thailand.",
+    "The plant is designed to support GAC's regional vehicle manufacturing and local service capabilities, aligning with Thailand's '30@30' EV adoption target.",
+    "Inpow has reached a cumulative production milestone of over 300,000 power battery packs, which are currently utilized in GAC's Aion series vehicles.",
+    "The facility serves as a strategic hub for GAC to strengthen its supply chain resilience within the ASEAN market."
+   ],
+   "rating": 3,
+   "read_time": 2
   }
  ]
 }
