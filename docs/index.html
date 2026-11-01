@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daily Market Brief — 2026-10-31</title>
+<title>Daily Market Brief — 2026-11-01</title>
 <meta name="theme-color" content="#4338ca">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1362,12 +1362,6 @@
     background: #fff;
     display: block;
   }
-  .repo-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);   /* one repo card per row — big, readable */
-    gap: 20px;
-  }
-
   /* ---------- Analytics / Repo Radar day-history accordion ---------- */
   .day-jump-wrap {
     display: flex;
@@ -1401,12 +1395,12 @@
     color: var(--muted);
     margin: 0 0 14px;
   }
-  .filter-reset[hidden] { display: none; }
   /* The `hidden` attribute must beat the block display of the day/section/card
      wrappers, which are styled by class and not by attribute. */
   .day-group[hidden],
   .desk[hidden],
-  .blog-card[hidden] { display: none !important; }
+  .blog-card[hidden],
+  .repo-card[hidden] { display: none !important; }
   @media (max-width: 640px) {
     .filters {
       flex-direction: column;
@@ -1868,13 +1862,13 @@
 <div class="content">
   <header class="masthead">
     <div class="kicker">Daily Market Brief</div>
-    <h1>2026-10-31</h1>
-    <div class="generated">Generated 2026-10-31 09:34 HKT</div>
+    <h1>2026-11-01</h1>
+    <div class="generated">Generated 2026-11-01 09:07 HKT</div>
   </header>
   
   <div class="ticker-wrap">
-    <div class="ticker"><span class="neg"><span class="m1 neg" style="animation-delay: 0ms" title="1-month trend">▼</span>S&amp;P -1.8%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 70ms" title="1-month trend">▼</span>Nasdaq -2.9%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 140ms" title="1-month trend">▲</span>HSI +1.5%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 210ms" title="1-month trend">▼</span>US10Y 4.93%</span> · <span class="flat">USD/HKD +0.0%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 350ms" title="1-month trend">▼</span>HKD/CNY -0.1%</span> · <span class="flat">JPY/HKD(¥100) +0.0%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 490ms" title="1-month trend">▼</span>Gold -3.6%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 560ms" title="1-month trend">▼</span>BTC -0.6%</span></div>
-    <div class="asof">Market data as of 2026-10-31 09:34 HKT<span class="session-badge" id="session-badge"></span><span class="new-count">27 new stories</span></div>
+    <div class="ticker"><span class="neg"><span class="m1 neg" style="animation-delay: 0ms" title="1-month trend">▼</span>S&amp;P -1.8%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 70ms" title="1-month trend">▼</span>Nasdaq -2.9%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 140ms" title="1-month trend">▲</span>HSI +1.5%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 210ms" title="1-month trend">▼</span>US10Y 4.93%</span> · <span class="flat">USD/HKD -0.0%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 350ms" title="1-month trend">▼</span>HKD/CNY -0.3%</span> · <span class="flat">JPY/HKD(¥100) +0.0%</span> · <span class="neg"><span class="m1 neg" style="animation-delay: 490ms" title="1-month trend">▼</span>Gold -3.3%</span> · <span class="pos"><span class="m1 pos" style="animation-delay: 560ms" title="1-month trend">▲</span>BTC +0.5%</span></div>
+    <div class="asof">Market data as of 2026-11-01 09:07 HKT<span class="session-badge" id="session-badge"></span><span class="new-count">27 new stories</span></div>
   </div>
   
 
@@ -1896,7 +1890,7 @@
         </div>
         <div class="hero-last">7,580.07</div>
         <div class="hero-chg neg">-1.82%</div>
-        <div class="hero-delta neg">Δ -1.82% vs yesterday</div>
+        <div class="hero-delta pos">Δ +0.00% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
@@ -1906,7 +1900,7 @@
         </div>
         <div class="hero-last">25,437.00</div>
         <div class="hero-chg neg">-2.86%</div>
-        <div class="hero-delta neg">Δ -2.86% vs yesterday</div>
+        <div class="hero-delta pos">Δ +0.00% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
@@ -1916,7 +1910,7 @@
         </div>
         <div class="hero-last">23,294.42</div>
         <div class="hero-chg pos">+1.46%</div>
-        <div class="hero-delta pos">Δ +0.51% vs yesterday</div>
+        <div class="hero-delta pos">Δ +0.00% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
@@ -1926,27 +1920,27 @@
         </div>
         <div class="hero-last">4.93%</div>
         <div class="hero-chg neg">-6.0 bp</div>
-        <div class="hero-delta neg">Δ -6.0 bp vs yesterday</div>
+        <div class="hero-delta pos">Δ +0.0 bp vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">USD/HKD</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-flat" d="M1.0,10.5 L4.4,10.3 L7.8,15.3 L11.1,15.5 L14.5,15.1 L17.9,11.9 L21.3,10.5 L24.7,7.3 L28.0,7.0 L31.4,6.6 L34.8,5.2 L38.2,6.1 L41.6,3.6 L44.9,4.3 L48.3,4.3 L51.7,4.8 L55.1,4.3 L58.4,2.0 L61.8,3.6 L65.2,4.8 L68.6,4.1 L72.0,3.8 L75.3,2.0 L78.7,6.6 L82.1,30.0 L85.5,15.8 L88.9,9.6 L92.2,11.2 L95.6,10.3 L99.0,8.2"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-flat" d="M1.0,10.3 L4.4,15.3 L7.8,15.5 L11.1,15.1 L14.5,11.9 L17.9,10.5 L21.3,7.3 L24.7,7.0 L28.0,6.6 L31.4,5.2 L34.8,6.1 L38.2,3.6 L41.6,4.3 L44.9,4.3 L48.3,4.8 L51.7,4.3 L55.1,2.0 L58.4,3.6 L61.8,4.8 L65.2,4.1 L68.6,3.8 L72.0,2.0 L75.3,6.6 L78.7,30.0 L82.1,15.8 L85.5,9.6 L88.9,11.2 L92.2,10.3 L95.6,8.2 L99.0,11.6"/></svg>
         </div>
-        <div class="hero-last">7.85</div>
-        <div class="hero-chg flat">+0.01%</div>
-        <div class="hero-delta pos">Δ +0.02% vs yesterday</div>
+        <div class="hero-last">7.84</div>
+        <div class="hero-chg flat">-0.02%</div>
+        <div class="hero-delta neg">Δ -0.02% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">HKD/CNY</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,10.6 L4.4,11.9 L7.8,8.6 L11.1,2.4 L14.5,2.4 L17.9,2.0 L21.3,3.6 L24.7,8.2 L28.0,7.4 L31.4,7.4 L34.8,7.8 L38.2,7.8 L41.6,8.2 L44.9,8.2 L48.3,9.4 L51.7,14.4 L55.1,14.4 L58.4,15.2 L61.8,14.4 L65.2,15.2 L68.6,15.2 L72.0,15.2 L75.3,22.2 L78.7,21.4 L82.1,16.8 L85.5,19.7 L88.9,25.1 L92.2,25.9 L95.6,27.1 L99.0,30.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,9.5 L4.4,7.0 L7.8,2.3 L11.1,2.3 L14.5,2.0 L17.9,3.2 L21.3,6.7 L24.7,6.0 L28.0,6.0 L31.4,6.4 L34.8,6.4 L38.2,6.7 L41.6,6.7 L44.9,7.6 L48.3,11.3 L51.7,11.3 L55.1,12.0 L58.4,11.3 L61.8,12.0 L65.2,12.0 L68.6,12.0 L72.0,17.2 L75.3,16.6 L78.7,13.2 L82.1,15.4 L85.5,19.4 L88.9,20.0 L92.2,21.0 L95.6,23.2 L99.0,30.0"/></svg>
         </div>
         <div class="hero-last">0.85</div>
-        <div class="hero-chg neg">-0.08%</div>
-        <div class="hero-delta pos">Δ +0.08% vs yesterday</div>
+        <div class="hero-chg neg">-0.26%</div>
+        <div class="hero-delta neg">Δ -0.26% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
@@ -1956,27 +1950,27 @@
         </div>
         <div class="hero-last">4.97</div>
         <div class="hero-chg flat">+0.02%</div>
-        <div class="hero-delta pos">Δ +0.27% vs yesterday</div>
+        <div class="hero-delta pos">Δ +0.00% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">Gold</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,2.0 L4.4,2.4 L7.8,5.7 L11.1,6.8 L14.5,5.5 L17.9,14.1 L21.3,13.5 L24.7,13.1 L28.0,12.2 L31.4,14.4 L34.8,14.7 L38.2,13.0 L41.6,15.6 L44.9,14.7 L48.3,11.4 L51.7,12.8 L55.1,13.6 L58.4,17.5 L61.8,14.0 L65.2,13.4 L68.6,14.6 L72.0,15.5 L75.3,15.1 L78.7,20.2 L82.1,23.1 L85.5,21.4 L88.9,19.4 L92.2,20.6 L95.6,21.8 L99.0,30.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,2.0 L4.4,2.4 L7.8,5.8 L11.1,7.0 L14.5,5.6 L17.9,14.4 L21.3,13.8 L24.7,13.4 L28.0,12.5 L31.4,14.8 L34.8,15.1 L38.2,13.4 L41.6,16.0 L44.9,15.1 L48.3,11.7 L51.7,13.2 L55.1,13.9 L58.4,17.9 L61.8,14.3 L65.2,13.7 L68.6,14.9 L72.0,15.9 L75.3,15.5 L78.7,20.7 L82.1,23.7 L85.5,21.9 L88.9,19.9 L92.2,21.2 L95.6,22.4 L99.0,30.0"/></svg>
         </div>
-        <div class="hero-last">3,884.90</div>
-        <div class="hero-chg neg">-3.63%</div>
-        <div class="hero-delta neg">Δ -3.07% vs yesterday</div>
+        <div class="hero-last">3,898.90</div>
+        <div class="hero-chg neg">-3.29%</div>
+        <div class="hero-delta pos">Δ +0.36% vs yesterday</div>
       </div>
       
       <div class="hero-cell">
         <div class="hero-top">
           <span class="hero-name">BTC</span>
-          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,7.0 L4.4,8.1 L7.8,7.2 L11.1,2.0 L14.5,4.1 L17.9,4.8 L21.3,11.8 L24.7,16.7 L28.0,14.0 L31.4,12.9 L34.8,10.6 L38.2,16.4 L41.6,12.3 L44.9,17.0 L48.3,15.3 L51.7,17.2 L55.1,17.6 L58.4,15.6 L61.8,16.1 L65.2,12.8 L68.6,9.5 L72.0,17.8 L75.3,18.5 L78.7,19.4 L82.1,21.7 L85.5,21.8 L88.9,19.3 L92.2,17.9 L95.6,28.6 L99.0,30.0"/></svg>
+          <svg class="hero-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true"><path class="spark-down" d="M1.0,8.0 L4.4,7.2 L7.8,2.0 L11.1,4.1 L14.5,4.8 L17.9,11.7 L21.3,16.5 L24.7,13.9 L28.0,12.8 L31.4,10.4 L34.8,16.2 L38.2,12.2 L41.6,16.8 L44.9,15.1 L48.3,17.0 L51.7,17.4 L55.1,15.5 L58.4,16.0 L61.8,12.7 L65.2,9.4 L68.6,17.6 L72.0,18.3 L75.3,19.2 L78.7,21.5 L82.1,21.5 L85.5,19.1 L88.9,17.7 L92.2,28.3 L95.6,30.0 L99.0,28.9"/></svg>
         </div>
-        <div class="hero-last">77,313.82</div>
-        <div class="hero-chg neg">-0.59%</div>
-        <div class="hero-delta pos">Δ +1.01% vs yesterday</div>
+        <div class="hero-last">77,546.56</div>
+        <div class="hero-chg pos">+0.45%</div>
+        <div class="hero-delta pos">Δ +0.30% vs yesterday</div>
       </div>
       
     </div>
@@ -1989,7 +1983,7 @@
       <span class="imp-label">Day importance</span>
       <span class="imp-stars">★★★★★</span>
     </div>
-    <p class="imp-verdict">This is a read-carefully day as a massive tech sell-off wipes out $1tn in market value, fueled by investor anxiety over AI capital expenditure and disappointing earnings reports.</p>
+    <p class="imp-verdict">Today is a read-carefully day as a massive $93B swing in Big Tech free cash flow, a sharp Nasdaq sell-off, and significant geopolitical/security risks surrounding Nvidia and China&#39;s AI sector signal a major shift in market sentiment.</p>
   </section>
   
 
@@ -2002,7 +1996,7 @@
       <ul class="cb-list">
         
         <li>
-          <span class="cb-when">Tue 11:30 HKT · in 3d</span>
+          <span class="cb-when">Tue 11:30 HKT · in 2d</span>
           <span class="cb-body">
             <span class="cb-head">RBA rate decision (cash rate)</span>
             <span class="cb-expect">Consensus hike 25bp (4.60% → 4.85%)</span>
@@ -2010,7 +2004,7 @@
         </li>
         
         <li>
-          <span class="cb-when">Thu 20:00 HKT · in 5d</span>
+          <span class="cb-when">Thu 20:00 HKT · in 4d</span>
           <span class="cb-body">
             <span class="cb-head">BoE rate decision (Bank Rate)</span>
             <span class="cb-expect">Consensus hike 25bp (3.75% → 4.00%)</span>
@@ -2068,7 +2062,7 @@
   <section class="takeaways reveal" id="takeaways">
     <div class="tw-label">Today's Key Takeaways</div>
     <ul>
-      <li>Investors are rotating away from speculative AI infrastructure toward companies with disciplined balance sheets, as hyperscalers face mounting skepticism over the profitability of $800 billion in projected capital expenditures.</li><li>Tech sector volatility is intensifying as AI-integrated search cannibalizes core advertising revenue and rising debt costs pressure firms like Intel, triggering a broader sell-off across the Nasdaq.</li><li>Macroeconomic headwinds, including persistent inflation and high federal debt, are forcing a reassessment of risk, with capital shifting toward safe-haven assets as corporate credit stress begins to escalate.</li>
+      <li>AI hyperscalers face a $93B cash flow reversal as massive infrastructure spending outpaces earnings, forcing a market rotation toward defensive sectors and non-tech firms with durable pricing power.</li><li>Geopolitical and regulatory headwinds are intensifying, from China&#39;s AI market correction and espionage risks to leadership uncertainty at the ECB and systemic failures in Hong Kong&#39;s housing oversight.</li><li>While new EV and commercial real estate markets struggle with valuation resets, investors are pivoting toward infrastructure efficiency, sovereign defense tech, and secondary markets to mitigate capital-intensive risks.</li>
     </ul>
   </section>
   
@@ -2109,27 +2103,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://www.theguardian.com/technology/2026/oct/30/tech-stocks-drop-earnings-report"
-            data-title="Tech sell-off drives US markets down by nearly $1tn after subpar earnings reports"
-            data-source="The Guardian"
+            data-url="https://fourweekmba.com/ai-big-tech-free-cash-flow-turns-negative-in-a-93b-swing/"
+            data-title="Big Tech Free Cash Flow Turns Negative in a $93B Swing"
+            data-source="FourWeekMBA"
             data-category="Global Technology"
             data-rating="5"
-            data-date="2026-10-31">
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.theguardian.com/technology/2026/oct/30/tech-stocks-drop-earnings-report" target="_blank" rel="noopener">Tech sell-off drives US markets down by nearly $1tn after subpar earnings reports</a>
-            <div class="pub">2026-10-30 18:28 UTC</div>
+            <a href="https://fourweekmba.com/ai-big-tech-free-cash-flow-turns-negative-in-a-93b-swing/" target="_blank" rel="noopener">Big Tech Free Cash Flow Turns Negative in a $93B Swing</a>
+            <div class="pub">2026-10-31 19:10 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The Nasdaq 100 has seen approximately $2 trillion in market value erased this month as investors react to disappointing earnings and concerns over the sustainability of massive AI infrastructure spending.</li><li>Intel shares plummeted nearly 30% following a weak fourth-quarter revenue forecast, while Alphabet experienced its worst single-day drop on record after revealing that AI-integrated search summaries are negatively impacting core advertising revenue.</li>
+              <li>The five largest AI-focused hyperscalers—Amazon, Alphabet, Microsoft, Meta, and Oracle—experienced a $93.2 billion swing in free cash flow, moving from a $61.4 billion surplus to a $31.8 billion deficit in the latest quarter.</li><li>This deterioration stems from a massive $124.6 billion year-over-year increase in capital expenditures for data centers and AI infrastructure, which has significantly outpaced the $31.5 billion growth in operating cash flow.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The Guardian</span></td>
+          <td class="source"><span class="chip">FourWeekMBA</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">3 min</span>
-            <span class="reason">Significant market-wide correction driven by fundamental concerns over AI ROI.</span>
+            <span class="chip read-time-chip">7 min</span>
+            <span class="reason">Highlights a critical shift in Big Tech&#39;s financial health and sustainability of AI investment.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2142,27 +2136,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://www.nytimes.com/2026/10/29/technology/amazon-earnings-tech-spending.html"
-            data-title="Big Tech’s Data Center Blitz Is Burning Through Cash and Scaring Wall St."
-            data-source="The New York Times"
+            data-url="https://finance.yahoo.com/markets/stocks/articles/5-best-high-growth-stocks-213926607.html"
+            data-title="5 Best High Growth Stocks Outside Big Tech"
+            data-source="Yahoo Finance"
             data-category="Global Technology"
             data-rating="4"
-            data-date="2026-10-31">
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.nytimes.com/2026/10/29/technology/amazon-earnings-tech-spending.html" target="_blank" rel="noopener">Big Tech’s Data Center Blitz Is Burning Through Cash and Scaring Wall St.</a>
-            <div class="pub">2026-10-31 01:03 UTC</div>
+            <a href="https://finance.yahoo.com/markets/stocks/articles/5-best-high-growth-stocks-213926607.html" target="_blank" rel="noopener">5 Best High Growth Stocks Outside Big Tech</a>
+            <div class="pub">2026-10-31 21:39 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Major hyperscalers including Meta, Alphabet, Oracle, Amazon, and Microsoft have committed to a combined $800 billion in capital expenditures for 2026, primarily focused on AI data centers and network infrastructure.</li><li>Investors are increasingly skeptical of the long-term profitability of these investments, as rising debt costs and slowing core business growth create a potential &#39;AI bubble&#39; scenario that threatens future capital allocation.</li>
+              <li>Market leadership is broadening as analysts project the 493 non-Magnificent Seven S&amp;P 500 companies to grow earnings by 27.7% year-over-year, significantly outpacing the 20.3% growth expected from the top seven tech firms.</li><li>Investors are shifting focus toward companies with durable pricing power and recurring revenue, as high-growth tech firms that rely on cash-burning expansion models face increased scrutiny regarding their valuation multiples.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The New York Times</span></td>
+          <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Highlights a critical shift in investor sentiment regarding the sustainability of Big Tech&#39;s capital expenditure models.</span>
+            <span class="chip read-time-chip">10 min</span>
+            <span class="reason">Provides actionable investment strategy amid the rotation away from concentrated mega-cap tech.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2190,27 +2184,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://www.bbc.com/news/articles/cvwy72e0n72yo"
-            data-title="US tech stocks see sharp falls as AI spending nears $1tn"
-            data-source="BBC"
+            data-url="https://www.mk.co.kr/en/it/12192522"
+            data-title="Companies that had been pouring huge amounts of money into artificial intelligence (AI) investments"
+            data-source="매일경제"
             data-category="Global AI"
             data-rating="5"
-            data-date="2026-10-31">
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.bbc.com/news/articles/cvwy72e0n72yo" target="_blank" rel="noopener">US tech stocks see sharp falls as AI spending nears $1tn</a>
-            <div class="pub">2026-10-30 20:34 UTC</div>
+            <a href="https://www.mk.co.kr/en/it/12192522" target="_blank" rel="noopener">Companies that had been pouring huge amounts of money into artificial intelligence (AI) investments</a>
+            <div class="pub">2026-10-31 20:49 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Major tech firms including Meta, Alphabet, Oracle, Amazon, and Microsoft have committed to a combined $800 billion in AI-related capital expenditure for 2026, fueling investor concerns over an AI bubble.</li><li>Alphabet&#39;s market valuation dropped by over $500 billion after revealing that AI-generated search summaries are cannibalizing core advertising revenue, highlighting the monetization risks inherent in current AI deployment strategies.</li>
+              <li>Major AI firms are facing significant financing headwinds, with OpenAI reducing its funding target by $10 billion and seeing its valuation drop to $1.25 trillion amid cooling investor appetite.</li><li>Anthropic faces potential credit rating challenges, with analysts suggesting it may remain in the speculative &#39;BB&#39; grade after its IPO, which could restrict institutional investment and increase future borrowing costs.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">BBC</span></td>
+          <td class="source"><span class="chip">매일경제</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">4 min</span>
-            <span class="reason">Market-wide selloff triggered by AI capital expenditure concerns and revenue cannibalization.</span>
+            <span class="chip read-time-chip">5 min</span>
+            <span class="reason">Signals a potential shift in capital market sentiment toward AI infrastructure spending.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2223,27 +2217,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://natlawreview.com/article/secs-2027-examination-priorities-artificial-intelligence-and-cyber-risk"
-            data-title="The SEC&#39;s 2027 Examination Priorities: Artificial Intelligence and Cyber Risk"
-            data-source="The National Law Review"
+            data-url="https://sana.sy/en/international/2354943/"
+            data-title="EU, Canada forge landmark strategic alliance in critical minerals, AI and digital trade"
+            data-source="سانا"
             data-category="Global AI"
             data-rating="4"
-            data-date="2026-10-31">
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://natlawreview.com/article/secs-2027-examination-priorities-artificial-intelligence-and-cyber-risk" target="_blank" rel="noopener">The SEC&#39;s 2027 Examination Priorities: Artificial Intelligence and Cyber Risk</a>
-            <div class="pub">2026-10-30 14:53 UTC</div>
+            <a href="https://sana.sy/en/international/2354943/" target="_blank" rel="noopener">EU, Canada forge landmark strategic alliance in critical minerals, AI and digital trade</a>
+            <div class="pub">2026-10-31 21:41 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The SEC has officially prioritized artificial intelligence and cyber risk in its 2027 examination agenda, signaling increased regulatory scrutiny on how financial institutions integrate and manage AI-driven tools.</li><li>Investors should anticipate heightened compliance requirements regarding AI governance, data privacy, and algorithmic transparency, which may impact operational costs and deployment timelines for firms within the financial sector.</li>
+              <li>The EU and Canada have established a strategic partnership to integrate AI infrastructure, granting Canadian researchers and enterprises access to European supercomputing resources to foster sovereign AI development.</li><li>The agreement includes a framework for the European Investment Bank to finance critical mineral projects in Canada, aiming to diversify supply chains and reduce reliance on single-source providers for advanced technology components.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The National Law Review</span></td>
+          <td class="source"><span class="chip">سانا</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Regulatory shift impacting AI adoption and compliance costs for financial institutions.</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Significant geopolitical shift in AI infrastructure and supply chain sovereignty.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2271,27 +2265,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://www.taipeitimes.com/News/biz/archives/2026/10/31/2003866887"
-            data-title="MediaTek gains new AI customer"
-            data-source="Taipei Times"
+            data-url="https://finance.biggo.com/news/7d165f92-bce1-47f7-b74f-8ba3af6c28b7"
+            data-title="China&#39;s AI Bubble Sheds $480 Billion as STAR 50 Plunges 40%"
+            data-source="BigGo Finance"
             data-category="China AI"
             data-rating="5"
-            data-date="2026-10-31">
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.taipeitimes.com/News/biz/archives/2026/10/31/2003866887" target="_blank" rel="noopener">MediaTek gains new AI customer</a>
-            <div class="pub">2026-10-30 16:00 UTC</div>
+            <a href="https://finance.biggo.com/news/7d165f92-bce1-47f7-b74f-8ba3af6c28b7" target="_blank" rel="noopener">China&#39;s AI Bubble Sheds $480 Billion as STAR 50 Plunges 40%</a>
+            <div class="pub">2026-10-31 19:05 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>MediaTek has secured a new non-Chinese customer for its customized AI accelerator ASIC business, projecting $16 billion in revenue from its AI program next year, which would capture approximately 20% of the total AI ASIC market.</li><li>The company is maintaining its production schedule for second-generation AI chips using Intel’s EMIB-T advanced packaging, while emphasizing that TSMC remains its primary strategic partner for long-term supply chain stability.</li>
+              <li>The STAR 50 index has plummeted 40% from its June peak, erasing $480 billion in market value as investors reassess the profitability of China&#39;s AI sector.</li><li>With AI-related stocks accounting for over 42% of China&#39;s total equity market value, the sector&#39;s correction has triggered a broader 20% decline in the CSI 300 blue-chip index.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Taipei Times</span></td>
+          <td class="source"><span class="chip">BigGo Finance</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">5 min</span>
-            <span class="reason">Significant revenue guidance and strategic supply chain updates for a major AI hardware player.</span>
+            <span class="chip read-time-chip">8 min</span>
+            <span class="reason">Systemic market correction in China&#39;s primary AI index</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2304,27 +2298,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://thenextweb.com/news/apple-intelligence-china-ios-27-3-alibaba-qwen"
-            data-title="Apple confirms its AI features reach China in December, with Qwen"
-            data-source="The Next Web"
+            data-url="https://www.scmp.com/tech/big-tech/article/3372831/apple-intelligence-roll-out-iphones-china-december-alibaba-backing"
+            data-title="Apple to launch iPhone AI features in China in December via Alibaba partnership"
+            data-source="South China Morning Post"
             data-category="China AI"
             data-rating="4"
-            data-date="2026-10-31">
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://thenextweb.com/news/apple-intelligence-china-ios-27-3-alibaba-qwen" target="_blank" rel="noopener">Apple confirms its AI features reach China in December, with Qwen</a>
-            <div class="pub">2026-10-30 23:26 UTC</div>
+            <a href="https://www.scmp.com/tech/big-tech/article/3372831/apple-intelligence-roll-out-iphones-china-december-alibaba-backing" target="_blank" rel="noopener">Apple to launch iPhone AI features in China in December via Alibaba partnership</a>
+            <div class="pub">2026-10-31 10:02 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Apple will launch initial Apple Intelligence features in China via iOS 27.3 in December, integrating Alibaba’s Qwen model into system-wide tools like Siri and Writing Tools to comply with local regulatory requirements.</li><li>The rollout excludes Apple’s advanced &#39;Siri AI&#39; features announced at WWDC 2026, signaling that Apple’s AI strategy in China remains constrained by both regulatory hurdles and the necessity of local model partnerships.</li>
+              <li>Apple will integrate Alibaba’s Qwen AI model to power 18 new features in China, resolving two years of regulatory uncertainty regarding the deployment of generative AI in the region.</li><li>The rollout, scheduled for December alongside the iOS 27.3 update, marks a critical strategic move for Apple to maintain competitiveness in its second-largest market through local partnerships.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The Next Web</span></td>
+          <td class="source"><span class="chip">South China Morning Post</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Major development for Apple&#39;s market access and AI integration strategy in the Chinese market.</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Major strategic partnership for Apple&#39;s China operations</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2352,27 +2346,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://www.straitstimes.com/business/insead-gets-3-8-million-google-backing-for-new-lab-to-study-ais-impact-on-work-and-life?ref=latest"
-            data-title="Insead gets $3.8 million Google backing for new lab to study AI’s impact on work and life"
-            data-source="The Straits Times"
+            data-url="https://researchmatters.in/news/new-ai-designed-peptide-rk-14-eradicates-stubborn-bacterial-biofilms-and-superbugs"
+            data-title="New AI-designed peptide, RK-14, eradicates stubborn bacterial biofilms and superbugs"
+            data-source="Research Matters"
             data-category="AI Research"
-            data-rating="3"
-            data-date="2026-10-31">
+            data-rating="4"
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.straitstimes.com/business/insead-gets-3-8-million-google-backing-for-new-lab-to-study-ais-impact-on-work-and-life?ref=latest" target="_blank" rel="noopener">Insead gets $3.8 million Google backing for new lab to study AI’s impact on work and life</a>
-            <div class="pub">2026-10-30 09:32 UTC</div>
+            <a href="https://researchmatters.in/news/new-ai-designed-peptide-rk-14-eradicates-stubborn-bacterial-biofilms-and-superbugs" target="_blank" rel="noopener">New AI-designed peptide, RK-14, eradicates stubborn bacterial biofilms and superbugs</a>
+            <div class="pub">2026-10-31 12:27 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Google.org and Google DeepMind have committed US$3 million to establish the Insead Thrive Lab, a research initiative focused on the socioeconomic implications of AI on human connectivity, labor markets, and psychological well-being.</li><li>The lab is integrated into Insead’s Human and Machine Intelligence Institute, which features high-profile academic leadership including 2025 Nobel laureate Philippe Aghion, signaling a strategic focus on translating AI-driven organizational shifts into actionable economic policy.</li>
+              <li>Researchers utilized an AI-driven computational platform to screen thousands of virtual candidates, successfully identifying RK-14 as a synthetic peptide capable of dismantling protective bacterial biofilms.</li><li>This breakthrough addresses a critical public health crisis, as the peptide demonstrated efficacy against drug-resistant superbugs like MRSA, potentially reducing the massive economic losses associated with antimicrobial resistance.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The Straits Times</span></td>
+          <td class="source"><span class="chip">Research Matters</span></td>
           <td class="rating">
-            <span class="rating-chip r3">3</span>
+            <span class="rating-chip r4">4</span>
             <span class="chip read-time-chip">3 min</span>
-            <span class="reason">Institutional backing from Google for high-level economic research on AI&#39;s labor impact.</span>
+            <span class="reason">Significant advancement in AI-driven drug discovery with high commercial and healthcare impact.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2385,27 +2379,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://aithority.com/machine-learning/dscout-launches-ai-moderated-studies-to-bring-deeper-feedback-to-teams-at-scale/"
-            data-title="Dscout launches AI-moderated Studies to Bring Deeper Feedback to Teams at Scale"
-            data-source="AiThority"
+            data-url="https://techtrendske.co.ke/2026/10/31/cbk-ai-strategy/"
+            data-title="CBK identifies nearly 300 AI use cases as it looks to improve economic forecasting"
+            data-source="TechTrendsKE"
             data-category="AI Research"
             data-rating="3"
-            data-date="2026-10-31">
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://aithority.com/machine-learning/dscout-launches-ai-moderated-studies-to-bring-deeper-feedback-to-teams-at-scale/" target="_blank" rel="noopener">Dscout launches AI-moderated Studies to Bring Deeper Feedback to Teams at Scale</a>
-            <div class="pub">2026-10-30 11:29 UTC</div>
+            <a href="https://techtrendske.co.ke/2026/10/31/cbk-ai-strategy/" target="_blank" rel="noopener">CBK identifies nearly 300 AI use cases as it looks to improve economic forecasting</a>
+            <div class="pub">2026-10-31 11:26 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Dscout has launched AI-moderated studies that utilize automated agents to conduct qualitative research across 40 languages, significantly reducing the human capital costs previously required for global market feedback.</li><li>The platform integrates multimodal analysis, including facial expression and on-screen behavior tracking, providing enterprises with scalable, data-driven insights into consumer behavior that were previously limited by manual interview capacity.</li>
+              <li>The Central Bank of Kenya (CBK) has identified nearly 300 distinct AI use cases, signaling a major institutional shift toward integrating machine learning into national economic forecasting and policy modeling.</li><li>This initiative highlights the growing trend of central banks adopting advanced predictive analytics to enhance decision-making accuracy and manage complex macroeconomic variables in real-time.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">AiThority</span></td>
+          <td class="source"><span class="chip">TechTrendsKE</span></td>
           <td class="rating">
             <span class="rating-chip r3">3</span>
-            <span class="chip read-time-chip">3 min</span>
-            <span class="reason">Scalable AI application in market research and consumer analytics.</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Demonstrates institutional adoption of AI in macroeconomic policy and financial stability.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2433,27 +2427,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://finance.yahoo.com/markets/stocks/articles/apple-overtakes-nvidia-become-world-214753575.html"
-            data-title="Apple overtakes Nvidia to become world’s most valuable company amid tech selloff"
-            data-source="Yahoo Finance"
+            data-url="https://www.techradar.com/pro/nvidia-forced-to-dial-back-key-bandwidth-targets-on-vera-rubin-hardware-tweaks-will-affect-target-specifications-for-memory-and-interconnect-fabric"
+            data-title="Nvidia forced to dial back key bandwidth targets on Vera Rubin hardware"
+            data-source="TechRadar"
             data-category="Semiconductors"
-            data-rating="5"
-            data-date="2026-10-31">
+            data-rating="4"
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://finance.yahoo.com/markets/stocks/articles/apple-overtakes-nvidia-become-world-214753575.html" target="_blank" rel="noopener">Apple overtakes Nvidia to become world’s most valuable company amid tech selloff</a>
-            <div class="pub">2026-10-30 21:47 UTC</div>
+            <a href="https://www.techradar.com/pro/nvidia-forced-to-dial-back-key-bandwidth-targets-on-vera-rubin-hardware-tweaks-will-affect-target-specifications-for-memory-and-interconnect-fabric" target="_blank" rel="noopener">Nvidia forced to dial back key bandwidth targets on Vera Rubin hardware</a>
+            <div class="pub">2026-10-31 20:35 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Apple reclaimed the title of the world&#39;s most valuable company with a $5.03 trillion market cap, surpassing Nvidia&#39;s $4.93 trillion valuation as investors rotate toward companies with more disciplined balance sheets.</li><li>The shift reflects growing institutional skepticism regarding AI infrastructure spending, as hyper-scalers like Alphabet and Amazon report negative free cash flow while Apple maintains strong organic cash generation.</li>
+              <li>Nvidia has quietly downgraded performance specifications for its upcoming Vera Rubin architecture, reducing per-GPU HBM4 bandwidth by 13% and NVLink 6 bandwidth by 17%.</li><li>The revisions, which affect hardware already shipping to major cloud partners, suggest potential manufacturing or design constraints that could impact the competitive performance profile of the Rubin platform.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Yahoo Finance</span></td>
+          <td class="source"><span class="chip">TechRadar</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Market leadership shift signaling a broader rotation in tech sector sentiment.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">7 min</span>
+            <span class="reason">Technical downgrades on flagship AI hardware suggest potential production or performance headwinds.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2466,27 +2460,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://finance.yahoo.com/markets/stocks/articles/cathie-wood-shifts-ai-chips-230947279.html"
-            data-title="Cathie Wood Shifts From AI Chips to Robinhood and Air Taxis in Latest ARK Trades"
+            data-url="https://finance.yahoo.com/technology/ai/articles/nvidia-nvda-ceo-jensen-huang-220818674.html"
+            data-title="Nvidia (NVDA) CEO Jensen Huang Reportedly Targeted In Chinese Espionage Plot"
             data-source="Yahoo Finance"
             data-category="Semiconductors"
-            data-rating="4"
-            data-date="2026-10-31">
+            data-rating="5"
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://finance.yahoo.com/markets/stocks/articles/cathie-wood-shifts-ai-chips-230947279.html" target="_blank" rel="noopener">Cathie Wood Shifts From AI Chips to Robinhood and Air Taxis in Latest ARK Trades</a>
-            <div class="pub">2026-10-30 23:09 UTC</div>
+            <a href="https://finance.yahoo.com/technology/ai/articles/nvidia-nvda-ceo-jensen-huang-220818674.html" target="_blank" rel="noopener">Nvidia (NVDA) CEO Jensen Huang Reportedly Targeted In Chinese Espionage Plot</a>
+            <div class="pub">2026-10-31 22:08 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>ARK Invest sold shares of AMD and TSMC despite strong fundamental performance, including AMD&#39;s 50% revenue growth and TSMC&#39;s management confirming no signs of a slowdown in demand.</li><li>The divestment from proven semiconductor winners to speculative assets like Robinhood and air taxi developers suggests a tactical reallocation by high-profile growth funds away from the AI chip trade.</li>
+              <li>Reports of an alleged Chinese espionage plot targeting CEO Jensen Huang have intensified scrutiny from US lawmakers regarding the security of Nvidia&#39;s global AI chip supply chain.</li><li>This incident heightens geopolitical risk for investors, as regulators weigh the security implications against existing export restrictions on advanced AI chips to China.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">5 min</span>
-            <span class="reason">Significant institutional portfolio rebalancing away from semiconductor leaders.</span>
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Geopolitical security risks involving leadership and export controls are highly material to Nvidia&#39;s valuation.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2514,27 +2508,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://insideevs.com/news/792679/tesla-us-sales-q1-model-y/"
-            data-title="Tesla’s U.S. Sales Tanked In Q1. It Still Gained Market Share"
+            data-url="https://insideevs.com/news/792992/q1-electric-car-sales-2026/"
+            data-title="5 Takeaways From Q1&#39;s EV Sales In The U.S."
             data-source="InsideEVs"
             data-category="Electric Vehicles"
             data-rating="5"
-            data-date="2026-10-31">
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://insideevs.com/news/792679/tesla-us-sales-q1-model-y/" target="_blank" rel="noopener">Tesla’s U.S. Sales Tanked In Q1. It Still Gained Market Share</a>
-            <div class="pub">2026-10-30 18:53 UTC</div>
+            <a href="https://insideevs.com/news/792992/q1-electric-car-sales-2026/" target="_blank" rel="noopener">5 Takeaways From Q1&#39;s EV Sales In The U.S.</a>
+            <div class="pub">2026-10-31 12:52 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Tesla&#39;s U.S. sales declined 8.4% year-over-year in Q1 2026 to 117,300 units, marking the company&#39;s lowest quarterly performance since late 2021.</li><li>Despite the volume drop, Tesla expanded its U.S. market share from 43.2% to 54.2% as the broader EV market contracted by 27% and non-Tesla EV sales plummeted 41%.</li>
+              <li>U.S. electric vehicle sales plummeted 27% year-over-year in Q1 2026, effectively resetting market volume to late 2022 levels as the industry struggles to adapt to the post-tax-credit environment.</li><li>Despite the broader slump, non-Tesla EV sales showed signs of stabilization with a 3% quarter-over-quarter increase, suggesting the most severe phase of the post-incentive market correction may be concluding.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">InsideEVs</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">5 min</span>
-            <span class="reason">Indicates significant market consolidation and resilience for the industry leader despite broader sector weakness.</span>
+            <span class="chip read-time-chip">6 min</span>
+            <span class="reason">Critical market data indicating a potential bottoming of the U.S. EV sector.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2547,27 +2541,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://www.koreaherald.com/article/10920987"
-            data-title="Kia posts record Q3 revenue on ecofriendly vehicle expansion"
-            data-source="The Korea Herald"
+            data-url="https://insideevs.com/news/793503/used-ev-market-us-march-sales-2026/"
+            data-title="What EV Slowdown? Used Electric Car Sales Hit A Record High In March"
+            data-source="InsideEVs"
             data-category="Electric Vehicles"
             data-rating="4"
-            data-date="2026-10-31">
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.koreaherald.com/article/10920987" target="_blank" rel="noopener">Kia posts record Q3 revenue on ecofriendly vehicle expansion</a>
-            <div class="pub">2026-10-30 08:51 UTC</div>
+            <a href="https://insideevs.com/news/793503/used-ev-market-us-march-sales-2026/" target="_blank" rel="noopener">What EV Slowdown? Used Electric Car Sales Hit A Record High In March</a>
+            <div class="pub">2026-10-31 17:20 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Kia reported a 24% increase in third-quarter operating profit, driven largely by strong sales performance in its electric and hybrid vehicle segments.</li><li>The company achieved record revenue levels, demonstrating that diversified electrification strategies—specifically combining EVs with high-margin hybrid models—are successfully insulating manufacturers from pure-EV market volatility.</li>
+              <li>The secondary EV market reached a record 42,924 units in March, marking a 28% year-over-year increase that contrasts sharply with the 25% decline seen in new EV sales during the same period.</li><li>Increased supply from returning off-lease vehicles is driving this growth, suggesting that while new EV demand remains constrained by pricing and policy, the used market is successfully absorbing inventory at lower price points.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The Korea Herald</span></td>
+          <td class="source"><span class="chip">InsideEVs</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Highlights a successful financial pivot and operational strength in the competitive EV/hybrid landscape.</span>
+            <span class="chip read-time-chip">3 min</span>
+            <span class="reason">Highlights a significant divergence between new and used EV market performance.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2595,27 +2589,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://www.techbuzz.ai/articles/nvidia-eyes-cosigning-nscale-s-west-virginia-ai-data-center-loan"
-            data-title="Nvidia Eyes Cosigning Nscale&#39;s West Virginia AI Data Center Loan"
-            data-source="The Tech Buzz"
+            data-url="https://finance.yahoo.com/markets/stocks/articles/keel-infrastructure-keel-stock-gets-001933698.html"
+            data-title="Keel Infrastructure (KEEL) Stock Gets Fair Value Trim As Analysts Weigh Funding Risks"
+            data-source="Yahoo Finance"
             data-category="Data Centers"
-            data-rating="5"
-            data-date="2026-10-31">
+            data-rating="4"
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.techbuzz.ai/articles/nvidia-eyes-cosigning-nscale-s-west-virginia-ai-data-center-loan" target="_blank" rel="noopener">Nvidia Eyes Cosigning Nscale&#39;s West Virginia AI Data Center Loan</a>
-            <div class="pub">2026-10-31 01:28 UTC</div>
+            <a href="https://finance.yahoo.com/markets/stocks/articles/keel-infrastructure-keel-stock-gets-001933698.html" target="_blank" rel="noopener">Keel Infrastructure (KEEL) Stock Gets Fair Value Trim As Analysts Weigh Funding Risks</a>
+            <div class="pub">2026-11-01 00:19 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Nvidia is considering a shift to vendor-backed financing by acting as a loan cosigner for Nscale&#39;s AI data center project, signaling a desperate need to maintain infrastructure growth amid tightening capital markets.</li><li>This move exposes Nvidia to direct credit risk on infrastructure projects, highlighting the growing disconnect between massive AI hardware demand and the financial viability of the specialized &#39;neocloud&#39; providers required to house it.</li>
+              <li>Analysts have lowered Keel Infrastructure&#39;s fair value estimate from US$6.55 to US$6.14, citing increased execution risks and higher financing costs required to fund capital-intensive data center projects.</li><li>While long-term revenue growth assumptions were aggressively revised upward to 50.18%, the increase in the discount rate to 10.49% reflects growing investor concern regarding the company&#39;s debt-heavy construction pipeline.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">The Tech Buzz</span></td>
+          <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">4 min</span>
-            <span class="reason">Indicates a major shift in AI infrastructure financing and potential systemic risk for chipmakers.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Direct impact on valuation and investor sentiment for a specific data center infrastructure player.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2628,27 +2622,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://www.datacenterdynamics.com/en/news/dayone-signs-mou-with-sembcorp-to-integrate-power-and-energy-solutions-across-apac-data-centers/"
-            data-title="DayOne signs MoU with Sembcorp to integrate power and energy solutions across APAC data centers"
-            data-source="Data Center Dynamics"
+            data-url="https://finance.yahoo.com/technology/ai/articles/3-ai-infrastructure-stocks-watch-231135638.html"
+            data-title="3 AI Infrastructure Stocks To Watch After The Data Center Selloff"
+            data-source="Yahoo Finance"
             data-category="Data Centers"
             data-rating="4"
-            data-date="2026-10-31">
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.datacenterdynamics.com/en/news/dayone-signs-mou-with-sembcorp-to-integrate-power-and-energy-solutions-across-apac-data-centers/" target="_blank" rel="noopener">DayOne signs MoU with Sembcorp to integrate power and energy solutions across APAC data centers</a>
-            <div class="pub">2026-10-30 16:02 UTC</div>
+            <a href="https://finance.yahoo.com/technology/ai/articles/3-ai-infrastructure-stocks-watch-231135638.html" target="_blank" rel="noopener">3 AI Infrastructure Stocks To Watch After The Data Center Selloff</a>
+            <div class="pub">2026-10-31 23:11 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Data center developer DayOne is formalizing a &#39;Bring-Your-Own-Power&#39; strategy through a partnership with Sembcorp, aiming to secure energy infrastructure early to mitigate execution risks in constrained Asian power markets.</li><li>The company is currently preparing for a Nasdaq IPO, using this integrated energy-infrastructure model as a key differentiator to provide customers with long-term operational certainty and scalability.</li>
+              <li>Legence reports a record US$5.4 billion backlog and a 1.2x book-to-bill ratio, highlighting sustained demand for mission-critical HVAC and power infrastructure despite broader market volatility in the AI sector.</li><li>The recent US$2 trillion Nasdaq-100 selloff has forced a reassessment of data center infrastructure stocks, shifting investor focus from pure growth narratives to the efficiency and cash generation capabilities of power and cooling equipment suppliers.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Data Center Dynamics</span></td>
+          <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">3 min</span>
-            <span class="reason">Highlights strategic vertical integration in the data center sector ahead of a significant IPO.</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Provides actionable insights into the broader AI infrastructure supply chain following a significant market correction.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2676,27 +2670,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://fortune.com/2026/10/30/spacex-falcon-9-retirement-starship-launch-customers/"
-            data-title="SpaceX is turning away customers for the rocket that flew most of 2025’s trips to orbit, and some are paying extra for the last seats"
-            data-source="Fortune"
+            data-url="https://www.asiae.co.kr/en/article/2026103009364009603"
+            data-title="SpaceX Opens the Space Age: Where Is the Next Opportunity?"
+            data-source="아시아경제"
             data-category="Space &amp; Aerospace"
-            data-rating="5"
-            data-date="2026-10-31">
+            data-rating="4"
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://fortune.com/2026/10/30/spacex-falcon-9-retirement-starship-launch-customers/" target="_blank" rel="noopener">SpaceX is turning away customers for the rocket that flew most of 2025’s trips to orbit, and some are paying extra for the last seats</a>
-            <div class="pub">2026-10-30 13:05 UTC</div>
+            <a href="https://www.asiae.co.kr/en/article/2026103009364009603" target="_blank" rel="noopener">SpaceX Opens the Space Age: Where Is the Next Opportunity?</a>
+            <div class="pub">2026-10-31 23:07 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>SpaceX is shifting internal resources to prioritize the commercialization of its Starship rocket, signaling a strategic phase-out of the Falcon 9, which accounted for over 50% of all low Earth orbit flights in 2025.</li><li>The impending retirement of the Falcon 9 is creating a supply-demand imbalance, forcing SpaceX to turn away customers and driving up launch costs for the remaining available capacity in the near term.</li>
+              <li>Global satellite launch demand is projected to grow 2.6-fold by 2030, with non-SpaceX Western launch demand expected to surge 4.3-fold as competitors race to meet regulatory deployment deadlines.</li><li>While SpaceX dominates launch and communications, investors should target the Earth observation and defense sectors, where SpaceX has limited commercial presence and government demand for sovereign hardware remains high.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Fortune</span></td>
+          <td class="source"><span class="chip">아시아경제</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">6 min</span>
-            <span class="reason">Market-critical supply constraint in the primary launch vehicle for the global space economy.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">4 min</span>
+            <span class="reason">Provides actionable investment strategy for the broader space supply chain.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2709,27 +2703,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/"
-            data-title="Google’s first data center satellite is online and writing poetry"
-            data-source="TechCrunch"
+            data-url="https://theshillongtimes.com/2026/11/01/isro-launches-next-gen-satellite-to-boost-indias-gps-system/"
+            data-title="ISRO launches next-gen satellite to boost India’s GPS system"
+            data-source="The Shillong Times"
             data-category="Space &amp; Aerospace"
-            data-rating="4"
-            data-date="2026-10-31">
+            data-rating="3"
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/" target="_blank" rel="noopener">Google’s first data center satellite is online and writing poetry</a>
-            <div class="pub">2026-10-30 17:00 UTC</div>
+            <a href="https://theshillongtimes.com/2026/11/01/isro-launches-next-gen-satellite-to-boost-indias-gps-system/" target="_blank" rel="noopener">ISRO launches next-gen satellite to boost India’s GPS system</a>
+            <div class="pub">2026-11-01 00:54 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Google has successfully commissioned its &#39;Suncatcher&#39; prototype satellite, which utilizes four Tensor Processing Units (TPUs) to perform in-orbit inference workloads, marking a significant step toward space-based edge computing.</li><li>The project is testing hardware resilience against space radiation and thermal stress, with plans to scale to a multi-satellite network in 2027 featuring high-speed inter-satellite optical links for distributed processing.</li>
+              <li>The successful deployment of the NVS-03 satellite restores the NavIC constellation to a four-satellite operational status, enabling independent missile navigation and precise positioning for Indian strategic forces.</li><li>By incorporating an indigenous atomic clock and L1 navigation signals, the system reduces India&#39;s reliance on foreign networks like American GPS and Russian GLONASS for critical defense and civilian infrastructure.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">TechCrunch</span></td>
+          <td class="source"><span class="chip">The Shillong Times</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">3 min</span>
-            <span class="reason">Technological milestone for cloud computing infrastructure expansion into orbital environments.</span>
+            <span class="rating-chip r3">3</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Significant geopolitical and strategic shift in regional navigation autonomy.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2757,27 +2751,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://financefeeds.com/global-fx-market-summary-fed-rate-hikes-precious-metals-slump-and-global-central-bank-shifts-define-markets-30-october-2026/"
-            data-title="Global FX Market Summary: Fed Rate Hikes, Precious Metals Slump, And Global Central Bank Shifts Define Markets"
-            data-source="FinanceFeeds"
+            data-url="https://finance.yahoo.com/markets/article/the-fed-put-is-very-much-back-wall-street-strategists-weigh-central-banks-next-move-155353732.html"
+            data-title="&#39;The Fed put is very much back&#39;: Wall Street strategists weigh central bank&#39;s next move"
+            data-source="Yahoo Finance"
             data-category="Global Economy"
             data-rating="5"
-            data-date="2026-10-31">
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://financefeeds.com/global-fx-market-summary-fed-rate-hikes-precious-metals-slump-and-global-central-bank-shifts-define-markets-30-october-2026/" target="_blank" rel="noopener">Global FX Market Summary: Fed Rate Hikes, Precious Metals Slump, And Global Central Bank Shifts Define Markets</a>
-            <div class="pub">2026-10-30 22:20 UTC</div>
+            <a href="https://finance.yahoo.com/markets/article/the-fed-put-is-very-much-back-wall-street-strategists-weigh-central-banks-next-move-155353732.html" target="_blank" rel="noopener">&#39;The Fed put is very much back&#39;: Wall Street strategists weigh central bank&#39;s next move</a>
+            <div class="pub">2026-10-31 15:53 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Federal Reserve officials remain divided on the pace of monetary tightening, with some policymakers advocating for two additional quarter-point hikes to address 3.1% core PCE inflation and robust 3.4% GDP growth.</li><li>Precious metals have decoupled from their traditional safe-haven status, with gold hitting a year-to-date low of $3,880 as investors liquidate positions to cover losses in tech stocks and manage exposure to rising energy costs.</li>
+              <li>Strategists suggest the Federal Reserve may coordinate with the Treasury to buy back government bonds, effectively creating a liquidity backstop to stabilize markets despite persistent inflation.</li><li>While tech stocks face pressure from AI funding concerns, market participants are rotating capital into defensive sectors like Healthcare and Financials in anticipation of a 2027 liquidity rescue.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">FinanceFeeds</span></td>
+          <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
             <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">5 min</span>
-            <span class="reason">Direct impact on global monetary policy expectations and asset class correlations.</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Signals a potential shift in central bank policy and market liquidity support.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2790,27 +2784,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://www.bastillepost.com/global/article/6309590-japans-central-bank-keeps-interest-rate-unchanged"
-            data-title="Japan&#39;s central bank keeps interest rate unchanged"
-            data-source="巴士的報"
+            data-url="https://thesun.ng/lagarde-to-quit-ecb-in-february-seeks-freedom-to-speak-on-global-issues/"
+            data-title="Lagarde to quit ECB in February, seeks freedom to speak on global issues"
+            data-source="The Sun Nigeria"
             data-category="Global Economy"
             data-rating="4"
-            data-date="2026-10-31">
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.bastillepost.com/global/article/6309590-japans-central-bank-keeps-interest-rate-unchanged" target="_blank" rel="noopener">Japan&#39;s central bank keeps interest rate unchanged</a>
-            <div class="pub">2026-10-30 16:06 UTC</div>
+            <a href="https://thesun.ng/lagarde-to-quit-ecb-in-february-seeks-freedom-to-speak-on-global-issues/" target="_blank" rel="noopener">Lagarde to quit ECB in February, seeks freedom to speak on global issues</a>
+            <div class="pub">2026-10-31 09:16 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The Bank of Japan maintained its benchmark rate at 1.25% but signaled a hawkish shift by raising its fiscal 2027 core inflation forecast to 2.6%, confirming the 2% price stability target has been met.</li><li>Governor Kazuo Ueda indicated that future policy will focus on anchoring inflation, with market participants increasingly pricing in another rate hike during the December 17-18 policy meeting.</li>
+              <li>European Central Bank President Christine Lagarde is set to resign eight months before her term concludes, creating significant leadership uncertainty for the Eurozone&#39;s monetary policy.</li><li>The early departure raises questions regarding the continuity of the ECB&#39;s inflation-fighting strategy and the potential for a shift in the bank&#39;s stance on global economic issues.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">巴士的報</span></td>
+          <td class="source"><span class="chip">The Sun Nigeria</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">4 min</span>
-            <span class="reason">Signals a significant shift in Japanese monetary policy with global carry-trade implications.</span>
+            <span class="chip read-time-chip">1 min</span>
+            <span class="reason">Major leadership change at a key global central bank.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2823,27 +2817,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://www.globalbankingandfinance.com/german-economy-grew-expected-q3-underpinned-state-spending/"
-            data-title="German inflation cools on fuel tax cut, economy grows more than expected"
-            data-source="Global Banking &amp; Finance Review"
+            data-url="https://dailynewsegypt.com/2026/10/31/cbe-rate-hike-aims-to-sustain-disinflation-ensure-2027-inflation-target-is-met/"
+            data-title="CBE rate hike aims to sustain disinflation, ensure 2027 inflation target is met"
+            data-source="Daily News Egypt"
             data-category="Global Economy"
             data-rating="3"
-            data-date="2026-10-31">
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.globalbankingandfinance.com/german-economy-grew-expected-q3-underpinned-state-spending/" target="_blank" rel="noopener">German inflation cools on fuel tax cut, economy grows more than expected</a>
-            <div class="pub">2026-10-30 15:40 UTC</div>
+            <a href="https://dailynewsegypt.com/2026/10/31/cbe-rate-hike-aims-to-sustain-disinflation-ensure-2027-inflation-target-is-met/" target="_blank" rel="noopener">CBE rate hike aims to sustain disinflation, ensure 2027 inflation target is met</a>
+            <div class="pub">2026-10-31 18:11 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>German inflation slowed to 2.8% in October, beating forecasts, as government fuel tax cuts successfully mitigated energy price pressures despite the ongoing conflict in Iran.</li><li>While Q3 GDP growth of 0.2% exceeded expectations, the recovery remains heavily dependent on massive public spending, including a €500 billion infrastructure fund and significant defense budget exemptions.</li>
+              <li>The Central Bank of Egypt raised key policy rates by 100 basis points, with the overnight deposit rate reaching 20%, to combat inflationary pressures driven by rising energy and agricultural commodity prices.</li><li>Despite the hike, the bank reports resilient domestic GDP growth of approximately 4.7%, highlighting the difficulty of balancing aggressive monetary tightening with the need to maintain economic activity.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Global Banking &amp; Finance Review</span></td>
+          <td class="source"><span class="chip">Daily News Egypt</span></td>
           <td class="rating">
             <span class="rating-chip r3">3</span>
-            <span class="chip read-time-chip">4 min</span>
-            <span class="reason">Provides critical insight into the resilience of Europe&#39;s largest economy amidst fiscal expansion.</span>
+            <span class="chip read-time-chip">6 min</span>
+            <span class="reason">Illustrates the ongoing global trend of emerging market central banks tightening policy amid supply chain disruptions.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2871,27 +2865,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://www.cnbc.com/video/2026/10/30/stock-market-rocked-as-investors-dump-tech-shares-nasdaq-suffers-worst-day-since-june.html"
-            data-title="Stock market rocked as investors dump tech shares; Nasdaq suffers worst day since June"
-            data-source="CNBC"
+            data-url="https://finance.yahoo.com/markets/stocks/articles/technipfmc-fti-stock-rallies-q3-231438827.html"
+            data-title="TechnipFMC (FTI) Stock Rallies On Q3 Earnings Margin Breakthrough"
+            data-source="Yahoo Finance"
             data-category="Equity Markets"
-            data-rating="5"
-            data-date="2026-10-31">
+            data-rating="4"
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.cnbc.com/video/2026/10/30/stock-market-rocked-as-investors-dump-tech-shares-nasdaq-suffers-worst-day-since-june.html" target="_blank" rel="noopener">Stock market rocked as investors dump tech shares; Nasdaq suffers worst day since June</a>
-            <div class="pub">2026-10-30 20:54 UTC</div>
+            <a href="https://finance.yahoo.com/markets/stocks/articles/technipfmc-fti-stock-rallies-q3-231438827.html" target="_blank" rel="noopener">TechnipFMC (FTI) Stock Rallies On Q3 Earnings Margin Breakthrough</a>
+            <div class="pub">2026-10-31 23:14 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The tech-heavy Nasdaq index experienced its worst single-day performance since June, sliding 2.86% and leaving the index approximately 8% below its recent peak.</li><li>Broader market sentiment was dragged down by significant declines in the S&amp;P 500 and Dow, as investors reacted to disappointing earnings reports from major technology companies.</li>
+              <li>TechnipFMC achieved a record 23.5% adjusted EBITDA margin in its Subsea unit during Q3 2026, driving a 35.1% year-over-year increase in net income to $418.4 million.</li><li>While the company generated $470 million in free cash flow, investors remain cautious about whether the current backlog of subsea awards represents sustainable long-term scale or merely replacement of executed work.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">CNBC</span></td>
+          <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Broad market sell-off driven by tech sector weakness</span>
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Strong operational margin expansion in a key energy services segment.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2904,27 +2898,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://www.cnbc.com/2026/10/30/reddit-stock-q3-earnings.html"
-            data-title="Reddit stock plunges 29% after weak outlook, wrapping its worst day ever"
-            data-source="CNBC"
+            data-url="https://finance.yahoo.com/markets/stocks/articles/china-galaxy-securities-sehk-6881-001626988.html"
+            data-title="China Galaxy Securities (SEHK:6881) Q3 Earnings Reveal A Sharper Profit Squeeze"
+            data-source="Yahoo Finance"
             data-category="Equity Markets"
             data-rating="4"
-            data-date="2026-10-31">
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.cnbc.com/2026/10/30/reddit-stock-q3-earnings.html" target="_blank" rel="noopener">Reddit stock plunges 29% after weak outlook, wrapping its worst day ever</a>
-            <div class="pub">2026-10-30 19:20 UTC</div>
+            <a href="https://finance.yahoo.com/markets/stocks/articles/china-galaxy-securities-sehk-6881-001626988.html" target="_blank" rel="noopener">China Galaxy Securities (SEHK:6881) Q3 Earnings Reveal A Sharper Profit Squeeze</a>
+            <div class="pub">2026-11-01 00:16 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>Reddit shares fell 29.22% after the company provided a fourth-quarter sales forecast of $1 billion to $1.03 billion, missing analyst expectations of $1.05 billion.</li><li>CEO Steve Huffman noted that search-referral traffic from Google declined meaningfully due to the rise of AI Overviews, prompting the company to test mandatory login requirements to protect content and improve monetization.</li>
+              <li>Quarterly revenue plummeted 42.6% year-over-year to ¥4,922.2 million, as market volatility significantly impacted the firm&#39;s investment and brokerage activities.</li><li>Rising risk concerns are highlighted by a 76% year-over-year surge in accounts receivable to ¥15.9 billion, contributing to a contraction in the trailing net profit margin to 39.4%.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">CNBC</span></td>
+          <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
             <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Significant single-stock volatility highlighting AI-related business model risks</span>
+            <span class="reason">Significant revenue decline and rising credit risk in a major financial institution.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2952,27 +2946,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://www.tradingview.com/news/stocktwits:3ab1cdf41094b:0-stocktwits-weekly-spread-what-shaped-treasury-yields-and-the-dollar-this-week/"
-            data-title="Stocktwits Weekly Spread: What Shaped Treasury Yields And The Dollar This Week"
-            data-source="TradingView"
+            data-url="https://finance.yahoo.com/markets/options/articles/tech-bonds-diamonds-rough-bank-113004075.html"
+            data-title="Tech Bonds Are &#39;Diamonds in the Rough&#39;: Bank of America&#39;s Hartnett Says"
+            data-source="Yahoo Finance"
             data-category="Fixed Income"
-            data-rating="5"
-            data-date="2026-10-31">
+            data-rating="4"
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.tradingview.com/news/stocktwits:3ab1cdf41094b:0-stocktwits-weekly-spread-what-shaped-treasury-yields-and-the-dollar-this-week/" target="_blank" rel="noopener">Stocktwits Weekly Spread: What Shaped Treasury Yields And The Dollar This Week</a>
-            <div class="pub">2026-10-31 00:54 UTC</div>
+            <a href="https://finance.yahoo.com/markets/options/articles/tech-bonds-diamonds-rough-bank-113004075.html" target="_blank" rel="noopener">Tech Bonds Are &#39;Diamonds in the Rough&#39;: Bank of America&#39;s Hartnett Says</a>
+            <div class="pub">2026-10-31 11:30 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The 10-year Treasury yield eased by 7 basis points this week, remaining below the 5.00% threshold as investors sought safe-haven assets amid a sharp pullback in AI-linked tech equities.</li><li>Corporate credit risk is escalating, evidenced by the cost to protect Intel bonds against default surging 22.4 basis points to 127.9 basis points, signaling growing stress in the tech sector&#39;s debt profile.</li>
+              <li>U.S. technology bonds have experienced a 9% decline in 2026, pushing their total return relative to the broad investment-grade index to a 30-year low, signaling significant relative value.</li><li>AI hyperscalers have shifted from aggressive share buybacks to equity issuance, raising $89 billion in 2026 while reducing buybacks to an annualized $14 billion, which improves balance sheet stability for bondholders.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">TradingView</span></td>
+          <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">3 min</span>
-            <span class="reason">Highlights critical shifts in safe-haven flows and rising corporate credit risk.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">7 min</span>
+            <span class="reason">Provides actionable credit strategy amid shifting corporate capital allocation.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -2985,27 +2979,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://finance.yahoo.com/markets/stocks/articles/bond-market-rattled-heres-means-092000685.html"
-            data-title="The Bond Market Is Rattled. Here&#39;s What That Means for Stock Investors."
+            data-url="https://finance.yahoo.com/economy/article/fed-chairman-warshs-latest-press-conference-leaves-wall-street-guessing--again-120947191.html"
+            data-title="Fed Chairman Warsh&#39;s latest press conference leaves Wall Street guessing — again"
             data-source="Yahoo Finance"
             data-category="Fixed Income"
-            data-rating="4"
-            data-date="2026-10-31">
+            data-rating="5"
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://finance.yahoo.com/markets/stocks/articles/bond-market-rattled-heres-means-092000685.html" target="_blank" rel="noopener">The Bond Market Is Rattled. Here&#39;s What That Means for Stock Investors.</a>
-            <div class="pub">2026-10-30 09:20 UTC</div>
+            <a href="https://finance.yahoo.com/economy/article/fed-chairman-warshs-latest-press-conference-leaves-wall-street-guessing--again-120947191.html" target="_blank" rel="noopener">Fed Chairman Warsh&#39;s latest press conference leaves Wall Street guessing — again</a>
+            <div class="pub">2026-10-31 12:09 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The 10-year Treasury yield has surged to 4.99% from 3.98% over the past year, driven by persistent inflation and a massive $40 trillion federal debt burden that now equals 126% of GDP.</li><li>Increased competition for capital between the U.S. government and AI hyperscalers is pressuring yields, as investors weigh the risk-free rate against the returns of historically strong tech giants.</li>
+              <li>Chairman Warsh&#39;s failure to provide a clear rationale for the Fed&#39;s pause in rate hikes has increased market uncertainty regarding the central bank&#39;s commitment to a December tightening cycle.</li><li>The Fed&#39;s reliance on abstract rhetoric rather than data-driven guidance has damaged market confidence, leaving investors to interpret the &#39;hawkish hold&#39; without a coherent policy framework.</li>
             </ul>
           </td>
           <td class="source"><span class="chip">Yahoo Finance</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">5 min</span>
-            <span class="reason">Provides essential macroeconomic context on the drivers of long-term yield volatility.</span>
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">2 min</span>
+            <span class="reason">Directly impacts interest rate expectations and volatility in the Treasury market.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -3033,27 +3027,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://ww.fashionnetwork.com/news/China-and-switzerland-conclude-agreement-scrapping-almost-all-customs-duties,1880671.html"
-            data-title="China and Switzerland conclude agreement scrapping almost all customs duties"
-            data-source="FashionNetwork - The World&#39;s Fashion Business News"
+            data-url="https://www.globaltimes.cn/page/202610/1373360.shtml"
+            data-title="China&#39;s manufacturing PMI at 49.3 in October; new growth drivers remain in expansion"
+            data-source="Global Times"
             data-category="China Economy"
             data-rating="4"
-            data-date="2026-10-31">
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://ww.fashionnetwork.com/news/China-and-switzerland-conclude-agreement-scrapping-almost-all-customs-duties,1880671.html" target="_blank" rel="noopener">China and Switzerland conclude agreement scrapping almost all customs duties</a>
-            <div class="pub">2026-10-30 14:31 UTC</div>
+            <a href="https://www.globaltimes.cn/page/202610/1373360.shtml" target="_blank" rel="noopener">China&#39;s manufacturing PMI at 49.3 in October; new growth drivers remain in expansion</a>
+            <div class="pub">2026-10-31 08:07 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>The updated free trade agreement between China and Switzerland eliminates customs duties on 99.8% of goods, significantly lowering trade barriers for bilateral commerce.</li><li>This deal provides a strategic advantage for Swiss exporters and Chinese manufacturers, potentially serving as a template for China&#39;s broader efforts to secure trade access in Europe amidst rising protectionism.</li>
+              <li>The official manufacturing Purchasing Managers&#39; Index (PMI) remained in contractionary territory at 49.3 for October, signaling persistent weakness in the broader industrial sector.</li><li>Despite the headline contraction, the report highlights that &#39;new growth drivers&#39;—likely referring to high-tech and green energy manufacturing—continue to expand, suggesting a structural divergence in China&#39;s industrial output.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">FashionNetwork - The World&#39;s Fashion Business News</span></td>
+          <td class="source"><span class="chip">Global Times</span></td>
           <td class="rating">
             <span class="rating-chip r4">4</span>
             <span class="chip read-time-chip">1 min</span>
-            <span class="reason">Significant expansion of trade liberalization between China and a key European financial hub.</span>
+            <span class="reason">Key indicator of ongoing industrial slowdown despite sectoral pockets of growth.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -3066,27 +3060,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://www.reuters.com/world/china/china-germany-should-uphold-international-order-presidents-say-2026-10-30/"
-            data-title="China&#39;s Xi hails new chapter with Germany, urges friendly policy towards Beijing"
-            data-source="Reuters"
+            data-url="https://www.briefs.co/news/switzerland-and-china-upgrade-trade-deal-as-beijing-says-swi/"
+            data-title="Switzerland and China Upgrade Trade Deal as Beijing Says Swiss Firms Plan More Investment"
+            data-source="Briefs Finance"
             data-category="China Economy"
-            data-rating="5"
-            data-date="2026-10-31">
+            data-rating="3"
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.reuters.com/world/china/china-germany-should-uphold-international-order-presidents-say-2026-10-30/" target="_blank" rel="noopener">China&#39;s Xi hails new chapter with Germany, urges friendly policy towards Beijing</a>
-            <div class="pub">2026-10-30 15:41 UTC</div>
+            <a href="https://www.briefs.co/news/switzerland-and-china-upgrade-trade-deal-as-beijing-says-swi/" target="_blank" rel="noopener">Switzerland and China Upgrade Trade Deal as Beijing Says Swiss Firms Plan More Investment</a>
+            <div class="pub">2026-10-31 15:00 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>President Xi Jinping is actively lobbying for a &#39;pragmatic&#39; German policy toward China, aiming to stabilize economic ties and prevent further alignment with EU-wide trade restrictions.</li><li>The diplomatic outreach emphasizes deepening cooperation in high-value sectors like artificial intelligence, green development, and automobiles, signaling an attempt to maintain critical industrial partnerships despite geopolitical friction.</li>
+              <li>The upgraded free-trade agreement will eventually eliminate tariffs on over 99% of bilateral trade value, significantly lowering costs for Swiss exporters of machinery, watches, and coffee.</li><li>Swiss firms are signaling increased capital allocation toward China&#39;s pharmaceutical and financial sectors, providing a rare bright spot of foreign direct investment amid broader geopolitical tensions.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Reuters</span></td>
+          <td class="source"><span class="chip">Briefs Finance</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
+            <span class="rating-chip r3">3</span>
             <span class="chip read-time-chip">1 min</span>
-            <span class="reason">High-level diplomatic maneuvering to protect China&#39;s largest European economic relationship.</span>
+            <span class="reason">Significant trade policy development amid global efforts to diversify supply chains.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -3114,27 +3108,27 @@
       <tbody>
         
         <tr class="news-item"
-            data-url="https://pulse2.com/pag-to-acquire-51-02-stake-in-evergrande-property-services-for-514-million/"
-            data-title="PAG To Acquire 51.02% Stake In Evergrande Property Services For $514 Million"
-            data-source="Pulse 2.0"
+            data-url="https://www.mingtiandi.com/real-estate/finance/link-reit-selling-700-nathan-road-in-hong-kong-for-61-off/"
+            data-title="Link REIT Selling 700 Nathan Road in Hong Kong for $293M, 61% Off 2016 Price"
+            data-source="Mingtiandi"
             data-category="Hong Kong Economy"
-            data-rating="5"
-            data-date="2026-10-31">
+            data-rating="4"
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://pulse2.com/pag-to-acquire-51-02-stake-in-evergrande-property-services-for-514-million/" target="_blank" rel="noopener">PAG To Acquire 51.02% Stake In Evergrande Property Services For $514 Million</a>
-            <div class="pub">2026-10-30 20:52 UTC</div>
+            <a href="https://www.mingtiandi.com/real-estate/finance/link-reit-selling-700-nathan-road-in-hong-kong-for-61-off/" target="_blank" rel="noopener">Link REIT Selling 700 Nathan Road in Hong Kong for $293M, 61% Off 2016 Price</a>
+            <div class="pub">2026-10-31 15:46 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>PAG has agreed to acquire a 51.02% controlling stake in Evergrande Property Services for HK$4.03 billion, marking the largest asset recovery to date for the liquidators of the collapsed developer.</li><li>The deal triggers a mandatory cash offer for remaining shares at HK$0.8359 per share, with PAG intending to maintain the subsidiary&#39;s listing on the Hong Kong Stock Exchange.</li>
+              <li>Link REIT is divesting its 700 Nathan Road commercial tower for HK$2.3 billion, representing a significant 61% loss compared to its 2016 acquisition price of HK$5.91 billion.</li><li>The transaction, which results in an estimated net loss of HK$372 million, underscores the REIT&#39;s strategy to shed non-core assets and simplify its portfolio amid challenging commercial property valuations.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">Pulse 2.0</span></td>
+          <td class="source"><span class="chip">Mingtiandi</span></td>
           <td class="rating">
-            <span class="rating-chip r5">5</span>
-            <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Significant asset recovery in a major corporate liquidation.</span>
+            <span class="rating-chip r4">4</span>
+            <span class="chip read-time-chip">5 min</span>
+            <span class="reason">Significant asset impairment and strategic divestment by a major market player.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -3147,27 +3141,27 @@
         </tr>
         
         <tr class="news-item"
-            data-url="https://www.ad-hoc-news.de/boerse/news/nebenwerte/new-world-stock-turns-to-reit-spin-off-and-asset-sales-for-debt-relief/70437036"
-            data-title="New World stock turns to REIT spin-off and asset sales for debt relief"
-            data-source="ad-hoc-news.de"
+            data-url="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/10/31/hong-kong-housing-chief-quits-over-tai-po-fire-accepts-political-responsibility"
+            data-title="Hong Kong housing chief quits over Tai Po fire, accepts political responsibility"
+            data-source="The Star"
             data-category="Hong Kong Economy"
-            data-rating="4"
-            data-date="2026-10-31">
+            data-rating="5"
+            data-date="2026-11-01">
           <td class="headline">
             <span class="new-badge">NEW</span>
-            <a href="https://www.ad-hoc-news.de/boerse/news/nebenwerte/new-world-stock-turns-to-reit-spin-off-and-asset-sales-for-debt-relief/70437036" target="_blank" rel="noopener">New World stock turns to REIT spin-off and asset sales for debt relief</a>
-            <div class="pub">2026-10-30 23:44 UTC</div>
+            <a href="https://www.thestar.com.my/aseanplus/aseanplus-news/2026/10/31/hong-kong-housing-chief-quits-over-tai-po-fire-accepts-political-responsibility" target="_blank" rel="noopener">Hong Kong housing chief quits over Tai Po fire, accepts political responsibility</a>
+            <div class="pub">2026-10-31 11:26 UTC</div>
           </td>
           <td class="summary">
             <ul>
-              <li>New World Development is aggressively pursuing asset recycling, including a $570 million REIT spin-off of the Shanghai Hong Kong New World Tower, to address significant balance sheet leverage.</li><li>While the strategy aims to preserve recurring income, the company faces execution risks tied to transaction pricing, occupancy trends, and the potential impact of elevated funding costs on debt reduction.</li>
+              <li>Housing Secretary Winnie Ho Wing-yin has resigned following an independent report that identified her bureau&#39;s Independent Checking Unit as bearing primary responsibility for oversight failures in the deadly Wang Fuk Court fire.</li><li>The government is initiating extensive civil service and legislative reforms, including the creation of a new building maintenance monitoring body, to address the systemic regulatory gaps exposed by the tragedy.</li>
             </ul>
           </td>
-          <td class="source"><span class="chip">ad-hoc-news.de</span></td>
+          <td class="source"><span class="chip">The Star</span></td>
           <td class="rating">
-            <span class="rating-chip r4">4</span>
-            <span class="chip read-time-chip">2 min</span>
-            <span class="reason">Major strategic shift for a leading Hong Kong property developer.</span>
+            <span class="rating-chip r5">5</span>
+            <span class="chip read-time-chip">3 min</span>
+            <span class="reason">High-level political resignation and major regulatory overhaul impacting property management and construction sectors.</span>
           </td>
           <td class="save-cell">
             <button type="button" class="save-btn" aria-label="Save this story" title="Save this story">
@@ -3225,10 +3219,10 @@
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-10-31 09:34 HKT");
+  var dataTS = encodeURIComponent("2026-11-01 09:07 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
-  var currentDate = "2026-10-31";
+  var currentDate = "2026-11-01";
 
   // Write-through hooks for Firebase cloud sync. No-ops until the Firebase
   // layer (bottom of this script) replaces them after sign-in.
@@ -3699,32 +3693,48 @@
     });
   });
 
-  // ---------- Analytics history filters (Source × Importance) ----------
-  // Two correlated facets: every count is recomputed against the OTHER facet's
-  // active value, so a number always reads "what you get if you also pick
-  // this". A selection is never reset behind the user's back, and the state is
-  // mirrored into the URL so a filtered view is linkable.
-  var srcSel = document.getElementById("source-filter");
-  if (srcSel) {
-    var rateSel = document.getElementById("rating-filter");
+  // ---------- Facet filters (generic, any number of facets) ----------
+  // One engine behind the Analytics (Source × Importance) and Repo Radar
+  // (Category × Language × Stars) histories. A page opts in with a
+  // .filters[data-facet-filters] panel: each facet is a select[data-facet] in
+  // that panel, each card carries data-facet-item + data-facet-<name>, and
+  // each card group carries data-facet-group. Facets are discovered from the
+  // markup, so the same code runs with two or three of them.
+  //
+  // Counts are correlated: every option counts the items that match all the
+  // OTHER facets' selections, so a number always reads "what you get if you
+  // also pick this". A selection is never reset behind the user's back, and
+  // the state is mirrored into the URL so a filtered view is linkable.
+  (function () {
+    var panel = document.querySelector(".filters[data-facet-filters]");
+    if (!panel) return;   // every other page keeps its plain markup
+    var itemNoun = panel.getAttribute("data-item-noun") || "item";
+    var groupNoun = panel.getAttribute("data-group-noun") || "group";
+    var facetSels = Array.prototype.slice.call(
+      panel.querySelectorAll("select[data-facet]"));
+    if (!facetSels.length) return;
+
     var jumpSel = document.getElementById("day-jump");
     var statusEl = document.getElementById("filter-status");
     var emptyEl = document.getElementById("filter-empty");
     var resetBtn = document.getElementById("filter-reset");
-    var allDays = Array.prototype.slice.call(
-      document.querySelectorAll("details.day-group[data-day]"));
-    var allCards = Array.prototype.slice.call(
-      document.querySelectorAll("article.blog-card[data-source][data-rating]"));
-    var fState = { source: "", rating: 0 };
 
-    function optionSnapshot(sel) {
-      var out = [];
-      if (!sel) return out;
-      Array.prototype.forEach.call(sel.options, function (o) {
-        out.push({ value: o.value, text: o.textContent });
-      });
-      return out;
-    }
+    var facets = facetSels.map(function (sel) {
+      return {
+        name: sel.getAttribute("data-facet"),
+        sel: sel,
+        anyLabel: sel.getAttribute("data-any-label") || "All",
+        suffix: sel.getAttribute("data-option-suffix") || "",
+        state: ""
+      };
+    });
+
+    var days = Array.prototype.slice.call(
+      document.querySelectorAll("details.day-group[data-day]"));
+    var groups = Array.prototype.slice.call(
+      document.querySelectorAll("[data-facet-group]"));
+    var items = Array.prototype.slice.call(
+      document.querySelectorAll("[data-facet-item]"));
 
     function setHidden(el, hide) {
       if (!el) return;
@@ -3732,65 +3742,79 @@
       else el.removeAttribute("hidden");
     }
 
-    // Snapshot the server-rendered selects and day-meta text: the widgets are
-    // rebuilt on every apply, so these are the only way back to the page as
-    // rendered (option sets, the "(latest)" marker, the real per-day counts).
-    var srcOpts = optionSnapshot(srcSel);
-    var rateOpts = optionSnapshot(rateSel);
-    var jumpOpts = optionSnapshot(jumpSel);
-    var metaText = allDays.map(function (day) {
+    function anyActive() {
+      for (var i = 0; i < facets.length; i++) {
+        if (facets[i].state) return true;
+      }
+      return false;
+    }
+
+    // Facet values and the day/group an item belongs to, resolved once.
+    var metas = items.map(function (el) {
+      var vals = {};
+      facets.forEach(function (f) {
+        vals[f.name] = el.getAttribute("data-facet-" + f.name) || "";
+      });
+      var day = el.closest ? el.closest("details.day-group[data-day]") : null;
+      var group = el.closest ? el.closest("[data-facet-group]") : null;
+      return {
+        el: el, vals: vals,
+        dayIdx: day ? days.indexOf(day) : -1,
+        groupIdx: group ? groups.indexOf(group) : -1
+      };
+    });
+
+    // Snapshot the rendered day-meta text and jump options: both are rewritten
+    // on every apply, so these are the only way back to the page as served
+    // (the real per-day counts, the "(latest)" marker).
+    var dayMeta = days.map(function (day) {
       var el = day.querySelector(".day-meta");
       return { el: el, text: el ? el.textContent : "" };
     });
-
-    // Static tallies over the card set (fixed after load): one per facet plus
-    // a source × rating grid behind the correlated counts.
-    var bySource = {}, byRating = {}, cell = {}, grandTotal = 0;
-    allCards.forEach(function (card) {
-      var s = card.getAttribute("data-source");
-      var r = card.getAttribute("data-rating");
-      grandTotal++;
-      bySource[s] = (bySource[s] || 0) + 1;
-      byRating[r] = (byRating[r] || 0) + 1;
-      cell[s + "|" + r] = (cell[s + "|" + r] || 0) + 1;
-    });
-
-    function sourceCount(name) {
-      return fState.rating
-        ? (cell[name + "|" + fState.rating] || 0)
-        : (bySource[name] || 0);
+    var jumpOpts = [];
+    if (jumpSel) {
+      Array.prototype.forEach.call(jumpSel.options, function (o) {
+        jumpOpts.push({ value: o.value, text: o.textContent });
+      });
     }
 
-    function ratingCount(rating) {
-      return fState.source
-        ? (cell[fState.source + "|" + rating] || 0)
-        : (byRating[rating] || 0);
+    // An item matches when it carries the active value of every active facet;
+    // "skip" leaves one facet out (that is how correlated counts are built).
+    function matches(meta, skip) {
+      for (var i = 0; i < facets.length; i++) {
+        var f = facets[i];
+        if (f !== skip && f.state && meta.vals[f.name] !== f.state) return false;
+      }
+      return true;
+    }
+
+    // counts[i][value] = items matching every other facet, broken down by
+    // facet i's own value; the "" bucket counts "any value of facet i".
+    function correlatedCounts() {
+      var out = facets.map(function () { return {}; });
+      metas.forEach(function (meta) {
+        facets.forEach(function (f, i) {
+          if (!matches(meta, f)) return;
+          var v = meta.vals[f.name];
+          out[i][""] = (out[i][""] || 0) + 1;
+          out[i][v] = (out[i][v] || 0) + 1;
+        });
+      });
+      return out;
     }
 
     // Labels only: the option list itself stays as rendered, so a value the
-    // user already picked can never disappear (and never be reset to "").
-    function updateSourceOptions() {
-      Array.prototype.forEach.call(srcSel.options, function (o, i) {
-        var from = srcOpts[i];
-        if (!from) return;
-        o.textContent = from.value === ""
-          ? "All sources (" + (fState.rating ? (byRating[fState.rating] || 0)
-                                            : grandTotal) + ")"
-          : from.value + " (" + sourceCount(from.value) + ")";
+    // user already picked can never disappear (and is never reset to "").
+    function updateOptionLabels(counts) {
+      facets.forEach(function (f, i) {
+        Array.prototype.forEach.call(f.sel.options, function (o) {
+          var n = counts[i][o.value] || 0;
+          o.textContent = o.value === ""
+            ? f.anyLabel + " (" + n + ")"
+            : o.value + f.suffix + " (" + n + ")";
+        });
+        f.sel.value = f.state;
       });
-      srcSel.value = fState.source;
-    }
-
-    function updateRatingOptions() {
-      if (!rateSel) return;
-      Array.prototype.forEach.call(rateSel.options, function (o, i) {
-        var from = rateOpts[i];
-        if (!from) return;
-        o.textContent = from.value === ""
-          ? "Any importance"
-          : from.value + "★ (" + ratingCount(from.value) + ")";
-      });
-      rateSel.value = fState.rating ? String(fState.rating) : "";
     }
 
     // Rebuild the day jump from the days that survived; unfiltered restores
@@ -3799,14 +3823,7 @@
       if (!jumpSel) return;
       var keep = jumpSel.value;
       while (jumpSel.options.length) jumpSel.remove(0);
-      if (!fState.source && !fState.rating) {
-        jumpOpts.forEach(function (o) {
-          var opt = document.createElement("option");
-          opt.value = o.value;
-          opt.textContent = o.text;
-          jumpSel.appendChild(opt);
-        });
-      } else {
+      if (anyActive()) {
         // Newest first, like the rendered accordion.
         visibleDates.slice().sort().reverse().forEach(function (date) {
           var opt = document.createElement("option");
@@ -3814,67 +3831,76 @@
           opt.textContent = date + (date === newest ? " (latest)" : "");
           jumpSel.appendChild(opt);
         });
+      } else {
+        jumpOpts.forEach(function (o) {
+          var opt = document.createElement("option");
+          opt.value = o.value;
+          opt.textContent = o.text;
+          jumpSel.appendChild(opt);
+        });
       }
       // Keep the user's day when it survived the filter, else fall back to the
       // rendered first day / the newest visible one.
       if (keep) jumpSel.value = keep;
       if (!jumpSel.value) {
-        jumpSel.value = (!fState.source && !fState.rating && jumpOpts.length)
-          ? jumpOpts[0].value : (newest || "");
+        jumpSel.value = anyActive()
+          ? (newest || "")
+          : (jumpOpts.length ? jumpOpts[0].value : "");
       }
     }
 
     function syncUrl() {
       try {
         var params = new URLSearchParams(location.search);
-        params.delete("source");
-        params.delete("rating");
-        if (fState.source) params.set("source", fState.source);
-        if (fState.rating) params.set("rating", String(fState.rating));
+        facets.forEach(function (f) { params.delete(f.name); });
+        facets.forEach(function (f) {
+          if (f.state) params.set(f.name, f.state);
+        });
         var qs = params.toString();
         history.replaceState(null, "", location.pathname + (qs ? "?" + qs : ""));
       } catch (e) {}   // file:// documents have an opaque origin and refuse this
     }
 
     function applyFilters() {
-      var filtered = !!(fState.source || fState.rating);
-      var visibleDates = [], newest = null, shownPosts = 0, shownDays = 0;
+      var filtered = anyActive();
+      var counts = correlatedCounts();
+      var shownItems = 0, shownDays = 0, newest = null;
+      var visibleDates = [];
+      var dayItems = [], dayGroups = [], groupShown = [];
+      var i;
+      for (i = 0; i < days.length; i++) {
+        dayItems.push(0);
+        dayGroups.push({});
+      }
+      for (i = 0; i < groups.length; i++) groupShown.push(false);
 
-      // Pass 1 — cards: a card shows only when it matches BOTH facets.
-      allCards.forEach(function (card) {
-        var okSource = !fState.source ||
-          card.getAttribute("data-source") === fState.source;
-        var okRating = !fState.rating ||
-          (parseInt(card.getAttribute("data-rating"), 10) || 0) === fState.rating;
-        setHidden(card, !(okSource && okRating));
-        if (okSource && okRating) shownPosts++;
+      // Pass 1 — items: shown only while matching every active facet.
+      metas.forEach(function (meta) {
+        var ok = matches(meta, null);
+        setHidden(meta.el, !ok);
+        if (!ok) return;
+        shownItems++;
+        if (meta.groupIdx >= 0) groupShown[meta.groupIdx] = true;
+        if (meta.dayIdx >= 0) {
+          dayItems[meta.dayIdx]++;
+          if (meta.groupIdx >= 0) dayGroups[meta.dayIdx][meta.groupIdx] = 1;
+        }
       });
 
-      // Pass 2 — a desk/day survives only while it still owns a visible card;
+      // Pass 2 — a group/day survives only while it still owns a visible item;
       // day-meta is rewritten from what is actually on screen.
-      allDays.forEach(function (day, i) {
-        var n = 0, blogs = {};
-        Array.prototype.forEach.call(
-          day.querySelectorAll("article.blog-card"), function (card) {
-            if (card.hasAttribute("hidden")) return;
-            n++;
-            blogs[card.getAttribute("data-source")] = 1;
-          });
-        Array.prototype.forEach.call(
-          day.querySelectorAll("section.desk"), function (desk) {
-            var any = Array.prototype.some.call(
-              desk.querySelectorAll("article.blog-card"),
-              function (card) { return !card.hasAttribute("hidden"); });
-            setHidden(desk, !any);
-          });
+      groups.forEach(function (g, gi) { setHidden(g, !groupShown[gi]); });
+      days.forEach(function (day, di) {
+        var n = dayItems[di];
         setHidden(day, n === 0);
-        if (metaText[i] && metaText[i].el) {
-          metaText[i].el.textContent = filtered
-            ? n + " post(s) · " + Object.keys(blogs).length + " blog(s)"
-            : metaText[i].text;
+        if (dayMeta[di].el) {
+          dayMeta[di].el.textContent = filtered
+            ? n + " " + itemNoun + "(s) · " +
+              Object.keys(dayGroups[di]).length + " " + groupNoun + "(s)"
+            : dayMeta[di].text;
         }
         if (n > 0) {
-          var date = day.getAttribute("data-day");
+          var date = day.getAttribute("data-day") || "";
           shownDays++;
           visibleDates.push(date);
           if (newest === null || date > newest) newest = date;
@@ -3884,7 +3910,7 @@
       // Pass 3 — open the newest matching day when the user left every day
       // collapsed, so filtering never lands on a seemingly empty page.
       var anyOpen = false;
-      allDays.forEach(function (day) {
+      days.forEach(function (day) {
         if (!day.hasAttribute("hidden") && day.open) anyOpen = true;
       });
       if (!anyOpen && newest) {
@@ -3893,66 +3919,59 @@
       }
 
       rebuildJump(visibleDates, newest);
-      updateSourceOptions();
-      updateRatingOptions();
+      updateOptionLabels(counts);
 
-      var desc = (fState.source || "All sources") + " · " +
-        (fState.rating ? fState.rating + "★" : "Any importance");
+      var desc = facets.map(function (f) {
+        return f.state ? f.state + f.suffix : f.anyLabel;
+      }).join(" · ");
       if (statusEl) {
-        statusEl.textContent = shownPosts === 0
-          ? desc + " — no matching posts"
-          : desc + " — " + shownPosts + " post" + (shownPosts === 1 ? "" : "s") +
-            " across " + shownDays + " day" + (shownDays === 1 ? "" : "s");
+        statusEl.textContent = shownItems === 0
+          ? desc + " — no matching " + itemNoun + "s"
+          : desc + " — " + shownItems + " " + itemNoun +
+            (shownItems === 1 ? "" : "s") + " across " + shownDays +
+            " day" + (shownDays === 1 ? "" : "s");
       }
-      setHidden(emptyEl, shownPosts !== 0);
+      setHidden(emptyEl, shownItems !== 0);
       setHidden(resetBtn, !filtered);
 
       syncUrl();
     }
 
-    // Seed from ?source=&rating= so a filtered view can be shared. Values that
-    // no longer exist (renamed blog, rating absent from history) are ignored
-    // rather than shown as a stale selection.
+    // Seed from the query string (?source=&rating= …) so a filtered view can
+    // be shared. Values not present in the rendered options (a renamed blog, a
+    // rating absent from history) are ignored rather than shown as stale.
     (function seedFromUrl() {
       var params;
       try { params = new URLSearchParams(location.search); } catch (e) { return; }
-      var wantSource = params.get("source") || "";
-      var wantRating = parseInt(params.get("rating"), 10) || 0;
-      var knownSource = false, knownRating = false;
-      srcOpts.forEach(function (o) {
-        if (o.value && o.value === wantSource) knownSource = true;
+      facets.forEach(function (f) {
+        var want = params.get(f.name) || "";
+        if (!want) return;
+        var known = false;
+        Array.prototype.forEach.call(f.sel.options, function (o) {
+          if (o.value && o.value === want) known = true;
+        });
+        f.state = known ? want : "";
       });
-      rateOpts.forEach(function (o) {
-        if (o.value && parseInt(o.value, 10) === wantRating) knownRating = true;
-      });
-      fState.source = knownSource ? wantSource : "";
-      fState.rating = knownRating ? wantRating : 0;
-      srcSel.value = fState.source;
-      if (rateSel) rateSel.value = fState.rating ? String(fState.rating) : "";
     })();
 
-    srcSel.addEventListener("change", function () {
-      fState.source = srcSel.value;
-      applyFilters();
-    });
-    if (rateSel) {
-      rateSel.addEventListener("change", function () {
-        fState.rating = parseInt(rateSel.value, 10) || 0;
+    facets.forEach(function (f) {
+      f.sel.addEventListener("change", function () {
+        f.state = f.sel.value;
         applyFilters();
       });
-    }
+    });
     if (resetBtn) {
       resetBtn.addEventListener("click", function () {
-        fState.source = "";
-        fState.rating = 0;
-        srcSel.value = "";
-        if (rateSel) rateSel.value = "";
+        facets.forEach(function (f) {
+          f.state = "";
+          f.sel.value = "";
+        });
         applyFilters();
       });
     }
 
     applyFilters();
-  }
+  })();
 
   // Per-item remove (✕), event-delegated from the list container.
   // BUG FIX: the old handler called ev.target.closest() directly — on mobile

@@ -1,102 +1,102 @@
 {
- "generated_at": "2026-10-31 09:34 HKT",
+ "generated_at": "2026-11-01 09:07 HKT",
  "repos": [
   {
-   "name": "lightpanda-io/browser",
-   "url": "https://github.com/lightpanda-io/browser",
-   "language": "Zig",
-   "description": "Lightpanda: the headless browser designed for AI and automation",
-   "keywords": [
-    "Browser automation"
-   ],
-   "trendshift_pos": 15,
-   "stars": 38421,
+   "name": "deepseek-ai/dsh-superagent-prototype",
+   "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+   "language": "TypeScript",
+   "description": "Towards a More Autonomous Agent System",
+   "keywords": [],
+   "trendshift_pos": 1,
+   "stars": 2486,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A high-performance, lightweight headless browser engine built specifically for AI agents and automation tasks.",
+   "one_liner": "A prototype framework for building more autonomous and capable agentic systems.",
    "bullets": [
-    "Written in Zig for memory safety and extreme performance compared to traditional Chromium-based headless browsers.",
-    "Designed to be lightweight and resource-efficient, making it ideal for containerized agent environments.",
-    "Provides a clean API for scraping and interacting with complex web interfaces, reducing the overhead for LLM-based automation.",
-    "Primary use case is enabling AI agents to browse the web reliably without the heavy footprint of full browser engines."
+    "Built with TypeScript to provide a robust foundation for agent orchestration.",
+    "Focuses on improving agent autonomy, reasoning, and multi-step task execution.",
+    "Serves as a research-grade reference for developers building next-generation AI agents.",
+    "Ideal for integrating complex decision-making into enterprise-grade AI workflows."
    ]
   },
   {
-   "name": "vercel-labs/agent-desktop",
-   "url": "https://github.com/vercel-labs/agent-desktop",
-   "language": "Rust",
-   "description": "Agent Desktop gives any agent reliable computer use on the desktop. Built with Rust, it sees any app's real UI structure through OS accessibility trees and operates it — refs stay stable and actions stay safe to retry, instead of guessing from pixels.",
+   "name": "wangzan101/Mika",
+   "url": "https://github.com/wangzan101/Mika",
+   "language": "Kotlin",
+   "description": "Mika — 你手机上的私人 AI 助理，替你操作 App、上网、把事办成。An on-device AI agent for Android that operates apps and the web to get things done for you.",
    "keywords": [
     "AI agent"
    ],
-   "trendshift_pos": 1,
-   "stars": 2004,
+   "trendshift_pos": 17,
+   "stars": 2749,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A Rust-based framework that enables AI agents to interact with desktop applications via OS accessibility trees.",
+   "one_liner": "An on-device AI agent for Android that autonomously operates apps and web browsers to complete tasks.",
    "bullets": [
-    "Utilizes native OS accessibility APIs to map UI elements, ensuring stable references for agent interactions.",
-    "Built in Rust to provide the low-latency execution required for real-time desktop automation.",
-    "Allows agents to operate any desktop application by 'seeing' the UI structure rather than relying on brittle pixel-based vision.",
-    "Enables complex agentic workflows that span across multiple desktop applications and local system tasks."
+    "Utilizes Kotlin for native Android integration and low-latency performance.",
+    "Implements agentic workflows to interact with UI elements and perform web-based actions.",
+    "Prioritizes privacy by running AI models locally on the mobile device.",
+    "Useful for automating repetitive mobile tasks, such as data entry or cross-app navigation."
    ]
   },
   {
-   "name": "microsoft/TokenEconomizer",
-   "url": "https://github.com/microsoft/TokenEconomizer",
-   "language": "Python",
-   "description": "Experience-Driven Black-Box Cost Control for Coding Agents",
+   "name": "anomalyco/hex",
+   "url": "https://github.com/anomalyco/hex",
+   "language": "Rust",
+   "description": "Local-first voice dictation for macOS. Hold a shortcut, speak, and paste into any app. Native Rust, on-device speech recognition, and a Linux beta.",
    "keywords": [
-    "AI coding assistant"
+    "Speech to text"
    ],
-   "trendshift_pos": 10,
-   "stars": 2034,
+   "trendshift_pos": 11,
+   "stars": 2078,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A system designed for experience-driven, black-box cost control for coding agents.",
+   "one_liner": "A high-performance, local-first voice dictation tool for macOS built in Rust.",
    "bullets": [
-    "Implements cost-management logic for LLM-based coding agents to prevent runaway token consumption.",
-    "Uses a black-box approach to monitor and optimize agent behavior without requiring deep integration into the model architecture.",
-    "Provides infrastructure for developers to set guardrails on AI-driven development workflows.",
-    "Essential for enterprise-grade fintech or devtools where LLM usage costs must be strictly governed and predictable."
+    "Written in Rust for maximum efficiency and minimal system resource consumption.",
+    "Features on-device speech recognition to ensure data privacy and offline functionality.",
+    "Provides a global shortcut to inject dictated text into any active application.",
+    "Highly relevant for productivity-focused professionals requiring fast, secure transcription."
    ]
   },
   {
-   "name": "wici-ai/inferssd",
-   "url": "https://github.com/wici-ai/inferssd",
-   "language": "C++",
-   "description": "Run models larger than your RAM or VRAM by streaming MoE experts from SSD. Built on llama.cpp.",
-   "keywords": [],
-   "trendshift_pos": 25,
-   "stars": 61,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A llama.cpp-based inference engine that allows running models larger than available RAM/VRAM by streaming MoE experts from SSD.",
-   "bullets": [
-    "Leverages Mixture-of-Experts (MoE) architecture to load only necessary model weights into memory on-demand.",
-    "Optimized for high-throughput SSD streaming to minimize latency during model inference.",
-    "Enables the deployment of massive, high-parameter models on consumer-grade hardware with limited VRAM.",
-    "Ideal for local AI infrastructure where running large-scale models is constrained by hardware memory limits."
-   ]
-  },
-  {
-   "name": "anthropics/skills",
-   "url": "https://github.com/anthropics/skills",
-   "language": "Python",
-   "description": "Public repository for Agent Skills",
+   "name": "patchy631/ai-engineering-hub",
+   "url": "https://github.com/patchy631/ai-engineering-hub",
+   "language": "Jupyter Notebook",
+   "description": "In-depth tutorials on LLMs, RAGs and real-world AI agent applications.",
    "keywords": [
-    "AI skills"
+    "Learning resources"
+   ],
+   "trendshift_pos": 2,
+   "stars": 39171,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A comprehensive repository of tutorials and resources for mastering LLMs, RAG, and AI agent development.",
+   "bullets": [
+    "Structured as a collection of Jupyter Notebooks for interactive learning and experimentation.",
+    "Covers advanced topics including Retrieval-Augmented Generation (RAG) and agentic design patterns.",
+    "Provides practical, real-world examples for deploying AI solutions in production environments.",
+    "Essential for engineers looking to bridge the gap between theoretical AI and practical implementation."
+   ]
+  },
+  {
+   "name": "D4Vinci/Scrapling",
+   "url": "https://github.com/D4Vinci/Scrapling",
+   "language": "Python",
+   "description": "🕷️ The BEST Web Scraping framework that handles everything from a single request to a full-scale crawl! Don't be shy, join here: https://discord.gg/EMgGbDceNQ and follow here for daily tips and tricks: https://x.com/Scrapling_dev",
+   "keywords": [
+    "Web scraping"
    ],
    "trendshift_pos": 21,
-   "stars": 185338,
+   "stars": 90916,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A centralized repository of modular skills and capabilities designed to extend the functionality of AI agents.",
+   "one_liner": "A high-performance web scraping framework designed to handle everything from simple requests to large-scale crawls.",
    "bullets": [
-    "Provides a standardized library of reusable agentic functions and tool definitions.",
-    "Focuses on interoperability, allowing developers to plug-and-play capabilities into various agent frameworks.",
-    "Includes implementations for common tasks, data processing, and external service integration.",
-    "Serves as a foundational infrastructure component for building robust, multi-step agentic workflows in professional environments."
+    "Python-based framework optimized for speed, scalability, and ease of use.",
+    "Handles complex web scraping challenges including dynamic content and anti-bot measures.",
+    "Supports both lightweight single-request tasks and massive, distributed data extraction.",
+    "Critical infrastructure for fintech and market research professionals needing reliable data pipelines."
    ]
   }
  ]

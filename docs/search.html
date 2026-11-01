@@ -1362,12 +1362,6 @@
     background: #fff;
     display: block;
   }
-  .repo-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);   /* one repo card per row — big, readable */
-    gap: 20px;
-  }
-
   /* ---------- Analytics / Repo Radar day-history accordion ---------- */
   .day-jump-wrap {
     display: flex;
@@ -1401,12 +1395,12 @@
     color: var(--muted);
     margin: 0 0 14px;
   }
-  .filter-reset[hidden] { display: none; }
   /* The `hidden` attribute must beat the block display of the day/section/card
      wrappers, which are styled by class and not by attribute. */
   .day-group[hidden],
   .desk[hidden],
-  .blog-card[hidden] { display: none !important; }
+  .blog-card[hidden],
+  .repo-card[hidden] { display: none !important; }
   @media (max-width: 640px) {
     .filters {
       flex-direction: column;
@@ -1924,7 +1918,7 @@
 
   // Cache-buster: every generated page embeds its own generation timestamp,
   // so the data files never serve stale from the CDN's 10-minute cache.
-  var dataTS = encodeURIComponent("2026-10-31 09:34 HKT");
+  var dataTS = encodeURIComponent("2026-11-01 09:07 HKT");
   // Dashboard pages set current_date_js to the page date; the archive page
   // leaves it null (no per-day read tracking there).
   var currentDate = null;
@@ -2372,32 +2366,48 @@
     });
   });
 
-  // ---------- Analytics history filters (Source × Importance) ----------
-  // Two correlated facets: every count is recomputed against the OTHER facet's
-  // active value, so a number always reads "what you get if you also pick
-  // this". A selection is never reset behind the user's back, and the state is
-  // mirrored into the URL so a filtered view is linkable.
-  var srcSel = document.getElementById("source-filter");
-  if (srcSel) {
-    var rateSel = document.getElementById("rating-filter");
+  // ---------- Facet filters (generic, any number of facets) ----------
+  // One engine behind the Analytics (Source × Importance) and Repo Radar
+  // (Category × Language × Stars) histories. A page opts in with a
+  // .filters[data-facet-filters] panel: each facet is a select[data-facet] in
+  // that panel, each card carries data-facet-item + data-facet-<name>, and
+  // each card group carries data-facet-group. Facets are discovered from the
+  // markup, so the same code runs with two or three of them.
+  //
+  // Counts are correlated: every option counts the items that match all the
+  // OTHER facets' selections, so a number always reads "what you get if you
+  // also pick this". A selection is never reset behind the user's back, and
+  // the state is mirrored into the URL so a filtered view is linkable.
+  (function () {
+    var panel = document.querySelector(".filters[data-facet-filters]");
+    if (!panel) return;   // every other page keeps its plain markup
+    var itemNoun = panel.getAttribute("data-item-noun") || "item";
+    var groupNoun = panel.getAttribute("data-group-noun") || "group";
+    var facetSels = Array.prototype.slice.call(
+      panel.querySelectorAll("select[data-facet]"));
+    if (!facetSels.length) return;
+
     var jumpSel = document.getElementById("day-jump");
     var statusEl = document.getElementById("filter-status");
     var emptyEl = document.getElementById("filter-empty");
     var resetBtn = document.getElementById("filter-reset");
-    var allDays = Array.prototype.slice.call(
-      document.querySelectorAll("details.day-group[data-day]"));
-    var allCards = Array.prototype.slice.call(
-      document.querySelectorAll("article.blog-card[data-source][data-rating]"));
-    var fState = { source: "", rating: 0 };
 
-    function optionSnapshot(sel) {
-      var out = [];
-      if (!sel) return out;
-      Array.prototype.forEach.call(sel.options, function (o) {
-        out.push({ value: o.value, text: o.textContent });
-      });
-      return out;
-    }
+    var facets = facetSels.map(function (sel) {
+      return {
+        name: sel.getAttribute("data-facet"),
+        sel: sel,
+        anyLabel: sel.getAttribute("data-any-label") || "All",
+        suffix: sel.getAttribute("data-option-suffix") || "",
+        state: ""
+      };
+    });
+
+    var days = Array.prototype.slice.call(
+      document.querySelectorAll("details.day-group[data-day]"));
+    var groups = Array.prototype.slice.call(
+      document.querySelectorAll("[data-facet-group]"));
+    var items = Array.prototype.slice.call(
+      document.querySelectorAll("[data-facet-item]"));
 
     function setHidden(el, hide) {
       if (!el) return;
@@ -2405,65 +2415,79 @@
       else el.removeAttribute("hidden");
     }
 
-    // Snapshot the server-rendered selects and day-meta text: the widgets are
-    // rebuilt on every apply, so these are the only way back to the page as
-    // rendered (option sets, the "(latest)" marker, the real per-day counts).
-    var srcOpts = optionSnapshot(srcSel);
-    var rateOpts = optionSnapshot(rateSel);
-    var jumpOpts = optionSnapshot(jumpSel);
-    var metaText = allDays.map(function (day) {
+    function anyActive() {
+      for (var i = 0; i < facets.length; i++) {
+        if (facets[i].state) return true;
+      }
+      return false;
+    }
+
+    // Facet values and the day/group an item belongs to, resolved once.
+    var metas = items.map(function (el) {
+      var vals = {};
+      facets.forEach(function (f) {
+        vals[f.name] = el.getAttribute("data-facet-" + f.name) || "";
+      });
+      var day = el.closest ? el.closest("details.day-group[data-day]") : null;
+      var group = el.closest ? el.closest("[data-facet-group]") : null;
+      return {
+        el: el, vals: vals,
+        dayIdx: day ? days.indexOf(day) : -1,
+        groupIdx: group ? groups.indexOf(group) : -1
+      };
+    });
+
+    // Snapshot the rendered day-meta text and jump options: both are rewritten
+    // on every apply, so these are the only way back to the page as served
+    // (the real per-day counts, the "(latest)" marker).
+    var dayMeta = days.map(function (day) {
       var el = day.querySelector(".day-meta");
       return { el: el, text: el ? el.textContent : "" };
     });
-
-    // Static tallies over the card set (fixed after load): one per facet plus
-    // a source × rating grid behind the correlated counts.
-    var bySource = {}, byRating = {}, cell = {}, grandTotal = 0;
-    allCards.forEach(function (card) {
-      var s = card.getAttribute("data-source");
-      var r = card.getAttribute("data-rating");
-      grandTotal++;
-      bySource[s] = (bySource[s] || 0) + 1;
-      byRating[r] = (byRating[r] || 0) + 1;
-      cell[s + "|" + r] = (cell[s + "|" + r] || 0) + 1;
-    });
-
-    function sourceCount(name) {
-      return fState.rating
-        ? (cell[name + "|" + fState.rating] || 0)
-        : (bySource[name] || 0);
+    var jumpOpts = [];
+    if (jumpSel) {
+      Array.prototype.forEach.call(jumpSel.options, function (o) {
+        jumpOpts.push({ value: o.value, text: o.textContent });
+      });
     }
 
-    function ratingCount(rating) {
-      return fState.source
-        ? (cell[fState.source + "|" + rating] || 0)
-        : (byRating[rating] || 0);
+    // An item matches when it carries the active value of every active facet;
+    // "skip" leaves one facet out (that is how correlated counts are built).
+    function matches(meta, skip) {
+      for (var i = 0; i < facets.length; i++) {
+        var f = facets[i];
+        if (f !== skip && f.state && meta.vals[f.name] !== f.state) return false;
+      }
+      return true;
+    }
+
+    // counts[i][value] = items matching every other facet, broken down by
+    // facet i's own value; the "" bucket counts "any value of facet i".
+    function correlatedCounts() {
+      var out = facets.map(function () { return {}; });
+      metas.forEach(function (meta) {
+        facets.forEach(function (f, i) {
+          if (!matches(meta, f)) return;
+          var v = meta.vals[f.name];
+          out[i][""] = (out[i][""] || 0) + 1;
+          out[i][v] = (out[i][v] || 0) + 1;
+        });
+      });
+      return out;
     }
 
     // Labels only: the option list itself stays as rendered, so a value the
-    // user already picked can never disappear (and never be reset to "").
-    function updateSourceOptions() {
-      Array.prototype.forEach.call(srcSel.options, function (o, i) {
-        var from = srcOpts[i];
-        if (!from) return;
-        o.textContent = from.value === ""
-          ? "All sources (" + (fState.rating ? (byRating[fState.rating] || 0)
-                                            : grandTotal) + ")"
-          : from.value + " (" + sourceCount(from.value) + ")";
+    // user already picked can never disappear (and is never reset to "").
+    function updateOptionLabels(counts) {
+      facets.forEach(function (f, i) {
+        Array.prototype.forEach.call(f.sel.options, function (o) {
+          var n = counts[i][o.value] || 0;
+          o.textContent = o.value === ""
+            ? f.anyLabel + " (" + n + ")"
+            : o.value + f.suffix + " (" + n + ")";
+        });
+        f.sel.value = f.state;
       });
-      srcSel.value = fState.source;
-    }
-
-    function updateRatingOptions() {
-      if (!rateSel) return;
-      Array.prototype.forEach.call(rateSel.options, function (o, i) {
-        var from = rateOpts[i];
-        if (!from) return;
-        o.textContent = from.value === ""
-          ? "Any importance"
-          : from.value + "★ (" + ratingCount(from.value) + ")";
-      });
-      rateSel.value = fState.rating ? String(fState.rating) : "";
     }
 
     // Rebuild the day jump from the days that survived; unfiltered restores
@@ -2472,14 +2496,7 @@
       if (!jumpSel) return;
       var keep = jumpSel.value;
       while (jumpSel.options.length) jumpSel.remove(0);
-      if (!fState.source && !fState.rating) {
-        jumpOpts.forEach(function (o) {
-          var opt = document.createElement("option");
-          opt.value = o.value;
-          opt.textContent = o.text;
-          jumpSel.appendChild(opt);
-        });
-      } else {
+      if (anyActive()) {
         // Newest first, like the rendered accordion.
         visibleDates.slice().sort().reverse().forEach(function (date) {
           var opt = document.createElement("option");
@@ -2487,67 +2504,76 @@
           opt.textContent = date + (date === newest ? " (latest)" : "");
           jumpSel.appendChild(opt);
         });
+      } else {
+        jumpOpts.forEach(function (o) {
+          var opt = document.createElement("option");
+          opt.value = o.value;
+          opt.textContent = o.text;
+          jumpSel.appendChild(opt);
+        });
       }
       // Keep the user's day when it survived the filter, else fall back to the
       // rendered first day / the newest visible one.
       if (keep) jumpSel.value = keep;
       if (!jumpSel.value) {
-        jumpSel.value = (!fState.source && !fState.rating && jumpOpts.length)
-          ? jumpOpts[0].value : (newest || "");
+        jumpSel.value = anyActive()
+          ? (newest || "")
+          : (jumpOpts.length ? jumpOpts[0].value : "");
       }
     }
 
     function syncUrl() {
       try {
         var params = new URLSearchParams(location.search);
-        params.delete("source");
-        params.delete("rating");
-        if (fState.source) params.set("source", fState.source);
-        if (fState.rating) params.set("rating", String(fState.rating));
+        facets.forEach(function (f) { params.delete(f.name); });
+        facets.forEach(function (f) {
+          if (f.state) params.set(f.name, f.state);
+        });
         var qs = params.toString();
         history.replaceState(null, "", location.pathname + (qs ? "?" + qs : ""));
       } catch (e) {}   // file:// documents have an opaque origin and refuse this
     }
 
     function applyFilters() {
-      var filtered = !!(fState.source || fState.rating);
-      var visibleDates = [], newest = null, shownPosts = 0, shownDays = 0;
+      var filtered = anyActive();
+      var counts = correlatedCounts();
+      var shownItems = 0, shownDays = 0, newest = null;
+      var visibleDates = [];
+      var dayItems = [], dayGroups = [], groupShown = [];
+      var i;
+      for (i = 0; i < days.length; i++) {
+        dayItems.push(0);
+        dayGroups.push({});
+      }
+      for (i = 0; i < groups.length; i++) groupShown.push(false);
 
-      // Pass 1 — cards: a card shows only when it matches BOTH facets.
-      allCards.forEach(function (card) {
-        var okSource = !fState.source ||
-          card.getAttribute("data-source") === fState.source;
-        var okRating = !fState.rating ||
-          (parseInt(card.getAttribute("data-rating"), 10) || 0) === fState.rating;
-        setHidden(card, !(okSource && okRating));
-        if (okSource && okRating) shownPosts++;
+      // Pass 1 — items: shown only while matching every active facet.
+      metas.forEach(function (meta) {
+        var ok = matches(meta, null);
+        setHidden(meta.el, !ok);
+        if (!ok) return;
+        shownItems++;
+        if (meta.groupIdx >= 0) groupShown[meta.groupIdx] = true;
+        if (meta.dayIdx >= 0) {
+          dayItems[meta.dayIdx]++;
+          if (meta.groupIdx >= 0) dayGroups[meta.dayIdx][meta.groupIdx] = 1;
+        }
       });
 
-      // Pass 2 — a desk/day survives only while it still owns a visible card;
+      // Pass 2 — a group/day survives only while it still owns a visible item;
       // day-meta is rewritten from what is actually on screen.
-      allDays.forEach(function (day, i) {
-        var n = 0, blogs = {};
-        Array.prototype.forEach.call(
-          day.querySelectorAll("article.blog-card"), function (card) {
-            if (card.hasAttribute("hidden")) return;
-            n++;
-            blogs[card.getAttribute("data-source")] = 1;
-          });
-        Array.prototype.forEach.call(
-          day.querySelectorAll("section.desk"), function (desk) {
-            var any = Array.prototype.some.call(
-              desk.querySelectorAll("article.blog-card"),
-              function (card) { return !card.hasAttribute("hidden"); });
-            setHidden(desk, !any);
-          });
+      groups.forEach(function (g, gi) { setHidden(g, !groupShown[gi]); });
+      days.forEach(function (day, di) {
+        var n = dayItems[di];
         setHidden(day, n === 0);
-        if (metaText[i] && metaText[i].el) {
-          metaText[i].el.textContent = filtered
-            ? n + " post(s) · " + Object.keys(blogs).length + " blog(s)"
-            : metaText[i].text;
+        if (dayMeta[di].el) {
+          dayMeta[di].el.textContent = filtered
+            ? n + " " + itemNoun + "(s) · " +
+              Object.keys(dayGroups[di]).length + " " + groupNoun + "(s)"
+            : dayMeta[di].text;
         }
         if (n > 0) {
-          var date = day.getAttribute("data-day");
+          var date = day.getAttribute("data-day") || "";
           shownDays++;
           visibleDates.push(date);
           if (newest === null || date > newest) newest = date;
@@ -2557,7 +2583,7 @@
       // Pass 3 — open the newest matching day when the user left every day
       // collapsed, so filtering never lands on a seemingly empty page.
       var anyOpen = false;
-      allDays.forEach(function (day) {
+      days.forEach(function (day) {
         if (!day.hasAttribute("hidden") && day.open) anyOpen = true;
       });
       if (!anyOpen && newest) {
@@ -2566,66 +2592,59 @@
       }
 
       rebuildJump(visibleDates, newest);
-      updateSourceOptions();
-      updateRatingOptions();
+      updateOptionLabels(counts);
 
-      var desc = (fState.source || "All sources") + " · " +
-        (fState.rating ? fState.rating + "★" : "Any importance");
+      var desc = facets.map(function (f) {
+        return f.state ? f.state + f.suffix : f.anyLabel;
+      }).join(" · ");
       if (statusEl) {
-        statusEl.textContent = shownPosts === 0
-          ? desc + " — no matching posts"
-          : desc + " — " + shownPosts + " post" + (shownPosts === 1 ? "" : "s") +
-            " across " + shownDays + " day" + (shownDays === 1 ? "" : "s");
+        statusEl.textContent = shownItems === 0
+          ? desc + " — no matching " + itemNoun + "s"
+          : desc + " — " + shownItems + " " + itemNoun +
+            (shownItems === 1 ? "" : "s") + " across " + shownDays +
+            " day" + (shownDays === 1 ? "" : "s");
       }
-      setHidden(emptyEl, shownPosts !== 0);
+      setHidden(emptyEl, shownItems !== 0);
       setHidden(resetBtn, !filtered);
 
       syncUrl();
     }
 
-    // Seed from ?source=&rating= so a filtered view can be shared. Values that
-    // no longer exist (renamed blog, rating absent from history) are ignored
-    // rather than shown as a stale selection.
+    // Seed from the query string (?source=&rating= …) so a filtered view can
+    // be shared. Values not present in the rendered options (a renamed blog, a
+    // rating absent from history) are ignored rather than shown as stale.
     (function seedFromUrl() {
       var params;
       try { params = new URLSearchParams(location.search); } catch (e) { return; }
-      var wantSource = params.get("source") || "";
-      var wantRating = parseInt(params.get("rating"), 10) || 0;
-      var knownSource = false, knownRating = false;
-      srcOpts.forEach(function (o) {
-        if (o.value && o.value === wantSource) knownSource = true;
+      facets.forEach(function (f) {
+        var want = params.get(f.name) || "";
+        if (!want) return;
+        var known = false;
+        Array.prototype.forEach.call(f.sel.options, function (o) {
+          if (o.value && o.value === want) known = true;
+        });
+        f.state = known ? want : "";
       });
-      rateOpts.forEach(function (o) {
-        if (o.value && parseInt(o.value, 10) === wantRating) knownRating = true;
-      });
-      fState.source = knownSource ? wantSource : "";
-      fState.rating = knownRating ? wantRating : 0;
-      srcSel.value = fState.source;
-      if (rateSel) rateSel.value = fState.rating ? String(fState.rating) : "";
     })();
 
-    srcSel.addEventListener("change", function () {
-      fState.source = srcSel.value;
-      applyFilters();
-    });
-    if (rateSel) {
-      rateSel.addEventListener("change", function () {
-        fState.rating = parseInt(rateSel.value, 10) || 0;
+    facets.forEach(function (f) {
+      f.sel.addEventListener("change", function () {
+        f.state = f.sel.value;
         applyFilters();
       });
-    }
+    });
     if (resetBtn) {
       resetBtn.addEventListener("click", function () {
-        fState.source = "";
-        fState.rating = 0;
-        srcSel.value = "";
-        if (rateSel) rateSel.value = "";
+        facets.forEach(function (f) {
+          f.state = "";
+          f.sel.value = "";
+        });
         applyFilters();
       });
     }
 
     applyFilters();
-  }
+  })();
 
   // Per-item remove (✕), event-delegated from the list container.
   // BUG FIX: the old handler called ev.target.closest() directly — on mobile
