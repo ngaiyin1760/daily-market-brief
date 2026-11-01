@@ -14,6 +14,7 @@ unrecoverable errors (e.g. template rendering / writing output fails).
 import argparse
 import base64
 import calendar
+import difflib
 import json
 import logging
 import os
@@ -228,14 +229,97 @@ DEFAULT_TOP_N = 2
 DEFAULT_QUERY_WINDOW = "1d"
 
 
+# British -> American spellings canonicalized by normalize_title so the same
+# wire story filed from two bureaus still dedups. Deliberately short: every
+# entry must be an unambiguous spelling of ONE word, or genuinely different
+# headlines could collide — a false merge silently drops a real story.
+_TITLE_VARIANTS = {
+    "centre": "center", "colour": "color", "labour": "labor",
+    "defence": "defense", "programme": "program",
+    "organisation": "organization", "metre": "meter", "licence": "license",
+}
+
+
 def normalize_title(title):
-    """Normalize a headline for cross-category dedup: lowercase, strip the
-    trailing " - <Source>" suffix Google News appends, remove punctuation and
-    extra whitespace."""
+    """Normalize a headline into its dedup key (also used for the NEW tag).
+
+    Lowercase; strip the trailing " - <Source>" suffix Google News appends,
+    in any separator form (" - ", " – ", " — ", " | "); fold "&" to "and";
+    drop apostrophes outright ("Intel's" -> "intels", matching what the
+    summarizer echoes back); remove the remaining punctuation; and map the
+    short, unambiguous British->American list above so "Defence" and
+    "Defense" copies of one story compare equal. Conservative by design —
+    this is a same-story key, so a false merge costs a real story.
+    """
     t = title.lower()
-    t = re.sub(r"\s+-\s+[^-]{1,80}$", "", t)  # trailing " - Source"
+    t = re.sub(r"\s+[-–—|]\s+[^-–—|]{1,80}$", "", t)  # trailing " - Source"
+    t = t.replace("&", " and ")
+    t = t.replace("'", "").replace("’", "")
     t = re.sub(r"[^a-z0-9 ]+", " ", t)
-    return re.sub(r"\s+", " ", t).strip()
+    return " ".join(_TITLE_VARIANTS.get(w, w) for w in t.split())
+
+
+def article_link_key(link):
+    """Story-identity key from a candidate's link: the Google News article
+    token (the /articles/<token> fragment), which is stable for one story
+    across every category feed it appears in — stronger identity than the
+    title. Falls back to the whole URL when there is no token (Bing fallback
+    or publisher links). Empty string for an empty link.
+
+    The token is only read off a Google News link. A PUBLISHER url can
+    itself contain "/articles/<date>/" (Bloomberg, Yahoo, BBC), and reading
+    a date as a token would collapse every story that publisher filed that
+    day to one key — silently hiding real stories as "already published"."""
+    link = (link or "").strip()
+    if not link:
+        return ""
+    if urllib.parse.urlparse(link).netloc.endswith("news.google.com"):
+        m = re.search(r"/articles/([^/?#]+)", link)
+        if m:
+            return m.group(1)
+    return link
+
+
+# Similarity floor for treating two normalized titles as the same story.
+# Strict on purpose: a false positive silently drops a real, distinct story,
+# while a false negative only lets a differently-worded repeat through.
+NEAR_DUP_RATIO = 0.92
+
+
+def _near_duplicate(key, keys):
+    """The first key in `keys` that is a conservative near-duplicate of
+    `key` (wording/spelling variants of one story), else None. Cheap
+    prefilters run before SequenceMatcher.ratio(): a length gate, then the
+    real_quick_ratio()/quick_ratio() upper bounds, so scanning the ~100
+    claimed keys per candidate stays fast."""
+    for other in keys:
+        if abs(len(key) - len(other)) > 0.25 * max(len(key), len(other), 1):
+            continue
+        matcher = difflib.SequenceMatcher(None, key, other)
+        if matcher.real_quick_ratio() < NEAR_DUP_RATIO:
+            continue
+        if matcher.quick_ratio() < NEAR_DUP_RATIO:
+            continue
+        if matcher.ratio() >= NEAR_DUP_RATIO:
+            return other
+    return None
+
+
+def is_claimed(item, claimed_keys, claimed_links=frozenset()):
+    """True when `item` is the same story as something already claimed:
+    its Google News article token is in `claimed_links`, its normalized
+    title is exactly in `claimed_keys`, or its title is a conservative
+    near-duplicate of a claimed key (see NEAR_DUP_RATIO — erring strict,
+    since a false positive silently drops a real story)."""
+    token = article_link_key(item.get("link", ""))
+    if token and token in claimed_links:
+        return True
+    key = item.get("_key") or normalize_title(item.get("title", ""))
+    if not key:
+        return False
+    if key in claimed_keys:
+        return True
+    return _near_duplicate(key, claimed_keys) is not None
 
 
 # Hard freshness cutoff: the brief only ever shows stories published within
@@ -326,15 +410,18 @@ def prepare_candidates(candidates, claimed, now):
     HARD freshness cutoff: items older than 24 hours, or with no parseable
     publish time, are dropped outright — a category runs short rather than
     showing stale news. Within the 24h window:
-    - Within-category dedup: drop exact normalized-title repeats (Google News
-      clusters the same story across outlets), keeping the copy from the
-      best-tier outlet (newest copy breaks ties). Items with empty/missing
-      titles BYPASS dedup and are never dropped.
-    - Cross-category/cross-day dedup: titles already claimed by an earlier
-      category or a previous day's brief are DEMOTED, not dropped —
-      preference order is non-duplicates before duplicates, then source tier
-      (Tier 1 -> 2 -> 3 -> unranked), then recency. A dupe is only used when
-      nothing unique can fill the category's slots.
+    - Within-category dedup: merge exact AND near-duplicate normalized-title
+      repeats (Google News clusters the same story across outlets, sometimes
+      with wording variants), keeping the copy from the best-tier outlet
+      (newest copy breaks ties). Items with empty/missing titles BYPASS
+      dedup and are never dropped.
+    - Cross-day dedup: titles claimed by a previous day's brief (`claimed`)
+      are DEMOTED, not dropped — preference order is non-duplicates before
+      duplicates, then source tier (Tier 1 -> 2 -> 3 -> unranked), then
+      recency. A dupe is only used when nothing unique can fill the
+      category's slots. (Same-day repeats are handled separately: main()
+      hard-drops them unconditionally AFTER this ordering, so a category
+      runs short rather than repeating a story already published today.)
     Returns (ordered_candidates, stats_dict).
     """
     seen_local = {}
@@ -347,11 +434,15 @@ def prepare_candidates(candidates, claimed, now):
             continue
         key = normalize_title(item["title"])
         if key:
-            if key in seen_local:
+            idx = seen_local.get(key)
+            if idx is None:
+                near = _near_duplicate(key, seen_local)
+                if near is not None:
+                    idx = seen_local[near]
+            if idx is not None:
                 # Same story from another outlet — keep the copy from the
                 # best-tier source (newer copy breaks a tie), not just the
                 # first one the feed happened to list.
-                idx = seen_local[key]
                 kept = unique[idx]
                 if (source_tier(item), -item["_ts"]) < \
                         (source_tier(kept), -kept["_ts"]):
@@ -390,11 +481,14 @@ CROSS_DAY_DEDUP_DAYS = 3
 
 def load_recent_titles(page_date_str, days=CROSS_DAY_DEDUP_DAYS):
     """Normalized titles from the previous `days` daily briefs. Used to seed
-    cross-category dedup so a story already covered on an earlier day ranks
+    cross-day dedup so a story already covered on an earlier day ranks
     below anything fresh — it can still fill a slot as a last resort, so a
-    category never goes empty, but routine repeats across days are avoided.
-    Today's own file is deliberately NOT loaded: re-running the same day
-    regenerates that day's brief and must not exclude its own picks."""
+    category never goes empty over a repeat from a previous day, but routine
+    repeats across days are avoided. Title-only on purpose: published items
+    carry resolved PUBLISHER urls, so their Google News article tokens are
+    not recoverable for a link-key claim set. Today's own file is
+    deliberately NOT loaded: re-running the same day regenerates that day's
+    brief and must not exclude its own picks."""
     titles = set()
     try:
         base = datetime.strptime(page_date_str, "%Y-%m-%d")
@@ -1252,12 +1346,31 @@ def _publisher_link(cand, fallback):
 
 
 def heuristic_summarize(candidates, top_n=DEFAULT_TOP_N):
-    """Fallback: top N by recency. Bullets come from the best available text
-    (extracted article content, else cleaned RSS summary) — never the title.
-    Each item links to the publisher URL, resolved on demand when the story
-    sits outside the extraction window, else to the Google News link."""
+    """Fallback: top N by the ranked order. Bullets come from the best
+    available text (extracted article content, else cleaned RSS summary) —
+    never the title. Each item links to the publisher URL, resolved on
+    demand when the story sits outside the extraction window, else to the
+    Google News link.
+    Publisher diversity is a preference, not a cap: when enough distinct
+    publishers exist to fill the slots, a second story from an already-used
+    outlet is skipped in favour of the next distinct one; a beat one outlet
+    legitimately dominates still fills from it."""
+    picked = []
+    used_sources = set()
+    distinct = {normalize_source(c.get("source")) for c in candidates}
+    prefer_distinct = len(distinct) >= top_n
+    for item in candidates:
+        if len(picked) >= top_n:
+            break
+        src = normalize_source(item.get("source"))
+        if prefer_distinct and src and src in used_sources:
+            continue
+        picked.append(item)
+        used_sources.add(src)
+    if len(picked) < min(top_n, len(candidates)):
+        picked = list(candidates[:top_n])
     out = []
-    for item in candidates[:top_n]:
+    for item in picked:
         if item.get("content"):
             bullets = [condense_text(item["content"])]
         elif item["summary"]:
@@ -1282,6 +1395,7 @@ def heuristic_summarize(candidates, top_n=DEFAULT_TOP_N):
 GEMINI_PROMPT = """You are a financial news analyst. Below are candidate news items for the category "{label}". Each candidate includes the article content (extracted full text where available, otherwise the RSS snippet).
 
 Pick the {n} most important stories for a finance professional. For each, write exactly 2 bullet points and assign an importance rating from 1 (minor) to 5 (market-moving).
+When two candidates are of comparable importance, prefer a different publisher over a second story from one you have already chosen — this is a tie-breaker only, never a reason to drop a genuinely more important story.
 
 The bullet points MUST be digested from the provided article content: capture key facts, numbers, and implications for investors. They must add value beyond the headline — NEVER merely rephrase or restate the title. Each bullet should be one to two full sentences (roughly 25-40 words): substantive enough to stand on its own, but no padding or repetition.
 
@@ -3927,7 +4041,8 @@ def load_econ_current(months, current):
 def render_pages(template, page_date, generated_at, snapshot, takeaways,
                  news, groups, hero=None, new_count=0, day_importance=None,
                  day_verdict=None, weekly=None, weekly_obj=None,
-                 cb_alert=None, cb_upcoming=None, cb_results=None):
+                 cb_alert=None, cb_upcoming=None, cb_results=None,
+                 run_health=None):
     from jinja2 import Environment, FileSystemLoader, select_autoescape
 
     env = Environment(
@@ -4003,6 +4118,10 @@ def render_pages(template, page_date, generated_at, snapshot, takeaways,
 
     # Raw structured data for debugging. Indicator series are NOT included
     # (they live in data/indicators.json) so day files stay small.
+    # run_health records how degraded the run was (short/empty categories,
+    # repeats refused, fallback coverage, extraction/link coverage) — the
+    # step summary is ephemeral, so without this a thin day is undiagnosable
+    # after the fact.
     raw = {
         "date": page_date,
         "generated_at": generated_at,
@@ -4016,6 +4135,7 @@ def render_pages(template, page_date, generated_at, snapshot, takeaways,
         "cb_results": cb_results or [],
         "categories": news,
         "indicator_groups": indicator_summary(groups),
+        "run_health": run_health or {},
     }
     data_path = DATA_DIR / f"{page_date}.json"
     data_path.write_text(json.dumps(raw, indent=2, ensure_ascii=False),
@@ -4328,7 +4448,7 @@ def check_outputs(page_date, generated_at, news, groups):
 def print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
                   problems, analytics_blogs=None, repos=None,
                   cb_alert=None, cb_upcoming=None, cb_results=None,
-                  econ_stats=None):
+                  econ_stats=None, run_health=None):
     """Console + GitHub Actions step-summary report of the run."""
     ind_ok = sum(1 for gr in groups for it in gr["items"]
                  if it["last"] is not None)
@@ -4380,6 +4500,20 @@ def print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
         lines.append(
             f"- **Fallback news:** {len(RSS_FALLBACK_CATEGORIES)} of "
             f"{len(news or [])} categories served by Bing News")
+    # Same rule for the run-health lines: appended only when non-zero, so a
+    # healthy run's summary reads exactly as it did before run_health existed.
+    rh = run_health or {}
+    if rh.get("repeats_refused"):
+        refused = rh["repeats_refused"]
+        detail = ", ".join(f"{cid}: {n}" for cid, n in refused.items())
+        lines.append(f"- **Repeats refused:** {sum(refused.values())} "
+                     f"candidate(s) dropped as already published today "
+                     f"({detail})")
+    if rh.get("short"):
+        detail = ", ".join(f"{cid}: {n}" for cid, n in rh["short"].items())
+        lines.append(f"- **Short categories:** {detail}")
+    if rh.get("empty"):
+        lines.append(f"- **Empty categories:** {', '.join(rh['empty'])}")
     lines.append(f"- **Check:** {'FAILED' if problems else 'PASS'}")
     if problems:
         lines.append("")
@@ -4414,8 +4548,18 @@ def main():
 
     news = []
     # Cross-day dedup: titles from the previous days' briefs are "claimed"
-    # up front, so repeat stories rank below fresh ones in every category.
-    claimed_titles = load_recent_titles(page_date)
+    # up front, so repeat stories rank below fresh ones in every category
+    # and fill a slot only as the last resort.
+    claimed_recent = load_recent_titles(page_date)
+    # Same-day dedup is a hard guarantee instead: a story published by an
+    # earlier category of THIS run is never repeated — the category runs
+    # short (even empty) instead. Identity is checked on the normalized
+    # title (plus a conservative near-duplicate fallback) AND the Google
+    # News article token, which is stable for one story across categories.
+    claimed_today = set()        # normalized title keys published today
+    claimed_today_links = set()  # article tokens published today
+    repeats_refused = {}         # category id -> candidates hard-dropped
+    cross_day_demoted = 0        # candidates demoted as previous-day repeats
     # Yesterday's titles only — for the "NEW" tag on first-appearance stories.
     yesterday_titles = load_day_titles(page_date, offset=1)
     new_count = 0
@@ -4433,21 +4577,43 @@ def main():
     for category in CATEGORIES:
         top_n = category.get("top_n", DEFAULT_TOP_N)
         candidates = fetch_category_news(category)
-        candidates, stats = prepare_candidates(candidates, claimed_titles, now)
-        # Hard-drop repeat stories (earlier category today, or a previous
-        # day's brief) whenever enough unique candidates remain to fill the
-        # slots — a repeat only survives as the absolute last resort.
+        candidates, stats = prepare_candidates(candidates, claimed_recent, now)
+        cross_day_demoted += stats["cross_dupes"]
+        # Same-day dedup is unconditional: drop every candidate already
+        # published by an earlier category of this run, however thin the
+        # pool gets — a category runs short rather than repeating a story.
+        fresh = [c for c in candidates
+                 if not is_claimed(c, claimed_today, claimed_today_links)]
+        refused = len(candidates) - len(fresh)
+        if refused:
+            repeats_refused[category["id"]] = refused
+            log.warning("%s: refused %d candidate(s) already published by an "
+                        "earlier category today — running short rather than "
+                        "repeating a story", category["label"], refused)
+        candidates = fresh
+        # Cross-day repeats stay a last resort: drop them only when enough
+        # non-repeats remain to fill the category's slots.
         unique_candidates = [c for c in candidates
-                             if not (c["_key"] and c["_key"] in claimed_titles)]
+                             if not (c["_key"] and c["_key"] in claimed_recent)]
         if len(unique_candidates) >= top_n:
             candidates = unique_candidates
         log.info(
             "%s: %d candidates within 24h (%d stale/undated dropped, "
             "tier1/2/3: %d/%d/%d); "
-            "%d cross-category dupe(s) demoted, %d within-category dupe(s) dropped",
+            "%d cross-day dupe(s) demoted, %d within-category dupe(s) dropped",
             category["label"], stats["candidates"], stats["stale_dropped"],
             stats["tier1"], stats["tier2"], stats["tier3"],
             stats["cross_dupes"], stats["within_dropped"])
+        # Index candidates by both title forms so each published item can be
+        # matched back to its candidate — the article token lives on the
+        # candidate's link, and the model's echoed title differs from the
+        # candidate's only by the Google " - Publisher" suffix.
+        cand_by_title = {}
+        for c in candidates:
+            for k in (_title_key(c.get("title")),
+                      _title_key(c.get("title"), c.get("source"))):
+                if k:
+                    cand_by_title.setdefault(k, c)
         attach_article_texts(category, candidates)
         items = summarize_category(category, candidates)
         if items and any(c.get("_fallback") for c in candidates):
@@ -4461,7 +4627,13 @@ def main():
             if item["is_new"]:
                 new_count += 1
             if key:
-                claimed_titles.add(key)
+                claimed_today.add(key)
+            cand = (cand_by_title.get(
+                        _title_key(item["title"], item.get("source")))
+                    or cand_by_title.get(_title_key(item["title"])))
+            token = article_link_key(cand.get("link", "")) if cand else ""
+            if token:
+                claimed_today_links.add(token)
         # All selected items are within the 24h window by construction.
         log.info("%s: selected %d/%d items (all within 24h)",
                  category["label"], len(items), top_n)
@@ -4474,6 +4646,39 @@ def main():
             "label": category["label"],
             "items": items,
         })
+
+    # Health record of the run, committed into the day JSON (render_pages)
+    # and echoed in the step summary — the only durable answer to "why was
+    # this day thin?". Degraded means: Bing served any category, any
+    # category ran short or empty, any same-day repeat was refused, or
+    # article extraction yielded nothing.
+    ex_att, ex_ok = (ARTICLE_EXTRACT_STATS["attempted"],
+                     ARTICLE_EXTRACT_STATS["extracted"])
+    link_att, link_ok = (PUBLISHER_LINK_STATS["attempted"],
+                         PUBLISHER_LINK_STATS["resolved"])
+    ai_ok, ai_heur = AI_SUMMARIES["ok"], AI_SUMMARIES["heuristic"]
+    top_n_of = {c["id"]: c.get("top_n", DEFAULT_TOP_N) for c in CATEGORIES}
+    run_health = {
+        "items": sum(len(c["items"]) for c in news),
+        "categories": len(news),
+        "short": {c["id"]: len(c["items"]) for c in news
+                  if 0 < len(c["items"]) < top_n_of.get(c["id"], 0)},
+        "empty": [c["id"] for c in news if not c["items"]],
+        "repeats_refused": repeats_refused,
+        "cross_day_demoted": cross_day_demoted,
+        "fallback_categories": sorted(RSS_FALLBACK_CATEGORIES),
+        "extraction": f"{ex_ok}/{ex_att}",
+        "publisher_links": f"{link_ok}/{link_att}",
+        "ai_summaries": f"{ai_ok}/{ai_ok + ai_heur} AI"
+                        + (f", {ai_heur} heuristic" if ai_heur else ""),
+    }
+    run_health["degraded"] = bool(
+        run_health["fallback_categories"] or run_health["empty"]
+        or run_health["short"] or repeats_refused
+        or (ex_att > 0 and ex_ok == 0))
+    if run_health["degraded"]:
+        log.warning("Run health: DEGRADED (%s)",
+                    json.dumps(run_health, ensure_ascii=False))
 
     takeaways = build_takeaways(news)
     log.info("Takeaways: %d bullets", len(takeaways))
@@ -4555,7 +4760,8 @@ def main():
                  takeaways, news, groups, hero=hero, new_count=new_count,
                  day_importance=day_importance, day_verdict=day_verdict,
                  weekly_obj=weekly, cb_alert=cb_alert,
-                 cb_upcoming=cb_upcoming, cb_results=cb_results)
+                 cb_upcoming=cb_upcoming, cb_results=cb_results,
+                 run_health=run_health)
     render_analytics_page(page_date, generated_at, analytics_blogs)
     render_repo_radar_page(page_date, generated_at, repos)
     render_search_page(generated_at)
@@ -4565,7 +4771,7 @@ def main():
     print_summary(page_date, generated_at, news, takeaways, groups, snapshot,
                   problems, analytics_blogs, repos, cb_alert=cb_alert,
                   cb_upcoming=cb_upcoming, cb_results=cb_results,
-                  econ_stats=econ_stats)
+                  econ_stats=econ_stats, run_health=run_health)
     if problems:
         for p in problems:
             log.error("CHECK FAIL: %s", p)

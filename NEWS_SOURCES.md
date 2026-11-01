@@ -15,6 +15,32 @@ the ranking lives in `generate.py` (`TIER_1_SOURCES`, `TIER_2_SOURCES`,
 So a Tier 1 story published 23 hours ago beats a Tier 2 story published
 minutes ago. Only within the same tier does timeliness decide.
 
+Step 1 has two different rules for the two kinds of duplicate:
+
+- **Same day, earlier category: never repeated.** A story already published
+  by an earlier category of the same run is dropped outright, even if that
+  leaves the category short — or empty. The brief degrades by running short,
+  never by showing the same story twice in one day.
+- **Previous 3 days: demoted, last resort.** A story published on a recent
+  day sinks to the bottom of the ranking and is used only when nothing else
+  can fill the slots.
+
+Sameness is decided on two keys: the normalized title — with a conservative
+near-duplicate fallback so a reworded or respelled copy of the same story
+still matches — and the article link key, which is the `/articles/<token>`
+fragment of a **Google News** link (stable across Google's category feeds,
+and the stronger of the two) or, for a link that is not Google's (a
+Bing-fallback item), the whole URL. The token is never read off a publisher
+URL: those can contain `/articles/<date>/`, and a date read as a token would
+mark every story that publisher filed that day as already published.
+
+Within a category, **distinct publishers are preferred**: when two candidates
+are of comparable importance, the one from an outlet not already chosen in
+that category wins. This is a preference, not a cap — a single outlet may
+still fill both slots on a beat it legitimately dominates (Hong Kong → SCMP
+has done so for days), and it may never cost a genuinely more important
+story.
+
 The feed is fetched with a Google News recency operator (`when:1d` by
 default — `DEFAULT_QUERY_WINDOW` in `generate.py`; `ai-research` overrides
 it to `when:2d`). Google News ranks by relevance across all time, so a query
@@ -137,3 +163,9 @@ papers.
   matching set in `generate.py`, and add a row here.
 - A source can move down if its quality drops — move the key, not the rule.
 - Never add content farms or syndication spam; unranked exists for a reason.
+- `normalize_title` in `generate.py` is the dedup key: its canonicalization
+  (suffix stripping, `&`→`and`, the British→American word list) governs
+  which headline variants count as the same story. Widen it and distinct
+  stories start colliding; narrow it and reworded copies leak through —
+  change it conservatively, and keep the near-duplicate fallback in mind as
+  the second line of defence.

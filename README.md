@@ -7,9 +7,9 @@ across 13 finance categories — tech desks first (Global Technology, Global AI,
 China AI, AI Research, semis, EVs, data centers, space & aerospace), then macro
 desks (global macro, equities, fixed income, China, Hong Kong).
 Top 3 for Global Economy, top 2 for each other category, deduplicated across
-categories so each story appears exactly once. Only stories published within
-the past 24 hours are ever shown — a category runs short rather than showing
-stale news.
+categories so a story never appears twice in the same brief — a category runs
+short (or even empty) rather than repeating one. Only stories published within
+the past 24 hours are ever shown — the same rule applies to stale news.
 
 Daily pages are all about the news: a snapshot ticker of the day's key moves
 (with 1-month trend arrows), a **Day importance banner** (1–5★ telling you at a
@@ -117,8 +117,10 @@ the model (default `gemini-3.1-flash-lite`).
 
 - `generate.py` fetches Google News RSS per category, picks/rates the top N
   stories (3 for Global Economy, 2 for other categories; Gemini or heuristic
-  fallback per category on any failure; cross-category title dedup so each
-  story appears once; a hard 24-hour age cutoff so nothing stale is ever
+  fallback per category on any failure; same-day cross-category dedup keyed on
+  the normalized title and the Google News article token so each story appears
+  at most once — repeats from the previous 3 days are only demoted to a last
+  resort; a hard 24-hour age cutoff so nothing stale is ever
   shown). Sources are ranked by tier — Tier 1 → 2 → 3 → unranked — and tier
   outranks timeliness (see `NEWS_SOURCES.md`), pulls
   up to 10 years of daily closes per ticker via yfinance (US 2Y yield from
@@ -149,8 +151,10 @@ the model (default `gemini-3.1-flash-lite`).
   `docs/data/indicators.json`), `docs/archive.html` (saved stories),
   `docs/manifest.json` (date list used by the sidebar on every page, so old
   pages automatically see new days), and `docs/data/YYYY-MM-DD.json` (raw
-  structured data for debugging; indicator closes live only in
-  `data/indicators.json`).
+  structured data for debugging — including a `run_health` block that records
+  how the run degraded on a thin day: short/empty categories, repeats refused,
+  Bing-fallback categories, extraction and publisher-link coverage; indicator
+  closes live only in `data/indicators.json`).
 - Indicator fetch failures (e.g. yfinance rate-limiting) are non-fatal and
   render as `n/a`.
 - **Central Bank Watch**: pulls the public TradingView economic calendar (no
