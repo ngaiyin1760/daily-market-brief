@@ -1,6 +1,6 @@
 {
  "month": "2026-12",
- "updated": "2026-11-01 09:07 HKT",
+ "updated": "2026-11-02 09:29 HKT",
  "events": [
   {
    "ts": "2026-12-01T00:00:00.000Z",
@@ -32,7 +32,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 51.3,
    "category": ""
   },
   {
@@ -48,17 +48,6 @@
   },
   {
    "ts": "2026-12-01T04:00:00.000Z",
-   "title": "Inflation Rate YoY",
-   "country": "ID",
-   "currency": "IDR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "prce"
-  },
-  {
-   "ts": "2026-12-01T04:00:00.000Z",
    "title": "Balance of Trade",
    "country": "ID",
    "currency": "IDR",
@@ -67,6 +56,17 @@
    "forecast": null,
    "previous": null,
    "category": "trd"
+  },
+  {
+   "ts": "2026-12-01T04:00:00.000Z",
+   "title": "Inflation Rate YoY",
+   "country": "ID",
+   "currency": "IDR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "prce"
   },
   {
    "ts": "2026-12-01T05:30:00.000Z",
@@ -92,17 +92,6 @@
   },
   {
    "ts": "2026-12-01T07:00:00.000Z",
-   "title": "GDP Growth Rate QoQ",
-   "country": "TR",
-   "currency": "TRY",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 1.1,
-   "category": "gdp"
-  },
-  {
-   "ts": "2026-12-01T07:00:00.000Z",
    "title": "GDP Growth Rate YoY",
    "country": "TR",
    "currency": "TRY",
@@ -110,6 +99,17 @@
    "actual": null,
    "forecast": null,
    "previous": 2.3,
+   "category": "gdp"
+  },
+  {
+   "ts": "2026-12-01T07:00:00.000Z",
+   "title": "GDP Growth Rate QoQ",
+   "country": "TR",
+   "currency": "TRY",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 1.1,
    "category": "gdp"
   },
   {
@@ -312,17 +312,6 @@
   },
   {
    "ts": "2026-12-02T00:30:00.000Z",
-   "title": "GDP Growth Rate YoY",
-   "country": "AU",
-   "currency": "AUD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 2.1,
-   "category": "gdp"
-  },
-  {
-   "ts": "2026-12-02T00:30:00.000Z",
    "title": "GDP Growth Rate QoQ",
    "country": "AU",
    "currency": "AUD",
@@ -333,6 +322,17 @@
    "category": "gdp"
   },
   {
+   "ts": "2026-12-02T00:30:00.000Z",
+   "title": "GDP Growth Rate YoY",
+   "country": "AU",
+   "currency": "AUD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 2.1,
+   "category": "gdp"
+  },
+  {
    "ts": "2026-12-02T05:00:00.000Z",
    "title": "Consumer Confidence",
    "country": "JP",
@@ -340,8 +340,140 @@
    "importance": 1,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 35.0,
    "category": "cnsm"
+  },
+  {
+   "ts": "2026-12-02T07:30:00.000Z",
+   "title": "Inflation Rate YoY",
+   "country": "CH",
+   "currency": "CHF",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-12-02T08:00:00.000Z",
+   "title": "Unemployment Change",
+   "country": "ES",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-12-02T09:00:00.000Z",
+   "title": "Unemployment Rate",
+   "country": "IT",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 6.3,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-12-02T10:00:00.000Z",
+   "title": "Unemployment Rate",
+   "country": "EU",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 6.5,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-12-02T12:00:00.000Z",
+   "title": "MBA 30-Year Mortgage Rate",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "hse"
+  },
+  {
+   "ts": "2026-12-02T12:00:00.000Z",
+   "title": "GDP Growth Rate YoY",
+   "country": "BR",
+   "currency": "BRL",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 2.0,
+   "category": "gdp"
+  },
+  {
+   "ts": "2026-12-02T12:00:00.000Z",
+   "title": "GDP Growth Rate QoQ",
+   "country": "BR",
+   "currency": "BRL",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 0.5,
+   "category": "gdp"
+  },
+  {
+   "ts": "2026-12-02T13:15:00.000Z",
+   "title": "ADP Employment Change",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-12-02T14:00:00.000Z",
+   "title": "Interest Rate Decision",
+   "country": "PL",
+   "currency": "PLN",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "mny"
+  },
+  {
+   "ts": "2026-12-02T15:30:00.000Z",
+   "title": "EIA Crude Oil Stocks Change",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "enrg"
+  },
+  {
+   "ts": "2026-12-02T15:30:00.000Z",
+   "title": "EIA Gasoline Stocks Change",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "enrg"
+  },
+  {
+   "ts": "2026-12-02T16:00:00.000Z",
+   "title": "Unemployment Rate",
+   "country": "RU",
+   "currency": "RUB",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 2.2,
+   "category": "lbr"
   }
  ]
 }
