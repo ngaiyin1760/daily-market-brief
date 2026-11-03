@@ -1,6 +1,6 @@
 {
  "month": "2026-12",
- "updated": "2026-11-02 09:29 HKT",
+ "updated": "2026-11-03 11:28 HKT",
  "events": [
   {
    "ts": "2026-12-01T00:00:00.000Z",
@@ -15,17 +15,6 @@
   },
   {
    "ts": "2026-12-01T00:30:00.000Z",
-   "title": "Building Permits MoM Prel",
-   "country": "AU",
-   "currency": "AUD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "hse"
-  },
-  {
-   "ts": "2026-12-01T00:30:00.000Z",
    "title": "S&P Global Manufacturing PMI",
    "country": "KR",
    "currency": "KRW",
@@ -36,6 +25,17 @@
    "category": ""
   },
   {
+   "ts": "2026-12-01T00:30:00.000Z",
+   "title": "Building Permits MoM Prel",
+   "country": "AU",
+   "currency": "AUD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "hse"
+  },
+  {
    "ts": "2026-12-01T01:45:00.000Z",
    "title": "RatingDog Manufacturing PMI",
    "country": "CN",
@@ -43,7 +43,7 @@
    "importance": 1,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 52.0,
    "category": ""
   },
   {
@@ -54,7 +54,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 3.36,
    "category": "trd"
   },
   {
@@ -65,7 +65,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 3.23,
    "category": "prce"
   },
   {
@@ -87,7 +87,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 49.9,
    "category": ""
   },
   {
@@ -120,7 +120,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 52.2,
    "category": ""
   },
   {
@@ -131,7 +131,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 56.7,
    "category": ""
   },
   {
@@ -142,8 +142,19 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 49.4,
    "category": ""
+  },
+  {
+   "ts": "2026-12-01T09:30:00.000Z",
+   "title": "GDP Growth Rate YoY",
+   "country": "ZA",
+   "currency": "ZAR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 0.9,
+   "category": "gdp"
   },
   {
    "ts": "2026-12-01T09:30:00.000Z",
@@ -157,15 +168,15 @@
    "category": "gdp"
   },
   {
-   "ts": "2026-12-01T09:30:00.000Z",
-   "title": "GDP Growth Rate YoY",
-   "country": "ZA",
-   "currency": "ZAR",
-   "importance": 0,
+   "ts": "2026-12-01T10:00:00.000Z",
+   "title": "Inflation Rate YoY Flash",
+   "country": "EU",
+   "currency": "EUR",
+   "importance": 1,
    "actual": null,
    "forecast": null,
-   "previous": 0.9,
-   "category": "gdp"
+   "previous": null,
+   "category": "prce"
   },
   {
    "ts": "2026-12-01T10:00:00.000Z",
@@ -184,17 +195,6 @@
    "country": "EU",
    "currency": "EUR",
    "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "prce"
-  },
-  {
-   "ts": "2026-12-01T10:00:00.000Z",
-   "title": "Inflation Rate YoY Flash",
-   "country": "EU",
-   "currency": "EUR",
-   "importance": 1,
    "actual": null,
    "forecast": null,
    "previous": null,
@@ -230,7 +230,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 49.6,
    "category": ""
   },
   {
@@ -252,7 +252,7 @@
    "importance": 1,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 55.5,
    "category": "bsnss"
   },
   {
@@ -263,7 +263,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 52.4,
    "category": "bsnss"
   },
   {
@@ -307,19 +307,8 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 2.8,
    "category": "prce"
-  },
-  {
-   "ts": "2026-12-02T00:30:00.000Z",
-   "title": "GDP Growth Rate QoQ",
-   "country": "AU",
-   "currency": "AUD",
-   "importance": 1,
-   "actual": null,
-   "forecast": null,
-   "previous": 0.4,
-   "category": "gdp"
   },
   {
    "ts": "2026-12-02T00:30:00.000Z",
@@ -330,6 +319,17 @@
    "actual": null,
    "forecast": null,
    "previous": 2.1,
+   "category": "gdp"
+  },
+  {
+   "ts": "2026-12-02T00:30:00.000Z",
+   "title": "GDP Growth Rate QoQ",
+   "country": "AU",
+   "currency": "AUD",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": 0.4,
    "category": "gdp"
   },
   {
@@ -389,17 +389,6 @@
   },
   {
    "ts": "2026-12-02T12:00:00.000Z",
-   "title": "MBA 30-Year Mortgage Rate",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "hse"
-  },
-  {
-   "ts": "2026-12-02T12:00:00.000Z",
    "title": "GDP Growth Rate YoY",
    "country": "BR",
    "currency": "BRL",
@@ -419,6 +408,17 @@
    "forecast": null,
    "previous": 0.5,
    "category": "gdp"
+  },
+  {
+   "ts": "2026-12-02T12:00:00.000Z",
+   "title": "MBA 30-Year Mortgage Rate",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "hse"
   },
   {
    "ts": "2026-12-02T13:15:00.000Z",
@@ -474,6 +474,138 @@
    "forecast": null,
    "previous": 2.2,
    "category": "lbr"
+  },
+  {
+   "ts": "2026-12-03T00:30:00.000Z",
+   "title": "Balance of Trade",
+   "country": "AU",
+   "currency": "AUD",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "trd"
+  },
+  {
+   "ts": "2026-12-03T01:45:00.000Z",
+   "title": "RatingDog Services PMI",
+   "country": "CN",
+   "currency": "CNY",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
+  },
+  {
+   "ts": "2026-12-03T07:00:00.000Z",
+   "title": "Inflation Rate MoM",
+   "country": "TR",
+   "currency": "TRY",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-12-03T07:00:00.000Z",
+   "title": "Inflation Rate YoY",
+   "country": "TR",
+   "currency": "TRY",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-12-03T08:00:00.000Z",
+   "title": "ECB General Council Meeting",
+   "country": "EU",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "mny"
+  },
+  {
+   "ts": "2026-12-03T08:15:00.000Z",
+   "title": "S&P Global Services PMI",
+   "country": "ES",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
+  },
+  {
+   "ts": "2026-12-03T08:45:00.000Z",
+   "title": "S&P Global Services PMI",
+   "country": "IT",
+   "currency": "EUR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
+  },
+  {
+   "ts": "2026-12-03T12:00:00.000Z",
+   "title": "Industrial Production MoM",
+   "country": "BR",
+   "currency": "BRL",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "bsnss"
+  },
+  {
+   "ts": "2026-12-03T13:00:00.000Z",
+   "title": "S&P Global Services PMI",
+   "country": "BR",
+   "currency": "BRL",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": ""
+  },
+  {
+   "ts": "2026-12-03T13:30:00.000Z",
+   "title": "Initial Jobless Claims",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-12-03T15:00:00.000Z",
+   "title": "Factory Orders MoM",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "bsnss"
+  },
+  {
+   "ts": "2026-12-03T15:00:00.000Z",
+   "title": "ISM Services PMI",
+   "country": "US",
+   "currency": "USD",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "bsnss"
   }
  ]
 }

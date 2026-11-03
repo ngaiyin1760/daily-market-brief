@@ -1,97 +1,108 @@
 {
- "generated_at": "2026-11-02 09:29 HKT",
+ "generated_at": "2026-11-03 11:28 HKT",
  "repos": [
   {
-   "name": "zzp1221/Research-Assistant-Agent",
-   "url": "https://github.com/zzp1221/Research-Assistant-Agent",
-   "language": "Go",
-   "description": "Multi-agent research execution system: paper reproduction, benchmark evaluation, AutoResearch and claim-evidence graphs",
+   "name": "datawhalechina/agentic-rl-lab",
+   "url": "https://github.com/datawhalechina/agentic-rl-lab",
+   "language": "Python",
+   "description": "Reproducing and studying RL algorithms for LLM agents, including GRPO, GSPO, DAPO, OPD, Search-R1, ReTool, ALFWorld and beyond.",
    "keywords": [
-    "AI agent"
+    "Learning resources",
+    "LLM training"
    ],
-   "trendshift_pos": 9,
-   "stars": 101,
+   "trendshift_pos": 12,
+   "stars": 785,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A multi-agent research execution system designed for automated paper reproduction, benchmarking, and claim-evidence graph generation.",
+   "one_liner": "A comprehensive research repository for reproducing and studying Reinforcement Learning algorithms specifically designed for LLM agents.",
    "bullets": [
-    "Built in Go for high-performance concurrent agent execution.",
-    "Features automated research workflows including paper reproduction and benchmark evaluation.",
-    "Utilizes claim-evidence graphs to structure and verify research findings.",
-    "Ideal for quant researchers and analysts needing to automate literature review and data validation."
+    "Built on Python with a focus on advanced RL frameworks like GRPO, GSPO, and DAPO.",
+    "Provides a structured environment for benchmarking agentic reasoning and search capabilities.",
+    "Ideal for developers building autonomous agents that require complex decision-making and self-correction.",
+    "Includes implementations for ALFWorld and other complex task-solving environments."
    ]
   },
   {
-   "name": "modelflare-ai/AnyModelBot",
-   "url": "https://github.com/modelflare-ai/AnyModelBot",
-   "language": "TypeScript",
-   "description": "🤖 Open-source, local-first alternative to Grok Bot, OpenAI dots and Claude Duet. Your own AI bots on any model: GPT, Claude, Gemini, Grok, DeepSeek, Kimi, GLM and 70+ more through one Modelflare key. Reach them in the app, WeChat or Feishu; they remember you, work in the background, run commands and use your computer. Pay per use.",
+   "name": "FlashML-org/FreeToken",
+   "url": "https://github.com/FlashML-org/FreeToken",
+   "language": "Python",
+   "description": "FreeToken brings datacenter-scale model serving to your desktop. Run massive models locally, fast and efficiently.",
+   "keywords": [
+    "LLM inference"
+   ],
+   "trendshift_pos": 19,
+   "stars": 16170,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A high-performance local inference engine designed to bring datacenter-scale model serving capabilities to consumer hardware.",
+   "bullets": [
+    "Optimized for low-latency, high-throughput local LLM execution on desktop environments.",
+    "Focuses on efficient memory management and quantization techniques to run massive models locally.",
+    "Serves as critical infrastructure for developers building privacy-first or offline AI applications.",
+    "Reduces dependency on cloud-based APIs, lowering costs and latency for AI-driven workflows."
+   ]
+  },
+  {
+   "name": "scenario-labs/skills",
+   "url": "https://github.com/scenario-labs/skills",
+   "language": "Python",
+   "description": "Get production-ready images, video, audio, and 3D from any AI agent: skills that pick the right model, price before spending, and keep characters and brands consistent through the Scenario MCP, plus expert teams that drive Blender, Maya, ZBrush, Unreal, and Unity.",
+   "keywords": [
+    "AI skills"
+   ],
+   "trendshift_pos": 25,
+   "stars": 1719,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A toolkit providing production-ready AI agent skills for generating consistent media assets across images, video, and 3D.",
+   "bullets": [
+    "Integrates with the Model Context Protocol (MCP) to allow agents to interact with external creative tools.",
+    "Features cost-estimation logic to manage token usage and budget before executing generative tasks.",
+    "Ensures brand and character consistency through standardized agentic workflows.",
+    "Targeted at developers building automated creative pipelines for marketing or content production."
+   ]
+  },
+  {
+   "name": "thtbee/nectarlink",
+   "url": "https://github.com/thtbee/nectarlink",
+   "language": "Rust",
+   "description": "Your Android phone and your Windows PC, working as one. Local-first, end-to-end encrypted, no account.",
    "keywords": [],
    "trendshift_pos": 24,
-   "stars": 470,
+   "stars": 1822,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An open-source, local-first AI bot platform that provides a unified interface for 70+ LLM providers.",
+   "one_liner": "A local-first, end-to-end encrypted bridge between Android devices and Windows PCs.",
    "bullets": [
-    "TypeScript-based architecture supporting a wide range of models including GPT, Claude, Gemini, and DeepSeek.",
-    "Acts as a local-first alternative to proprietary AI bot platforms.",
-    "Simplifies LLM integration through a single API key management system.",
-    "Useful for developers building agentic workflows that require model-agnostic flexibility."
+    "Written in Rust for high performance and memory safety in cross-device communication.",
+    "Operates entirely locally without requiring cloud accounts or external servers.",
+    "Provides a secure infrastructure layer for syncing data and controlling mobile devices from a desktop.",
+    "Useful for professionals requiring secure, private data management between mobile and desktop environments."
    ]
   },
   {
-   "name": "storytold/craft-anything",
-   "url": "https://github.com/storytold/craft-anything",
-   "language": "Rust",
-   "description": "Craft Anything: understand how any software works, and craft your own.",
-   "keywords": [],
-   "trendshift_pos": 1,
-   "stars": 1157,
+   "name": "aaitor/skill-video-studio",
+   "url": "https://github.com/aaitor/skill-video-studio",
+   "language": "HTML",
+   "description": "Claude Code skill for product videos: real browser capture, branded composition, and local mastering.",
+   "keywords": [
+    "Video editing"
+   ],
+   "trendshift_pos": 15,
+   "stars": 201,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A Rust-based toolkit designed to reverse-engineer and understand the internal mechanics of complex software systems.",
+   "one_liner": "A Claude Code skill designed to automate the creation of product videos through real browser capture and local composition.",
    "bullets": [
-    "Written in Rust to ensure memory safety and high-performance analysis.",
-    "Provides deep introspection capabilities to map out software architecture.",
-    "Enables users to 'craft' or replicate software logic based on analyzed patterns.",
-    "Valuable for infrastructure engineers auditing legacy systems or proprietary codebases."
-   ]
-  },
-  {
-   "name": "cjpais/Handy",
-   "url": "https://github.com/cjpais/Handy",
-   "language": "Rust",
-   "description": "A free, open source, and extensible speech-to-text application that works completely offline.",
-   "keywords": [],
-   "trendshift_pos": 18,
-   "stars": 36583,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A free, open-source, and extensible speech-to-text application that operates entirely offline.",
-   "bullets": [
-    "Developed in Rust for maximum efficiency and low-latency transcription.",
-    "Ensures data privacy by processing all audio locally without cloud dependencies.",
-    "Highly extensible architecture for custom integration into productivity or devtools.",
-    "Perfect for professionals handling sensitive financial or technical meetings requiring local transcription."
-   ]
-  },
-  {
-   "name": "warmbly/warmbly",
-   "url": "https://github.com/warmbly/warmbly",
-   "language": "Go",
-   "description": "The largest open-source B2B cold outreach and email warmup service.",
-   "keywords": [],
-   "trendshift_pos": 20,
-   "stars": 682,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An open-source B2B cold outreach and email warmup infrastructure service.",
-   "bullets": [
-    "Go-based backend designed for high-throughput email delivery and management.",
-    "Automates the process of warming up email domains to improve deliverability.",
-    "Provides a scalable infrastructure for managing large-scale B2B outreach campaigns.",
-    "Useful for fintech startups and growth teams needing reliable, self-hosted outreach tooling."
-   ]
+    "Leverages agentic workflows to automate browser-based UI demonstrations and video editing.",
+    "Handles branded composition and local mastering to ensure professional output quality.",
+    "Acts as a specialized tool for AI agents to perform complex multimedia production tasks autonomously.",
+    "Streamlines the dev-to-marketing pipeline by turning code execution into polished video content."
+   ],
+   "img": "aaitor_skill-video-studio_0.jpg",
+   "img_alt": "Install Video Studio Skill and prepare a real walkthrough brief in Claude Code",
+   "img2": "aaitor_skill-video-studio_1.jpg",
+   "img2_alt": "Acme product walkthrough"
   }
  ]
 }
