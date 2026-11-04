@@ -1,108 +1,95 @@
 {
- "generated_at": "2026-11-03 11:28 HKT",
+ "generated_at": "2026-11-04 10:17 HKT",
  "repos": [
   {
-   "name": "datawhalechina/agentic-rl-lab",
-   "url": "https://github.com/datawhalechina/agentic-rl-lab",
-   "language": "Python",
-   "description": "Reproducing and studying RL algorithms for LLM agents, including GRPO, GSPO, DAPO, OPD, Search-R1, ReTool, ALFWorld and beyond.",
-   "keywords": [
-    "Learning resources",
-    "LLM training"
-   ],
-   "trendshift_pos": 12,
-   "stars": 785,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A comprehensive research repository for reproducing and studying Reinforcement Learning algorithms specifically designed for LLM agents.",
-   "bullets": [
-    "Built on Python with a focus on advanced RL frameworks like GRPO, GSPO, and DAPO.",
-    "Provides a structured environment for benchmarking agentic reasoning and search capabilities.",
-    "Ideal for developers building autonomous agents that require complex decision-making and self-correction.",
-    "Includes implementations for ALFWorld and other complex task-solving environments."
-   ]
-  },
-  {
-   "name": "FlashML-org/FreeToken",
-   "url": "https://github.com/FlashML-org/FreeToken",
-   "language": "Python",
-   "description": "FreeToken brings datacenter-scale model serving to your desktop. Run massive models locally, fast and efficiently.",
-   "keywords": [
-    "LLM inference"
-   ],
-   "trendshift_pos": 19,
-   "stars": 16170,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance local inference engine designed to bring datacenter-scale model serving capabilities to consumer hardware.",
-   "bullets": [
-    "Optimized for low-latency, high-throughput local LLM execution on desktop environments.",
-    "Focuses on efficient memory management and quantization techniques to run massive models locally.",
-    "Serves as critical infrastructure for developers building privacy-first or offline AI applications.",
-    "Reduces dependency on cloud-based APIs, lowering costs and latency for AI-driven workflows."
-   ]
-  },
-  {
-   "name": "scenario-labs/skills",
-   "url": "https://github.com/scenario-labs/skills",
-   "language": "Python",
-   "description": "Get production-ready images, video, audio, and 3D from any AI agent: skills that pick the right model, price before spending, and keep characters and brands consistent through the Scenario MCP, plus expert teams that drive Blender, Maya, ZBrush, Unreal, and Unity.",
-   "keywords": [
-    "AI skills"
-   ],
-   "trendshift_pos": 25,
-   "stars": 1719,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A toolkit providing production-ready AI agent skills for generating consistent media assets across images, video, and 3D.",
-   "bullets": [
-    "Integrates with the Model Context Protocol (MCP) to allow agents to interact with external creative tools.",
-    "Features cost-estimation logic to manage token usage and budget before executing generative tasks.",
-    "Ensures brand and character consistency through standardized agentic workflows.",
-    "Targeted at developers building automated creative pipelines for marketing or content production."
-   ]
-  },
-  {
-   "name": "thtbee/nectarlink",
-   "url": "https://github.com/thtbee/nectarlink",
-   "language": "Rust",
-   "description": "Your Android phone and your Windows PC, working as one. Local-first, end-to-end encrypted, no account.",
+   "name": "finic-ai/kairos",
+   "url": "https://github.com/finic-ai/kairos",
+   "language": "TypeScript",
+   "description": "Real time event intelligence, fraud and risk decisioning for financial behavior.",
    "keywords": [],
-   "trendshift_pos": 24,
-   "stars": 1822,
+   "trendshift_pos": 21,
+   "stars": 87,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A local-first, end-to-end encrypted bridge between Android devices and Windows PCs.",
+   "one_liner": "A real-time event intelligence platform designed for financial fraud detection and risk decisioning.",
    "bullets": [
-    "Written in Rust for high performance and memory safety in cross-device communication.",
-    "Operates entirely locally without requiring cloud accounts or external servers.",
-    "Provides a secure infrastructure layer for syncing data and controlling mobile devices from a desktop.",
-    "Useful for professionals requiring secure, private data management between mobile and desktop environments."
+    "Built with TypeScript for high-performance event processing and integration.",
+    "Focuses on behavioral analysis to identify anomalies in financial transactions.",
+    "Provides a decisioning engine for automated risk mitigation and fraud prevention.",
+    "Ideal for fintech developers building secure, real-time payment or trading infrastructure."
    ]
   },
   {
-   "name": "aaitor/skill-video-studio",
-   "url": "https://github.com/aaitor/skill-video-studio",
-   "language": "HTML",
-   "description": "Claude Code skill for product videos: real browser capture, branded composition, and local mastering.",
-   "keywords": [
-    "Video editing"
-   ],
-   "trendshift_pos": 15,
-   "stars": 201,
+   "name": "NVIDIA/auto-ontology",
+   "url": "https://github.com/NVIDIA/auto-ontology",
+   "language": "Python",
+   "description": "Auto Ontology is a Python framework for building semantic, graph-based reasoning layers over data. It enables deterministic query generation, better context retrieval, and more explainable AI for LLM and agent workflows.",
+   "keywords": [],
+   "trendshift_pos": 7,
+   "stars": 3031,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A Claude Code skill designed to automate the creation of product videos through real browser capture and local composition.",
+   "one_liner": "A Python framework for building semantic, graph-based reasoning layers to improve LLM accuracy and explainability.",
    "bullets": [
-    "Leverages agentic workflows to automate browser-based UI demonstrations and video editing.",
-    "Handles branded composition and local mastering to ensure professional output quality.",
-    "Acts as a specialized tool for AI agents to perform complex multimedia production tasks autonomously.",
-    "Streamlines the dev-to-marketing pipeline by turning code execution into polished video content."
-   ],
-   "img": "aaitor_skill-video-studio_0.jpg",
-   "img_alt": "Install Video Studio Skill and prepare a real walkthrough brief in Claude Code",
-   "img2": "aaitor_skill-video-studio_1.jpg",
-   "img2_alt": "Acme product walkthrough"
+    "Utilizes graph-based structures to ground LLM outputs in deterministic logic.",
+    "Enhances context retrieval by mapping unstructured data to semantic ontologies.",
+    "Reduces hallucinations in AI agents by enforcing structured reasoning paths.",
+    "Targeted at enterprise AI applications requiring high reliability and auditability."
+   ]
+  },
+  {
+   "name": "Goncafer47/Stablecoin-Payment-Gateway",
+   "url": "https://github.com/Goncafer47/Stablecoin-Payment-Gateway",
+   "language": "Python",
+   "description": "Self-hosted, non-custodial stablecoin payment gateway with x402 and invoice checkout. Accepts USDC, USDT, PYUSD and DAI across 8 networks with QR payments, payment links, settlement tracking and signed webhooks. REST API, micropayments, exports, zero platform fees and no KYC. Python, cross-platform.",
+   "keywords": [],
+   "trendshift_pos": 22,
+   "stars": 332,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A self-hosted, non-custodial payment gateway for stablecoins supporting multiple networks and invoice generation.",
+   "bullets": [
+    "Python-based backend supporting USDC, USDT, PYUSD, and DAI across 8 blockchain networks.",
+    "Features non-custodial architecture, ensuring users maintain control of private keys.",
+    "Includes payment link generation, QR code support, and automated settlement tracking.",
+    "Essential infrastructure for DeFi projects or merchants accepting crypto payments."
+   ]
+  },
+  {
+   "name": "tddworks/SkillsManager",
+   "url": "https://github.com/tddworks/SkillsManager",
+   "language": "Swift",
+   "description": "A macOS application for discovering, browsing, and installing skills for AI coding assistants. Manage skills for Claude Code and Codex from GitHub repositories or your local filesystem.",
+   "keywords": [],
+   "trendshift_pos": 15,
+   "stars": 204,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A macOS application for managing and deploying skills for AI coding assistants like Claude Code.",
+   "bullets": [
+    "Swift-based native macOS application for local skill management.",
+    "Allows discovery and installation of AI agent capabilities from GitHub or local files.",
+    "Streamlines the workflow for developers customizing agentic coding environments.",
+    "Enables modular extension of AI coding assistants to handle specific project tasks."
+   ]
+  },
+  {
+   "name": "wquguru/cicada",
+   "url": "https://github.com/wquguru/cicada",
+   "language": "Swift",
+   "description": "知了 Cicada · 任意会议与直播的实时字幕、同声传译、AI 会议纪要（macOS）。Live subtitles, interpreting and meeting notes for any call or stream on your Mac.",
+   "keywords": [],
+   "trendshift_pos": 3,
+   "stars": 625,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A macOS utility providing real-time subtitles, simultaneous interpretation, and AI-generated meeting summaries for any stream or call.",
+   "bullets": [
+    "Swift-based macOS application integrating with system audio for real-time processing.",
+    "Uses AI models to generate live transcripts and intelligent meeting summaries.",
+    "Supports simultaneous interpretation, bridging language gaps in global business calls.",
+    "Useful for professionals needing automated documentation and accessibility in remote meetings."
+   ]
   }
  ]
 }
