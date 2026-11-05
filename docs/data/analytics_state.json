@@ -1,96 +1,6 @@
 {
  "backlog": [
   {
-   "_key": "SemiEngineering|https://semiengineering.com/how-much-can-semiconductor-models-hide/",
-   "blog": "SemiEngineering",
-   "title": "How Much Can Semiconductor Models Hide?",
-   "link": "https://semiengineering.com/how-much-can-semiconductor-models-hide/",
-   "summary": "Advanced packaging requires models to cross company boundaries without exposing proprietary processes, but hiding too much can make the prediction break down.\nThe post How Much Can Semiconductor Models Hide? appeared first on Semiconductor Engineering.",
-   "published": "2026-10-28 07:01 UTC",
-   "_ts": 1793170864,
-   "preview": false,
-   "bullets": [
-    "Advanced packaging requires sharing models across company boundaries, creating a tension between protecting proprietary process recipes and providing enough data for accurate performance predictions.",
-    "Static datasheets are increasingly insufficient for modern packaging, as the process variations of one supplier now directly impact the performance of another company's components.",
-    "Industry experts are exploring 'membranes' or data obfuscation techniques to allow for sufficient model transparency without revealing sensitive intellectual property.",
-    "The core challenge remains determining the minimum data threshold required for accurate simulation before the model loses the critical variables needed for reliable assembly prediction."
-   ],
-   "rating": 4,
-   "read_time": 14
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/foundation-ip-for-the-ai-era-why-execution-saves-you-millions-on-hpc-and-edge-ai-socs/",
-   "blog": "SemiEngineering",
-   "title": "Foundation IP For The AI Era: Why Execution Saves You Millions On HPC And Edge AI SoCs",
-   "link": "https://semiengineering.com/foundation-ip-for-the-ai-era-why-execution-saves-you-millions-on-hpc-and-edge-ai-socs/",
-   "summary": "How a single, integrated Foundation IP platform reduces re-spin risk and integration delays and helps lower TCO. \nThe post Foundation IP For The AI Era: Why Execution Saves You Millions On HPC And Edge AI SoCs appeared first on Semiconductor Engineering.",
-   "published": "2026-10-28 07:01 UTC",
-   "_ts": 1793170866,
-   "preview": false,
-   "bullets": [
-    "Sourcing Foundation IP from multiple vendors creates hidden costs and integration risks that can lead to expensive re-spins at advanced process nodes.",
-    "Synopsys argues that using a single, integrated IP platform—including logic libraries, IOs, and NVM—improves predictability and lowers total cost of ownership (TCO).",
-    "Avoiding a single re-spin or schedule slip through silicon-proven, co-optimized IP can save millions of dollars in development costs for HPC and Edge AI SoCs.",
-    "Integrated platforms facilitate faster tape-outs and more confident node-to-node scaling by providing unified support and EDA co-optimization."
-   ],
-   "rating": 4,
-   "read_time": 9
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/introducing-build-a-chip-bench-from-workload-specification-to-gds/",
-   "blog": "SemiEngineering",
-   "title": "Introducing Build-A-Chip-Bench: From Workload Specification to GDS",
-   "link": "https://semiengineering.com/introducing-build-a-chip-bench-from-workload-specification-to-gds/",
-   "summary": "Evaluate AI agents from workload specification through GDS layout, using open-source tools and an open-source PDK to assess their ability to complete the chip-design workflow. \nThe post Introducing Build-A-Chip-Bench: From Workload Specification to GDS appeared first on Semiconductor Engineering.",
-   "published": "2026-10-28 07:03 UTC",
-   "_ts": 1793171024,
-   "preview": false,
-   "bullets": [
-    "ChipAgents is developing 'Build-A-Chip-Bench' to evaluate AI agents across the entire chip design workflow, from workload specification to GDS layout.",
-    "The benchmark requires designs to pass a hard gate covering functional correctness, routability, timing, and DRC, with performance scored on PPA metrics.",
-    "Current frontier AI agents struggle with long-term planning, optimizing while protecting existing behavior, and managing the latency of slow EDA tool runs.",
-    "The project includes contributions from Nvidia and aims to address the saturation of existing benchmarks that only test isolated design steps."
-   ],
-   "rating": 4,
-   "read_time": 9
-  },
-  {
-   "_key": "Stratechery|https://stratechery.com/2026/meta-earnings-muse-and-the-frontier-musebook/",
-   "blog": "Stratechery",
-   "title": "Meta Earnings, Muse and the Frontier, Musebook",
-   "link": "https://stratechery.com/2026/meta-earnings-muse-and-the-frontier-musebook/",
-   "summary": "Meta's earnings come in the context of Zuckerberg delivering on his promise; if investors believe in Muse they must support Meta's spending on compute.",
-   "published": "2026-10-28 10:06 UTC",
-   "_ts": 1793181973,
-   "preview": false,
-   "bullets": [
-    "Meta's recent earnings performance validates Mark Zuckerberg's long-term strategic pivot toward massive capital expenditure in compute infrastructure.",
-    "The investment thesis for Meta now hinges on investor confidence in 'Muse,' the company's proprietary AI model development and deployment strategy.",
-    "Market support for Meta's aggressive spending is contingent on the belief that these compute-heavy investments will yield a sustainable competitive advantage in the AI frontier.",
-    "The narrative surrounding Meta has shifted from social media monetization to a high-stakes bet on AI-driven product integration and infrastructure dominance."
-   ],
-   "rating": 4,
-   "read_time": 3
-  },
-  {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/28/1147637/pairing-industrial-ai-autonomy-and-human-control/",
-   "blog": "MIT Technology Review",
-   "title": "Pairing industrial AI autonomy and human control",
-   "link": "https://www.technologyreview.com/2026/10/28/1147637/pairing-industrial-ai-autonomy-and-human-control/",
-   "summary": "",
-   "published": "2026-10-28 12:00 UTC",
-   "_ts": 1793188800,
-   "preview": false,
-   "bullets": [
-    "Industrial digital twins are evolving from static simulation tools into 'living' systems that provide real-time, high-fidelity representations of physical operations.",
-    "AI-infused digital twins enable closed-loop execution, allowing industrial facilities to move beyond diagnostics to autonomous, proactive adjustments.",
-    "Agentic AI is facilitating 'industrial homeostasis,' where systems make constant, small adjustments to maintain operational health and efficiency.",
-    "Human oversight remains critical to define operational health parameters and ensure that autonomous AI systems remain aligned with broader business objectives."
-   ],
-   "rating": 4,
-   "read_time": 7
-  },
-  {
    "_key": "SemiEngineering|https://semiengineering.com/why-physics-needs-to-move-at-the-pace-of-design/",
    "blog": "SemiEngineering",
    "title": "Why Physics Needs To Move At The Pace Of Design",
@@ -285,110 +195,58 @@
    "read_time": 5
   },
   {
-   "_key": "SemiEngineering|https://semiengineering.com/blog-review-oct-28-3/",
-   "blog": "SemiEngineering",
-   "title": "Blog Review: Oct. 28",
-   "link": "https://semiengineering.com/blog-review-oct-28-3/",
-   "summary": "Large-format/curvilinear masks; STCO for heterogeneous design; physical AI interactions; signing off AI-generated designs; workload profile analysis.\nThe post Blog Review: Oct. 28 appeared first on Semiconductor Engineering.",
-   "published": "2026-10-28 07:01 UTC",
-   "_ts": 1793170863,
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/03/tesla-china-oct-2026-wholesale/",
+   "blog": "CNEVPOST",
+   "title": "Tesla China October wholesale sales total 67,829, lowest since February",
+   "link": "https://cnevpost.com/2026/11/03/tesla-china-oct-2026-wholesale/",
+   "summary": "Tesla China's October wholesale sales rose 10.30% year-on-year but fell 28.88% from September.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-03 09:52 UTC",
+   "_ts": 1793699537,
    "preview": false,
    "bullets": [
-    "Industry experts are emphasizing the shift toward heterogeneous design, where multiphysics analysis and system technology co-optimization (STCO) are becoming essential.",
-    "New research highlights the necessity of a holistic, physics-aware approach to engineering that validates the interaction between silicon, sensors, software, and power.",
-    "The review notes that as AI takes on more design tasks like RTL generation and ECO proposals, the industry faces a critical challenge in verifying that AI-generated designs meet all requirements.",
-    "Developments in manufacturing, such as self-aligned CFET processes and large-format curvilinear masks, continue to drive performance gains at smaller nodes."
+    "Tesla China reported 67,829 wholesale units in October, marking a 28.88% decline from September and the lowest monthly volume since February.",
+    "Despite the monthly slump, Tesla's year-to-date wholesale sales reached 810,889 units, a 21.42% increase compared to the same period last year.",
+    "Tesla's growth rate in October slightly trailed the broader Chinese NEV market, highlighting increased competitive pressure from domestic manufacturers.",
+    "The Shanghai factory's reliance on exports has grown significantly, with overseas shipments accounting for nearly half of total wholesale sales in the first nine months of 2026."
    ],
-   "rating": 3,
+   "rating": 4,
    "read_time": 2
   },
   {
-   "_key": "SemiEngineering|https://semiengineering.com/planning-your-ai-design-journey-in-rf-eda/",
-   "blog": "SemiEngineering",
-   "title": "Planning Your AI Design Journey In RF EDA",
-   "link": "https://semiengineering.com/planning-your-ai-design-journey-in-rf-eda/",
-   "summary": "Agentic solutions for RF design.\nThe post Planning Your AI Design Journey In RF EDA appeared first on Semiconductor Engineering.",
-   "published": "2026-10-28 07:01 UTC",
-   "_ts": 1793170865,
+   "_key": "Stratechery|https://stratechery.com/2026/apple-earnings-memory-problems-the-hardware-company-regression/",
+   "blog": "Stratechery",
+   "title": "Apple Earnings, Memory Problems, The Hardware Company Regression",
+   "link": "https://stratechery.com/2026/apple-earnings-memory-problems-the-hardware-company-regression/",
+   "summary": "Apple's earnings suggest that the company's hardware business is doing better than ever, even in the face of memory challenges. Does the software story help or hurt?",
+   "published": "2026-11-03 11:00 UTC",
+   "_ts": 1793703600,
    "preview": false,
    "bullets": [
-    "Keysight has introduced a strategic framework for AI adoption in RF EDA, categorized into three themes: Capture, Orchestrate, and Accelerate.",
-    "The framework aims to preserve institutional expertise by transforming it into reusable workflows while using intelligent agents to automate routine tasks.",
-    "The approach integrates with existing tools like ADS and RFPro, allowing teams to leverage machine learning and surrogate models to evaluate more design alternatives without disrupting established processes."
+    "Apple's recent earnings report demonstrates that its core hardware business remains exceptionally resilient despite ongoing volatility in the memory market.",
+    "The company is navigating significant supply chain and component cost pressures, yet it continues to maintain strong margins through its hardware-centric model.",
+    "There is an emerging tension regarding whether Apple's software and services strategy is effectively complementing its hardware sales or if the company is regressing toward a traditional hardware-first dependency.",
+    "Investors must weigh the long-term sustainability of Apple's hardware dominance against the potential risks posed by cyclical memory component challenges and shifting software integration strategies."
    ],
-   "rating": 3,
-   "read_time": 9
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/using-ai-for-analog-design/",
-   "blog": "SemiEngineering",
-   "title": "Using AI for Analog Design",
-   "link": "https://semiengineering.com/using-ai-for-analog-design/",
-   "summary": "The growing role of AI in analog and mixed-signal design, where complexity is rising, schedules are tightening, and the cost of mistakes is higher than ever.\nThe post Using AI for Analog Design appeared first on Semiconductor Engineering.",
-   "published": "2026-10-28 07:02 UTC",
-   "_ts": 1793170927,
-   "preview": false,
-   "bullets": [
-    "Cadence is integrating AI into analog and mixed-signal (AMS) design workflows to address rising complexity and tightening development schedules.",
-    "The Virtuoso AI Studio platform utilizes ML-powered engines and multi-agent workflows to automate non-differentiating tasks and accelerate simulation.",
-    "AI is being framed as a force multiplier for analog engineers, intended to reduce human error and assist in migration tasks within secure enterprise environments."
-   ],
-   "rating": 3,
-   "read_time": 9
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/28/solid-state-batteries-xpeng-iron-small-batch-production/",
-   "blog": "CNEVPOST",
-   "title": "Solid-state batteries for Xpeng's Iron humanoid robot enter small-batch production",
-   "link": "https://cnevpost.com/2026/10/28/solid-state-batteries-xpeng-iron-small-batch-production/",
-   "summary": "Solid-state batteries designed for the robot have begun rolling off the production line in small batches, while Iron itself remains in the pre-production stage.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-28 09:11 UTC",
-   "_ts": 1793178684,
-   "preview": false,
-   "bullets": [
-    "Xpeng has commenced small-batch production of solid-state batteries specifically designed for its Iron humanoid robot, ahead of the robot's planned mass production by year-end.",
-    "The battery design prioritizes high energy density and safety, featuring thermal runaway prevention to accommodate the robot's compact internal architecture.",
-    "While Xpeng previously touted all-solid-state technology, recent reports suggest the production version may utilize semi-solid-state hybrid batteries to meet commercialization timelines.",
-    "The company aims to begin commercial deployment of the Iron robot in stores and other settings starting in 2027."
-   ],
-   "rating": 3,
+   "rating": 4,
    "read_time": 3
   },
   {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/10/28/1147767/the-download-dead-startups-fueling-ai-interspecies-communication/",
-   "blog": "MIT Technology Review",
-   "title": "The Download: dead startups fueling AI and interspecies communication",
-   "link": "https://www.technologyreview.com/2026/10/28/1147767/the-download-dead-startups-fueling-ai-interspecies-communication/",
-   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. AI labs are buying data from dead startups to train their models When Keelan Miskell began winding down his crypto startup, he didn’t think its data was worth much. But he’s…",
-   "published": "2026-10-28 12:10 UTC",
-   "_ts": 1793189400,
-   "preview": false,
-   "bullets": [
-    "AI labs are increasingly purchasing proprietary data from failed startups to overcome the limitations of public and synthetic datasets.",
-    "The acquisition of codebase and workspace data from defunct companies has created a new secondary market, though it raises significant legal and ethical concerns regarding data ownership.",
-    "Advances in AI are being applied to decode animal communication, aiming to interpret complex signals like howls and clicks to better understand non-human species.",
-    "The US and China are actively pursuing lunar base development, which will require significant breakthroughs in autonomous robotics and nuclear power to overcome hostile environmental conditions."
-   ],
-   "rating": 3,
-   "read_time": 6
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/10/28/li-auto-launches-2026-i6/",
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/03/nio-battery-swaps-130-million/",
    "blog": "CNEVPOST",
-   "title": "Li Auto launches 2026 i6 with unchanged starting price, upgraded in-house chip and battery",
-   "link": "https://cnevpost.com/2026/10/28/li-auto-launches-2026-i6/",
-   "summary": "Li Auto's in-house Mach M100 driver-assistance chip becomes standard, while battery capacity increases to 96 kWh.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-10-28 13:18 UTC",
-   "_ts": 1793193502,
+   "title": "Nio adds 10 million battery swaps in 88 days, taking total past 130 million",
+   "link": "https://cnevpost.com/2026/11/03/nio-battery-swaps-130-million/",
+   "summary": "Nio said daily battery swaps averaged more than 110,000 over the past 88 days.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-03 12:01 UTC",
+   "_ts": 1793707260,
    "preview": false,
    "bullets": [
-    "Li Auto launched the 2026 i6 SUV, maintaining a 249,800 yuan starting price while upgrading core hardware including the in-house Mach M100 driver-assistance chip.",
-    "The new model features a significant boost in computing power, with the standard M100 chip offering 1,280 TOPS and an optional dual-chip package reaching 2,560 TOPS.",
-    "Battery capacity has been increased to 96 kWh using the in-house Lianshan 5C LFP battery, extending the CLTC range to 780 km for the RWD version.",
-    "The interior refresh includes a 29-inch 6K panoramic screen and a transition to the Qualcomm Snapdragon 8797 cockpit chip."
+    "Nio has surpassed 130 million cumulative battery swaps, with a daily average of 110,000 swaps recorded over the last 88 days.",
+    "The company's infrastructure network now includes 4,236 swap stations in China, with 84.5% of users located within 3 kilometers of a facility.",
+    "The deployment of fifth-generation swap stations enables cross-brand compatibility, allowing Nio, Onvo, and Firefly vehicles to share the same infrastructure.",
+    "Nio estimates that its swapping network has saved users approximately 110 million hours of waiting time compared to traditional charging methods."
    ],
-   "rating": 3,
-   "read_time": 3
+   "rating": 4,
+   "read_time": 2
   },
   {
    "_key": "SemiEngineering|https://semiengineering.com/scaling-autonomous-root-cause-analysis-for-regression-triage/",
@@ -668,6 +526,24 @@
    "read_time": 2
   },
   {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/03/xpeng-plans-south-korea-entry-appoints-former-volvo-exec/",
+   "blog": "CNEVPOST",
+   "title": "Xpeng plans South Korea entry, appoints former Volvo exec to lead local business",
+   "link": "https://cnevpost.com/2026/11/03/xpeng-plans-south-korea-entry-appoints-former-volvo-exec/",
+   "summary": "Lee Man-sik will become managing director of Xpeng Korea on December 1, overseeing business development including sales and service networks.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-03 02:20 UTC",
+   "_ts": 1793672418,
+   "preview": false,
+   "bullets": [
+    "Xpeng has confirmed its entry into the South Korean market and appointed former Volvo Cars Korea executive Lee Man-sik to lead local operations starting December 1.",
+    "The move is part of Xpeng's broader international strategy, which saw record overseas deliveries of 13,326 vehicles in October, up 166% year-on-year.",
+    "While a specific launch timeline and model lineup remain undisclosed, the company is focusing on building a foundation for sales, service, and strategic partnerships.",
+    "Overseas expansion has become a critical buffer for Xpeng, as international sales now account for over 26% of its monthly delivery volume."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
    "_key": "CNEVPOST|https://cnevpost.com/2026/11/03/nio-es8-special-edition-set-for-nov-guangzhou-show/",
    "blog": "CNEVPOST",
    "title": "Nio to expand ES8 lineup with special edition set for late-November launch at Guangzhou Auto Show",
@@ -683,6 +559,94 @@
    ],
    "rating": 3,
    "read_time": 2
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/11/02/1147932/heres-who-is-falling-in-line-for-trumps-super-intelligence-loyalty-test/",
+   "blog": "MIT Technology Review",
+   "title": "Here’s who is falling in line for Trump’s “Super Intelligence” loyalty test",
+   "link": "https://www.technologyreview.com/2026/11/02/1147932/heres-who-is-falling-in-line-for-trumps-super-intelligence-loyalty-test/",
+   "summary": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. At the end of September, President Trump signed an executive order that contained just one directive, ordering government agencies to rebrand what they had been calling artificial intelligence as “Super Intelligence.” That…",
+   "published": "2026-11-03 04:18 UTC",
+   "_ts": 1793679527,
+   "preview": false,
+   "bullets": [
+    "The White House executive order mandating the term 'Super Intelligence' is being integrated into government solicitations, including surveillance contracts for ICE.",
+    "The rebrand functions as a political litmus test, where the adoption of the terminology signals administrative allegiance and failure to comply may invite political retaliation.",
+    "While the term is appearing on government websites, it has not yet achieved widespread adoption in the private sector, creating a linguistic divide between public and private AI discourse."
+   ],
+   "rating": 3,
+   "read_time": 7
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/03/xpeng-launches-gx-g9l-11-countries-middle-east-africa/",
+   "blog": "CNEVPOST",
+   "title": "Xpeng launches GX and G9L in 11 countries each across Middle East and Africa",
+   "link": "https://cnevpost.com/2026/11/03/xpeng-launches-gx-g9l-11-countries-middle-east-africa/",
+   "summary": "The GX has secured more than 4,000 orders across the Middle East and Africa, including 800 in the UAE.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-03 07:50 UTC",
+   "_ts": 1793692242,
+   "preview": false,
+   "bullets": [
+    "Xpeng has launched its GX and G9L flagship SUVs in 11 countries across the Middle East and Africa, utilizing extended-range technology to overcome regional infrastructure challenges.",
+    "The GX model has already secured over 4,000 orders in the region, including 800 units in the UAE, signaling strong initial demand.",
+    "The vehicles feature 800V architecture and 5C fast-charging, capable of reaching an 80% charge in approximately 10.7 minutes.",
+    "Xpeng plans to aggressively scale its regional footprint to over 20 countries and 100 service outlets by 2027 as part of its international expansion strategy."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/chip-industry-technical-paper-roundup-nov-3/",
+   "blog": "SemiEngineering",
+   "title": "Chip Industry Technical Paper Roundup: Nov. 3",
+   "link": "https://semiengineering.com/chip-industry-technical-paper-roundup-nov-3/",
+   "summary": "Meter-scale quantum interconnects; 2.5D/3D GPU integration and embodied emissions; secure memory-dependent prefetching; routing-aware analog placement; AI-enhanced flip-chip defect detection; superposed PCM for neural-network vector storage.\nThe post Chip Industry Technical Paper Roundup: Nov. 3 appeared first on Semiconductor Engineering.",
+   "published": "2026-11-03 08:01 UTC",
+   "_ts": 1793692874,
+   "preview": false,
+   "bullets": [
+    "The latest industry research highlights significant advancements in quantum computing, specifically IBM's development of meter-scale interconnects between 120-qubit processors.",
+    "Sustainability in semiconductor manufacturing is gaining focus, with imec and VUB research quantifying the embodied emissions impact of 2.5D and 3D chiplet integration in GPUs.",
+    "New technical papers also address critical manufacturing and design challenges, including AI-enhanced defect detection for flip-chip packaging and routing-aware analog placement optimization."
+   ],
+   "rating": 3,
+   "read_time": 9
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/03/bmw-brilliance-cuts-jobs-report/",
+   "blog": "CNEVPOST",
+   "title": "BMW's China venture reportedly cuts about 1,800 jobs as sales come under pressure",
+   "link": "https://cnevpost.com/2026/11/03/bmw-brilliance-cuts-jobs-report/",
+   "summary": "BMW Brilliance reportedly began layoffs on November 2, affecting multiple job categories, primarily production workers.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-03 08:16 UTC",
+   "_ts": 1793693784,
+   "preview": false,
+   "bullets": [
+    "BMW Brilliance is reportedly cutting approximately 1,800 jobs, or 10% of its workforce, primarily targeting production roles in Shenyang.",
+    "The layoffs follow a significant 21.8% year-on-year decline in BMW and Mini deliveries in China during the first three quarters of 2026.",
+    "Affected employees are reportedly being offered an 'n+5' severance package as the company adjusts to weakening demand in the Chinese luxury market.",
+    "The workforce reduction coincides with BMW's strategic pivot toward localizing production of its Neue Klasse electric vehicle models in China."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/03/geely-launches-xingyao-6-ef-methanol-hybrid-sedan/",
+   "blog": "CNEVPOST",
+   "title": "Geely launches Xingyao 6 EF, calling it world's first production methanol hybrid sedan",
+   "link": "https://cnevpost.com/2026/11/03/geely-launches-xingyao-6-ef-methanol-hybrid-sedan/",
+   "summary": "The sedan starts at 76,800 yuan ($11,440) under a limited-time offer and supports any blend of methanol and gasoline in the same fuel tank.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-03 13:48 UTC",
+   "_ts": 1793713688,
+   "preview": false,
+   "bullets": [
+    "Geely has launched the Galaxy Xingyao 6 EF, marketed as the world's first production methanol hybrid sedan, with limited-time pricing starting at 76,800 yuan.",
+    "The vehicle features a flexible fuel system that allows for any blend of methanol and gasoline in a single tank, achieving a combined range of up to 1,880 km.",
+    "The powertrain utilizes a 1.5-liter methanol engine with a record-breaking 48.15% thermal efficiency and supports cold starts at temperatures as low as -40°C.",
+    "This launch targets cold-climate regions and long-distance travelers, positioning methanol hybrids as a strategic alternative to pure battery electric and conventional hybrid vehicles."
+   ],
+   "rating": 3,
+   "read_time": 3
   },
   {
    "_key": "SemiEngineering|https://semiengineering.com/ai-raises-the-bar-for-tomorrows-engineers/",
@@ -720,164 +684,349 @@
    "read_time": 1
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/11/03/nio-battery-swaps-130-million/",
-   "blog": "CNEVPOST",
-   "title": "Nio adds 10 million battery swaps in 88 days, taking total past 130 million",
-   "link": "https://cnevpost.com/2026/11/03/nio-battery-swaps-130-million/",
-   "summary": "Nio said daily battery swaps averaged more than 110,000 over the past 88 days.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-11-03 12:01 UTC",
-   "_ts": 1793707260,
-   "preview": false,
-   "bullets": [
-    "Nio has surpassed 130 million cumulative battery swaps, with a daily average of 110,000 swaps recorded over the last 88 days.",
-    "The company's infrastructure network now includes 4,236 swap stations in China, with 84.5% of users located within 3 kilometers of a facility.",
-    "The deployment of fifth-generation swap stations enables cross-brand compatibility, allowing Nio, Onvo, and Firefly vehicles to share the same infrastructure.",
-    "Nio estimates that its swapping network has saved users approximately 110 million hours of waiting time compared to traditional charging methods."
-   ],
-   "rating": 4,
-   "read_time": 2
-  },
-  {
-   "_key": "Stratechery|https://stratechery.com/2026/apple-earnings-memory-problems-the-hardware-company-regression/",
-   "blog": "Stratechery",
-   "title": "Apple Earnings, Memory Problems, The Hardware Company Regression",
-   "link": "https://stratechery.com/2026/apple-earnings-memory-problems-the-hardware-company-regression/",
-   "summary": "Apple's earnings suggest that the company's hardware business is doing better than ever, even in the face of memory challenges. Does the software story help or hurt?",
-   "published": "2026-11-03 11:00 UTC",
-   "_ts": 1793703600,
-   "preview": false,
-   "bullets": [
-    "Apple's recent earnings report demonstrates that its core hardware business remains exceptionally resilient despite ongoing volatility in the memory market.",
-    "The company is navigating significant supply chain and component cost pressures, yet it continues to maintain strong margins through its hardware-centric model.",
-    "There is an emerging tension regarding whether Apple's software and services strategy is effectively complementing its hardware sales or if the company is regressing toward a traditional hardware-first dependency.",
-    "Investors must weigh the long-term sustainability of Apple's hardware dominance against the potential risks posed by cyclical memory component challenges and shifting software integration strategies."
-   ],
-   "rating": 4,
-   "read_time": 3
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/11/03/tesla-china-oct-2026-wholesale/",
-   "blog": "CNEVPOST",
-   "title": "Tesla China October wholesale sales total 67,829, lowest since February",
-   "link": "https://cnevpost.com/2026/11/03/tesla-china-oct-2026-wholesale/",
-   "summary": "Tesla China's October wholesale sales rose 10.30% year-on-year but fell 28.88% from September.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-11-03 09:52 UTC",
-   "_ts": 1793699537,
-   "preview": false,
-   "bullets": [
-    "Tesla China reported 67,829 wholesale units in October, marking a 28.88% decline from September and the lowest monthly volume since February.",
-    "Despite the monthly slump, Tesla's year-to-date wholesale sales reached 810,889 units, a 21.42% increase compared to the same period last year.",
-    "Tesla's growth rate in October slightly trailed the broader Chinese NEV market, highlighting increased competitive pressure from domestic manufacturers.",
-    "The Shanghai factory's reliance on exports has grown significantly, with overseas shipments accounting for nearly half of total wholesale sales in the first nine months of 2026."
-   ],
-   "rating": 4,
-   "read_time": 2
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/11/03/geely-launches-xingyao-6-ef-methanol-hybrid-sedan/",
-   "blog": "CNEVPOST",
-   "title": "Geely launches Xingyao 6 EF, calling it world's first production methanol hybrid sedan",
-   "link": "https://cnevpost.com/2026/11/03/geely-launches-xingyao-6-ef-methanol-hybrid-sedan/",
-   "summary": "The sedan starts at 76,800 yuan ($11,440) under a limited-time offer and supports any blend of methanol and gasoline in the same fuel tank.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-11-03 13:48 UTC",
-   "_ts": 1793713688,
-   "preview": false,
-   "bullets": [
-    "Geely has launched the Galaxy Xingyao 6 EF, marketed as the world's first production methanol hybrid sedan, with limited-time pricing starting at 76,800 yuan.",
-    "The vehicle features a flexible fuel system that allows for any blend of methanol and gasoline in a single tank, achieving a combined range of up to 1,880 km.",
-    "The powertrain utilizes a 1.5-liter methanol engine with a record-breaking 48.15% thermal efficiency and supports cold starts at temperatures as low as -40°C.",
-    "This launch targets cold-climate regions and long-distance travelers, positioning methanol hybrids as a strategic alternative to pure battery electric and conventional hybrid vehicles."
-   ],
-   "rating": 3,
-   "read_time": 3
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/11/03/bmw-brilliance-cuts-jobs-report/",
-   "blog": "CNEVPOST",
-   "title": "BMW's China venture reportedly cuts about 1,800 jobs as sales come under pressure",
-   "link": "https://cnevpost.com/2026/11/03/bmw-brilliance-cuts-jobs-report/",
-   "summary": "BMW Brilliance reportedly began layoffs on November 2, affecting multiple job categories, primarily production workers.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-11-03 08:16 UTC",
-   "_ts": 1793693784,
-   "preview": false,
-   "bullets": [
-    "BMW Brilliance is reportedly cutting approximately 1,800 jobs, or 10% of its workforce, primarily targeting production roles in Shenyang.",
-    "The layoffs follow a significant 21.8% year-on-year decline in BMW and Mini deliveries in China during the first three quarters of 2026.",
-    "Affected employees are reportedly being offered an 'n+5' severance package as the company adjusts to weakening demand in the Chinese luxury market.",
-    "The workforce reduction coincides with BMW's strategic pivot toward localizing production of its Neue Klasse electric vehicle models in China."
-   ],
-   "rating": 3,
-   "read_time": 2
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/chip-industry-technical-paper-roundup-nov-3/",
+   "_key": "SemiEngineering|https://semiengineering.com/built-to-last-why-automotive-grade-pqc-cant-wait/",
    "blog": "SemiEngineering",
-   "title": "Chip Industry Technical Paper Roundup: Nov. 3",
-   "link": "https://semiengineering.com/chip-industry-technical-paper-roundup-nov-3/",
-   "summary": "Meter-scale quantum interconnects; 2.5D/3D GPU integration and embodied emissions; secure memory-dependent prefetching; routing-aware analog placement; AI-enhanced flip-chip defect detection; superposed PCM for neural-network vector storage.\nThe post Chip Industry Technical Paper Roundup: Nov. 3 appeared first on Semiconductor Engineering.",
-   "published": "2026-11-03 08:01 UTC",
-   "_ts": 1793692874,
+   "title": "Built to Last: Why Automotive-Grade PQC Can’t Wait",
+   "link": "https://semiengineering.com/built-to-last-why-automotive-grade-pqc-cant-wait/",
+   "summary": "Why automotive-grade PQC IP matters, what sets it apart from general-purpose PQC, and what SoC design teams should look for when choosing a PQC accelerator.\nThe post Built to Last: Why Automotive-Grade PQC Can’t Wait appeared first on Semiconductor Engineering.",
+   "published": "2026-11-04 08:04 UTC",
+   "_ts": 1793779457,
    "preview": false,
    "bullets": [
-    "The latest industry research highlights significant advancements in quantum computing, specifically IBM's development of meter-scale interconnects between 120-qubit processors.",
-    "Sustainability in semiconductor manufacturing is gaining focus, with imec and VUB research quantifying the embodied emissions impact of 2.5D and 3D chiplet integration in GPUs.",
-    "New technical papers also address critical manufacturing and design challenges, including AI-enhanced defect detection for flip-chip packaging and routing-aware analog placement optimization."
+    "Automotive SoCs require long-term security planning because vehicles remain in service for decades, necessitating a transition to quantum-resistant cryptography.",
+    "Automotive-grade post-quantum cryptography (PQC) differs from general-purpose implementations due to stringent safety, reliability, and fault-monitoring requirements.",
+    "Design teams are encouraged to adopt hybrid cryptographic approaches and specialized PQC accelerators to ensure platform adaptability against evolving quantum threats."
+   ],
+   "rating": 5,
+   "read_time": 9
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/beyond-the-chip-how-ai-is-reshaping-semiconductor-design-and-manufacturing/",
+   "blog": "SemiEngineering",
+   "title": "Beyond The Chip: How AI Is Reshaping Semiconductor Design And Manufacturing",
+   "link": "https://semiengineering.com/beyond-the-chip-how-ai-is-reshaping-semiconductor-design-and-manufacturing/",
+   "summary": "Power delivery, connectivity, advanced packaging, and supply chain resilience are emerging as the primary constraints on AI scaling. \nThe post Beyond The Chip: How AI Is Reshaping Semiconductor Design And Manufacturing appeared first on Semiconductor Engineering.",
+   "published": "2026-11-04 08:01 UTC",
+   "_ts": 1793779318,
+   "preview": false,
+   "bullets": [
+    "AI scaling is increasingly constrained by factors beyond transistor density, specifically power delivery, connectivity, advanced packaging, and supply chain resilience.",
+    "Intel Foundry is integrating AI and machine learning into manufacturing operations to accelerate yield learning and improve product quality.",
+    "The industry is transitioning from a monolithic System-on-Chip (SoC) model to a 'system of chips' architecture, driven by the demands of agentic and physical AI."
+   ],
+   "rating": 5,
+   "read_time": 6
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/05/baidu-apollo-world-model-ai-teach-ai-to-drive/",
+   "blog": "CNEVPOST",
+   "title": "Baidu unveils Apollo World model to let AI teach AI to drive",
+   "link": "https://cnevpost.com/2026/11/05/baidu-apollo-world-model-ai-teach-ai-to-drive/",
+   "summary": "The model uses AI agents to simulate traffic and is already supporting Apollo Go's global testing and validation.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-05 01:47 UTC",
+   "_ts": 1793843248,
+   "preview": false,
+   "bullets": [
+    "Baidu has launched 'Apollo World,' a generative AI model designed to create interactive virtual traffic environments for training autonomous driving systems.",
+    "The platform utilizes AI agents that make independent decisions, allowing for complex, non-scripted traffic scenarios that improve perception and decision-making feedback loops.",
+    "Baidu claims the model's virtual testing capacity is highly efficient, with one day of simulation equivalent to three years of real-world driving by a human-supervised vehicle.",
+    "The company is implementing a '2+3' evaluation framework to ensure the model prioritizes physical accuracy, causality, and interactivity over mere visual realism."
+   ],
+   "rating": 4,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/04/xpeng-unveils-groundingpi-pre-trained-model/",
+   "blog": "CNEVPOST",
+   "title": "Xpeng unveils GroundingPI pre-trained model, outperforming GPT-6 Astra in perception benchmarks",
+   "link": "https://cnevpost.com/2026/11/04/xpeng-unveils-groundingpi-pre-trained-model/",
+   "summary": "With a parameter scale of about 4 billion, GroundingPI beat OpenAI's GPT-6 Astra in a comprehensive evaluation across 34 public perception benchmarks.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-04 10:02 UTC",
+   "_ts": 1793786544,
+   "preview": false,
+   "bullets": [
+    "Xpeng has open-sourced 'GroundingPI,' an embodied perception foundation model that reportedly outperformed OpenAI's GPT-6 Astra across 34 public perception benchmarks.",
+    "The model focuses on 'perception-first' spatial localization and does not require joint action labels during training, which Xpeng claims reduces the cost of collecting robot demonstration data.",
+    "With a parameter scale of 4 billion, the model is designed to serve as the 'fast system' for embodied intelligence, handling high-speed perception and physical interaction tasks."
+   ],
+   "rating": 4,
+   "read_time": 3
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/accelerating-plug-and-play-prototyping-in-chiplet-based-designs/",
+   "blog": "SemiEngineering",
+   "title": "Accelerating Plug-And-Play Prototyping In Chiplet-Based Designs",
+   "link": "https://semiengineering.com/accelerating-plug-and-play-prototyping-in-chiplet-based-designs/",
+   "summary": "Shared resources, a mix of tools running at different speeds, and multiple dies are adding new challenges for design teams.\nThe post Accelerating Plug-And-Play Prototyping In Chiplet-Based Designs appeared first on Semiconductor Engineering.",
+   "published": "2026-11-04 08:15 UTC",
+   "_ts": 1793780125,
+   "preview": false,
+   "bullets": [
+    "Multi-die assembly verification now requires a hybrid approach combining simulation, emulation, and FPGA prototyping to ensure system-level functionality.",
+    "Chiplet-based designs introduce significant complexity regarding shared memory resources and version control across diverse I/O interfaces.",
+    "Engineering teams face critical challenges when hardware-accelerated verification tools operate at different speeds than the actual design under test."
+   ],
+   "rating": 4,
+   "read_time": 9
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/validate-sovereign-ai-sites-before-you-commit-capital-ebook/",
+   "blog": "SemiEngineering",
+   "title": "Validate Sovereign AI Sites Before You Commit Capital: eBook",
+   "link": "https://semiengineering.com/validate-sovereign-ai-sites-before-you-commit-capital-ebook/",
+   "summary": "How to validate sites before commitment, protect capacity after deployment, and plan for long-term performance.\nThe post Validate Sovereign AI Sites Before You Commit Capital: eBook appeared first on Semiconductor Engineering.",
+   "published": "2026-11-04 08:03 UTC",
+   "_ts": 1793779419,
+   "preview": false,
+   "bullets": [
+    "Sovereign AI infrastructure projects face high risks where data residency and compliance requirements limit operational flexibility, making site validation critical.",
+    "Digital twin platforms allow teams to model thermal performance, cooling, and airflow under real-world scenarios before physical deployment.",
+    "Physics-based validation can uncover hidden infrastructure failures, such as cooling mismatches, that are not apparent in initial design reviews."
+   ],
+   "rating": 4,
+   "read_time": 1
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/3d-ic-signal-integrity-from-silicon-interposers-to-system-signoff/",
+   "blog": "SemiEngineering",
+   "title": "3D-IC Signal Integrity: From Silicon Interposers To System Signoff",
+   "link": "https://semiengineering.com/3d-ic-signal-integrity-from-silicon-interposers-to-system-signoff/",
+   "summary": "A unified, system-level environment that aggregates several proven technologies into a seamless workflow spanning architecture exploration, electromagnetic extraction, channel simulation, protocol compliance verification, and final system-level signoff.\nThe post 3D-IC Signal Integrity: From Silicon Interposers To System Signoff appeared first on Semiconductor Engineering.",
+   "published": "2026-11-04 08:02 UTC",
+   "_ts": 1793779340,
+   "preview": false,
+   "bullets": [
+    "The shift toward chiplet-based AI and HPC architectures necessitates moving signal integrity analysis from component-level validation to full system-level channel analysis.",
+    "Unified workflows are required to integrate architecture exploration, electromagnetic extraction, and protocol compliance verification into a single signoff process.",
+    "Advanced 3D-IC designs require seamless integration of disparate EDA technologies to manage the increased complexity of multi-die signal paths."
+   ],
+   "rating": 4,
+   "read_time": 9
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/11/04/1147596/securing-the-agentic-enterprise-with-data-lineage/",
+   "blog": "MIT Technology Review",
+   "title": "Securing the agentic enterprise with data lineage",
+   "link": "https://www.technologyreview.com/2026/11/04/1147596/securing-the-agentic-enterprise-with-data-lineage/",
+   "summary": "A sales representative asks an AI agent for customer pricing, and the agent pulls data from multiple sources: restricted pricing systems, internal communications, and archived quotes. The output looks accurate to the agent, so a second agent uses the data to draft the proposal for the sales rep. No human checks either handoff. When it’s…",
+   "published": "2026-11-04 13:00 UTC",
+   "_ts": 1793797200,
+   "preview": false,
+   "bullets": [
+    "Sponsored\nSecuring the agentic enterprise with data lineage\nData lineage is the new security perimeter, providing the visibility needed for governance, accountability, and trust, without impeding AI adoption at scale.",
+    "In partnership withCyberhaven\nA sales representative asks an AI agent for customer pricing, and the agent pulls data from multiple sources: restricted pricing systems, internal communications, and archived quotes.",
+    "The output looks accurate to the agent, so a second agent uses the data to draft the proposal for the sales rep.",
+    "No human checks either handoff.",
+    "When it’s discovered that the proposal includes unapproved, confidential, and sensitive information, no one can trace where the problematic data entered the workflow or how it spread across systems, files, and agents."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/04/catl-octopus-ampace-explore-european-home-energy-storage/",
+   "blog": "CNEVPOST",
+   "title": "CATL, Octopus Energy and Ampace partner to explore European home energy storage",
+   "link": "https://cnevpost.com/2026/11/04/catl-octopus-ampace-explore-european-home-energy-storage/",
+   "summary": "The 3 parties will prioritize markets including the UK, France, and Spain to explore energy storage solutions for European households.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-04 11:27 UTC",
+   "_ts": 1793791671,
+   "preview": false,
+   "bullets": [
+    "CATL, Octopus Energy, and Ampace have formed a strategic partnership to develop home energy storage solutions, prioritizing the UK, France, and Spain markets.",
+    "The collaboration integrates CATL's supply chain and battery technology with Octopus Energy's smart dynamic tariff algorithms and virtual power plant (VPP) access.",
+    "Ampace will handle the R&D and manufacturing of battery cells and management systems, expanding the scope of CATL's existing European cooperation beyond heavy-duty truck battery swapping."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/04/nio-to-hold-nio-in-2026-tech-day-nov-25-guangzhou/",
+   "blog": "CNEVPOST",
+   "title": "Nio to hold Nio IN 2026 tech day on November 25 in Guangzhou with focus on AI",
+   "link": "https://cnevpost.com/2026/11/04/nio-to-hold-nio-in-2026-tech-day-nov-25-guangzhou/",
+   "summary": "Nio will share its insights on building an AI-native organization, and unveil new AI-powered cockpit and assisted driving products.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-04 09:22 UTC",
+   "_ts": 1793784173,
+   "preview": false,
+   "bullets": [
+    "Nio will host its 'Nio IN 2026' tech day on November 25 in Guangzhou, marking the return of the event after a one-year hiatus.",
+    "The company plans to unveil new AI-powered smart cockpit and assisted driving products, alongside insights into its transition toward an AI-native organization.",
+    "Nio has significantly ramped up its AI investment, establishing an AGI committee to integrate foundation models across its R&D, manufacturing, and supply chain operations."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/adding-network-security-to-ai-hpc-and-data-centers/",
+   "blog": "SemiEngineering",
+   "title": "Adding Network Security to AI, HPC and Data Centers",
+   "link": "https://semiengineering.com/adding-network-security-to-ai-hpc-and-data-centers/",
+   "summary": "How data center operators can protect critical data and communications without compromising the performance demanded by distributed AI and HPC workloads.\nThe post Adding Network Security to AI, HPC and Data Centers appeared first on Semiconductor Engineering.",
+   "published": "2026-11-04 08:04 UTC",
+   "_ts": 1793779485,
+   "preview": false,
+   "bullets": [
+    "Modern AI and HPC data centers are bifurcating into distinct front-end and back-end network domains to handle specific performance and scalability requirements.",
+    "Front-end networks manage user and application traffic, while back-end networks focus on high-speed connectivity between GPUs and compute nodes.",
+    "Operators must implement security protocols that protect critical data without introducing latency that would degrade the performance of distributed AI workloads."
    ],
    "rating": 3,
    "read_time": 9
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/11/03/xpeng-launches-gx-g9l-11-countries-middle-east-africa/",
-   "blog": "CNEVPOST",
-   "title": "Xpeng launches GX and G9L in 11 countries each across Middle East and Africa",
-   "link": "https://cnevpost.com/2026/11/03/xpeng-launches-gx-g9l-11-countries-middle-east-africa/",
-   "summary": "The GX has secured more than 4,000 orders across the Middle East and Africa, including 800 in the UAE.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-11-03 07:50 UTC",
-   "_ts": 1793692242,
+   "_key": "SemiEngineering|https://semiengineering.com/choosing-the-right-power-transistor-why-application-fit-matters-more-than-technology/",
+   "blog": "SemiEngineering",
+   "title": "Choosing The Right Power Transistor: Why Application Fit Matters More Than Technology",
+   "link": "https://semiengineering.com/choosing-the-right-power-transistor-why-application-fit-matters-more-than-technology/",
+   "summary": "Silicon MOSFETs, IGBTs, SiC MOSFETs, and GaN HEMTs each offer meaningful advantages, but those advantages do not carry the same value across every converter, motor drive, or power stage.\nThe post Choosing The Right Power Transistor: Why Application Fit Matters More Than Technology appeared first on Semiconductor Engineering.",
+   "published": "2026-11-04 08:01 UTC",
+   "_ts": 1793779264,
    "preview": false,
    "bullets": [
-    "Xpeng has launched its GX and G9L flagship SUVs in 11 countries across the Middle East and Africa, utilizing extended-range technology to overcome regional infrastructure challenges.",
-    "The GX model has already secured over 4,000 orders in the region, including 800 units in the UAE, signaling strong initial demand.",
-    "The vehicles feature 800V architecture and 5C fast-charging, capable of reaching an 80% charge in approximately 10.7 minutes.",
-    "Xpeng plans to aggressively scale its regional footprint to over 20 countries and 100 service outlets by 2027 as part of its international expansion strategy."
-   ],
-   "rating": 3,
-   "read_time": 3
-  },
-  {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/11/02/1147932/heres-who-is-falling-in-line-for-trumps-super-intelligence-loyalty-test/",
-   "blog": "MIT Technology Review",
-   "title": "Here’s who is falling in line for Trump’s “Super Intelligence” loyalty test",
-   "link": "https://www.technologyreview.com/2026/11/02/1147932/heres-who-is-falling-in-line-for-trumps-super-intelligence-loyalty-test/",
-   "summary": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. At the end of September, President Trump signed an executive order that contained just one directive, ordering government agencies to rebrand what they had been calling artificial intelligence as “Super Intelligence.” That…",
-   "published": "2026-11-03 04:18 UTC",
-   "_ts": 1793679527,
-   "preview": false,
-   "bullets": [
-    "The White House executive order mandating the term 'Super Intelligence' is being integrated into government solicitations, including surveillance contracts for ICE.",
-    "The rebrand functions as a political litmus test, where the adoption of the terminology signals administrative allegiance and failure to comply may invite political retaliation.",
-    "While the term is appearing on government websites, it has not yet achieved widespread adoption in the private sector, creating a linguistic divide between public and private AI discourse."
-   ],
-   "rating": 3,
-   "read_time": 7
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/11/03/xpeng-plans-south-korea-entry-appoints-former-volvo-exec/",
-   "blog": "CNEVPOST",
-   "title": "Xpeng plans South Korea entry, appoints former Volvo exec to lead local business",
-   "link": "https://cnevpost.com/2026/11/03/xpeng-plans-south-korea-entry-appoints-former-volvo-exec/",
-   "summary": "Lee Man-sik will become managing director of Xpeng Korea on December 1, overseeing business development including sales and service networks.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-11-03 02:20 UTC",
-   "_ts": 1793672418,
-   "preview": false,
-   "bullets": [
-    "Xpeng has confirmed its entry into the South Korean market and appointed former Volvo Cars Korea executive Lee Man-sik to lead local operations starting December 1.",
-    "The move is part of Xpeng's broader international strategy, which saw record overseas deliveries of 13,326 vehicles in October, up 166% year-on-year.",
-    "While a specific launch timeline and model lineup remain undisclosed, the company is focusing on building a foundation for sales, service, and strategic partnerships.",
-    "Overseas expansion has become a critical buffer for Xpeng, as international sales now account for over 26% of its monthly delivery volume."
+    "Selecting power transistors like SiC MOSFETs or GaN HEMTs requires matching device behavior to specific application demands rather than relying on universal technology superiority.",
+    "Designers must evaluate critical factors including bus voltage, switching frequency, commutation behavior, and thermal margins to optimize system-level performance.",
+    "Hardware validation remains essential, as simulation models may not fully capture the impact of PCB parasitics and complex control strategies on device efficiency."
    ],
    "rating": 3,
    "read_time": 2
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/blog-review-nov-4-3/",
+   "blog": "SemiEngineering",
+   "title": "Blog Review: Nov. 4",
+   "link": "https://semiengineering.com/blog-review-nov-4-3/",
+   "summary": "Chiplets for physical AI; rack-level considerations; verification complexity; sparse matrix workloads; AI data centers.\nThe post Blog Review: Nov. 4 appeared first on Semiconductor Engineering.",
+   "published": "2026-11-04 08:01 UTC",
+   "_ts": 1793779262,
+   "preview": false,
+   "bullets": [
+    "Industry experts are shifting focus toward rack-level power and cooling constraints, which now directly influence chip and package design decisions.",
+    "New verification challenges are emerging as the number and diversity of interactions within complex SoCs grow, requiring more sophisticated self-verifying agents.",
+    "The Open Compute Project (OCP) is expanding its chiplet architecture specifications to include requirements for real-time, safety-critical physical AI systems."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/04/byd-denza-n9-all-electric-version-filing/",
+   "blog": "CNEVPOST",
+   "title": "BYD's Denza N9 to add all-electric version with 5- and 6-seat layouts",
+   "link": "https://cnevpost.com/2026/11/04/byd-denza-n9-all-electric-version-filing/",
+   "summary": "The all-electric Denza N9 features a tri-motor all-wheel-drive system with a combined peak output of 890 kW (1,194 hp).\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-04 05:26 UTC",
+   "_ts": 1793769998,
+   "preview": false,
+   "bullets": [
+    "BYD's premium brand Denza is expanding the N9 flagship SUV lineup with an all-electric version, supplementing the existing plug-in hybrid model.",
+    "The all-electric variant features a tri-motor AWD system with a combined peak output of 890 kW (1,194 hp), significantly higher than the PHEV version.",
+    "The vehicle will offer 5- and 6-seat configurations and includes standard roof-mounted LiDAR, though battery capacity and range specifications were not provided in the filing."
+   ],
+   "rating": 3,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/04/byd-teases-new-model-guangzhou-show-next-gen-han-expected/",
+   "blog": "CNEVPOST",
+   "title": "BYD teases new model for Guangzhou Auto Show, with next-gen Han expected",
+   "link": "https://cnevpost.com/2026/11/04/byd-teases-new-model-guangzhou-show-next-gen-han-expected/",
+   "summary": "BYD has confirmed a new model will debut at the Guangzhou Auto Show, likely the next-generation Han, which has completed regulatory filings.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-04 02:55 UTC",
+   "_ts": 1793760920,
+   "preview": true,
+   "bullets": [
+    "BYD has confirmed the debut of a new model at the upcoming Guangzhou Auto Show, which is widely expected to be the next-generation Han sedan.",
+    "The model has already completed the necessary regulatory filings, indicating that it is nearing the production and commercialization phase.",
+    "The Guangzhou Auto Show, starting November 27, serves as a key venue for BYD to refresh its core sedan lineup and maintain its market leadership."
+   ],
+   "rating": 3,
+   "read_time": 1
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/11/04/1148049/roundtables-inside-the-quest-for-cognitive-immortality/",
+   "blog": "MIT Technology Review",
+   "title": "Roundtables: Inside the Quest for Cognitive Immortality",
+   "link": "https://www.technologyreview.com/2026/11/04/1148049/roundtables-inside-the-quest-for-cognitive-immortality/",
+   "summary": "Tuesday, November 17, 2026 In an effort to reach an elusive continuity of the self, some far-thinking technologists are working on ways to keep your brain going—even beyond death. Join science editor Mary Beth Griggs and senior editor for biomedicine Antonio Regalado for a conversation exploring possible paths to keep your mind going, including gradual…",
+   "published": "2026-11-04 18:21 UTC",
+   "_ts": 1793816500,
+   "preview": false,
+   "bullets": [
+    "Roundtables: Inside the Quest for Cognitive Immortality\nJoin a subscriber-only conversation exploring possible paths to keep your mind going.",
+    "Available only for MIT Technology Review subscribers.",
+    "Tuesday, November 17, 2026\nIn an effort to reach an elusive continuity of the self, some far-thinking technologists are working on ways to keep your brain going—even beyond death.",
+    "Join science editor Mary Beth Griggs and senior editor for biomedicine Antonio Regalado for a conversation exploring possible paths to keep your mind going, including gradual brain replacement and uploading our...",
+    "Going live at 17:00 GMT / 12pm EST / 9am PST\nRelated Stories:\n- Six wild ideas for perpetuating your mind\n- Inside the stealthy startup that pitched brainless human clones\n- Technology that lets us “speak” to our..."
+   ],
+   "rating": 2,
+   "read_time": 1
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/neural-super-resolution/",
+   "blog": "SemiEngineering",
+   "title": "Neural Super Resolution",
+   "link": "https://semiengineering.com/neural-super-resolution/",
+   "summary": "Insight into how neural graphics can improve image quality and performance while simplifying deployment on power- and bandwidth-constrained devices.\nThe post Neural Super Resolution appeared first on Semiconductor Engineering.",
+   "published": "2026-11-04 08:01 UTC",
+   "_ts": 1793779261,
+   "preview": true,
+   "bullets": [
+    "Neural graphics techniques are being utilized to enhance image quality and performance in resource-constrained environments.",
+    "The technology aims to simplify the deployment of high-fidelity visual processing on devices with limited power and bandwidth budgets.",
+    "Neural super-resolution represents a growing trend in optimizing AI-driven visual output for edge and mobile hardware."
+   ],
+   "rating": 2,
+   "read_time": 1
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/04/buick-electra-gs-china-regulatory-filing/",
+   "blog": "CNEVPOST",
+   "title": "Buick Electra GS appears in China regulatory filing, expanding NEV lineup",
+   "link": "https://cnevpost.com/2026/11/04/buick-electra-gs-china-regulatory-filing/",
+   "summary": "The Electra GS plug-in hybrid sedan features a fastback design and an electric motor with a peak output of 165 kW (221 hp).\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-04 08:00 UTC",
+   "_ts": 1793779203,
+   "preview": false,
+   "bullets": [
+    "SAIC-GM has filed for the Buick Electra GS, a new plug-in hybrid sedan featuring a fastback design and a 165 kW electric motor.",
+    "The vehicle will be available with two engine options and lithium iron phosphate batteries supplied by Rept Battero Energy or Zenergy.",
+    "Regulatory filings confirm the availability of roof-mounted LiDAR, suggesting advanced driver-assistance capabilities, though specific range and pricing remain undisclosed."
+   ],
+   "rating": 2,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/04/chery-icar-v25-nov-19-launch/",
+   "blog": "CNEVPOST",
+   "title": "Chery's iCar V25 boxy extended-range SUV set for November 19 launch",
+   "link": "https://cnevpost.com/2026/11/04/chery-icar-v25-nov-19-launch/",
+   "summary": "iCar V25 opened for pre-orders in October, with prices starting at 139,800 yuan ($20,810).\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-04 03:44 UTC",
+   "_ts": 1793763892,
+   "preview": false,
+   "bullets": [
+    "Chery's iCar brand will launch the V25 extended-range SUV on November 19, with pre-orders currently ranging from 139,800 to 175,800 yuan.",
+    "The V25 is equipped with Horizon Robotics' Journey 6P chip, providing 560 TOPS of computing power for its 'Falcon 700+' driver-assistance system.",
+    "Despite a year-on-year sales decline of 5.45% in October, iCar achieved its highest monthly sales volume of 2026, totaling 11,717 units."
+   ],
+   "rating": 2,
+   "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/04/zeekr-files-updated-001/",
+   "blog": "CNEVPOST",
+   "title": "Zeekr files for updated 001, paving way for Q1 2027 launch",
+   "link": "https://cnevpost.com/2026/11/04/zeekr-files-updated-001/",
+   "summary": "The 2027 Zeekr 001 will launch in the first quarter of 2027 and is expected to feature Geely Smart Charging technology for faster charging.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-04 03:28 UTC",
+   "_ts": 1793762881,
+   "preview": true,
+   "bullets": [
+    "Zeekr has filed for an updated version of its 001 model, which is scheduled for a market launch in the first quarter of 2027.",
+    "The updated vehicle is expected to incorporate Geely's proprietary Smart Charging technology to improve charging speeds.",
+    "This update represents a continued effort by Zeekr to maintain the competitiveness of its flagship sedan through hardware and charging infrastructure enhancements."
+   ],
+   "rating": 2,
+   "read_time": 1
   }
  ]
 }
