@@ -1,102 +1,100 @@
 {
- "generated_at": "2026-11-06 10:23 HKT",
+ "generated_at": "2026-11-07 09:53 HKT",
  "repos": [
   {
-   "name": "microsoft/VibeVoice",
-   "url": "https://github.com/microsoft/VibeVoice",
-   "language": "Python",
-   "description": "Open-Source Frontier Voice AI",
-   "keywords": [],
-   "trendshift_pos": 9,
-   "stars": 56010,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An open-source frontier voice AI system designed for high-fidelity, real-time conversational interactions.",
-   "bullets": [
-    "Built on advanced speech synthesis and recognition models optimized for low-latency performance.",
-    "Provides a modular architecture for integrating voice-first interfaces into enterprise applications.",
-    "Supports natural language processing pipelines capable of handling complex, multi-turn dialogues.",
-    "Ideal for building AI agents, customer service bots, and interactive voice-response systems."
-   ]
-  },
-  {
-   "name": "meta/astryx",
-   "url": "https://github.com/meta/astryx",
-   "language": "TypeScript",
-   "description": "An open source design system that's fully customizable and agent ready",
-   "keywords": [
-    "UI components"
-   ],
-   "trendshift_pos": 18,
-   "stars": 13936,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A fully customizable, agent-ready open-source design system built for the modern AI-integrated web.",
-   "bullets": [
-    "Utilizes a TypeScript-based component architecture designed for high extensibility.",
-    "Features semantic structures that allow LLM agents to interpret and manipulate UI elements programmatically.",
-    "Focuses on accessibility and design consistency across complex, data-heavy dashboard applications.",
-    "Targeted at developers building autonomous interfaces that require both human and machine readability."
-   ]
-  },
-  {
-   "name": "Usagi-org/ai-goofish-monitor",
-   "url": "https://github.com/Usagi-org/ai-goofish-monitor",
-   "language": "Python",
-   "description": "基于 Playwright 和AI实现的闲鱼多任务实时/定时监控与智能分析系统，配备了功能完善的后台管理UI。帮助用户从闲鱼海量商品中，找到心仪产品。",
-   "keywords": [],
-   "trendshift_pos": 23,
-   "stars": 17650,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A multi-task real-time monitoring and intelligent analysis system for e-commerce marketplaces.",
-   "bullets": [
-    "Powered by Playwright for robust web automation and data scraping of marketplace listings.",
-    "Integrates LLM-based analysis to filter, categorize, and evaluate product listings based on user-defined criteria.",
-    "Includes a comprehensive backend management UI for tracking alerts and managing monitoring tasks.",
-    "Useful for arbitrage, inventory tracking, and automated deal-hunting in high-velocity retail environments."
-   ],
-   "img": "Usagi-org_ai-goofish-monitor_0.jpg",
-   "img_alt": "监控概览",
-   "img2": "Usagi-org_ai-goofish-monitor_1.jpg",
-   "img2_alt": "任务管理"
-  },
-  {
-   "name": "chaitin/MonkeyCode",
-   "url": "https://github.com/chaitin/MonkeyCode",
-   "language": "TypeScript",
-   "description": "企业级 AI 办公工作台",
+   "name": "solongate/agent-security",
+   "url": "https://github.com/solongate/agent-security",
+   "language": "Go",
+   "description": "Local-first, open-source security gateway for AI coding agents. Enforce tool-call policies, detect secrets, and audit actions on-device.",
    "keywords": [
     "AI coding assistant"
    ],
-   "trendshift_pos": 15,
-   "stars": 4996,
+   "trendshift_pos": 21,
+   "stars": 229,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An enterprise-grade AI-powered workspace designed to streamline developer and office productivity workflows.",
+   "one_liner": "A local-first security gateway designed to govern and audit AI coding agents.",
    "bullets": [
-    "Provides a centralized platform for managing AI-assisted coding and administrative tasks.",
-    "Integrates with existing enterprise infrastructure to ensure secure and compliant AI usage.",
-    "Features tools for task automation, code generation, and intelligent document processing.",
-    "Designed for teams looking to scale AI adoption within professional software development lifecycles."
+    "Built in Go, focusing on low-latency interception of agent tool calls.",
+    "Provides policy enforcement and secret detection for autonomous coding workflows.",
+    "Ensures security and compliance for enterprise-grade AI agent deployments.",
+    "Acts as a middleware layer to audit and restrict agentic behavior on-device."
    ]
   },
   {
-   "name": "HeinrichZ/CloudField",
-   "url": "https://github.com/HeinrichZ/CloudField",
-   "language": "JavaScript",
-   "description": "First browser-based interactive cloud microphysics & aviation weather simulation tool for low-visibility decision support (WebGL2, cloud seeding, METAR/TAF/RVR, LES pre-processing, DE/EN/ZH). 首个面向民航低能见度气象研判的浏览器端云微物理交互仿真工具",
+   "name": "voyager-so/vork",
+   "url": "https://github.com/voyager-so/vork",
+   "language": "Rust",
+   "description": "Headless 3D and VFX engine for agents. Research preview.",
    "keywords": [],
-   "trendshift_pos": 17,
-   "stars": 152,
+   "trendshift_pos": 8,
+   "stars": 325,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A browser-based interactive cloud microphysics and aviation weather simulation tool for decision support.",
+   "one_liner": "A headless 3D and VFX engine specifically architected for AI agents.",
    "bullets": [
-    "Built with WebGL2 for high-performance, real-time rendering of complex atmospheric physics.",
-    "Processes METAR, TAF, and RVR data to provide low-visibility decision support for aviation professionals.",
-    "Includes LES (Large Eddy Simulation) pre-processing for accurate cloud seeding and weather modeling.",
-    "Serves as a specialized infra tool for meteorology, flight planning, and risk management in aviation."
+    "Written in Rust for high-performance, memory-safe graphics processing.",
+    "Enables agents to perceive, manipulate, and render 3D environments programmatically.",
+    "Facilitates research in embodied AI and complex visual simulation tasks.",
+    "Provides a headless interface suitable for server-side agentic automation."
+   ],
+   "img": "voyager-so_vork_0.jpg",
+   "img_alt": "A cyber car on a mountain road at sunset — watch the film",
+   "img2": "voyager-so_vork_1.jpg",
+   "img2_alt": "A ribbon of starlings crossing the low sun above a lagoon"
+  },
+  {
+   "name": "zed-industries/zed",
+   "url": "https://github.com/zed-industries/zed",
+   "language": "Rust",
+   "description": "Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.",
+   "keywords": [],
+   "trendshift_pos": 15,
+   "stars": 93662,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A high-performance, multiplayer code editor built for speed and collaboration.",
+   "bullets": [
+    "Engineered in Rust with a custom GPU-accelerated UI framework.",
+    "Features native support for real-time collaboration and AI-assisted coding.",
+    "Optimized for low-latency input and massive codebase navigation.",
+    "Essential infrastructure for modern developer productivity and remote engineering teams."
+   ]
+  },
+  {
+   "name": "leo1oel/lattice",
+   "url": "https://github.com/leo1oel/lattice",
+   "language": "TypeScript",
+   "description": "A local-first, agent-first LaTeX writing app for macOS: live PDF, annotations, papers and Overleaf sync",
+   "keywords": [],
+   "trendshift_pos": 14,
+   "stars": 66,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A local-first, agent-first LaTeX writing environment for macOS.",
+   "bullets": [
+    "TypeScript-based architecture focusing on local-first data persistence.",
+    "Integrates live PDF rendering, annotation tools, and Overleaf synchronization.",
+    "Designed to support agentic workflows for academic and technical document generation.",
+    "Streamlines the research-to-publication pipeline for quantitative professionals."
+   ]
+  },
+  {
+   "name": "anomalyco/rune",
+   "url": "https://github.com/anomalyco/rune",
+   "language": "Rust",
+   "description": "Rune: Native UI framework",
+   "keywords": [],
+   "trendshift_pos": 12,
+   "stars": 2619,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A native UI framework built in Rust for high-performance application development.",
+   "bullets": [
+    "Leverages Rust's memory safety and performance for UI rendering.",
+    "Provides a modern alternative to traditional cross-platform UI toolkits.",
+    "Designed for building responsive, native-feeling applications across desktop platforms.",
+    "Focuses on developer experience and efficient resource utilization for complex interfaces."
    ]
   }
  ]
