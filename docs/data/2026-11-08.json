@@ -1,0 +1,739 @@
+{
+  "date": "2026-11-08",
+  "generated_at": "2026-11-08 09:24 HKT",
+  "snapshot": [
+    {
+      "text": "S&P +0.3%",
+      "cls": "pos",
+      "m1": "up"
+    },
+    {
+      "text": "Nasdaq +1.1%",
+      "cls": "pos",
+      "m1": "up"
+    },
+    {
+      "text": "HSI -1.3%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "US10Y 4.86%",
+      "cls": "pos",
+      "m1": "up"
+    },
+    {
+      "text": "USD/HKD +0.0%",
+      "cls": "flat",
+      "m1": "flat"
+    },
+    {
+      "text": "HKD/CNY -0.2%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "JPY/HKD(¥100) -1.1%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "Gold -0.9%",
+      "cls": "neg",
+      "m1": "down"
+    },
+    {
+      "text": "BTC -0.1%",
+      "cls": "neg",
+      "m1": "down"
+    }
+  ],
+  "takeaways": [
+    "Nvidia faces severe geopolitical and governance headwinds as congressional probes into alleged Chinese intelligence ties coincide with tightening export controls and rising scrutiny of its AI supply chain.",
+    "Institutional risk aversion toward AI infrastructure is intensifying, evidenced by ING’s data center loan fire sale and surging yields on CoreWeave bonds amid mounting regulatory and political opposition.",
+    "Despite record-breaking capital inflows into foundational AI, investors are rapidly de-risking equity positions as political uncertainty, trade tensions, and emerging market hawkishness trigger broader market volatility."
+  ],
+  "day_importance": 5,
+  "day_verdict": "This is a read-carefully day driven by the massive geopolitical and regulatory crisis surrounding Nvidia's CEO and the significant market volatility triggered by the OpenAI funding round and global equity positioning shifts.",
+  "weekly": null,
+  "cb_alert": [],
+  "cb_upcoming": [],
+  "cb_results": [
+    {
+      "bank": "RBA",
+      "headline": "RBA rate decision (cash rate)",
+      "date": "Nov 03 11:30 HKT",
+      "outcome": "hiked 25bp to 4.85% (was 4.60%)",
+      "expected": null,
+      "tone": null,
+      "link": null,
+      "link_title": null
+    }
+  ],
+  "categories": [
+    {
+      "id": "tech",
+      "label": "Global Technology",
+      "items": [
+        {
+          "title": "Nvidia's Jensen Huang officially called to Congress due to reports of a Chinese spy plot",
+          "url": "https://www.tomshardware.com/tech-industry/big-tech/nvidias-jensen-huang-officially-called-to-congress-due-to-reports-of-a-chinese-spy-plot-officials-mention-growing-concerns-over-national-security",
+          "source": "Tom's Hardware",
+          "published": "2026-11-07 13:30 UTC",
+          "bullets": [
+            "House committee chairs have summoned Nvidia CEO Jensen Huang for a closed-door briefing regarding allegations that a Chinese asset siphoned sensitive information through a Singaporean data center partner.",
+            "The investigation centers on potential security lapses and the unauthorized flow of advanced AI silicon to China, which could trigger more stringent export controls or regulatory scrutiny for Nvidia's operations."
+          ],
+          "rating": 5,
+          "reason": "Direct regulatory and national security risk to a major market leader.",
+          "read_time": 6,
+          "is_new": true
+        },
+        {
+          "title": "After the midterms, things are looking rocky for Elon Musk and data centers",
+          "url": "https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers/",
+          "source": "TechCrunch",
+          "published": "2026-11-07 22:07 UTC",
+          "bullets": [
+            "The Democratic victory in the midterms has empowered local and state-level opposition to data center expansion, with multiple ballot measures passing to restrict or place moratoriums on new developments.",
+            "This political shift threatens the infrastructure backbone of the AI boom, as companies face increasing grassroots resistance and potential regulatory roadblocks in key states like Texas, complicating long-term capital expenditure plans."
+          ],
+          "rating": 4,
+          "reason": "Significant policy shift impacting the physical infrastructure required for AI scaling.",
+          "read_time": 7,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "Global AI",
+      "items": [
+        {
+          "title": "OpenAI raises $11bn in first funding tranche at $1.25tn valuation",
+          "url": "https://middle-east-online.com/en/openai-raises-11bn-first-funding-tranche-125tn-valuation",
+          "source": "Middle East Online",
+          "published": "2026-11-07 15:25 UTC",
+          "bullets": [
+            "OpenAI has successfully secured $11 billion in its initial funding tranche, signaling continued massive capital inflow into the generative AI sector despite broader market debates.",
+            "The deal values the company at an eye-watering $1.25 trillion, underscoring the extreme premium investors are placing on foundational AI model developers as they scale infrastructure."
+          ],
+          "rating": 5,
+          "reason": "Major capital event for a market-leading AI firm.",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "George Kurtz Just Announced Incredible News for CrowdStrike Investors and the Artificial Intelligence (AI) Industry",
+          "url": "https://finance.yahoo.com/technology/ai/articles/george-kurtz-just-announced-incredible-122900008.html",
+          "source": "Yahoo Finance",
+          "published": "2026-11-07 12:29 UTC",
+          "bullets": [
+            "CrowdStrike has introduced an 'AI Kill Switch' within its Falcon platform, providing enterprises with the ability to immediately terminate and isolate autonomous AI agents that exhibit malicious behavior.",
+            "This development addresses critical security vulnerabilities in AI deployment, such as prompt injection, and could accelerate corporate adoption by offering a necessary safety mechanism for managing AI agent fleets."
+          ],
+          "rating": 4,
+          "reason": "Significant technological advancement in AI security infrastructure.",
+          "read_time": 5,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "china-ai",
+      "label": "China AI",
+      "items": [
+        {
+          "title": "US intelligence believes Jensen Huang had romantic relationship with Chinese spy in honeypot operation — spy suspect linked to company accused of smuggling $2 billion in AI chips",
+          "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/us-intelligence-believes-jensen-huang-had-romantic-relationship-with-chinese-spy-in-honeypot-operation-spy-suspect-linked-to-company-accused-of-smuggling-usd2-billion-in-ai-chips",
+          "source": "Tom's Hardware",
+          "published": "2026-11-07 14:47 UTC",
+          "bullets": [
+            "U.S. intelligence officials are investigating allegations that Nvidia CEO Jensen Huang was targeted in a honeypot operation by a suspected Chinese intelligence asset linked to the smuggling of $2 billion in AI chips.",
+            "The scandal centers on a network of companies, including Megaspeed and Speedmatrix, which allegedly bypassed U.S. export controls to funnel advanced AI hardware into China, posing a significant geopolitical and corporate governance risk for Nvidia."
+          ],
+          "rating": 5,
+          "reason": "High-impact geopolitical and corporate governance risk involving the CEO of the world's most critical AI chip supplier.",
+          "read_time": 7,
+          "is_new": true
+        },
+        {
+          "title": "Why Beijing blocked SoftBank's $5.4 billion ABB Robotics deal? Setback for Masayoshi Son's physical AI ambitions",
+          "url": "https://www.tradingview.com/news/moodys:37616839cb449:0-why-beijing-blocked-softbank-s-5-4-billion-abb-robotics-deal-setback-for-masayoshi-son-s-physical-ai-ambitions/",
+          "source": "TradingView",
+          "published": "2026-11-07 20:18 UTC",
+          "bullets": [
+            "China’s regulatory rejection of the $5.4 billion ABB Robotics acquisition by SoftBank signals a hardening stance against foreign control of critical industrial automation and physical AI infrastructure.",
+            "This move represents a major strategic setback for Masayoshi Son’s long-term vision of integrating AI into physical robotics, highlighting the increasing difficulty for global investors to execute large-scale tech deals within the Chinese market."
+          ],
+          "rating": 4,
+          "reason": "Significant regulatory intervention impacting major cross-border AI and robotics investment strategies.",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "ai-research",
+      "label": "AI Research",
+      "items": [
+        {
+          "title": "Weill Cornell Says Radiology Patients' Medical Details Were Entered Into AI Tools Without Authorization",
+          "url": "https://www.medicaldaily.com/weill-cornell-radiology-patient-data-ai-incident-480956",
+          "source": "Medical Daily",
+          "published": "2026-11-07 22:00 UTC",
+          "bullets": [
+            "Weill Cornell Medicine disclosed that sensitive patient clinical data, including diagnoses and medication histories, was processed by unauthorized AI tools during a research study between June 10 and June 20, 2026.",
+            "While the breach did not involve direct identifiers like names or Social Security numbers, the exposure of medical record numbers and specific treatment histories highlights significant operational risks and regulatory compliance vulnerabilities for healthcare institutions integrating AI."
+          ],
+          "rating": 4,
+          "reason": "Highlights critical data privacy and regulatory risks in healthcare AI adoption.",
+          "read_time": 6,
+          "is_new": true
+        },
+        {
+          "title": "AI, automation and novel assays accelerate the hunt for new medicines",
+          "url": "https://bioengineer.org/ai-automation-and-novel-assays-accelerate-the-hunt-for-new-medicines/",
+          "source": "Bioengineer.org",
+          "published": "2026-11-07 20:11 UTC",
+          "bullets": [
+            "New research demonstrates that integrating machine learning directly into experimental screening pipelines allows for the virtual screening of over 100,000 compounds, significantly compressing the timeline for early-stage drug discovery.",
+            "By combining high-throughput screening with predictive modeling, researchers are successfully identifying novel inhibitor candidates, signaling a shift toward more scalable, cost-efficient computational platforms in the pharmaceutical R&D sector."
+          ],
+          "rating": 3,
+          "reason": "Demonstrates tangible efficiency gains and R&D cost reduction in the pharmaceutical sector.",
+          "read_time": 4,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "semis",
+      "label": "Semiconductors",
+      "items": [
+        {
+          "title": "TSMC Jumped 6% on a Report It Could Make Memory Chips for Nvidia",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/tsmc-jumped-6-report-could-151351522.html",
+          "source": "Yahoo Finance",
+          "published": "2026-11-07 15:13 UTC",
+          "bullets": [
+            "TSMC is reportedly evaluating plans to manufacture vertically stacked DRAM at the request of Nvidia, a move that could potentially reduce Nvidia's reliance on traditional memory suppliers like SK Hynix and Micron.",
+            "While the report triggered a 6% rally in TSMC shares, analysts note that any new supply would take years to materialize and that the technical challenge of defect-free mass production remains a significant hurdle."
+          ],
+          "rating": 4,
+          "reason": "Strategic supply chain shift with potential long-term impact on memory market dynamics.",
+          "read_time": 5,
+          "is_new": true
+        },
+        {
+          "title": "Nvidia CEO Jensen Huang faces probe over alleged Chinese spy ties",
+          "url": "https://www.axios.com/2026/11/07/jensen-huang-nvidia-congress-china-spy",
+          "source": "Axios",
+          "published": "2026-11-07 21:20 UTC",
+          "bullets": [
+            "Nvidia CEO Jensen Huang is facing a congressional investigation following reports of alleged personal ties to a Chinese intelligence operative, raising significant governance and national security concerns.",
+            "The probe coincides with broader scrutiny regarding the export of high-end H200 chips to China via shell companies, potentially complicating Nvidia's regulatory standing and future access to the Chinese market."
+          ],
+          "rating": 5,
+          "reason": "High-level geopolitical and governance risk involving the CEO of the world's most critical AI hardware provider.",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "ev",
+      "label": "Electric Vehicles",
+      "items": [
+        {
+          "title": "‘The Trend Is Clear’: How EVs Are Closing In On Gas Car Prices",
+          "url": "https://insideevs.com/news/808818/ev-gas-car-price-parity/",
+          "source": "InsideEVs",
+          "published": "2026-11-07 16:44 UTC",
+          "bullets": [
+            "The average transaction price for a new electric vehicle in the U.S. fell to $54,813 in August, a 2.7% year-over-year decline that narrows the price gap with combustion vehicles to just 9.4%.",
+            "Market share gains for more affordable models from brands like Chevrolet, Toyota, and Hyundai are driving this price compression, signaling a shift toward mass-market EV adoption beyond Tesla's influence."
+          ],
+          "rating": 4,
+          "reason": "Significant market trend indicating improved EV affordability and adoption.",
+          "read_time": 4,
+          "is_new": true
+        },
+        {
+          "title": "Electric cars hit 32% of UK new-car sales, leaving petrol just 5.2 points ahead",
+          "url": "https://www.thecooldown.com/green-tech/uk-electric-car-sales-petrol-gap/",
+          "source": "The Cool Down",
+          "published": "2026-11-08 01:20 UTC",
+          "bullets": [
+            "Battery electric vehicle registrations in the UK surged 32.7% in October, capturing 32% of the total market and narrowing the gap with gas-powered cars to a record low of 5.2 percentage points.",
+            "The rapid shift is being accelerated by automakers aggressively pushing electric volumes to comply with the UK's zero-emission vehicle mandate, with a full market crossover projected by August 2027."
+          ],
+          "rating": 4,
+          "reason": "Major regulatory and market shift in a key international automotive region.",
+          "read_time": 3,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "data-center",
+      "label": "Data Centers",
+      "items": [
+        {
+          "title": "CoreWeave seeks Texas cooperation as Democratic wins threaten data centers",
+          "url": "https://biz.chosun.com/en/en-it/2026/11/08/5HXL6BMZCVFSTE7OF2T536T65Q/",
+          "source": "Chosunbiz",
+          "published": "2026-11-08 00:48 UTC",
+          "bullets": [
+            "CoreWeave is proactively engaging with Texas Governor-elect Gina Hinojosa to secure project continuity, as recent midterm election results have empowered candidates advocating for stricter data center regulations.",
+            "Market research indicates that approximately 41% of planned U.S. data center capacity is currently located in states where governors have either promised or are actively implementing construction moratoriums."
+          ],
+          "rating": 5,
+          "reason": "Direct impact on major AI infrastructure investment pipelines.",
+          "read_time": 2,
+          "is_new": true
+        },
+        {
+          "title": "ING Discounts $500 Million Data Center Loan Portfolio in Fire Sale, Signaling Exit from Stargate Project Financing",
+          "url": "https://finance.biggo.com/news/4713f8b3-a8ab-423a-883a-c378324e61a6",
+          "source": "BigGo Finance",
+          "published": "2026-11-07 12:55 UTC",
+          "bullets": [
+            "ING has offloaded a $500 million data center loan portfolio at a discount, marking a significant strategic withdrawal from the high-profile Stargate project financing initiative.",
+            "This fire sale suggests growing institutional risk aversion toward large-scale AI infrastructure debt, potentially signaling a tightening of credit markets for future data center developments."
+          ],
+          "rating": 4,
+          "reason": "Signals potential liquidity and credit risk shifts in the sector.",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "space",
+      "label": "Space & Aerospace",
+      "items": [
+        {
+          "title": "SpaceX Locks In $9B Defense Year: Space Force USSF-432 Orbits Fourth Starshield Radar Batch",
+          "url": "https://www.techtimes.com/articles/330220/20261107/spacex-locks-9b-defense-year-space-force-ussf-432-orbits-fourth-starshield-radar-batch.htm",
+          "source": "Tech Times",
+          "published": "2026-11-07 21:35 UTC",
+          "bullets": [
+            "SpaceX successfully launched the USSF-432 mission, the fourth installment in the Space Based Sensing and Targeting (SBST) program, which has now placed approximately 70 classified satellites into low Earth orbit.",
+            "The mission underscores the commercial viability of the Starshield platform, with SpaceX securing a $9 billion defense portfolio for 2026, solidifying its role as the primary launch provider for critical U.S. national security surveillance architecture."
+          ],
+          "rating": 5,
+          "reason": "Significant expansion of a major military satellite constellation and confirmation of SpaceX's dominant defense revenue stream.",
+          "read_time": 8,
+          "is_new": true
+        },
+        {
+          "title": "AST SpaceMobile Is Building Its Own Reusable Rocket to Rely Less on SpaceX",
+          "url": "https://247wallst.com/investing/2026/11/07/ast-spacemobile-is-building-its-own-reusable-rocket-to-rely-less-on-spacex/",
+          "source": "24/7 Wall St.",
+          "published": "2026-11-07 16:49 UTC",
+          "bullets": [
+            "AST SpaceMobile has entered a $1.3 billion agreement with Firefly Aerospace to develop the 'Blacklift' reusable rocket, aiming to reduce launch dependency on SpaceX by late 2028.",
+            "The deal involves significant equity dilution, including an upfront payment of $400 million in cash and up to 14 million shares, highlighting the high capital intensity required for vertical integration in the satellite sector."
+          ],
+          "rating": 4,
+          "reason": "Major strategic shift for a high-growth space company involving significant capital expenditure and equity dilution.",
+          "read_time": 4,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "global-macro",
+      "label": "Global Economy",
+      "items": [
+        {
+          "title": "Paraguay’s Senate removes Peña over bank collapse as Alliana is sworn in",
+          "url": "https://www.londondaily.news/paraguays-senate-removes-pena-over-bank-collapse-as-alliana-is-sworn-in/",
+          "source": "London Daily News",
+          "published": "2026-11-07 07:35 UTC",
+          "bullets": [
+            "The impeachment and removal of President Santiago Peña follows a significant bank collapse that has triggered severe political instability in Paraguay.",
+            "Investors should monitor the transition to President Alliana, as the sudden change in leadership and the underlying financial sector crisis pose risks to regional market stability and sovereign credit outlooks."
+          ],
+          "rating": 5,
+          "reason": "Political instability triggered by financial sector collapse",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Emerging market central banks turn hawkish as inflation pressures mount, Citi says",
+          "url": "https://sg.finance.yahoo.com/news/emerging-market-central-banks-turn-220251272.html",
+          "source": "Yahoo Finance Singapore",
+          "published": "2026-11-07 22:02 UTC",
+          "bullets": [
+            "Citi reports a pivot toward hawkish monetary policy among emerging market central banks, driven by persistent core inflation and high energy costs that threaten second-round price effects.",
+            "The resulting divergence in central bank responses is expected to widen total return dispersion across local bond curves, forcing investors to reassess duration and currency risk in developing markets."
+          ],
+          "rating": 4,
+          "reason": "Broad shift in emerging market monetary policy",
+          "read_time": 2,
+          "is_new": true
+        },
+        {
+          "title": "Nigeria's stablecoin payment rules: two-class licence system, high capital thresholds, and immediate compliance needs for cross-border businesses.",
+          "url": "https://www.onesafe.io/blog/nigeria-stablecoin-licensing-payments",
+          "source": "OneSafe",
+          "published": "2026-11-08 00:39 UTC",
+          "bullets": [
+            "The Central Bank of Nigeria has implemented a strict two-class licensing framework for stablecoins, requiring minimum paid-up capital of 10 to 15 billion naira and full reserve backing in liquid assets.",
+            "The immediate enforcement of these rules, including a ban on algorithmic designs, creates significant operational hurdles for cross-border payment providers and firms utilizing foreign-currency-backed tokens within the Nigerian market."
+          ],
+          "rating": 4,
+          "reason": "Major regulatory shift for digital assets in a key African market",
+          "read_time": 9,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "equity",
+      "label": "Equity Markets",
+      "items": [
+        {
+          "title": "Equity positioning suffered one of its sharpest weekly drops on record: DB",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/equity-positioning-suffered-one-sharpest-213706352.html",
+          "source": "Yahoo Finance",
+          "published": "2026-11-07 21:37 UTC",
+          "bullets": [
+            "Deutsche Bank analysts reported that equity positioning experienced one of the most significant weekly declines on record, signaling a rapid shift in investor sentiment and risk appetite.",
+            "This massive reduction in exposure suggests that institutional investors are aggressively de-risking their portfolios, which could lead to heightened market volatility and reduced liquidity in the near term."
+          ],
+          "rating": 5,
+          "reason": "Indicates a major, record-breaking shift in institutional market positioning.",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "Berkshire Hathaway speeds up stock buybacks, though profit falls",
+          "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-sandisk-micron-broken-apple-amazon-microsoft-strong-berkshire-earnings/",
+          "source": "Investor's Business Daily",
+          "published": "2026-11-07 21:45 UTC",
+          "bullets": [
+            "Berkshire Hathaway has significantly accelerated its share repurchase program, effectively doubling its buyback activity despite reporting a decline in overall quarterly profits.",
+            "The decision to increase capital returns during a period of falling earnings suggests management's confidence in the company's long-term valuation and its ability to deploy excess cash efficiently."
+          ],
+          "rating": 4,
+          "reason": "Major capital allocation shift from a bellwether holding company.",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "fixed-income",
+      "label": "Fixed Income",
+      "items": [
+        {
+          "title": "Treasury Yields Down Following Democrats Midterm Win",
+          "url": "https://www.wsj.com/finance/investing/two-year-treasury-yield-falls-to-two-month-low-as-democrats-sweep-midterm-elections-79fb1f8e",
+          "source": "WSJ",
+          "published": "2026-11-07 23:40 UTC",
+          "bullets": [
+            "The Democratic victory in the midterm elections has triggered a downward shift in U.S. Treasury yields, reflecting market expectations for potential shifts in fiscal policy and government spending priorities.",
+            "Investors are recalibrating their fixed-income portfolios as the political landscape changes, with the decline in yields suggesting a market anticipation of altered economic growth trajectories and debt management strategies."
+          ],
+          "rating": 4,
+          "reason": "Significant political shift impacting benchmark interest rates.",
+          "read_time": 1,
+          "is_new": true
+        },
+        {
+          "title": "CoreWeave’s Bonds Now Yield More Than 16%, Days Before Earnings",
+          "url": "https://www.bloomberg.com/news/articles/2026-11-07/meta-s-bond-sale-shows-new-reality-for-tech-debt-credit-weekly",
+          "source": "Bloomberg.com",
+          "published": "2026-11-07 20:00 UTC",
+          "bullets": [
+            "CoreWeave's 2032 bonds are trading at yields exceeding 16%, signaling severe market skepticism regarding the company's ability to refinance its massive debt load amidst aggressive capital expenditure plans.",
+            "The company faces a critical test with its upcoming third-quarter earnings report, as interest expenses have ballooned to nearly four times its adjusted operating income, raising significant default risk concerns."
+          ],
+          "rating": 5,
+          "reason": "High-yield distress in a major AI-infrastructure player.",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "china",
+      "label": "China Economy",
+      "items": [
+        {
+          "title": "China confirms plans for Xi-Trump-Putin meeting",
+          "url": "https://www.taipeitimes.com/News/front/archives/2026/11/08/2003867352",
+          "source": "Taipei Times",
+          "published": "2026-11-07 16:00 UTC",
+          "bullets": [
+            "Beijing has confirmed it is coordinating a potential trilateral summit between Xi Jinping, Donald Trump, and Vladimir Putin on the sidelines of the upcoming APEC summit in Shenzhen.",
+            "The meeting occurs amid a fragile trade truce set to expire in January, with US officials currently pressuring Beijing to fulfill commitments regarding agricultural purchases and critical mineral export controls."
+          ],
+          "rating": 5,
+          "reason": "High-stakes geopolitical summit with direct implications for US-China trade policy.",
+          "read_time": 5,
+          "is_new": true
+        },
+        {
+          "title": "History repeats in Shenzhen? China hosts another lame-duck US president",
+          "url": "https://www.scmp.com/news/china/diplomacy/article/3373654/history-repeats-shenzhen-china-hosts-another-lame-duck-us-president",
+          "source": "South China Morning Post",
+          "published": "2026-11-07 14:00 UTC",
+          "bullets": [
+            "Following significant midterm election losses, President Trump enters the APEC summit as a 'lame-duck' leader, raising investor concerns about his administration's ability to enforce long-term trade agreements.",
+            "Historical precedent from the 2016 G20 summit suggests that short-term diplomatic breakthroughs in Shenzhen may lack the political durability to prevent future escalations in the US-China trade relationship."
+          ],
+          "rating": 4,
+          "reason": "Political vulnerability of the US administration creates uncertainty for future trade stability.",
+          "read_time": 1,
+          "is_new": true
+        }
+      ]
+    },
+    {
+      "id": "hk",
+      "label": "Hong Kong Economy",
+      "items": [
+        {
+          "title": "RealVantage secures Hong Kong SFC licence for expansion",
+          "url": "https://propnewstime.com/latestnewsstories/Mzk2NjY=/realvantage-secures-hong-kong-sfc-licence-for-expansion",
+          "source": "Prop News Time",
+          "published": "2026-11-08 00:00 UTC",
+          "bullets": [
+            "Singapore-based RealVantage has obtained a Type 1 (Dealing in Securities) licence from the SFC, allowing the firm to offer collective investment schemes to professional investors in Hong Kong.",
+            "The move signals a strategic expansion into the Hong Kong wealth management market, positioning the platform to capture capital from family offices and external asset managers seeking global real estate exposure."
+          ],
+          "rating": 4,
+          "reason": "Significant regulatory milestone for a regional fintech firm entering the HK market.",
+          "read_time": 4,
+          "is_new": true
+        },
+        {
+          "title": "What BOC Hong Kong Holders Saw Early",
+          "url": "https://simplywall.st/stocks/hk/banks/hkg-2388/boc-hong-kong-holdings-shares/news/what-boc-hong-kong-holders-saw-early",
+          "source": "Simply Wall St",
+          "published": "2026-11-07 15:29 UTC",
+          "bullets": [
+            "BOC Hong Kong (Holdings) delivered a 36.1% return over the past year, driven by net income growth and an expansion in net margins from 60.2% to 63.4% in H1 2026.",
+            "Investors are now weighing whether the bank's fee income and regional expansion can sufficiently offset the ongoing risks associated with impaired Hong Kong property loans."
+          ],
+          "rating": 4,
+          "reason": "Provides critical performance analysis of a major financial institution amid local property sector headwinds.",
+          "read_time": 4,
+          "is_new": true
+        }
+      ]
+    }
+  ],
+  "indicator_groups": [
+    {
+      "name": "Equity Indices",
+      "items": [
+        {
+          "label": "S&P 500",
+          "kind": "price",
+          "last": 7376.8599,
+          "change": 0.31,
+          "change_bp": null
+        },
+        {
+          "label": "Nasdaq",
+          "kind": "price",
+          "last": 24579.4297,
+          "change": 1.09,
+          "change_bp": null
+        },
+        {
+          "label": "Dow Jones",
+          "kind": "price",
+          "last": null,
+          "change": null,
+          "change_bp": null
+        },
+        {
+          "label": "FTSE 100",
+          "kind": "price",
+          "last": 10673.9004,
+          "change": -1.01,
+          "change_bp": null
+        },
+        {
+          "label": "STOXX 600",
+          "kind": "price",
+          "last": 648.33,
+          "change": -1.0,
+          "change_bp": null
+        },
+        {
+          "label": "Nikkei 225",
+          "kind": "price",
+          "last": 57434.7695,
+          "change": -5.96,
+          "change_bp": null
+        },
+        {
+          "label": "Hang Seng",
+          "kind": "price",
+          "last": 24481.8594,
+          "change": -1.27,
+          "change_bp": null
+        },
+        {
+          "label": "CSI 300",
+          "kind": "price",
+          "last": 4054.2769,
+          "change": null,
+          "change_bp": null
+        }
+      ]
+    },
+    {
+      "name": "Bond Yields",
+      "items": [
+        {
+          "label": "US 10Y",
+          "kind": "yield",
+          "last": 4.859,
+          "change": null,
+          "change_bp": 2.2
+        },
+        {
+          "label": "US 30Y",
+          "kind": "yield",
+          "last": 5.26,
+          "change": null,
+          "change_bp": 0.9
+        },
+        {
+          "label": "US 2Y",
+          "kind": "yield",
+          "last": 4.46,
+          "change": null,
+          "change_bp": -12.0
+        }
+      ]
+    },
+    {
+      "name": "FX",
+      "items": [
+        {
+          "label": "US Dollar Index",
+          "kind": "price",
+          "last": 102.3,
+          "change": 0.74,
+          "change_bp": null
+        },
+        {
+          "label": "EUR/USD",
+          "kind": "price",
+          "last": 1.1228,
+          "change": -0.06,
+          "change_bp": null
+        },
+        {
+          "label": "USD/JPY",
+          "kind": "price",
+          "last": 158.425,
+          "change": 0.59,
+          "change_bp": null
+        },
+        {
+          "label": "USD/CNY",
+          "kind": "price",
+          "last": 6.6648,
+          "change": -0.35,
+          "change_bp": null
+        },
+        {
+          "label": "USD/HKD",
+          "kind": "price",
+          "last": 7.8396,
+          "change": 0.01,
+          "change_bp": null
+        },
+        {
+          "label": "HKD/CNY",
+          "kind": "price",
+          "last": 0.8514,
+          "change": -0.21,
+          "change_bp": null
+        },
+        {
+          "label": "JPY/HKD (¥100)",
+          "kind": "price",
+          "last": 4.922,
+          "change": -1.11,
+          "change_bp": null
+        }
+      ]
+    },
+    {
+      "name": "Commodities",
+      "items": [
+        {
+          "label": "Gold",
+          "kind": "price",
+          "last": 4074.8999,
+          "change": -0.94,
+          "change_bp": null
+        },
+        {
+          "label": "WTI Crude",
+          "kind": "price",
+          "last": 90.83,
+          "change": 0.34,
+          "change_bp": null
+        },
+        {
+          "label": "Brent",
+          "kind": "price",
+          "last": 98.32,
+          "change": 0.03,
+          "change_bp": null
+        },
+        {
+          "label": "Copper",
+          "kind": "price",
+          "last": 6.218,
+          "change": -0.5,
+          "change_bp": null
+        }
+      ]
+    },
+    {
+      "name": "Volatility & Crypto",
+      "items": [
+        {
+          "label": "VIX",
+          "kind": "price",
+          "last": 25.64,
+          "change": -9.01,
+          "change_bp": null
+        },
+        {
+          "label": "Bitcoin",
+          "kind": "price",
+          "last": 75666.7891,
+          "change": -0.11,
+          "change_bp": null
+        }
+      ]
+    }
+  ],
+  "run_health": {
+    "items": 27,
+    "categories": 13,
+    "short": {},
+    "empty": [],
+    "repeats_refused": {},
+    "cross_day_demoted": 3,
+    "fallback_categories": [],
+    "extraction": "80/104",
+    "publisher_links": "27/27",
+    "ai_summaries": "13/13 AI",
+    "degraded": false
+  }
+}
