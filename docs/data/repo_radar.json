@@ -1,104 +1,101 @@
 {
- "generated_at": "2026-11-09 09:42 HKT",
+ "generated_at": "2026-11-10 12:05 HKT",
  "repos": [
   {
-   "name": "janestreet/agent_skills",
-   "url": "https://github.com/janestreet/agent_skills",
+   "name": "shadcn/improve",
+   "url": "https://github.com/shadcn/improve",
    "language": "—",
-   "description": "Agent skills",
+   "description": "Use your most capable model to audit your codebase and write plans for cheaper models to execute.",
    "keywords": [],
-   "trendshift_pos": 4,
-   "stars": 316,
+   "trendshift_pos": 14,
+   "stars": 9868,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A collection of modular tools and capabilities designed to extend the functionality of autonomous AI agents.",
+   "one_liner": "An AI-driven codebase auditing and task-planning framework designed to optimize LLM workflows.",
    "bullets": [
-    "Built by Jane Street, focusing on high-reliability primitives for agentic workflows.",
-    "Provides a structured framework for agents to interact with external systems and data.",
-    "Highly relevant for quant and fintech developers looking to build robust, tool-using AI systems.",
-    "Emphasizes type-safety and predictable execution patterns for complex agentic tasks."
+    "Utilizes high-capability LLMs to perform deep code analysis and generate structured execution plans.",
+    "Implements a tiered model strategy to delegate complex reasoning to expensive models and routine tasks to cheaper ones.",
+    "Focuses on developer productivity by automating code reviews and refactoring roadmaps.",
+    "Integrates directly into existing development workflows to reduce technical debt."
    ]
   },
   {
-   "name": "shanselman/gputaskman",
-   "url": "https://github.com/shanselman/gputaskman",
+   "name": "homeassistant-ai/ha-mcp",
+   "url": "https://github.com/homeassistant-ai/ha-mcp",
    "language": "Python",
-   "description": "An htop for what's inside your NVIDIA GPU on Windows: process memory, engine activity, and LLM weights/KV-cache introspection",
-   "keywords": [],
-   "trendshift_pos": 24,
-   "stars": 1053,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A real-time monitoring tool for NVIDIA GPUs on Windows, specifically optimized for LLM and AI workloads.",
-   "bullets": [
-    "Provides granular visibility into process memory, engine activity, and GPU utilization.",
-    "Includes specialized introspection for LLM weights and KV-cache memory usage.",
-    "Essential infrastructure for developers optimizing inference performance and debugging memory bottlenecks.",
-    "Acts as an 'htop' for AI-specific hardware tasks, bridging the gap between system monitoring and model performance."
-   ],
-   "img": "shanselman_gputaskman_0.jpg",
-   "img_alt": "Live GPU overview with an LLM's weights, KV cache, and compute buffer breakdown",
-   "img2": "shanselman_gputaskman_1.jpg",
-   "img2_alt": "Compositor selected, showing local memory and the explanation of shared-surface accounting"
-  },
-  {
-   "name": "ranxianglei/billion-context",
-   "url": "https://github.com/ranxianglei/billion-context",
-   "language": "TypeScript",
-   "description": "A context-compression plugin for month-long single sessions (billions of tokens) ,small context windows (a 100K context is enough) and token savings (5x fewer tokens) .上下文压缩插件，月级长会话会话， 兼顾小窗口(100k上下文足矣)省token(省5倍token) . billion-context is all you need",
+   "description": "The Unofficial and Awesome Home Assistant MCP Server",
    "keywords": [
-    "AI coding assistant"
+    "MCP",
+    "Home automation"
    ],
-   "trendshift_pos": 17,
-   "stars": 5190,
+   "trendshift_pos": 10,
+   "stars": 6090,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A context-compression plugin designed to enable month-long AI sessions with massive token efficiency.",
+   "one_liner": "A Model Context Protocol (MCP) server that bridges Home Assistant with AI agents.",
    "bullets": [
-    "Reduces token consumption by 5x while maintaining performance in long-running sessions.",
-    "Allows for 'billion-token' context handling using standard 100k context windows.",
-    "Critical infrastructure for long-term memory in AI agents and persistent conversational assistants.",
-    "Implements advanced compression techniques to lower latency and costs in LLM-based applications."
-   ],
-   "img": "ranxianglei_billion-context_0.jpg",
-   "img_alt": "web session page: cache hit-rate chart + attribution"
-  },
-  {
-   "name": "DIYgod/pinky",
-   "url": "https://github.com/DIYgod/pinky",
-   "language": "Go",
-   "description": "Let AI agents use your phone, with you in the loop.",
-   "keywords": [],
-   "trendshift_pos": 15,
-   "stars": 842,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An automation framework that allows AI agents to interact with mobile devices while keeping the human in the loop.",
-   "bullets": [
-    "Enables agentic control over mobile interfaces, bridging the gap between LLMs and physical device interaction.",
-    "Designed with a 'human-in-the-loop' architecture to ensure safety and oversight in automated tasks.",
-    "Useful for testing, data scraping, and automating complex workflows on mobile platforms.",
-    "Leverages Go for high-performance orchestration of agentic actions."
+    "Built in Python to expose Home Assistant entities and services to LLM-based agents.",
+    "Enables agentic control over smart home infrastructure via standardized MCP interfaces.",
+    "Allows AI models to query state, trigger automations, and interact with IoT devices securely.",
+    "Serves as a critical infrastructure layer for building autonomous home-automation agents."
    ]
   },
   {
-   "name": "google-deepmind/mujoco",
-   "url": "https://github.com/google-deepmind/mujoco",
-   "language": "C++",
-   "description": "Multi-Joint dynamics with Contact. A general purpose physics simulator.",
+   "name": "garrytan/gbrain",
+   "url": "https://github.com/garrytan/gbrain",
+   "language": "TypeScript",
+   "description": "Garry's Opinionated OpenClaw/Hermes Agent Brain",
    "keywords": [
-    "Robotics"
+    "AI memory"
    ],
-   "trendshift_pos": 18,
-   "stars": 16445,
+   "trendshift_pos": 25,
+   "stars": 32248,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A high-performance, general-purpose physics engine optimized for robotics, AI research, and simulation.",
+   "one_liner": "An opinionated agentic framework designed for building sophisticated AI-driven reasoning brains.",
    "bullets": [
-    "Industry-standard physics simulator used extensively for training reinforcement learning agents.",
-    "Provides high-fidelity contact dynamics and multi-joint simulation capabilities.",
-    "Core infrastructure for AI research teams building embodied agents and physical world models.",
-    "Highly optimized C++ backend with Python bindings for seamless integration into ML pipelines."
+    "TypeScript-based architecture optimized for modular agent development.",
+    "Focuses on 'agentic' workflows where the system manages context, memory, and tool-use autonomously.",
+    "Provides a structured approach to building AI assistants that can handle complex, multi-step tasks.",
+    "Highly relevant for professionals building custom AI agents for business or research automation."
+   ]
+  },
+  {
+   "name": "Dodaios/ste80-humanizer",
+   "url": "https://github.com/Dodaios/ste80-humanizer",
+   "language": "Python",
+   "description": "STE80 Humanizer: agent skill that removes AI tells and rewrites text 80% of the way to ASD-STE100 (Simplified Technical English), the method Andrej Karpathy shared.",
+   "keywords": [],
+   "trendshift_pos": 18,
+   "stars": 141,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An AI agent skill that rewrites text to conform to Simplified Technical English (STE) standards.",
+   "bullets": [
+    "Python-based agentic tool designed to strip 'AI-tells' from generated content.",
+    "Implements the ASD-STE100 standard to improve clarity, readability, and technical precision.",
+    "Useful for fintech and technical documentation where precise, unambiguous communication is required.",
+    "Reduces the cognitive load for readers by enforcing strict vocabulary and grammatical constraints."
+   ],
+   "img": "Dodaios_ste80-humanizer_0.jpg",
+   "img_alt": "Simplified Technical English: overview. Document structure, anatomy of STE sentences, verb forms, dictionary entries, writing rule limits and history."
+  },
+  {
+   "name": "jhaizhou-ops/S2Arm",
+   "url": "https://github.com/jhaizhou-ops/S2Arm",
+   "language": "C#",
+   "description": "Run your own Switch games natively on iPhone, iPad and Mac: game code rewritten to ARM64, graphics direct to Metal, one app for the whole library. Bring your own games and keys. 把你自己的 Switch 游戏原生带到 iPhone / iPad / Mac。",
+   "keywords": [],
+   "trendshift_pos": 12,
+   "stars": 1981,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A high-performance emulator/recompiler that runs Switch games natively on Apple Silicon via Metal.",
+   "bullets": [
+    "C# codebase that recompiles game logic to ARM64 for native execution on iOS and macOS.",
+    "Utilizes Metal API for direct, low-latency graphics rendering on Apple hardware.",
+    "Represents a significant engineering feat in cross-platform infrastructure and binary translation.",
+    "Demonstrates advanced optimization techniques applicable to high-performance computing and emulation."
    ]
   }
  ]
