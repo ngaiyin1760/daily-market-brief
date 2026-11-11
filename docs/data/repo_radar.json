@@ -1,102 +1,105 @@
 {
- "generated_at": "2026-11-10 12:05 HKT",
+ "generated_at": "2026-11-11 09:54 HKT",
  "repos": [
   {
-   "name": "shadcn/improve",
-   "url": "https://github.com/shadcn/improve",
+   "name": "tokio-rs/topcoat",
+   "url": "https://github.com/tokio-rs/topcoat",
+   "language": "Rust",
+   "description": "A batteries-included framework for building web apps",
+   "keywords": [],
+   "trendshift_pos": 11,
+   "stars": 6853,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A high-performance, batteries-included framework for building modern web applications using Rust.",
+   "bullets": [
+    "Built on the Tokio ecosystem, leveraging asynchronous I/O for maximum concurrency.",
+    "Provides a unified framework for backend services, reducing boilerplate for complex web architectures.",
+    "Ideal for high-throughput infrastructure components and latency-sensitive financial services.",
+    "Integrates seamlessly with Rust's type-safe memory model for robust, production-grade deployments."
+   ]
+  },
+  {
+   "name": "GoogleChrome/modern-web-guidance",
+   "url": "https://github.com/GoogleChrome/modern-web-guidance",
    "language": "—",
-   "description": "Use your most capable model to audit your codebase and write plans for cheaper models to execute.",
-   "keywords": [],
-   "trendshift_pos": 14,
-   "stars": 9868,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An AI-driven codebase auditing and task-planning framework designed to optimize LLM workflows.",
-   "bullets": [
-    "Utilizes high-capability LLMs to perform deep code analysis and generate structured execution plans.",
-    "Implements a tiered model strategy to delegate complex reasoning to expensive models and routine tasks to cheaper ones.",
-    "Focuses on developer productivity by automating code reviews and refactoring roadmaps.",
-    "Integrates directly into existing development workflows to reduce technical debt."
-   ]
-  },
-  {
-   "name": "homeassistant-ai/ha-mcp",
-   "url": "https://github.com/homeassistant-ai/ha-mcp",
-   "language": "Python",
-   "description": "The Unofficial and Awesome Home Assistant MCP Server",
+   "description": "Keep your coding agent up to date with the latest web best practices",
    "keywords": [
-    "MCP",
-    "Home automation"
+    "AI skills"
    ],
-   "trendshift_pos": 10,
-   "stars": 6090,
+   "trendshift_pos": 3,
+   "stars": 3265,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A Model Context Protocol (MCP) server that bridges Home Assistant with AI agents.",
+   "one_liner": "A comprehensive resource designed to keep AI coding agents aligned with current web development best practices.",
    "bullets": [
-    "Built in Python to expose Home Assistant entities and services to LLM-based agents.",
-    "Enables agentic control over smart home infrastructure via standardized MCP interfaces.",
-    "Allows AI models to query state, trigger automations, and interact with IoT devices securely.",
-    "Serves as a critical infrastructure layer for building autonomous home-automation agents."
+    "Curated repository of standards, patterns, and performance guidelines for modern web stacks.",
+    "Acts as a knowledge base for LLM-based coding agents to improve code quality and security.",
+    "Reduces hallucination risks by providing agents with authoritative, up-to-date documentation.",
+    "Essential for developers building agentic workflows that generate production-ready frontend code."
    ]
   },
   {
-   "name": "garrytan/gbrain",
-   "url": "https://github.com/garrytan/gbrain",
+   "name": "RockxyApp/Tracexy",
+   "url": "https://github.com/RockxyApp/Tracexy",
+   "language": "Swift",
+   "description": "Native, local-first network intelligence for macOS—capture live traffic, inspect PCAP/PCAPNG files, and investigate sessions, protocols, processes, flows, and packet evidence.",
+   "keywords": [],
+   "trendshift_pos": 15,
+   "stars": 387,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A native, local-first network intelligence tool for macOS designed for deep traffic analysis and session investigation.",
+   "bullets": [
+    "Utilizes native macOS APIs for high-performance packet capture and real-time traffic monitoring.",
+    "Supports PCAP/PCAPNG file inspection for forensic analysis of network protocols and flows.",
+    "Provides granular visibility into process-level network activity, critical for security auditing.",
+    "Useful for debugging fintech API integrations and monitoring sensitive data exfiltration."
+   ]
+  },
+  {
+   "name": "sneg55/warpdrive",
+   "url": "https://github.com/sneg55/warpdrive",
    "language": "TypeScript",
-   "description": "Garry's Opinionated OpenClaw/Hermes Agent Brain",
-   "keywords": [
-    "AI memory"
-   ],
-   "trendshift_pos": 25,
-   "stars": 32248,
+   "description": "Open-source alternative to Pipedrive, self-hosted business-development CRM",
+   "keywords": [],
+   "trendshift_pos": 1,
+   "stars": 908,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An opinionated agentic framework designed for building sophisticated AI-driven reasoning brains.",
+   "one_liner": "An open-source, self-hosted CRM alternative designed for business development and sales pipeline management.",
    "bullets": [
-    "TypeScript-based architecture optimized for modular agent development.",
-    "Focuses on 'agentic' workflows where the system manages context, memory, and tool-use autonomously.",
-    "Provides a structured approach to building AI assistants that can handle complex, multi-step tasks.",
-    "Highly relevant for professionals building custom AI agents for business or research automation."
-   ]
+    "Built with a modern TypeScript stack, focusing on modularity and ease of self-hosting.",
+    "Provides a centralized interface for tracking client interactions and sales velocity.",
+    "Offers data sovereignty for firms handling sensitive financial or client-related information.",
+    "Streamlines lead management workflows without the vendor lock-in of traditional SaaS CRMs."
+   ],
+   "img": "sneg55_warpdrive_0.jpg",
+   "img_alt": "Deal workspace",
+   "img2": "sneg55_warpdrive_1.jpg",
+   "img2_alt": "Email inbox"
   },
   {
-   "name": "Dodaios/ste80-humanizer",
-   "url": "https://github.com/Dodaios/ste80-humanizer",
-   "language": "Python",
-   "description": "STE80 Humanizer: agent skill that removes AI tells and rewrites text 80% of the way to ASD-STE100 (Simplified Technical English), the method Andrej Karpathy shared.",
+   "name": "OpenAEC-Foundation/open-pdf-studio",
+   "url": "https://github.com/OpenAEC-Foundation/open-pdf-studio",
+   "language": "HTML",
+   "description": "An open source PDF viewer/editor with it's own blazing fast rust engine",
    "keywords": [],
-   "trendshift_pos": 18,
-   "stars": 141,
+   "trendshift_pos": 21,
+   "stars": 1074,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An AI agent skill that rewrites text to conform to Simplified Technical English (STE) standards.",
+   "one_liner": "An open-source PDF viewer and editor powered by a high-performance Rust-based rendering engine.",
    "bullets": [
-    "Python-based agentic tool designed to strip 'AI-tells' from generated content.",
-    "Implements the ASD-STE100 standard to improve clarity, readability, and technical precision.",
-    "Useful for fintech and technical documentation where precise, unambiguous communication is required.",
-    "Reduces the cognitive load for readers by enforcing strict vocabulary and grammatical constraints."
+    "Features a custom, blazing-fast Rust engine for efficient document parsing and rendering.",
+    "Provides a secure, local-first alternative to cloud-based PDF processing tools.",
+    "Designed for high-precision document handling, suitable for technical and financial documentation.",
+    "Modular architecture allows for integration into larger enterprise document management systems."
    ],
-   "img": "Dodaios_ste80-humanizer_0.jpg",
-   "img_alt": "Simplified Technical English: overview. Document structure, anatomy of STE sentences, verb forms, dictionary entries, writing rule limits and history."
-  },
-  {
-   "name": "jhaizhou-ops/S2Arm",
-   "url": "https://github.com/jhaizhou-ops/S2Arm",
-   "language": "C#",
-   "description": "Run your own Switch games natively on iPhone, iPad and Mac: game code rewritten to ARM64, graphics direct to Metal, one app for the whole library. Bring your own games and keys. 把你自己的 Switch 游戏原生带到 iPhone / iPad / Mac。",
-   "keywords": [],
-   "trendshift_pos": 12,
-   "stars": 1981,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A high-performance emulator/recompiler that runs Switch games natively on Apple Silicon via Metal.",
-   "bullets": [
-    "C# codebase that recompiles game logic to ARM64 for native execution on iOS and macOS.",
-    "Utilizes Metal API for direct, low-latency graphics rendering on Apple hardware.",
-    "Represents a significant engineering feat in cross-platform infrastructure and binary translation.",
-    "Demonstrates advanced optimization techniques applicable to high-performance computing and emulation."
-   ]
+   "img": "OpenAEC-Foundation_open-pdf-studio_0.jpg",
+   "img_alt": "A floor plan with a revision cloud, a callout and a measured distance; the Format tab and the properties of the selected callout are open",
+   "img2": "OpenAEC-Foundation_open-pdf-studio_1.jpg",
+   "img2_alt": "Area, perimeter and two distances measured on a floor plan at scale 1:50, Default theme"
   }
  ]
 }
