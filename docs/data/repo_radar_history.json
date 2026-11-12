@@ -1,6 +1,104 @@
 {
  "days": [
   {
+   "date": "2026-11-12",
+   "generated_at": "2026-11-12 10:56 HKT",
+   "repos": [
+    {
+     "name": "aws/aws-emulator",
+     "url": "https://github.com/aws/aws-emulator",
+     "language": "Rust",
+     "description": "AWS Emulator is a local emulator of the AWS APIs.",
+     "keywords": [],
+     "trendshift_pos": 1,
+     "stars": 2245,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A high-performance local emulator for AWS APIs written in Rust.",
+     "bullets": [
+      "Built in Rust for high concurrency and memory safety.",
+      "Provides local parity for AWS service APIs to accelerate development cycles.",
+      "Ideal for integration testing and local development environments without incurring cloud costs.",
+      "Reduces dependency on live cloud infrastructure during the CI/CD pipeline."
+     ]
+    },
+    {
+     "name": "openai/codex-security",
+     "url": "https://github.com/openai/codex-security",
+     "language": "TypeScript",
+     "description": "OpenAI's Codex Security CLI and TypeScript SDK for finding, validating, and fixing security vulnerabilities. npm: https://www.npmjs.com/package/@openai/codex-security",
+     "keywords": [
+      "Static analysis"
+     ],
+     "trendshift_pos": 4,
+     "stars": 11818,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An AI-powered security CLI and SDK for automated vulnerability detection and remediation.",
+     "bullets": [
+      "Leverages OpenAI's Codex models to analyze codebases for security flaws.",
+      "Includes a TypeScript SDK for programmatic integration into existing security workflows.",
+      "Automates the validation and patching process for identified vulnerabilities.",
+      "Essential for DevSecOps teams looking to integrate AI-driven security checks into CI pipelines."
+     ]
+    },
+    {
+     "name": "onlyreadai/onlyread",
+     "url": "https://github.com/onlyreadai/onlyread",
+     "language": "TypeScript",
+     "description": "Make AI browser agents read-only: a Chrome extension that refuses writes (send, post, edit, delete) before they leave the browser.",
+     "keywords": [],
+     "trendshift_pos": 23,
+     "stars": 86,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A browser extension that enforces read-only constraints on AI agents to prevent unauthorized data modification.",
+     "bullets": [
+      "Acts as a middleware layer between AI agents and web interfaces.",
+      "Intercepts and blocks write-heavy actions like posting, editing, or deleting data.",
+      "Enhances security for agentic workflows by preventing unintended side effects.",
+      "Useful for finance or enterprise professionals using AI agents to browse sensitive data."
+     ]
+    },
+    {
+     "name": "we-promise/sure",
+     "url": "https://github.com/we-promise/sure",
+     "language": "Ruby",
+     "description": "The personal finance app for everyone (by everyone)",
+     "keywords": [],
+     "trendshift_pos": 18,
+     "stars": 13046,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An open-source personal finance management application built for transparency and community collaboration.",
+     "bullets": [
+      "Ruby-based architecture focused on clean, maintainable financial logic.",
+      "Provides a centralized dashboard for tracking personal assets, liabilities, and budgets.",
+      "Community-driven development model ensures privacy and feature alignment with user needs.",
+      "Suitable for individuals seeking a self-hosted or transparent alternative to commercial fintech apps."
+     ]
+    },
+    {
+     "name": "FrigadeHQ/yogurt",
+     "url": "https://github.com/FrigadeHQ/yogurt",
+     "language": "TypeScript",
+     "description": "Private AI meeting notes. Free and open source.",
+     "keywords": [],
+     "trendshift_pos": 15,
+     "stars": 452,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A private, open-source AI tool for generating and managing meeting notes.",
+     "bullets": [
+      "TypeScript-based stack designed for local-first data processing.",
+      "Focuses on privacy-preserving AI transcription and summarization of professional meetings.",
+      "Reduces administrative overhead by automating the capture of action items and insights.",
+      "Ideal for teams requiring secure, private AI assistance for documentation and knowledge management."
+     ]
+    }
+   ]
+  },
+  {
    "date": "2026-11-11",
    "generated_at": "2026-11-11 09:54 HKT",
    "repos": [
