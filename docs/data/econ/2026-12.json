@@ -1,6 +1,6 @@
 {
  "month": "2026-12",
- "updated": "2026-11-12 10:56 HKT",
+ "updated": "2026-11-13 10:36 HKT",
  "events": [
   {
    "ts": "2026-12-01T00:00:00.000Z",
@@ -763,17 +763,6 @@
   },
   {
    "ts": "2026-12-03T07:00:00.000Z",
-   "title": "Core Inflation Rate YoY",
-   "country": "TR",
-   "currency": "TRY",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 28.3,
-   "category": "prce"
-  },
-  {
-   "ts": "2026-12-03T07:00:00.000Z",
    "title": "Core Consumer Prices",
    "country": "TR",
    "currency": "TRY",
@@ -994,7 +983,7 @@
   },
   {
    "ts": "2026-12-03T15:00:00.000Z",
-   "title": "Durable Goods Orders Excluding Transportation",
+   "title": "Durable Goods Orders Ex Transp MoM Final",
    "country": "US",
    "currency": "USD",
    "importance": 0,
@@ -1907,7 +1896,7 @@
   },
   {
    "ts": "2026-12-07T23:50:00.000Z",
-   "title": "GDP Growth Annualized Revised",
+   "title": "GDP Growth Annualized Final",
    "country": "JP",
    "currency": "JPY",
    "importance": 0,
@@ -2617,7 +2606,7 @@
    "importance": 1,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 3.75,
    "category": "hse"
   },
   {
@@ -2628,7 +2617,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": -5.5,
    "category": "hse"
   },
   {
@@ -3024,7 +3013,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 47.37,
    "category": "cnsm"
   },
   {
@@ -3035,7 +3024,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 50.27,
    "category": "cnsm"
   },
   {
@@ -3048,6 +3037,17 @@
    "forecast": null,
    "previous": 108.4,
    "category": "prce"
+  },
+  {
+   "ts": "2026-12-10T11:30:00.000Z",
+   "title": "Net Foreign Exchange Reserves",
+   "country": "TR",
+   "currency": "TRY",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "mny"
   },
   {
    "ts": "2026-12-10T12:00:00.000Z",
@@ -3347,6 +3347,39 @@
    "category": "bsnss"
   },
   {
+   "ts": "2026-12-10T18:00:00.000Z",
+   "title": "30-Year Bond Auction Allotted at High",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "bnd"
+  },
+  {
+   "ts": "2026-12-10T18:00:00.000Z",
+   "title": "30-Year Bond Auction Bid-to-Cover",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "bnd"
+  },
+  {
+   "ts": "2026-12-10T18:00:00.000Z",
+   "title": "30-Year Bond Auction Total Accepted",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "bnd"
+  },
+  {
    "ts": "2026-12-10T19:00:00.000Z",
    "title": "Monthly Budget Statement",
    "country": "US",
@@ -3354,7 +3387,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": -404.0,
    "category": "gov"
   },
   {
@@ -3365,7 +3398,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 54.9,
    "category": "bsnss"
   },
   {
@@ -3376,7 +3409,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 50.05,
    "category": "cnsm"
   },
   {
@@ -3387,7 +3420,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 57.75,
    "category": "cnsm"
   },
   {
@@ -3398,7 +3431,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 52.78,
    "category": "cnsm"
   },
   {
@@ -3409,7 +3442,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 48.54,
    "category": "cnsm"
   },
   {
@@ -3420,7 +3453,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 0.7,
    "category": "bsnss"
   },
   {
@@ -3431,7 +3464,7 @@
    "importance": 1,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 0.2,
    "category": "gdp"
   },
   {
@@ -3442,7 +3475,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 0.3,
    "category": "bsnss"
   },
   {
@@ -3453,7 +3486,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 0.7,
    "category": "bsnss"
   },
   {
@@ -3464,7 +3497,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": -8.985,
    "category": "trd"
   },
   {
@@ -3475,7 +3508,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 0.2,
    "category": "bsnss"
   },
   {
@@ -3486,7 +3519,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 2.2,
    "category": "bsnss"
   },
   {
@@ -3497,7 +3530,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": -22.291,
    "category": "trd"
   },
   {
@@ -3508,7 +3541,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": -0.1,
    "category": "prce"
   },
   {
@@ -3519,7 +3552,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 0.1,
    "category": "prce"
   },
   {
@@ -3530,7 +3563,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 0.0,
    "category": "prce"
   },
   {
@@ -3541,7 +3574,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 125.97,
    "category": "prce"
   },
   {
@@ -3585,7 +3618,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 104.6,
    "category": "prce"
   },
   {
@@ -3596,7 +3629,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 0.14,
    "category": "prce"
   },
   {
@@ -3607,7 +3640,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 7706.59,
    "category": "prce"
   },
   {
@@ -3618,7 +3651,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 4.63,
    "category": "prce"
   },
   {
@@ -3629,7 +3662,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 0.12,
    "category": "prce"
   },
   {
@@ -3655,39 +3688,6 @@
    "category": "trd"
   },
   {
-   "ts": "2026-12-11T18:00:00.000Z",
-   "title": "30-Year Bond Auction Allotted at High",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "bnd"
-  },
-  {
-   "ts": "2026-12-11T18:00:00.000Z",
-   "title": "30-Year Bond Auction Bid-to-Cover",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "bnd"
-  },
-  {
-   "ts": "2026-12-11T18:00:00.000Z",
-   "title": "30-Year Bond Auction Total Accepted",
-   "country": "US",
-   "currency": "USD",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": null,
-   "category": "bnd"
-  },
-  {
    "ts": "2026-12-11T19:00:00.000Z",
    "title": "Baker Hughes Gas Rig Count",
    "country": "US",
@@ -3703,6 +3703,39 @@
    "title": "Inflation Rate YoY",
    "country": "IN",
    "currency": "INR",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": 6.09,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-12-13T23:50:00.000Z",
+   "title": "Tankan Large Manufacturers Index",
+   "country": "JP",
+   "currency": "JPY",
+   "importance": 1,
+   "actual": null,
+   "forecast": null,
+   "previous": 24.0,
+   "category": "bsnss"
+  },
+  {
+   "ts": "2026-12-14T00:01:00.000Z",
+   "title": "Rightmove House Price Index MoM",
+   "country": "GB",
+   "currency": "GBP",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "prce"
+  },
+  {
+   "ts": "2026-12-14T00:01:00.000Z",
+   "title": "Rightmove House Price Index YoY",
+   "country": "GB",
+   "currency": "GBP",
    "importance": 0,
    "actual": null,
    "forecast": null,

@@ -1,6 +1,108 @@
 {
  "days": [
   {
+   "date": "2026-11-13",
+   "generated_at": "2026-11-13 10:36 HKT",
+   "repos": [
+    {
+     "name": "beenuar/AiSOC",
+     "url": "https://github.com/beenuar/AiSOC",
+     "language": "Python",
+     "description": "Open-source AI Security Operations Center: alert fusion, LLM-agent triage, MITRE ATT&CK investigation, and a replayable decision ledger for every agent step. Self-hostable, runs with no API keys, MIT licensed. Ships an MCP server for Claude, Cursor and Continue.",
+     "keywords": [],
+     "trendshift_pos": 22,
+     "stars": 7571,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An open-source AI-driven Security Operations Center for automated threat triage and investigation.",
+     "bullets": [
+      "Built with Python, focusing on alert fusion and MITRE ATT&CK framework integration.",
+      "Features LLM-agent triage and a replayable decision ledger for auditability.",
+      "Designed for self-hosting with zero external API key dependencies for privacy.",
+      "Ideal for security teams automating incident response and threat hunting workflows."
+     ]
+    },
+    {
+     "name": "snchimata/tokenfold",
+     "url": "https://github.com/snchimata/tokenfold",
+     "language": "Rust",
+     "description": "Private, provider-neutral context compression for LLMs. Reversibly compress schemas and logs inside your perimeter with zero third-party calls.",
+     "keywords": [],
+     "trendshift_pos": 23,
+     "stars": 159,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A private, provider-neutral context compression tool for LLMs.",
+     "bullets": [
+      "Written in Rust to ensure high-performance, memory-safe context processing.",
+      "Compresses schemas and logs locally within the user's perimeter.",
+      "Supports reversible compression to maintain data integrity without third-party calls.",
+      "Useful for developers optimizing LLM token usage and reducing latency in agentic pipelines."
+     ],
+     "img": "snchimata_tokenfold_0.jpg",
+     "img_alt": "Terminal demo: Python fit() code and verified 2,366 to 1,376 token savings from the first frame, followed by Core-first processing and optional Tokenfold Select. Select illustration only."
+    },
+    {
+     "name": "dotnet/skills",
+     "url": "https://github.com/dotnet/skills",
+     "language": "C#",
+     "description": "Repository for skills to assist AI coding agents with .NET and C#",
+     "keywords": [
+      "AI skills"
+     ],
+     "trendshift_pos": 8,
+     "stars": 6062,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A collection of specialized skills designed to assist AI coding agents in the .NET ecosystem.",
+     "bullets": [
+      "Developed in C# to provide native integration with .NET development environments.",
+      "Provides structured tool definitions for agents to perform complex code analysis and refactoring.",
+      "Standardizes how AI agents interact with .NET projects, libraries, and build tools.",
+      "Essential for enterprise teams building custom AI-assisted coding infrastructure."
+     ]
+    },
+    {
+     "name": "vercel-labs/ui",
+     "url": "https://github.com/vercel-labs/ui",
+     "language": "TypeScript",
+     "description": "A library of behaviors for agents to build the next generation of user interfaces.",
+     "keywords": [],
+     "trendshift_pos": 1,
+     "stars": 1746,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A library of behavioral primitives designed for AI agents to interact with modern user interfaces.",
+     "bullets": [
+      "TypeScript-based library focused on agent-to-UI communication patterns.",
+      "Provides the building blocks for agents to navigate, manipulate, and interpret web interfaces.",
+      "Enables the next generation of autonomous UI-driven workflows.",
+      "Targeted at developers building agentic systems that require browser-based interaction."
+     ]
+    },
+    {
+     "name": "514-labs/dnsglobe",
+     "url": "https://github.com/514-labs/dnsglobe",
+     "language": "Rust",
+     "description": "Global DNS propagation checker TUI — watch a DNS record propagate across 34 public resolvers worldwide, on a world map in your terminal",
+     "keywords": [],
+     "trendshift_pos": 21,
+     "stars": 1441,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A terminal-based global DNS propagation checker with a real-time world map visualization.",
+     "bullets": [
+      "Written in Rust for high-speed, concurrent network requests.",
+      "Monitors DNS record propagation across 34 public resolvers worldwide.",
+      "Provides a TUI (Terminal User Interface) for rapid infrastructure debugging.",
+      "Useful for DevOps and SREs managing global traffic routing and DNS configuration changes."
+     ],
+     "img": "514-labs_dnsglobe_0.jpg",
+     "img_alt": "dnsglobe demo — checking A and NS records for a domain across 34 resolvers worldwide with EDNS Client Subnet, cycling the client subnet, then morphing the world map into a rotating globe"
+    }
+   ]
+  },
+  {
    "date": "2026-11-12",
    "generated_at": "2026-11-12 10:56 HKT",
    "repos": [
