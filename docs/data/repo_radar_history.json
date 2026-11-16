@@ -1,6 +1,111 @@
 {
  "days": [
   {
+   "date": "2026-11-16",
+   "generated_at": "2026-11-16 10:00 HKT",
+   "repos": [
+    {
+     "name": "NVIDIA/SkillEvaluator",
+     "url": "https://github.com/NVIDIA/SkillEvaluator",
+     "language": "Python",
+     "description": "Multi-tier framework for evaluating AI agent skills with quality gates, semantic overlap detection, synthetic evaluation dataset generation, and live agent evaluation that measures how skills affect agent behavior.",
+     "keywords": [
+      "LLM evaluation"
+     ],
+     "trendshift_pos": 21,
+     "stars": 1747,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A robust framework for evaluating the performance and quality of AI agent skills.",
+     "bullets": [
+      "Built with Python, utilizing semantic overlap detection and synthetic dataset generation.",
+      "Implements quality gates and live agent evaluation to measure skill impact.",
+      "Designed for developers building reliable, production-grade agentic workflows.",
+      "Focuses on benchmarking agent reliability in complex, multi-tier environments."
+     ]
+    },
+    {
+     "name": "Tencent/LoopForge",
+     "url": "https://github.com/Tencent/LoopForge",
+     "language": "Go",
+     "description": "Self-hosted workflows for coding-agent delivery. Orchestrate CodeBuddy, Codex and Claude Code with scripts and human approval gates. Includes Local workflows for coding assistants.",
+     "keywords": [
+      "AI coding assistant"
+     ],
+     "trendshift_pos": 22,
+     "stars": 1566,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A self-hosted orchestration platform for managing and deploying coding-agent workflows.",
+     "bullets": [
+      "Written in Go, providing a high-performance backend for agent orchestration.",
+      "Supports integration with CodeBuddy, Codex, and Claude Code.",
+      "Features human-in-the-loop approval gates for secure code delivery.",
+      "Enables local workflow management for enterprise-grade coding assistants."
+     ]
+    },
+    {
+     "name": "google-labs-code/stitch-skills",
+     "url": "https://github.com/google-labs-code/stitch-skills",
+     "language": "TypeScript",
+     "description": "A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor.",
+     "keywords": [
+      "AI skills"
+     ],
+     "trendshift_pos": 20,
+     "stars": 9337,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A standardized library of agent skills compatible with the Stitch MCP server.",
+     "bullets": [
+      "TypeScript-based library adhering to the Agent Skills open standard.",
+      "Designed for interoperability with Gemini CLI, Claude Code, and Antigravity.",
+      "Provides modular, reusable capabilities for extending AI agent functionality.",
+      "Facilitates seamless integration between LLM agents and external infrastructure."
+     ]
+    },
+    {
+     "name": "bex-co/beancount-io",
+     "url": "https://github.com/bex-co/beancount-io",
+     "language": "TypeScript",
+     "description": "💰 Double-entry bookkeeping made easy — plain-text accounting for humans and AI agents. Polished iOS & Android app built with React Native + Expo.",
+     "keywords": [],
+     "trendshift_pos": 3,
+     "stars": 402,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A modern, mobile-first interface for plain-text accounting and double-entry bookkeeping.",
+     "bullets": [
+      "Built with React Native and Expo for cross-platform mobile support.",
+      "Integrates with Beancount for human-readable, plain-text financial record keeping.",
+      "Optimized for both manual entry and AI-agent-driven financial automation.",
+      "Ideal for quant-focused users managing personal or small-business ledgers."
+     ]
+    },
+    {
+     "name": "elementalsouls/Claude-BugHunter",
+     "url": "https://github.com/elementalsouls/Claude-BugHunter",
+     "language": "Python",
+     "description": "A Claude Code skill bundle for bug hunting and external red-team work - 82 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices.",
+     "keywords": [
+      "AI skills",
+      "Pentesting"
+     ],
+     "trendshift_pos": 5,
+     "stars": 6505,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A comprehensive skill bundle for AI-driven vulnerability research and red-teaming.",
+     "bullets": [
+      "Python-based toolkit featuring 82 specialized skills and 681 vulnerability patterns.",
+      "Supports 24 core vulnerability classes for automated security auditing.",
+      "Designed to be used with Claude Code to streamline external red-team operations.",
+      "Provides enterprise-grade identification capabilities for security professionals."
+     ]
+    }
+   ]
+  },
+  {
    "date": "2026-11-15",
    "generated_at": "2026-11-15 09:52 HKT",
    "repos": [

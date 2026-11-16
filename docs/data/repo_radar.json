@@ -1,101 +1,103 @@
 {
- "generated_at": "2026-11-15 09:52 HKT",
+ "generated_at": "2026-11-16 10:00 HKT",
  "repos": [
   {
-   "name": "ag-ui-protocol/ag-ui",
-   "url": "https://github.com/ag-ui-protocol/ag-ui",
-   "language": "TypeScript",
-   "description": "AG-UI: the Agent-User Interaction Protocol. Bring Agents into Frontend Applications.",
-   "keywords": [],
-   "trendshift_pos": 12,
-   "stars": 17387,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A standardized protocol for integrating autonomous AI agents directly into frontend user interfaces.",
-   "bullets": [
-    "Built with TypeScript to provide a type-safe bridge between agent logic and UI components.",
-    "Enables real-time agent-user interaction, state synchronization, and event handling.",
-    "Designed to standardize how LLM-based agents communicate their intent and status to end-users.",
-    "Ideal for developers building agentic workflows that require human-in-the-loop oversight."
-   ]
-  },
-  {
-   "name": "ChromeDevTools/chrome-devtools-mcp",
-   "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
-   "language": "TypeScript",
-   "description": "Chrome DevTools for coding agents",
+   "name": "NVIDIA/SkillEvaluator",
+   "url": "https://github.com/NVIDIA/SkillEvaluator",
+   "language": "Python",
+   "description": "Multi-tier framework for evaluating AI agent skills with quality gates, semantic overlap detection, synthetic evaluation dataset generation, and live agent evaluation that measures how skills affect agent behavior.",
    "keywords": [
-    "MCP",
-    "Browser automation"
+    "LLM evaluation"
    ],
-   "trendshift_pos": 16,
-   "stars": 56330,
+   "trendshift_pos": 21,
+   "stars": 1747,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A Model Context Protocol (MCP) server that allows AI agents to control and inspect Chrome DevTools.",
+   "one_liner": "A robust framework for evaluating the performance and quality of AI agent skills.",
    "bullets": [
-    "Leverages the Model Context Protocol to bridge LLMs with browser debugging capabilities.",
-    "Allows agents to perform DOM inspection, network monitoring, and console execution.",
-    "Facilitates automated web testing, scraping, and complex debugging workflows.",
-    "Essential infrastructure for building autonomous agents that interact with modern web applications."
+    "Built with Python, utilizing semantic overlap detection and synthetic dataset generation.",
+    "Implements quality gates and live agent evaluation to measure skill impact.",
+    "Designed for developers building reliable, production-grade agentic workflows.",
+    "Focuses on benchmarking agent reliability in complex, multi-tier environments."
    ]
   },
   {
-   "name": "arjun988/blender-skills",
-   "url": "https://github.com/arjun988/blender-skills",
+   "name": "Tencent/LoopForge",
+   "url": "https://github.com/Tencent/LoopForge",
+   "language": "Go",
+   "description": "Self-hosted workflows for coding-agent delivery. Orchestrate CodeBuddy, Codex and Claude Code with scripts and human approval gates. Includes Local workflows for coding assistants.",
+   "keywords": [
+    "AI coding assistant"
+   ],
+   "trendshift_pos": 22,
+   "stars": 1566,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A self-hosted orchestration platform for managing and deploying coding-agent workflows.",
+   "bullets": [
+    "Written in Go, providing a high-performance backend for agent orchestration.",
+    "Supports integration with CodeBuddy, Codex, and Claude Code.",
+    "Features human-in-the-loop approval gates for secure code delivery.",
+    "Enables local workflow management for enterprise-grade coding assistants."
+   ]
+  },
+  {
+   "name": "google-labs-code/stitch-skills",
+   "url": "https://github.com/google-labs-code/stitch-skills",
    "language": "TypeScript",
-   "description": "94 specialist Blender skills for Cursor, Claude Code, Kiro & Codex -> MCP-powered production pipeline from blockout to engine export.",
+   "description": "A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor.",
    "keywords": [
     "AI skills"
    ],
-   "trendshift_pos": 6,
-   "stars": 3220,
+   "trendshift_pos": 20,
+   "stars": 9337,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A comprehensive MCP-powered toolkit for integrating Blender 3D production pipelines with AI coding assistants.",
+   "one_liner": "A standardized library of agent skills compatible with the Stitch MCP server.",
    "bullets": [
-    "Utilizes the Model Context Protocol to expose 94 specialized Blender functions to AI models.",
-    "Streamlines the transition from 3D blockout to engine-ready assets via automated scripts.",
-    "Designed for integration with Cursor, Claude Code, and other agentic development environments.",
-    "Reduces manual overhead in complex 3D modeling and rendering workflows."
-   ],
-   "img": "arjun988_blender-skills_0.jpg",
-   "img_alt": "Blender Skills"
-  },
-  {
-   "name": "wdcpclover/ai4paper",
-   "url": "https://github.com/wdcpclover/ai4paper",
-   "language": "HTML",
-   "description": "PDF 全文翻译，保留排版双语对照 · 2.4 亿文献检索一键入库 · 文库知识库问答 · AI 精读论文、综述与思维导图 · 列表直显期刊分区 / 中科院 / JCR / 影响因子 · 免插件网页版 app.ai4paper.pro · 适配 Zotero 7–10",
-   "keywords": [],
-   "trendshift_pos": 11,
-   "stars": 5152,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An AI-powered research assistant platform for PDF translation, literature retrieval, and knowledge base management.",
-   "bullets": [
-    "Features a web-based architecture with Zotero 7 integration for seamless academic workflow.",
-    "Utilizes LLMs for bilingual PDF translation, paper summarization, and mind-map generation.",
-    "Provides real-time access to 240 million research documents with impact factor metrics.",
-    "Useful for quantitative researchers and analysts needing to synthesize large volumes of technical literature."
+    "TypeScript-based library adhering to the Agent Skills open standard.",
+    "Designed for interoperability with Gemini CLI, Claude Code, and Antigravity.",
+    "Provides modular, reusable capabilities for extending AI agent functionality.",
+    "Facilitates seamless integration between LLM agents and external infrastructure."
    ]
   },
   {
-   "name": "martin-olivier/airgorah",
-   "url": "https://github.com/martin-olivier/airgorah",
-   "language": "Rust",
-   "description": "A WiFi security auditing software",
+   "name": "bex-co/beancount-io",
+   "url": "https://github.com/bex-co/beancount-io",
+   "language": "TypeScript",
+   "description": "💰 Double-entry bookkeeping made easy — plain-text accounting for humans and AI agents. Polished iOS & Android app built with React Native + Expo.",
    "keywords": [],
-   "trendshift_pos": 9,
-   "stars": 5895,
+   "trendshift_pos": 3,
+   "stars": 402,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A high-performance WiFi security auditing tool written in Rust.",
+   "one_liner": "A modern, mobile-first interface for plain-text accounting and double-entry bookkeeping.",
    "bullets": [
-    "Developed in Rust to ensure memory safety and high-speed packet processing.",
-    "Designed for network security professionals to audit wireless infrastructure vulnerabilities.",
-    "Provides a modern, efficient alternative to legacy network security auditing suites.",
-    "Focuses on low-level network protocol analysis and security assessment."
+    "Built with React Native and Expo for cross-platform mobile support.",
+    "Integrates with Beancount for human-readable, plain-text financial record keeping.",
+    "Optimized for both manual entry and AI-agent-driven financial automation.",
+    "Ideal for quant-focused users managing personal or small-business ledgers."
+   ]
+  },
+  {
+   "name": "elementalsouls/Claude-BugHunter",
+   "url": "https://github.com/elementalsouls/Claude-BugHunter",
+   "language": "Python",
+   "description": "A Claude Code skill bundle for bug hunting and external red-team work - 82 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices.",
+   "keywords": [
+    "AI skills",
+    "Pentesting"
+   ],
+   "trendshift_pos": 5,
+   "stars": 6505,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A comprehensive skill bundle for AI-driven vulnerability research and red-teaming.",
+   "bullets": [
+    "Python-based toolkit featuring 82 specialized skills and 681 vulnerability patterns.",
+    "Supports 24 core vulnerability classes for automated security auditing.",
+    "Designed to be used with Claude Code to streamline external red-team operations.",
+    "Provides enterprise-grade identification capabilities for security professionals."
    ]
   }
  ]
