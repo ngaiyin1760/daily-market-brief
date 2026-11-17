@@ -1,103 +1,105 @@
 {
- "generated_at": "2026-11-16 10:00 HKT",
+ "generated_at": "2026-11-17 12:27 HKT",
  "repos": [
   {
-   "name": "NVIDIA/SkillEvaluator",
-   "url": "https://github.com/NVIDIA/SkillEvaluator",
+   "name": "mvanhorn/last30days-skill",
+   "url": "https://github.com/mvanhorn/last30days-skill",
    "language": "Python",
-   "description": "Multi-tier framework for evaluating AI agent skills with quality gates, semantic overlap detection, synthetic evaluation dataset generation, and live agent evaluation that measures how skills affect agent behavior.",
-   "keywords": [
-    "LLM evaluation"
-   ],
-   "trendshift_pos": 21,
-   "stars": 1747,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A robust framework for evaluating the performance and quality of AI agent skills.",
-   "bullets": [
-    "Built with Python, utilizing semantic overlap detection and synthetic dataset generation.",
-    "Implements quality gates and live agent evaluation to measure skill impact.",
-    "Designed for developers building reliable, production-grade agentic workflows.",
-    "Focuses on benchmarking agent reliability in complex, multi-tier environments."
-   ]
-  },
-  {
-   "name": "Tencent/LoopForge",
-   "url": "https://github.com/Tencent/LoopForge",
-   "language": "Go",
-   "description": "Self-hosted workflows for coding-agent delivery. Orchestrate CodeBuddy, Codex and Claude Code with scripts and human approval gates. Includes Local workflows for coding assistants.",
-   "keywords": [
-    "AI coding assistant"
-   ],
-   "trendshift_pos": 22,
-   "stars": 1566,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A self-hosted orchestration platform for managing and deploying coding-agent workflows.",
-   "bullets": [
-    "Written in Go, providing a high-performance backend for agent orchestration.",
-    "Supports integration with CodeBuddy, Codex, and Claude Code.",
-    "Features human-in-the-loop approval gates for secure code delivery.",
-    "Enables local workflow management for enterprise-grade coding assistants."
-   ]
-  },
-  {
-   "name": "google-labs-code/stitch-skills",
-   "url": "https://github.com/google-labs-code/stitch-skills",
-   "language": "TypeScript",
-   "description": "A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor.",
-   "keywords": [
-    "AI skills"
-   ],
-   "trendshift_pos": 20,
-   "stars": 9337,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A standardized library of agent skills compatible with the Stitch MCP server.",
-   "bullets": [
-    "TypeScript-based library adhering to the Agent Skills open standard.",
-    "Designed for interoperability with Gemini CLI, Claude Code, and Antigravity.",
-    "Provides modular, reusable capabilities for extending AI agent functionality.",
-    "Facilitates seamless integration between LLM agents and external infrastructure."
-   ]
-  },
-  {
-   "name": "bex-co/beancount-io",
-   "url": "https://github.com/bex-co/beancount-io",
-   "language": "TypeScript",
-   "description": "💰 Double-entry bookkeeping made easy — plain-text accounting for humans and AI agents. Polished iOS & Android app built with React Native + Expo.",
+   "description": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary",
    "keywords": [],
-   "trendshift_pos": 3,
-   "stars": 402,
+   "trendshift_pos": 11,
+   "stars": 68271,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A modern, mobile-first interface for plain-text accounting and double-entry bookkeeping.",
+   "one_liner": "An AI agent skill designed to research and synthesize information across financial, social, and news platforms.",
    "bullets": [
-    "Built with React Native and Expo for cross-platform mobile support.",
-    "Integrates with Beancount for human-readable, plain-text financial record keeping.",
-    "Optimized for both manual entry and AI-agent-driven financial automation.",
-    "Ideal for quant-focused users managing personal or small-business ledgers."
+    "Integrates with Polymarket, X, Reddit, and Hacker News for real-time data gathering.",
+    "Uses agentic workflows to synthesize grounded summaries from diverse web sources.",
+    "Ideal for market research, sentiment analysis, and tracking trending topics in finance and tech.",
+    "Built as a modular skill for AI agents to automate complex information retrieval tasks."
    ]
   },
   {
-   "name": "elementalsouls/Claude-BugHunter",
-   "url": "https://github.com/elementalsouls/Claude-BugHunter",
+   "name": "kajisho5/ffmpeg-skill",
+   "url": "https://github.com/kajisho5/ffmpeg-skill",
    "language": "Python",
-   "description": "A Claude Code skill bundle for bug hunting and external red-team work - 82 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices.",
+   "description": "Local video editor for coding agents: 42 FFmpeg tools with a machine-readable contract and an MCP server, for Claude Code, Cursor and Codex. Cut, captions, reframe, loudness, platform exports. No cloud, no API keys.",
    "keywords": [
-    "AI skills",
-    "Pentesting"
+    "Video editing"
    ],
    "trendshift_pos": 5,
-   "stars": 6505,
+   "stars": 7024,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A comprehensive skill bundle for AI-driven vulnerability research and red-teaming.",
+   "one_liner": "A machine-readable FFmpeg toolset designed specifically for AI coding agents like Claude Code and Cursor.",
    "bullets": [
-    "Python-based toolkit featuring 82 specialized skills and 681 vulnerability patterns.",
-    "Supports 24 core vulnerability classes for automated security auditing.",
-    "Designed to be used with Claude Code to streamline external red-team operations.",
-    "Provides enterprise-grade identification capabilities for security professionals."
+    "Exposes 42 FFmpeg functions via an MCP (Model Context Protocol) server.",
+    "Enables agentic video editing, including captioning, reframing, and loudness normalization.",
+    "Eliminates cloud dependencies by providing a local, programmatic interface for media processing.",
+    "Allows developers to build automated video production pipelines using LLM-driven orchestration."
+   ]
+  },
+  {
+   "name": "google-research/paper-orchestra",
+   "url": "https://github.com/google-research/paper-orchestra",
+   "language": "Python",
+   "description": "PaperOrchestra is a multi-agent framework for automated AI research paper writing.",
+   "keywords": [
+    "AI agent"
+   ],
+   "trendshift_pos": 8,
+   "stars": 1708,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A multi-agent framework specifically engineered for the automated writing and research of academic papers.",
+   "bullets": [
+    "Utilizes a multi-agent architecture to distribute research, drafting, and editing tasks.",
+    "Focuses on structured knowledge synthesis and rigorous academic documentation.",
+    "Provides a scalable infrastructure for automating literature reviews and technical reporting.",
+    "Useful for R&D teams looking to accelerate the documentation of complex AI or financial research."
+   ]
+  },
+  {
+   "name": "BaaRai/ARTEX",
+   "url": "https://github.com/BaaRai/ARTEX",
+   "language": "Go",
+   "description": "ARTEX - AI autonomous penetration testing system (English translation)",
+   "keywords": [
+    "AI agent",
+    "Pentesting"
+   ],
+   "trendshift_pos": 25,
+   "stars": 4969,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An autonomous penetration testing system leveraging AI to identify and exploit security vulnerabilities.",
+   "bullets": [
+    "Built in Go for high-performance, concurrent security scanning and exploitation.",
+    "Automates the reconnaissance and attack lifecycle, reducing manual security audit overhead.",
+    "Provides critical infrastructure protection by identifying weaknesses before they are exploited.",
+    "Designed for security professionals to conduct continuous, agent-driven red teaming."
+   ],
+   "img": "BaaRai_ARTEX_0.jpg",
+   "img_alt": "Tasks",
+   "img2": "BaaRai_ARTEX_1.jpg",
+   "img2_alt": "Findings"
+  },
+  {
+   "name": "CzzzzzzJ/mdldm-maitian",
+   "url": "https://github.com/CzzzzzzJ/mdldm-maitian",
+   "language": "JavaScript",
+   "description": "麦田：自媒体多平台发布中控与数据监控（B站/抖音/小红书/视频号/YouTube/X），飞书卡片通知 + 数据大屏",
+   "keywords": [],
+   "trendshift_pos": 7,
+   "stars": 486,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A centralized control and monitoring dashboard for multi-platform content distribution and data analytics.",
+   "bullets": [
+    "Supports cross-platform data aggregation from Bilibili, YouTube, X, and other major social networks.",
+    "Features automated publishing workflows and real-time data visualization dashboards.",
+    "Includes Feishu (Lark) integration for instant notifications on performance metrics.",
+    "Serves as a robust tool for tracking digital marketing ROI and audience engagement trends."
    ]
   }
  ]
