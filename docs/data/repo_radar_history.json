@@ -1,6 +1,112 @@
 {
  "days": [
   {
+   "date": "2026-11-18",
+   "generated_at": "2026-11-18 11:42 HKT",
+   "repos": [
+    {
+     "name": "microsoft/ai-agents-for-beginners",
+     "url": "https://github.com/microsoft/ai-agents-for-beginners",
+     "language": "Jupyter Notebook",
+     "description": "18 Lessons to Get Started Building AI Agents",
+     "keywords": [
+      "Learning resources"
+     ],
+     "trendshift_pos": 11,
+     "stars": 80148,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A comprehensive 18-lesson curriculum designed to teach the fundamentals of building AI agents.",
+     "bullets": [
+      "Structured as a series of Jupyter Notebooks covering agentic workflows and orchestration.",
+      "Focuses on core concepts like planning, memory, and tool-use in AI systems.",
+      "Ideal for developers transitioning from simple LLM prompting to autonomous agent development.",
+      "Provides a standardized educational framework for enterprise-grade AI integration."
+     ],
+     "img": "microsoft_ai-agents-for-beginners_0.jpg",
+     "img_alt": "AI Agents for Beginners"
+    },
+    {
+     "name": "t8y2/motty",
+     "url": "https://github.com/t8y2/motty",
+     "language": "Go",
+     "description": "SSH, SFTP, port forwarding, VNC/RDP and an AI assistant、MCP in one native window — a Go desktop app built on Viva, with no webview.",
+     "keywords": [],
+     "trendshift_pos": 20,
+     "stars": 1307,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A high-performance, native Go desktop application that consolidates SSH, SFTP, port forwarding, and AI assistance into one window.",
+     "bullets": [
+      "Built with Go and the Viva UI framework, avoiding heavy webview overhead.",
+      "Integrates Model Context Protocol (MCP) to allow AI assistants to interact with local infrastructure.",
+      "Streamlines remote server management and network tunneling for DevOps and infrastructure engineers.",
+      "Provides a unified interface for managing complex remote connections and AI-driven troubleshooting."
+     ]
+    },
+    {
+     "name": "mankidev/antialgorithm",
+     "url": "https://github.com/mankidev/antialgorithm",
+     "language": "Python",
+     "description": "Claude Code skill that steers the model away from its first, most average pick in creative work: names, copy, ideas, posters, UI.",
+     "keywords": [
+      "AI skills"
+     ],
+     "trendshift_pos": 18,
+     "stars": 246,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A Claude Code skill designed to force LLMs to bypass 'average' outputs in creative and technical decision-making.",
+     "bullets": [
+      "Python-based tool that injects steering logic into the Claude Code agentic workflow.",
+      "Specifically targets the 'first-pick' bias inherent in LLMs to improve output quality.",
+      "Useful for developers and quant researchers who need to generate non-obvious solutions or unique code patterns.",
+      "Demonstrates advanced prompt engineering and agentic control techniques."
+     ],
+     "img": "mankidev_antialgorithm_0.jpg",
+     "img_alt": "Six posters without the skill on top, six with it below",
+     "img2": "mankidev_antialgorithm_1.jpg",
+     "img2_alt": "Chart of how often a choice gets picked: a tall peak around the average marked as the safe zone, flat on both sides"
+    },
+    {
+     "name": "interfere-inc/landmines",
+     "url": "https://github.com/interfere-inc/landmines",
+     "language": "TypeScript",
+     "description": "Oxlint rules that keep AI-written code honest: real implementations, real signals, no flake masking.",
+     "keywords": [],
+     "trendshift_pos": 4,
+     "stars": 269,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A set of Oxlint rules designed to detect and prevent AI-generated code from introducing subtle bugs or 'flake' patterns.",
+     "bullets": [
+      "Built on the high-performance Oxlint engine for rapid static analysis.",
+      "Enforces code integrity by flagging common AI hallucination patterns and non-idiomatic implementations.",
+      "Essential for teams integrating AI-assisted coding into production-grade infrastructure.",
+      "Ensures that AI-written code adheres to strict project standards and real-world reliability requirements."
+     ]
+    },
+    {
+     "name": "erkamyaman/rust-anything",
+     "url": "https://github.com/erkamyaman/rust-anything",
+     "language": "Rust",
+     "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
+     "keywords": [],
+     "trendshift_pos": 1,
+     "stars": 1586,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A systematic framework for migrating legacy codebases to Rust while ensuring functional parity through automated verification.",
+     "bullets": [
+      "Uses a 'check-at-every-step' methodology to validate behavior against original implementations.",
+      "Supports migration of CLIs, HTTP servers, and libraries from Python, TypeScript, Go, and more.",
+      "Provides a low-risk path for refactoring critical financial or infrastructure components into memory-safe Rust.",
+      "Focuses on maintaining system reliability during complex architectural transitions."
+     ]
+    }
+   ]
+  },
+  {
    "date": "2026-11-17",
    "generated_at": "2026-11-17 12:27 HKT",
    "repos": [
