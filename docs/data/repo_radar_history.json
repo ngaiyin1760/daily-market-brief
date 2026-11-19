@@ -1,6 +1,114 @@
 {
  "days": [
   {
+   "date": "2026-11-19",
+   "generated_at": "2026-11-19 11:21 HKT",
+   "repos": [
+    {
+     "name": "bitwarden/agent-access",
+     "url": "https://github.com/bitwarden/agent-access",
+     "language": "Rust",
+     "description": "Agent Access is an open protocol, CLI tool, and SDK to provide agents with credentials without exposing their entire vault",
+     "keywords": [],
+     "trendshift_pos": 6,
+     "stars": 331,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An open protocol and SDK designed to provide AI agents with secure, granular access to credentials without exposing an entire vault.",
+     "bullets": [
+      "Built in Rust for high-performance, memory-safe credential management.",
+      "Implements a secure protocol to bridge the gap between static secret storage and dynamic agentic workflows.",
+      "Enables fine-grained permission scoping for AI agents, preventing over-privileged access to sensitive infrastructure.",
+      "Essential for enterprise-grade AI agents requiring automated authentication to fintech or cloud services."
+     ]
+    },
+    {
+     "name": "n8n-io/n8n",
+     "url": "https://github.com/n8n-io/n8n",
+     "language": "TypeScript",
+     "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+     "keywords": [
+      "Workflow automation"
+     ],
+     "trendshift_pos": 18,
+     "stars": 211147,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A powerful, fair-code workflow automation platform that integrates AI capabilities with over 400 services.",
+     "bullets": [
+      "TypeScript-based engine supporting both visual node-based workflows and custom JavaScript/Python code execution.",
+      "Native AI integration allows for complex agentic orchestration and LLM-driven decision making within business processes.",
+      "Highly flexible deployment options including self-hosting for strict data privacy and compliance requirements.",
+      "Ideal for automating fintech back-office operations, data reconciliation, and multi-platform API orchestration."
+     ],
+     "img": "n8n-io_n8n_0.jpg",
+     "img_alt": "Banner image",
+     "img2": "n8n-io_n8n_1.jpg",
+     "img2_alt": "n8n.io - Screenshot"
+    },
+    {
+     "name": "aoci-spec/aoci-code",
+     "url": "https://github.com/aoci-spec/aoci-code",
+     "language": "Go",
+     "description": "A persistent, Git-versioned map of your whole codebase and database schema that coding agents read before they touch anything. Local-first MCP server + CLI in Go: a governed repository index of code knowledge that gives Claude Code, Codex, Cursor, and opencode long-term context, memory, and code intelligence.",
+     "keywords": [
+      "MCP"
+     ],
+     "trendshift_pos": 1,
+     "stars": 2290,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A local-first MCP server and CLI tool that provides coding agents with a governed, Git-versioned index of codebase and database schemas.",
+     "bullets": [
+      "Go-based architecture providing a high-performance, persistent map of complex software repositories.",
+      "Acts as a context-provider for AI agents, ensuring they have accurate, up-to-date knowledge of database schemas and code structure.",
+      "Implements a governed indexing system to prevent agents from hallucinating or misinterpreting codebase dependencies.",
+      "Streamlines the development lifecycle by providing agents with a structured 'source of truth' before executing code changes."
+     ],
+     "img": "aoci-spec_aoci-code_0.jpg",
+     "img_alt": "AOCI-CODE logo — AI-Oriented Cognition Infrastructure"
+    },
+    {
+     "name": "openvinotoolkit/openvino",
+     "url": "https://github.com/openvinotoolkit/openvino",
+     "language": "C++",
+     "description": "OpenVINO™ is an open source toolkit for optimizing and deploying AI inference",
+     "keywords": [],
+     "trendshift_pos": 19,
+     "stars": 11361,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An industry-standard toolkit for optimizing and deploying AI inference across diverse hardware architectures.",
+     "bullets": [
+      "C++ core with Python bindings, optimized for high-throughput, low-latency AI model execution.",
+      "Supports model quantization, pruning, and hardware-specific acceleration for edge and cloud deployment.",
+      "Critical infrastructure for running LLMs and predictive models locally or on-premise without relying on external APIs.",
+      "Widely used in quant finance and real-time analytics to reduce inference costs and latency for time-series forecasting."
+     ]
+    },
+    {
+     "name": "HKUDS/PhoneCLI",
+     "url": "https://github.com/HKUDS/PhoneCLI",
+     "language": "Python",
+     "description": "PhoneCLI: Making Mobile Apps Agent-Native",
+     "keywords": [
+      "AI agent"
+     ],
+     "trendshift_pos": 21,
+     "stars": 1080,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A framework designed to make mobile applications 'agent-native' by enabling AI control over mobile interfaces.",
+     "bullets": [
+      "Python-based framework that bridges the gap between LLM reasoning and mobile UI interaction.",
+      "Enables agents to navigate, click, and input data into mobile apps, facilitating automated testing and user-flow simulation.",
+      "Provides a standardized interface for agents to interact with mobile environments, bypassing traditional API limitations.",
+      "Useful for automating mobile-first fintech workflows, such as expense tracking, banking verification, or automated UI regression testing."
+     ]
+    }
+   ]
+  },
+  {
    "date": "2026-11-18",
    "generated_at": "2026-11-18 11:42 HKT",
    "repos": [

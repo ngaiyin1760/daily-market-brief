@@ -1,104 +1,106 @@
 {
- "generated_at": "2026-11-18 11:42 HKT",
+ "generated_at": "2026-11-19 11:21 HKT",
  "repos": [
   {
-   "name": "microsoft/ai-agents-for-beginners",
-   "url": "https://github.com/microsoft/ai-agents-for-beginners",
-   "language": "Jupyter Notebook",
-   "description": "18 Lessons to Get Started Building AI Agents",
-   "keywords": [
-    "Learning resources"
-   ],
-   "trendshift_pos": 11,
-   "stars": 80148,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A comprehensive 18-lesson curriculum designed to teach the fundamentals of building AI agents.",
-   "bullets": [
-    "Structured as a series of Jupyter Notebooks covering agentic workflows and orchestration.",
-    "Focuses on core concepts like planning, memory, and tool-use in AI systems.",
-    "Ideal for developers transitioning from simple LLM prompting to autonomous agent development.",
-    "Provides a standardized educational framework for enterprise-grade AI integration."
-   ],
-   "img": "microsoft_ai-agents-for-beginners_0.jpg",
-   "img_alt": "AI Agents for Beginners"
-  },
-  {
-   "name": "t8y2/motty",
-   "url": "https://github.com/t8y2/motty",
-   "language": "Go",
-   "description": "SSH, SFTP, port forwarding, VNC/RDP and an AI assistant、MCP in one native window — a Go desktop app built on Viva, with no webview.",
+   "name": "bitwarden/agent-access",
+   "url": "https://github.com/bitwarden/agent-access",
+   "language": "Rust",
+   "description": "Agent Access is an open protocol, CLI tool, and SDK to provide agents with credentials without exposing their entire vault",
    "keywords": [],
-   "trendshift_pos": 20,
-   "stars": 1307,
+   "trendshift_pos": 6,
+   "stars": 331,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A high-performance, native Go desktop application that consolidates SSH, SFTP, port forwarding, and AI assistance into one window.",
+   "one_liner": "An open protocol and SDK designed to provide AI agents with secure, granular access to credentials without exposing an entire vault.",
    "bullets": [
-    "Built with Go and the Viva UI framework, avoiding heavy webview overhead.",
-    "Integrates Model Context Protocol (MCP) to allow AI assistants to interact with local infrastructure.",
-    "Streamlines remote server management and network tunneling for DevOps and infrastructure engineers.",
-    "Provides a unified interface for managing complex remote connections and AI-driven troubleshooting."
+    "Built in Rust for high-performance, memory-safe credential management.",
+    "Implements a secure protocol to bridge the gap between static secret storage and dynamic agentic workflows.",
+    "Enables fine-grained permission scoping for AI agents, preventing over-privileged access to sensitive infrastructure.",
+    "Essential for enterprise-grade AI agents requiring automated authentication to fintech or cloud services."
    ]
   },
   {
-   "name": "mankidev/antialgorithm",
-   "url": "https://github.com/mankidev/antialgorithm",
-   "language": "Python",
-   "description": "Claude Code skill that steers the model away from its first, most average pick in creative work: names, copy, ideas, posters, UI.",
+   "name": "n8n-io/n8n",
+   "url": "https://github.com/n8n-io/n8n",
+   "language": "TypeScript",
+   "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
    "keywords": [
-    "AI skills"
+    "Workflow automation"
    ],
    "trendshift_pos": 18,
-   "stars": 246,
+   "stars": 211147,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A Claude Code skill designed to force LLMs to bypass 'average' outputs in creative and technical decision-making.",
+   "one_liner": "A powerful, fair-code workflow automation platform that integrates AI capabilities with over 400 services.",
    "bullets": [
-    "Python-based tool that injects steering logic into the Claude Code agentic workflow.",
-    "Specifically targets the 'first-pick' bias inherent in LLMs to improve output quality.",
-    "Useful for developers and quant researchers who need to generate non-obvious solutions or unique code patterns.",
-    "Demonstrates advanced prompt engineering and agentic control techniques."
+    "TypeScript-based engine supporting both visual node-based workflows and custom JavaScript/Python code execution.",
+    "Native AI integration allows for complex agentic orchestration and LLM-driven decision making within business processes.",
+    "Highly flexible deployment options including self-hosting for strict data privacy and compliance requirements.",
+    "Ideal for automating fintech back-office operations, data reconciliation, and multi-platform API orchestration."
    ],
-   "img": "mankidev_antialgorithm_0.jpg",
-   "img_alt": "Six posters without the skill on top, six with it below",
-   "img2": "mankidev_antialgorithm_1.jpg",
-   "img2_alt": "Chart of how often a choice gets picked: a tall peak around the average marked as the safe zone, flat on both sides"
+   "img": "n8n-io_n8n_0.jpg",
+   "img_alt": "Banner image",
+   "img2": "n8n-io_n8n_1.jpg",
+   "img2_alt": "n8n.io - Screenshot"
   },
   {
-   "name": "interfere-inc/landmines",
-   "url": "https://github.com/interfere-inc/landmines",
-   "language": "TypeScript",
-   "description": "Oxlint rules that keep AI-written code honest: real implementations, real signals, no flake masking.",
-   "keywords": [],
-   "trendshift_pos": 4,
-   "stars": 269,
+   "name": "aoci-spec/aoci-code",
+   "url": "https://github.com/aoci-spec/aoci-code",
+   "language": "Go",
+   "description": "A persistent, Git-versioned map of your whole codebase and database schema that coding agents read before they touch anything. Local-first MCP server + CLI in Go: a governed repository index of code knowledge that gives Claude Code, Codex, Cursor, and opencode long-term context, memory, and code intelligence.",
+   "keywords": [
+    "MCP"
+   ],
+   "trendshift_pos": 1,
+   "stars": 2290,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A set of Oxlint rules designed to detect and prevent AI-generated code from introducing subtle bugs or 'flake' patterns.",
+   "one_liner": "A local-first MCP server and CLI tool that provides coding agents with a governed, Git-versioned index of codebase and database schemas.",
    "bullets": [
-    "Built on the high-performance Oxlint engine for rapid static analysis.",
-    "Enforces code integrity by flagging common AI hallucination patterns and non-idiomatic implementations.",
-    "Essential for teams integrating AI-assisted coding into production-grade infrastructure.",
-    "Ensures that AI-written code adheres to strict project standards and real-world reliability requirements."
+    "Go-based architecture providing a high-performance, persistent map of complex software repositories.",
+    "Acts as a context-provider for AI agents, ensuring they have accurate, up-to-date knowledge of database schemas and code structure.",
+    "Implements a governed indexing system to prevent agents from hallucinating or misinterpreting codebase dependencies.",
+    "Streamlines the development lifecycle by providing agents with a structured 'source of truth' before executing code changes."
+   ],
+   "img": "aoci-spec_aoci-code_0.jpg",
+   "img_alt": "AOCI-CODE logo — AI-Oriented Cognition Infrastructure"
+  },
+  {
+   "name": "openvinotoolkit/openvino",
+   "url": "https://github.com/openvinotoolkit/openvino",
+   "language": "C++",
+   "description": "OpenVINO™ is an open source toolkit for optimizing and deploying AI inference",
+   "keywords": [],
+   "trendshift_pos": 19,
+   "stars": 11361,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An industry-standard toolkit for optimizing and deploying AI inference across diverse hardware architectures.",
+   "bullets": [
+    "C++ core with Python bindings, optimized for high-throughput, low-latency AI model execution.",
+    "Supports model quantization, pruning, and hardware-specific acceleration for edge and cloud deployment.",
+    "Critical infrastructure for running LLMs and predictive models locally or on-premise without relying on external APIs.",
+    "Widely used in quant finance and real-time analytics to reduce inference costs and latency for time-series forecasting."
    ]
   },
   {
-   "name": "erkamyaman/rust-anything",
-   "url": "https://github.com/erkamyaman/rust-anything",
-   "language": "Rust",
-   "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
-   "keywords": [],
-   "trendshift_pos": 1,
-   "stars": 1586,
+   "name": "HKUDS/PhoneCLI",
+   "url": "https://github.com/HKUDS/PhoneCLI",
+   "language": "Python",
+   "description": "PhoneCLI: Making Mobile Apps Agent-Native",
+   "keywords": [
+    "AI agent"
+   ],
+   "trendshift_pos": 21,
+   "stars": 1080,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A systematic framework for migrating legacy codebases to Rust while ensuring functional parity through automated verification.",
+   "one_liner": "A framework designed to make mobile applications 'agent-native' by enabling AI control over mobile interfaces.",
    "bullets": [
-    "Uses a 'check-at-every-step' methodology to validate behavior against original implementations.",
-    "Supports migration of CLIs, HTTP servers, and libraries from Python, TypeScript, Go, and more.",
-    "Provides a low-risk path for refactoring critical financial or infrastructure components into memory-safe Rust.",
-    "Focuses on maintaining system reliability during complex architectural transitions."
+    "Python-based framework that bridges the gap between LLM reasoning and mobile UI interaction.",
+    "Enables agents to navigate, click, and input data into mobile apps, facilitating automated testing and user-flow simulation.",
+    "Provides a standardized interface for agents to interact with mobile environments, bypassing traditional API limitations.",
+    "Useful for automating mobile-first fintech workflows, such as expense tracking, banking verification, or automated UI regression testing."
    ]
   }
  ]
