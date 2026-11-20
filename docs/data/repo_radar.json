@@ -1,106 +1,102 @@
 {
- "generated_at": "2026-11-19 11:21 HKT",
+ "generated_at": "2026-11-20 11:08 HKT",
  "repos": [
   {
-   "name": "bitwarden/agent-access",
-   "url": "https://github.com/bitwarden/agent-access",
-   "language": "Rust",
-   "description": "Agent Access is an open protocol, CLI tool, and SDK to provide agents with credentials without exposing their entire vault",
-   "keywords": [],
-   "trendshift_pos": 6,
-   "stars": 331,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An open protocol and SDK designed to provide AI agents with secure, granular access to credentials without exposing an entire vault.",
-   "bullets": [
-    "Built in Rust for high-performance, memory-safe credential management.",
-    "Implements a secure protocol to bridge the gap between static secret storage and dynamic agentic workflows.",
-    "Enables fine-grained permission scoping for AI agents, preventing over-privileged access to sensitive infrastructure.",
-    "Essential for enterprise-grade AI agents requiring automated authentication to fintech or cloud services."
-   ]
-  },
-  {
-   "name": "n8n-io/n8n",
-   "url": "https://github.com/n8n-io/n8n",
-   "language": "TypeScript",
-   "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
-   "keywords": [
-    "Workflow automation"
-   ],
-   "trendshift_pos": 18,
-   "stars": 211147,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A powerful, fair-code workflow automation platform that integrates AI capabilities with over 400 services.",
-   "bullets": [
-    "TypeScript-based engine supporting both visual node-based workflows and custom JavaScript/Python code execution.",
-    "Native AI integration allows for complex agentic orchestration and LLM-driven decision making within business processes.",
-    "Highly flexible deployment options including self-hosting for strict data privacy and compliance requirements.",
-    "Ideal for automating fintech back-office operations, data reconciliation, and multi-platform API orchestration."
-   ],
-   "img": "n8n-io_n8n_0.jpg",
-   "img_alt": "Banner image",
-   "img2": "n8n-io_n8n_1.jpg",
-   "img2_alt": "n8n.io - Screenshot"
-  },
-  {
-   "name": "aoci-spec/aoci-code",
-   "url": "https://github.com/aoci-spec/aoci-code",
-   "language": "Go",
-   "description": "A persistent, Git-versioned map of your whole codebase and database schema that coding agents read before they touch anything. Local-first MCP server + CLI in Go: a governed repository index of code knowledge that gives Claude Code, Codex, Cursor, and opencode long-term context, memory, and code intelligence.",
-   "keywords": [
-    "MCP"
-   ],
-   "trendshift_pos": 1,
-   "stars": 2290,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A local-first MCP server and CLI tool that provides coding agents with a governed, Git-versioned index of codebase and database schemas.",
-   "bullets": [
-    "Go-based architecture providing a high-performance, persistent map of complex software repositories.",
-    "Acts as a context-provider for AI agents, ensuring they have accurate, up-to-date knowledge of database schemas and code structure.",
-    "Implements a governed indexing system to prevent agents from hallucinating or misinterpreting codebase dependencies.",
-    "Streamlines the development lifecycle by providing agents with a structured 'source of truth' before executing code changes."
-   ],
-   "img": "aoci-spec_aoci-code_0.jpg",
-   "img_alt": "AOCI-CODE logo — AI-Oriented Cognition Infrastructure"
-  },
-  {
-   "name": "openvinotoolkit/openvino",
-   "url": "https://github.com/openvinotoolkit/openvino",
-   "language": "C++",
-   "description": "OpenVINO™ is an open source toolkit for optimizing and deploying AI inference",
-   "keywords": [],
-   "trendshift_pos": 19,
-   "stars": 11361,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An industry-standard toolkit for optimizing and deploying AI inference across diverse hardware architectures.",
-   "bullets": [
-    "C++ core with Python bindings, optimized for high-throughput, low-latency AI model execution.",
-    "Supports model quantization, pruning, and hardware-specific acceleration for edge and cloud deployment.",
-    "Critical infrastructure for running LLMs and predictive models locally or on-premise without relying on external APIs.",
-    "Widely used in quant finance and real-time analytics to reduce inference costs and latency for time-series forecasting."
-   ]
-  },
-  {
-   "name": "HKUDS/PhoneCLI",
-   "url": "https://github.com/HKUDS/PhoneCLI",
+   "name": "Tracer-Cloud/opensre",
+   "url": "https://github.com/Tracer-Cloud/opensre",
    "language": "Python",
-   "description": "PhoneCLI: Making Mobile Apps Agent-Native",
+   "description": "The open-source agent for CI/CD reliability.",
    "keywords": [
     "AI agent"
    ],
-   "trendshift_pos": 21,
-   "stars": 1080,
+   "trendshift_pos": 17,
+   "stars": 13189,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A framework designed to make mobile applications 'agent-native' by enabling AI control over mobile interfaces.",
+   "one_liner": "An open-source autonomous agent designed to automate CI/CD reliability and infrastructure management.",
    "bullets": [
-    "Python-based framework that bridges the gap between LLM reasoning and mobile UI interaction.",
-    "Enables agents to navigate, click, and input data into mobile apps, facilitating automated testing and user-flow simulation.",
-    "Provides a standardized interface for agents to interact with mobile environments, bypassing traditional API limitations.",
-    "Useful for automating mobile-first fintech workflows, such as expense tracking, banking verification, or automated UI regression testing."
+    "Built with Python to integrate directly into existing CI/CD pipelines.",
+    "Acts as an intelligent agent to monitor, diagnose, and remediate infrastructure incidents.",
+    "Reduces manual toil for DevOps teams by automating routine SRE tasks and deployment health checks.",
+    "Focuses on observability and automated recovery to ensure high-availability production environments."
+   ],
+   "img": "Tracer-Cloud_opensre_0.jpg",
+   "img_alt": "OpenSRE CLI welcome screen with the sign-in prompt"
+  },
+  {
+   "name": "context-dot-dev/enrichable",
+   "url": "https://github.com/context-dot-dev/enrichable",
+   "language": "TypeScript",
+   "description": "Open-source AI spreadsheet for data enrichment. Build lead lists from a prompt, research every row with live web data, and find work emails. Powered by Context.dev.",
+   "keywords": [],
+   "trendshift_pos": 19,
+   "stars": 125,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An AI-powered spreadsheet tool designed for automated data enrichment and lead generation.",
+   "bullets": [
+    "TypeScript-based architecture that integrates LLM reasoning with structured spreadsheet data.",
+    "Automates the research process by performing live web lookups for every row in a dataset.",
+    "Ideal for sales and marketing professionals needing to build verified lead lists and find professional contact information.",
+    "Leverages prompt-based workflows to transform raw data into actionable business intelligence."
+   ]
+  },
+  {
+   "name": "simplexai-labs/linger",
+   "url": "https://github.com/simplexai-labs/linger",
+   "language": "TypeScript",
+   "description": "Linger is An Open-Source Personal Agent That Runs Fully on Your PC.  We aim to break Big Tech’s grip on AI by bringing powerful local AI to everyday computers through efficient model–harness co-design, so everyone can run their own.",
+   "keywords": [
+    "AI agent"
+   ],
+   "trendshift_pos": 1,
+   "stars": 1813,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A fully local, open-source personal AI agent designed to run efficiently on consumer hardware.",
+   "bullets": [
+    "TypeScript-based implementation focusing on model-hardware co-design for maximum efficiency.",
+    "Prioritizes data privacy by keeping all agentic processing and model inference on the local machine.",
+    "Enables users to break dependency on centralized Big Tech AI services for personal automation.",
+    "Suitable for users requiring a persistent, private agent that can interact with local files and applications."
+   ]
+  },
+  {
+   "name": "jiangmuran/vibepanel",
+   "url": "https://github.com/jiangmuran/vibepanel",
+   "language": "Go",
+   "description": "A web console for running many parallel coding-agent sessions. tmux keeps the processes alive; the browser owns organisation, naming, state and ordering.",
+   "keywords": [
+    "AI coding assistant"
+   ],
+   "trendshift_pos": 25,
+   "stars": 129,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A web-based orchestration console for managing multiple parallel coding-agent sessions.",
+   "bullets": [
+    "Go-based backend that leverages tmux for robust process management and persistence.",
+    "Provides a centralized browser interface to organize, name, and monitor state across various agentic coding tasks.",
+    "Solves the 'agent sprawl' problem by allowing developers to run and track multiple autonomous coding sessions simultaneously.",
+    "Essential for power users building complex software systems using multi-agent workflows."
+   ]
+  },
+  {
+   "name": "haydenschmitty/floorplan",
+   "url": "https://github.com/haydenschmitty/floorplan",
+   "language": "JavaScript",
+   "description": "See how your app actually fits together. An interactive, plain-English map of your codebase, drawn by Claude or Codex.",
+   "keywords": [],
+   "trendshift_pos": 14,
+   "stars": 5160,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An interactive visualization tool that maps your codebase architecture using LLMs.",
+   "bullets": [
+    "JavaScript-based tool that utilizes Claude or Codex to parse and interpret complex repository structures.",
+    "Generates plain-English, interactive maps that explain how different modules and services fit together.",
+    "Accelerates onboarding for new developers and helps architects visualize technical debt or dependency bottlenecks.",
+    "Provides a high-level overview of infrastructure and code flow, making it easier to manage large-scale projects."
    ]
   }
  ]
