@@ -1,102 +1,104 @@
 {
- "generated_at": "2026-11-20 11:08 HKT",
+ "generated_at": "2026-11-21 11:11 HKT",
  "repos": [
   {
-   "name": "Tracer-Cloud/opensre",
-   "url": "https://github.com/Tracer-Cloud/opensre",
-   "language": "Python",
-   "description": "The open-source agent for CI/CD reliability.",
+   "name": "rustrak/rustrak",
+   "url": "https://github.com/rustrak/rustrak",
+   "language": "Rust",
+   "description": "Self-hosted, open-source Sentry alternative in Rust. Error tracking, performance, logs and AI agent traces in one small container that works with the Sentry SDKs. SQLite or PostgreSQL.",
    "keywords": [
-    "AI agent"
+    "Monitoring"
    ],
-   "trendshift_pos": 17,
-   "stars": 13189,
+   "trendshift_pos": 5,
+   "stars": 1190,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An open-source autonomous agent designed to automate CI/CD reliability and infrastructure management.",
+   "one_liner": "A high-performance, self-hosted observability platform written in Rust that serves as an open-source alternative to Sentry.",
    "bullets": [
-    "Built with Python to integrate directly into existing CI/CD pipelines.",
-    "Acts as an intelligent agent to monitor, diagnose, and remediate infrastructure incidents.",
-    "Reduces manual toil for DevOps teams by automating routine SRE tasks and deployment health checks.",
-    "Focuses on observability and automated recovery to ensure high-availability production environments."
-   ],
-   "img": "Tracer-Cloud_opensre_0.jpg",
-   "img_alt": "OpenSRE CLI welcome screen with the sign-in prompt"
+    "Built with Rust for memory safety and high-concurrency performance.",
+    "Supports SQLite or PostgreSQL backends for flexible deployment.",
+    "Provides unified error tracking, logging, and performance monitoring.",
+    "Includes native support for AI agent trace visualization and Sentry SDK compatibility."
+   ]
   },
   {
-   "name": "context-dot-dev/enrichable",
-   "url": "https://github.com/context-dot-dev/enrichable",
+   "name": "INK-Q/agy-fast",
+   "url": "https://github.com/INK-Q/agy-fast",
    "language": "TypeScript",
-   "description": "Open-source AI spreadsheet for data enrichment. Build lead lists from a prompt, research every row with live web data, and find work emails. Powered by Context.dev.",
+   "description": "Non-invasive MCP accelerator plugin for Google Antigravity (CLI/Desktop/IDE): cuts LLM turns (-34%), token quota (-31%), and upload traffic (-40%) without affecting native UI or diffs.",
+   "keywords": [],
+   "trendshift_pos": 20,
+   "stars": 188,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A non-invasive MCP accelerator plugin designed to optimize LLM interactions by reducing latency and token consumption.",
+   "bullets": [
+    "Implements an MCP (Model Context Protocol) acceleration layer for CLI and IDE environments.",
+    "Reduces LLM turn counts by 34% and token usage by 31% through intelligent caching.",
+    "Optimizes upload traffic by 40% without altering native UI or diff workflows.",
+    "Ideal for developers looking to lower API costs and improve agentic response speeds."
+   ]
+  },
+  {
+   "name": "ChiefGyk3D/Clouds-Against-Humanity",
+   "url": "https://github.com/ChiefGyk3D/Clouds-Against-Humanity",
+   "language": "Python",
+   "description": "Learn cloud security by building it! An open-source homelab teaching Zero Trust, DevSecOps, IaC, and cloud architecture from the ground up.",
    "keywords": [],
    "trendshift_pos": 19,
-   "stars": 125,
+   "stars": 1403,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An AI-powered spreadsheet tool designed for automated data enrichment and lead generation.",
+   "one_liner": "An open-source, hands-on educational platform for mastering cloud security, DevSecOps, and infrastructure architecture.",
    "bullets": [
-    "TypeScript-based architecture that integrates LLM reasoning with structured spreadsheet data.",
-    "Automates the research process by performing live web lookups for every row in a dataset.",
-    "Ideal for sales and marketing professionals needing to build verified lead lists and find professional contact information.",
-    "Leverages prompt-based workflows to transform raw data into actionable business intelligence."
-   ]
-  },
-  {
-   "name": "simplexai-labs/linger",
-   "url": "https://github.com/simplexai-labs/linger",
-   "language": "TypeScript",
-   "description": "Linger is An Open-Source Personal Agent That Runs Fully on Your PC.  We aim to break Big Tech’s grip on AI by bringing powerful local AI to everyday computers through efficient model–harness co-design, so everyone can run their own.",
-   "keywords": [
-    "AI agent"
+    "Focuses on building secure homelab environments to teach Zero Trust principles.",
+    "Covers Infrastructure-as-Code (IaC) and modern cloud security best practices.",
+    "Provides a structured curriculum for engineers to move from basic networking to complex cloud architecture.",
+    "Essential for professionals aiming to bridge the gap between theoretical security and practical implementation."
    ],
-   "trendshift_pos": 1,
-   "stars": 1813,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A fully local, open-source personal AI agent designed to run efficiently on consumer hardware.",
-   "bullets": [
-    "TypeScript-based implementation focusing on model-hardware co-design for maximum efficiency.",
-    "Prioritizes data privacy by keeping all agentic processing and model inference on the local machine.",
-    "Enables users to break dependency on centralized Big Tech AI services for personal automation.",
-    "Suitable for users requiring a persistent, private agent that can interact with local files and applications."
-   ]
+   "img": "ChiefGyk3D_Clouds-Against-Humanity_0.jpg",
+   "img_alt": "Architecture: Twingate connectors dial out, nothing listens inbound, Spacelift applies OpenTofu",
+   "img2": "ChiefGyk3D_Clouds-Against-Humanity_1.jpg",
+   "img2_alt": "Hand-drawn style chart: cumulative stars and forks since the repository was created, and weekly merged pull requests and closed issues"
   },
   {
-   "name": "jiangmuran/vibepanel",
-   "url": "https://github.com/jiangmuran/vibepanel",
-   "language": "Go",
-   "description": "A web console for running many parallel coding-agent sessions. tmux keeps the processes alive; the browser owns organisation, naming, state and ordering.",
+   "name": "pingdotgg/t3code",
+   "url": "https://github.com/pingdotgg/t3code",
+   "language": "TypeScript",
+   "description": "The best way to control Claude Code, Codex and more from any computer or phone",
    "keywords": [
     "AI coding assistant"
    ],
-   "trendshift_pos": 25,
-   "stars": 129,
+   "trendshift_pos": 13,
+   "stars": 68011,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A web-based orchestration console for managing multiple parallel coding-agent sessions.",
+   "one_liner": "A unified interface and control layer for managing AI coding agents like Claude Code and Codex across multiple devices.",
    "bullets": [
-    "Go-based backend that leverages tmux for robust process management and persistence.",
-    "Provides a centralized browser interface to organize, name, and monitor state across various agentic coding tasks.",
-    "Solves the 'agent sprawl' problem by allowing developers to run and track multiple autonomous coding sessions simultaneously.",
-    "Essential for power users building complex software systems using multi-agent workflows."
+    "Provides a centralized command-and-control interface for various LLM-based coding agents.",
+    "Enables cross-platform accessibility, allowing developers to trigger agentic workflows from mobile or desktop.",
+    "Simplifies the orchestration of complex AI-driven development tasks.",
+    "Highly relevant for power users integrating AI agents into their daily software development lifecycle."
    ]
   },
   {
-   "name": "haydenschmitty/floorplan",
-   "url": "https://github.com/haydenschmitty/floorplan",
-   "language": "JavaScript",
-   "description": "See how your app actually fits together. An interactive, plain-English map of your codebase, drawn by Claude or Codex.",
-   "keywords": [],
-   "trendshift_pos": 14,
-   "stars": 5160,
+   "name": "mjmirza/app-store-compliance",
+   "url": "https://github.com/mjmirza/app-store-compliance",
+   "language": "Shell",
+   "description": "Avoid common App Store and Google Play rejections. Open playbook and pre-submission guard with 117 documented rejection patterns and fixes, privacy manifest and Data safety checks, 95 tracked deadlines (EU AI Act, DSA, COPPA, age laws), and a skill for AI coding agents.",
+   "keywords": [
+    "AI skills"
+   ],
+   "trendshift_pos": 24,
+   "stars": 2808,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An interactive visualization tool that maps your codebase architecture using LLMs.",
+   "one_liner": "A comprehensive open-source playbook and compliance guard for navigating App Store and Google Play submission requirements.",
    "bullets": [
-    "JavaScript-based tool that utilizes Claude or Codex to parse and interpret complex repository structures.",
-    "Generates plain-English, interactive maps that explain how different modules and services fit together.",
-    "Accelerates onboarding for new developers and helps architects visualize technical debt or dependency bottlenecks.",
-    "Provides a high-level overview of infrastructure and code flow, making it easier to manage large-scale projects."
+    "Tracks 117 documented rejection patterns and provides actionable remediation steps.",
+    "Includes automated checks for privacy manifests and data safety disclosures.",
+    "Maintains a database of 95+ tracked regulatory and platform deadlines.",
+    "Critical infrastructure for fintech or consumer apps that require frequent, compliant deployment cycles."
    ]
   }
  ]
