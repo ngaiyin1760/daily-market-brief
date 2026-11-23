@@ -1,98 +1,96 @@
 {
- "generated_at": "2026-11-22 10:12 HKT",
+ "generated_at": "2026-11-23 10:42 HKT",
  "repos": [
   {
-   "name": "diggerhq/opencomputer",
-   "url": "https://github.com/diggerhq/opencomputer",
-   "language": "TypeScript",
-   "description": "An open-source, faster Devin alternative",
+   "name": "EL4CTEO/fast-anything",
+   "url": "https://github.com/EL4CTEO/fast-anything",
+   "language": "Rust",
+   "description": "Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with your coding agent, prove they behave the same.",
+   "keywords": [],
+   "trendshift_pos": 8,
+   "stars": 2011,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A performance optimization toolkit that helps developers identify and rewrite critical hot paths in Python, Node, or Ruby using Rust.",
+   "bullets": [
+    "Built in Rust for high-performance execution and memory safety.",
+    "Integrates with coding agents to automate the porting of performance-critical functions.",
+    "Focuses on the '5% rule' to optimize application bottlenecks without requiring a full rewrite.",
+    "Useful for scaling high-frequency trading systems or data-intensive fintech backends."
+   ]
+  },
+  {
+   "name": "pierridotite/mobile-agent-testers",
+   "url": "https://github.com/pierridotite/mobile-agent-testers",
+   "language": "Python",
+   "description": "20 AI testers on 20 different phones, in parallel, on GitHub's free runners: Claude Code agents on iOS Simulators and Android emulators that find broken flows, translation, layout and accessibility bugs",
    "keywords": [
     "AI agent"
    ],
-   "trendshift_pos": 20,
-   "stars": 1189,
+   "trendshift_pos": 3,
+   "stars": 620,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An open-source, faster alternative to Devin for autonomous software engineering tasks.",
+   "one_liner": "A parallelized testing framework that uses AI agents to perform automated UI testing on mobile emulators and simulators.",
    "bullets": [
-    "Built with TypeScript to provide a modular, extensible framework for agentic coding workflows.",
-    "Focuses on autonomous task execution, environment interaction, and code generation.",
-    "Designed for developers seeking an open-source alternative to proprietary AI software engineers.",
-    "Optimized for speed and integration into existing developer infrastructure."
+    "Leverages Claude Code agents to navigate iOS and Android environments.",
+    "Runs 20+ agents in parallel on GitHub free runners for cost-effective CI/CD.",
+    "Detects broken flows, layout issues, and accessibility compliance automatically.",
+    "Ideal for fintech apps requiring rigorous cross-device regression testing."
    ]
   },
   {
-   "name": "sybil-solutions/inference-optimisation-skill",
-   "url": "https://github.com/sybil-solutions/inference-optimisation-skill",
-   "language": "Python",
-   "description": "Agent skill for hill-climbing local LLM serving speed (decode, speculative decoding, prefill, KV, startup, TTFT) on any hardware and quantization",
-   "keywords": [
-    "AI skills"
-   ],
-   "trendshift_pos": 16,
-   "stars": 1692,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An agentic skill set for hill-climbing local LLM serving performance across diverse hardware.",
-   "bullets": [
-    "Python-based framework targeting critical metrics like TTFT, prefill, and decode speeds.",
-    "Implements advanced techniques including speculative decoding, KV cache management, and quantization.",
-    "Provides automated optimization loops to tune inference parameters for specific hardware constraints.",
-    "Essential for fintech or high-frequency AI applications requiring low-latency local inference."
-   ]
-  },
-  {
-   "name": "a2ui-project/a2ui",
-   "url": "https://github.com/a2ui-project/a2ui",
-   "language": "TypeScript",
-   "description": "Open-source generative UI framework: agents stream layout data, and apps render it with native components in React, Angular, Lit, Flutter, SwiftUI and Jetpack Compose.",
+   "name": "erkamyaman/safe-anything",
+   "url": "https://github.com/erkamyaman/safe-anything",
+   "language": "Rust",
+   "description": "Find the holes before someone else does. A fast, 100% Rust vulnerability scanner: XSS, SQL injection, leaked secrets, dependency CVEs and AI agent setups.",
    "keywords": [],
-   "trendshift_pos": 21,
-   "stars": 17788,
+   "trendshift_pos": 13,
+   "stars": 59,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A generative UI framework that allows AI agents to stream layout data to native components.",
+   "one_liner": "A high-speed, 100% Rust-based vulnerability scanner designed to detect security flaws in modern software stacks.",
    "bullets": [
-    "Supports multi-platform rendering including React, Angular, Flutter, SwiftUI, and Jetpack Compose.",
-    "Enables agents to dynamically construct and update user interfaces in real-time based on task context.",
-    "Decouples UI logic from agent reasoning, allowing for highly responsive and native-feeling agentic applications.",
-    "Ideal for building complex fintech dashboards or trading interfaces that adapt to live data."
+    "Written in Rust to ensure rapid scanning speeds across large codebases.",
+    "Detects XSS, SQL injection, leaked secrets, and dependency-based CVEs.",
+    "Includes specific security checks for AI agent configurations and integrations.",
+    "Essential for DevSecOps pipelines in highly regulated financial environments."
    ]
   },
   {
-   "name": "w01fb0ss/PiBot",
-   "url": "https://github.com/w01fb0ss/PiBot",
+   "name": "Folkbench/folkbench",
+   "url": "https://github.com/Folkbench/folkbench",
    "language": "TypeScript",
-   "description": "Open-source, local-first AI agent team for your desktop: multi-agent group chats, computer use, browser, MCP, routines and approvals. macOS, Windows, Linux + Android. Built on pi.",
+   "description": "AI API 中转站推荐与评测：中转站排行榜、中转站检测、Claude / GPT / Gemini 中转站对比 · AI API relay rankings · Folkbench Switch for Claude Code, Codex & Gemini CLI",
    "keywords": [],
-   "trendshift_pos": 17,
-   "stars": 186,
+   "trendshift_pos": 4,
+   "stars": 3438,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A local-first, multi-agent desktop automation framework supporting browser control and MCP.",
+   "one_liner": "A comprehensive benchmarking and relay platform for AI APIs, providing transparency into model performance and reliability.",
    "bullets": [
-    "TypeScript-based architecture designed for cross-platform desktop environments (macOS, Windows, Linux).",
-    "Features multi-agent group chats, human-in-the-loop approvals, and Model Context Protocol (MCP) support.",
-    "Enables autonomous browser interaction and routine execution for complex workflows.",
-    "Provides a secure, local-first infrastructure for managing sensitive agentic tasks."
+    "Provides a centralized dashboard for comparing Claude, GPT, and Gemini API performance.",
+    "Features a relay switch mechanism for seamless switching between different AI providers.",
+    "Includes real-time monitoring and uptime detection for AI API endpoints.",
+    "Valuable for developers building agentic workflows who need to optimize for cost and latency."
    ]
   },
   {
-   "name": "sebaandrada-cell/PcapAnalyzer",
-   "url": "https://github.com/sebaandrada-cell/PcapAnalyzer",
-   "language": "Python",
-   "description": "Free, self-hosted pcap analyzer with 27 problem detectors and AI investigation",
+   "name": "XinaTian/MROffice",
+   "url": "https://github.com/XinaTian/MROffice",
+   "language": "TypeScript",
+   "description": "MR Office: open-source document, spreadsheet, presentation, PDF, handwriting and code editors. https://mroffice.ai",
    "keywords": [],
    "trendshift_pos": 12,
-   "stars": 68,
+   "stars": 2228,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A self-hosted network packet analyzer featuring AI-driven threat detection and investigation.",
+   "one_liner": "An open-source, web-based office suite supporting documents, spreadsheets, and presentations with a focus on modern collaboration.",
    "bullets": [
-    "Python-based tool designed for deep packet inspection and network traffic analysis.",
-    "Includes 27 built-in problem detectors to identify anomalies and security vulnerabilities.",
-    "Integrates AI investigation capabilities to summarize and explain complex network events.",
-    "Highly relevant for infrastructure security, audit trails, and monitoring financial data streams."
+    "Built with TypeScript to provide a responsive, browser-based editing experience.",
+    "Supports a wide range of formats including PDF, spreadsheets, and code editing.",
+    "Designed for integration into enterprise infrastructure or private cloud environments.",
+    "Useful for teams building internal tools that require secure, self-hosted document management."
    ]
   }
  ]
