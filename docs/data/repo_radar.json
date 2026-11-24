@@ -1,96 +1,97 @@
 {
- "generated_at": "2026-11-23 10:42 HKT",
+ "generated_at": "2026-11-24 13:58 HKT",
  "repos": [
   {
-   "name": "EL4CTEO/fast-anything",
-   "url": "https://github.com/EL4CTEO/fast-anything",
-   "language": "Rust",
-   "description": "Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with your coding agent, prove they behave the same.",
-   "keywords": [],
-   "trendshift_pos": 8,
-   "stars": 2011,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A performance optimization toolkit that helps developers identify and rewrite critical hot paths in Python, Node, or Ruby using Rust.",
-   "bullets": [
-    "Built in Rust for high-performance execution and memory safety.",
-    "Integrates with coding agents to automate the porting of performance-critical functions.",
-    "Focuses on the '5% rule' to optimize application bottlenecks without requiring a full rewrite.",
-    "Useful for scaling high-frequency trading systems or data-intensive fintech backends."
-   ]
-  },
-  {
-   "name": "pierridotite/mobile-agent-testers",
-   "url": "https://github.com/pierridotite/mobile-agent-testers",
+   "name": "wzyn20051216/solidworks-automation-skill",
+   "url": "https://github.com/wzyn20051216/solidworks-automation-skill",
    "language": "Python",
-   "description": "20 AI testers on 20 different phones, in parallel, on GitHub's free runners: Claude Code agents on iOS Simulators and Android emulators that find broken flows, translation, layout and accessibility bugs",
+   "description": "Reliable AI Skill + MCP toolkit for agent-driven desktop CAD automation.",
+   "keywords": [],
+   "trendshift_pos": 16,
+   "stars": 2491,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An AI-driven toolkit designed to automate desktop CAD workflows using the Model Context Protocol (MCP).",
+   "bullets": [
+    "Built with Python, leveraging MCP to bridge AI agents with local desktop applications.",
+    "Integrates AI reasoning capabilities with SolidWorks API for complex engineering tasks.",
+    "Enables autonomous CAD design, modification, and repetitive task execution.",
+    "Targeted at industrial automation and engineering productivity workflows."
+   ]
+  },
+  {
+   "name": "grape-dev/grape",
+   "url": "https://github.com/grape-dev/grape",
+   "language": "Python",
+   "description": "AI Native DevOps —— Turn Any Git Project into an AI-Driven Development Workflow with One Click",
    "keywords": [
-    "AI agent"
+    "AI agent",
+    "AI coding assistant"
    ],
-   "trendshift_pos": 3,
-   "stars": 620,
+   "trendshift_pos": 21,
+   "stars": 945,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A parallelized testing framework that uses AI agents to perform automated UI testing on mobile emulators and simulators.",
+   "one_liner": "An AI-native DevOps platform that transforms standard Git repositories into autonomous AI-driven development workflows.",
    "bullets": [
-    "Leverages Claude Code agents to navigate iOS and Android environments.",
-    "Runs 20+ agents in parallel on GitHub free runners for cost-effective CI/CD.",
-    "Detects broken flows, layout issues, and accessibility compliance automatically.",
-    "Ideal for fintech apps requiring rigorous cross-device regression testing."
+    "Python-based architecture designed to integrate directly into existing Git-based CI/CD pipelines.",
+    "Automates code review, issue resolution, and documentation generation via LLM agents.",
+    "Reduces manual DevOps overhead by providing one-click AI workflow orchestration.",
+    "Useful for engineering teams looking to integrate agentic workflows into their existing codebase."
    ]
   },
   {
-   "name": "erkamyaman/safe-anything",
-   "url": "https://github.com/erkamyaman/safe-anything",
+   "name": "zed-industries/gpui",
+   "url": "https://github.com/zed-industries/gpui",
+   "language": "—",
+   "description": "A GPU-accelerated, open-source UI framework for Rust that combines immediate and retained modes.",
+   "keywords": [],
+   "trendshift_pos": 5,
+   "stars": 786,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A high-performance, GPU-accelerated UI framework for Rust that powers the Zed editor.",
+   "bullets": [
+    "Hybrid immediate and retained mode rendering architecture optimized for low-latency performance.",
+    "Leverages hardware acceleration to handle complex UI layouts and high-frequency updates.",
+    "Provides a robust foundation for building high-performance developer tools and desktop applications.",
+    "Ideal for building next-generation fintech trading terminals or data-heavy visualization dashboards."
+   ]
+  },
+  {
+   "name": "shirudo-dev/shirudo",
+   "url": "https://github.com/shirudo-dev/shirudo",
+   "language": "C",
+   "description": "eBPF-based security platform",
+   "keywords": [],
+   "trendshift_pos": 6,
+   "stars": 732,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A security platform leveraging eBPF technology for deep system observability and threat detection.",
+   "bullets": [
+    "Written in C, utilizing eBPF (Extended Berkeley Packet Filter) for kernel-level monitoring.",
+    "Provides real-time visibility into system calls, network traffic, and process execution.",
+    "Designed for high-security infrastructure environments requiring low-overhead monitoring.",
+    "Applicable for securing cloud-native infrastructure and detecting unauthorized system anomalies."
+   ]
+  },
+  {
+   "name": "Developing-Gamer/agent-sim",
+   "url": "https://github.com/Developing-Gamer/agent-sim",
    "language": "Rust",
-   "description": "Find the holes before someone else does. A fast, 100% Rust vulnerability scanner: XSS, SQL injection, leaked secrets, dependency CVEs and AI agent setups.",
+   "description": "iOS simulators for AI agents, on Linux",
    "keywords": [],
-   "trendshift_pos": 13,
-   "stars": 59,
+   "trendshift_pos": 15,
+   "stars": 214,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A high-speed, 100% Rust-based vulnerability scanner designed to detect security flaws in modern software stacks.",
+   "one_liner": "A specialized infrastructure tool that enables running iOS simulators for AI agents on Linux environments.",
    "bullets": [
-    "Written in Rust to ensure rapid scanning speeds across large codebases.",
-    "Detects XSS, SQL injection, leaked secrets, and dependency-based CVEs.",
-    "Includes specific security checks for AI agent configurations and integrations.",
-    "Essential for DevSecOps pipelines in highly regulated financial environments."
-   ]
-  },
-  {
-   "name": "Folkbench/folkbench",
-   "url": "https://github.com/Folkbench/folkbench",
-   "language": "TypeScript",
-   "description": "AI API 中转站推荐与评测：中转站排行榜、中转站检测、Claude / GPT / Gemini 中转站对比 · AI API relay rankings · Folkbench Switch for Claude Code, Codex & Gemini CLI",
-   "keywords": [],
-   "trendshift_pos": 4,
-   "stars": 3438,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A comprehensive benchmarking and relay platform for AI APIs, providing transparency into model performance and reliability.",
-   "bullets": [
-    "Provides a centralized dashboard for comparing Claude, GPT, and Gemini API performance.",
-    "Features a relay switch mechanism for seamless switching between different AI providers.",
-    "Includes real-time monitoring and uptime detection for AI API endpoints.",
-    "Valuable for developers building agentic workflows who need to optimize for cost and latency."
-   ]
-  },
-  {
-   "name": "XinaTian/MROffice",
-   "url": "https://github.com/XinaTian/MROffice",
-   "language": "TypeScript",
-   "description": "MR Office: open-source document, spreadsheet, presentation, PDF, handwriting and code editors. https://mroffice.ai",
-   "keywords": [],
-   "trendshift_pos": 12,
-   "stars": 2228,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An open-source, web-based office suite supporting documents, spreadsheets, and presentations with a focus on modern collaboration.",
-   "bullets": [
-    "Built with TypeScript to provide a responsive, browser-based editing experience.",
-    "Supports a wide range of formats including PDF, spreadsheets, and code editing.",
-    "Designed for integration into enterprise infrastructure or private cloud environments.",
-    "Useful for teams building internal tools that require secure, self-hosted document management."
+    "Rust-based implementation designed to bridge mobile simulation environments with Linux-based AI agent runners.",
+    "Facilitates the testing and deployment of agentic workflows that require mobile app interaction.",
+    "Solves cross-platform compatibility issues for developers building mobile-centric AI agents.",
+    "Critical for scaling agentic testing infrastructure without relying on macOS-only hardware."
    ]
   }
  ]
