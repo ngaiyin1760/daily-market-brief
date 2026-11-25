@@ -1,6 +1,6 @@
 {
  "month": "2026-12",
- "updated": "2026-11-24 13:58 HKT",
+ "updated": "2026-11-25 12:53 HKT",
  "events": [
   {
    "ts": "2026-12-01T00:00:00.000Z",
@@ -317,7 +317,7 @@
    "currency": "USD",
    "importance": 1,
    "actual": null,
-   "forecast": null,
+   "forecast": 55.2,
    "previous": 55.5,
    "category": "bsnss"
   },
@@ -362,7 +362,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 0.126,
    "category": "enrg"
   },
   {
@@ -966,7 +966,7 @@
    "currency": "USD",
    "importance": 1,
    "actual": null,
-   "forecast": null,
+   "forecast": 54.5,
    "previous": 54.5,
    "category": "bsnss"
   },
@@ -1406,7 +1406,7 @@
    "currency": "USD",
    "importance": 1,
    "actual": null,
-   "forecast": 93.0,
+   "forecast": 90.0,
    "previous": 165.0,
    "category": "lbr"
   },
@@ -1483,7 +1483,7 @@
    "currency": "USD",
    "importance": 1,
    "actual": null,
-   "forecast": null,
+   "forecast": 51.8,
    "previous": 51.0,
    "category": "cnsm"
   },
@@ -2232,7 +2232,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 21000.0,
    "category": "lbr"
   },
   {
@@ -2915,28 +2915,6 @@
    "actual": null,
    "forecast": null,
    "previous": 104.3,
-   "category": "prce"
-  },
-  {
-   "ts": "2026-12-10T07:00:00.000Z",
-   "title": "Consumer Price Index Final",
-   "country": "DE",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 126.4,
-   "category": "prce"
-  },
-  {
-   "ts": "2026-12-10T07:00:00.000Z",
-   "title": "HICP Final",
-   "country": "DE",
-   "currency": "EUR",
-   "importance": 0,
-   "actual": null,
-   "forecast": null,
-   "previous": 103.8,
    "category": "prce"
   },
   {
@@ -4178,7 +4156,7 @@
    "currency": "IDR",
    "importance": 0,
    "actual": null,
-   "forecast": null,
+   "forecast": 6.0,
    "previous": 6.0,
    "category": "mny"
   },
@@ -4828,7 +4806,7 @@
    "importance": 1,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 90.6,
    "category": "bsnss"
   },
   {
@@ -5433,7 +5411,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": -10.0,
+   "previous": 9.0,
    "category": "cnsm"
   },
   {
@@ -5648,6 +5626,39 @@
   {
    "ts": "2026-12-21T16:30:00.000Z",
    "title": "3-Month Bill Auction Total Accepted",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "bnd"
+  },
+  {
+   "ts": "2026-12-21T16:30:00.000Z",
+   "title": "6-Month Bill Auction Allotted at High",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "bnd"
+  },
+  {
+   "ts": "2026-12-21T16:30:00.000Z",
+   "title": "6-Month Bill Auction Bid-to-Cover",
+   "country": "US",
+   "currency": "USD",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "bnd"
+  },
+  {
+   "ts": "2026-12-21T16:30:00.000Z",
+   "title": "6-Month Bill Auction Total Accepted",
    "country": "US",
    "currency": "USD",
    "importance": 0,
@@ -5873,7 +5884,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 119.3,
    "category": "bsnss"
   },
   {
@@ -5895,7 +5906,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 6.4,
    "category": "cnsm"
   },
   {
@@ -5928,7 +5939,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 103.3,
    "category": "cnsm"
   },
   {
@@ -6115,7 +6126,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 3652.0,
    "category": "mny"
   },
   {
@@ -6533,7 +6544,7 @@
    "importance": 0,
    "actual": null,
    "forecast": null,
-   "previous": null,
+   "previous": 4.2,
    "category": "prce"
   },
   {
@@ -6805,6 +6816,17 @@
    "title": "Unemployment Rate",
    "country": "JP",
    "currency": "JPY",
+   "importance": 0,
+   "actual": null,
+   "forecast": null,
+   "previous": null,
+   "category": "lbr"
+  },
+  {
+   "ts": "2026-12-25T16:00:00.000Z",
+   "title": "Unemployment Rate",
+   "country": "RU",
+   "currency": "RUB",
    "importance": 0,
    "actual": null,
    "forecast": null,
