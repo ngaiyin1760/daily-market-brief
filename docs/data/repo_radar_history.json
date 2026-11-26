@@ -1,6 +1,122 @@
 {
  "days": [
   {
+   "date": "2026-11-26",
+   "generated_at": "2026-11-26 12:07 HKT",
+   "repos": [
+    {
+     "name": "wuyoscar/Internal-Safety-Collapse",
+     "url": "https://github.com/wuyoscar/Internal-Safety-Collapse",
+     "language": "Python",
+     "description": "[NeurIPS 2026] Safety failures in coding agents and frontier LLMs. Reproducible workspaces for studying when AI agents generate unsafe data during task completion.",
+     "keywords": [
+      "LLM evaluation"
+     ],
+     "trendshift_pos": 9,
+     "stars": 2507,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A research framework for analyzing safety failures and security vulnerabilities in autonomous coding agents and frontier LLMs.",
+     "bullets": [
+      "Built on Python with reproducible workspace environments for controlled testing.",
+      "Focuses on identifying 'safety collapse' where agents generate unsafe or malicious code during task execution.",
+      "Provides a benchmarking suite for evaluating the robustness of AI agents against adversarial prompts.",
+      "Essential for developers and security researchers building enterprise-grade agentic workflows."
+     ],
+     "img": "wuyoscar_Internal-Safety-Collapse_0.jpg",
+     "img_alt": "The same unfinished program in earlier chatbots, a frontier chatbot, and a coding agent",
+     "img2": "wuyoscar_Internal-Safety-Collapse_1.jpg",
+     "img2_alt": "TVD task execution and data files, compared with prompt attacks and safety classifiers"
+    },
+    {
+     "name": "agentsea/nautilo",
+     "url": "https://github.com/agentsea/nautilo",
+     "language": "TypeScript",
+     "description": "AI goes multiplayer. A self-hosted workspace for people and machine people. Create, code, and work together across desktop, mobile, and web. Open source. MIT licensed.",
+     "keywords": [],
+     "trendshift_pos": 18,
+     "stars": 251,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A multi-user, self-hosted workspace designed for collaborative interaction between humans and AI agents.",
+     "bullets": [
+      "TypeScript-based architecture supporting cross-platform access across desktop, mobile, and web.",
+      "Enables shared environments where AI agents and human users can co-edit and interact in real-time.",
+      "Focuses on agentic infrastructure, providing a persistent workspace for long-running autonomous tasks.",
+      "Ideal for teams looking to integrate AI agents into their daily collaborative development or operational pipelines."
+     ],
+     "img": "agentsea_nautilo_0.jpg",
+     "img_alt": "Elias and Lyra working together in Writer, with changes ready to review. Open the illustrated local setup guide.",
+     "img2": "agentsea_nautilo_1.jpg",
+     "img2_alt": "Keep the future open. The open, organization-level harness for everyone needs your support. Support Nautilo on GitHub Sponsors."
+    },
+    {
+     "name": "alesha-pro/llm.asm",
+     "url": "https://github.com/alesha-pro/llm.asm",
+     "language": "Assembly",
+     "description": "Qwen3-0.6B inference (12 KB), bare-metal bootable OS (22 KB), and from-scratch Mini-GPT trainer with live Braille TUI (32 KB) in 100% pure x86-64 NASM assembly. Zero C, zero libc, zero dependencies.",
+     "keywords": [],
+     "trendshift_pos": 2,
+     "stars": 430,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A bare-metal, dependency-free implementation of LLM inference and training written entirely in x86-64 NASM assembly.",
+     "bullets": [
+      "Zero-dependency stack: no C, no libc, and no external libraries, running directly on hardware.",
+      "Includes a 12 KB Qwen3-0.6B inference engine and a 32 KB Mini-GPT trainer.",
+      "Demonstrates extreme optimization techniques for running AI models on minimal infrastructure.",
+      "Highly notable for low-level systems engineering and understanding the fundamental compute requirements of LLMs."
+     ],
+     "img": "alesha-pro_llm.asm_0.jpg",
+     "img_alt": "Bare-Metal Qwen3-0.6B OS VGA Console",
+     "img2": "alesha-pro_llm.asm_1.jpg",
+     "img2_alt": "Running on Real Proxmox VE VM (0 GB Disk, Intel Xeon KVM)"
+    },
+    {
+     "name": "opensetlabs/openset-llm",
+     "url": "https://github.com/opensetlabs/openset-llm",
+     "language": "C++",
+     "description": "Fast local LLM inference on plain CPUs. No GPU, 8 GB of RAM. OpenAI-compatible server.",
+     "keywords": [
+      "LLM inference"
+     ],
+     "trendshift_pos": 4,
+     "stars": 965,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "A high-performance local LLM inference server optimized for standard CPUs without requiring dedicated GPU hardware.",
+     "bullets": [
+      "C++ backend optimized for CPU-only execution, requiring only 8 GB of RAM.",
+      "Provides an OpenAI-compatible API, allowing seamless integration with existing LLM-based applications.",
+      "Lowers the barrier to entry for deploying private, local AI infrastructure in resource-constrained environments.",
+      "Useful for fintech or enterprise applications requiring data privacy and local execution without expensive hardware."
+     ],
+     "img": "opensetlabs_openset-llm_0.jpg",
+     "img_alt": "The chat page"
+    },
+    {
+     "name": "petergyang/video-explainer",
+     "url": "https://github.com/petergyang/video-explainer",
+     "language": "Python",
+     "description": "Turn any topic, doc, codebase, or URL into a crisp 1-minute explainer video in Motion, Illustrated, or 3D style",
+     "keywords": [
+      "AI video generation"
+     ],
+     "trendshift_pos": 14,
+     "stars": 246,
+     "fork": false,
+     "parent_name": "",
+     "one_liner": "An automated tool that converts complex documentation, codebases, or URLs into concise, high-quality explainer videos.",
+     "bullets": [
+      "Python-based pipeline that integrates LLM content synthesis with automated video generation.",
+      "Supports multiple visual styles including Motion, Illustrated, and 3D rendering.",
+      "Automates the creation of technical documentation and product walkthroughs for developers and stakeholders.",
+      "Streamlines the communication of complex technical concepts into digestible visual formats."
+     ]
+    }
+   ]
+  },
+  {
    "date": "2026-11-25",
    "generated_at": "2026-11-25 12:53 HKT",
    "repos": [

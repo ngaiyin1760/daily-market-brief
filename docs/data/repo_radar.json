@@ -1,100 +1,114 @@
 {
- "generated_at": "2026-11-25 12:53 HKT",
+ "generated_at": "2026-11-26 12:07 HKT",
  "repos": [
   {
-   "name": "openai/math",
-   "url": "https://github.com/openai/math",
-   "language": "Lean",
-   "description": "",
-   "keywords": [],
-   "trendshift_pos": 5,
-   "stars": 17874,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A formal repository of mathematical problems and proofs using the Lean theorem prover.",
-   "bullets": [
-    "Built using the Lean 4 programming language and formal verification framework.",
-    "Provides a structured, machine-verifiable library of complex mathematical reasoning.",
-    "Essential for AI-LLM research in automated theorem proving and formal logic verification.",
-    "Serves as a benchmark for evaluating the mathematical reasoning capabilities of next-gen LLMs."
-   ]
-  },
-  {
-   "name": "SonicloudTech/mouse-mcp",
-   "url": "https://github.com/SonicloudTech/mouse-mcp",
-   "language": "TypeScript",
-   "description": "Hardware mouse MCP server for AI agents on Windows x64. USB HID control and voice dictation; requires compatible uMouse hardware and firmware. 面向 AI 智能体的硬件鼠标 MCP：USB HID 控制与语音听写，需要兼容的 uMouse 设备与固件。",
-   "keywords": [
-    "MCP"
-   ],
-   "trendshift_pos": 8,
-   "stars": 599,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A hardware-integrated Model Context Protocol (MCP) server enabling AI agents to control physical mouse inputs.",
-   "bullets": [
-    "Developed in TypeScript, acting as a bridge between LLM agents and physical USB HID hardware.",
-    "Enables agentic workflows to perform precise GUI interactions on Windows systems.",
-    "Supports voice dictation and hardware-level mouse control for automation tasks.",
-    "Ideal for building autonomous agents that require real-world desktop interaction capabilities."
-   ]
-  },
-  {
-   "name": "google-gemini/gemini-api-cli",
-   "url": "https://github.com/google-gemini/gemini-api-cli",
-   "language": "Go",
-   "description": "An (experimental) CLI for the Gemini API",
-   "keywords": [],
-   "trendshift_pos": 13,
-   "stars": 2521,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An experimental command-line interface for interacting with Google's Gemini API.",
-   "bullets": [
-    "Written in Go, providing a lightweight and performant interface for LLM integration.",
-    "Facilitates rapid prototyping and testing of Gemini model capabilities directly from the terminal.",
-    "Useful for developers building AI-powered CLI tools or automated infrastructure scripts.",
-    "Simplifies authentication and request handling for Gemini's multimodal API endpoints."
-   ]
-  },
-  {
-   "name": "zhouxiaoka/autoclip",
-   "url": "https://github.com/zhouxiaoka/autoclip",
+   "name": "wuyoscar/Internal-Safety-Collapse",
+   "url": "https://github.com/wuyoscar/Internal-Safety-Collapse",
    "language": "Python",
-   "description": "AutoClip｜一个链接，一键出片。开源 AI 视频剪辑桌面工具，将播客、访谈、课程等长视频自动剪成短视频，生成字幕、封面和发布文案，适配抖音、小红书、TikTok、Reels 与 YouTube Shorts。Open-source AI video clipping & content repurposing.",
+   "description": "[NeurIPS 2026] Safety failures in coding agents and frontier LLMs. Reproducible workspaces for studying when AI agents generate unsafe data during task completion.",
    "keywords": [
-    "Video editing"
+    "LLM evaluation"
    ],
-   "trendshift_pos": 16,
-   "stars": 15559,
+   "trendshift_pos": 9,
+   "stars": 2507,
    "fork": false,
    "parent_name": "",
-   "one_liner": "An open-source AI-powered desktop tool for automatically clipping and repurposing long-form video content.",
+   "one_liner": "A research framework for analyzing safety failures and security vulnerabilities in autonomous coding agents and frontier LLMs.",
    "bullets": [
-    "Python-based architecture leveraging AI models for video segmentation and content analysis.",
-    "Automates the generation of subtitles, thumbnails, and social media-ready short-form clips.",
-    "Streamlines content marketing workflows for creators and media-focused fintech startups.",
-    "Supports multi-platform output optimization for TikTok, Reels, and YouTube Shorts."
+    "Built on Python with reproducible workspace environments for controlled testing.",
+    "Focuses on identifying 'safety collapse' where agents generate unsafe or malicious code during task execution.",
+    "Provides a benchmarking suite for evaluating the robustness of AI agents against adversarial prompts.",
+    "Essential for developers and security researchers building enterprise-grade agentic workflows."
    ],
-   "img": "zhouxiaoka_autoclip_0.jpg",
-   "img_alt": "AutoClip v1.6 Live Stream Replays Walkthrough"
+   "img": "wuyoscar_Internal-Safety-Collapse_0.jpg",
+   "img_alt": "The same unfinished program in earlier chatbots, a frontier chatbot, and a coding agent",
+   "img2": "wuyoscar_Internal-Safety-Collapse_1.jpg",
+   "img2_alt": "TVD task execution and data files, compared with prompt attacks and safety classifiers"
   },
   {
-   "name": "kunkundi/crossdesk",
-   "url": "https://github.com/kunkundi/crossdesk",
-   "language": "C++",
-   "description": "A lightweight, cross-platform remote desktop software with support for Web Client access | 一款支持 Web 客户端访问的轻量级跨平台远程桌面软件。",
+   "name": "agentsea/nautilo",
+   "url": "https://github.com/agentsea/nautilo",
+   "language": "TypeScript",
+   "description": "AI goes multiplayer. A self-hosted workspace for people and machine people. Create, code, and work together across desktop, mobile, and web. Open source. MIT licensed.",
    "keywords": [],
-   "trendshift_pos": 23,
-   "stars": 7475,
+   "trendshift_pos": 18,
+   "stars": 251,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A lightweight, cross-platform remote desktop solution featuring native Web Client support.",
+   "one_liner": "A multi-user, self-hosted workspace designed for collaborative interaction between humans and AI agents.",
    "bullets": [
-    "Developed in C++ for high-performance, low-latency remote access.",
-    "Provides a secure infrastructure layer for remote server management and desktop virtualization.",
-    "Includes a browser-based Web Client, eliminating the need for local software installation.",
-    "Applicable for secure remote development environments and distributed team infrastructure."
+    "TypeScript-based architecture supporting cross-platform access across desktop, mobile, and web.",
+    "Enables shared environments where AI agents and human users can co-edit and interact in real-time.",
+    "Focuses on agentic infrastructure, providing a persistent workspace for long-running autonomous tasks.",
+    "Ideal for teams looking to integrate AI agents into their daily collaborative development or operational pipelines."
+   ],
+   "img": "agentsea_nautilo_0.jpg",
+   "img_alt": "Elias and Lyra working together in Writer, with changes ready to review. Open the illustrated local setup guide.",
+   "img2": "agentsea_nautilo_1.jpg",
+   "img2_alt": "Keep the future open. The open, organization-level harness for everyone needs your support. Support Nautilo on GitHub Sponsors."
+  },
+  {
+   "name": "alesha-pro/llm.asm",
+   "url": "https://github.com/alesha-pro/llm.asm",
+   "language": "Assembly",
+   "description": "Qwen3-0.6B inference (12 KB), bare-metal bootable OS (22 KB), and from-scratch Mini-GPT trainer with live Braille TUI (32 KB) in 100% pure x86-64 NASM assembly. Zero C, zero libc, zero dependencies.",
+   "keywords": [],
+   "trendshift_pos": 2,
+   "stars": 430,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A bare-metal, dependency-free implementation of LLM inference and training written entirely in x86-64 NASM assembly.",
+   "bullets": [
+    "Zero-dependency stack: no C, no libc, and no external libraries, running directly on hardware.",
+    "Includes a 12 KB Qwen3-0.6B inference engine and a 32 KB Mini-GPT trainer.",
+    "Demonstrates extreme optimization techniques for running AI models on minimal infrastructure.",
+    "Highly notable for low-level systems engineering and understanding the fundamental compute requirements of LLMs."
+   ],
+   "img": "alesha-pro_llm.asm_0.jpg",
+   "img_alt": "Bare-Metal Qwen3-0.6B OS VGA Console",
+   "img2": "alesha-pro_llm.asm_1.jpg",
+   "img2_alt": "Running on Real Proxmox VE VM (0 GB Disk, Intel Xeon KVM)"
+  },
+  {
+   "name": "opensetlabs/openset-llm",
+   "url": "https://github.com/opensetlabs/openset-llm",
+   "language": "C++",
+   "description": "Fast local LLM inference on plain CPUs. No GPU, 8 GB of RAM. OpenAI-compatible server.",
+   "keywords": [
+    "LLM inference"
+   ],
+   "trendshift_pos": 4,
+   "stars": 965,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A high-performance local LLM inference server optimized for standard CPUs without requiring dedicated GPU hardware.",
+   "bullets": [
+    "C++ backend optimized for CPU-only execution, requiring only 8 GB of RAM.",
+    "Provides an OpenAI-compatible API, allowing seamless integration with existing LLM-based applications.",
+    "Lowers the barrier to entry for deploying private, local AI infrastructure in resource-constrained environments.",
+    "Useful for fintech or enterprise applications requiring data privacy and local execution without expensive hardware."
+   ],
+   "img": "opensetlabs_openset-llm_0.jpg",
+   "img_alt": "The chat page"
+  },
+  {
+   "name": "petergyang/video-explainer",
+   "url": "https://github.com/petergyang/video-explainer",
+   "language": "Python",
+   "description": "Turn any topic, doc, codebase, or URL into a crisp 1-minute explainer video in Motion, Illustrated, or 3D style",
+   "keywords": [
+    "AI video generation"
+   ],
+   "trendshift_pos": 14,
+   "stars": 246,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "An automated tool that converts complex documentation, codebases, or URLs into concise, high-quality explainer videos.",
+   "bullets": [
+    "Python-based pipeline that integrates LLM content synthesis with automated video generation.",
+    "Supports multiple visual styles including Motion, Illustrated, and 3D rendering.",
+    "Automates the creation of technical documentation and product walkthroughs for developers and stakeholders.",
+    "Streamlines the communication of complex technical concepts into digestible visual formats."
    ]
   }
  ]

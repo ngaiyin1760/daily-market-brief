@@ -1,23 +1,6 @@
 {
  "backlog": [
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/11/18/china-nev-retail-1st-15-days-nov-2026/",
-   "blog": "CNEVPOST",
-   "title": "China NEV retail sales fall 13% in first 15 days of November as penetration reaches 73.2%",
-   "link": "https://cnevpost.com/2026/11/18/china-nev-retail-1st-15-days-nov-2026/",
-   "summary": "China's NEV retail sales totaled 447,000 units during November 1-15, compared with 611,000 units for total passenger vehicles.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-11-18 09:24 UTC",
-   "_ts": 1794993845,
-   "preview": false,
-   "bullets": [
-    "China's NEV retail sales fell 13% year-on-year to 447,000 units in the first half of November, highlighting persistent consumer caution despite aggressive promotional efforts.",
-    "NEV market penetration reached a record 73.2% for the period, significantly outperforming the broader passenger vehicle market which saw a 25% decline in retail sales.",
-    "Wholesale volumes for NEVs grew 3% year-on-year, indicating a divergence between retail demand and manufacturer production levels."
-   ],
-   "rating": 4,
-   "read_time": 3
-  },
-  {
    "_key": "SemiEngineering|https://semiengineering.com/can-ai-make-its-own-manufacturing-decisions/",
    "blog": "SemiEngineering",
    "title": "Can AI Make Its Own Manufacturing Decisions?",
@@ -276,72 +259,125 @@
    "read_time": 3
   },
   {
-   "_key": "SemiEngineering|https://semiengineering.com/blog-review-nov-18-3/",
+   "_key": "SemiEngineering|https://semiengineering.com/a-link-is-not-architecture-why-multi-die-systems-need-more-than-die-to-die-connectivity/",
    "blog": "SemiEngineering",
-   "title": "Blog Review: Nov. 18",
-   "link": "https://semiengineering.com/blog-review-nov-18-3/",
-   "summary": "PCIe and trust; rack-scale co-design; heterogeneous scaling; AI data center primer; on-device balancing; EU semi trends.\nThe post Blog Review: Nov. 18 appeared first on Semiconductor Engineering.",
-   "published": "2026-11-18 08:01 UTC",
-   "_ts": 1794988909,
+   "title": "A Link Is Not Architecture: Why Multi-Die Systems Need More Than Die-to-Die Connectivity",
+   "link": "https://semiengineering.com/a-link-is-not-architecture-why-multi-die-systems-need-more-than-die-to-die-connectivity/",
+   "summary": "Maintaining consistent communication behavior, integration, and security across configurations.\nThe post A Link Is Not Architecture: Why Multi-Die Systems Need More Than Die-to-Die Connectivity appeared first on Semiconductor Engineering.",
+   "published": "2026-11-24 08:03 UTC",
+   "_ts": 1795507435,
    "preview": false,
    "bullets": [
-    "Data center architecture is shifting toward extreme co-design, where silicon, memory, power, and cooling are integrated as a single system to meet the thermal and performance demands of AI workloads.",
-    "Heterogeneous scaling and 3D-IC technologies are replacing monolithic designs, necessitating new approaches to managing complexity in chiplet-based architectures.",
-    "Memory hierarchy optimization is becoming critical as multimodal models and AI agents create unpredictable memory pressure, requiring designers to right-size systems based on specific data reuse patterns.",
-    "Security concerns are mounting as sensitive models and cryptographic keys increasingly traverse PCIe links, prompting a focus on establishing hardware-level trust in interconnected systems."
+    "Multi-die systems require a robust system-level architecture to manage data movement, as simple die-to-die physical links do not inherently handle traffic management or quality of service (QoS).",
+    "Treating die boundaries independently complicates performance management and limits the practical value of chiplet reuse in high-performance computing and AI systems.",
+    "Engineers must implement end-to-end QoS that extends across die boundaries to ensure that shared bandwidth is allocated correctly based on transaction priority and latency requirements."
    ],
-   "rating": 3,
-   "read_time": 2
+   "rating": 4,
+   "read_time": 4
   },
   {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/11/18/hesai-buyback-100-million/",
+   "_key": "SemiEngineering|https://semiengineering.com/how-can-ai-build-faster-and-better-silicon-for-physical-ai/",
+   "blog": "SemiEngineering",
+   "title": "How Can AI Build Faster And Better Silicon For Physical AI?",
+   "link": "https://semiengineering.com/how-can-ai-build-faster-and-better-silicon-for-physical-ai/",
+   "summary": "Shortening the path from design intent to verified implementation could put custom silicon within reach of more teams.\nThe post How Can AI Build Faster And Better Silicon For Physical AI? appeared first on Semiconductor Engineering.",
+   "published": "2026-11-24 08:04 UTC",
+   "_ts": 1795507462,
+   "preview": false,
+   "bullets": [
+    "The rapid evolution of physical AI, particularly for humanoid robotics, is driving a surge in demand for custom ASICs that require faster design-to-tape-out cycles.",
+    "Agentic AI requires a 'design ontology' to maintain persistent context across 3D-IC design flows, ensuring that changes in one die do not invalidate thermal or power integrity analyses in another.",
+    "To be effective, AI agents must track provenance and dependencies, allowing them to distinguish between valid engineering assumptions and superseded results during the optimization process."
+   ],
+   "rating": 4,
+   "read_time": 4
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/ai-can-read-the-code-but-can-it-understand-the-chip/",
+   "blog": "SemiEngineering",
+   "title": "AI Can Read The Code, But Can It Understand The Chip?",
+   "link": "https://semiengineering.com/ai-can-read-the-code-but-can-it-understand-the-chip/",
+   "summary": "Frontier models are improving design automation, but layouts, waveforms, and other semiconductor-specific data presents challenges that general-purpose AI has yet to fully overcome.\nThe post AI Can Read The Code, But Can It Understand The Chip? appeared first on Semiconductor Engineering.",
+   "published": "2026-11-24 08:11 UTC",
+   "_ts": 1795507891,
+   "preview": false,
+   "bullets": [
+    "The push for agentic AI in EDA is creating an unprecedented load on data management infrastructure, requiring cleaner databases and more robust IP accessibility.",
+    "Fragmented design data and strict IP security requirements act as significant barriers to scaling AI, necessitating better data governance and traceability.",
+    "While frontier models are improving, achieving deep optimization of domain-specific data like layouts and waveforms will likely require specialized, hybrid AI architectures rather than general-purpose models."
+   ],
+   "rating": 4,
+   "read_time": 16
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/why-ai-struggles-to-reuse-chip-designs/",
+   "blog": "SemiEngineering",
+   "title": "Why AI Struggles To Reuse Chip Designs",
+   "link": "https://semiengineering.com/why-ai-struggles-to-reuse-chip-designs/",
+   "summary": "AI can accelerate derivative designs, but physical constraints and incomplete data limit how much can be automated.\nThe post Why AI Struggles To Reuse Chip Designs appeared first on Semiconductor Engineering.",
+   "published": "2026-11-24 08:11 UTC",
+   "_ts": 1795507907,
+   "preview": false,
+   "bullets": [
+    "AI-driven chip design often produces non-manufacturable or cost-inefficient results because models lack the physical intuition and domain-specific constraints held by human engineers.",
+    "Effective design reuse is hindered by fragmented data silos across foundries, OSATs, and equipment providers, preventing AI from accessing the full context required for accurate derivative designs.",
+    "Integrating AI into existing EDA flows remains difficult due to the need for strict traceability and the inability of general-purpose AI to adapt to highly customized, organization-specific design tools."
+   ],
+   "rating": 4,
+   "read_time": 20
+  },
+  {
+   "_key": "Stratechery|https://stratechery.com/2026/the-individual-exception/",
+   "blog": "Stratechery",
+   "title": "The Individual Exception",
+   "link": "https://stratechery.com/2026/the-individual-exception/",
+   "summary": "Jensen Huang has been granted an exception from managerial oversight; in the age of AI, he won't be the last.",
+   "published": "2026-11-24 11:00 UTC",
+   "_ts": 1795518000,
+   "preview": false,
+   "bullets": [
+    "The author demonstrates how modern AI tools allow a single individual to perform complex software and hardware engineering tasks—such as building custom studio automation and cross-platform remote access apps—that previously required entire teams over several months.",
+    "The concept of the 'deflationary employee' highlights a long-term trend where the world's most valuable companies have significantly reduced their headcount relative to revenue and market capitalization compared to the industrial era.",
+    "Historical data shows that while 1950s giants like AT&T required nearly one million employees to generate roughly $150 billion in inflation-adjusted revenue, modern tech-driven firms achieve higher valuations with a fraction of that workforce.",
+    "The integration of AI agents into personal workflows enables a new paradigm of individual productivity, where one person can orchestrate distributed computing resources across Mac, Linux, and Windows environments to execute high-level technical projects."
+   ],
+   "rating": 4,
+   "read_time": 15
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/24/byd-launches-3rd-gen-tang-electric-suv/",
    "blog": "CNEVPOST",
-   "title": "LiDAR maker Hesai announces buyback of up to $100 million as Hong Kong shares hover near record low",
-   "link": "https://cnevpost.com/2026/11/18/hesai-buyback-100-million/",
-   "summary": "Hesai posted its sixth consecutive quarterly profit in the third quarter.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-11-18 08:56 UTC",
-   "_ts": 1794992215,
+   "title": "BYD launches third-gen Tang electric SUV starting at $28,000 with up to 850 km range",
+   "link": "https://cnevpost.com/2026/11/24/byd-launches-3rd-gen-tang-electric-suv/",
+   "summary": "The 5-seat electric SUV forms a dual-flagship SUV series under BYD's Dynasty lineup alongside the 7-seat Da Tang.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-24 13:36 UTC",
+   "_ts": 1795527409,
    "preview": false,
    "bullets": [
-    "Hesai Group has authorized a $100 million share buyback program as its stock trades near record lows on the Hong Kong exchange.",
-    "The company plans to fund the repurchases using existing cash reserves, which totaled approximately 6.98 billion yuan at the end of September.",
-    "Hesai continues to maintain profitability, reporting its sixth consecutive quarter of positive earnings despite a year-on-year decline in net profit due to one-time gains in the prior period."
+    "BYD launched the third-generation Tang electric SUV with a starting price of 187,900 yuan, significantly undercutting its initial pre-sale estimates.",
+    "The model introduces BYD's new drive-by-wire digital chassis, which the company claims improves steering and braking response speeds by over 25%.",
+    "The SUV offers impressive range options of 730 km and 850 km, supported by BYD's second-generation Blade Battery and flash-charging technology.",
+    "Standard safety and tech features include the LiDAR-enabled 'God's Eye' assisted driving system and a dual-screen cabin setup."
    ],
-   "rating": 3,
-   "read_time": 2
+   "rating": 4,
+   "read_time": 3
   },
   {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/11/18/1148816/smell-startup-osmo-ai-nose-good-as-humans/",
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/11/24/1148091/raising-the-stakes-for-enterprise-networks-with-ai-modernization/",
    "blog": "MIT Technology Review",
-   "title": "This smell startup says its AI nose is as good as a human’s",
-   "link": "https://www.technologyreview.com/2026/11/18/1148816/smell-startup-osmo-ai-nose-good-as-humans/",
-   "summary": "In a lab near Newark Airport in New Jersey, a team of around 30 experienced human sniffers are slowly working their way through every odor on Earth. Their careful notes—“nutty,” “peachy,” “marine”—are cross-referenced with a chemical analysis to create a rich set of training data for what AI startup Osmo calls the world’s first foundation…",
-   "published": "2026-11-18 10:20 UTC",
-   "_ts": 1794997230,
+   "title": "Raising the stakes for enterprise networks with AI modernization",
+   "link": "https://www.technologyreview.com/2026/11/24/1148091/raising-the-stakes-for-enterprise-networks-with-ai-modernization/",
+   "summary": "Enterprise networks are under severe strain. As companies rush to deploy artificial intelligence, the technology is quickly becoming the biggest source of demand on the network. Now, agentic AI is adding to the load. Tasks conducted by AI agents generate an estimated 450% more network traffic than the same tasks done by human workers. As…",
+   "published": "2026-11-24 15:15 UTC",
+   "_ts": 1795533316,
    "preview": false,
    "bullets": [
-    "Osmo has developed a foundation model for smell by training on a proprietary dataset of 10 million human labels and 800 million 'scent tokens,' addressing a historical lack of olfactory data.",
-    "The company claims its AI model has reached human-level olfactory intelligence, recently outperforming in-house perfumers at a major consumer goods firm.",
-    "Beyond fragrance design, the startup is exploring high-value commercial applications including medical diagnostics and automated threat detection at security checkpoints."
+    "Agentic AI is significantly increasing network strain, with tasks performed by AI agents generating approximately 450% more traffic than those performed by human workers.",
+    "The shift from centralized hyperscale training to real-time, latency-sensitive inference is forcing enterprises to reconsider cloud-first strategies in favor of on-premises or near-premises infrastructure.",
+    "Only 50% of enterprises currently believe their existing network infrastructure can adequately handle the bandwidth and latency requirements imposed by modern AI workloads.",
+    "Inconsistent latency in AI inference can lead to model failures, GPU bottlenecks, and increased queue wait times, necessitating a transition to ongoing, holistic network modernization strategies."
    ],
-   "rating": 3,
-   "read_time": 7
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/11/19/zeekr-sets-nov-27-launch-2027-7x/",
-   "blog": "CNEVPOST",
-   "title": "Zeekr sets November 27 launch for 2027 7X as it refreshes core SUV lineup",
-   "link": "https://cnevpost.com/2026/11/19/zeekr-sets-nov-27-launch-2027-7x/",
-   "summary": "The 2027 Zeekr 7X will officially launch on the first day of the Guangzhou Auto Show, featuring a 900-volt architecture across the lineup and a new 85-kWh battery option.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-11-19 02:36 UTC",
-   "_ts": 1795055777,
-   "preview": false,
-   "bullets": [
-    "Zeekr will launch the 2027 7X SUV on November 27 at the Guangzhou Auto Show, featuring a 900-volt architecture across all variants.",
-    "The updated model introduces an 85-kWh battery option and debuts the Geely Afari Smart Driving (G-ASD) 4.1 system.",
-    "The 7X remains a critical volume driver for the brand, accounting for approximately 30% of Zeekr's total deliveries in the first ten months of 2026."
-   ],
-   "rating": 3,
+   "rating": 4,
    "read_time": 3
   },
   {
@@ -620,21 +656,143 @@
    "read_time": 1
   },
   {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/11/18/1148650/ai-hype-index-ai-is-everywhere/",
-   "blog": "MIT Technology Review",
-   "title": "The AI Hype Index: AI is everywhere",
-   "link": "https://www.technologyreview.com/2026/11/18/1148650/ai-hype-index-ai-is-everywhere/",
-   "summary": "Like a nasty rash, AI seems to spread everywhere. Google crams AI Overviews down your throat even though it costs the company billions of dollars in lost ad revenue. Leave your apartment, and you might pass two people heaving an AI-powered humanoid robot up the stairs to clean someone’s rooms. Go to the supermarket, and…",
-   "published": "2026-11-18 14:42 UTC",
-   "_ts": 1795012964,
+   "_key": "SemiEngineering|https://semiengineering.com/verifying-ucie-mem-flexible-verification-for-compute-and-memory-chiplets/",
+   "blog": "SemiEngineering",
+   "title": "Verifying UCIe.mem: Flexible Verification For Compute And Memory Chiplets",
+   "link": "https://semiengineering.com/verifying-ucie-mem-flexible-verification-for-compute-and-memory-chiplets/",
+   "summary": "Validate UCIe.mem implementations across development stages while reusing a common verification environment.\nThe post Verifying UCIe.mem: Flexible Verification For Compute And Memory Chiplets appeared first on Semiconductor Engineering.",
+   "published": "2026-11-24 08:02 UTC",
+   "_ts": 1795507363,
+   "preview": true,
+   "bullets": [
+    "UCIe.mem verification requires flexible environments that can validate compute and memory chiplet interactions across various stages of the development lifecycle.",
+    "Reusing a common verification environment across different chiplet types helps reduce the overhead associated with complex multi-die integration.",
+    "Standardized verification methodologies are critical for ensuring that memory-centric chiplet architectures meet performance and latency targets in heterogeneous designs."
+   ],
+   "rating": 3,
+   "read_time": 1
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/securing-the-chiplet-future-with-a-ucie-4-0-aware-verification-architecture/",
+   "blog": "SemiEngineering",
+   "title": "Securing The Chiplet Future With A UCIe 4.0-Aware Verification Architecture",
+   "link": "https://semiengineering.com/securing-the-chiplet-future-with-a-ucie-4-0-aware-verification-architecture/",
+   "summary": "Bringing together compliance tests, protocol-aware monitoring, transaction recording, scoreboarding, error-injection callbacks, and targeted debug to support multiple layers.\nThe post Securing The Chiplet Future With A UCIe 4.0-Aware Verification Architecture appeared first on Semiconductor Engineering.",
+   "published": "2026-11-24 08:03 UTC",
+   "_ts": 1795507380,
+   "preview": true,
+   "bullets": [
+    "The adoption of UCIe 4.0 necessitates a multi-layered verification architecture that integrates protocol-aware monitoring and compliance testing.",
+    "Advanced verification strategies now require transaction recording and error-injection callbacks to ensure reliability across complex chiplet-based systems.",
+    "Targeted debug capabilities are becoming essential for validating the interoperability of heterogeneous chiplets within a single package."
+   ],
+   "rating": 3,
+   "read_time": 1
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/designing-a-microarchitecture-from-formal-proof-to-full-system/",
+   "blog": "SemiEngineering",
+   "title": "Designing A Microarchitecture From Formal Proof To Full-System",
+   "link": "https://semiengineering.com/designing-a-microarchitecture-from-formal-proof-to-full-system/",
+   "summary": "Combining architectural proof, software-driven verification, simulation, emulation, and cloud-based compute infrastructure.\nThe post Designing A Microarchitecture From Formal Proof To Full-System appeared first on Semiconductor Engineering.",
+   "published": "2026-11-24 08:06 UTC",
+   "_ts": 1795507617,
    "preview": false,
    "bullets": [
-    "The current AI landscape is characterized by aggressive integration across consumer products, often at the expense of corporate profitability, such as Google's costly AI Overviews.",
-    "Market saturation has led to a 'hype cycle' where AI is being forced into hardware and media, creating a user experience that many perceive as intrusive or unoptimized.",
-    "Critical analysis suggests that despite the pervasive marketing, current Large Language Models (LLMs) still lack true reasoning capabilities, casting doubt on the sustainability of the current AGI-focused investment narrative."
+    "Startups are increasingly adopting a 'formal-first' verification strategy to validate complex RISC-V CPU microarchitectures before moving to large-scale simulation and emulation.",
+    "Integrating architectural proof with software-driven verification allows teams to catch system-level bugs early, preventing issues that might otherwise only appear after millions of cycles of OS stress.",
+    "The use of cloud-based compute infrastructure combined with unified tool flows is essential for managing the verification complexity of modern multicore CPU subsystems."
    ],
-   "rating": 2,
+   "rating": 3,
+   "read_time": 6
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/why-photonic-design-is-becoming-a-system-level-challenge/",
+   "blog": "SemiEngineering",
+   "title": "Why Photonic Design Is Becoming a System-Level Challenge",
+   "link": "https://semiengineering.com/why-photonic-design-is-becoming-a-system-level-challenge/",
+   "summary": "A component can meet its individual design targets and still behave differently as part of a complete optical link. \nThe post Why Photonic Design Is Becoming a System-Level Challenge appeared first on Semiconductor Engineering.",
+   "published": "2026-11-24 08:07 UTC",
+   "_ts": 1795507642,
+   "preview": false,
+   "bullets": [
+    "Individual component performance metrics, such as VCSEL modulation bandwidth, are insufficient to predict the behavior of complete optical links in datacenter environments.",
+    "System-level performance is dictated by complex interactions between fiber modal dispersion, chromatic dispersion, and wavelength-dependent behavior that cannot be captured at the component level.",
+    "Engineers must shift toward holistic system-level simulations to account for impairments that only emerge when components are integrated into a full transmission link."
+   ],
+   "rating": 3,
+   "read_time": 5
+  },
+  {
+   "_key": "SemiEngineering|https://semiengineering.com/ai-vs-high-level-synthesis/",
+   "blog": "SemiEngineering",
+   "title": "AI Vs. High-Level Synthesis",
+   "link": "https://semiengineering.com/ai-vs-high-level-synthesis/",
+   "summary": "AI promises to automate chip design from spec to implementation, but can it match HLS in productivity, verification, and quality of results?\nThe post AI Vs. High-Level Synthesis appeared first on Semiconductor Engineering.",
+   "published": "2026-11-24 08:11 UTC",
+   "_ts": 1795507894,
+   "preview": false,
+   "bullets": [
+    "High-Level Synthesis (HLS) remains a critical productivity tool for complex control logic and algorithmic accelerators, offering 10 to 20 times less code than traditional RTL.",
+    "While AI agents may eventually augment HLS workflows, current AI models struggle to generate RTL that meets specific power, performance, and area (PPA) constraints within a defined context.",
+    "The industry view is that AI will not replace HLS but rather serve as an exploration layer, as HLS provides a trusted, scalable methodology for new hardware blocks that AI cannot yet reliably replicate."
+   ],
+   "rating": 3,
+   "read_time": 13
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/24/byd-fang-cheng-bao-shark-launch-china-dec-2/",
+   "blog": "CNEVPOST",
+   "title": "BYD Fang Cheng Bao Shark pickup to launch in China on December 2 after Guangzhou Auto Show debut",
+   "link": "https://cnevpost.com/2026/11/24/byd-fang-cheng-bao-shark-launch-china-dec-2/",
+   "summary": "The Shark was initially launched in Mexico in May 2024, with cumulative overseas sales reaching 38,367 units in the first 10 months of this year.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-24 08:46 UTC",
+   "_ts": 1795509975,
+   "preview": false,
+   "bullets": [
+    "BYD's Fang Cheng Bao brand will launch the Shark plug-in hybrid pickup in China on December 2, following its initial debut in Mexico.",
+    "The Shark is built on BYD's DMO super hybrid off-road platform and features a body-on-frame structure similar to the Bao 5.",
+    "The vehicle is powered by a 1.5T engine paired with dual electric motors, delivering a combined output of 320 kW.",
+    "This launch marks BYD's entry into the domestic pickup market, positioning it to compete directly with Great Wall Motor and Geely's Radar brand."
+   ],
+   "rating": 3,
    "read_time": 2
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/24/nio-day-2026-dec-19-unveil-new-et5-touring/",
+   "blog": "CNEVPOST",
+   "title": "Nio sets Nio Day 2026 for December 19 in Wuhan, to unveil all-new ET5 Touring",
+   "link": "https://cnevpost.com/2026/11/24/nio-day-2026-dec-19-unveil-new-et5-touring/",
+   "summary": "The all-new ET5 Touring will debut on December 19, after Nio CEO William Li said deliveries will begin in the first half of 2027.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-24 09:22 UTC",
+   "_ts": 1795512161,
+   "preview": false,
+   "bullets": [
+    "Nio will host its annual Nio Day 2026 on December 19 in Wuhan, returning to its traditional year-end event schedule.",
+    "The company plans to unveil an all-new, larger ET5 Touring wagon, with deliveries expected to commence in the first half of 2027.",
+    "The new model is expected to utilize Nio's NT 3.0 platform, featuring 900-volt architecture and 5C ultra-fast charging capabilities.",
+    "Nio is currently heavily reliant on its ES8 and ES9 SUVs, which accounted for over 85% of its main brand deliveries in October."
+   ],
+   "rating": 3,
+   "read_time": 3
+  },
+  {
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/24/geely-galaxy-starts-pre-sales-m8/",
+   "blog": "CNEVPOST",
+   "title": "Geely Galaxy starts pre-sales of M8, targeting large 5-seat plug-in hybrid SUV market",
+   "link": "https://cnevpost.com/2026/11/24/geely-galaxy-starts-pre-sales-m8/",
+   "summary": "The Geely Galaxy M8 starts at 199,800 yuan ($29,770) in pre-sales and shares the same dimensions as the 3-row, 6-seat M9.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-24 14:27 UTC",
+   "_ts": 1795530447,
+   "preview": false,
+   "bullets": [
+    "Geely Galaxy has opened pre-sales for the M8, a large 5-seat plug-in hybrid SUV starting at 199,800 yuan ($29,770).",
+    "The vehicle features a 53.42 kWh CATL battery, offering a CLTC electric-only range of up to 360 km and a combined range of 1,560 km.",
+    "Equipped with the NordThor EM-P hybrid system, the tri-motor AWD variant achieves 0-100 km/h acceleration in 4.5 seconds.",
+    "The M8 includes advanced smart features such as the G-ASD H5 driver-assistance system with LiDAR and the Flyme Auto 2 cockpit."
+   ],
+   "rating": 3,
+   "read_time": 3
   },
   {
    "_key": "CNEVPOST|https://cnevpost.com/2026/11/19/china-oct-2026-power-battery-installations/",
@@ -791,265 +949,76 @@
    "read_time": 6
   },
   {
-   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/11/24/1148091/raising-the-stakes-for-enterprise-networks-with-ai-modernization/",
+   "_key": "CNEVPOST|https://cnevpost.com/2026/11/25/xpeng-ramps-up-physical-ai-push-2026-ai-day/",
+   "blog": "CNEVPOST",
+   "title": "Xpeng ramps up physical AI push with Q2 2027 Iron robot launch and global smart driving subscriptions",
+   "link": "https://cnevpost.com/2026/11/25/xpeng-ramps-up-physical-ai-push-2026-ai-day/",
+   "summary": "Xpeng unveiled its Turing Physical AI Architecture at 2026 AI Day, setting 2027 for both the official release of its Iron humanoid robot and its first purpose-built robotaxi, the Yoyo-01.\nFor details, please visit CnEVPost (cnev.co).",
+   "published": "2026-11-25 13:24 UTC",
+   "_ts": 1795613045,
+   "preview": false,
+   "bullets": [
+    "Xpeng introduced its Turing Physical AI Architecture (VLA 3.0), a three-layer system designed to share computing and data resources across its vehicles, robotaxis, and humanoid robots.",
+    "The company plans to launch its 'Iron' humanoid robot and a purpose-built robotaxi, the Yoyo-01, in 2027, aiming to solve real-world physical AI constraints through proprietary hardware and software.",
+    "Xpeng will transition to a paid subscription model for its Turing AI smart driving features starting in the second quarter of 2027, signaling a shift toward recurring software revenue."
+   ],
+   "rating": 4,
+   "read_time": 7
+  },
+  {
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/11/25/1149808/the-download-ai-open-records-permafrost-fires/",
    "blog": "MIT Technology Review",
-   "title": "Raising the stakes for enterprise networks with AI modernization",
-   "link": "https://www.technologyreview.com/2026/11/24/1148091/raising-the-stakes-for-enterprise-networks-with-ai-modernization/",
-   "summary": "Enterprise networks are under severe strain. As companies rush to deploy artificial intelligence, the technology is quickly becoming the biggest source of demand on the network. Now, agentic AI is adding to the load. Tasks conducted by AI agents generate an estimated 450% more network traffic than the same tasks done by human workers. As…",
-   "published": "2026-11-24 15:15 UTC",
-   "_ts": 1795533316,
+   "title": "The Download: AI swamping open records, and firefighting for permafrost",
+   "link": "https://www.technologyreview.com/2026/11/25/1149808/the-download-ai-open-records-permafrost-fires/",
+   "summary": "This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. AI is straining America’s open records systems AI has intensified investors’ interest in public records. Over the last few years, venture-backed startups have raised upwards of $100 million to collect data…",
+   "published": "2026-11-25 13:10 UTC",
+   "_ts": 1795612200,
    "preview": false,
    "bullets": [
-    "Agentic AI is significantly increasing network strain, with tasks performed by AI agents generating approximately 450% more traffic than those performed by human workers.",
-    "The shift from centralized hyperscale training to real-time, latency-sensitive inference is forcing enterprises to reconsider cloud-first strategies in favor of on-premises or near-premises infrastructure.",
-    "Only 50% of enterprises currently believe their existing network infrastructure can adequately handle the bandwidth and latency requirements imposed by modern AI workloads.",
-    "Inconsistent latency in AI inference can lead to model failures, GPU bottlenecks, and increased queue wait times, necessitating a transition to ongoing, holistic network modernization strategies."
+    "Venture-backed startups have raised over $100 million to scrape public records for AI-driven business intelligence, creating a surge in automated data requests.",
+    "The AI tool 'Artex,' originally developed for cyber defense, was reportedly weaponized to breach non-classified data within US spy agencies.",
+    "Climate researchers are investigating the feedback loop between wildfire-induced permafrost thaw and accelerated greenhouse gas release, highlighting a critical environmental risk for infrastructure.",
+    "The proliferation of AI-generated public records requests is prompting some US states to consider legislation that would make it easier to deny access, potentially threatening government transparency."
    ],
    "rating": 4,
-   "read_time": 3
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/11/24/byd-launches-3rd-gen-tang-electric-suv/",
-   "blog": "CNEVPOST",
-   "title": "BYD launches third-gen Tang electric SUV starting at $28,000 with up to 850 km range",
-   "link": "https://cnevpost.com/2026/11/24/byd-launches-3rd-gen-tang-electric-suv/",
-   "summary": "The 5-seat electric SUV forms a dual-flagship SUV series under BYD's Dynasty lineup alongside the 7-seat Da Tang.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-11-24 13:36 UTC",
-   "_ts": 1795527409,
-   "preview": false,
-   "bullets": [
-    "BYD launched the third-generation Tang electric SUV with a starting price of 187,900 yuan, significantly undercutting its initial pre-sale estimates.",
-    "The model introduces BYD's new drive-by-wire digital chassis, which the company claims improves steering and braking response speeds by over 25%.",
-    "The SUV offers impressive range options of 730 km and 850 km, supported by BYD's second-generation Blade Battery and flash-charging technology.",
-    "Standard safety and tech features include the LiDAR-enabled 'God's Eye' assisted driving system and a dual-screen cabin setup."
-   ],
-   "rating": 4,
-   "read_time": 3
-  },
-  {
-   "_key": "Stratechery|https://stratechery.com/2026/the-individual-exception/",
-   "blog": "Stratechery",
-   "title": "The Individual Exception",
-   "link": "https://stratechery.com/2026/the-individual-exception/",
-   "summary": "Jensen Huang has been granted an exception from managerial oversight; in the age of AI, he won't be the last.",
-   "published": "2026-11-24 11:00 UTC",
-   "_ts": 1795518000,
-   "preview": false,
-   "bullets": [
-    "The author demonstrates how modern AI tools allow a single individual to perform complex software and hardware engineering tasks—such as building custom studio automation and cross-platform remote access apps—that previously required entire teams over several months.",
-    "The concept of the 'deflationary employee' highlights a long-term trend where the world's most valuable companies have significantly reduced their headcount relative to revenue and market capitalization compared to the industrial era.",
-    "Historical data shows that while 1950s giants like AT&T required nearly one million employees to generate roughly $150 billion in inflation-adjusted revenue, modern tech-driven firms achieve higher valuations with a fraction of that workforce.",
-    "The integration of AI agents into personal workflows enables a new paradigm of individual productivity, where one person can orchestrate distributed computing resources across Mac, Linux, and Windows environments to execute high-level technical projects."
-   ],
-   "rating": 4,
-   "read_time": 15
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/why-ai-struggles-to-reuse-chip-designs/",
-   "blog": "SemiEngineering",
-   "title": "Why AI Struggles To Reuse Chip Designs",
-   "link": "https://semiengineering.com/why-ai-struggles-to-reuse-chip-designs/",
-   "summary": "AI can accelerate derivative designs, but physical constraints and incomplete data limit how much can be automated.\nThe post Why AI Struggles To Reuse Chip Designs appeared first on Semiconductor Engineering.",
-   "published": "2026-11-24 08:11 UTC",
-   "_ts": 1795507907,
-   "preview": false,
-   "bullets": [
-    "AI-driven chip design often produces non-manufacturable or cost-inefficient results because models lack the physical intuition and domain-specific constraints held by human engineers.",
-    "Effective design reuse is hindered by fragmented data silos across foundries, OSATs, and equipment providers, preventing AI from accessing the full context required for accurate derivative designs.",
-    "Integrating AI into existing EDA flows remains difficult due to the need for strict traceability and the inability of general-purpose AI to adapt to highly customized, organization-specific design tools."
-   ],
-   "rating": 4,
-   "read_time": 20
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/ai-can-read-the-code-but-can-it-understand-the-chip/",
-   "blog": "SemiEngineering",
-   "title": "AI Can Read The Code, But Can It Understand The Chip?",
-   "link": "https://semiengineering.com/ai-can-read-the-code-but-can-it-understand-the-chip/",
-   "summary": "Frontier models are improving design automation, but layouts, waveforms, and other semiconductor-specific data presents challenges that general-purpose AI has yet to fully overcome.\nThe post AI Can Read The Code, But Can It Understand The Chip? appeared first on Semiconductor Engineering.",
-   "published": "2026-11-24 08:11 UTC",
-   "_ts": 1795507891,
-   "preview": false,
-   "bullets": [
-    "The push for agentic AI in EDA is creating an unprecedented load on data management infrastructure, requiring cleaner databases and more robust IP accessibility.",
-    "Fragmented design data and strict IP security requirements act as significant barriers to scaling AI, necessitating better data governance and traceability.",
-    "While frontier models are improving, achieving deep optimization of domain-specific data like layouts and waveforms will likely require specialized, hybrid AI architectures rather than general-purpose models."
-   ],
-   "rating": 4,
-   "read_time": 16
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/how-can-ai-build-faster-and-better-silicon-for-physical-ai/",
-   "blog": "SemiEngineering",
-   "title": "How Can AI Build Faster And Better Silicon For Physical AI?",
-   "link": "https://semiengineering.com/how-can-ai-build-faster-and-better-silicon-for-physical-ai/",
-   "summary": "Shortening the path from design intent to verified implementation could put custom silicon within reach of more teams.\nThe post How Can AI Build Faster And Better Silicon For Physical AI? appeared first on Semiconductor Engineering.",
-   "published": "2026-11-24 08:04 UTC",
-   "_ts": 1795507462,
-   "preview": false,
-   "bullets": [
-    "The rapid evolution of physical AI, particularly for humanoid robotics, is driving a surge in demand for custom ASICs that require faster design-to-tape-out cycles.",
-    "Agentic AI requires a 'design ontology' to maintain persistent context across 3D-IC design flows, ensuring that changes in one die do not invalidate thermal or power integrity analyses in another.",
-    "To be effective, AI agents must track provenance and dependencies, allowing them to distinguish between valid engineering assumptions and superseded results during the optimization process."
-   ],
-   "rating": 4,
-   "read_time": 4
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/a-link-is-not-architecture-why-multi-die-systems-need-more-than-die-to-die-connectivity/",
-   "blog": "SemiEngineering",
-   "title": "A Link Is Not Architecture: Why Multi-Die Systems Need More Than Die-to-Die Connectivity",
-   "link": "https://semiengineering.com/a-link-is-not-architecture-why-multi-die-systems-need-more-than-die-to-die-connectivity/",
-   "summary": "Maintaining consistent communication behavior, integration, and security across configurations.\nThe post A Link Is Not Architecture: Why Multi-Die Systems Need More Than Die-to-Die Connectivity appeared first on Semiconductor Engineering.",
-   "published": "2026-11-24 08:03 UTC",
-   "_ts": 1795507435,
-   "preview": false,
-   "bullets": [
-    "Multi-die systems require a robust system-level architecture to manage data movement, as simple die-to-die physical links do not inherently handle traffic management or quality of service (QoS).",
-    "Treating die boundaries independently complicates performance management and limits the practical value of chiplet reuse in high-performance computing and AI systems.",
-    "Engineers must implement end-to-end QoS that extends across die boundaries to ensure that shared bandwidth is allocated correctly based on transaction priority and latency requirements."
-   ],
-   "rating": 4,
-   "read_time": 4
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/11/24/geely-galaxy-starts-pre-sales-m8/",
-   "blog": "CNEVPOST",
-   "title": "Geely Galaxy starts pre-sales of M8, targeting large 5-seat plug-in hybrid SUV market",
-   "link": "https://cnevpost.com/2026/11/24/geely-galaxy-starts-pre-sales-m8/",
-   "summary": "The Geely Galaxy M8 starts at 199,800 yuan ($29,770) in pre-sales and shares the same dimensions as the 3-row, 6-seat M9.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-11-24 14:27 UTC",
-   "_ts": 1795530447,
-   "preview": false,
-   "bullets": [
-    "Geely Galaxy has opened pre-sales for the M8, a large 5-seat plug-in hybrid SUV starting at 199,800 yuan ($29,770).",
-    "The vehicle features a 53.42 kWh CATL battery, offering a CLTC electric-only range of up to 360 km and a combined range of 1,560 km.",
-    "Equipped with the NordThor EM-P hybrid system, the tri-motor AWD variant achieves 0-100 km/h acceleration in 4.5 seconds.",
-    "The M8 includes advanced smart features such as the G-ASD H5 driver-assistance system with LiDAR and the Flyme Auto 2 cockpit."
-   ],
-   "rating": 3,
-   "read_time": 3
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/11/24/nio-day-2026-dec-19-unveil-new-et5-touring/",
-   "blog": "CNEVPOST",
-   "title": "Nio sets Nio Day 2026 for December 19 in Wuhan, to unveil all-new ET5 Touring",
-   "link": "https://cnevpost.com/2026/11/24/nio-day-2026-dec-19-unveil-new-et5-touring/",
-   "summary": "The all-new ET5 Touring will debut on December 19, after Nio CEO William Li said deliveries will begin in the first half of 2027.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-11-24 09:22 UTC",
-   "_ts": 1795512161,
-   "preview": false,
-   "bullets": [
-    "Nio will host its annual Nio Day 2026 on December 19 in Wuhan, returning to its traditional year-end event schedule.",
-    "The company plans to unveil an all-new, larger ET5 Touring wagon, with deliveries expected to commence in the first half of 2027.",
-    "The new model is expected to utilize Nio's NT 3.0 platform, featuring 900-volt architecture and 5C ultra-fast charging capabilities.",
-    "Nio is currently heavily reliant on its ES8 and ES9 SUVs, which accounted for over 85% of its main brand deliveries in October."
-   ],
-   "rating": 3,
-   "read_time": 3
-  },
-  {
-   "_key": "CNEVPOST|https://cnevpost.com/2026/11/24/byd-fang-cheng-bao-shark-launch-china-dec-2/",
-   "blog": "CNEVPOST",
-   "title": "BYD Fang Cheng Bao Shark pickup to launch in China on December 2 after Guangzhou Auto Show debut",
-   "link": "https://cnevpost.com/2026/11/24/byd-fang-cheng-bao-shark-launch-china-dec-2/",
-   "summary": "The Shark was initially launched in Mexico in May 2024, with cumulative overseas sales reaching 38,367 units in the first 10 months of this year.\nFor details, please visit CnEVPost (cnev.co).",
-   "published": "2026-11-24 08:46 UTC",
-   "_ts": 1795509975,
-   "preview": false,
-   "bullets": [
-    "BYD's Fang Cheng Bao brand will launch the Shark plug-in hybrid pickup in China on December 2, following its initial debut in Mexico.",
-    "The Shark is built on BYD's DMO super hybrid off-road platform and features a body-on-frame structure similar to the Bao 5.",
-    "The vehicle is powered by a 1.5T engine paired with dual electric motors, delivering a combined output of 320 kW.",
-    "This launch marks BYD's entry into the domestic pickup market, positioning it to compete directly with Great Wall Motor and Geely's Radar brand."
-   ],
-   "rating": 3,
-   "read_time": 2
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/ai-vs-high-level-synthesis/",
-   "blog": "SemiEngineering",
-   "title": "AI Vs. High-Level Synthesis",
-   "link": "https://semiengineering.com/ai-vs-high-level-synthesis/",
-   "summary": "AI promises to automate chip design from spec to implementation, but can it match HLS in productivity, verification, and quality of results?\nThe post AI Vs. High-Level Synthesis appeared first on Semiconductor Engineering.",
-   "published": "2026-11-24 08:11 UTC",
-   "_ts": 1795507894,
-   "preview": false,
-   "bullets": [
-    "High-Level Synthesis (HLS) remains a critical productivity tool for complex control logic and algorithmic accelerators, offering 10 to 20 times less code than traditional RTL.",
-    "While AI agents may eventually augment HLS workflows, current AI models struggle to generate RTL that meets specific power, performance, and area (PPA) constraints within a defined context.",
-    "The industry view is that AI will not replace HLS but rather serve as an exploration layer, as HLS provides a trusted, scalable methodology for new hardware blocks that AI cannot yet reliably replicate."
-   ],
-   "rating": 3,
-   "read_time": 13
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/why-photonic-design-is-becoming-a-system-level-challenge/",
-   "blog": "SemiEngineering",
-   "title": "Why Photonic Design Is Becoming a System-Level Challenge",
-   "link": "https://semiengineering.com/why-photonic-design-is-becoming-a-system-level-challenge/",
-   "summary": "A component can meet its individual design targets and still behave differently as part of a complete optical link. \nThe post Why Photonic Design Is Becoming a System-Level Challenge appeared first on Semiconductor Engineering.",
-   "published": "2026-11-24 08:07 UTC",
-   "_ts": 1795507642,
-   "preview": false,
-   "bullets": [
-    "Individual component performance metrics, such as VCSEL modulation bandwidth, are insufficient to predict the behavior of complete optical links in datacenter environments.",
-    "System-level performance is dictated by complex interactions between fiber modal dispersion, chromatic dispersion, and wavelength-dependent behavior that cannot be captured at the component level.",
-    "Engineers must shift toward holistic system-level simulations to account for impairments that only emerge when components are integrated into a full transmission link."
-   ],
-   "rating": 3,
    "read_time": 5
   },
   {
-   "_key": "SemiEngineering|https://semiengineering.com/designing-a-microarchitecture-from-formal-proof-to-full-system/",
+   "_key": "SemiEngineering|https://semiengineering.com/blog-review-nov-25-3/",
    "blog": "SemiEngineering",
-   "title": "Designing A Microarchitecture From Formal Proof To Full-System",
-   "link": "https://semiengineering.com/designing-a-microarchitecture-from-formal-proof-to-full-system/",
-   "summary": "Combining architectural proof, software-driven verification, simulation, emulation, and cloud-based compute infrastructure.\nThe post Designing A Microarchitecture From Formal Proof To Full-System appeared first on Semiconductor Engineering.",
-   "published": "2026-11-24 08:06 UTC",
-   "_ts": 1795507617,
+   "title": "Blog Review: Nov. 25",
+   "link": "https://semiengineering.com/blog-review-nov-25-3/",
+   "summary": "PCIe SVC; co-packaged optics; liquid-cooled data center model; LUT-GEMM; automotive traceability.\nThe post Blog Review: Nov. 25 appeared first on Semiconductor Engineering.",
+   "published": "2026-11-25 08:01 UTC",
+   "_ts": 1795593699,
    "preview": false,
    "bullets": [
-    "Startups are increasingly adopting a 'formal-first' verification strategy to validate complex RISC-V CPU microarchitectures before moving to large-scale simulation and emulation.",
-    "Integrating architectural proof with software-driven verification allows teams to catch system-level bugs early, preventing issues that might otherwise only appear after millions of cycles of OS stress.",
-    "The use of cloud-based compute infrastructure combined with unified tool flows is essential for managing the verification complexity of modern multicore CPU subsystems."
+    "Cadence is addressing PCIe ordering limitations in multi-host fabrics through the Streamlined Virtual Channel Extended Capability, which standardizes TC-to-VC assignments.",
+    "Industry experts are shifting focus toward co-packaged optics to overcome the scaling and performance bottlenecks inherent in traditional pluggable modules for high-speed data centers.",
+    "Siemens is utilizing complex system-level simulations to model the energy efficiency of 5.22 MW liquid-cooled AI data center pods, accounting for renewable energy integration and climate variables.",
+    "Arm research indicates that lookup-table GEMM can optimize ultra-low-bit LLM performance, provided that hardware constraints and model packing are carefully aligned.",
+    "Manufacturing and design experts emphasize that reducing chip re-spins requires a shift toward better logic verification and data-driven process modeling to minimize reliance on physical wafer experimentation."
    ],
-   "rating": 3,
-   "read_time": 6
+   "rating": 4,
+   "read_time": 2
   },
   {
-   "_key": "SemiEngineering|https://semiengineering.com/securing-the-chiplet-future-with-a-ucie-4-0-aware-verification-architecture/",
-   "blog": "SemiEngineering",
-   "title": "Securing The Chiplet Future With A UCIe 4.0-Aware Verification Architecture",
-   "link": "https://semiengineering.com/securing-the-chiplet-future-with-a-ucie-4-0-aware-verification-architecture/",
-   "summary": "Bringing together compliance tests, protocol-aware monitoring, transaction recording, scoreboarding, error-injection callbacks, and targeted debug to support multiple layers.\nThe post Securing The Chiplet Future With A UCIe 4.0-Aware Verification Architecture appeared first on Semiconductor Engineering.",
-   "published": "2026-11-24 08:03 UTC",
-   "_ts": 1795507380,
-   "preview": true,
+   "_key": "MIT Technology Review|https://www.technologyreview.com/2026/11/25/1149702/ai-is-straining-americas-open-records-systems/",
+   "blog": "MIT Technology Review",
+   "title": "AI is straining America’s open records systems",
+   "link": "https://www.technologyreview.com/2026/11/25/1149702/ai-is-straining-americas-open-records-systems/",
+   "summary": "In Panton, Vermont, population 660, town clerk Kyle Rowe did it all. He crafted budgets, paid vendors, handled property tax disputes, and served as the town’s zoning supervisor and presiding elections officer. During morning office hours at the town hall—a wood-frame structure built as a church in 1858—he also fielded public records requests. Recently, he…",
+   "published": "2026-11-25 10:00 UTC",
+   "_ts": 1795600800,
+   "preview": false,
    "bullets": [
-    "The adoption of UCIe 4.0 necessitates a multi-layered verification architecture that integrates protocol-aware monitoring and compliance testing.",
-    "Advanced verification strategies now require transaction recording and error-injection callbacks to ensure reliability across complex chiplet-based systems.",
-    "Targeted debug capabilities are becoming essential for validating the interoperability of heterogeneous chiplets within a single package."
+    "Public records offices are facing operational strain as AI tools enable companies to automate and scale targeted data mining for government sales pipelines.",
+    "AI-drafted public records requests are becoming longer and broader in scope, overwhelming local government offices that lack the budget or staff to process the increased volume.",
+    "The monetization of public data by private startups is creating a tension between democratic transparency and the administrative burden placed on local town clerks.",
+    "Legislative responses to the AI-driven request surge may inadvertently reduce government accountability by lowering the threshold for agencies to deny public information requests."
    ],
    "rating": 3,
-   "read_time": 1
-  },
-  {
-   "_key": "SemiEngineering|https://semiengineering.com/verifying-ucie-mem-flexible-verification-for-compute-and-memory-chiplets/",
-   "blog": "SemiEngineering",
-   "title": "Verifying UCIe.mem: Flexible Verification For Compute And Memory Chiplets",
-   "link": "https://semiengineering.com/verifying-ucie-mem-flexible-verification-for-compute-and-memory-chiplets/",
-   "summary": "Validate UCIe.mem implementations across development stages while reusing a common verification environment.\nThe post Verifying UCIe.mem: Flexible Verification For Compute And Memory Chiplets appeared first on Semiconductor Engineering.",
-   "published": "2026-11-24 08:02 UTC",
-   "_ts": 1795507363,
-   "preview": true,
-   "bullets": [
-    "UCIe.mem verification requires flexible environments that can validate compute and memory chiplet interactions across various stages of the development lifecycle.",
-    "Reusing a common verification environment across different chiplet types helps reduce the overhead associated with complex multi-die integration.",
-    "Standardized verification methodologies are critical for ensuring that memory-centric chiplet architectures meet performance and latency targets in heterogeneous designs."
-   ],
-   "rating": 3,
-   "read_time": 1
+   "read_time": 11
   }
  ]
 }
