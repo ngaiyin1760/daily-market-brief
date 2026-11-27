@@ -1,115 +1,108 @@
 {
- "generated_at": "2026-11-26 12:07 HKT",
+ "generated_at": "2026-11-27 12:13 HKT",
  "repos": [
   {
-   "name": "wuyoscar/Internal-Safety-Collapse",
-   "url": "https://github.com/wuyoscar/Internal-Safety-Collapse",
-   "language": "Python",
-   "description": "[NeurIPS 2026] Safety failures in coding agents and frontier LLMs. Reproducible workspaces for studying when AI agents generate unsafe data during task completion.",
-   "keywords": [
-    "LLM evaluation"
-   ],
-   "trendshift_pos": 9,
-   "stars": 2507,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A research framework for analyzing safety failures and security vulnerabilities in autonomous coding agents and frontier LLMs.",
-   "bullets": [
-    "Built on Python with reproducible workspace environments for controlled testing.",
-    "Focuses on identifying 'safety collapse' where agents generate unsafe or malicious code during task execution.",
-    "Provides a benchmarking suite for evaluating the robustness of AI agents against adversarial prompts.",
-    "Essential for developers and security researchers building enterprise-grade agentic workflows."
-   ],
-   "img": "wuyoscar_Internal-Safety-Collapse_0.jpg",
-   "img_alt": "The same unfinished program in earlier chatbots, a frontier chatbot, and a coding agent",
-   "img2": "wuyoscar_Internal-Safety-Collapse_1.jpg",
-   "img2_alt": "TVD task execution and data files, compared with prompt attacks and safety classifiers"
-  },
-  {
-   "name": "agentsea/nautilo",
-   "url": "https://github.com/agentsea/nautilo",
+   "name": "nexu-io/opengame",
+   "url": "https://github.com/nexu-io/opengame",
    "language": "TypeScript",
-   "description": "AI goes multiplayer. A self-hosted workspace for people and machine people. Create, code, and work together across desktop, mobile, and web. Open source. MIT licensed.",
-   "keywords": [],
-   "trendshift_pos": 18,
-   "stars": 251,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A multi-user, self-hosted workspace designed for collaborative interaction between humans and AI agents.",
-   "bullets": [
-    "TypeScript-based architecture supporting cross-platform access across desktop, mobile, and web.",
-    "Enables shared environments where AI agents and human users can co-edit and interact in real-time.",
-    "Focuses on agentic infrastructure, providing a persistent workspace for long-running autonomous tasks.",
-    "Ideal for teams looking to integrate AI agents into their daily collaborative development or operational pipelines."
-   ],
-   "img": "agentsea_nautilo_0.jpg",
-   "img_alt": "Elias and Lyra working together in Writer, with changes ready to review. Open the illustrated local setup guide.",
-   "img2": "agentsea_nautilo_1.jpg",
-   "img2_alt": "Keep the future open. The open, organization-level harness for everyone needs your support. Support Nautilo on GitHub Sponsors."
-  },
-  {
-   "name": "alesha-pro/llm.asm",
-   "url": "https://github.com/alesha-pro/llm.asm",
-   "language": "Assembly",
-   "description": "Qwen3-0.6B inference (12 KB), bare-metal bootable OS (22 KB), and from-scratch Mini-GPT trainer with live Braille TUI (32 KB) in 100% pure x86-64 NASM assembly. Zero C, zero libc, zero dependencies.",
-   "keywords": [],
-   "trendshift_pos": 2,
-   "stars": 430,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "A bare-metal, dependency-free implementation of LLM inference and training written entirely in x86-64 NASM assembly.",
-   "bullets": [
-    "Zero-dependency stack: no C, no libc, and no external libraries, running directly on hardware.",
-    "Includes a 12 KB Qwen3-0.6B inference engine and a 32 KB Mini-GPT trainer.",
-    "Demonstrates extreme optimization techniques for running AI models on minimal infrastructure.",
-    "Highly notable for low-level systems engineering and understanding the fundamental compute requirements of LLMs."
-   ],
-   "img": "alesha-pro_llm.asm_0.jpg",
-   "img_alt": "Bare-Metal Qwen3-0.6B OS VGA Console",
-   "img2": "alesha-pro_llm.asm_1.jpg",
-   "img2_alt": "Running on Real Proxmox VE VM (0 GB Disk, Intel Xeon KVM)"
-  },
-  {
-   "name": "opensetlabs/openset-llm",
-   "url": "https://github.com/opensetlabs/openset-llm",
-   "language": "C++",
-   "description": "Fast local LLM inference on plain CPUs. No GPU, 8 GB of RAM. OpenAI-compatible server.",
+   "description": "The Super Game Agent — the Unity & Unreal for AI agents, with 100+ viral games to remix. Turn 20+ coding agents (Claude Code, Codex, DeepSeek, etc.) into a full-stack AI game studio. Build and publish 3D & mini-games to WeChat, Douyin, TikTok, Telegram, itch.io, and more.",
    "keywords": [
-    "LLM inference"
+    "AI agent",
+    "Game engine"
    ],
-   "trendshift_pos": 4,
-   "stars": 965,
+   "trendshift_pos": 1,
+   "stars": 1238,
    "fork": false,
    "parent_name": "",
-   "one_liner": "A high-performance local LLM inference server optimized for standard CPUs without requiring dedicated GPU hardware.",
+   "one_liner": "A comprehensive platform for building and deploying AI agents as autonomous game development studios.",
    "bullets": [
-    "C++ backend optimized for CPU-only execution, requiring only 8 GB of RAM.",
-    "Provides an OpenAI-compatible API, allowing seamless integration with existing LLM-based applications.",
-    "Lowers the barrier to entry for deploying private, local AI infrastructure in resource-constrained environments.",
-    "Useful for fintech or enterprise applications requiring data privacy and local execution without expensive hardware."
-   ],
-   "img": "opensetlabs_openset-llm_0.jpg",
-   "img_alt": "The chat page"
-  },
-  {
-   "name": "petergyang/video-explainer",
-   "url": "https://github.com/petergyang/video-explainer",
-   "language": "Python",
-   "description": "Turn any topic, doc, codebase, or URL into a crisp 1-minute explainer video in Motion, Illustrated, or 3D style",
-   "keywords": [
-    "AI video generation"
-   ],
-   "trendshift_pos": 14,
-   "stars": 246,
-   "fork": false,
-   "parent_name": "",
-   "one_liner": "An automated tool that converts complex documentation, codebases, or URLs into concise, high-quality explainer videos.",
-   "bullets": [
-    "Python-based pipeline that integrates LLM content synthesis with automated video generation.",
-    "Supports multiple visual styles including Motion, Illustrated, and 3D rendering.",
-    "Automates the creation of technical documentation and product walkthroughs for developers and stakeholders.",
-    "Streamlines the communication of complex technical concepts into digestible visual formats."
+    "Built with TypeScript to orchestrate multiple coding agents like Claude Code and DeepSeek.",
+    "Provides a unified interface for Unity and Unreal Engine integration.",
+    "Enables automated game generation, remixing, and full-stack publishing workflows.",
+    "Targets the intersection of agentic AI and creative software infrastructure."
    ]
+  },
+  {
+   "name": "piyushverse001/quantconnect-lean-selvon-research",
+   "url": "https://github.com/piyushverse001/quantconnect-lean-selvon-research",
+   "language": "Go",
+   "description": "Quantconnect Lean Selvon Research: structured environment for strategy experiments and backtesting",
+   "keywords": [],
+   "trendshift_pos": 14,
+   "stars": 200,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A specialized research environment built on the QuantConnect LEAN engine for algorithmic trading strategy development.",
+   "bullets": [
+    "Leverages the Go programming language for high-performance data handling and execution.",
+    "Provides a structured framework for backtesting financial models and strategy experiments.",
+    "Designed to streamline the quantitative research lifecycle from data ingestion to performance analysis.",
+    "Essential for fintech professionals requiring robust infrastructure for systematic trading."
+   ],
+   "img": "piyushverse001_quantconnect-lean-selvon-research_0.jpg",
+   "img_alt": "piyushverse001/quantconnect-lean-selvon-research"
+  },
+  {
+   "name": "zadazddq/lm-studio-private-ai",
+   "url": "https://github.com/zadazddq/lm-studio-private-ai",
+   "language": "Rust",
+   "description": "LM Studio: Local LLM Desktop Runtime with Offline Inference and Model Management",
+   "keywords": [],
+   "trendshift_pos": 8,
+   "stars": 201,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A desktop runtime environment for managing and running Large Language Models locally with offline inference capabilities.",
+   "bullets": [
+    "Developed in Rust to ensure memory safety and high-performance local model execution.",
+    "Features a comprehensive model management system for local LLM deployment.",
+    "Enables private, air-gapped AI processing, critical for sensitive enterprise data workflows.",
+    "Simplifies the infrastructure layer for developers integrating LLMs into local applications."
+   ],
+   "img": "zadazddq_lm-studio-private-ai_0.jpg",
+   "img_alt": "zadazddq/lm-studio-private-ai"
+  },
+  {
+   "name": "VUILabsAI/Luna-Translator",
+   "url": "https://github.com/VUILabsAI/Luna-Translator",
+   "language": "TypeScript",
+   "description": "Self-hosted real-time speech-to-speech translation with live captions and translated audio. Web community edition and a Go quickstart for the VUI Labs v3 API.",
+   "keywords": [
+    "AI translation"
+   ],
+   "trendshift_pos": 3,
+   "stars": 565,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A self-hosted, real-time speech-to-speech translation engine featuring live captioning and audio synthesis.",
+   "bullets": [
+    "Utilizes a TypeScript-based web interface with a Go-powered quickstart for the VUI Labs v3 API.",
+    "Supports low-latency, real-time audio processing for multilingual communication.",
+    "Provides a self-hosted architecture suitable for secure, private enterprise deployments.",
+    "Useful for global communication infrastructure and accessibility-focused AI tooling."
+   ],
+   "img": "VUILabsAI_Luna-Translator_0.jpg",
+   "img_alt": "Web 社区版模拟会话记录：中英示例字幕与音频回放控件"
+  },
+  {
+   "name": "fazal0055/zotero-ceravin-research-desk",
+   "url": "https://github.com/fazal0055/zotero-ceravin-research-desk",
+   "language": "TypeScript",
+   "description": "Zotero-based research desk — source capture plus structured notes.",
+   "keywords": [],
+   "trendshift_pos": 13,
+   "stars": 200,
+   "fork": false,
+   "parent_name": "",
+   "one_liner": "A research management utility that integrates with Zotero to facilitate structured note-taking and source capture.",
+   "bullets": [
+    "Built with TypeScript to extend Zotero's existing bibliographic infrastructure.",
+    "Automates the capture and organization of research data into a unified desk environment.",
+    "Focuses on knowledge management and information synthesis for technical research workflows.",
+    "Provides a structured foundation for professionals managing complex documentation and literature reviews."
+   ],
+   "img": "fazal0055_zotero-ceravin-research-desk_0.jpg",
+   "img_alt": "fazal0055/zotero-ceravin-research-desk"
   }
  ]
 }
